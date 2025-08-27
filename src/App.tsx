@@ -8,6 +8,7 @@ import SEOServices from "./pages/SEOServices";
 import GrowthMarketing from "./pages/GrowthMarketing";
 import PaidAdvertising from "./pages/PaidAdvertising";
 import Pricing from "./pages/Pricing";
+import Results from "./pages/Results";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/growth-marketing" element={<GrowthMarketing />} />
           <Route path="/paid-advertising" element={<PaidAdvertising />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/results" element={<Results />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

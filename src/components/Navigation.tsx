@@ -11,7 +11,7 @@ const Navigation = () => {
     { label: "Paid Advertising", href: "/paid-advertising" },
     { label: "Pricing", href: "/pricing" },
     { label: "Services", href: "#services" },
-    { label: "Results", href: "#results" },
+    { label: "Results", href: "/results" },
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
   ];
