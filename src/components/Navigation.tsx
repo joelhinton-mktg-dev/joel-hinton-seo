@@ -9,6 +9,7 @@ const Navigation = () => {
     { label: "SEO Services", href: "/seo-services" },
     { label: "Growth Marketing", href: "/growth-marketing" },
     { label: "Paid Advertising", href: "/paid-advertising" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Services", href: "#services" },
     { label: "Results", href: "#results" },
     { label: "About", href: "#about" },
