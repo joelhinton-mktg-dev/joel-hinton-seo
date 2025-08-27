@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import SEOServices from "./pages/SEOServices";
 import GrowthMarketing from "./pages/GrowthMarketing";
+import PaidAdvertising from "./pages/PaidAdvertising";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/seo-services" element={<SEOServices />} />
           <Route path="/growth-marketing" element={<GrowthMarketing />} />
+          <Route path="/paid-advertising" element={<PaidAdvertising />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
