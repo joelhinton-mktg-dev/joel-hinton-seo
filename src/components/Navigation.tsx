@@ -6,6 +6,7 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
+    { label: "SEO Services", href: "/seo-services" },
     { label: "Services", href: "#services" },
     { label: "Results", href: "#results" },
     { label: "About", href: "#about" },
