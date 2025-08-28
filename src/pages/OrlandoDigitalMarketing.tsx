@@ -1,15 +1,60 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Users, Calendar, TrendingUp, Phone, Mail, Star, Castle, Building2 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { MapPin, Users, Calendar, TrendingUp, Phone, Mail, Star, Castle, Building2, MessageSquare } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { floridaTestimonials } from '@/data/floridaTestimonials';
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useState } from "react";
 
 const OrlandoDigitalMarketing = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const contactFormSchema = z.object({
+    name: z.string().min(2, "Name must be at least 2 characters"),
+    email: z.string().email("Please enter a valid email address"),
+    phone: z.string().min(10, "Please enter a valid phone number"),
+    businessType: z.string().min(1, "Please select your business type"),
+    marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)")
+  });
+
+  type ContactFormData = z.infer<typeof contactFormSchema>;
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema)
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    console.log("Form submitted:", data);
+    setSubmitSuccess(true);
+    reset();
+    
+    // Reset success message after 5 seconds
+    setTimeout(() => setSubmitSuccess(false), 5000);
+    setIsSubmitting(false);
+  };
+
   return (
     <>
       <Helmet>
@@ -488,6 +533,165 @@ const OrlandoDigitalMarketing = () => {
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Contact Form Section */}
+          <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-purple-50">
+            <div className="container mx-auto max-w-4xl">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  Ready to Dominate Orlando's Digital Landscape?
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Get your free Orlando digital marketing consultation. I'll show you exactly how to capture Disney families, 
+                  convention attendees, and local professionals with psychology-driven strategies.
+                </p>
+              </div>
+
+              <Card className="card-professional shadow-xl">
+                <CardHeader className="text-center pb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Calendar className="w-8 h-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl md:text-3xl">
+                    Schedule Free Orlando Consultation
+                  </CardTitle>
+                  <CardDescription className="text-lg">
+                    Get a personalized marketing strategy for the Orlando market within 24 hours
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {submitSuccess ? (
+                    <div className="text-center py-12">
+                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <MessageSquare className="w-8 h-8 text-green-600" />
+                      </div>
+                      <h3 className="text-xl font-semibold text-green-800 mb-2">Thank You!</h3>
+                      <p className="text-green-700 mb-4">
+                        Your Orlando consultation request has been submitted successfully.
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        I'll review your information and get back to you within 24 hours with your personalized Orlando marketing strategy.
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="name">Full Name *</Label>
+                          <Input
+                            id="name"
+                            placeholder="John Smith"
+                            {...register("name")}
+                            className={errors.name ? "border-destructive" : ""}
+                          />
+                          {errors.name && (
+                            <p className="text-sm text-destructive">{errors.name.message}</p>
+                          )}
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="email">Email Address *</Label>
+                          <Input
+                            id="email"
+                            type="email"
+                            placeholder="john@company.com"
+                            {...register("email")}
+                            className={errors.email ? "border-destructive" : ""}
+                          />
+                          {errors.email && (
+                            <p className="text-sm text-destructive">{errors.email.message}</p>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="phone">Phone Number *</Label>
+                          <Input
+                            id="phone"
+                            type="tel"
+                            placeholder="(407) 555-0123"
+                            {...register("phone")}
+                            className={errors.phone ? "border-destructive" : ""}
+                          />
+                          {errors.phone && (
+                            <p className="text-sm text-destructive">{errors.phone.message}</p>
+                          )}
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="businessType">Business Type *</Label>
+                          <Select onValueChange={(value) => {
+                            const event = { target: { value } };
+                            register("businessType").onChange(event);
+                          }}>
+                            <SelectTrigger className={errors.businessType ? "border-destructive" : ""}>
+                              <SelectValue placeholder="Select your industry" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="real-estate">Real Estate</SelectItem>
+                              <SelectItem value="healthcare">Healthcare</SelectItem>
+                              <SelectItem value="home-services">Home Services</SelectItem>
+                              <SelectItem value="ecommerce">E-commerce</SelectItem>
+                              <SelectItem value="professional-services">Professional Services</SelectItem>
+                              <SelectItem value="restaurant">Restaurant/Hospitality</SelectItem>
+                              <SelectItem value="tourism">Tourism & Entertainment</SelectItem>
+                              <SelectItem value="convention">Convention Services</SelectItem>
+                              <SelectItem value="other">Other</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          {errors.businessType && (
+                            <p className="text-sm text-destructive">{errors.businessType.message}</p>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
+                        <Textarea
+                          id="marketingChallenge"
+                          placeholder="What's your biggest marketing challenge in the Orlando market? Are you struggling to reach Disney families, convention attendees, or local professionals? What results are you looking for?"
+                          className={`min-h-[120px] ${errors.marketingChallenge ? "border-destructive" : ""}`}
+                          {...register("marketingChallenge")}
+                        />
+                        {errors.marketingChallenge && (
+                          <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>
+                        )}
+                      </div>
+
+                      <Button 
+                        type="submit" 
+                        variant="hero" 
+                        size="lg" 
+                        className="w-full py-6 text-lg"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                            Submitting...
+                          </>
+                        ) : (
+                          <>
+                            <Calendar className="w-5 h-5 mr-2" />
+                            Schedule Free Orlando Consultation
+                          </>
+                        )}
+                      </Button>
+
+                      <p className="text-sm text-muted-foreground text-center">
+                        No spam. No sales calls. Just valuable Orlando marketing insights delivered within 24 hours.
+                      </p>
+                    </form>
+                  )}
+                </CardContent>
+              </Card>
+
+              <div className="text-center mt-8">
+                <p className="text-muted-foreground">
+                  Serving all of Greater Orlando: Disney World, Universal Studios, Convention Center, Lake Nona, Winter Park, UCF, and surrounding communities
+                </p>
               </div>
             </div>
           </section>

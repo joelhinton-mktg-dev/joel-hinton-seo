@@ -5,6 +5,29 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Check, Calculator, Zap, Shield, Target, TrendingUp } from "lucide-react";
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Separator } from '@/components/ui/separator';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Please enter a valid email address'),
+  phone: z.string().min(10, 'Please enter a valid phone number'),
+  businessType: z.string().min(1, 'Please select your business type'),
+  marketingChallenge: z.string().min(10, 'Please tell us about your marketing challenge (at least 10 characters)'),
+  selectedService: z.string().min(1)
+});
+
+type PricingContactFormData = z.infer<typeof contactFormSchema>;
 
 const Pricing = () => {
   const seoServices = [
@@ -142,8 +165,41 @@ const Pricing = () => {
     }
   ];
 
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<PricingContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: '' }
+  });
+
+  const openDialogForService = (serviceName: string) => {
+    setSelectedService(serviceName);
+    setValue('selectedService', serviceName, { shouldValidate: true, shouldDirty: true });
+    setIsDialogOpen(true);
+  };
+
+  const onSubmitForm = async (data: PricingContactFormData) => {
+    setIsSubmitting(true);
+    await new Promise(r => setTimeout(r, 1000));
+    console.log('Pricing contact submitted:', data);
+    setSubmitSuccess(true);
+    reset({ selectedService });
+    setTimeout(() => {
+      setSubmitSuccess(false);
+      setIsDialogOpen(false);
+    }, 2000);
+    setIsSubmitting(false);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
+    <>
+      <Helmet>
+        <title>Pricing - Digital Marketing Agency</title>
+        <meta name="description" content="Transparent pricing for real results. Choose what you need, pay what it's worth, own what you build." />
+      </Helmet>
       <Navigation />
       
       {/* Breadcrumb */}
@@ -308,7 +364,7 @@ const Pricing = () => {
                     <p><strong>Best for:</strong> {service.bestFor}</p>
                   </div>
                   
-                  <Button variant={service.popular ? "hero" : "outline"} className="w-full">
+                  <Button variant={service.popular ? "hero" : "outline"} className="w-full" onClick={() => openDialogForService(service.name)}>
                     Get Started
                   </Button>
                 </CardContent>
@@ -354,7 +410,7 @@ const Pricing = () => {
                     <p><strong>Best for:</strong> {service.bestFor}</p>
                   </div>
                   
-                  <Button variant="cta" className="w-full">
+                  <Button variant="cta" className="w-full" onClick={() => openDialogForService(service.name)}>
                     Get Started
                   </Button>
                 </CardContent>
@@ -406,9 +462,9 @@ const Pricing = () => {
                     {service.note && <p><strong>Note:</strong> {service.note}</p>}
                   </div>
                   
-                  <Button variant={service.popular ? "hero" : "outline"} className="w-full">
-                    Get Started
-                  </Button>
+                  <Button variant={service.popular ? "hero" : "outline"} className="w-full" onClick={() => openDialogForService(service.name)}>
+  Get Started
+</Button>
                 </CardContent>
               </Card>
             ))}
@@ -444,9 +500,9 @@ const Pricing = () => {
                     ))}
                   </div>
                   <p className="text-sm font-medium text-primary mb-6">{pkg.benefit}</p>
-                  <Button variant={pkg.popular ? "cta" : "outline"} className="w-full">
-                    Choose Package
-                  </Button>
+                  <Button variant={pkg.popular ? "cta" : "outline"} className="w-full" onClick={() => openDialogForService(pkg.name)}>
+  Choose Package
+</Button>
                 </CardContent>
               </Card>
             ))}
@@ -546,8 +602,8 @@ const Pricing = () => {
                   <li>• Low-risk way to see exactly where you're losing money/opportunities</li>
                   <li>• Get specific recommendations for your situation</li>
                 </ul>
-                <Button variant="outline" className="w-full">Schedule Audit</Button>
-              </CardContent>
+                <Button variant="outline" className="w-full" onClick={() => openDialogForService("SEO Audit")}>Schedule Audit</Button>
+                </CardContent>
             </Card>
 
             <Card className="card-professional ring-2 ring-primary">
@@ -560,8 +616,8 @@ const Pricing = () => {
                   <li>• Get personalized recommendations for your business</li>
                   <li>• Understand which services will deliver the highest ROI</li>
                 </ul>
-                <Button variant="hero" className="w-full">Book Strategy Call</Button>
-              </CardContent>
+                <Button variant="hero" className="w-full" onClick={() => openDialogForService("Strategy Call")}>Book Strategy Call</Button>
+                </CardContent>
             </Card>
 
             <Card className="card-professional">
@@ -589,7 +645,91 @@ const Pricing = () => {
       </section>
 
       <Footer />
-    </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset({ selectedService }); }}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Request Your {selectedService ? selectedService : 'Service'} Consultation</DialogTitle>
+            <DialogDescription>
+              Fill out the form below and I'll follow up within 24 hours with a customized plan.
+            </DialogDescription>
+          </DialogHeader>
+
+          {submitSuccess ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
+              <p className="text-muted-foreground">I'll review your details and reach out shortly.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
+                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
+                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
+                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label>Business Type *</Label>
+                  <Select onValueChange={(value) => register('businessType').onChange({ target: { value } })}>
+                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
+                      <SelectValue placeholder="Select your industry" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="professional-services">Professional Services</SelectItem>
+                      <SelectItem value="ecommerce">E-commerce</SelectItem>
+                      <SelectItem value="saas">SaaS / Tech</SelectItem>
+                      <SelectItem value="healthcare">Healthcare</SelectItem>
+                      <SelectItem value="home-services">Home Services</SelectItem>
+                      <SelectItem value="real-estate">Real Estate</SelectItem>
+                      <SelectItem value="restaurant">Restaurant & Hospitality</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="selectedService">Selected Service *</Label>
+                <Input id="selectedService" value={selectedService} readOnly {...register('selectedService')} />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
+                <Textarea id="marketingChallenge" placeholder="Briefly describe your goals, challenges, and timeframe..." className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} {...register('marketingChallenge')} />
+                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <Button type="submit" variant="hero" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

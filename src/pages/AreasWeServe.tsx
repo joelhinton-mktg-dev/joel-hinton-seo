@@ -253,7 +253,12 @@ const AreasWeServe = () => {
                     </div>
                     
                     <Separator className="my-4" />
-                    <p className="text-green-600 font-medium text-sm">✓ In-Person Meetings Available</p>
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <a href="/daytona-beach-digital-marketing">
+                        Daytona Beach Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    </Button>
                   </CardContent>
                 </Card>
 
@@ -392,9 +397,11 @@ const AreasWeServe = () => {
                     </div>
                     
                     <Separator className="my-4" />
-                    <Button variant="outline" size="sm" disabled className="w-full">
-                      Coming Soon
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <a href="/jacksonville-seo-consultant">
+                        Jacksonville Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -438,9 +445,11 @@ const AreasWeServe = () => {
                     </div>
                     
                     <Separator className="my-4" />
-                    <Button variant="outline" size="sm" disabled className="w-full">
-                      Coming Soon
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <a href="/miami-marketing-agency">
+                        Miami Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -484,9 +493,11 @@ const AreasWeServe = () => {
                     </div>
                     
                     <Separator className="my-4" />
-                    <Button variant="outline" size="sm" disabled className="w-full">
-                      Coming Soon
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <a href="/fort-lauderdale-advertising">
+                        Fort Lauderdale Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>
