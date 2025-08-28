@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { PageBreadcrumb } from "@/components/ui/breadcrumb";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { 
@@ -30,15 +31,11 @@ const SEOServices = () => {
       <Navigation />
       
       {/* Breadcrumb */}
-      <section className="pt-24 pb-8 bg-background">
-        <div className="container mx-auto px-6">
-          <nav className="text-sm text-muted-foreground">
-            <span>Home</span>
-            <span className="mx-2">&gt;</span>
-            <span className="text-foreground font-medium">SEO Services</span>
-          </nav>
-        </div>
-      </section>
+      <PageBreadcrumb 
+        items={[
+          { label: "SEO Services", current: true }
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="pb-16 bg-background">

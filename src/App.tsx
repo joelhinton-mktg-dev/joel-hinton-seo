@@ -11,6 +11,14 @@ import PaidAdvertising from "./pages/PaidAdvertising";
 import Pricing from "./pages/Pricing";
 import Results from "./pages/Results";
 import About from "./pages/About";
+import Blog from "./pages/Blog";
+import BlogPostPage from "./pages/BlogPostPage";
+import FloridaSEOServices from "./pages/FloridaSEOServices";
+import OrlandoDigitalMarketing from "./pages/OrlandoDigitalMarketing";
+import TampaGrowthMarketing from "./pages/TampaGrowthMarketing";
+import JacksonvilleSEOConsultant from "./pages/JacksonvilleSEOConsultant";
+import MiamiMarketingAgency from "./pages/MiamiMarketingAgency";
+import AreasWeServe from "./pages/AreasWeServe";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +38,14 @@ const App = () => (
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/results" element={<Results />} />
             <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/florida-seo-services" element={<FloridaSEOServices />} />
+            <Route path="/orlando-digital-marketing" element={<OrlandoDigitalMarketing />} />
+            <Route path="/tampa-growth-marketing" element={<TampaGrowthMarketing />} />
+            <Route path="/jacksonville-seo-consultant" element={<JacksonvilleSEOConsultant />} />
+            <Route path="/miami-marketing-agency" element={<MiamiMarketingAgency />} />
+            <Route path="/areas-we-serve" element={<AreasWeServe />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

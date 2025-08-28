@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { PageBreadcrumb } from "@/components/ui/breadcrumb";
 import { 
   Target, 
   TrendingUp, 
@@ -29,16 +30,17 @@ const PaidAdvertising = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
+      {/* Breadcrumb */}
+      <PageBreadcrumb 
+        items={[
+          { label: "Paid Advertising", current: true }
+        ]}
+      />
+      
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-4">
-              <span>Home</span>
-              <ArrowRight className="w-4 h-4" />
-              <span>Paid Advertising</span>
-            </div>
-            
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               Paid Media That Actually Converts
             </h1>

@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { PageBreadcrumb } from "@/components/ui/breadcrumb";
 
 const GrowthMarketing = () => {
   return (
@@ -16,13 +17,11 @@ const GrowthMarketing = () => {
       <Navigation />
       
       {/* Breadcrumb */}
-      <div className="container mx-auto px-4 pt-24 pb-4">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <span className="hover:text-primary cursor-pointer">Home</span>
-          <ArrowRight className="h-3 w-3" />
-          <span className="text-foreground">Growth Marketing</span>
-        </div>
-      </div>
+      <PageBreadcrumb 
+        items={[
+          { label: "Growth Marketing", current: true }
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-12 text-center">

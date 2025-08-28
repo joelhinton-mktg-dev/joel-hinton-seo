@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { PageBreadcrumb } from "@/components/ui/breadcrumb";
 import { Brain, Target, Users, Award, MapPin, Phone, Mail, Lightbulb, TrendingUp, Shield, Heart } from "lucide-react";
 
 const About = () => {
@@ -42,6 +43,13 @@ const About = () => {
       <div className="min-h-screen bg-background">
         <Navigation />
         
+        {/* Breadcrumb */}
+        <PageBreadcrumb 
+          items={[
+            { label: "About Joel", current: true }
+          ]}
+        />
+        
         {/* Hero Section */}
         <section className="pt-24 pb-16 bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent"></div>
@@ -55,11 +63,6 @@ const About = () => {
                   <Brain className="w-4 h-4 mr-2" />
                   Psychology-Driven Marketing Expert
                 </Badge>
-                <nav className="text-sm text-muted-foreground mb-8">
-                  <a href="/" className="hover:text-primary transition-colors">Home</a> 
-                  <span className="mx-2">&gt;</span> 
-                  <span className="text-foreground">About Joel</span>
-                </nav>
               </div>
               
               <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">

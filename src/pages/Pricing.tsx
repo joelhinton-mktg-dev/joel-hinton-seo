@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { PageBreadcrumb } from "@/components/ui/breadcrumb";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
@@ -145,6 +146,13 @@ const Pricing = () => {
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
       <Navigation />
       
+      {/* Breadcrumb */}
+      <PageBreadcrumb 
+        items={[
+          { label: "Pricing", current: true }
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="pt-24 pb-12 px-6">
         <div className="container mx-auto max-w-4xl text-center">

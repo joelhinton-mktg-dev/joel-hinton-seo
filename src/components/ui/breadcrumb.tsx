@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
-import { ChevronRight, MoreHorizontal } from "lucide-react"
+import { ChevronRight, MoreHorizontal, Home } from "lucide-react"
+import { Link } from "react-router-dom"
 
 import { cn } from "@/lib/utils"
 
@@ -104,6 +105,56 @@ const BreadcrumbEllipsis = ({
 )
 BreadcrumbEllipsis.displayName = "BreadcrumbElipssis"
 
+// New consistent page breadcrumb component
+interface PageBreadcrumbProps {
+  items: Array<{
+    label: string
+    href?: string
+    current?: boolean
+  }>
+  className?: string
+}
+
+const PageBreadcrumb = React.forwardRef<HTMLElement, PageBreadcrumbProps>(
+  ({ items, className }, ref) => (
+    <section className={cn("pt-24 pb-8 bg-background", className)}>
+      <div className="container mx-auto px-6">
+        <Breadcrumb ref={ref} className="text-sm text-muted-foreground">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <Link to="/" className="flex items-center gap-1 hover:text-primary transition-colors">
+                <Home className="w-3 h-3" />
+                Home
+              </Link>
+            </BreadcrumbItem>
+            {items.map((item, index) => (
+              <React.Fragment key={index}>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  {item.current ? (
+                    <BreadcrumbPage className="font-medium">
+                      {item.label}
+                    </BreadcrumbPage>
+                  ) : item.href ? (
+                    <BreadcrumbLink asChild>
+                      <Link to={item.href} className="hover:text-primary transition-colors">
+                        {item.label}
+                      </Link>
+                    </BreadcrumbLink>
+                  ) : (
+                    <span>{item.label}</span>
+                  )}
+                </BreadcrumbItem>
+              </React.Fragment>
+            ))}
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+    </section>
+  )
+)
+PageBreadcrumb.displayName = "PageBreadcrumb"
+
 export {
   Breadcrumb,
   BreadcrumbList,
@@ -112,4 +163,5 @@ export {
   BreadcrumbPage,
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
+  PageBreadcrumb,
 }
