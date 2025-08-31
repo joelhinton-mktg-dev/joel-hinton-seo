@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -46,7 +47,7 @@ const PaidAdvertising = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto">
-              Stop burning money on ads that don't work. Get AI-optimized campaigns with psychology-driven creative that turns clicks into customers.
+              Stop burning money on ads that don't work. Get AI-optimized campaigns with psychology-driven creative that turns clicks into customers for <Link to="/industries/ecommerce" className="text-primary hover:underline">e-commerce</Link> and <Link to="/industries/restaurants-hospitality" className="text-primary hover:underline">restaurants & hospitality</Link> businesses.
             </p>
             
             <div className="bg-card p-6 rounded-lg border mb-8 max-w-3xl mx-auto">

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
@@ -50,7 +51,7 @@ const SEOServices = () => {
             </h1>
             
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Traditional SEO agencies sell you retainers. We sell you results. Here's the difference.
+              Traditional SEO agencies sell you retainers. We sell you results. Our proven strategies help <Link to="/industries/professional-services" className="text-primary hover:underline">professional services</Link> and <Link to="/industries/legal-services" className="text-primary hover:underline">legal services</Link> dominate their markets with real SEO that drives business growth.
             </p>
             
             <Button size="lg" className="px-8 py-4 text-lg">

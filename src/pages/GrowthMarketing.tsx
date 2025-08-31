@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
@@ -35,7 +36,7 @@ const GrowthMarketing = () => {
         </h1>
         
         <p className="text-xl text-muted-foreground mb-4 max-w-3xl mx-auto leading-relaxed">
-          Stop guessing what works. Use consumer psychology and AI optimization to systematically scale your business.
+          Stop guessing what works. Use consumer psychology and AI optimization to systematically scale your <Link to="/industries/saas" className="text-primary hover:underline">SaaS business</Link> or <Link to="/industries/ecommerce" className="text-primary hover:underline">e-commerce store</Link> with proven growth systems.
         </p>
         
         <p className="text-lg font-medium text-foreground mb-8 max-w-2xl mx-auto">

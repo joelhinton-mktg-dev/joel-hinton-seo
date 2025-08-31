@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { 
   MapPin, Search, Star, TrendingUp, Calendar, CheckCircle, ArrowRight,
   Globe, Target, Zap, Users, Award, Building2, FileText, Phone, Mail, Clock,
@@ -147,7 +148,7 @@ const LocalSEO = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Stop losing customers to competitors who show up first in local searches. My psychology-driven Local SEO strategies help Florida businesses capture more local customers and dominate their markets.
+                Stop losing customers to competitors who show up first in local searches. My psychology-driven Local SEO strategies help Florida businesses in <Link to="/industries/real-estate" className="text-primary hover:underline">real estate</Link>, <Link to="/industries/home-services" className="text-primary hover:underline">home services</Link>, and <Link to="/industries/healthcare" className="text-primary hover:underline">healthcare</Link> capture more local customers and dominate their markets.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

@@ -27,6 +27,16 @@ import Contact from "./pages/Contact";
 import VibeCoding from "./pages/VibeCoding";
 import Services from "./pages/Services";
 import LocalSEO from "./pages/LocalSEO";
+import GEOOptimization from "./pages/GEOOptimization";
+import Industries from "./pages/Industries";
+import RealEstateMarketing from "./pages/RealEstateMarketing";
+import HealthcareMarketing from "./pages/HealthcareMarketing";
+import HomeServicesMarketing from "./pages/HomeServicesMarketing";
+import EcommerceMarketing from "./pages/EcommerceMarketing";
+import ProfessionalServicesMarketing from "./pages/ProfessionalServicesMarketing";
+import SaaSMarketing from "./pages/SaaSMarketing";
+import RestaurantsHospitalityMarketing from "./pages/RestaurantsHospitalityMarketing";
+import LegalServicesMarketing from "./pages/LegalServicesMarketing";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -62,6 +72,16 @@ const App = () => (
             <Route path="/vibe-coding" element={<VibeCoding />} />
             <Route path="/services" element={<Services />} />
             <Route path="/local-seo" element={<LocalSEO />} />
+            <Route path="/geo-optimization" element={<GEOOptimization />} />
+            <Route path="/industries" element={<Industries />} />
+            <Route path="/industries/real-estate" element={<RealEstateMarketing />} />
+            <Route path="/industries/healthcare" element={<HealthcareMarketing />} />
+            <Route path="/industries/home-services" element={<HomeServicesMarketing />} />
+            <Route path="/industries/ecommerce" element={<EcommerceMarketing />} />
+            <Route path="/industries/professional-services" element={<ProfessionalServicesMarketing />} />
+            <Route path="/industries/saas" element={<SaaSMarketing />} />
+            <Route path="/industries/restaurants-hospitality" element={<RestaurantsHospitalityMarketing />} />
+            <Route path="/industries/legal-services" element={<LegalServicesMarketing />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

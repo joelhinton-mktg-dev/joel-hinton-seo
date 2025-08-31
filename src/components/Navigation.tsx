@@ -7,6 +7,8 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isSEOSubmenuOpen, setIsSEOSubmenuOpen] = useState(false);
+  const [isMobileSEOOpen, setIsMobileSEOOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
@@ -14,6 +16,7 @@ const Navigation = () => {
   useEffect(() => {
     setIsMenuOpen(false);
     setIsMobileServicesOpen(false);
+    setIsMobileSEOOpen(false);
   }, [location]);
 
   // Close services dropdown when clicking outside
@@ -29,16 +32,23 @@ const Navigation = () => {
   }, []);
 
   const servicesItems = [
-    { label: "SEO Services", href: "/seo-services", description: "Psychology-driven search optimization" },
+    { 
+      label: "SEO Services", 
+      href: "/seo-services", 
+      description: "Psychology-driven search optimization",
+      subItems: [
+        { label: "Local SEO", href: "/local-seo", description: "Florida market domination" },
+        { label: "GEO Optimization", href: "/geo-optimization", description: "AI search optimization" },
+      ]
+    },
     { label: "Growth Marketing", href: "/growth-marketing", description: "Data-driven growth strategies" },
     { label: "Paid Advertising", href: "/paid-advertising", description: "Performance-based ad campaigns" },
     { label: "Vibe Coding", href: "/vibe-coding", description: "Custom AI tools & automation" },
-    { label: "Local SEO", href: "/local-seo", description: "Florida market domination" },
-    { label: "GEO Optimization", href: "/geo-optimization", description: "AI search optimization" },
   ];
   const mainNavItems = [
     { label: "Home", href: "/" },
     { label: "Services", href: "#", isDropdown: true },
+    { label: "Industries", href: "/industries" },
     { label: "Areas We Serve", href: "/areas-we-serve" },
     { label: "Blog", href: "/blog" },
     { label: "Pricing", href: "/pricing" },
@@ -107,22 +117,72 @@ const Navigation = () => {
                       >
                         <div className="p-2">
                           {servicesItems.map((service) => (
-                            <Link
-                              key={service.label}
-                              to={service.href}
-                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent/50 transition-all duration-200 group"
-                            >
-                              <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-150 transition-transform duration-200" />
-                              <div className="flex-1">
-                                <div className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">
-                                  {service.label}
+                            <div key={service.label}>
+                              {service.subItems ? (
+                                <div 
+                                  className="relative"
+                                  onMouseEnter={() => setIsSEOSubmenuOpen(true)}
+                                  onMouseLeave={() => setIsSEOSubmenuOpen(false)}
+                                >
+                                  <Link
+                                    to={service.href}
+                                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent/50 transition-all duration-200 group"
+                                  >
+                                    <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-150 transition-transform duration-200" />
+                                    <div className="flex-1">
+                                      <div className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">
+                                        {service.label}
+                                      </div>
+                                      <div className="text-sm text-muted-foreground mt-1">
+                                        {service.description}
+                                      </div>
+                                    </div>
+                                    <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-200" />
+                                  </Link>
+                                  
+                                  {/* SEO Submenu */}
+                                  {isSEOSubmenuOpen && (
+                                    <div className="absolute left-full top-0 ml-2 w-64 bg-card border border-border rounded-xl shadow-lg backdrop-blur-xl">
+                                      <div className="p-2">
+                                        {service.subItems.map((subItem) => (
+                                          <Link
+                                            key={subItem.label}
+                                            to={subItem.href}
+                                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent/50 transition-all duration-200 group"
+                                          >
+                                            <div className="w-2 h-2 rounded-full bg-secondary mt-2 group-hover:scale-150 transition-transform duration-200" />
+                                            <div className="flex-1">
+                                              <div className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">
+                                                {subItem.label}
+                                              </div>
+                                              <div className="text-sm text-muted-foreground mt-1">
+                                                {subItem.description}
+                                              </div>
+                                            </div>
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  )}
                                 </div>
-                                <div className="text-sm text-muted-foreground mt-1">
-                                  {service.description}
-                                </div>
-                              </div>
-                              <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-200" />
-                            </Link>
+                              ) : (
+                                <Link
+                                  to={service.href}
+                                  className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent/50 transition-all duration-200 group"
+                                >
+                                  <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-150 transition-transform duration-200" />
+                                  <div className="flex-1">
+                                    <div className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">
+                                      {service.label}
+                                    </div>
+                                    <div className="text-sm text-muted-foreground mt-1">
+                                      {service.description}
+                                    </div>
+                                  </div>
+                                  <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-200" />
+                                </Link>
+                              )}
+                            </div>
                           ))}
                         </div>
                       </div>
@@ -190,17 +250,53 @@ const Navigation = () => {
                       {isMobileServicesOpen && (
                         <div className="mt-3 ml-4 space-y-2 animate-in fade-in-0 slide-in-from-left-2 duration-200">
                           {servicesItems.map((service) => (
-                            <Link
-                              key={service.label}
-                              to={service.href}
-                              className="block px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-accent/30 transition-all duration-200"
-                              onClick={() => setIsMenuOpen(false)}
-                            >
-                              <div className="font-medium">{service.label}</div>
-                              <div className="text-xs text-muted-foreground/70 mt-1">
-                                {service.description}
-                              </div>
-                            </Link>
+                            <div key={service.label}>
+                              {service.subItems ? (
+                                <div>
+                                  <button
+                                    onClick={() => setIsMobileSEOOpen(!isMobileSEOOpen)}
+                                    className="flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-accent/30 transition-all duration-200"
+                                  >
+                                    <div>
+                                      <div className="font-medium text-left">{service.label}</div>
+                                      <div className="text-xs text-muted-foreground/70 mt-1 text-left">
+                                        {service.description}
+                                      </div>
+                                    </div>
+                                    <ChevronRight className={`w-4 h-4 transition-transform duration-200 ${isMobileSEOOpen ? 'rotate-90' : ''}`} />
+                                  </button>
+                                  
+                                  {isMobileSEOOpen && (
+                                    <div className="mt-2 ml-4 space-y-1">
+                                      {service.subItems.map((subItem) => (
+                                        <Link
+                                          key={subItem.label}
+                                          to={subItem.href}
+                                          className="block px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-accent/30 transition-all duration-200"
+                                          onClick={() => setIsMenuOpen(false)}
+                                        >
+                                          <div className="font-medium">{subItem.label}</div>
+                                          <div className="text-xs text-muted-foreground/70 mt-1">
+                                            {subItem.description}
+                                          </div>
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              ) : (
+                                <Link
+                                  to={service.href}
+                                  className="block px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-accent/30 transition-all duration-200"
+                                  onClick={() => setIsMenuOpen(false)}
+                                >
+                                  <div className="font-medium">{service.label}</div>
+                                  <div className="text-xs text-muted-foreground/70 mt-1">
+                                    {service.description}
+                                  </div>
+                                </Link>
+                              )}
+                            </div>
                           ))}
                         </div>
                       )}
