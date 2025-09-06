@@ -1,4 +1,5 @@
 import { Brain, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -40,10 +41,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm text-background/70">
-              <li><a href="/seo-services" className="hover:text-background transition-colors">SEO Services</a></li>
-              <li><a href="/growth-marketing" className="hover:text-background transition-colors">Growth Marketing</a></li>
-              <li><a href="/paid-advertising" className="hover:text-background transition-colors">Paid Advertising</a></li>
-              <li><a href="/automation" className="hover:text-background transition-colors">Marketing Automation</a></li>
+              <li><Link to="/seo-services" className="hover:text-background transition-colors">SEO Services</Link></li>
+              <li><Link to="/growth-marketing" className="hover:text-background transition-colors">Growth Marketing</Link></li>
+              <li><Link to="/paid-advertising" className="hover:text-background transition-colors">Paid Advertising</Link></li>
+              <li><Link to="/local-seo" className="hover:text-background transition-colors">Local SEO</Link></li>
             </ul>
           </div>
 
@@ -51,12 +52,12 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Areas Served</h4>
             <ul className="space-y-2 text-sm text-background/70">
-              <li>Daytona Beach, FL</li>
-              <li>Orlando, FL</li>
-              <li>Tampa, FL</li>
-              <li>Jacksonville, FL</li>
-              <li>Miami, FL</li>
-              <li>Nationwide Remote</li>
+              <li><Link to="/daytona-beach-digital-marketing" className="hover:text-background transition-colors">Daytona Beach, FL</Link></li>
+              <li><Link to="/orlando-digital-marketing" className="hover:text-background transition-colors">Orlando, FL</Link></li>
+              <li><Link to="/tampa-growth-marketing" className="hover:text-background transition-colors">Tampa, FL</Link></li>
+              <li><Link to="/jacksonville-seo-consultant" className="hover:text-background transition-colors">Jacksonville, FL</Link></li>
+              <li><Link to="/miami-marketing-agency" className="hover:text-background transition-colors">Miami, FL</Link></li>
+              <li><Link to="/areas-we-serve" className="hover:text-background transition-colors">Nationwide Remote</Link></li>
             </ul>
           </div>
         </div>
@@ -67,8 +68,8 @@ const Footer = () => {
               © 2024 Joel Hinton Digital Marketing. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-background/70">
-              <a href="/privacy" className="hover:text-background transition-colors">Privacy Policy</a>
-              <a href="/terms" className="hover:text-background transition-colors">Terms of Service</a>
+              <Link to="/privacy" className="hover:text-background transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-background transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>

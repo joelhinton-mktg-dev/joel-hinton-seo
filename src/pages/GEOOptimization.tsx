@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { 
   Brain, Search, Star, TrendingUp, CheckCircle, ArrowRight, Zap, Users, 
@@ -11,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -22,9 +22,23 @@ import { useState } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  businessType: z.string().min(1, "Please select your business type"),
+  marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
+  selectedService: z.string().default("GEO Strategy Consultation")
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
+
 const GEOOptimization = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isContactSubmitting, setIsContactSubmitting] = useState(false);
+  const [contactSubmitSuccess, setContactSubmitSuccess] = useState(false);
 
   const geoAuditSchema = z.object({
     businessName: z.string().min(2, "Business name must be at least 2 characters"),
@@ -48,19 +62,49 @@ const GEOOptimization = () => {
     resolver: zodResolver(geoAuditSchema)
   });
 
+  const {
+    register: registerContact,
+    handleSubmit: handleSubmitContact,
+    formState: { errors: contactErrors },
+    reset: resetContact,
+    setValue: setValueContact
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: "GEO Strategy Consultation" }
+  });
+
   const onSubmit = async (data: GEOAuditFormData) => {
+    if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
     
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    console.log("GEO audit request:", data);
+    if (process.env.NODE_ENV === 'development') {
+      console.log("GEO audit request:", data);
+    }
     setSubmitSuccess(true);
     reset();
     
     // Reset success message after 5 seconds
     setTimeout(() => setSubmitSuccess(false), 5000);
     setIsSubmitting(false);
+  };
+
+  const onSubmitContact = async (data: ContactFormData) => {
+    if (isContactSubmitting) return; // Prevent double submission
+    setIsContactSubmitting(true);
+    await new Promise(r => setTimeout(r, 1000));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("GEO contact form submitted:", data);
+    }
+    setContactSubmitSuccess(true);
+    resetContact();
+    setTimeout(() => {
+      setContactSubmitSuccess(false);
+      setIsDialogOpen(false);
+    }, 2000);
+    setIsContactSubmitting(false);
   };
 
   return (
@@ -140,12 +184,21 @@ const GEOOptimization = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg">
+                <Button 
+                  size="lg" 
+                  className="px-8 py-4 text-lg"
+                  onClick={() => setIsDialogOpen(true)}
+                >
                   <Bot className="w-5 h-5 mr-2" />
                   Get GEO Analysis
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="px-8 py-4 text-lg"
+                  onClick={() => setIsDialogOpen(true)}
+                >
                   <Phone className="w-5 h-5 mr-2" />
                   Strategy Call: (386) 555-0123
                 </Button>
@@ -1554,7 +1607,14 @@ const GEOOptimization = () => {
                       <span className="text-sm">Psychology-driven optimization</span>
                     </div>
                   </div>
-                  <Button className="w-full mt-6" variant="outline">
+                  <Button 
+                    className="w-full mt-6" 
+                    variant="outline"
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      resetContact({ selectedService: "GEO Foundation - $4,997/mo" });
+                    }}
+                  >
                     Start GEO Foundation
                   </Button>
                 </CardContent>
@@ -1600,7 +1660,13 @@ const GEOOptimization = () => {
                       <span className="text-sm">Weekly strategy optimization</span>
                     </div>
                   </div>
-                  <Button className="w-full mt-6">
+                  <Button 
+                    className="w-full mt-6"
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      resetContact({ selectedService: "GEO Domination - $8,997/mo" });
+                    }}
+                  >
                     Dominate AI Search
                   </Button>
                 </CardContent>
@@ -1643,7 +1709,14 @@ const GEOOptimization = () => {
                       <span className="text-sm">Future AI platform preparation</span>
                     </div>
                   </div>
-                  <Button className="w-full mt-6" variant="outline">
+                  <Button 
+                    className="w-full mt-6" 
+                    variant="outline"
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      resetContact({ selectedService: "GEO Enterprise - $15,997/mo" });
+                    }}
+                  >
                     Lead Your Industry
                   </Button>
                 </CardContent>
@@ -1748,12 +1821,28 @@ const GEOOptimization = () => {
                   as adoption increases. The businesses that act now will dominate tomorrow's search landscape.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+                  <Button 
+                    size="lg" 
+                    variant="secondary" 
+                    className="px-8 py-4 text-lg"
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      resetContact({ selectedService: "Early Adopter GEO Strategy" });
+                    }}
+                  >
                     <Bot className="w-5 h-5 mr-2" />
                     Claim Early Adopter Status
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
-                  <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="px-8 py-4 text-lg border-white text-blue-300 hover:bg-white hover:text-blue-600"
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      resetContact({ selectedService: "GEO Strategy Session" });
+                    }}
+                  >
                     <Calendar className="w-5 h-5 mr-2" />
                     Strategy Session
                   </Button>
@@ -1865,7 +1954,7 @@ const GEOOptimization = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="industry">Industry *</Label>
-                        <Select onValueChange={(value) => setValue("industry", value)}>
+                        <Select onValueChange={(value) => setValue("industry", value, { shouldValidate: true })}>
                           <SelectTrigger className={errors.industry ? "border-destructive" : ""}>
                             <SelectValue placeholder="Select your industry" />
                           </SelectTrigger>
@@ -1889,7 +1978,7 @@ const GEOOptimization = () => {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="currentSEO">Current SEO Approach *</Label>
-                        <Select onValueChange={(value) => setValue("currentSEO", value)}>
+                        <Select onValueChange={(value) => setValue("currentSEO", value, { shouldValidate: true })}>
                           <SelectTrigger className={errors.currentSEO ? "border-destructive" : ""}>
                             <SelectValue placeholder="What's your current SEO situation?" />
                           </SelectTrigger>
@@ -1952,6 +2041,98 @@ const GEOOptimization = () => {
 
         <Footer />
       </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) resetContact(); }}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Get Started with GEO Strategy</DialogTitle>
+            <DialogDescription>
+              Let's discuss your AI search optimization goals and get you started with the perfect GEO strategy for your business.
+            </DialogDescription>
+          </DialogHeader>
+
+          {contactSubmitSuccess ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <path d="M22 4 12 14.01l-3-3"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
+              <p className="text-muted-foreground">I'll analyze your AI search presence and send you a detailed GEO strategy within 48 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmitContact(onSubmitContact)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="John Smith" {...registerContact('name')} className={contactErrors.name ? 'border-destructive' : ''} />
+                  {contactErrors.name && <p className="text-sm text-destructive">{contactErrors.name.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input id="email" type="email" placeholder="john@company.com" {...registerContact('email')} className={contactErrors.email ? 'border-destructive' : ''} />
+                  {contactErrors.email && <p className="text-sm text-destructive">{contactErrors.email.message}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...registerContact('phone')} className={contactErrors.phone ? 'border-destructive' : ''} />
+                  {contactErrors.phone && <p className="text-sm text-destructive">{contactErrors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label>Business Type *</Label>
+                  <Select onValueChange={(value) => setValueContact('businessType', value, { shouldValidate: true })}>
+                    <SelectTrigger className={contactErrors.businessType ? 'border-destructive' : ''}>
+                      <SelectValue placeholder="Select your industry" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="professional-services">Professional Services</SelectItem>
+                      <SelectItem value="ecommerce">E-commerce</SelectItem>
+                      <SelectItem value="saas">SaaS / Tech</SelectItem>
+                      <SelectItem value="healthcare">Healthcare</SelectItem>
+                      <SelectItem value="home-services">Home Services</SelectItem>
+                      <SelectItem value="real-estate">Real Estate</SelectItem>
+                      <SelectItem value="restaurant">Restaurant & Hospitality</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {contactErrors.businessType && <p className="text-sm text-destructive">{contactErrors.businessType.message}</p>}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="selectedService">Selected Service *</Label>
+                <Input id="selectedService" readOnly {...registerContact('selectedService')} />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="marketingChallenge">Tell us about your AI search challenges *</Label>
+                <Textarea 
+                  id="marketingChallenge" 
+                  placeholder="What's your website URL? How visible are you in AI search results? What AI search challenges are you facing?" 
+                  className={`min-h-[120px] ${contactErrors.marketingChallenge ? 'border-destructive' : ''}`} 
+                  {...registerContact('marketingChallenge')} 
+                />
+                {contactErrors.marketingChallenge && <p className="text-sm text-destructive">{contactErrors.marketingChallenge.message}</p>}
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <Button type="submit" variant="hero" disabled={isContactSubmitting}>
+                  {isContactSubmitting ? 'Submitting...' : 'Get Started'}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   );
 };

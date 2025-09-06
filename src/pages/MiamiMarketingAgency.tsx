@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { MapPin, Globe, Crown, Palette, Languages, Building, Waves, Camera, TrendingUp, CheckCircle, ArrowRight, Zap, Brain, BarChart3, Users, Star, Phone, Mail, Calendar, DollarSign, MessageSquare } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -35,18 +34,22 @@ const MiamiMarketingAgency = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
+    setValue
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema)
   });
 
   const onSubmit = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
     
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    console.log("Form submitted:", data);
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Form submitted:", data);
+    }
     setSubmitSuccess(true);
     reset();
     
@@ -820,10 +823,7 @@ const MiamiMarketingAgency = () => {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="businessType">Business Type *</Label>
-                        <Select onValueChange={(value) => {
-                          const event = { target: { value } };
-                          register("businessType").onChange(event);
-                        }}>
+                        <Select onValueChange={(value) => setValue("businessType", value, { shouldValidate: true })}>
                           <SelectTrigger className={errors.businessType ? "border-destructive" : ""}>
                             <SelectValue placeholder="Select your industry" />
                           </SelectTrigger>

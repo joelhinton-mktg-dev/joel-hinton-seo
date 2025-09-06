@@ -1,6 +1,8 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 import { 
   Home, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
   BarChart3, Phone, Calendar, Star, Zap, DollarSign, MapPin, 
@@ -15,7 +17,9 @@ import { PageBreadcrumb } from '@/components/ui/breadcrumb';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
+
 const RealEstateMarketing = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Real Estate Marketing Audit');
   return (
     <>
       <Helmet>
@@ -64,12 +68,12 @@ const RealEstateMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg">
+                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Target className="w-5 h-5 mr-2" />
                   Get Real Estate Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Phone className="w-5 h-5 mr-2" />
                   Real Estate Consultation
                 </Button>
@@ -603,7 +607,11 @@ const RealEstateMarketing = () => {
                       <span className="text-sm">Email nurture sequences</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Start Agent Accelerator</Button>
+                  <Button className="w-full" variant="outline" onClick={() => {
+                    selectService("Agent Accelerator - $1,997/mo");
+                  }}>
+                    Start Agent Accelerator
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -643,7 +651,11 @@ const RealEstateMarketing = () => {
                       <span className="text-sm">Investment property campaigns</span>
                     </div>
                   </div>
-                  <Button className="w-full">Dominate Your Market</Button>
+                  <Button className="w-full" onClick={() => {
+                    selectService("Market Authority - $3,497/mo");
+                  }}>
+                    Dominate Your Market
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -680,7 +692,11 @@ const RealEstateMarketing = () => {
                       <span className="text-sm">Priority strategy consulting</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Build Your Empire</Button>
+                  <Button className="w-full" variant="outline" onClick={() => {
+                    selectService("Real Estate Empire - $5,497/mo");
+                  }}>
+                    Build Your Empire
+                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -757,12 +773,12 @@ const RealEstateMarketing = () => {
                 that turns browsers into buyers and prospects into profits.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Get Real Estate Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600" onClick={() => window.open('tel:+13865550123')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call: (386) 555-0123
                 </Button>
@@ -775,6 +791,15 @@ const RealEstateMarketing = () => {
         </section>
 
         <Footer />
+
+        <ContactDialog 
+          isOpen={isOpen}
+          onClose={closeDialog}
+          title="Get Your Free Real Estate Marketing Audit"
+          description="Let's discuss how we can help attract qualified buyers and grow your real estate business."
+          defaultService={selectedService}
+          businessTypes={businessTypes.realEstate}
+        />
       </div>
     </>
   );

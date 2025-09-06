@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import BlogPost from '@/components/BlogPost';
 import { blogPosts } from '@/data/blogPosts';
@@ -9,7 +8,7 @@ const BlogPostPage: React.FC = () => {
   const post = blogPosts.find(p => p.slug === slug && p.published);
   
   if (!post) {
-    return <Navigate to="/404" replace />;
+    return <Navigate to="/not-found" replace />;
   }
   
   return <BlogPost post={post} />;

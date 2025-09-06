@@ -1,0 +1,180 @@
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { CheckCircle } from 'lucide-react';
+import { ContactFormData, contactFormSchema, BusinessTypeOption } from '@/types/contact-forms';
+
+interface ContactDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  description: string;
+  defaultService: string;
+  businessTypes: BusinessTypeOption[];
+  onServiceSelect?: (service: string) => void;
+}
+
+export const ContactDialog: React.FC<ContactDialogProps> = ({
+  isOpen,
+  onClose,
+  title,
+  description,
+  defaultService,
+  businessTypes,
+  onServiceSelect
+}) => {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitSuccess, setSubmitSuccess] = React.useState(false);
+
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: defaultService }
+  });
+
+  const onSubmitForm = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
+    setIsSubmitting(true);
+    
+    await new Promise(r => setTimeout(r, 1000));
+    
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Contact form submitted:", data);
+    }
+    
+    setSubmitSuccess(true);
+    reset();
+    setTimeout(() => {
+      setSubmitSuccess(false);
+      onClose();
+    }, 2000);
+    setIsSubmitting(false);
+  };
+
+  const handleClose = () => {
+    if (!isSubmitting) {
+      setSubmitSuccess(false);
+      reset({ selectedService: defaultService });
+      onClose();
+    }
+  };
+
+  // Handle service selection from parent component
+  React.useEffect(() => {
+    if (onServiceSelect) {
+      setValue('selectedService', defaultService);
+    }
+  }, [defaultService, setValue, onServiceSelect]);
+
+  return (
+    <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>{title}</DialogTitle>
+          <DialogDescription>{description}</DialogDescription>
+        </DialogHeader>
+        
+        {submitSuccess ? (
+          <div className="text-center py-6">
+            <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
+            <h3 className="text-lg font-semibold mb-2">Thank you for your interest!</h3>
+            <p className="text-muted-foreground">We'll contact you within 24 hours to schedule your consultation.</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-4">
+            <div>
+              <Label htmlFor="name">Full Name</Label>
+              <Input
+                id="name"
+                {...register("name")}
+                placeholder="Your full name"
+                className={errors.name ? 'border-destructive' : ''}
+              />
+              {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+            </div>
+
+            <div>
+              <Label htmlFor="email">Email Address</Label>
+              <Input
+                id="email"
+                type="email"
+                {...register("email")}
+                placeholder="your@email.com"
+                className={errors.email ? 'border-destructive' : ''}
+              />
+              {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+            </div>
+
+            <div>
+              <Label htmlFor="phone">Phone Number</Label>
+              <Input
+                id="phone"
+                {...register("phone")}
+                placeholder="(555) 123-4567"
+                className={errors.phone ? 'border-destructive' : ''}
+              />
+              {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+            </div>
+
+            <div>
+              <Label htmlFor="businessType">Business Type</Label>
+              <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
+                <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
+                  <SelectValue placeholder="Select your business type" />
+                </SelectTrigger>
+                <SelectContent>
+                  {businessTypes.map((type) => (
+                    <SelectItem key={type.value} value={type.value}>
+                      {type.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
+            </div>
+
+            <div>
+              <Label htmlFor="selectedService">Selected Service</Label>
+              <Input
+                id="selectedService"
+                {...register("selectedService")}
+                readOnly
+                className="bg-muted"
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="marketingChallenge">Current Marketing Challenge</Label>
+              <Textarea
+                id="marketingChallenge"
+                {...register("marketingChallenge")}
+                placeholder="Tell us about your current marketing challenges..."
+                rows={3}
+                className={errors.marketingChallenge ? 'border-destructive' : ''}
+              />
+              {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
+            </div>
+
+            <div className="flex gap-2 pt-4">
+              <Button type="submit" disabled={isSubmitting} className="flex-1">
+                {isSubmitting ? "Sending..." : "Get Free Consultation"}
+              </Button>
+              <DialogClose asChild>
+                <Button type="button" variant="outline" disabled={isSubmitting}>
+                  Cancel
+                </Button>
+              </DialogClose>
+            </div>
+          </form>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+export default ContactDialog;

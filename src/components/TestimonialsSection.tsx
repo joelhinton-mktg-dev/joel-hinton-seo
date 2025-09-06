@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const testimonials = [
   {
@@ -78,15 +79,40 @@ const TestimonialsSection = () => {
         <div className="mt-16 text-center">
           <p className="text-muted-foreground mb-8">Trusted by businesses across Florida and nationwide</p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="text-2xl font-bold text-muted-foreground">Daytona Beach</div>
+            <Link 
+              to="/daytona-beach-digital-marketing" 
+              className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              Daytona Beach
+            </Link>
             <div className="w-px h-8 bg-border"></div>
-            <div className="text-2xl font-bold text-muted-foreground">Orlando</div>
+            <Link 
+              to="/orlando-digital-marketing" 
+              className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              Orlando
+            </Link>
             <div className="w-px h-8 bg-border"></div>
-            <div className="text-2xl font-bold text-muted-foreground">Tampa</div>
+            <Link 
+              to="/tampa-growth-marketing" 
+              className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              Tampa
+            </Link>
             <div className="w-px h-8 bg-border"></div>
-            <div className="text-2xl font-bold text-muted-foreground">Jacksonville</div>
+            <Link 
+              to="/jacksonville-seo-consultant" 
+              className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              Jacksonville
+            </Link>
             <div className="w-px h-8 bg-border"></div>
-            <div className="text-2xl font-bold text-muted-foreground">Miami</div>
+            <Link 
+              to="/miami-marketing-agency" 
+              className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              Miami
+            </Link>
           </div>
         </div>
       </div>

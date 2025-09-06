@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { 
   Scale, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
@@ -22,10 +21,48 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  businessType: z.string().min(1, "Please select your business type"),
+  marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
+  selectedService: z.string().default("Legal Services Marketing Audit")
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const LegalServicesMarketing = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: "Legal Services Marketing Audit" }
+  });
+
+  const onSubmitForm = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
+    setIsSubmitting(true);
+    await new Promise(r => setTimeout(r, 1000));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Legal Services contact form submitted:", data);
+    }
+    setSubmitSuccess(true);
+    reset();
+    setTimeout(() => {
+      setSubmitSuccess(false);
+      setIsDialogOpen(false);
+    }, 2000);
+    setIsSubmitting(false);
+  };
+
+  // Keep the original form logic for the inline form
+  const [isInlineSubmitting, setIsInlineSubmitting] = useState(false);
+  const [inlineSubmitSuccess, setInlineSubmitSuccess] = useState(false);
 
   const legalLeadSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters"),
@@ -39,11 +76,11 @@ const LegalServicesMarketing = () => {
   type LegalLeadFormData = z.infer<typeof legalLeadSchema>;
 
   const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue
+    register: registerInline,
+    handleSubmit: handleInlineSubmit,
+    formState: { errors: inlineErrors },
+    reset: resetInline,
+    setValue: setValueInline
   } = useForm<LegalLeadFormData>({
     resolver: zodResolver(legalLeadSchema),
     defaultValues: {
@@ -51,19 +88,19 @@ const LegalServicesMarketing = () => {
     }
   });
 
-  const onSubmit = async (data: LegalLeadFormData) => {
-    setIsSubmitting(true);
+  const onInlineSubmit = async (data: LegalLeadFormData) => {
+    setIsInlineSubmitting(true);
     
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     console.log("Legal services lead generated:", data);
-    setSubmitSuccess(true);
-    reset({ industry: "legal-services" });
+    setInlineSubmitSuccess(true);
+    resetInline({ industry: "legal-services" });
     
     // Reset success message after 5 seconds
-    setTimeout(() => setSubmitSuccess(false), 5000);
-    setIsSubmitting(false);
+    setTimeout(() => setInlineSubmitSuccess(false), 5000);
+    setIsInlineSubmitting(false);
   };
 
   return (
@@ -140,12 +177,12 @@ const LegalServicesMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg">
+                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
                   <Target className="w-5 h-5 mr-2" />
                   Get Legal Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
                   <Phone className="w-5 h-5 mr-2" />
                   Legal Marketing Consultation
                 </Button>
@@ -580,7 +617,16 @@ const LegalServicesMarketing = () => {
                       <span className="text-sm">Review management</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Build Solo Authority</Button>
+                  <Button 
+                    className="w-full" 
+                    variant="outline" 
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      reset({ selectedService: "Solo Practice - $2,697/mo" });
+                    }}
+                  >
+                    Build Solo Authority
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -620,7 +666,15 @@ const LegalServicesMarketing = () => {
                       <span className="text-sm">Media relations support</span>
                     </div>
                   </div>
-                  <Button className="w-full">Dominate Your Practice Area</Button>
+                  <Button 
+                    className="w-full" 
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      reset({ selectedService: "Established Firm - $4,697/mo" });
+                    }}
+                  >
+                    Dominate Your Practice Area
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -657,7 +711,16 @@ const LegalServicesMarketing = () => {
                       <span className="text-sm">Priority crisis management</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Become Legal Authority</Button>
+                  <Button 
+                    className="w-full" 
+                    variant="outline" 
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      reset({ selectedService: "Legal Powerhouse - $7,997/mo" });
+                    }}
+                  >
+                    Become Legal Authority
+                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -742,7 +805,7 @@ const LegalServicesMarketing = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                {submitSuccess ? (
+                {inlineSubmitSuccess ? (
                   <div className="text-center py-8">
                     <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
                     <h3 className="text-2xl font-bold text-green-800 mb-2">Request Submitted!</h3>
@@ -751,18 +814,18 @@ const LegalServicesMarketing = () => {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <form onSubmit={handleInlineSubmit(onInlineSubmit)} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="name">Name *</Label>
                         <Input
                           id="name"
                           placeholder="Your name"
-                          {...register("name")}
-                          className={errors.name ? "border-red-500" : ""}
+                          {...registerInline("name")}
+                          className={inlineErrors.name ? "border-red-500" : ""}
                         />
-                        {errors.name && (
-                          <p className="text-red-500 text-sm">{errors.name.message}</p>
+                        {inlineErrors.name && (
+                          <p className="text-red-500 text-sm">{inlineErrors.name.message}</p>
                         )}
                       </div>
 
@@ -772,11 +835,11 @@ const LegalServicesMarketing = () => {
                           id="email"
                           type="email"
                           placeholder="your.email@lawfirm.com"
-                          {...register("email")}
-                          className={errors.email ? "border-red-500" : ""}
+                          {...registerInline("email")}
+                          className={inlineErrors.email ? "border-red-500" : ""}
                         />
-                        {errors.email && (
-                          <p className="text-red-500 text-sm">{errors.email.message}</p>
+                        {inlineErrors.email && (
+                          <p className="text-red-500 text-sm">{inlineErrors.email.message}</p>
                         )}
                       </div>
                     </div>
@@ -787,11 +850,11 @@ const LegalServicesMarketing = () => {
                         <Input
                           id="phone"
                           placeholder="(555) 123-4567"
-                          {...register("phone")}
-                          className={errors.phone ? "border-red-500" : ""}
+                          {...registerInline("phone")}
+                          className={inlineErrors.phone ? "border-red-500" : ""}
                         />
-                        {errors.phone && (
-                          <p className="text-red-500 text-sm">{errors.phone.message}</p>
+                        {inlineErrors.phone && (
+                          <p className="text-red-500 text-sm">{inlineErrors.phone.message}</p>
                         )}
                       </div>
 
@@ -800,19 +863,19 @@ const LegalServicesMarketing = () => {
                         <Input
                           id="company"
                           placeholder="Your law firm name"
-                          {...register("company")}
-                          className={errors.company ? "border-red-500" : ""}
+                          {...registerInline("company")}
+                          className={inlineErrors.company ? "border-red-500" : ""}
                         />
-                        {errors.company && (
-                          <p className="text-red-500 text-sm">{errors.company.message}</p>
+                        {inlineErrors.company && (
+                          <p className="text-red-500 text-sm">{inlineErrors.company.message}</p>
                         )}
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="industry">Legal Specialty *</Label>
-                      <Select onValueChange={(value) => setValue("industry", value)} defaultValue="legal-services">
-                        <SelectTrigger className={errors.industry ? "border-red-500" : ""}>
+                      <Select onValueChange={(value) => setValueInline("industry", value)} defaultValue="legal-services">
+                        <SelectTrigger className={inlineErrors.industry ? "border-red-500" : ""}>
                           <SelectValue placeholder="Select your practice area" />
                         </SelectTrigger>
                         <SelectContent>
@@ -826,8 +889,8 @@ const LegalServicesMarketing = () => {
                           <SelectItem value="estate-planning">Estate Planning</SelectItem>
                         </SelectContent>
                       </Select>
-                      {errors.industry && (
-                        <p className="text-red-500 text-sm">{errors.industry.message}</p>
+                      {inlineErrors.industry && (
+                        <p className="text-red-500 text-sm">{inlineErrors.industry.message}</p>
                       )}
                     </div>
 
@@ -837,11 +900,11 @@ const LegalServicesMarketing = () => {
                         id="message"
                         placeholder="Describe your consultation conversion, authority building, or client acquisition challenges..."
                         rows={4}
-                        {...register("message")}
-                        className={errors.message ? "border-red-500" : ""}
+                        {...registerInline("message")}
+                        className={inlineErrors.message ? "border-red-500" : ""}
                       />
-                      {errors.message && (
-                        <p className="text-red-500 text-sm">{errors.message.message}</p>
+                      {inlineErrors.message && (
+                        <p className="text-red-500 text-sm">{inlineErrors.message.message}</p>
                       )}
                     </div>
 
@@ -849,9 +912,9 @@ const LegalServicesMarketing = () => {
                       type="submit" 
                       className="w-full" 
                       size="lg"
-                      disabled={isSubmitting}
+                      disabled={isInlineSubmitting}
                     >
-                      {isSubmitting ? (
+                      {isInlineSubmitting ? (
                         <>
                           <Clock className="w-5 h-5 mr-2 animate-spin" />
                           Analyzing Your Legal Practice...
@@ -886,12 +949,12 @@ const LegalServicesMarketing = () => {
                 your firm as the trusted expert clients choose in their time of need.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Get Legal Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600" onClick={() => window.open('tel:+13865550123')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call: (386) 555-0123
                 </Button>
@@ -905,6 +968,99 @@ const LegalServicesMarketing = () => {
 
         <Footer />
       </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Get Started with Legal Services Marketing</DialogTitle>
+            <DialogDescription>
+              Let's discuss your authority building goals and help you convert more consultations into clients.
+            </DialogDescription>
+          </DialogHeader>
+
+          {submitSuccess ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <path d="M22 4 12 14.01l-3-3"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
+              <p className="text-muted-foreground">I'll analyze your legal practice and send you a detailed marketing strategy within 48 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
+                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
+                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
+                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label>Business Type *</Label>
+                  <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
+                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
+                      <SelectValue placeholder="Select your practice area" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="personal-injury">Personal Injury</SelectItem>
+                      <SelectItem value="criminal-defense">Criminal Defense</SelectItem>
+                      <SelectItem value="family-law">Family Law</SelectItem>
+                      <SelectItem value="corporate-law">Corporate Law</SelectItem>
+                      <SelectItem value="employment-law">Employment Law</SelectItem>
+                      <SelectItem value="real-estate-law">Real Estate Law</SelectItem>
+                      <SelectItem value="estate-planning">Estate Planning</SelectItem>
+                      <SelectItem value="immigration-law">Immigration Law</SelectItem>
+                      <SelectItem value="other">Other Legal Services</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="selectedService">Selected Service *</Label>
+                <Input id="selectedService" readOnly {...register('selectedService')} />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
+                <Textarea 
+                  id="marketingChallenge" 
+                  placeholder="What's your law firm's website? What challenges are you facing with consultation conversion, authority building, or client acquisition?" 
+                  className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} 
+                  {...register('marketingChallenge')} 
+                />
+                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <Button type="submit" variant="hero" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Get Started'}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   );
 };

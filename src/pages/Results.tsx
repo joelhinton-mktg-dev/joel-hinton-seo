@@ -1,9 +1,15 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PageBreadcrumb } from "@/components/ui/breadcrumb";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   TrendingUp, 
   Users, 
@@ -20,8 +26,49 @@ import {
   Calendar,
   Phone
 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { Link } from 'react-router-dom';
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  businessType: z.string().min(1, "Please select your business type"),
+  marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
+  selectedService: z.string().default("SEO Audit")
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Results = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: "SEO Audit" }
+  });
+
+  const onSubmitForm = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
+    setIsSubmitting(true);
+    await new Promise(r => setTimeout(r, 1000));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Results contact form submitted:", data);
+    }
+    setSubmitSuccess(true);
+    reset();
+    setTimeout(() => {
+      setSubmitSuccess(false);
+      setIsDialogOpen(false);
+    }, 2000);
+    setIsSubmitting(false);
+  };
+
   const keyMetrics = [
     {
       icon: <TrendingUp className="w-8 h-8" />,
@@ -156,7 +203,42 @@ const Results = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <Helmet>
+        <title>Client Results & Case Studies | Proven Marketing ROI | Joel Hinton</title>
+        <meta name="description" content="Proven SEO and digital marketing results from Joel Hinton. Real case studies showing increased rankings, traffic, and revenue for Florida clients." />
+        <meta name="keywords" content="marketing results, case studies, client testimonials, SEO results, growth marketing ROI" />
+        <meta name="robots" content="index, follow" />
+        
+        <meta property="og:title" content="Client Results & Case Studies | Proven Marketing ROI | Joel Hinton" />
+        <meta property="og:description" content="Proven SEO and digital marketing results from Joel Hinton. Real case studies showing increased rankings, traffic, and revenue." />
+        <meta property="og:type" content="website" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Client Results & Case Studies | Proven Marketing ROI" />
+        <meta name="twitter:description" content="Proven SEO and digital marketing results from Joel Hinton. Real case studies showing increased rankings, traffic, and revenue." />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Client Results & Case Studies",
+            "description": "Real case studies and proven results from Joel Hinton's marketing campaigns",
+            "provider": {
+              "@type": "Person",
+              "name": "Joel Hinton",
+              "jobTitle": "Digital Marketing Consultant"
+            },
+            "mainEntity": {
+              "@type": "Service",
+              "name": "Digital Marketing Results",
+              "description": "Proven marketing results and client case studies"
+            }
+          })}
+        </script>
+      </Helmet>
+
+      <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Breadcrumb */}
@@ -268,10 +350,50 @@ const Results = () => {
             </div>
 
             <div className="text-center">
-              <Badge variant="secondary" className="text-sm px-4 py-2">
-                Real Estate • Healthcare • Home Services • E-commerce • Professional Services • SaaS • Legal
-              </Badge>
+            <div className="flex flex-wrap justify-center gap-2 text-sm">
+              <Link to="/industries/real-estate">
+                <Badge variant="secondary" className="px-4 py-2 hover:bg-secondary/80 transition-colors cursor-pointer">
+                  Real Estate
+                </Badge>
+              </Link>
+              <span className="text-muted-foreground self-center">•</span>
+              <Link to="/industries/healthcare">
+                <Badge variant="secondary" className="px-4 py-2 hover:bg-secondary/80 transition-colors cursor-pointer">
+                  Healthcare
+                </Badge>
+              </Link>
+              <span className="text-muted-foreground self-center">•</span>
+              <Link to="/industries/home-services">
+                <Badge variant="secondary" className="px-4 py-2 hover:bg-secondary/80 transition-colors cursor-pointer">
+                  Home Services
+                </Badge>
+              </Link>
+              <span className="text-muted-foreground self-center">•</span>
+              <Link to="/industries/ecommerce">
+                <Badge variant="secondary" className="px-4 py-2 hover:bg-secondary/80 transition-colors cursor-pointer">
+                  E-commerce
+                </Badge>
+              </Link>
+              <span className="text-muted-foreground self-center">•</span>
+              <Link to="/industries/professional-services">
+                <Badge variant="secondary" className="px-4 py-2 hover:bg-secondary/80 transition-colors cursor-pointer">
+                  Professional Services
+                </Badge>
+              </Link>
+              <span className="text-muted-foreground self-center">•</span>
+              <Link to="/industries/saas">
+                <Badge variant="secondary" className="px-4 py-2 hover:bg-secondary/80 transition-colors cursor-pointer">
+                  SaaS
+                </Badge>
+              </Link>
+              <span className="text-muted-foreground self-center">•</span>
+              <Link to="/industries/legal-services">
+                <Badge variant="secondary" className="px-4 py-2 hover:bg-secondary/80 transition-colors cursor-pointer">
+                  Legal
+                </Badge>
+              </Link>
             </div>
+</div>
           </div>
         </div>
       </section>
@@ -532,49 +654,63 @@ const Results = () => {
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <Card className="bg-card border-border">
-                <CardContent className="p-6 text-center">
-                  <Calendar className="w-8 h-8 text-primary mx-auto mb-4" />
-                  <h3 className="font-bold text-foreground mb-2">Start with an Audit</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    See exactly where you're losing opportunities
-                  </p>
-                  <Button variant="outline" size="sm" className="w-full">
-                    Schedule Audit
-                  </Button>
-                </CardContent>
-              </Card>
+            <Card className="bg-card border-border">
+              <CardContent className="p-6 text-center">
+                <Calendar className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h3 className="font-bold text-foreground mb-2">Start with an Audit</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  See exactly where you're losing opportunities
+                </p>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={() => setIsDialogOpen(true)}
+                >
+                  Schedule Audit
+                </Button>
+              </CardContent>
+            </Card>
 
-              <Card className="bg-card border-border">
-                <CardContent className="p-6 text-center">
-                  <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
-                  <h3 className="font-bold text-foreground mb-2">Strategy Call</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Discuss your specific situation and goals
-                  </p>
-                  <Button variant="outline" size="sm" className="w-full">
-                    Book Call
-                  </Button>
-                </CardContent>
-              </Card>
+            <Card className="bg-card border-border">
+              <CardContent className="p-6 text-center">
+                <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h3 className="font-bold text-foreground mb-2">Strategy Call</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Discuss your specific situation and goals
+                </p>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={() => setIsDialogOpen(true)}
+                >
+                  Book Call
+                </Button>
+              </CardContent>
+            </Card>
 
-              <Card className="bg-card border-border">
-                <CardContent className="p-6 text-center">
-                  <Target className="w-8 h-8 text-primary mx-auto mb-4" />
-                  <h3 className="font-bold text-foreground mb-2">Choose a Plan</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Select the solution that fits your goals
-                  </p>
+            <Card className="bg-card border-border">
+              <CardContent className="p-6 text-center">
+                <Target className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h3 className="font-bold text-foreground mb-2">Choose a Plan</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Select the solution that fits your goals
+                </p>
+                <Link to="/services">
                   <Button variant="outline" size="sm" className="w-full">
                     View Services
                   </Button>
-                </CardContent>
-              </Card>
-            </div>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
 
-            <Button variant="hero" size="lg" className="mb-4">
-              Get Your Results Documentation
-            </Button>
+                <Link to="/contact">
+                <Button variant="hero" size="lg" className="mb-4">
+                  Get Your Results Documentation
+                </Button>
+                </Link>
             
             <p className="text-sm text-muted-foreground">
               Every project includes our Results Documentation Promise - you'll see exactly what we accomplished and how it impacts your business.
@@ -582,8 +718,101 @@ const Results = () => {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Schedule Your SEO Audit</DialogTitle>
+            <DialogDescription>
+              Get a comprehensive analysis of your current SEO performance and a roadmap for improvement.
+            </DialogDescription>
+          </DialogHeader>
+
+          {submitSuccess ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <path d="M22 4 12 14.01l-3-3"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
+              <p className="text-muted-foreground">I'll review your information and reach out within 24 hours to schedule your SEO audit.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
+                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
+                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
+                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label>Business Type *</Label>
+                  <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
+                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
+                      <SelectValue placeholder="Select your industry" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="professional-services">Professional Services</SelectItem>
+                      <SelectItem value="ecommerce">E-commerce</SelectItem>
+                      <SelectItem value="saas">SaaS / Tech</SelectItem>
+                      <SelectItem value="healthcare">Healthcare</SelectItem>
+                      <SelectItem value="home-services">Home Services</SelectItem>
+                      <SelectItem value="real-estate">Real Estate</SelectItem>
+                      <SelectItem value="restaurant">Restaurant & Hospitality</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="selectedService">Selected Service *</Label>
+                <Input id="selectedService" value="SEO Audit" readOnly {...register('selectedService')} />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
+                <Textarea 
+                  id="marketingChallenge" 
+                  placeholder="What's your website URL? What are your current SEO challenges? What results are you looking to achieve?" 
+                  className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} 
+                  {...register('marketingChallenge')} 
+                />
+                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <Button type="submit" variant="hero" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Schedule SEO Audit'}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

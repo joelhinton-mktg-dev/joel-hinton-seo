@@ -1,9 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 import { 
-  Building2, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
-  BarChart3, Phone, Calendar, Star, Zap, Clock, MapPin, 
-  Shield, AlertTriangle, Home, Wrench
+  DollarSign, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
+  BarChart3, Phone, Calendar, Star, Shield, Lock, UserCheck, 
+  Clock, FileText, Building2, Eye, AlertTriangle
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,25 +16,29 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import ContactDialog from '@/components/ContactDialog';
-import { useContactDialog } from '@/hooks/useContactDialog';
-import { businessTypes } from '@/types/contact-forms';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 
 
-const HomeServicesMarketing = () => {
-  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Home Services Marketing Audit');
+const FinancialServicesMarketing = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Financial Marketing Audit');
   return (
     <>
       <Helmet>
-        <title>Home Services Marketing Psychology | HVAC, Plumbing, Roofing Marketing | Joel Hinton</title>
-        <meta name="description" content="Emergency-driven home services marketing that converts anxious homeowners into customers. Psychology strategies for HVAC, plumbing, roofing with 320% traffic growth." />
-        <meta name="keywords" content="home services marketing, HVAC marketing, plumbing marketing, roofing marketing, emergency service marketing, local contractor marketing" />
+        <title>Financial Services Marketing Psychology | Investment & Insurance Marketing | Joel Hinton</title>
+        <meta name="description" content="Security-focused financial marketing that builds trust and drives qualified leads. Psychology strategies for financial advisors with 275% lead growth." />
+        <meta name="keywords" content="financial services marketing, financial advisor marketing, investment marketing, insurance marketing, financial psychology, wealth management marketing" />
         <meta name="robots" content="index, follow" />
         
-        <meta property="og:title" content="Home Services Marketing Psychology | Emergency Service Marketing" />
-        <meta property="og:description" content="Emergency-driven marketing strategies that convert anxious homeowners into customers with proven results." />
+        <meta property="og:title" content="Financial Services Marketing Psychology | Investment & Insurance Marketing" />
+        <meta property="og:description" content="Security-focused marketing strategies that build trust and drive qualified financial service leads." />
         <meta property="og:type" content="website" />
       </Helmet>
+      <ProfessionalServiceSchema 
+        serviceName="Financial Services Marketing"
+        serviceDescription="Security-focused marketing strategies for financial advisors and institutions that build trust and drive qualified leads"
+        serviceUrl="https://joelhintonmarketing.com/industries/financial-services"
+        serviceType="Financial Marketing"
+      />
 
       <div className="min-h-screen bg-background">
         <Navigation />
@@ -39,7 +46,7 @@ const HomeServicesMarketing = () => {
         <PageBreadcrumb 
           items={[
             { label: "Industries", href: "/industries" },
-            { label: "Home Services", current: true }
+            { label: "Financial Services", current: true }
           ]}
         />
 
@@ -48,44 +55,45 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
               <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
-                <Building2 className="w-4 h-4 mr-2" />
-                Home Services Marketing Specialist
+                <DollarSign className="w-4 h-4 mr-2" />
+                Financial Marketing Specialist
               </Badge>
               
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Home Services Marketing <span className="text-primary">Psychology</span> That Converts Emergencies to Customers
+                Financial Services Marketing <span className="text-primary">Psychology</span> That Builds Trust & Security
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                When homeowners have emergencies, they're anxious and need immediate relief. Our psychology-driven strategies 
-                position your business as the trusted <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> solution that provides instant peace of mind and reliable results. 
-                With our comprehensive <Link to="/seo-services" className="text-primary hover:underline">SEO services</Link>, you'll be found first when customers need help most.
+                Financial decisions involve security concerns, trust requirements, and long-term planning anxiety. Our compliant 
+                marketing strategies position your firm as the trustworthy choice through credibility building, security emphasis, 
+                and outcome demonstration. Combined with strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and 
+                <Link to="/growth-marketing" className="text-primary hover:underline">growth marketing</Link>, we attract qualified prospects ready to invest in their financial future.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Target className="w-5 h-5 mr-2" />
-                  Get Home Services Audit
+                  Get Financial Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Phone className="w-5 h-5 mr-2" />
-                  Emergency Marketing Help
+                  Financial Strategy Call
                 </Button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto text-center">
                 <div className="p-4">
                   <TrendingUp className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">320% Traffic Growth</p>
+                  <p className="text-sm font-medium">275% Qualified Leads</p>
                 </div>
                 <div className="p-4">
                   <Users className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">420% More Emergency Calls</p>
+                  <p className="text-sm font-medium">385% More Consultations</p>
                 </div>
                 <div className="p-4">
                   <Award className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">380% ROI Increase</p>
+                  <p className="text-sm font-medium">450% ROI Increase</p>
                 </div>
               </div>
             </div>
@@ -97,42 +105,42 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services <span className="gradient-text">Psychology Triggers</span>
+                Financial <span className="gradient-text">Psychology Triggers</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Home service customers are often in crisis mode or planning important projects. We leverage these psychological 
-                states to create marketing that provides immediate relief and builds long-term trust.
+                Financial decisions are driven by security needs, trust requirements, and future planning concerns. 
+                We position your services as the secure foundation for financial confidence and success.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="card-professional text-center">
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto mb-4">
-                    <AlertTriangle className="w-8 h-8" />
+                  <div className="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4">
+                    <Shield className="w-8 h-8" />
                   </div>
-                  <CardTitle className="text-xl">Emergency Urgency</CardTitle>
+                  <CardTitle className="text-xl">Security & Trust</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    "No heat in winter" or "flooded basement" creates immediate need. We position your business as the fast, reliable emergency solution.
+                    Financial clients need absolute confidence in security, credentials, and fiduciary responsibility before trusting their money.
                   </p>
                   <ul className="text-sm space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>24/7 availability messaging</span>
+                      <span>Credential & certification display</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Fast response time guarantees</span>
+                      <span>Security protocol transparency</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Emergency contact prominence</span>
+                      <span>Fiduciary responsibility emphasis</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Crisis relief positioning</span>
+                      <span>Client testimonial programs</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -141,30 +149,30 @@ const HomeServicesMarketing = () => {
               <Card className="card-professional text-center">
                 <CardHeader>
                   <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-8 h-8" />
+                    <BarChart3 className="w-8 h-8" />
                   </div>
-                  <CardTitle className="text-xl">Local Trust Signals</CardTitle>
+                  <CardTitle className="text-xl">Results & Performance Proof</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    Homeowners prefer local contractors they can trust. We emphasize community connections, local presence, and neighborhood expertise.
+                    Financial clients need evidence of successful outcomes and portfolio performance before committing to advisory relationships.
                   </p>
                   <ul className="text-sm space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Local business licensing display</span>
+                      <span>Portfolio performance data</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Community involvement showcase</span>
+                      <span>Client success case studies</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Neighborhood project examples</span>
+                      <span>Awards & recognition showcase</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Local review emphasis</span>
+                      <span>Transparent fee structures</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -172,31 +180,31 @@ const HomeServicesMarketing = () => {
 
               <Card className="card-professional text-center">
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4">
-                    <Wrench className="w-8 h-8" />
+                  <div className="w-16 h-16 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-4">
+                    <AlertTriangle className="w-8 h-8" />
                   </div>
-                  <CardTitle className="text-xl">Before/After Transformations</CardTitle>
+                  <CardTitle className="text-xl">Financial Planning Urgency</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    Visual proof of transformation builds confidence and helps customers envision their own results with your services.
+                    Create appropriate urgency around retirement planning, tax optimization, and wealth protection without being pushy.
                   </p>
                   <ul className="text-sm space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Project photo galleries</span>
+                      <span>Retirement readiness assessments</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Transformation videos</span>
+                      <span>Tax deadline campaigns</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Problem-solution stories</span>
+                      <span>Market opportunity timing</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Customer satisfaction focus</span>
+                      <span>Educational urgency messaging</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -210,11 +218,11 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services Marketing <span className="gradient-text">Challenges We Solve</span>
+                Financial Marketing <span className="gradient-text">Challenges We Solve</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Home services businesses face unique marketing challenges from seasonal demand to local competition. 
-                We've developed specialized solutions for the industry's biggest pain points.
+                Financial services face unique challenges from regulatory compliance to trust building. 
+                We've developed specialized solutions for the financial industry's biggest obstacles.
               </p>
             </div>
 
@@ -222,72 +230,24 @@ const HomeServicesMarketing = () => {
               <Card className="card-professional">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
-                    <Calendar className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Seasonal Demand</CardTitle>
+                    <Lock className="w-6 h-6 text-primary" />
+                    <CardTitle className="text-xl">Regulatory Compliance</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Navigate seasonal fluctuations with strategic marketing that maintains revenue year-round and captures peak demand.
+                    Navigate complex financial regulations while creating effective marketing that builds trust and drives qualified leads.
                   </p>
                   <div className="bg-primary/5 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Our Solution:</h4>
                     <ul className="text-sm space-y-1">
-                      <li>• Seasonal service promotion campaigns</li>
-                      <li>• Off-season maintenance marketing</li>
-                      <li>• Weather-triggered emergency campaigns</li>
-                      <li>• Preventive service education</li>
+                      <li>• Compliance-first content strategies</li>
+                      <li>• Regulatory-approved messaging</li>
+                      <li>• Disclaimer integration</li>
+                      <li>• Professional review processes</li>
                     </ul>
                   </div>
-                  <div className="text-sm text-primary font-medium">Result: 40% more consistent monthly revenue</div>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Target className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Local Competition</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Stand out from countless local competitors by building unique positioning and trust signals that customers remember.
-                  </p>
-                  <div className="bg-primary/5 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Our Solution:</h4>
-                    <ul className="text-sm space-y-1">
-                      <li>• Unique value proposition development</li>
-                      <li>• Local SEO domination</li>
-                      <li>• Brand differentiation strategies</li>
-                      <li>• Community involvement campaigns</li>
-                    </ul>
-                  </div>
-                  <div className="text-sm text-primary font-medium">Result: 75% market share in service areas</div>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Clock className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Emergency Response</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Capture emergency calls when customers are most motivated to hire and willing to pay premium prices for immediate service.
-                  </p>
-                  <div className="bg-primary/5 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Our Solution:</h4>
-                    <ul className="text-sm space-y-1">
-                      <li>• Emergency keyword optimization</li>
-                      <li>• 24/7 response positioning</li>
-                      <li>• Crisis communication strategies</li>
-                      <li>• Premium emergency pricing psychology</li>
-                    </ul>
-                  </div>
-                  <div className="text-sm text-primary font-medium">Result: 85% increase in emergency call volume</div>
+                  <div className="text-sm text-primary font-medium">Result: 100% compliance with increased conversions</div>
                 </CardContent>
               </Card>
 
@@ -295,23 +255,71 @@ const HomeServicesMarketing = () => {
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
                     <Shield className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Pricing Transparency</CardTitle>
+                    <CardTitle className="text-xl">Trust & Credibility Building</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Overcome price objections and build trust with transparent, value-focused pricing that justifies your expertise.
+                    Overcome financial advisor skepticism through transparent practices, credential showcasing, and client success demonstration.
                   </p>
                   <div className="bg-primary/5 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Our Solution:</h4>
                     <ul className="text-sm space-y-1">
-                      <li>• Value-based pricing presentation</li>
-                      <li>• Upfront pricing displays</li>
-                      <li>• Quality vs cost education</li>
-                      <li>• Guarantee and warranty emphasis</li>
+                      <li>• Professional designation prominence</li>
+                      <li>• Transparent fee structures</li>
+                      <li>• Client success stories</li>
+                      <li>• Third-party validation</li>
                     </ul>
                   </div>
-                  <div className="text-sm text-primary font-medium">Result: 45% improvement in quote acceptance</div>
+                  <div className="text-sm text-primary font-medium">Result: 85% improvement in consultation requests</div>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Target className="w-6 h-6 text-primary" />
+                    <CardTitle className="text-xl">Lead Quality & Qualification</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Attract high-net-worth prospects with investment capacity rather than casual inquiries looking for free advice.
+                  </p>
+                  <div className="bg-primary/5 p-4 rounded-lg">
+                    <h4 className="font-semibold mb-2">Our Solution:</h4>
+                    <ul className="text-sm space-y-1">
+                      <li>• Wealth-qualified lead magnets</li>
+                      <li>• Investment minimums messaging</li>
+                      <li>• Sophisticated investor targeting</li>
+                      <li>• Premium service positioning</li>
+                    </ul>
+                  </div>
+                  <div className="text-sm text-primary font-medium">Result: 75% increase in qualified leads</div>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Clock className="w-6 h-6 text-primary" />
+                    <CardTitle className="text-xl">Complex Service Education</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Simplify complex financial concepts and services so prospects understand value and feel confident making decisions.
+                  </p>
+                  <div className="bg-primary/5 p-4 rounded-lg">
+                    <h4 className="font-semibold mb-2">Our Solution:</h4>
+                    <ul className="text-sm space-y-1">
+                      <li>• Educational content marketing</li>
+                      <li>• Complex concept simplification</li>
+                      <li>• Video explanation series</li>
+                      <li>• Interactive planning tools</li>
+                    </ul>
+                  </div>
+                  <div className="text-sm text-primary font-medium">Result: 60% improvement in consultation conversion</div>
                 </CardContent>
               </Card>
             </div>
@@ -323,44 +331,44 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Proven <span className="gradient-text">Home Services Results</span>
+                Proven <span className="gradient-text">Financial Results</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Our home services marketing consistently delivers measurable improvements across 
-                all key performance indicators for contractors and service providers.
+                Our financial services marketing consistently delivers measurable improvements in lead quality, 
+                client acquisition, and assets under management.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-primary mb-2">320%</div>
-                  <div className="text-lg font-semibold mb-2">Traffic Growth</div>
-                  <p className="text-sm text-muted-foreground">Local homeowners finding your services</p>
+                  <div className="text-4xl font-bold text-primary mb-2">275%</div>
+                  <div className="text-lg font-semibold mb-2">Qualified Leads</div>
+                  <p className="text-sm text-muted-foreground">High-value prospect inquiries</p>
                 </CardContent>
               </Card>
 
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-green-600 mb-2">420%</div>
-                  <div className="text-lg font-semibold mb-2">Lead Generation</div>
-                  <p className="text-sm text-muted-foreground">Emergency and scheduled service calls</p>
+                  <div className="text-4xl font-bold text-green-600 mb-2">385%</div>
+                  <div className="text-lg font-semibold mb-2">Consultations</div>
+                  <p className="text-sm text-muted-foreground">Qualified consultation requests</p>
                 </CardContent>
               </Card>
 
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">380%</div>
+                  <div className="text-4xl font-bold text-blue-600 mb-2">450%</div>
                   <div className="text-lg font-semibold mb-2">ROI Increase</div>
-                  <p className="text-sm text-muted-foreground">Return on marketing investment</p>
+                  <p className="text-sm text-muted-foreground">Marketing return on investment</p>
                 </CardContent>
               </Card>
 
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
                   <div className="text-4xl font-bold text-purple-600 mb-2">85%</div>
-                  <div className="text-lg font-semibold mb-2">Quote Acceptance</div>
-                  <p className="text-sm text-muted-foreground">Prospects choosing your services</p>
+                  <div className="text-lg font-semibold mb-2">Client Retention</div>
+                  <p className="text-sm text-muted-foreground">Long-term client relationships</p>
                 </CardContent>
               </Card>
             </div>
@@ -372,50 +380,48 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services Marketing <span className="gradient-text">Service Options</span>
+                Financial Marketing <span className="gradient-text">Service Options</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Choose the home services marketing package that fits your business size and service area. 
-                All packages include emergency psychology optimization and local trust building.
+                Choose the financial marketing package that fits your practice size and client goals. 
+                All packages include compliance expertise and trust-building psychology.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <Card className="card-professional">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">Local Contractor</CardTitle>
-                  <CardDescription>Perfect for single-location contractors</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$1,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-2xl mb-2">Advisor Foundation</CardTitle>
+                  <CardDescription>Perfect for independent financial advisors</CardDescription>
+                  <div className="text-3xl font-bold text-primary mt-4">$2,597<span className="text-base font-normal text-muted-foreground">/mo</span></div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Local SEO optimization</span>
+                      <span className="text-sm">Compliance-focused content</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Emergency response campaigns</span>
+                      <span className="text-sm">Trust-building campaigns</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Google Business Profile mastery</span>
+                      <span className="text-sm">Educational content marketing</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Review management system</span>
+                      <span className="text-sm">Local client targeting</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Seasonal campaign management</span>
+                      <span className="text-sm">Credential showcasing</span>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full" 
-                    variant="outline" 
-                    onClick={() => selectService("Local Contractor - $1,997/mo")}
-                  >
-                    Start Local Growth
+                  <Button className="w-full" variant="outline" onClick={() => {
+                    selectService("Advisor Foundation - $2,597/mo");
+                  }}>
+                    Build Advisory Practice
                   </Button>
                 </CardContent>
               </Card>
@@ -425,19 +431,27 @@ const HomeServicesMarketing = () => {
                   <Badge className="bg-primary text-primary-foreground px-4 py-1">Most Popular</Badge>
                 </div>
                 <CardHeader className="text-center pt-8">
-                  <CardTitle className="text-2xl mb-2">Service Dominator</CardTitle>
-                  <CardDescription>For established home service companies</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$3,497<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-2xl mb-2">Wealth Authority</CardTitle>
+                  <CardDescription>For established financial practices</CardDescription>
+                  <div className="text-3xl font-bold text-primary mt-4">$4,297<span className="text-base font-normal text-muted-foreground">/mo</span></div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in Local Contractor</span>
+                      <span className="text-sm">Everything in Advisor Foundation</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Multi-service optimization</span>
+                      <span className="text-sm">High-net-worth targeting</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-sm">Thought leadership content</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-sm">Referral network building</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
@@ -445,45 +459,36 @@ const HomeServicesMarketing = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Premium service positioning</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Maintenance contract marketing</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Competitive intelligence</span>
+                      <span className="text-sm">Performance reporting</span>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full" 
-                    onClick={() => selectService("Service Dominator - $3,497/mo")}
-                  >
-                    Dominate Your Market
+                  <Button className="w-full" onClick={() => {
+                    selectService("Wealth Authority - $4,297/mo");
+                  }}>
+                    Build Wealth Authority
                   </Button>
                 </CardContent>
               </Card>
 
               <Card className="card-professional">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">Regional Empire</CardTitle>
-                  <CardDescription>For multi-location service companies</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$5,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-2xl mb-2">Financial Empire</CardTitle>
+                  <CardDescription>For large financial institutions</CardDescription>
+                  <div className="text-3xl font-bold text-primary mt-4">$7,297<span className="text-base font-normal text-muted-foreground">/mo</span></div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in Service Dominator</span>
+                      <span className="text-sm">Everything in Wealth Authority</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Multi-location coordination</span>
+                      <span className="text-sm">Multi-office coordination</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Franchise marketing systems</span>
+                      <span className="text-sm">Enterprise lead systems</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
@@ -491,19 +496,17 @@ const HomeServicesMarketing = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Enterprise reporting</span>
+                      <span className="text-sm">Custom integrations</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Priority emergency support</span>
+                      <span className="text-sm">Priority support</span>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full" 
-                    variant="outline" 
-                    onClick={() => selectService("Regional Empire - $5,997/mo")}
-                  >
-                    Build Service Empire
+                  <Button className="w-full" variant="outline" onClick={() => {
+                    selectService("Financial Empire - $7,297/mo");
+                  }}>
+                    Scale Financial Empire
                   </Button>
                 </CardContent>
               </Card>
@@ -516,44 +519,44 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services Marketing <span className="gradient-text">FAQ</span>
+                Financial Marketing <span className="gradient-text">FAQ</span>
               </h2>
             </div>
 
             <Accordion type="single" collapsible className="space-y-4">
               <AccordionItem value="item-1" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  How do you handle seasonal fluctuations in home services marketing?
+                  How do you ensure financial marketing compliance?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  We create year-round marketing strategies that adapt to seasonal demand. Summer focuses on HVAC and cooling, winter on heating and storm damage, spring on maintenance and improvements. We also develop off-season campaigns for preventive services and maintenance contracts to smooth revenue fluctuations.
+                  We follow strict regulatory guidelines including FINRA, SEC, and state insurance regulations. All content is reviewed for compliance, disclaimers are properly integrated, and we avoid prohibited claims or guarantees. We also provide training on compliant marketing practices and maintain current knowledge of regulatory changes.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  What makes home services marketing different from other industries?
+                  What types of financial services do you work with?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Home services often involve emergencies or urgent needs, creating high-stress decision-making situations. We focus on immediate relief psychology, local trust signals, and emergency response positioning. The goal is to be the first call when homeowners need help, not compete in a crowded marketplace.
+                  We work with financial advisors, wealth managers, insurance agents, accounting firms, tax preparers, mortgage brokers, and financial planning practices. Each requires different trust-building approaches - wealth management emphasizes performance and security, while insurance focuses on protection and peace of mind.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-3" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  Do you work with all types of home service businesses?
+                  How do you improve lead quality for financial services?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Yes, we work with HVAC, plumbing, electrical, roofing, landscaping, cleaning, pest control, and other home service providers. Each service type requires different psychological approaches - emergency services focus on urgency, while improvement services emphasize transformation and value.
+                  We create content and campaigns that attract prospects with investment capacity and serious financial planning needs. This includes minimum investment messaging, sophisticated investor targeting, educational content that demonstrates expertise, and lead qualification systems that filter out unqualified prospects.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-4" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  How quickly can home service businesses see marketing results?
+                  How quickly can financial services see marketing results?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Home services typically see faster results than other industries due to urgent local needs. Local SEO improvements show within 30-60 days, emergency campaigns can generate calls within days, and full optimization usually achieves results within 3-6 months. We track calls, leads, and conversion rates monthly.
+                  Financial services typically see trust-building results within 60-90 days as content gains traction. Lead generation improvements usually occur within 3-6 months, while long-term authority and referral network development can take 6-12 months. We track consultation requests, lead quality scores, and assets under management monthly.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -561,47 +564,47 @@ const HomeServicesMarketing = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-24 bg-gradient-to-r from-orange-600 to-red-700">
+        <section className="py-24 bg-gradient-to-r from-blue-600 to-green-700">
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="text-center">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Dominate Your Local Market?
+                Ready to Attract High-Value Financial Clients?
               </h2>
-              <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-                Stop losing emergency calls to competitors. Get home services marketing that positions you as 
-                the trusted local expert customers call first when they need help.
+              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Stop competing on price and start winning with trust. Get financial services marketing 
+                that builds credibility, attracts qualified prospects, and grows your practice.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Calendar className="w-5 h-5 mr-2" />
-                  Get Home Services Audit
+                  Get Financial Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-orange-600" onClick={() => window.open('tel:+13865550123')}>
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600" onClick={() => window.open('tel:+13865550123')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call: (386) 555-0123
                 </Button>
               </div>
-              <p className="text-orange-200 text-center">
-                Emergency marketing • Local expertise • Proven contractor growth
+              <p className="text-blue-200 text-center">
+                Trust building • Compliance expertise • Qualified lead generation
               </p>
             </div>
           </div>
         </section>
 
         <Footer />
-      </div>
 
-      <ContactDialog 
-        isOpen={isOpen}
-        onClose={closeDialog}
-        title="Get Your Free Home Services Marketing Consultation"
-        description="Let's discuss how we can help grow your home services business with emergency-driven marketing strategies."
-        defaultService={selectedService}
-        businessTypes={businessTypes.homeServices}
-      />
+        <ContactDialog 
+          isOpen={isOpen}
+          onClose={closeDialog}
+          title="Get Your Free Financial Marketing Audit"
+          description="Let's discuss how we can help build trust and attract qualified financial clients."
+          defaultService={selectedService}
+          businessTypes={businessTypes.financial}
+        />
+      </div>
     </>
   );
 };
 
-export default HomeServicesMarketing;
+export default FinancialServicesMarketing;

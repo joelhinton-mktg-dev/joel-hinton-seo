@@ -1,6 +1,8 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 import { 
   Stethoscope, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
   BarChart3, Phone, Calendar, Star, Shield, Heart, UserCheck, 
@@ -14,8 +16,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
+
 
 const HealthcareMarketing = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Healthcare Marketing Audit');
   return (
     <>
       <Helmet>
@@ -28,6 +33,12 @@ const HealthcareMarketing = () => {
         <meta property="og:description" content="HIPAA-compliant healthcare marketing strategies that build trust and drive patient appointments with proven results." />
         <meta property="og:type" content="website" />
       </Helmet>
+      <ProfessionalServiceSchema 
+        serviceName="Healthcare Marketing"
+        serviceDescription="HIPAA-compliant healthcare marketing strategies that build trust and drive patient appointments"
+        serviceUrl="https://joelhintonmarketing.com/industries/healthcare"
+        serviceType="Healthcare Marketing"
+      />
 
       <div className="min-h-screen bg-background">
         <Navigation />
@@ -60,12 +71,12 @@ const HealthcareMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg">
+                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Target className="w-5 h-5 mr-2" />
                   Get Healthcare Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Phone className="w-5 h-5 mr-2" />
                   Healthcare Consultation
                 </Button>
@@ -500,7 +511,9 @@ const HealthcareMarketing = () => {
                       <span className="text-sm">Review management</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Start Practice Growth</Button>
+                  <Button className="w-full" variant="outline" onClick={() => selectService("Practice Growth - $2,197/mo")}>
+                    Start Practice Growth
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -540,7 +553,9 @@ const HealthcareMarketing = () => {
                       <span className="text-sm">Advanced analytics</span>
                     </div>
                   </div>
-                  <Button className="w-full">Become the Authority</Button>
+                  <Button className="w-full" onClick={() => selectService("Healthcare Authority - $3,597/mo")}>
+                    Become the Authority
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -577,7 +592,9 @@ const HealthcareMarketing = () => {
                       <span className="text-sm">Priority support</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Scale Health System</Button>
+                  <Button className="w-full" variant="outline" onClick={() => selectService("Health System Scale - $5,197/mo")}>
+                    Scale Health System
+                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -654,12 +671,12 @@ const HealthcareMarketing = () => {
                 for healthcare providers. Start attracting the patients you want to serve.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Get Healthcare Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-green-600">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-green-600" onClick={() => window.open('tel:+13865550123')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call: (386) 555-0123
                 </Button>
@@ -672,6 +689,15 @@ const HealthcareMarketing = () => {
         </section>
 
         <Footer />
+
+        <ContactDialog 
+          isOpen={isOpen}
+          onClose={closeDialog}
+          title="Get Your Free Healthcare Marketing Audit"
+          description="Let's discuss how we can help build patient trust and grow your medical practice."
+          defaultService={selectedService}
+          businessTypes={businessTypes.healthcare}
+        />
       </div>
     </>
   );

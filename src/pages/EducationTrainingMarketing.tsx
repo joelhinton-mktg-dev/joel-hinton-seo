@@ -1,9 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 import { 
-  Building2, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
-  BarChart3, Phone, Calendar, Star, Zap, Clock, MapPin, 
-  Shield, AlertTriangle, Home, Wrench
+  GraduationCap, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
+  BarChart3, Phone, Calendar, Star, Shield, BookOpen, UserCheck, 
+  Clock, FileText, Building2, Eye, Brain
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,25 +16,29 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import ContactDialog from '@/components/ContactDialog';
-import { useContactDialog } from '@/hooks/useContactDialog';
-import { businessTypes } from '@/types/contact-forms';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 
 
-const HomeServicesMarketing = () => {
-  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Home Services Marketing Audit');
+const EducationTrainingMarketing = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Education Marketing Audit');
   return (
     <>
       <Helmet>
-        <title>Home Services Marketing Psychology | HVAC, Plumbing, Roofing Marketing | Joel Hinton</title>
-        <meta name="description" content="Emergency-driven home services marketing that converts anxious homeowners into customers. Psychology strategies for HVAC, plumbing, roofing with 320% traffic growth." />
-        <meta name="keywords" content="home services marketing, HVAC marketing, plumbing marketing, roofing marketing, emergency service marketing, local contractor marketing" />
+        <title>Education & Training Marketing Psychology | Student Enrollment Marketing | Joel Hinton</title>
+        <meta name="description" content="Trust-driven education marketing that converts parents and students into enrollments. Psychology strategies for schools and training programs with 240% enrollment growth." />
+        <meta name="keywords" content="education marketing, student enrollment, school marketing, training program marketing, educational psychology, parent decision marketing" />
         <meta name="robots" content="index, follow" />
         
-        <meta property="og:title" content="Home Services Marketing Psychology | Emergency Service Marketing" />
-        <meta property="og:description" content="Emergency-driven marketing strategies that convert anxious homeowners into customers with proven results." />
+        <meta property="og:title" content="Education & Training Marketing Psychology | Student Enrollment Marketing" />
+        <meta property="og:description" content="Trust-driven marketing strategies that convert parents and students into enrollments with proven results." />
         <meta property="og:type" content="website" />
       </Helmet>
+      <ProfessionalServiceSchema 
+        serviceName="Education & Training Marketing"
+        serviceDescription="Trust-driven marketing strategies for schools and training programs that build credibility and drive enrollments"
+        serviceUrl="https://joelhintonmarketing.com/industries/education-training"
+        serviceType="Educational Marketing"
+      />
 
       <div className="min-h-screen bg-background">
         <Navigation />
@@ -39,7 +46,7 @@ const HomeServicesMarketing = () => {
         <PageBreadcrumb 
           items={[
             { label: "Industries", href: "/industries" },
-            { label: "Home Services", current: true }
+            { label: "Education & Training", current: true }
           ]}
         />
 
@@ -48,44 +55,45 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
               <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
-                <Building2 className="w-4 h-4 mr-2" />
-                Home Services Marketing Specialist
+                <GraduationCap className="w-4 h-4 mr-2" />
+                Education Marketing Specialist
               </Badge>
               
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Home Services Marketing <span className="text-primary">Psychology</span> That Converts Emergencies to Customers
+                Education Marketing <span className="text-primary">Psychology</span> That Builds Trust & Drives Enrollments
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                When homeowners have emergencies, they're anxious and need immediate relief. Our psychology-driven strategies 
-                position your business as the trusted <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> solution that provides instant peace of mind and reliable results. 
-                With our comprehensive <Link to="/seo-services" className="text-primary hover:underline">SEO services</Link>, you'll be found first when customers need help most.
+                Education decisions involve significant investment, future planning, and parental anxiety. Our trust-building 
+                marketing strategies position your institution as the credible choice through authority positioning, 
+                outcome demonstration, and enrollment psychology. Combined with strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and 
+                comprehensive <Link to="/seo-services" className="text-primary hover:underline">SEO services</Link>, we help families find your programs when making crucial education decisions.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Target className="w-5 h-5 mr-2" />
-                  Get Home Services Audit
+                  Get Education Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Phone className="w-5 h-5 mr-2" />
-                  Emergency Marketing Help
+                  Enrollment Strategy Call
                 </Button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto text-center">
                 <div className="p-4">
                   <TrendingUp className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">320% Traffic Growth</p>
+                  <p className="text-sm font-medium">240% Enrollment Growth</p>
                 </div>
                 <div className="p-4">
                   <Users className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">420% More Emergency Calls</p>
+                  <p className="text-sm font-medium">350% More Inquiries</p>
                 </div>
                 <div className="p-4">
                   <Award className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">380% ROI Increase</p>
+                  <p className="text-sm font-medium">420% ROI Increase</p>
                 </div>
               </div>
             </div>
@@ -97,74 +105,42 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services <span className="gradient-text">Psychology Triggers</span>
+                Education <span className="gradient-text">Psychology Triggers</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Home service customers are often in crisis mode or planning important projects. We leverage these psychological 
-                states to create marketing that provides immediate relief and builds long-term trust.
+                Education decisions involve trust, future planning, and significant investment. We leverage these psychological 
+                factors to position your institution as the credible choice for academic and professional success.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="card-professional text-center">
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto mb-4">
-                    <AlertTriangle className="w-8 h-8" />
-                  </div>
-                  <CardTitle className="text-xl">Emergency Urgency</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    "No heat in winter" or "flooded basement" creates immediate need. We position your business as the fast, reliable emergency solution.
-                  </p>
-                  <ul className="text-sm space-y-2 text-left">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>24/7 availability messaging</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Fast response time guarantees</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Emergency contact prominence</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Crisis relief positioning</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardHeader>
                   <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-8 h-8" />
+                    <Shield className="w-8 h-8" />
                   </div>
-                  <CardTitle className="text-xl">Local Trust Signals</CardTitle>
+                  <CardTitle className="text-xl">Trust & Authority Building</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    Homeowners prefer local contractors they can trust. We emphasize community connections, local presence, and neighborhood expertise.
+                    Parents and students need confidence in educational outcomes. We build trust through accreditation, success stories, and transparent results.
                   </p>
                   <ul className="text-sm space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Local business licensing display</span>
+                      <span>Accreditation & certification showcase</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Community involvement showcase</span>
+                      <span>Graduate success stories</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Neighborhood project examples</span>
+                      <span>Faculty expertise highlighting</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Local review emphasis</span>
+                      <span>Industry partnership displays</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -173,30 +149,62 @@ const HomeServicesMarketing = () => {
               <Card className="card-professional text-center">
                 <CardHeader>
                   <div className="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4">
-                    <Wrench className="w-8 h-8" />
+                    <BarChart3 className="w-8 h-8" />
                   </div>
-                  <CardTitle className="text-xl">Before/After Transformations</CardTitle>
+                  <CardTitle className="text-xl">ROI & Outcome Proof</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    Visual proof of transformation builds confidence and helps customers envision their own results with your services.
+                    Education is an investment in the future. We showcase employment rates, salary outcomes, and career advancement to justify the investment.
                   </p>
                   <ul className="text-sm space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Project photo galleries</span>
+                      <span>Employment outcome statistics</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Transformation videos</span>
+                      <span>Alumni career progression</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Problem-solution stories</span>
+                      <span>Salary improvement data</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Customer satisfaction focus</span>
+                      <span>Industry placement rates</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional text-center">
+                <CardHeader>
+                  <div className="w-16 h-16 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-4">
+                    <Brain className="w-8 h-8" />
+                  </div>
+                  <CardTitle className="text-xl">Parent Decision Psychology</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    Parents making education decisions need reassurance about safety, outcomes, and return on investment for their children's future.
+                  </p>
+                  <ul className="text-sm space-y-2 text-left">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                      <span>Safety & security emphasis</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                      <span>Future career path clarity</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                      <span>Parental involvement opportunities</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                      <span>Financial aid transparency</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -210,11 +218,11 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services Marketing <span className="gradient-text">Challenges We Solve</span>
+                Education Marketing <span className="gradient-text">Challenges We Solve</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Home services businesses face unique marketing challenges from seasonal demand to local competition. 
-                We've developed specialized solutions for the industry's biggest pain points.
+                Educational institutions face unique challenges from enrollment competition to credibility building. 
+                We've developed specialized solutions for the education industry's biggest obstacles.
               </p>
             </div>
 
@@ -222,72 +230,48 @@ const HomeServicesMarketing = () => {
               <Card className="card-professional">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
-                    <Calendar className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Seasonal Demand</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Navigate seasonal fluctuations with strategic marketing that maintains revenue year-round and captures peak demand.
-                  </p>
-                  <div className="bg-primary/5 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Our Solution:</h4>
-                    <ul className="text-sm space-y-1">
-                      <li>• Seasonal service promotion campaigns</li>
-                      <li>• Off-season maintenance marketing</li>
-                      <li>• Weather-triggered emergency campaigns</li>
-                      <li>• Preventive service education</li>
-                    </ul>
-                  </div>
-                  <div className="text-sm text-primary font-medium">Result: 40% more consistent monthly revenue</div>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
                     <Target className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Local Competition</CardTitle>
+                    <CardTitle className="text-xl">Enrollment Competition</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Stand out from countless local competitors by building unique positioning and trust signals that customers remember.
+                    Stand out from countless educational options by building unique positioning and demonstrating superior outcomes.
                   </p>
                   <div className="bg-primary/5 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Our Solution:</h4>
                     <ul className="text-sm space-y-1">
                       <li>• Unique value proposition development</li>
-                      <li>• Local SEO domination</li>
-                      <li>• Brand differentiation strategies</li>
-                      <li>• Community involvement campaigns</li>
+                      <li>• Outcome-focused messaging</li>
+                      <li>• Competitive differentiation strategies</li>
+                      <li>• Authority-building campaigns</li>
                     </ul>
                   </div>
-                  <div className="text-sm text-primary font-medium">Result: 75% market share in service areas</div>
+                  <div className="text-sm text-primary font-medium">Result: 60% increase in qualified inquiries</div>
                 </CardContent>
               </Card>
 
               <Card className="card-professional">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
-                    <Clock className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Emergency Response</CardTitle>
+                    <Calendar className="w-6 h-6 text-primary" />
+                    <CardTitle className="text-xl">Seasonal Enrollment Patterns</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Capture emergency calls when customers are most motivated to hire and willing to pay premium prices for immediate service.
+                    Navigate enrollment cycles and seasonal demand with strategic campaigns that capture students year-round.
                   </p>
                   <div className="bg-primary/5 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Our Solution:</h4>
                     <ul className="text-sm space-y-1">
-                      <li>• Emergency keyword optimization</li>
-                      <li>• 24/7 response positioning</li>
-                      <li>• Crisis communication strategies</li>
-                      <li>• Premium emergency pricing psychology</li>
+                      <li>• Early enrollment incentive campaigns</li>
+                      <li>• Year-round admission strategies</li>
+                      <li>• Academic calendar optimization</li>
+                      <li>• Continuous enrollment programs</li>
                     </ul>
                   </div>
-                  <div className="text-sm text-primary font-medium">Result: 85% increase in emergency call volume</div>
+                  <div className="text-sm text-primary font-medium">Result: 45% more consistent enrollment</div>
                 </CardContent>
               </Card>
 
@@ -295,23 +279,47 @@ const HomeServicesMarketing = () => {
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
                     <Shield className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Pricing Transparency</CardTitle>
+                    <CardTitle className="text-xl">Credibility & Trust Building</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Overcome price objections and build trust with transparent, value-focused pricing that justifies your expertise.
+                    Build institutional credibility that reassures parents and students about educational quality and outcomes.
                   </p>
                   <div className="bg-primary/5 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Our Solution:</h4>
                     <ul className="text-sm space-y-1">
-                      <li>• Value-based pricing presentation</li>
-                      <li>• Upfront pricing displays</li>
-                      <li>• Quality vs cost education</li>
-                      <li>• Guarantee and warranty emphasis</li>
+                      <li>• Accreditation prominence</li>
+                      <li>• Faculty credential showcasing</li>
+                      <li>• Student success story campaigns</li>
+                      <li>• Transparent outcome reporting</li>
                     </ul>
                   </div>
-                  <div className="text-sm text-primary font-medium">Result: 45% improvement in quote acceptance</div>
+                  <div className="text-sm text-primary font-medium">Result: 85% improvement in enrollment conversion</div>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Brain className="w-6 h-6 text-primary" />
+                    <CardTitle className="text-xl">Parent Decision Anxiety</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Address parental concerns about educational investment, safety, and future outcomes with reassuring, transparent communication.
+                  </p>
+                  <div className="bg-primary/5 p-4 rounded-lg">
+                    <h4 className="font-semibold mb-2">Our Solution:</h4>
+                    <ul className="text-sm space-y-1">
+                      <li>• Safety protocol transparency</li>
+                      <li>• Financial aid guidance</li>
+                      <li>• Career outcome guarantees</li>
+                      <li>• Parent engagement programs</li>
+                    </ul>
+                  </div>
+                  <div className="text-sm text-primary font-medium">Result: 70% reduction in enrollment hesitation</div>
                 </CardContent>
               </Card>
             </div>
@@ -323,44 +331,44 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Proven <span className="gradient-text">Home Services Results</span>
+                Proven <span className="gradient-text">Education Results</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Our home services marketing consistently delivers measurable improvements across 
-                all key performance indicators for contractors and service providers.
+                Our education marketing consistently delivers measurable improvements in enrollment rates, 
+                student retention, and institutional reputation.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-primary mb-2">320%</div>
-                  <div className="text-lg font-semibold mb-2">Traffic Growth</div>
-                  <p className="text-sm text-muted-foreground">Local homeowners finding your services</p>
+                  <div className="text-4xl font-bold text-primary mb-2">240%</div>
+                  <div className="text-lg font-semibold mb-2">Enrollment Growth</div>
+                  <p className="text-sm text-muted-foreground">New student registrations</p>
                 </CardContent>
               </Card>
 
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-green-600 mb-2">420%</div>
-                  <div className="text-lg font-semibold mb-2">Lead Generation</div>
-                  <p className="text-sm text-muted-foreground">Emergency and scheduled service calls</p>
+                  <div className="text-4xl font-bold text-green-600 mb-2">350%</div>
+                  <div className="text-lg font-semibold mb-2">Inquiry Increase</div>
+                  <p className="text-sm text-muted-foreground">Qualified enrollment inquiries</p>
                 </CardContent>
               </Card>
 
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">380%</div>
+                  <div className="text-4xl font-bold text-blue-600 mb-2">420%</div>
                   <div className="text-lg font-semibold mb-2">ROI Increase</div>
-                  <p className="text-sm text-muted-foreground">Return on marketing investment</p>
+                  <p className="text-sm text-muted-foreground">Marketing return on investment</p>
                 </CardContent>
               </Card>
 
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
                   <div className="text-4xl font-bold text-purple-600 mb-2">85%</div>
-                  <div className="text-lg font-semibold mb-2">Quote Acceptance</div>
-                  <p className="text-sm text-muted-foreground">Prospects choosing your services</p>
+                  <div className="text-lg font-semibold mb-2">Conversion Rate</div>
+                  <p className="text-sm text-muted-foreground">Inquiries to enrollments</p>
                 </CardContent>
               </Card>
             </div>
@@ -372,50 +380,48 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services Marketing <span className="gradient-text">Service Options</span>
+                Education Marketing <span className="gradient-text">Service Options</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Choose the home services marketing package that fits your business size and service area. 
-                All packages include emergency psychology optimization and local trust building.
+                Choose the education marketing package that fits your institution size and enrollment goals. 
+                All packages include trust-building psychology and enrollment optimization.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <Card className="card-professional">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">Local Contractor</CardTitle>
-                  <CardDescription>Perfect for single-location contractors</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$1,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-2xl mb-2">Academic Starter</CardTitle>
+                  <CardDescription>Perfect for small schools & training centers</CardDescription>
+                  <div className="text-3xl font-bold text-primary mt-4">$1,897<span className="text-base font-normal text-muted-foreground">/mo</span></div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Local SEO optimization</span>
+                      <span className="text-sm">Local education SEO</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Emergency response campaigns</span>
+                      <span className="text-sm">Student success story campaigns</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Google Business Profile mastery</span>
+                      <span className="text-sm">Parent-focused content marketing</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Review management system</span>
+                      <span className="text-sm">Enrollment inquiry optimization</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Seasonal campaign management</span>
+                      <span className="text-sm">Social proof integration</span>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full" 
-                    variant="outline" 
-                    onClick={() => selectService("Local Contractor - $1,997/mo")}
-                  >
-                    Start Local Growth
+                  <Button className="w-full" variant="outline" onClick={() => {
+                    selectService("Academic Starter - $1,897/mo");
+                  }}>
+                    Start Academic Growth
                   </Button>
                 </CardContent>
               </Card>
@@ -425,19 +431,19 @@ const HomeServicesMarketing = () => {
                   <Badge className="bg-primary text-primary-foreground px-4 py-1">Most Popular</Badge>
                 </div>
                 <CardHeader className="text-center pt-8">
-                  <CardTitle className="text-2xl mb-2">Service Dominator</CardTitle>
-                  <CardDescription>For established home service companies</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$3,497<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-2xl mb-2">Enrollment Authority</CardTitle>
+                  <CardDescription>For established institutions</CardDescription>
+                  <div className="text-3xl font-bold text-primary mt-4">$3,397<span className="text-base font-normal text-muted-foreground">/mo</span></div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in Local Contractor</span>
+                      <span className="text-sm">Everything in Academic Starter</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Multi-service optimization</span>
+                      <span className="text-sm">Multi-program optimization</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
@@ -445,49 +451,48 @@ const HomeServicesMarketing = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Premium service positioning</span>
+                      <span className="text-sm">Alumni network leveraging</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Maintenance contract marketing</span>
+                      <span className="text-sm">Industry partnership marketing</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Competitive intelligence</span>
+                      <span className="text-sm">Advanced analytics</span>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full" 
-                    onClick={() => selectService("Service Dominator - $3,497/mo")}
-                  >
-                    Dominate Your Market
+                  <Button className="w-full" onClick={() => {
+                    selectService("Enrollment Authority - $3,397/mo");
+                  }}>
+                    Build Enrollment Authority
                   </Button>
                 </CardContent>
               </Card>
 
               <Card className="card-professional">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">Regional Empire</CardTitle>
-                  <CardDescription>For multi-location service companies</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$5,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-2xl mb-2">Education Empire</CardTitle>
+                  <CardDescription>For universities & large institutions</CardDescription>
+                  <div className="text-3xl font-bold text-primary mt-4">$5,897<span className="text-base font-normal text-muted-foreground">/mo</span></div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in Service Dominator</span>
+                      <span className="text-sm">Everything in Enrollment Authority</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Multi-location coordination</span>
+                      <span className="text-sm">Multi-campus coordination</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Franchise marketing systems</span>
+                      <span className="text-sm">National recruitment campaigns</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Regional brand building</span>
+                      <span className="text-sm">Graduate school marketing</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
@@ -495,15 +500,13 @@ const HomeServicesMarketing = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Priority emergency support</span>
+                      <span className="text-sm">Priority support</span>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full" 
-                    variant="outline" 
-                    onClick={() => selectService("Regional Empire - $5,997/mo")}
-                  >
-                    Build Service Empire
+                  <Button className="w-full" variant="outline" onClick={() => {
+                    selectService("Education Empire - $5,897/mo");
+                  }}>
+                    Scale Education Impact
                   </Button>
                 </CardContent>
               </Card>
@@ -516,44 +519,44 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services Marketing <span className="gradient-text">FAQ</span>
+                Education Marketing <span className="gradient-text">FAQ</span>
               </h2>
             </div>
 
             <Accordion type="single" collapsible className="space-y-4">
               <AccordionItem value="item-1" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  How do you handle seasonal fluctuations in home services marketing?
+                  How do you address parent concerns about educational ROI?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  We create year-round marketing strategies that adapt to seasonal demand. Summer focuses on HVAC and cooling, winter on heating and storm damage, spring on maintenance and improvements. We also develop off-season campaigns for preventive services and maintenance contracts to smooth revenue fluctuations.
+                  We showcase employment outcomes, salary data, and career advancement statistics prominently. We also create transparent content about financial aid options, career services support, and industry partnerships that lead to job placement. Parents need confidence their investment will pay off long-term.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  What makes home services marketing different from other industries?
+                  What types of educational institutions do you work with?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Home services often involve emergencies or urgent needs, creating high-stress decision-making situations. We focus on immediate relief psychology, local trust signals, and emergency response positioning. The goal is to be the first call when homeowners need help, not compete in a crowded marketplace.
+                  We work with K-12 schools, colleges, universities, trade schools, vocational training centers, online education platforms, and continuing education providers. Each type requires different psychological approaches - K-12 focuses on parent decision-making, while adult education emphasizes career advancement and skill development.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-3" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  Do you work with all types of home service businesses?
+                  How do you handle seasonal enrollment fluctuations?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Yes, we work with HVAC, plumbing, electrical, roofing, landscaping, cleaning, pest control, and other home service providers. Each service type requires different psychological approaches - emergency services focus on urgency, while improvement services emphasize transformation and value.
+                  We create year-round enrollment strategies that capture students during traditional and non-traditional periods. This includes early enrollment incentives, rolling admissions promotion, summer program marketing, and adult learner campaigns that target career changers and skill upgraders throughout the year.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-4" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  How quickly can home service businesses see marketing results?
+                  How quickly can educational institutions see marketing results?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Home services typically see faster results than other industries due to urgent local needs. Local SEO improvements show within 30-60 days, emergency campaigns can generate calls within days, and full optimization usually achieves results within 3-6 months. We track calls, leads, and conversion rates monthly.
+                  Education marketing typically shows initial results within 60-90 days for local SEO and reputation improvements. Enrollment inquiry increases usually occur within 3-6 months as trust builds, and full enrollment growth often takes 6-12 months due to decision cycles. We track inquiries, campus visits, and enrollment conversions monthly.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -561,29 +564,29 @@ const HomeServicesMarketing = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-24 bg-gradient-to-r from-orange-600 to-red-700">
+        <section className="py-24 bg-gradient-to-r from-blue-600 to-purple-700">
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="text-center">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Dominate Your Local Market?
+                Ready to Increase Student Enrollments?
               </h2>
-              <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-                Stop losing emergency calls to competitors. Get home services marketing that positions you as 
-                the trusted local expert customers call first when they need help.
+              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Stop losing students to competitor institutions. Get education marketing that builds trust, 
+                demonstrates outcomes, and converts families into loyal students.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Calendar className="w-5 h-5 mr-2" />
-                  Get Home Services Audit
+                  Get Education Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-orange-600" onClick={() => window.open('tel:+13865550123')}>
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600" onClick={() => window.open('tel:+13865550123')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call: (386) 555-0123
                 </Button>
               </div>
-              <p className="text-orange-200 text-center">
-                Emergency marketing • Local expertise • Proven contractor growth
+              <p className="text-blue-200 text-center">
+                Trust building • Enrollment optimization • Student success focus
               </p>
             </div>
           </div>
@@ -595,13 +598,13 @@ const HomeServicesMarketing = () => {
       <ContactDialog 
         isOpen={isOpen}
         onClose={closeDialog}
-        title="Get Your Free Home Services Marketing Consultation"
-        description="Let's discuss how we can help grow your home services business with emergency-driven marketing strategies."
+        title="Get Started with Education Marketing"
+        description="Let's discuss your enrollment goals and create a marketing strategy that builds trust and drives qualified student inquiries."
         defaultService={selectedService}
-        businessTypes={businessTypes.homeServices}
+        businessTypes={businessTypes.education}
       />
     </>
   );
 };
 
-export default HomeServicesMarketing;
+export default EducationTrainingMarketing;

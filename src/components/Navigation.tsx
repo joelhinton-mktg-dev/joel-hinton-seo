@@ -33,6 +33,12 @@ const Navigation = () => {
 
   const servicesItems = [
     { 
+      label: "View All Services", 
+      href: "/services", 
+      description: "Complete overview of all marketing services",
+      isMainLink: true
+    },
+    { 
       label: "SEO Services", 
       href: "/seo-services", 
       description: "Psychology-driven search optimization",
@@ -116,9 +122,30 @@ const Navigation = () => {
                         className="absolute top-full left-0 mt-2 w-80 bg-card border border-border rounded-xl shadow-lg backdrop-blur-xl animate-in fade-in-0 slide-in-from-top-2 duration-200"
                       >
                         <div className="p-2">
-                          {servicesItems.map((service) => (
+                          {servicesItems.map((service, index) => (
                             <div key={service.label}>
-                              {service.subItems ? (
+                              {service.isMainLink ? (
+                                <>
+                                  <Link
+                                    to={service.href}
+                                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/10 transition-all duration-200 group border border-primary/20"
+                                  >
+                                    <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-150 transition-transform duration-200" />
+                                    <div className="flex-1">
+                                      <div className="font-semibold text-primary group-hover:text-primary/80 transition-colors duration-200">
+                                        {service.label}
+                                      </div>
+                                      <div className="text-sm text-muted-foreground mt-1">
+                                        {service.description}
+                                      </div>
+                                    </div>
+                                    <ChevronRight className="w-4 h-4 text-primary group-hover:text-primary/80 transition-colors duration-200" />
+                                  </Link>
+                                  {index < servicesItems.length - 1 && (
+                                    <div className="mx-3 my-2 border-t border-border/50" />
+                                  )}
+                                </>
+                              ) : service.subItems ? (
                                 <div 
                                   className="relative"
                                   onMouseEnter={() => setIsSEOSubmenuOpen(true)}
@@ -249,9 +276,25 @@ const Navigation = () => {
                       
                       {isMobileServicesOpen && (
                         <div className="mt-3 ml-4 space-y-2 animate-in fade-in-0 slide-in-from-left-2 duration-200">
-                          {servicesItems.map((service) => (
+                          {servicesItems.map((service, index) => (
                             <div key={service.label}>
-                              {service.subItems ? (
+                              {service.isMainLink ? (
+                                <>
+                                  <Link
+                                    to={service.href}
+                                    className="block px-3 py-2 rounded-lg text-sm text-primary hover:text-primary/80 hover:bg-primary/10 transition-all duration-200 border border-primary/20"
+                                    onClick={() => setIsMenuOpen(false)}
+                                  >
+                                    <div className="font-semibold">{service.label}</div>
+                                    <div className="text-xs text-muted-foreground/70 mt-1">
+                                      {service.description}
+                                    </div>
+                                  </Link>
+                                  {index < servicesItems.length - 1 && (
+                                    <div className="mx-3 my-2 border-t border-border/50" />
+                                  )}
+                                </>
+                              ) : service.subItems ? (
                                 <div>
                                   <button
                                     onClick={() => setIsMobileSEOOpen(!isMobileSEOOpen)}

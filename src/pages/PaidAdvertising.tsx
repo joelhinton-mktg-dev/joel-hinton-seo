@@ -1,11 +1,22 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from "@/components/ui/dialog";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { PageBreadcrumb } from "@/components/ui/breadcrumb";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useState } from "react";
 import { 
   Target, 
   TrendingUp, 
@@ -26,9 +37,121 @@ import {
   Phone
 } from "lucide-react";
 
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  businessType: z.string().min(1, "Please select your business type"),
+  marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
+  selectedService: z.string().default("Paid Advertising Strategy Consultation")
+});
+
+const adAuditFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  businessType: z.string().min(1, "Please select your business type"),
+  adPlatform: z.string().min(1, "Please select your primary ad platform"),
+  monthlyAdSpend: z.string().min(1, "Please select your monthly ad spend"),
+  currentChallenges: z.string().min(10, "Please describe your current ad challenges (at least 10 characters)"),
+  website: z.string().url("Please enter a valid website URL")
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
+type AdAuditFormData = z.infer<typeof adAuditFormSchema>;
+
 const PaidAdvertising = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [isAdAuditSubmitting, setIsAdAuditSubmitting] = useState(false);
+  const [adAuditSuccess, setAdAuditSuccess] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    setValue
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: "Paid Advertising Strategy Consultation" }
+  });
+
+  const {
+    register: registerAdAudit,
+    handleSubmit: handleSubmitAdAudit,
+    formState: { errors: adAuditErrors },
+    reset: resetAdAudit,
+    setValue: setValueAdAudit
+  } = useForm<AdAuditFormData>({
+    resolver: zodResolver(adAuditFormSchema)
+  });
+
+  const onSubmitForm = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
+    setIsSubmitting(true);
+    await new Promise(r => setTimeout(r, 1000));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Paid Advertising contact form submitted:", data);
+    }
+    setSubmitSuccess(true);
+    reset();
+    setTimeout(() => {
+      setSubmitSuccess(false);
+      setIsDialogOpen(false);
+    }, 2000);
+    setIsSubmitting(false);
+  };
+
+  const onSubmitAdAudit = async (data: AdAuditFormData) => {
+    if (isAdAuditSubmitting) return; // Prevent double submission
+    setIsAdAuditSubmitting(true);
+    await new Promise(r => setTimeout(r, 1000));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Paid Advertising audit form submitted:", data);
+    }
+    setAdAuditSuccess(true);
+    resetAdAudit();
+    setTimeout(() => {
+      setAdAuditSuccess(false);
+    }, 5000);
+    setIsAdAuditSubmitting(false);
+  };
+
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <Helmet>
+        <title>ROI-Focused Paid Advertising | Expert Google & Facebook Ads | Joel Hinton</title>
+        <meta name="description" content="ROI-focused paid advertising campaigns for Florida businesses. Expert Google Ads, Facebook Ads, and PPC management." />
+        <meta name="keywords" content="paid advertising, Google Ads management, Facebook advertising, PPC management, ROI advertising" />
+        <meta name="robots" content="index, follow" />
+        
+        <meta property="og:title" content="ROI-Focused Paid Advertising | Expert Google & Facebook Ads | Joel Hinton" />
+        <meta property="og:description" content="ROI-focused paid advertising campaigns for Florida businesses. Expert Google Ads, Facebook Ads, and PPC management." />
+        <meta property="og:type" content="website" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="ROI-Focused Paid Advertising | Expert Google & Facebook Ads" />
+        <meta name="twitter:description" content="ROI-focused paid advertising campaigns for Florida businesses. Expert Google Ads, Facebook Ads, and PPC management." />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Paid Advertising Management",
+            "description": "ROI-focused paid advertising campaigns with transparent pricing",
+            "provider": {
+              "@type": "Person",
+              "name": "Joel Hinton"
+            },
+            "serviceType": "Digital Marketing",
+            "areaServed": "Florida"
+          })}
+        </script>
+      </Helmet>
+
+      <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Breadcrumb */}
@@ -56,7 +179,11 @@ const PaidAdvertising = () => {
               </p>
             </div>
             
-            <Button size="lg" className="btn-hero text-lg px-8 py-3">
+            <Button 
+              size="lg" 
+              className="btn-hero text-lg px-8 py-3"
+              onClick={() => setIsDialogOpen(true)}
+            >
               <Target className="w-5 h-5 mr-2" />
               Get Your Ad Account Audit
             </Button>
@@ -329,7 +456,13 @@ const PaidAdvertising = () => {
                   <p><span className="font-medium">Contract Terms:</span> Month-to-month (no lock-ins)</p>
                 </div>
 
-                <Button className="w-full btn-secondary">
+                <Button 
+                  className="w-full btn-secondary"
+                  onClick={() => {
+                    setIsDialogOpen(true);
+                    reset({ selectedService: "Paid Media Management - $500/month" });
+                  }}
+                >
                   Start Managing My Ads
                 </Button>
               </CardContent>
@@ -386,7 +519,14 @@ const PaidAdvertising = () => {
                   <p><span className="font-medium">Deliverable:</span> Comprehensive audit report + strategy</p>
                 </div>
 
-                <Button variant="outline" className="w-full">
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => {
+                    setIsDialogOpen(true);
+                    reset({ selectedService: "Paid Media Audit & Strategy - $300" });
+                  }}
+                >
                   Audit My Ad Performance
                 </Button>
               </CardContent>
@@ -635,61 +775,60 @@ const PaidAdvertising = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Paid Advertising FAQ</h2>
-            <p className="text-xl text-muted-foreground">
-              Common questions about our transparent, results-focused approach
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Frequently Asked <span className="gradient-text">Questions</span>
+            </h2>
           </div>
 
-          <div className="space-y-8">
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="text-lg">Why flat fee instead of percentage of ad spend?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>Percentage fees create conflicts of interest - agencies want you to spend more, not optimize better. Our flat fee aligns our success with your ROI, not your budget size.</p>
-              </CardContent>
-            </Card>
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem value="item-1" className="border border-border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Why flat fee instead of percentage of ad spend?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Percentage fees create conflicts of interest - agencies want you to spend more, not optimize better. Our flat fee aligns our success with your ROI, not your budget size.
+              </AccordionContent>
+            </AccordionItem>
 
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="text-lg">What's the minimum ad spend to work with you?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>$1,500/month minimum ensures enough data for meaningful optimization. Below that, you're better off with simple campaigns you can manage yourself.</p>
-              </CardContent>
-            </Card>
+            <AccordionItem value="item-2" className="border border-border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                What's the minimum ad spend to work with you?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                $1,500/month minimum ensures enough data for meaningful optimization. Below that, you're better off with simple campaigns you can manage yourself.
+              </AccordionContent>
+            </AccordionItem>
 
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="text-lg">Do you guarantee specific ROAS results?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>We guarantee systematic implementation of proven optimization methods. ROAS depends on your market, offer, and competition. We optimize for maximum profitability within your market reality.</p>
-              </CardContent>
-            </Card>
+            <AccordionItem value="item-3" className="border border-border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Do you guarantee specific ROAS results?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                We guarantee systematic implementation of proven optimization methods. ROAS depends on your market, offer, and competition. We optimize for maximum profitability within your market reality.
+              </AccordionContent>
+            </AccordionItem>
 
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="text-lg">How quickly can you improve underperforming ads?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>Basic optimizations show improvement in 1-2 weeks. Systematic improvements compound over 30-90 days as we gather data and optimize. Quick wins first, then systematic scaling.</p>
-              </CardContent>
-            </Card>
+            <AccordionItem value="item-4" className="border border-border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                How quickly can you improve underperforming ads?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Basic optimizations show improvement in 1-2 weeks. Systematic improvements compound over 30-90 days as we gather data and optimize. Quick wins first, then systematic scaling.
+              </AccordionContent>
+            </AccordionItem>
 
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="text-lg">What happens if we want to stop working together?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>You own everything - accounts, audiences, data, creative. We'll provide transition documentation. No contracts or penalties, just professional handoff.</p>
-              </CardContent>
-            </Card>
-          </div>
+            <AccordionItem value="item-5" className="border border-border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                What happens if we want to stop working together?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                You own everything - accounts, audiences, data, creative. We'll provide transition documentation. No contracts or penalties, just professional handoff.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
@@ -705,37 +844,128 @@ const PaidAdvertising = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center text-left">
               <div>
                 <h3 className="text-lg font-bold mb-4">Get Your Ad Account Audit</h3>
-                <form className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="Current monthly ad spend"
-                    className="w-full p-3 border rounded-lg bg-background"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Primary advertising platforms"
-                    className="w-full p-3 border rounded-lg bg-background"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Biggest paid media challenge"
-                    className="w-full p-3 border rounded-lg bg-background"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Current cost per lead/sale"
-                    className="w-full p-3 border rounded-lg bg-background"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email address"
-                    className="w-full p-3 border rounded-lg bg-background"
-                  />
-                  <Button className="w-full btn-hero">
-                    <Target className="w-4 h-4 mr-2" />
-                    Audit My Ad Performance
-                  </Button>
-                </form>
+                {adAuditSuccess ? (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <path d="M22 4 12 14.01l-3-3"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Audit request received.</h3>
+                    <p className="text-muted-foreground">I'll analyze your ad performance and send you a detailed audit within 48 hours.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmitAdAudit(onSubmitAdAudit)} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="monthlyAdSpend">Monthly Ad Spend *</Label>
+                      <Select onValueChange={(value) => setValueAdAudit('monthlyAdSpend', value, { shouldValidate: true })}>
+                        <SelectTrigger className={adAuditErrors.monthlyAdSpend ? 'border-destructive' : ''}>
+                          <SelectValue placeholder="Select monthly ad spend" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="under-1k">Under $1,000</SelectItem>
+                          <SelectItem value="1k-5k">$1,000 - $5,000</SelectItem>
+                          <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
+                          <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
+                          <SelectItem value="25k-plus">$25,000+</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      {adAuditErrors.monthlyAdSpend && <p className="text-sm text-destructive">{adAuditErrors.monthlyAdSpend.message}</p>}
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="adPlatform">Primary Ad Platform *</Label>
+                      <Select onValueChange={(value) => setValueAdAudit('adPlatform', value, { shouldValidate: true })}>
+                        <SelectTrigger className={adAuditErrors.adPlatform ? 'border-destructive' : ''}>
+                          <SelectValue placeholder="Select primary platform" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="google-ads">Google Ads</SelectItem>
+                          <SelectItem value="facebook">Facebook/Meta</SelectItem>
+                          <SelectItem value="linkedin">LinkedIn</SelectItem>
+                          <SelectItem value="multiple">Multiple Platforms</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      {adAuditErrors.adPlatform && <p className="text-sm text-destructive">{adAuditErrors.adPlatform.message}</p>}
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="currentChallenges">Current Ad Challenges *</Label>
+                      <Textarea 
+                        id="currentChallenges"
+                        placeholder="Describe your biggest paid media challenges..."
+                        className={`min-h-[80px] ${adAuditErrors.currentChallenges ? 'border-destructive' : ''}`}
+                        {...registerAdAudit('currentChallenges')}
+                      />
+                      {adAuditErrors.currentChallenges && <p className="text-sm text-destructive">{adAuditErrors.currentChallenges.message}</p>}
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="businessType">Business Type *</Label>
+                        <Select onValueChange={(value) => setValueAdAudit('businessType', value, { shouldValidate: true })}>
+                          <SelectTrigger className={adAuditErrors.businessType ? 'border-destructive' : ''}>
+                            <SelectValue placeholder="Select type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="ecommerce">E-commerce</SelectItem>
+                            <SelectItem value="saas">SaaS / Tech</SelectItem>
+                            <SelectItem value="professional-services">Professional Services</SelectItem>
+                            <SelectItem value="healthcare">Healthcare</SelectItem>
+                            <SelectItem value="restaurant">Restaurant & Hospitality</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        {adAuditErrors.businessType && <p className="text-sm text-destructive">{adAuditErrors.businessType.message}</p>}
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="website">Website URL *</Label>
+                        <Input 
+                          id="website" 
+                          placeholder="https://" 
+                          {...registerAdAudit('website')}
+                          className={adAuditErrors.website ? 'border-destructive' : ''}
+                        />
+                        {adAuditErrors.website && <p className="text-sm text-destructive">{adAuditErrors.website.message}</p>}
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email Address *</Label>
+                        <Input 
+                          id="email" 
+                          type="email" 
+                          placeholder="your@email.com" 
+                          {...registerAdAudit('email')}
+                          className={adAuditErrors.email ? 'border-destructive' : ''}
+                        />
+                        {adAuditErrors.email && <p className="text-sm text-destructive">{adAuditErrors.email.message}</p>}
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="phone">Phone Number *</Label>
+                        <Input 
+                          id="phone" 
+                          placeholder="(555) 123-4567" 
+                          {...registerAdAudit('phone')}
+                          className={adAuditErrors.phone ? 'border-destructive' : ''}
+                        />
+                        {adAuditErrors.phone && <p className="text-sm text-destructive">{adAuditErrors.phone.message}</p>}
+                      </div>
+                    </div>
+                    
+                    <Button 
+                      type="submit" 
+                      className="w-full btn-hero" 
+                      disabled={isAdAuditSubmitting}
+                    >
+                      <Target className="w-4 h-4 mr-2" />
+                      {isAdAuditSubmitting ? 'Submitting...' : 'Audit My Ad Performance'}
+                    </Button>
+                  </form>
+                )}
               </div>
               
               <div className="space-y-6">
@@ -759,7 +989,11 @@ const PaidAdvertising = () => {
                 <Separator />
                 
                 <div className="text-center">
-                  <Button variant="outline" size="sm">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => setIsDialogOpen(true)}
+                  >
                     <Phone className="w-4 h-4 mr-2" />
                     Schedule a Strategy Call
                   </Button>
@@ -774,8 +1008,101 @@ const PaidAdvertising = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Get Started with Paid Advertising</DialogTitle>
+            <DialogDescription>
+              Let's discuss your advertising goals and get you started with the perfect paid media strategy for your business.
+            </DialogDescription>
+          </DialogHeader>
+
+          {submitSuccess ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <path d="M22 4 12 14.01l-3-3"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
+              <p className="text-muted-foreground">I'll analyze your advertising needs and send you a detailed strategy within 48 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
+                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
+                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
+                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label>Business Type *</Label>
+                  <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
+                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
+                      <SelectValue placeholder="Select your industry" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="ecommerce">E-commerce</SelectItem>
+                      <SelectItem value="saas">SaaS / Tech</SelectItem>
+                      <SelectItem value="professional-services">Professional Services</SelectItem>
+                      <SelectItem value="healthcare">Healthcare</SelectItem>
+                      <SelectItem value="home-services">Home Services</SelectItem>
+                      <SelectItem value="real-estate">Real Estate</SelectItem>
+                      <SelectItem value="restaurant">Restaurant & Hospitality</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="selectedService">Selected Service *</Label>
+                <Input id="selectedService" readOnly {...register('selectedService')} />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="marketingChallenge">Tell us about your advertising challenges *</Label>
+                <Textarea 
+                  id="marketingChallenge" 
+                  placeholder="What's your current monthly ad spend? What advertising challenges are you facing? What results are you looking to achieve?" 
+                  className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} 
+                  {...register('marketingChallenge')} 
+                />
+                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <Button type="submit" variant="hero" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Get Started'}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

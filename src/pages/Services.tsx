@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Search, TrendingUp, Target, Code, Brain, CheckCircle, ArrowRight, Users, Zap, Star, BarChart3, DollarSign, MessageSquare, Shield, Clock, Award, HelpCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -8,6 +7,7 @@ import { Separator } from '@/components/ui/separator';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   return (
@@ -112,17 +112,17 @@ const Services = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button size="lg" className="px-8 py-4 text-lg" asChild>
-                  <a href="/contact">
+                  <Link to="/contact">
                     <MessageSquare className="w-5 h-5 mr-2" />
                     Schedule Free Consultation
                     <ArrowRight className="w-5 h-5 ml-2" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="px-8 py-4 text-lg" asChild>
-                  <a href="/pricing">
+                  <Link to="/pricing">
                     <DollarSign className="w-5 h-5 mr-2" />
                     View Pricing
-                  </a>
+                  </Link>
                 </Button>
               </div>
 
@@ -209,10 +209,10 @@ const Services = () => {
                   </div>
 
                   <Button className="w-full bg-blue-600 hover:bg-blue-700" asChild>
-                    <a href="/seo-services">
+                    <Link to="/seo-services">
                       Learn More About SEO
                       <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -264,10 +264,10 @@ const Services = () => {
                   </div>
 
                   <Button className="w-full bg-green-600 hover:bg-green-700" asChild>
-                    <a href="/growth-marketing">
+                    <Link to="/growth-marketing">
                       Learn More About Growth Marketing
                       <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -319,10 +319,10 @@ const Services = () => {
                   </div>
 
                   <Button className="w-full bg-purple-600 hover:bg-purple-700" asChild>
-                    <a href="/paid-advertising">
+                    <Link to="/paid-advertising">
                       Learn More About Paid Ads
                       <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -375,10 +375,10 @@ const Services = () => {
                   </div>
 
                   <Button className="w-full bg-orange-600 hover:bg-orange-700" asChild>
-                    <a href="/vibe-coding">
+                    <Link to="/vibe-coding">
                       Learn More About Custom Development
                       <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -626,7 +626,8 @@ const Services = () => {
                   <CardTitle className="text-xl text-center">Start Here: What's Your Primary Goal?</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-4">
+                <div className="space-y-4">
+                  <Link to="/seo-services">
                     <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
                       <div className="flex items-center gap-3">
                         <Search className="w-6 h-6 text-blue-600" />
@@ -639,46 +640,53 @@ const Services = () => {
                         <Badge variant="outline" className="text-blue-600">→ SEO Services</Badge>
                       </div>
                     </div>
+                  </Link>
 
-                    <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
-                      <div className="flex items-center gap-3">
-                        <TrendingUp className="w-6 h-6 text-green-600" />
-                        <div>
-                          <h4 className="font-semibold">Improve Conversion Rates & Sales</h4>
-                          <p className="text-sm text-muted-foreground">Getting traffic but need better conversion rates</p>
-                        </div>
-                      </div>
-                      <div className="mt-3 pl-9">
-                        <Badge variant="outline" className="text-green-600">→ Growth Marketing</Badge>
+                  <Link to="/growth-marketing">
+                  <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
+                    <div className="flex items-center gap-3">
+                      <TrendingUp className="w-6 h-6 text-green-600" />
+                      <div>
+                        <h4 className="font-semibold">Improve Conversion Rates & Sales</h4>
+                        <p className="text-sm text-muted-foreground">Getting traffic but need better conversion rates</p>
                       </div>
                     </div>
-
-                    <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
-                      <div className="flex items-center gap-3">
-                        <Target className="w-6 h-6 text-purple-600" />
-                        <div>
-                          <h4 className="font-semibold">Generate Immediate Leads & Sales</h4>
-                          <p className="text-sm text-muted-foreground">Need fast results from paid advertising</p>
-                        </div>
-                      </div>
-                      <div className="mt-3 pl-9">
-                        <Badge variant="outline" className="text-purple-600">→ Paid Advertising</Badge>
-                      </div>
-                    </div>
-
-                    <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
-                      <div className="flex items-center gap-3">
-                        <Code className="w-6 h-6 text-orange-600" />
-                        <div>
-                          <h4 className="font-semibold">Replace Expensive SaaS Tools</h4>
-                          <p className="text-sm text-muted-foreground">Want custom solutions that fit your business perfectly</p>
-                        </div>
-                      </div>
-                      <div className="mt-3 pl-9">
-                        <Badge variant="outline" className="text-orange-600">→ Vibe Coding</Badge>
-                      </div>
+                    <div className="mt-3 pl-9">
+                      <Badge variant="outline" className="text-green-600">→ Growth Marketing</Badge>
                     </div>
                   </div>
+                </Link>
+
+                <Link to="/paid-advertising">
+                  <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
+                    <div className="flex items-center gap-3">
+                      <Target className="w-6 h-6 text-purple-600" />
+                      <div>
+                        <h4 className="font-semibold">Generate Immediate Leads & Sales</h4>
+                        <p className="text-sm text-muted-foreground">Need fast results from paid advertising</p>
+                      </div>
+                    </div>
+                    <div className="mt-3 pl-9">
+                      <Badge variant="outline" className="text-purple-600">→ Paid Advertising</Badge>
+                    </div>
+                  </div>
+                </Link>
+
+                <Link to="/vibe-coding">
+                  <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
+                    <div className="flex items-center gap-3">
+                      <Code className="w-6 h-6 text-orange-600" />
+                      <div>
+                        <h4 className="font-semibold">Replace Expensive SaaS Tools</h4>
+                        <p className="text-sm text-muted-foreground">Want custom solutions that fit your business perfectly</p>
+                      </div>
+                    </div>
+                    <div className="mt-3 pl-9">
+                      <Badge variant="outline" className="text-orange-600">→ Vibe Coding</Badge>
+                    </div>
+                  </div>
+                </Link>
+              </div>
                 </CardContent>
               </Card>
 
@@ -764,17 +772,17 @@ const Services = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" asChild>
-                <a href="/contact">
+                <Link to="/contact">
                   <MessageSquare className="w-5 h-5 mr-2" />
                   Schedule Free Consultation
                   <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600" asChild>
-                <a href="/pricing">
+              <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600 bg-transparent" asChild>
+                <Link to="/pricing">
                   <DollarSign className="w-5 h-5 mr-2" />
                   View All Pricing
-                </a>
+                </Link>
               </Button>
             </div>
             

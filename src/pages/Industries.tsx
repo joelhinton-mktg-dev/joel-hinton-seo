@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { 
   Home, Building2, Stethoscope, ShoppingCart, Briefcase, Code2, Scale, 
@@ -437,9 +436,9 @@ const Industries = () => {
                         </div>
                       </div>
 
-                      {['real-estate', 'healthcare', 'home-services', 'ecommerce', 'professional-services', 'saas', 'restaurants-hospitality', 'legal-services'].includes(industry.id) ? (
+                      {['real-estate', 'healthcare', 'home-services', 'ecommerce', 'professional-services', 'saas', 'restaurants-hospitality', 'legal-services', 'education', 'automotive', 'fitness', 'financial'].includes(industry.id) ? (
                         <Button asChild variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                          <Link to={`/industries/${industry.id}`}>
+                          <Link to={`/industries/${industry.id === 'education' ? 'education-training' : industry.id === 'automotive' ? 'automotive-services' : industry.id === 'fitness' ? 'fitness-wellness' : industry.id === 'financial' ? 'financial-services' : industry.id}`}>
                             <BarChart3 className="w-4 h-4 mr-2" />
                             Learn More About {industry.name}
                           </Link>

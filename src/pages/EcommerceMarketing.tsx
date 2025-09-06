@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { 
@@ -14,8 +13,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
+
 
 const EcommerceMarketing = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('E-commerce Marketing Audit');
   return (
     <>
       <Helmet>
@@ -60,12 +64,12 @@ const EcommerceMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg">
+                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Target className="w-5 h-5 mr-2" />
                   Get E-commerce Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Phone className="w-5 h-5 mr-2" />
                   Conversion Consultation
                 </Button>
@@ -407,7 +411,13 @@ const EcommerceMarketing = () => {
                       <span className="text-sm">Social proof integration</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Start Store Growth</Button>
+                  <Button 
+                    className="w-full" 
+                    variant="outline" 
+                    onClick={() => selectService("Store Starter - $2,497/mo")}
+                  >
+                    Start Store Growth
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -447,7 +457,12 @@ const EcommerceMarketing = () => {
                       <span className="text-sm">Advanced analytics</span>
                     </div>
                   </div>
-                  <Button className="w-full">Master Conversions</Button>
+                  <Button 
+                    className="w-full" 
+                    onClick={() => selectService("Conversion Master - $4,497/mo")}
+                  >
+                    Master Conversions
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -484,7 +499,13 @@ const EcommerceMarketing = () => {
                       <span className="text-sm">Priority support</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Build E-commerce Empire</Button>
+                  <Button 
+                    className="w-full" 
+                    variant="outline" 
+                    onClick={() => selectService("E-commerce Empire - $7,997/mo")}
+                  >
+                    Build E-commerce Empire
+                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -552,12 +573,12 @@ const EcommerceMarketing = () => {
                 that turns browsers into buyers and customers into loyal advocates.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Get E-commerce Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-purple-600">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-purple-600" onClick={() => window.open('tel:+13865550123')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call: (386) 555-0123
                 </Button>
@@ -571,6 +592,15 @@ const EcommerceMarketing = () => {
 
         <Footer />
       </div>
+
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        title="Get Your Free E-commerce Marketing Consultation"
+        description="Let's discuss how we can help optimize your online store for maximum conversions and growth."
+        defaultService={selectedService}
+        businessTypes={businessTypes.ecommerce}
+      />
     </>
   );
 };

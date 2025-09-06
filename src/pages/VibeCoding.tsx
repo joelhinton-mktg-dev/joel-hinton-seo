@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Code, Zap, CheckCircle, ArrowRight, Phone, Mail, Calendar, Star, TrendingUp, Brain, BarChart3, Users, DollarSign, Bot, Cpu, Database, Globe, Shield, MessageSquare, RefreshCw, Target, Cog, Workflow, LineChart, FileText, Lock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -7,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -19,6 +19,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 const VibeCoding = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
@@ -28,7 +29,8 @@ const VibeCoding = () => {
     phone: z.string().min(10, "Please enter a valid phone number"),
     projectType: z.string().min(1, "Please select your project type"),
     projectDescription: z.string().min(20, "Please provide more details about your project (at least 20 characters)"),
-    budget: z.string().min(1, "Please select your budget range")
+    budget: z.string().min(1, "Please select your budget range"),
+    selectedService: z.string().default("Custom Development Project")
   });
 
   type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -40,16 +42,20 @@ const VibeCoding = () => {
     reset,
     setValue
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema)
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: "Custom Development Project" }
   });
 
   const onSubmit = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
     
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    console.log("Form submitted:", data);
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Form submitted:", data);
+    }
     setSubmitSuccess(true);
     reset();
     
@@ -139,12 +145,27 @@ const VibeCoding = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg">
+                <Button 
+                  size="lg" 
+                  className="px-8 py-4 text-lg"
+                  onClick={() => {
+                    setIsDialogOpen(true);
+                    reset({ selectedService: "Custom Development Project" });
+                  }}
+                >
                   <Zap className="w-5 h-5 mr-2" />
                   Start Custom Project
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="px-8 py-4 text-lg"
+                  onClick={() => {
+                    setIsDialogOpen(true);
+                    reset({ selectedService: "Discovery Call - Custom Development" });
+                  }}
+                >
                   <Calendar className="w-5 h-5 mr-2" />
                   Schedule Discovery Call
                 </Button>
@@ -1045,7 +1066,7 @@ const VibeCoding = () => {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="budget">Budget Range *</Label>
-                        <Select onValueChange={(value) => setValue("budget", value)}>
+                        <Select onValueChange={(value) => setValue("budget", value, { shouldValidate: true })}>
                           <SelectTrigger className={errors.budget ? "border-destructive" : ""}>
                             <SelectValue placeholder="Select budget range" />
                           </SelectTrigger>
@@ -1065,7 +1086,7 @@ const VibeCoding = () => {
 
                     <div className="space-y-2">
                       <Label htmlFor="projectType">Project Type *</Label>
-                      <Select onValueChange={(value) => setValue("projectType", value)}>
+                      <Select onValueChange={(value) => setValue("projectType", value, { shouldValidate: true })}>
                         <SelectTrigger className={errors.projectType ? "border-destructive" : ""}>
                           <SelectValue placeholder="What type of solution do you need?" />
                         </SelectTrigger>
@@ -1231,6 +1252,115 @@ const VibeCoding = () => {
 
         <Footer />
       </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Get Started with Custom Development</DialogTitle>
+            <DialogDescription>
+              Let's discuss your project requirements and create a custom solution that perfectly fits your business needs.
+            </DialogDescription>
+          </DialogHeader>
+
+          {submitSuccess ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <path d="M22 4 12 14.01l-3-3"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
+              <p className="text-muted-foreground">I'll review your project requirements and send you a detailed proposal within 48 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
+                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
+                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
+                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="budget">Budget Range *</Label>
+                  <Select onValueChange={(value) => setValue("budget", value, { shouldValidate: true })}>
+                    <SelectTrigger className={errors.budget ? "border-destructive" : ""}>
+                      <SelectValue placeholder="Select budget range" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="5k-15k">$5K - $15K</SelectItem>
+                      <SelectItem value="15k-35k">$15K - $35K</SelectItem>
+                      <SelectItem value="35k-75k">$35K - $75K</SelectItem>
+                      <SelectItem value="75k+">$75K+</SelectItem>
+                      <SelectItem value="not-sure">Not Sure Yet</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {errors.budget && <p className="text-sm text-destructive">{errors.budget.message}</p>}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="projectType">Project Type *</Label>
+                <Select onValueChange={(value) => setValue("projectType", value, { shouldValidate: true })}>
+                  <SelectTrigger className={errors.projectType ? "border-destructive" : ""}>
+                    <SelectValue placeholder="What type of solution do you need?" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="ai-agents">AI Agents & Chatbots</SelectItem>
+                    <SelectItem value="lead-automation">Lead Capture & Automation</SelectItem>
+                    <SelectItem value="aeo-geo">AEO/GEO Automation</SelectItem>
+                    <SelectItem value="crm-integration">CRM Integration & Workflows</SelectItem>
+                    <SelectItem value="reporting-dashboard">Custom Reporting Dashboard</SelectItem>
+                    <SelectItem value="saas-replacement">Replace Existing SaaS Tool</SelectItem>
+                    <SelectItem value="marketing-platform">Complete Marketing Platform</SelectItem>
+                    <SelectItem value="other">Other Custom Solution</SelectItem>
+                  </SelectContent>
+                </Select>
+                {errors.projectType && <p className="text-sm text-destructive">{errors.projectType.message}</p>}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="selectedService">Selected Service *</Label>
+                <Input id="selectedService" readOnly {...register('selectedService')} />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="projectDescription">Project Description *</Label>
+                <Textarea 
+                  id="projectDescription" 
+                  placeholder="Describe your project in detail. What tools are you currently using? What problems are you trying to solve? What would success look like?" 
+                  className={`min-h-[120px] ${errors.projectDescription ? 'border-destructive' : ''}`} 
+                  {...register('projectDescription')} 
+                />
+                {errors.projectDescription && <p className="text-sm text-destructive">{errors.projectDescription.message}</p>}
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <Button type="submit" variant="hero" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Get Started'}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   );
 };

@@ -1,5 +1,5 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { 
   Briefcase, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
   BarChart3, Phone, Calendar, Star, Zap, Clock, Brain, 
@@ -13,8 +13,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 
 const ProfessionalServicesMarketing = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Professional Services Marketing Audit');
   return (
     <>
       <Helmet>
@@ -58,12 +62,12 @@ const ProfessionalServicesMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg">
+                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Target className="w-5 h-5 mr-2" />
                   Get Authority Assessment
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Phone className="w-5 h-5 mr-2" />
                   Strategy Consultation
                 </Button>
@@ -498,7 +502,13 @@ const ProfessionalServicesMarketing = () => {
                       <span className="text-sm">Consultation conversion system</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Build Authority</Button>
+                  <Button 
+                    className="w-full" 
+                    variant="outline" 
+                    onClick={() => selectService("Authority Builder - $2,997/mo")}
+                  >
+                    Build Authority
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -538,7 +548,12 @@ const ProfessionalServicesMarketing = () => {
                       <span className="text-sm">Premium client retention</span>
                     </div>
                   </div>
-                  <Button className="w-full">Command Premium Fees</Button>
+                  <Button 
+                    className="w-full" 
+                    onClick={() => selectService("Premium Practice - $4,997/mo")}
+                  >
+                    Command Premium Fees
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -575,7 +590,13 @@ const ProfessionalServicesMarketing = () => {
                       <span className="text-sm">Executive strategy consulting</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Lead Your Industry</Button>
+                  <Button 
+                    className="w-full" 
+                    variant="outline" 
+                    onClick={() => selectService("Consulting Empire - $8,997/mo")}
+                  >
+                    Lead Your Industry
+                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -643,12 +664,12 @@ const ProfessionalServicesMarketing = () => {
                 that positions you as the premium choice and attracts high-value clients ready to invest.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Get Authority Assessment
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600" onClick={() => window.open('tel:+13865550123')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call: (386) 555-0123
                 </Button>
@@ -662,6 +683,15 @@ const ProfessionalServicesMarketing = () => {
 
         <Footer />
       </div>
+
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        title="Get Your Free Professional Services Marketing Audit"
+        description="Let's discuss how we can help grow your professional services business."
+        defaultService={selectedService}
+        businessTypes={businessTypes.professional}
+      />
     </>
   );
 };

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { 
   Utensils, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
@@ -22,10 +21,48 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  businessType: z.string().min(1, "Please select your business type"),
+  marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
+  selectedService: z.string().default("Restaurant Marketing Audit")
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const RestaurantsHospitalityMarketing = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: "Restaurant Marketing Audit" }
+  });
+
+  const onSubmitForm = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
+    setIsSubmitting(true);
+    await new Promise(r => setTimeout(r, 1000));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Restaurant contact form submitted:", data);
+    }
+    setSubmitSuccess(true);
+    reset();
+    setTimeout(() => {
+      setSubmitSuccess(false);
+      setIsDialogOpen(false);
+    }, 2000);
+    setIsSubmitting(false);
+  };
+
+  // Keep the original form logic for the inline form
+  const [isInlineSubmitting, setIsInlineSubmitting] = useState(false);
+  const [inlineSubmitSuccess, setInlineSubmitSuccess] = useState(false);
 
   const hospitalityLeadSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters"),
@@ -39,11 +76,11 @@ const RestaurantsHospitalityMarketing = () => {
   type HospitalityLeadFormData = z.infer<typeof hospitalityLeadSchema>;
 
   const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue
+    register: registerInline,
+    handleSubmit: handleInlineSubmit,
+    formState: { errors: inlineErrors },
+    reset: resetInline,
+    setValue: setValueInline
   } = useForm<HospitalityLeadFormData>({
     resolver: zodResolver(hospitalityLeadSchema),
     defaultValues: {
@@ -51,19 +88,19 @@ const RestaurantsHospitalityMarketing = () => {
     }
   });
 
-  const onSubmit = async (data: HospitalityLeadFormData) => {
-    setIsSubmitting(true);
+  const onInlineSubmit = async (data: HospitalityLeadFormData) => {
+    setIsInlineSubmitting(true);
     
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     console.log("Hospitality lead generated:", data);
-    setSubmitSuccess(true);
-    reset({ industry: "restaurants-hospitality" });
+    setInlineSubmitSuccess(true);
+    resetInline({ industry: "restaurants-hospitality" });
     
     // Reset success message after 5 seconds
-    setTimeout(() => setSubmitSuccess(false), 5000);
-    setIsSubmitting(false);
+    setTimeout(() => setInlineSubmitSuccess(false), 5000);
+    setIsInlineSubmitting(false);
   };
 
   return (
@@ -140,12 +177,12 @@ const RestaurantsHospitalityMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg">
+                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
                   <Target className="w-5 h-5 mr-2" />
                   Get Restaurant Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
                   <Phone className="w-5 h-5 mr-2" />
                   Restaurant Growth Call
                 </Button>
@@ -580,7 +617,16 @@ const RestaurantsHospitalityMarketing = () => {
                       <span className="text-sm">Online ordering optimization</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Become Local Favorite</Button>
+                  <Button 
+                    className="w-full" 
+                    variant="outline" 
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      reset({ selectedService: "Local Favorite - $2,197/mo" });
+                    }}
+                  >
+                    Become Local Favorite
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -620,7 +666,15 @@ const RestaurantsHospitalityMarketing = () => {
                       <span className="text-sm">Influencer partnerships</span>
                     </div>
                   </div>
-                  <Button className="w-full">Become Dining Destination</Button>
+                  <Button 
+                    className="w-full" 
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      reset({ selectedService: "Dining Destination - $3,697/mo" });
+                    }}
+                  >
+                    Become Dining Destination
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -657,7 +711,16 @@ const RestaurantsHospitalityMarketing = () => {
                       <span className="text-sm">Priority support</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Build Hospitality Empire</Button>
+                  <Button 
+                    className="w-full" 
+                    variant="outline" 
+                    onClick={() => {
+                      setIsDialogOpen(true);
+                      reset({ selectedService: "Hospitality Empire - $6,497/mo" });
+                    }}
+                  >
+                    Build Hospitality Empire
+                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -742,7 +805,7 @@ const RestaurantsHospitalityMarketing = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                {submitSuccess ? (
+                {inlineSubmitSuccess ? (
                   <div className="text-center py-8">
                     <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
                     <h3 className="text-2xl font-bold text-green-800 mb-2">Request Submitted!</h3>
@@ -751,18 +814,18 @@ const RestaurantsHospitalityMarketing = () => {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <form onSubmit={handleInlineSubmit(onInlineSubmit)} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="name">Name *</Label>
                         <Input
                           id="name"
                           placeholder="Your name"
-                          {...register("name")}
-                          className={errors.name ? "border-red-500" : ""}
+                          {...registerInline("name")}
+                          className={inlineErrors.name ? "border-red-500" : ""}
                         />
-                        {errors.name && (
-                          <p className="text-red-500 text-sm">{errors.name.message}</p>
+                        {inlineErrors.name && (
+                          <p className="text-red-500 text-sm">{inlineErrors.name.message}</p>
                         )}
                       </div>
 
@@ -772,11 +835,11 @@ const RestaurantsHospitalityMarketing = () => {
                           id="email"
                           type="email"
                           placeholder="your.email@restaurant.com"
-                          {...register("email")}
-                          className={errors.email ? "border-red-500" : ""}
+                          {...registerInline("email")}
+                          className={inlineErrors.email ? "border-red-500" : ""}
                         />
-                        {errors.email && (
-                          <p className="text-red-500 text-sm">{errors.email.message}</p>
+                        {inlineErrors.email && (
+                          <p className="text-red-500 text-sm">{inlineErrors.email.message}</p>
                         )}
                       </div>
                     </div>
@@ -787,11 +850,11 @@ const RestaurantsHospitalityMarketing = () => {
                         <Input
                           id="phone"
                           placeholder="(555) 123-4567"
-                          {...register("phone")}
-                          className={errors.phone ? "border-red-500" : ""}
+                          {...registerInline("phone")}
+                          className={inlineErrors.phone ? "border-red-500" : ""}
                         />
-                        {errors.phone && (
-                          <p className="text-red-500 text-sm">{errors.phone.message}</p>
+                        {inlineErrors.phone && (
+                          <p className="text-red-500 text-sm">{inlineErrors.phone.message}</p>
                         )}
                       </div>
 
@@ -800,19 +863,19 @@ const RestaurantsHospitalityMarketing = () => {
                         <Input
                           id="company"
                           placeholder="Your restaurant name"
-                          {...register("company")}
-                          className={errors.company ? "border-red-500" : ""}
+                          {...registerInline("company")}
+                          className={inlineErrors.company ? "border-red-500" : ""}
                         />
-                        {errors.company && (
-                          <p className="text-red-500 text-sm">{errors.company.message}</p>
+                        {inlineErrors.company && (
+                          <p className="text-red-500 text-sm">{inlineErrors.company.message}</p>
                         )}
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="industry">Business Type *</Label>
-                      <Select onValueChange={(value) => setValue("industry", value)} defaultValue="restaurants-hospitality">
-                        <SelectTrigger className={errors.industry ? "border-red-500" : ""}>
+                      <Select onValueChange={(value) => setValueInline("industry", value)} defaultValue="restaurants-hospitality">
+                        <SelectTrigger className={inlineErrors.industry ? "border-red-500" : ""}>
                           <SelectValue placeholder="Select your business type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -825,8 +888,8 @@ const RestaurantsHospitalityMarketing = () => {
                           <SelectItem value="catering">Catering Services</SelectItem>
                         </SelectContent>
                       </Select>
-                      {errors.industry && (
-                        <p className="text-red-500 text-sm">{errors.industry.message}</p>
+                      {inlineErrors.industry && (
+                        <p className="text-red-500 text-sm">{inlineErrors.industry.message}</p>
                       )}
                     </div>
 
@@ -836,11 +899,11 @@ const RestaurantsHospitalityMarketing = () => {
                         id="message"
                         placeholder="Describe your restaurant marketing challenges, competition, or goals..."
                         rows={4}
-                        {...register("message")}
-                        className={errors.message ? "border-red-500" : ""}
+                        {...registerInline("message")}
+                        className={inlineErrors.message ? "border-red-500" : ""}
                       />
-                      {errors.message && (
-                        <p className="text-red-500 text-sm">{errors.message.message}</p>
+                      {inlineErrors.message && (
+                        <p className="text-red-500 text-sm">{inlineErrors.message.message}</p>
                       )}
                     </div>
 
@@ -848,9 +911,9 @@ const RestaurantsHospitalityMarketing = () => {
                       type="submit" 
                       className="w-full" 
                       size="lg"
-                      disabled={isSubmitting}
+                      disabled={isInlineSubmitting}
                     >
-                      {isSubmitting ? (
+                      {isInlineSubmitting ? (
                         <>
                           <Clock className="w-5 h-5 mr-2 animate-spin" />
                           Analyzing Your Restaurant...
@@ -885,12 +948,12 @@ const RestaurantsHospitalityMarketing = () => {
                 that creates buzz, builds loyalty, and turns your establishment into the local favorite.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Get Restaurant Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-orange-600">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-orange-600" onClick={() => window.open('tel:+13865550123')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call: (386) 555-0123
                 </Button>
@@ -904,6 +967,99 @@ const RestaurantsHospitalityMarketing = () => {
 
         <Footer />
       </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Get Started with Restaurant Marketing</DialogTitle>
+            <DialogDescription>
+              Let's discuss your dining experience goals and help you fill every table.
+            </DialogDescription>
+          </DialogHeader>
+
+          {submitSuccess ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <path d="M22 4 12 14.01l-3-3"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
+              <p className="text-muted-foreground">I'll analyze your restaurant and send you a detailed marketing strategy within 48 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
+                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
+                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
+                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label>Business Type *</Label>
+                  <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
+                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
+                      <SelectValue placeholder="Select your restaurant type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="fine-dining">Fine Dining</SelectItem>
+                      <SelectItem value="casual-dining">Casual Dining</SelectItem>
+                      <SelectItem value="fast-casual">Fast Casual</SelectItem>
+                      <SelectItem value="bars-nightlife">Bars & Nightlife</SelectItem>
+                      <SelectItem value="hotels-lodging">Hotels & Lodging</SelectItem>
+                      <SelectItem value="catering">Catering Services</SelectItem>
+                      <SelectItem value="food-truck">Food Truck</SelectItem>
+                      <SelectItem value="cafe-bakery">Cafe & Bakery</SelectItem>
+                      <SelectItem value="other">Other Hospitality</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="selectedService">Selected Service *</Label>
+                <Input id="selectedService" readOnly {...register('selectedService')} />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
+                <Textarea 
+                  id="marketingChallenge" 
+                  placeholder="What's your restaurant's website? What challenges are you facing with reservations, customer loyalty, or local competition?" 
+                  className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} 
+                  {...register('marketingChallenge')} 
+                />
+                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <Button type="submit" variant="hero" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Get Started'}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   );
 };

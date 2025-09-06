@@ -1,15 +1,16 @@
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { PageBreadcrumb } from "@/components/ui/breadcrumb";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ProfessionalServiceSchema from "@/components/schema/ProfessionalServiceSchema";
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 import { 
   Search, 
   TrendingUp, 
@@ -26,10 +27,31 @@ import {
   Star
 } from "lucide-react";
 
+
 const SEOServices = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Free SEO Audit');
+
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
+    <>
+      <Helmet>
+        <title>Comprehensive SEO Services | Technical & Local SEO Expert | Joel Hinton</title>
+        <meta name="description" content="Comprehensive SEO services combining technical optimization with behavioral psychology to drive Florida business growth and higher search rankings." />
+        <meta name="keywords" content="SEO services, technical SEO, local SEO, search engine optimization, Florida SEO expert" />
+        <meta name="robots" content="index, follow" />
+        
+        <meta property="og:title" content="Comprehensive SEO Services | Technical & Local SEO Expert" />
+        <meta property="og:description" content="Technical SEO optimization combined with behavioral psychology for proven business growth." />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <ProfessionalServiceSchema 
+        serviceName="SEO Services"
+        serviceDescription="Comprehensive SEO services combining technical optimization with behavioral psychology"
+        serviceUrl="https://joelhintonmarketing.com/seo-services"
+        price="500"
+        serviceType="Search Engine Optimization"
+      />
+      <div className="min-h-screen bg-background">
+        <Navigation />
       
       {/* Breadcrumb */}
       <PageBreadcrumb 
@@ -54,7 +76,11 @@ const SEOServices = () => {
               Traditional SEO agencies sell you retainers. We sell you results. Our proven strategies help <Link to="/industries/professional-services" className="text-primary hover:underline">professional services</Link> and <Link to="/industries/legal-services" className="text-primary hover:underline">legal services</Link> dominate their markets with real SEO that drives business growth.
             </p>
             
-            <Button size="lg" className="px-8 py-4 text-lg">
+            <Button 
+              size="lg" 
+              className="px-8 py-4 text-lg"
+              onClick={() => openDialog()}
+            >
               Get Your Free SEO Audit
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
@@ -378,7 +404,10 @@ const SEOServices = () => {
                   </div>
                 </div>
 
-                <Button className="w-full mt-6">
+                <Button 
+                  className="w-full mt-6"
+                  onClick={() => selectService("Basic SEO Plan - $500")}
+                >
                   Get Started - $500
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -440,7 +469,10 @@ const SEOServices = () => {
                   </div>
                 </div>
 
-                <Button className="w-full mt-6 btn-hero text-primary-foreground">
+                <Button 
+                  className="w-full mt-6 btn-hero text-primary-foreground"
+                  onClick={() => selectService("Growth SEO Plan - $1,000")}
+                >
                   Get Started - $1,000
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -607,16 +639,23 @@ const SEOServices = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Real Estate", description: "Lead generation and local market domination" },
-              { name: "Healthcare", description: "Patient acquisition and local authority building" },
-              { name: "Home Services", description: "Local SEO and emergency service optimization" },
-              { name: "E-commerce", description: "Product page optimization and category scaling" },
-              { name: "Professional Services", description: "Thought leadership and client acquisition" },
-              { name: "Restaurants", description: "Local visibility and review optimization" }
+              { name: "Real Estate", description: "Lead generation and local market domination", href: "/industries/real-estate" },
+              { name: "Healthcare", description: "Patient acquisition and local authority building", href: "/industries/healthcare" },
+              { name: "Home Services", description: "Local SEO and emergency service optimization", href: "/industries/home-services" },
+              { name: "E-commerce", description: "Product page optimization and category scaling", href: "/industries/ecommerce" },
+              { name: "Professional Services", description: "Thought leadership and client acquisition", href: "/industries/professional-services" },
+              { name: "Restaurants", description: "Local visibility and review optimization", href: "/industries/restaurants" }
             ].map((industry, index) => (
-              <Card key={index} className="card-professional text-center">
+              <Card key={index} className="card-professional text-center hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
-                  <CardTitle className="text-lg">{industry.name}</CardTitle>
+                  <CardTitle className="text-lg">
+                    <Link 
+                      to={industry.href} 
+                      className="hover:text-primary transition-colors duration-300"
+                    >
+                      {industry.name}
+                    </Link>
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">{industry.description}</p>
@@ -747,8 +786,18 @@ const SEOServices = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        title="Get Your Free SEO Audit"
+        description="Let's discuss your SEO goals and see exactly what's holding your website back."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
+      />
+    </>
   );
 };
 

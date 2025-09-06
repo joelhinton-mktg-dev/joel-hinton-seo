@@ -1,9 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 import { 
-  Building2, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
-  BarChart3, Phone, Calendar, Star, Zap, Clock, MapPin, 
-  Shield, AlertTriangle, Home, Wrench
+  Dumbbell, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
+  BarChart3, Phone, Calendar, Star, Shield, Heart, UserCheck, 
+  Clock, FileText, Building2, Eye, Zap
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,25 +16,29 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import ContactDialog from '@/components/ContactDialog';
-import { useContactDialog } from '@/hooks/useContactDialog';
-import { businessTypes } from '@/types/contact-forms';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 
 
-const HomeServicesMarketing = () => {
-  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Home Services Marketing Audit');
+const FitnessWellnessMarketing = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Fitness Marketing Audit');
   return (
     <>
       <Helmet>
-        <title>Home Services Marketing Psychology | HVAC, Plumbing, Roofing Marketing | Joel Hinton</title>
-        <meta name="description" content="Emergency-driven home services marketing that converts anxious homeowners into customers. Psychology strategies for HVAC, plumbing, roofing with 320% traffic growth." />
-        <meta name="keywords" content="home services marketing, HVAC marketing, plumbing marketing, roofing marketing, emergency service marketing, local contractor marketing" />
+        <title>Fitness & Wellness Marketing Psychology | Gym & Studio Marketing | Joel Hinton</title>
+        <meta name="description" content="Motivation-driven fitness marketing that converts prospects into committed members. Psychology strategies for gyms and wellness centers with 310% membership growth." />
+        <meta name="keywords" content="fitness marketing, gym marketing, wellness center marketing, fitness psychology, member retention, fitness studio marketing" />
         <meta name="robots" content="index, follow" />
         
-        <meta property="og:title" content="Home Services Marketing Psychology | Emergency Service Marketing" />
-        <meta property="og:description" content="Emergency-driven marketing strategies that convert anxious homeowners into customers with proven results." />
+        <meta property="og:title" content="Fitness & Wellness Marketing Psychology | Gym & Studio Marketing" />
+        <meta property="og:description" content="Motivation-driven marketing strategies that convert prospects into committed fitness members with proven results." />
         <meta property="og:type" content="website" />
       </Helmet>
+      <ProfessionalServiceSchema 
+        serviceName="Fitness & Wellness Marketing"
+        serviceDescription="Motivation-driven marketing strategies for gyms and wellness centers that inspire commitment and drive membership growth"
+        serviceUrl="https://joelhintonmarketing.com/industries/fitness-wellness"
+        serviceType="Fitness Marketing"
+      />
 
       <div className="min-h-screen bg-background">
         <Navigation />
@@ -39,7 +46,7 @@ const HomeServicesMarketing = () => {
         <PageBreadcrumb 
           items={[
             { label: "Industries", href: "/industries" },
-            { label: "Home Services", current: true }
+            { label: "Fitness & Wellness", current: true }
           ]}
         />
 
@@ -48,40 +55,41 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
               <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
-                <Building2 className="w-4 h-4 mr-2" />
-                Home Services Marketing Specialist
+                <Dumbbell className="w-4 h-4 mr-2" />
+                Fitness Marketing Specialist
               </Badge>
               
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Home Services Marketing <span className="text-primary">Psychology</span> That Converts Emergencies to Customers
+                Fitness Marketing <span className="text-primary">Psychology</span> That Inspires Commitment & Drives Memberships
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                When homeowners have emergencies, they're anxious and need immediate relief. Our psychology-driven strategies 
-                position your business as the trusted <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> solution that provides instant peace of mind and reliable results. 
-                With our comprehensive <Link to="/seo-services" className="text-primary hover:underline">SEO services</Link>, you'll be found first when customers need help most.
+                Fitness decisions involve motivation, body image concerns, and commitment anxiety. Our psychology-driven 
+                strategies position your gym as the supportive community that helps members achieve transformation goals. 
+                Through strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and targeted 
+                <Link to="/paid-advertising" className="text-primary hover:underline">advertising campaigns</Link>, we attract motivated prospects ready to commit to their fitness journey.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Target className="w-5 h-5 mr-2" />
-                  Get Home Services Audit
+                  Get Fitness Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Phone className="w-5 h-5 mr-2" />
-                  Emergency Marketing Help
+                  Membership Strategy Call
                 </Button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto text-center">
                 <div className="p-4">
                   <TrendingUp className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">320% Traffic Growth</p>
+                  <p className="text-sm font-medium">310% Membership Growth</p>
                 </div>
                 <div className="p-4">
                   <Users className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">420% More Emergency Calls</p>
+                  <p className="text-sm font-medium">450% More Leads</p>
                 </div>
                 <div className="p-4">
                   <Award className="w-8 h-8 text-primary mx-auto mb-2" />
@@ -97,74 +105,42 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services <span className="gradient-text">Psychology Triggers</span>
+                Fitness <span className="gradient-text">Psychology Triggers</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Home service customers are often in crisis mode or planning important projects. We leverage these psychological 
-                states to create marketing that provides immediate relief and builds long-term trust.
+                Fitness marketing requires understanding motivation cycles, body image psychology, and commitment barriers. 
+                We create campaigns that inspire action and maintain long-term engagement.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="card-professional text-center">
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto mb-4">
-                    <AlertTriangle className="w-8 h-8" />
-                  </div>
-                  <CardTitle className="text-xl">Emergency Urgency</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    "No heat in winter" or "flooded basement" creates immediate need. We position your business as the fast, reliable emergency solution.
-                  </p>
-                  <ul className="text-sm space-y-2 text-left">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>24/7 availability messaging</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Fast response time guarantees</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Emergency contact prominence</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Crisis relief positioning</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardHeader>
                   <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-8 h-8" />
+                    <Zap className="w-8 h-8" />
                   </div>
-                  <CardTitle className="text-xl">Local Trust Signals</CardTitle>
+                  <CardTitle className="text-xl">Transformation Motivation</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    Homeowners prefer local contractors they can trust. We emphasize community connections, local presence, and neighborhood expertise.
+                    People join gyms seeking transformation and better health. We leverage before/after success stories and goal achievement to inspire action.
                   </p>
                   <ul className="text-sm space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Local business licensing display</span>
+                      <span>Member transformation showcases</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Community involvement showcase</span>
+                      <span>Goal achievement campaigns</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Neighborhood project examples</span>
+                      <span>Progress tracking emphasis</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Local review emphasis</span>
+                      <span>Success milestone celebrations</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -173,30 +149,62 @@ const HomeServicesMarketing = () => {
               <Card className="card-professional text-center">
                 <CardHeader>
                   <div className="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4">
-                    <Wrench className="w-8 h-8" />
+                    <Heart className="w-8 h-8" />
                   </div>
-                  <CardTitle className="text-xl">Before/After Transformations</CardTitle>
+                  <CardTitle className="text-xl">Community & Support</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    Visual proof of transformation builds confidence and helps customers envision their own results with your services.
+                    Fitness journeys are easier with support. We emphasize community, encouragement, and shared goals to reduce workout intimidation.
                   </p>
                   <ul className="text-sm space-y-2 text-left">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Project photo galleries</span>
+                      <span>Welcoming community messaging</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Transformation videos</span>
+                      <span>Beginner-friendly positioning</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Problem-solution stories</span>
+                      <span>Group class promotion</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Customer satisfaction focus</span>
+                      <span>Personal trainer matching</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional text-center">
+                <CardHeader>
+                  <div className="w-16 h-16 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-4">
+                    <Calendar className="w-8 h-8" />
+                  </div>
+                  <CardTitle className="text-xl">Seasonal Motivation Cycles</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    Leverage New Year motivation, summer body goals, and health awareness periods to drive membership and engagement.
+                  </p>
+                  <ul className="text-sm space-y-2 text-left">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                      <span>New Year resolution campaigns</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                      <span>Summer preparation programs</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                      <span>Health awareness tie-ins</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
+                      <span>Year-round motivation maintenance</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -210,11 +218,11 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services Marketing <span className="gradient-text">Challenges We Solve</span>
+                Fitness Marketing <span className="gradient-text">Challenges We Solve</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Home services businesses face unique marketing challenges from seasonal demand to local competition. 
-                We've developed specialized solutions for the industry's biggest pain points.
+                Fitness businesses face unique challenges from high competition to member retention. 
+                We've developed specialized solutions for the wellness industry's biggest obstacles.
               </p>
             </div>
 
@@ -222,48 +230,24 @@ const HomeServicesMarketing = () => {
               <Card className="card-professional">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
-                    <Calendar className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Seasonal Demand</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Navigate seasonal fluctuations with strategic marketing that maintains revenue year-round and captures peak demand.
-                  </p>
-                  <div className="bg-primary/5 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Our Solution:</h4>
-                    <ul className="text-sm space-y-1">
-                      <li>• Seasonal service promotion campaigns</li>
-                      <li>• Off-season maintenance marketing</li>
-                      <li>• Weather-triggered emergency campaigns</li>
-                      <li>• Preventive service education</li>
-                    </ul>
-                  </div>
-                  <div className="text-sm text-primary font-medium">Result: 40% more consistent monthly revenue</div>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
                     <Target className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Local Competition</CardTitle>
+                    <CardTitle className="text-xl">High Market Competition</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Stand out from countless local competitors by building unique positioning and trust signals that customers remember.
+                    Stand out from countless fitness options by emphasizing unique programs, community, and personalized support.
                   </p>
                   <div className="bg-primary/5 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Our Solution:</h4>
                     <ul className="text-sm space-y-1">
-                      <li>• Unique value proposition development</li>
-                      <li>• Local SEO domination</li>
-                      <li>• Brand differentiation strategies</li>
-                      <li>• Community involvement campaigns</li>
+                      <li>• Unique program differentiation</li>
+                      <li>• Community culture emphasis</li>
+                      <li>• Specialized fitness niches</li>
+                      <li>• Personal success story focus</li>
                     </ul>
                   </div>
-                  <div className="text-sm text-primary font-medium">Result: 75% market share in service areas</div>
+                  <div className="text-sm text-primary font-medium">Result: 70% increase in membership inquiries</div>
                 </CardContent>
               </Card>
 
@@ -271,23 +255,47 @@ const HomeServicesMarketing = () => {
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
                     <Clock className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Emergency Response</CardTitle>
+                    <CardTitle className="text-xl">Member Retention</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Capture emergency calls when customers are most motivated to hire and willing to pay premium prices for immediate service.
+                    Combat high churn rates with engagement strategies that keep members motivated and committed long-term.
                   </p>
                   <div className="bg-primary/5 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Our Solution:</h4>
                     <ul className="text-sm space-y-1">
-                      <li>• Emergency keyword optimization</li>
-                      <li>• 24/7 response positioning</li>
-                      <li>• Crisis communication strategies</li>
-                      <li>• Premium emergency pricing psychology</li>
+                      <li>• Progress tracking systems</li>
+                      <li>• Goal achievement programs</li>
+                      <li>• Community building events</li>
+                      <li>• Personal trainer matching</li>
                     </ul>
                   </div>
-                  <div className="text-sm text-primary font-medium">Result: 85% increase in emergency call volume</div>
+                  <div className="text-sm text-primary font-medium">Result: 65% improvement in member retention</div>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Calendar className="w-6 h-6 text-primary" />
+                    <CardTitle className="text-xl">Seasonal Motivation Cycles</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Navigate New Year rushes and summer goals while maintaining engagement during low-motivation periods.
+                  </p>
+                  <div className="bg-primary/5 p-4 rounded-lg">
+                    <h4 className="font-semibold mb-2">Our Solution:</h4>
+                    <ul className="text-sm space-y-1">
+                      <li>• New Year transformation campaigns</li>
+                      <li>• Summer body preparation</li>
+                      <li>• Year-round motivation strategies</li>
+                      <li>• Seasonal program launches</li>
+                    </ul>
+                  </div>
+                  <div className="text-sm text-primary font-medium">Result: 40% more consistent membership levels</div>
                 </CardContent>
               </Card>
 
@@ -295,23 +303,23 @@ const HomeServicesMarketing = () => {
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-4">
                     <Shield className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Pricing Transparency</CardTitle>
+                    <CardTitle className="text-xl">Gym Intimidation Barriers</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Overcome price objections and build trust with transparent, value-focused pricing that justifies your expertise.
+                    Address fitness anxiety and gym intimidation with welcoming messaging that makes fitness accessible to everyone.
                   </p>
                   <div className="bg-primary/5 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Our Solution:</h4>
                     <ul className="text-sm space-y-1">
-                      <li>• Value-based pricing presentation</li>
-                      <li>• Upfront pricing displays</li>
-                      <li>• Quality vs cost education</li>
-                      <li>• Guarantee and warranty emphasis</li>
+                      <li>• Beginner-friendly messaging</li>
+                      <li>• Inclusive community emphasis</li>
+                      <li>• Judgment-free zone positioning</li>
+                      <li>• Personal support highlighting</li>
                     </ul>
                   </div>
-                  <div className="text-sm text-primary font-medium">Result: 45% improvement in quote acceptance</div>
+                  <div className="text-sm text-primary font-medium">Result: 85% new member conversion rate</div>
                 </CardContent>
               </Card>
             </div>
@@ -323,28 +331,28 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Proven <span className="gradient-text">Home Services Results</span>
+                Proven <span className="gradient-text">Fitness Results</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Our home services marketing consistently delivers measurable improvements across 
-                all key performance indicators for contractors and service providers.
+                Our fitness marketing consistently delivers measurable improvements in membership growth, 
+                retention rates, and community engagement.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-primary mb-2">320%</div>
-                  <div className="text-lg font-semibold mb-2">Traffic Growth</div>
-                  <p className="text-sm text-muted-foreground">Local homeowners finding your services</p>
+                  <div className="text-4xl font-bold text-primary mb-2">310%</div>
+                  <div className="text-lg font-semibold mb-2">Membership Growth</div>
+                  <p className="text-sm text-muted-foreground">New member registrations</p>
                 </CardContent>
               </Card>
 
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-green-600 mb-2">420%</div>
+                  <div className="text-4xl font-bold text-green-600 mb-2">450%</div>
                   <div className="text-lg font-semibold mb-2">Lead Generation</div>
-                  <p className="text-sm text-muted-foreground">Emergency and scheduled service calls</p>
+                  <p className="text-sm text-muted-foreground">Qualified fitness inquiries</p>
                 </CardContent>
               </Card>
 
@@ -352,15 +360,15 @@ const HomeServicesMarketing = () => {
                 <CardContent className="p-6">
                   <div className="text-4xl font-bold text-blue-600 mb-2">380%</div>
                   <div className="text-lg font-semibold mb-2">ROI Increase</div>
-                  <p className="text-sm text-muted-foreground">Return on marketing investment</p>
+                  <p className="text-sm text-muted-foreground">Marketing return on investment</p>
                 </CardContent>
               </Card>
 
               <Card className="card-professional text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-purple-600 mb-2">85%</div>
-                  <div className="text-lg font-semibold mb-2">Quote Acceptance</div>
-                  <p className="text-sm text-muted-foreground">Prospects choosing your services</p>
+                  <div className="text-4xl font-bold text-purple-600 mb-2">65%</div>
+                  <div className="text-lg font-semibold mb-2">Retention Rate</div>
+                  <p className="text-sm text-muted-foreground">Member loyalty improvement</p>
                 </CardContent>
               </Card>
             </div>
@@ -372,50 +380,48 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services Marketing <span className="gradient-text">Service Options</span>
+                Fitness Marketing <span className="gradient-text">Service Options</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Choose the home services marketing package that fits your business size and service area. 
-                All packages include emergency psychology optimization and local trust building.
+                Choose the fitness marketing package that fits your facility size and membership goals. 
+                All packages include motivation psychology and retention optimization.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <Card className="card-professional">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">Local Contractor</CardTitle>
-                  <CardDescription>Perfect for single-location contractors</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$1,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-2xl mb-2">Studio Starter</CardTitle>
+                  <CardDescription>Perfect for boutique fitness studios</CardDescription>
+                  <div className="text-3xl font-bold text-primary mt-4">$1,797<span className="text-base font-normal text-muted-foreground">/mo</span></div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Local SEO optimization</span>
+                      <span className="text-sm">Local fitness SEO</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Emergency response campaigns</span>
+                      <span className="text-sm">Class schedule optimization</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Google Business Profile mastery</span>
+                      <span className="text-sm">Member success campaigns</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Review management system</span>
+                      <span className="text-sm">Trial membership conversion</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Seasonal campaign management</span>
+                      <span className="text-sm">Social media engagement</span>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full" 
-                    variant="outline" 
-                    onClick={() => selectService("Local Contractor - $1,997/mo")}
-                  >
-                    Start Local Growth
+                  <Button className="w-full" variant="outline" onClick={() => {
+                    selectService("Studio Starter - $1,797/mo");
+                  }}>
+                    Start Studio Growth
                   </Button>
                 </CardContent>
               </Card>
@@ -425,57 +431,56 @@ const HomeServicesMarketing = () => {
                   <Badge className="bg-primary text-primary-foreground px-4 py-1">Most Popular</Badge>
                 </div>
                 <CardHeader className="text-center pt-8">
-                  <CardTitle className="text-2xl mb-2">Service Dominator</CardTitle>
-                  <CardDescription>For established home service companies</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$3,497<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-2xl mb-2">Fitness Authority</CardTitle>
+                  <CardDescription>For established gyms & wellness centers</CardDescription>
+                  <div className="text-3xl font-bold text-primary mt-4">$3,197<span className="text-base font-normal text-muted-foreground">/mo</span></div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in Local Contractor</span>
+                      <span className="text-sm">Everything in Studio Starter</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Multi-service optimization</span>
+                      <span className="text-sm">Multi-program optimization</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Advanced lead nurturing</span>
+                      <span className="text-sm">Corporate wellness programs</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Premium service positioning</span>
+                      <span className="text-sm">Personal training promotion</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Maintenance contract marketing</span>
+                      <span className="text-sm">Member referral systems</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Competitive intelligence</span>
+                      <span className="text-sm">Advanced analytics</span>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full" 
-                    onClick={() => selectService("Service Dominator - $3,497/mo")}
-                  >
-                    Dominate Your Market
+                  <Button className="w-full" onClick={() => {
+                    selectService("Fitness Authority - $3,197/mo");
+                  }}>
+                    Build Fitness Authority
                   </Button>
                 </CardContent>
               </Card>
 
               <Card className="card-professional">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">Regional Empire</CardTitle>
-                  <CardDescription>For multi-location service companies</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$5,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-2xl mb-2">Wellness Empire</CardTitle>
+                  <CardDescription>For multi-location fitness chains</CardDescription>
+                  <div className="text-3xl font-bold text-primary mt-4">$5,397<span className="text-base font-normal text-muted-foreground">/mo</span></div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in Service Dominator</span>
+                      <span className="text-sm">Everything in Fitness Authority</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
@@ -495,15 +500,13 @@ const HomeServicesMarketing = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Priority emergency support</span>
+                      <span className="text-sm">Priority support</span>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full" 
-                    variant="outline" 
-                    onClick={() => selectService("Regional Empire - $5,997/mo")}
-                  >
-                    Build Service Empire
+                  <Button className="w-full" variant="outline" onClick={() => {
+                    selectService("Wellness Empire - $5,397/mo");
+                  }}>
+                    Scale Wellness Empire
                   </Button>
                 </CardContent>
               </Card>
@@ -516,44 +519,44 @@ const HomeServicesMarketing = () => {
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Home Services Marketing <span className="gradient-text">FAQ</span>
+                Fitness Marketing <span className="gradient-text">FAQ</span>
               </h2>
             </div>
 
             <Accordion type="single" collapsible className="space-y-4">
               <AccordionItem value="item-1" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  How do you handle seasonal fluctuations in home services marketing?
+                  How do you address gym intimidation and fitness anxiety?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  We create year-round marketing strategies that adapt to seasonal demand. Summer focuses on HVAC and cooling, winter on heating and storm damage, spring on maintenance and improvements. We also develop off-season campaigns for preventive services and maintenance contracts to smooth revenue fluctuations.
+                  We create welcoming, inclusive messaging that emphasizes support over judgment. This includes beginner-friendly content, community success stories from all fitness levels, and highlighting personal trainers and staff who help members feel comfortable. The goal is positioning your gym as a supportive community rather than an intimidating environment.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  What makes home services marketing different from other industries?
+                  What types of fitness businesses do you work with?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Home services often involve emergencies or urgent needs, creating high-stress decision-making situations. We focus on immediate relief psychology, local trust signals, and emergency response positioning. The goal is to be the first call when homeowners need help, not compete in a crowded marketplace.
+                  We work with traditional gyms, boutique fitness studios, yoga studios, CrossFit boxes, martial arts schools, personal training studios, and wellness centers. Each requires different psychological approaches - yoga emphasizes mindfulness and stress relief, while CrossFit focuses on challenge and community achievement.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-3" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  Do you work with all types of home service businesses?
+                  How do you improve member retention rates?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Yes, we work with HVAC, plumbing, electrical, roofing, landscaping, cleaning, pest control, and other home service providers. Each service type requires different psychological approaches - emergency services focus on urgency, while improvement services emphasize transformation and value.
+                  We implement engagement systems that track member progress, celebrate achievements, and provide ongoing motivation. This includes goal-setting programs, progress photo campaigns, community challenges, and personal check-ins. We also create content that keeps members engaged between visits and helps them see ongoing value.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-4" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
-                  How quickly can home service businesses see marketing results?
+                  How quickly can fitness businesses see membership growth?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Home services typically see faster results than other industries due to urgent local needs. Local SEO improvements show within 30-60 days, emergency campaigns can generate calls within days, and full optimization usually achieves results within 3-6 months. We track calls, leads, and conversion rates monthly.
+                  Fitness marketing typically shows initial results within 30-60 days for local visibility improvements. Membership increases usually occur within 2-4 months as community reputation builds, and retention improvements take 3-6 months to establish. We track trial memberships, conversion rates, and retention metrics monthly.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -561,47 +564,47 @@ const HomeServicesMarketing = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-24 bg-gradient-to-r from-orange-600 to-red-700">
+        <section className="py-24 bg-gradient-to-r from-green-600 to-blue-700">
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="text-center">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Dominate Your Local Market?
+                Ready to Build a Thriving Fitness Community?
               </h2>
-              <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-                Stop losing emergency calls to competitors. Get home services marketing that positions you as 
-                the trusted local expert customers call first when they need help.
+              <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+                Stop losing members to competition and low motivation. Get fitness marketing that builds 
+                community, inspires transformation, and creates long-term member loyalty.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Calendar className="w-5 h-5 mr-2" />
-                  Get Home Services Audit
+                  Get Fitness Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-orange-600" onClick={() => window.open('tel:+13865550123')}>
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-green-600" onClick={() => window.open('tel:+13865550123')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call: (386) 555-0123
                 </Button>
               </div>
-              <p className="text-orange-200 text-center">
-                Emergency marketing • Local expertise • Proven contractor growth
+              <p className="text-green-200 text-center">
+                Community building • Member retention • Proven fitness growth
               </p>
             </div>
           </div>
         </section>
 
         <Footer />
-      </div>
 
-      <ContactDialog 
-        isOpen={isOpen}
-        onClose={closeDialog}
-        title="Get Your Free Home Services Marketing Consultation"
-        description="Let's discuss how we can help grow your home services business with emergency-driven marketing strategies."
-        defaultService={selectedService}
-        businessTypes={businessTypes.homeServices}
-      />
+        <ContactDialog 
+          isOpen={isOpen}
+          onClose={closeDialog}
+          title="Get Your Free Fitness Marketing Audit"
+          description="Let's discuss how we can help build your fitness community and boost member retention."
+          defaultService={selectedService}
+          businessTypes={businessTypes.fitness}
+        />
+      </div>
     </>
   );
 };
 
-export default HomeServicesMarketing;
+export default FitnessWellnessMarketing;

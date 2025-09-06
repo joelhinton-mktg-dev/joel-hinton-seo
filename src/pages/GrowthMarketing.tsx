@@ -1,21 +1,127 @@
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from "@/components/ui/dialog";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
+import ProfessionalServiceSchema from "@/components/schema/ProfessionalServiceSchema";
 import { CheckCircle, TrendingUp, Brain, Target, Zap, Users, BarChart, MessageSquare, ArrowRight, Star } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { PageBreadcrumb } from "@/components/ui/breadcrumb";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useState } from "react";
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  businessType: z.string().min(1, "Please select your business type"),
+  marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
+  selectedService: z.string().default("Growth Marketing Strategy Consultation")
+});
+
+const leadCaptureFormSchema = z.object({
+  revenue: z.string().min(1, "Please select your revenue range"),
+  channel: z.string().min(1, "Please select your primary channel"),
+  challenge: z.string().min(10, "Please describe your growth challenge (at least 10 characters)"),
+  industry: z.string().min(2, "Please enter your industry/business type"),
+  website: z.string().url("Please enter a valid website URL"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number")
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
+type LeadCaptureFormData = z.infer<typeof leadCaptureFormSchema>;
 
 const GrowthMarketing = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [isLeadCaptureSubmitting, setIsLeadCaptureSubmitting] = useState(false);
+  const [leadCaptureSuccess, setLeadCaptureSuccess] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    setValue
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: "Growth Marketing Strategy Consultation" }
+  });
+
+  const {
+    register: registerLeadCapture,
+    handleSubmit: handleSubmitLeadCapture,
+    formState: { errors: leadCaptureErrors },
+    reset: resetLeadCapture,
+    setValue: setValueLeadCapture
+  } = useForm<LeadCaptureFormData>({
+    resolver: zodResolver(leadCaptureFormSchema)
+  });
+
+  const onSubmitForm = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
+    setIsSubmitting(true);
+    await new Promise(r => setTimeout(r, 1000));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Growth Marketing contact form submitted:", data);
+    }
+    setSubmitSuccess(true);
+    reset();
+    setTimeout(() => {
+      setSubmitSuccess(false);
+      setIsDialogOpen(false);
+    }, 2000);
+    setIsSubmitting(false);
+  };
+
+  const onSubmitLeadCapture = async (data: LeadCaptureFormData) => {
+    if (isLeadCaptureSubmitting) return; // Prevent double submission
+    setIsLeadCaptureSubmitting(true);
+    await new Promise(r => setTimeout(r, 1000));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Growth Marketing lead capture form submitted:", data);
+    }
+    setLeadCaptureSuccess(true);
+    resetLeadCapture();
+    setTimeout(() => {
+      setLeadCaptureSuccess(false);
+    }, 5000);
+    setIsLeadCaptureSubmitting(false);
+  };
+
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
+    <>
+      <Helmet>
+        <title>Psychology-Driven Growth Marketing | Systematic Business Scaling | Joel Hinton</title>
+        <meta name="description" content="Data-driven growth marketing strategies that convert visitors into customers using psychological triggers and conversion optimization." />
+        <meta name="keywords" content="growth marketing, conversion optimization, SaaS marketing, e-commerce growth, psychology-driven marketing" />
+        <meta name="robots" content="index, follow" />
+        
+        <meta property="og:title" content="Psychology-Driven Growth Marketing | Systematic Business Scaling" />
+        <meta property="og:description" content="Growth marketing strategies using psychological triggers for systematic business scaling." />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <ProfessionalServiceSchema 
+        serviceName="Growth Marketing"
+        serviceDescription="Psychology-driven growth marketing strategies for systematic business scaling"
+        serviceUrl="https://joelhintonmarketing.com/growth-marketing"
+        price="1000"
+        serviceType="Digital Marketing"
+      />
+      <div className="min-h-screen bg-background">
+        <Navigation />
       
       {/* Breadcrumb */}
       <PageBreadcrumb 
@@ -43,7 +149,11 @@ const GrowthMarketing = () => {
           Growth marketing isn't about more tactics. It's about understanding how people actually make decisions.
         </p>
         
-        <Button size="lg" className="btn-hero text-lg px-8 py-6 mb-12">
+        <Button 
+          size="lg" 
+          className="btn-hero text-lg px-8 py-6 mb-12"
+          onClick={() => setIsDialogOpen(true)}
+        >
           <Target className="h-5 w-5 mr-2" />
           Get Your Growth Strategy Audit
         </Button>
@@ -296,7 +406,14 @@ const GrowthMarketing = () => {
                   </div>
                 </div>
                 
-                <Button className="w-full" variant="outline">
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => {
+                    setIsDialogOpen(true);
+                    reset({ selectedService: "Growth Strategy & Psychology Audit - $750" });
+                  }}
+                >
                   <Target className="h-4 w-4 mr-2" />
                   Get Growth Audit
                 </Button>
@@ -360,7 +477,13 @@ const GrowthMarketing = () => {
                   </div>
                 </div>
                 
-                <Button className="w-full btn-hero">
+                <Button 
+                  className="w-full btn-hero"
+                  onClick={() => {
+                    setIsDialogOpen(true);
+                    reset({ selectedService: "Full Growth Marketing System - $2,500" });
+                  }}
+                >
                   <TrendingUp className="h-4 w-4 mr-2" />
                   Scale My Business
                 </Button>
@@ -558,57 +681,51 @@ const GrowthMarketing = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Frequently Asked <span className="gradient-text">Questions</span>
+            </h2>
           </div>
-          
-          <div className="max-w-4xl mx-auto space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">How is growth marketing different from digital marketing?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Digital marketing focuses on channels and tactics. Growth marketing focuses on systematic business scaling using psychology and data. We optimize entire customer journeys, not just individual campaigns.
-                </p>
-              </CardContent>
-            </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">What size business benefits most from growth marketing?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Businesses doing $100K+ annually who have product-market fit but need systematic customer acquisition. Too early and you're optimizing the wrong things. Too late and you've already built inefficient systems.
-                </p>
-              </CardContent>
-            </Card>
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem value="item-1" className="border border-border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                How is growth marketing different from digital marketing?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Digital marketing focuses on channels and tactics. Growth marketing focuses on systematic business scaling using psychology and data. We optimize entire customer journeys, not just individual campaigns.
+              </AccordionContent>
+            </AccordionItem>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">How long does it take to see growth results?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Quick wins in 30-45 days (conversion optimization, messaging improvements). Systematic growth systems show compounding results over 90-180 days. We focus on sustainable growth, not temporary spikes.
-                </p>
-              </CardContent>
-            </Card>
+            <AccordionItem value="item-2" className="border border-border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                What size business benefits most from growth marketing?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Businesses doing $100K+ annually who have product-market fit but need systematic customer acquisition. Too early and you're optimizing the wrong things. Too late and you've already built inefficient systems.
+              </AccordionContent>
+            </AccordionItem>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Do you guarantee specific growth results?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  We guarantee systematic implementation of proven growth psychology principles. Results depend on market conditions, product-market fit, and execution quality. We optimize for sustainable growth, not unsustainable promises.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+            <AccordionItem value="item-3" className="border border-border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                How long does it take to see growth results?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Quick wins in 30-45 days (conversion optimization, messaging improvements). Systematic growth systems show compounding results over 90-180 days. We focus on sustainable growth, not temporary spikes.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="border border-border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Do you guarantee specific growth results?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                We guarantee systematic implementation of proven growth psychology principles. Results depend on market conditions, product-market fit, and execution quality. We optimize for sustainable growth, not unsustainable promises.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
@@ -634,76 +751,122 @@ const GrowthMarketing = () => {
                   <CardDescription>No obligation. See exactly what's holding your business back.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="revenue">Current Monthly Revenue</Label>
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select revenue range" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="under-10k">Under $10k</SelectItem>
-                          <SelectItem value="10k-50k">$10k - $50k</SelectItem>
-                          <SelectItem value="50k-100k">$50k - $100k</SelectItem>
-                          <SelectItem value="100k-500k">$100k - $500k</SelectItem>
-                          <SelectItem value="500k-plus">$500k+</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="channel">Primary Customer Acquisition Channel</Label>
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select primary channel" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="referrals">Referrals</SelectItem>
-                          <SelectItem value="organic-search">Organic Search</SelectItem>
-                          <SelectItem value="paid-ads">Paid Advertising</SelectItem>
-                          <SelectItem value="social-media">Social Media</SelectItem>
-                          <SelectItem value="email">Email Marketing</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="challenge">Biggest Growth Challenge Right Now</Label>
-                      <Textarea 
-                        id="challenge"
-                        placeholder="Describe your main growth obstacle..."
-                        className="min-h-[80px]"
-                      />
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="industry">Industry/Business Type</Label>
-                        <Input id="industry" placeholder="e.g., SaaS, E-commerce" />
+                  {leadCaptureSuccess ? (
+                    <div className="text-center py-8">
+                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                          <path d="M22 4 12 14.01l-3-3"/>
+                        </svg>
                       </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="website">Website URL</Label>
-                        <Input id="website" placeholder="https://" />
-                      </div>
+                      <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Audit request received.</h3>
+                      <p className="text-muted-foreground">I'll analyze your growth potential and send you a detailed growth strategy audit within 48 hours.</p>
                     </div>
-                    
-                    <div className="grid grid-cols-2 gap-4">
+                  ) : (
+                    <form onSubmit={handleSubmitLeadCapture(onSubmitLeadCapture)} className="space-y-4">
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address</Label>
-                        <Input id="email" type="email" placeholder="your@email.com" />
+                        <Label htmlFor="revenue">Current Monthly Revenue *</Label>
+                        <Select onValueChange={(value) => setValueLeadCapture('revenue', value, { shouldValidate: true })}>
+                          <SelectTrigger className={leadCaptureErrors.revenue ? 'border-destructive' : ''}>
+                            <SelectValue placeholder="Select revenue range" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="under-10k">Under $10k</SelectItem>
+                            <SelectItem value="10k-50k">$10k - $50k</SelectItem>
+                            <SelectItem value="50k-100k">$50k - $100k</SelectItem>
+                            <SelectItem value="100k-500k">$100k - $500k</SelectItem>
+                            <SelectItem value="500k-plus">$500k+</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        {leadCaptureErrors.revenue && <p className="text-sm text-destructive">{leadCaptureErrors.revenue.message}</p>}
                       </div>
+                      
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number</Label>
-                        <Input id="phone" placeholder="(555) 123-4567" />
+                        <Label htmlFor="channel">Primary Customer Acquisition Channel *</Label>
+                        <Select onValueChange={(value) => setValueLeadCapture('channel', value, { shouldValidate: true })}>
+                          <SelectTrigger className={leadCaptureErrors.channel ? 'border-destructive' : ''}>
+                            <SelectValue placeholder="Select primary channel" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="referrals">Referrals</SelectItem>
+                            <SelectItem value="organic-search">Organic Search</SelectItem>
+                            <SelectItem value="paid-ads">Paid Advertising</SelectItem>
+                            <SelectItem value="social-media">Social Media</SelectItem>
+                            <SelectItem value="email">Email Marketing</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        {leadCaptureErrors.channel && <p className="text-sm text-destructive">{leadCaptureErrors.channel.message}</p>}
                       </div>
-                    </div>
-                    
-                    <Button className="w-full btn-hero">
-                      <Target className="h-4 w-4 mr-2" />
-                      Audit My Growth Potential
-                    </Button>
-                  </form>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="challenge">Biggest Growth Challenge Right Now *</Label>
+                        <Textarea 
+                          id="challenge"
+                          placeholder="Describe your main growth obstacle..."
+                          className={`min-h-[80px] ${leadCaptureErrors.challenge ? 'border-destructive' : ''}`}
+                          {...registerLeadCapture('challenge')}
+                        />
+                        {leadCaptureErrors.challenge && <p className="text-sm text-destructive">{leadCaptureErrors.challenge.message}</p>}
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="industry">Industry/Business Type *</Label>
+                          <Input 
+                            id="industry" 
+                            placeholder="e.g., SaaS, E-commerce" 
+                            {...registerLeadCapture('industry')}
+                            className={leadCaptureErrors.industry ? 'border-destructive' : ''}
+                          />
+                          {leadCaptureErrors.industry && <p className="text-sm text-destructive">{leadCaptureErrors.industry.message}</p>}
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="website">Website URL *</Label>
+                          <Input 
+                            id="website" 
+                            placeholder="https://" 
+                            {...registerLeadCapture('website')}
+                            className={leadCaptureErrors.website ? 'border-destructive' : ''}
+                          />
+                          {leadCaptureErrors.website && <p className="text-sm text-destructive">{leadCaptureErrors.website.message}</p>}
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="email">Email Address *</Label>
+                          <Input 
+                            id="email" 
+                            type="email" 
+                            placeholder="your@email.com" 
+                            {...registerLeadCapture('email')}
+                            className={leadCaptureErrors.email ? 'border-destructive' : ''}
+                          />
+                          {leadCaptureErrors.email && <p className="text-sm text-destructive">{leadCaptureErrors.email.message}</p>}
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="phone">Phone Number *</Label>
+                          <Input 
+                            id="phone" 
+                            placeholder="(555) 123-4567" 
+                            {...registerLeadCapture('phone')}
+                            className={leadCaptureErrors.phone ? 'border-destructive' : ''}
+                          />
+                          {leadCaptureErrors.phone && <p className="text-sm text-destructive">{leadCaptureErrors.phone.message}</p>}
+                        </div>
+                      </div>
+                      
+                      <Button 
+                        type="submit" 
+                        className="w-full btn-hero" 
+                        disabled={isLeadCaptureSubmitting}
+                      >
+                        <Target className="h-4 w-4 mr-2" />
+                        {isLeadCaptureSubmitting ? 'Submitting...' : 'Audit My Growth Potential'}
+                      </Button>
+                    </form>
+                  )}
                 </CardContent>
               </Card>
               
@@ -759,9 +922,102 @@ const GrowthMarketing = () => {
         </div>
       </section>
 
-      <ContactSection />
-      <Footer />
-    </div>
+        <ContactSection />
+        <Footer />
+      </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Get Started with Growth Marketing</DialogTitle>
+            <DialogDescription>
+              Let's discuss your growth goals and get you started with the perfect growth marketing strategy for your business.
+            </DialogDescription>
+          </DialogHeader>
+
+          {submitSuccess ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <path d="M22 4 12 14.01l-3-3"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
+              <p className="text-muted-foreground">I'll analyze your growth potential and send you a detailed growth marketing strategy within 48 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
+                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
+                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
+                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label>Business Type *</Label>
+                  <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
+                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
+                      <SelectValue placeholder="Select your industry" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="saas">SaaS / Tech</SelectItem>
+                      <SelectItem value="ecommerce">E-commerce</SelectItem>
+                      <SelectItem value="professional-services">Professional Services</SelectItem>
+                      <SelectItem value="healthcare">Healthcare</SelectItem>
+                      <SelectItem value="home-services">Home Services</SelectItem>
+                      <SelectItem value="real-estate">Real Estate</SelectItem>
+                      <SelectItem value="restaurant">Restaurant & Hospitality</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="selectedService">Selected Service *</Label>
+                <Input id="selectedService" readOnly {...register('selectedService')} />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="marketingChallenge">Tell us about your growth challenges *</Label>
+                <Textarea 
+                  id="marketingChallenge" 
+                  placeholder="What's your current monthly revenue? What growth challenges are you facing? What's your biggest bottleneck to scaling?" 
+                  className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} 
+                  {...register('marketingChallenge')} 
+                />
+                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <Button type="submit" variant="hero" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Get Started'}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

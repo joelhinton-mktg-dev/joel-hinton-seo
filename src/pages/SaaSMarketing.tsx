@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { 
   Code2, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
@@ -10,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,7 +23,19 @@ import { Link } from "react-router-dom";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  businessType: z.string().min(1, "Please select your business type"),
+  marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
+  selectedService: z.string().default("SaaS Marketing Consultation")
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
+
 const SaaSMarketing = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false); 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
@@ -38,6 +50,7 @@ const SaaSMarketing = () => {
 
   type SaaSLeadFormData = z.infer<typeof saasLeadSchema>;
 
+  // Form for lead generation (bottom of page)
   const {
     register,
     handleSubmit,
@@ -51,18 +64,49 @@ const SaaSMarketing = () => {
     }
   });
 
+  // Form for contact dialog
+  const { 
+    register: registerContact, 
+    handleSubmit: handleSubmitContact, 
+    formState: { errors: contactErrors }, 
+    reset: resetContact,
+    setValue: setValueContact
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: "SaaS Marketing Consultation" }
+  });
+
   const onSubmit = async (data: SaaSLeadFormData) => {
+    if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
     
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    console.log("SaaS lead generated:", data);
+    if (process.env.NODE_ENV === 'development') {
+      console.log("SaaS lead generated:", data);
+    }
     setSubmitSuccess(true);
     reset({ industry: "saas-technology" });
     
     // Reset success message after 5 seconds
     setTimeout(() => setSubmitSuccess(false), 5000);
+    setIsSubmitting(false);
+  };
+
+  const onSubmitForm = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
+    setIsSubmitting(true);
+    await new Promise(r => setTimeout(r, 1000));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("SaaS Marketing contact form submitted:", data);
+    }
+    setSubmitSuccess(true);
+    resetContact();
+    setTimeout(() => {
+      setSubmitSuccess(false);
+      setIsDialogOpen(false);
+    }, 2000);
     setIsSubmitting(false);
   };
 
@@ -140,12 +184,12 @@ const SaaSMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg">
+                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
                   <Target className="w-5 h-5 mr-2" />
                   Get SaaS Growth Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
                   <Phone className="w-5 h-5 mr-2" />
                   Trial Conversion Strategy Call
                 </Button>
@@ -580,7 +624,9 @@ const SaaSMarketing = () => {
                       <span className="text-sm">Basic churn prevention</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Start SaaS Growth</Button>
+                  <Button className="w-full" variant="outline" onClick={() => setIsDialogOpen(true)}>
+                    Start SaaS Growth
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -620,7 +666,9 @@ const SaaSMarketing = () => {
                       <span className="text-sm">Advanced analytics</span>
                     </div>
                   </div>
-                  <Button className="w-full">Accelerate Growth</Button>
+                  <Button className="w-full" onClick={() => setIsDialogOpen(true)}>
+                    Accelerate Growth
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -657,7 +705,9 @@ const SaaSMarketing = () => {
                       <span className="text-sm">Executive strategy consulting</span>
                     </div>
                   </div>
-                  <Button className="w-full" variant="outline">Scale Enterprise Platform</Button>
+                  <Button className="w-full" variant="outline" onClick={() => setIsDialogOpen(true)}>
+                    Scale Enterprise Platform
+                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -884,12 +934,12 @@ const SaaSMarketing = () => {
                 that converts prospects into loyal customers who expand their usage over time.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Get SaaS Growth Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600" onClick={() => window.open('tel:+13865550123')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call: (386) 555-0123
                 </Button>
@@ -903,6 +953,104 @@ const SaaSMarketing = () => {
 
         <Footer />
       </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) resetContact(); }}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Get Started with SaaS Marketing</DialogTitle>
+            <DialogDescription>
+              Let's discuss your trial conversion goals and help you optimize your SaaS growth.
+            </DialogDescription>
+          </DialogHeader>
+
+          {submitSuccess ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <path d="M22 4 12 14.01l-3-3"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
+              <p className="text-muted-foreground">I'll analyze your SaaS and send you a detailed growth strategy within 48 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmitContact(onSubmitForm)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="contactName">Full Name *</Label>
+                  <Input 
+                    id="contactName" 
+                    placeholder="John Smith" 
+                    {...registerContact('name')} 
+                    className={contactErrors.name ? 'border-destructive' : ''} 
+                  />
+                  {contactErrors.name && <p className="text-sm text-destructive">{contactErrors.name.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="contactEmail">Email Address *</Label>
+                  <Input id="contactEmail" type="email" placeholder="john@company.com" {...registerContact('email')} className={contactErrors.email ? 'border-destructive' : ''} />
+                  {contactErrors.email && <p className="text-sm text-destructive">{contactErrors.email.message}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="contactPhone">Phone Number *</Label>
+                  <Input id="contactPhone" type="tel" placeholder="(555) 555-0123" {...registerContact('phone')} className={contactErrors.phone ? 'border-destructive' : ''} />
+                  {contactErrors.phone && <p className="text-sm text-destructive">{contactErrors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label>Business Type *</Label>
+                  <Select onValueChange={(value) => setValueContact('businessType', value, { shouldValidate: true })}>
+                    <SelectTrigger className={contactErrors.businessType ? 'border-destructive' : ''}>
+                      <SelectValue placeholder="Select your SaaS type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="b2b-saas">B2B SaaS</SelectItem>
+                      <SelectItem value="b2c-saas">B2C SaaS</SelectItem>
+                      <SelectItem value="fintech">FinTech</SelectItem>
+                      <SelectItem value="healthtech">HealthTech</SelectItem>
+                      <SelectItem value="edtech">EdTech</SelectItem>
+                      <SelectItem value="martech">MarTech</SelectItem>
+                      <SelectItem value="hrtech">HRTech</SelectItem>
+                      <SelectItem value="proptech">PropTech</SelectItem>
+                      <SelectItem value="other">Other SaaS</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {contactErrors.businessType && <p className="text-sm text-destructive">{contactErrors.businessType.message}</p>}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="contactSelectedService">Selected Service *</Label>
+                <Input id="contactSelectedService" readOnly {...registerContact('selectedService')} />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="contactMarketingChallenge">Tell us about your marketing challenge *</Label>
+                <Textarea 
+                  id="contactMarketingChallenge" 
+                  placeholder="What's your website URL? What challenges are you facing with trial conversion, onboarding, or customer retention?" 
+                  className={`min-h-[120px] ${contactErrors.marketingChallenge ? 'border-destructive' : ''}`} 
+                  {...registerContact('marketingChallenge')} 
+                />
+                {contactErrors.marketingChallenge && <p className="text-sm text-destructive">{contactErrors.marketingChallenge.message}</p>}
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <Button type="submit" variant="hero" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Get Started'}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   );
 };

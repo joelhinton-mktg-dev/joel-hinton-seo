@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { MapPin, Phone, Mail, Calendar, Clock, CheckCircle, ArrowRight, Globe, Home, MessageSquare, Zap, Star, User, Building2, FileText } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -7,63 +6,21 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 
 const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const contactFormSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
-    email: z.string().email("Please enter a valid email address"),
-    phone: z.string().min(10, "Please enter a valid phone number"),
-    businessType: z.string().min(1, "Please select your business type"),
-    marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
-    preferredContact: z.string().min(1, "Please select your preferred contact method")
-  });
-
-  type ContactFormData = z.infer<typeof contactFormSchema>;
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema)
-  });
-
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    console.log("Form submitted:", data);
-    setSubmitSuccess(true);
-    reset();
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setSubmitSuccess(false), 5000);
-    setIsSubmitting(false);
-  };
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Free Marketing Consultation');
 
   return (
     <>
       <Helmet>
-        <title>Contact Joel Hinton | Free Marketing Consultation | Daytona Beach FL</title>
-        <meta name="description" content="Get your free marketing consultation with Joel Hinton. Daytona Beach headquarters with in-person meetings available. Remote consultations for all Florida markets." />
-        <meta name="keywords" content="marketing consultation, Daytona Beach marketing consultant, free marketing audit, digital marketing strategy, Florida marketing expert" />
+        <title>Contact Florida SEO Expert Joel Hinton | Free Marketing Consultation</title>
+        <meta name="description" content="Contact Florida SEO specialist Joel Hinton for a free consultation. Psychology-driven marketing strategies that drive real business results." />
+        <meta name="keywords" content="contact SEO expert, Florida marketing consultant, free SEO consultation, digital marketing help" />
         <meta name="robots" content="index, follow" />
         
         <meta property="og:title" content="Contact Joel Hinton | Free Marketing Consultation | Daytona Beach FL" />
@@ -137,12 +94,21 @@ const Contact = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg">
+                <Button 
+                  size="lg" 
+                  className="px-8 py-4 text-lg"
+                  onClick={() => openDialog()}
+                >
                   <Calendar className="w-5 h-5 mr-2" />
                   Schedule Strategy Session
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="px-8 py-4 text-lg"
+                  onClick={() => window.open('tel:+13865550123')}
+                >
                   <Phone className="w-5 h-5 mr-2" />
                   Call Now: (386) 555-0123
                 </Button>
@@ -387,148 +353,24 @@ const Contact = () => {
                   Get a personalized marketing strategy within 24 hours
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                {submitSuccess ? (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-8 h-8 text-green-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-green-800 mb-2">Thank You!</h3>
-                    <p className="text-green-700 mb-4">
-                      Your consultation request has been submitted successfully.
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      I'll review your information and get back to you within 24 hours with your personalized marketing strategy recommendations.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
-                        <Input
-                          id="name"
-                          placeholder="John Smith"
-                          {...register("name")}
-                          className={errors.name ? "border-destructive" : ""}
-                        />
-                        {errors.name && (
-                          <p className="text-sm text-destructive">{errors.name.message}</p>
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="john@company.com"
-                          {...register("email")}
-                          className={errors.email ? "border-destructive" : ""}
-                        />
-                        {errors.email && (
-                          <p className="text-sm text-destructive">{errors.email.message}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number *</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          placeholder="(386) 555-0123"
-                          {...register("phone")}
-                          className={errors.phone ? "border-destructive" : ""}
-                        />
-                        {errors.phone && (
-                          <p className="text-sm text-destructive">{errors.phone.message}</p>
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="businessType">Business Type *</Label>
-                        <Select onValueChange={(value) => setValue("businessType", value)}>
-                          <SelectTrigger className={errors.businessType ? "border-destructive" : ""}>
-                            <SelectValue placeholder="Select your industry" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="ecommerce">E-commerce</SelectItem>
-                            <SelectItem value="saas">SaaS / Technology</SelectItem>
-                            <SelectItem value="healthcare">Healthcare</SelectItem>
-                            <SelectItem value="real-estate">Real Estate</SelectItem>
-                            <SelectItem value="professional-services">Professional Services</SelectItem>
-                            <SelectItem value="restaurant">Restaurant & Food</SelectItem>
-                            <SelectItem value="retail">Retail</SelectItem>
-                            <SelectItem value="automotive">Automotive</SelectItem>
-                            <SelectItem value="tourism">Tourism & Hospitality</SelectItem>
-                            <SelectItem value="manufacturing">Manufacturing</SelectItem>
-                            <SelectItem value="education">Education</SelectItem>
-                            <SelectItem value="financial">Financial Services</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        {errors.businessType && (
-                          <p className="text-sm text-destructive">{errors.businessType.message}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="preferredContact">Preferred Contact Method *</Label>
-                      <Select onValueChange={(value) => setValue("preferredContact", value)}>
-                        <SelectTrigger className={errors.preferredContact ? "border-destructive" : ""}>
-                          <SelectValue placeholder="How would you like to be contacted?" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="phone">Phone Call</SelectItem>
-                          <SelectItem value="email">Email</SelectItem>
-                          <SelectItem value="video">Video Conference</SelectItem>
-                          <SelectItem value="in-person">In-Person Meeting (Daytona Beach area)</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      {errors.preferredContact && (
-                        <p className="text-sm text-destructive">{errors.preferredContact.message}</p>
-                      )}
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="marketingChallenge">What's your biggest marketing challenge? *</Label>
-                      <Textarea
-                        id="marketingChallenge"
-                        placeholder="Tell me about your current marketing challenges, goals, and what you'd like to achieve. The more detail you provide, the better I can tailor our consultation to your specific needs."
-                        className={`min-h-[120px] ${errors.marketingChallenge ? "border-destructive" : ""}`}
-                        {...register("marketingChallenge")}
-                      />
-                      {errors.marketingChallenge && (
-                        <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>
-                      )}
-                    </div>
-
-                    <Button 
-                      type="submit" 
-                      variant="hero" 
-                      size="lg" 
-                      className="w-full py-6 text-lg"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          <Calendar className="w-5 h-5 mr-2" />
-                          Schedule Free Consultation
-                        </>
-                      )}
-                    </Button>
-
-                    <p className="text-sm text-muted-foreground text-center">
-                      No spam. No sales pitches. Just valuable marketing insights tailored to your business.
-                    </p>
-                  </form>
-                )}
+              <CardContent className="text-center">
+                <p className="text-muted-foreground mb-8">
+                  Ready to transform your marketing with psychology-driven strategies? Click below to schedule your complimentary consultation 
+                  and discover exactly how to outthink your competition and accelerate growth.
+                </p>
+                <Button 
+                  size="lg" 
+                  variant="hero" 
+                  className="px-12 py-6 text-lg"
+                  onClick={() => openDialog()}
+                >
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Schedule Free Consultation
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+                <p className="text-sm text-muted-foreground text-center mt-6">
+                  No spam. No sales pitches. Just valuable marketing insights tailored to your business.
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -725,12 +567,22 @@ const Contact = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+              <Button 
+                size="lg" 
+                variant="secondary" 
+                className="px-8 py-4 text-lg"
+                onClick={() => openDialog()}
+              >
                 <Calendar className="w-5 h-5 mr-2" />
                 Schedule Free Consultation
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600"
+                onClick={() => window.open('tel:+13865550123')}
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Call: (386) 555-0123
               </Button>
@@ -744,6 +596,15 @@ const Contact = () => {
 
         <Footer />
       </div>
+
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        title="Get Your Free Marketing Consultation"
+        description="Let's discuss your business goals and create a custom marketing strategy."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
+      />
     </>
   );
 };

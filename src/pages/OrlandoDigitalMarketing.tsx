@@ -1,8 +1,8 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { MapPin, Users, Calendar, TrendingUp, Phone, Mail, Star, Castle, Building2, MessageSquare } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import Navigation from '@/components/Navigation';
@@ -18,6 +18,7 @@ import { z } from "zod";
 import { useState } from "react";
 
 const OrlandoDigitalMarketing = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
@@ -26,7 +27,8 @@ const OrlandoDigitalMarketing = () => {
     email: z.string().email("Please enter a valid email address"),
     phone: z.string().min(10, "Please enter a valid phone number"),
     businessType: z.string().min(1, "Please select your business type"),
-    marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)")
+    marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
+    selectedService: z.string().default("Orlando Digital Marketing Audit")
   });
 
   type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -35,23 +37,26 @@ const OrlandoDigitalMarketing = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
+    setValue
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema)
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { selectedService: "Orlando Digital Marketing Audit" }
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmitForm = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    console.log("Form submitted:", data);
+    await new Promise(r => setTimeout(r, 1000));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Orlando contact form submitted:", data);
+    }
     setSubmitSuccess(true);
     reset();
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setSubmitSuccess(false), 5000);
+    setTimeout(() => {
+      setSubmitSuccess(false);
+      setIsDialogOpen(false);
+    }, 2000);
     setIsSubmitting(false);
   };
 
@@ -119,11 +124,19 @@ const OrlandoDigitalMarketing = () => {
                   with psychology-driven digital marketing strategies.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" variant="hero">
+                  <Button 
+                    size="lg" 
+                    variant="hero"
+                    onClick={() => setIsDialogOpen(true)}
+                  >
                     <Phone className="w-5 h-5 mr-2" />
                     Free Orlando Marketing Audit
                   </Button>
-                  <Button size="lg" variant="outline">
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    onClick={() => setIsDialogOpen(true)}
+                  >
                     <Mail className="w-5 h-5 mr-2" />
                     Theme Park Strategy Call
                   </Button>
@@ -577,7 +590,7 @@ const OrlandoDigitalMarketing = () => {
                       </p>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                    <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <Label htmlFor="name">Full Name *</Label>
@@ -630,15 +643,16 @@ const OrlandoDigitalMarketing = () => {
                               <SelectValue placeholder="Select your industry" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="real-estate">Real Estate</SelectItem>
-                              <SelectItem value="healthcare">Healthcare</SelectItem>
-                              <SelectItem value="home-services">Home Services</SelectItem>
-                              <SelectItem value="ecommerce">E-commerce</SelectItem>
+                              <SelectItem value="restaurant-food">Restaurant/Food Service</SelectItem>
                               <SelectItem value="professional-services">Professional Services</SelectItem>
-                              <SelectItem value="restaurant">Restaurant/Hospitality</SelectItem>
-                              <SelectItem value="tourism">Tourism & Entertainment</SelectItem>
-                              <SelectItem value="convention">Convention Services</SelectItem>
-                              <SelectItem value="other">Other</SelectItem>
+                              <SelectItem value="healthcare-medical">Healthcare/Medical</SelectItem>
+                              <SelectItem value="real-estate">Real Estate</SelectItem>
+                              <SelectItem value="home-services">Home Services</SelectItem>
+                              <SelectItem value="retail-ecommerce">Retail/E-commerce</SelectItem>
+                              <SelectItem value="technology-saas">Technology/SaaS</SelectItem>
+                              <SelectItem value="legal-services">Legal Services</SelectItem>
+                              <SelectItem value="financial-services">Financial Services</SelectItem>
+                              <SelectItem value="other-business">Other Business</SelectItem>
                             </SelectContent>
                           </Select>
                           {errors.businessType && (
@@ -707,11 +721,20 @@ const OrlandoDigitalMarketing = () => {
                 convention attendees, and local professionals with psychology-driven strategies.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary">
+                <Button 
+                  size="lg" 
+                  variant="secondary"
+                  onClick={() => setIsDialogOpen(true)}
+                >
                   <Phone className="w-5 h-5 mr-2" />
                   Free Orlando Marketing Audit
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-purple-600"
+                  onClick={() => setIsDialogOpen(true)}
+                >
                   <Mail className="w-5 h-5 mr-2" />
                   Schedule Theme Park Strategy
                 </Button>
@@ -725,6 +748,100 @@ const OrlandoDigitalMarketing = () => {
 
         <Footer />
       </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Get Started with Orlando Marketing Strategy</DialogTitle>
+            <DialogDescription>
+              Let's discuss how to capture Disney families, convention attendees, and local professionals with psychology-driven Orlando marketing strategies.
+            </DialogDescription>
+          </DialogHeader>
+
+          {submitSuccess ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <path d="M22 4 12 14.01l-3-3"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
+              <p className="text-muted-foreground">I'll analyze your Orlando market opportunities and send you a detailed strategy within 48 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
+                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
+                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input id="phone" type="tel" placeholder="(407) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
+                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label>Business Type *</Label>
+                  <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
+                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
+                      <SelectValue placeholder="Select your industry" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="restaurant-food">Restaurant/Food Service</SelectItem>
+                      <SelectItem value="professional-services">Professional Services</SelectItem>
+                      <SelectItem value="healthcare-medical">Healthcare/Medical</SelectItem>
+                      <SelectItem value="real-estate">Real Estate</SelectItem>
+                      <SelectItem value="home-services">Home Services</SelectItem>
+                      <SelectItem value="retail-ecommerce">Retail/E-commerce</SelectItem>
+                      <SelectItem value="technology-saas">Technology/SaaS</SelectItem>
+                      <SelectItem value="legal-services">Legal Services</SelectItem>
+                      <SelectItem value="financial-services">Financial Services</SelectItem>
+                      <SelectItem value="other-business">Other Business</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="selectedService">Selected Service *</Label>
+                <Input id="selectedService" readOnly {...register('selectedService')} />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
+                <Textarea 
+                  id="marketingChallenge" 
+                  placeholder="What's your biggest marketing challenge in the Orlando market? Are you struggling to reach Disney families, convention attendees, or local professionals? What results are you looking for?" 
+                  className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} 
+                  {...register('marketingChallenge')} 
+                />
+                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <Button type="submit" variant="hero" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Get Started'}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   );
 };
