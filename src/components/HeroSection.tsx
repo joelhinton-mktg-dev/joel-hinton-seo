@@ -27,22 +27,54 @@ const HeroSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { selectedService: "Free SEO Audit" }
   });
 
   const onSubmitForm = async (data: ContactFormData) => {
+    if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1000));
-    console.log("Hero contact form submitted:", data);
-    setSubmitSuccess(true);
-    reset();
-    setTimeout(() => {
-      setSubmitSuccess(false);
-      setIsDialogOpen(false);
-    }, 2000);
-    setIsSubmitting(false);
+    
+    try {
+      // Create properly encoded form data for Netlify submission
+      const formData = new URLSearchParams();
+      formData.append('form-name', 'hero-contact-form');
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone);
+      formData.append('businessType', data.businessType);
+      formData.append('selectedService', data.selectedService);
+      formData.append('marketingChallenge', data.marketingChallenge);
+      
+      // Submit to Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString()
+      });
+      
+      if (response.ok) {
+        setSubmitSuccess(true);
+        reset();
+        
+        if (process.env.NODE_ENV === 'development') {
+          console.log("Hero contact form submitted successfully:", data);
+        }
+        
+        setTimeout(() => {
+          setSubmitSuccess(false);
+          setIsDialogOpen(false);
+        }, 3000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      // You could add error state handling here
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -150,7 +182,10 @@ const HeroSection = () => {
             <p className="text-muted-foreground">I'll review your website and send your free SEO audit within 24 hours.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
+          <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6" data-netlify="true" data-netlify-honeypot="bot-field" name="hero-contact-form">
+            {/* Hidden fields for Netlify */}
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="form-name" value="hero-contact-form" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name *</Label>
@@ -172,7 +207,7 @@ const HeroSection = () => {
               </div>
               <div className="space-y-2">
                 <Label>Business Type *</Label>
-                <Select onValueChange={(value) => register('businessType').onChange({ target: { value } })}>
+                <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
                   <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
                     <SelectValue placeholder="Select your industry" />
                   </SelectTrigger>
@@ -187,6 +222,8 @@ const HeroSection = () => {
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
+                {/* Hidden input for Netlify form submission */}
+                <input type="hidden" name="businessType" {...register("businessType")} />
                 {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
               </div>
             </div>

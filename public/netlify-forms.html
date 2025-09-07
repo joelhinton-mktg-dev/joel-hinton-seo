@@ -5,14 +5,33 @@
     <meta name="robots" content="noindex, nofollow">
 </head>
 <body style="display: none;">
-    <!-- This file helps Netlify detect the contact form structure -->
+    <!-- This file helps Netlify detect the contact form structures -->
     <!-- It should not be visible to users -->
     
+    <!-- ContactDialog Form -->
     <form name="contact-form" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact-form" />
         <input type="hidden" name="bot-field" />
         
         <!-- Form fields that match ContactDialog -->
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <select name="businessType">
+            <option value="">Select Business Type</option>
+        </select>
+        <input type="text" name="selectedService" />
+        <textarea name="marketingChallenge"></textarea>
+        
+        <button type="submit">Submit</button>
+    </form>
+    
+    <!-- Hero Section Form -->
+    <form name="hero-contact-form" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="hero-contact-form" />
+        <input type="hidden" name="bot-field" />
+        
+        <!-- Form fields that match HeroSection -->
         <input type="text" name="name" />
         <input type="email" name="email" />
         <input type="tel" name="phone" />

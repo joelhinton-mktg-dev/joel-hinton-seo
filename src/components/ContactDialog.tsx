@@ -43,8 +43,8 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
     setIsSubmitting(true);
     
     try {
-      // Create FormData for Netlify submission
-      const formData = new FormData();
+      // Create properly encoded form data for Netlify submission
+      const formData = new URLSearchParams();
       formData.append('form-name', 'contact-form');
       formData.append('name', data.name);
       formData.append('email', data.email);
@@ -57,7 +57,7 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString()
+        body: formData.toString()
       });
       
       if (response.ok) {
