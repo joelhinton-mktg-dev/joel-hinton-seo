@@ -31,6 +31,7 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
 }) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitSuccess, setSubmitSuccess] = React.useState(false);
+  const [submitError, setSubmitError] = React.useState('');
 
   const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -41,24 +42,56 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
     if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
     
-    await new Promise(r => setTimeout(r, 1000));
-    
-    if (process.env.NODE_ENV === 'development') {
-      console.log("Contact form submitted:", data);
+    try {
+      // Create FormData for Netlify submission
+      const formData = new FormData();
+      formData.append('form-name', 'contact-form');
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone);
+      formData.append('businessType', data.businessType);
+      formData.append('selectedService', data.selectedService);
+      formData.append('marketingChallenge', data.marketingChallenge);
+      
+      // Submit to Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString()
+      });
+      
+      if (response.ok) {
+        setSubmitSuccess(true);
+        reset();
+        
+        if (process.env.NODE_ENV === 'development') {
+          console.log("Contact form submitted successfully:", data);
+        }
+        
+        setTimeout(() => {
+          setSubmitSuccess(false);
+          onClose();
+        }, 3000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError('There was an error submitting the form. Please try again.');
+      
+      // Clear error after 5 seconds
+      setTimeout(() => {
+        setSubmitError('');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
     }
-    
-    setSubmitSuccess(true);
-    reset();
-    setTimeout(() => {
-      setSubmitSuccess(false);
-      onClose();
-    }, 2000);
-    setIsSubmitting(false);
   };
 
   const handleClose = () => {
     if (!isSubmitting) {
       setSubmitSuccess(false);
+      setSubmitError('');
       reset({ selectedService: defaultService });
       onClose();
     }
@@ -79,18 +112,34 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
         
+        {submitError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+            <p className="text-red-600 text-sm">{submitError}</p>
+          </div>
+        )}
+        
         {submitSuccess ? (
           <div className="text-center py-6">
             <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Thank you for your interest!</h3>
-            <p className="text-muted-foreground">We'll contact you within 24 hours to schedule your consultation.</p>
+            <h3 className="text-lg font-semibold mb-2">Thank you for your submission!</h3>
+            <p className="text-muted-foreground">Your message has been sent successfully. We'll contact you within 24 hours to schedule your consultation.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-4">
+          <form 
+            onSubmit={handleSubmit(onSubmitForm)} 
+            className="space-y-4"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            name="contact-form"
+          >
+            {/* Hidden fields for Netlify */}
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="form-name" value="contact-form" />
             <div>
               <Label htmlFor="name">Full Name</Label>
               <Input
                 id="name"
+                name="name"
                 {...register("name")}
                 placeholder="Your full name"
                 className={errors.name ? 'border-destructive' : ''}
@@ -102,6 +151,7 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
               <Label htmlFor="email">Email Address</Label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 {...register("email")}
                 placeholder="your@email.com"
@@ -114,6 +164,8 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
               <Label htmlFor="phone">Phone Number</Label>
               <Input
                 id="phone"
+                name="phone"
+                type="tel"
                 {...register("phone")}
                 placeholder="(555) 123-4567"
                 className={errors.phone ? 'border-destructive' : ''}
@@ -135,6 +187,8 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
                   ))}
                 </SelectContent>
               </Select>
+              {/* Hidden input for Netlify form submission */}
+              <input type="hidden" name="businessType" {...register("businessType")} />
               {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
             </div>
 
@@ -142,6 +196,7 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
               <Label htmlFor="selectedService">Selected Service</Label>
               <Input
                 id="selectedService"
+                name="selectedService"
                 {...register("selectedService")}
                 readOnly
                 className="bg-muted"
@@ -152,6 +207,7 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
               <Label htmlFor="marketingChallenge">Current Marketing Challenge</Label>
               <Textarea
                 id="marketingChallenge"
+                name="marketingChallenge"
                 {...register("marketingChallenge")}
                 placeholder="Tell us about your current marketing challenges..."
                 rows={3}
