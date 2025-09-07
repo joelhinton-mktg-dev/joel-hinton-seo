@@ -36,16 +36,30 @@ const HeroSection = () => {
     if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
     
+    console.log('🚀 HOMEPAGE FORM DEBUG:');
+    console.log('Raw form data:', data);
+    
     try {
       // Create properly encoded form data for Netlify submission
       const formData = new URLSearchParams();
-      formData.append('form-name', 'herocontact');
+      formData.append('form-name', 'hero-form');
       formData.append('name', data.name);
       formData.append('email', data.email);
       formData.append('phone', data.phone);
       formData.append('businessType', data.businessType);
       formData.append('selectedService', data.selectedService);
       formData.append('marketingChallenge', data.marketingChallenge);
+      
+      console.log('URLSearchParams string:', formData.toString());
+      console.log('Form fields being sent:', {
+        'form-name': 'hero-form',
+        'name': data.name,
+        'email': data.email,
+        'phone': data.phone,
+        'businessType': data.businessType,
+        'selectedService': data.selectedService,
+        'marketingChallenge': data.marketingChallenge
+      });
       
       // Submit to Netlify
       const response = await fetch('/', {
@@ -54,7 +68,13 @@ const HeroSection = () => {
         body: formData.toString()
       });
       
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+      console.log('Response headers:', response.headers);
+      
       if (response.ok) {
+        const responseText = await response.text();
+        console.log('Response body:', responseText);
         setSubmitSuccess(true);
         reset();
         
@@ -182,10 +202,10 @@ const HeroSection = () => {
             <p className="text-muted-foreground">I'll review your website and send your free SEO audit within 24 hours.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6" data-netlify="true" data-netlify-honeypot="bot-field" name="herocontact">
+          <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6" data-netlify="true" data-netlify-honeypot="bot-field" name="hero-form">
             {/* Hidden fields for Netlify */}
             <input type="hidden" name="bot-field" />
-            <input type="hidden" name="form-name" value="herocontact" />
+            <input type="hidden" name="form-name" value="hero-form" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name *</Label>
