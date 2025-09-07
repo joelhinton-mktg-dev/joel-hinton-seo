@@ -39,7 +39,7 @@ const HeroSection = () => {
     try {
       // Create properly encoded form data for Netlify submission
       const formData = new URLSearchParams();
-      formData.append('form-name', 'hero-contact-form');
+      formData.append('form-name', 'herocontact');
       formData.append('name', data.name);
       formData.append('email', data.email);
       formData.append('phone', data.phone);
@@ -182,10 +182,10 @@ const HeroSection = () => {
             <p className="text-muted-foreground">I'll review your website and send your free SEO audit within 24 hours.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6" data-netlify="true" data-netlify-honeypot="bot-field" name="hero-contact-form">
+          <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6" data-netlify="true" data-netlify-honeypot="bot-field" name="herocontact">
             {/* Hidden fields for Netlify */}
             <input type="hidden" name="bot-field" />
-            <input type="hidden" name="form-name" value="hero-contact-form" />
+            <input type="hidden" name="form-name" value="herocontact" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name *</Label>
