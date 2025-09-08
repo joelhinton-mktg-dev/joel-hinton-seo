@@ -46,12 +46,18 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
       // Create properly encoded form data for Netlify submission
       const formData = new URLSearchParams();
       formData.append('form-name', 'contact-form');
+      formData.append('bot-field', ''); // Honeypot field required by Netlify
       formData.append('name', data.name);
       formData.append('email', data.email);
       formData.append('phone', data.phone);
       formData.append('businessType', data.businessType);
       formData.append('selectedService', data.selectedService);
       formData.append('marketingChallenge', data.marketingChallenge);
+      
+      // Debug: Log submission data
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Contact form URLSearchParams:', formData.toString());
+      }
       
       // Submit to Netlify
       const response = await fetch('/', {
