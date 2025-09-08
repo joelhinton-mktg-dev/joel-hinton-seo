@@ -43,27 +43,18 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
     setIsSubmitting(true);
     
     try {
-      // Create properly encoded form data for Netlify submission
-      const formData = new URLSearchParams();
-      formData.append('form-name', 'contact-form');
-      formData.append('bot-field', ''); // Honeypot field required by Netlify
-      formData.append('name', data.name);
-      formData.append('email', data.email);
-      formData.append('phone', data.phone);
-      formData.append('businessType', data.businessType);
-      formData.append('selectedService', data.selectedService);
-      formData.append('marketingChallenge', data.marketingChallenge);
-      
-      // Debug: Log submission data
-      if (process.env.NODE_ENV === 'development') {
-        console.log('Contact form URLSearchParams:', formData.toString());
-      }
-      
-      // Submit to Netlify
-      const response = await fetch('/', {
+      // Submit to Formspree
+      const response = await fetch('https://formspree.io/f/xrbarnbp', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData.toString()
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          businessType: data.businessType,
+          selectedService: data.selectedService,
+          marketingChallenge: data.marketingChallenge
+        })
       });
       
       if (response.ok) {
@@ -134,13 +125,7 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
           <form 
             onSubmit={handleSubmit(onSubmitForm)} 
             className="space-y-4"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            name="contact-form"
           >
-            {/* Hidden fields for Netlify */}
-            <input type="hidden" name="bot-field" />
-            <input type="hidden" name="form-name" value="contact-form" />
             <div>
               <Label htmlFor="name">Full Name</Label>
               <Input
@@ -193,8 +178,6 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
                   ))}
                 </SelectContent>
               </Select>
-              {/* Hidden input for Netlify form submission */}
-              <input type="hidden" name="businessType" {...register("businessType")} />
               {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
             </div>
 
