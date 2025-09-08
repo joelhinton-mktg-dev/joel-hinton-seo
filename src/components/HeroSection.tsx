@@ -36,9 +36,6 @@ const HeroSection = () => {
     if (isSubmitting) return; // Prevent double submission
     setIsSubmitting(true);
     
-    console.log('🚀 HOMEPAGE FORM DEBUG:');
-    console.log('Raw form data:', data);
-    
     try {
       // Create properly encoded form data for Netlify submission
       const formData = new URLSearchParams();
@@ -50,17 +47,6 @@ const HeroSection = () => {
       formData.append('selectedService', data.selectedService);
       formData.append('marketingChallenge', data.marketingChallenge);
       
-      console.log('URLSearchParams string:', formData.toString());
-      console.log('Form fields being sent:', {
-        'form-name': 'hero-form',
-        'name': data.name,
-        'email': data.email,
-        'phone': data.phone,
-        'businessType': data.businessType,
-        'selectedService': data.selectedService,
-        'marketingChallenge': data.marketingChallenge
-      });
-      
       // Submit to Netlify
       const response = await fetch('/', {
         method: 'POST',
@@ -68,13 +54,7 @@ const HeroSection = () => {
         body: formData.toString()
       });
       
-      console.log('Response status:', response.status);
-      console.log('Response ok:', response.ok);
-      console.log('Response headers:', response.headers);
-      
       if (response.ok) {
-        const responseText = await response.text();
-        console.log('Response body:', responseText);
         setSubmitSuccess(true);
         reset();
         
