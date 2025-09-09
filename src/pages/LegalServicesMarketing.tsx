@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { 
   Scale, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
   BarChart3, Phone, Calendar, Star, Zap, Clock, Brain, 
