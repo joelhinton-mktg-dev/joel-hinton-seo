@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { Link } from 'react-router-dom';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 import { 
   Utensils, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
-  BarChart3, Phone, Calendar, Star, Zap, Clock, Brain, 
-  MapPin, Camera, Building2, Eye, Heart, CreditCard
+  BarChart3, Phone, Calendar, Star, Camera, Heart, UserCheck, 
+  Clock, FileText, Building2, Eye, MapPin, CreditCard
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -14,63 +14,13 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
-import { Link } from "react-router-dom";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { ContactDialog } from '@/components/ContactDialog';
-import { useContactDialog } from '@/hooks/useContactDialog';
-import { businessTypes } from '@/types/contact-forms';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
+
 
 const RestaurantsHospitalityMarketing = () => {
-  const {
-    isDialogOpen,
-    openDialog,
-    closeDialog
-  } = useContactDialog();
-
-  // Keep the original form logic for the inline form
-  const [isInlineSubmitting, setIsInlineSubmitting] = useState(false);
-  const [inlineSubmitSuccess, setInlineSubmitSuccess] = useState(false);
-
-  const hospitalityLeadSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
-    email: z.string().email("Please enter a valid email address"),
-    phone: z.string().min(10, "Please enter a valid phone number"),
-    company: z.string().min(2, "Restaurant/business name must be at least 2 characters"),
-    industry: z.string().min(1, "Please select your business type"),
-    message: z.string().min(20, "Please describe your marketing challenges (at least 20 characters)")
-  });
-
-  type HospitalityLeadFormData = z.infer<typeof hospitalityLeadSchema>;
-
-  const {
-    register: registerInline,
-    handleSubmit: handleInlineSubmit,
-    formState: { errors: inlineErrors },
-    reset: resetInline,
-    setValue: setValueInline
-  } = useForm<HospitalityLeadFormData>({
-    resolver: zodResolver(hospitalityLeadSchema),
-    defaultValues: {
-      industry: "restaurants-hospitality"
-    }
-  });
-
-  const onInlineSubmit = async (data: HospitalityLeadFormData) => {
-    setIsInlineSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    console.log("Hospitality lead generated:", data);
-    setInlineSubmitSuccess(true);
-    resetInline({ industry: "restaurants-hospitality" });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setInlineSubmitSuccess(false), 5000);
-    setIsInlineSubmitting(false);
-  };
-
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Restaurant Marketing Audit');
   return (
     <>
       <Helmet>
@@ -82,869 +32,302 @@ const RestaurantsHospitalityMarketing = () => {
         <meta property="og:title" content="Restaurant Marketing Psychology | Hospitality & Food Service" />
         <meta property="og:description" content="Restaurant marketing strategies that drive reservations and create loyal customers with proven results." />
         <meta property="og:type" content="website" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Restaurant Marketing Psychology",
-            "description": "Visual appeal and experience marketing strategies for restaurants and hospitality businesses",
-            "provider": {
-              "@type": "Organization",
-              "name": "Joel Hinton Digital Marketing",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Daytona Beach",
-                "addressRegion": "FL"
-              }
-            },
-            "areaServed": "Florida",
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Restaurant Marketing Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service", 
-                    "name": "Restaurant Experience Marketing"
-                  }
-                }
-              ]
-            }
-          })}
-        </script>
       </Helmet>
-
+      <ProfessionalServiceSchema 
+        serviceName="Restaurant Marketing"
+        serviceDescription="Visual appeal and experience marketing strategies for restaurants and hospitality businesses"
+        serviceUrl="https://joelhintonmarketing.com/industries/restaurants"
+        serviceType="Restaurant Marketing"
+        industryType="Hospitality"
+        areaServed="Florida, United States"
+        hasOfferCatalog={true}
+        provider={{
+          name: "Joel Hinton Digital Marketing",
+          telephone: "+1-386-555-0123",
+          email: "joel@joelhintonmarketing.com",
+          address: {
+            streetAddress: "",
+            addressLocality: "Daytona Beach",
+            addressRegion: "FL",
+            postalCode: "32114",
+            addressCountry: "US"
+          }
+        }}
+      />
       <div className="min-h-screen bg-background">
         <Navigation />
         
-        <PageBreadcrumb 
-          items={[
-            { label: "Industries", href: "/industries" },
-            { label: "Restaurants & Hospitality", current: true }
-          ]}
-        />
+        <div className="container mx-auto px-6 py-8">
+          <PageBreadcrumb 
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Industries", href: "/industries" },
+              { label: "Restaurant Marketing", href: "/industries/restaurants" }
+            ]}
+          />
+        </div>
 
         {/* Hero Section */}
-        <section className="pb-16 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
+        <section className="py-20 bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="container mx-auto px-6 text-center relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm font-medium">
                 <Utensils className="w-4 h-4 mr-2" />
-                Restaurant Marketing Specialist
+                Restaurant Marketing Psychology
               </Badge>
               
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Restaurant Marketing <span className="text-primary">Psychology</span> That Fills Tables & Creates Loyalty
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                Restaurant Marketing That <span className="gradient-text">Fills Tables & Creates Loyalty</span>
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 Dining decisions are driven by emotion, ambiance, and social proof. Our psychology-focused strategies leverage 
-                visual appeal, experience anticipation, and community connection to turn browsers into diners and diners into regulars. We combine <Link to="/local-seo" className="text-primary hover:underline">local SEO expertise</Link> with <Link to="/paid-advertising" className="text-primary hover:underline">targeted advertising</Link> for maximum local impact.
+                visual appeal, experience anticipation, and community connection to turn browsers into diners, 
+                resulting in <strong className="text-primary">350% more reservations</strong>.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog("Restaurant Marketing Audit")}>
+                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Target className="w-5 h-5 mr-2" />
                   Get Restaurant Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog("Restaurant Marketing Audit")}>
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Phone className="w-5 h-5 mr-2" />
-                  Restaurant Growth Call
+                  Free Restaurant Consultation
                 </Button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto text-center">
-                <div className="p-4">
-                  <TrendingUp className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">280% Traffic Growth</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">280%</div>
+                  <p className="text-muted-foreground">Traffic Growth</p>
                 </div>
-                <div className="p-4">
-                  <Users className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">350% More Reservations</p>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">350%</div>
+                  <p className="text-muted-foreground">More Reservations</p>
                 </div>
-                <div className="p-4">
-                  <Award className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">320% ROI Increase</p>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">320%</div>
+                  <p className="text-muted-foreground">ROI Increase</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Psychology Triggers */}
-        <section className="py-24 bg-gradient-subtle">
+        {/* Problem Section */}
+        <section className="py-20">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Restaurant <span className="gradient-text">Psychology Triggers</span>
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <h2 className="text-4xl font-bold mb-6">
+                Your Restaurant is <span className="text-destructive">Fighting for Attention</span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Dining decisions are emotional and social. We leverage visual appeal, social validation, and experience 
-                anticipation to create irresistible restaurant marketing that fills tables.
+              <p className="text-xl text-muted-foreground">
+                Without strategic visual marketing and experience positioning, your restaurant blends in with competitors while diners choose based on convenience rather than desire.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="card-professional text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mx-auto mb-4">
-                    <Camera className="w-8 h-8" />
-                  </div>
-                  <CardTitle className="text-xl">Visual Appeal</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    People eat with their eyes first. Professional food photography and ambiance visuals create craving and anticipation that drives dining decisions.
-                  </p>
-                  <ul className="text-sm space-y-2 text-left">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Professional food photography</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Ambiance and atmosphere shots</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Social media visual strategy</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Menu presentation optimization</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center mx-auto mb-4">
-                    <Star className="w-8 h-8" />
-                  </div>
-                  <CardTitle className="text-xl">Social Proof & Reviews</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Diners trust other diners. Glowing reviews, busy dining rooms, and social media buzz create desirability and reduce decision anxiety.
-                  </p>
-                  <ul className="text-sm space-y-2 text-left">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Review generation campaigns</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>User-generated content strategy</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Influencer dining partnerships</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Social media amplification</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto mb-4">
-                    <Heart className="w-8 h-8" />
-                  </div>
-                  <CardTitle className="text-xl">Experience Anticipation</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Create anticipation for the full dining experience - from arrival to dessert - that builds excitement and justifies the visit.
-                  </p>
-                  <ul className="text-sm space-y-2 text-left">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Behind-the-scenes content</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Chef story and expertise</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Special event promotion</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                      <span>Seasonal menu psychology</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Camera,
+                  title: "Poor Visual Appeal",
+                  description: "Outdated photos and weak visual presence fail to create craving",
+                  impact: "Lost Revenue: $30,000+/month"
+                },
+                {
+                  icon: Users,
+                  title: "Inconsistent Reservations",
+                  description: "Unpredictable booking patterns and seasonal fluctuations",
+                  impact: "Capacity Utilization: -45%"
+                },
+                {
+                  icon: Building2,
+                  title: "Local Competition",
+                  description: "Fighting with established restaurants for same customer base",
+                  impact: "Market Share: -30%"
+                }
+              ].map((problem, index) => (
+                <Card key={index} className="text-center p-6 border-destructive/20">
+                  <problem.icon className="w-12 h-12 mx-auto mb-4 text-destructive" />
+                  <h3 className="text-xl font-semibold mb-3">{problem.title}</h3>
+                  <p className="text-muted-foreground mb-4">{problem.description}</p>
+                  <Badge variant="destructive">{problem.impact}</Badge>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Key Challenges We Solve */}
-        <section className="py-24 bg-background">
+        {/* Solution Section */}
+        <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Restaurant Marketing <span className="gradient-text">Challenges We Solve</span>
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <h2 className="text-4xl font-bold mb-6">
+                Restaurant Experience Marketing That <span className="gradient-text">Actually Converts</span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Restaurants face unique challenges from local competition to seasonal fluctuations. 
-                We've developed specialized solutions for hospitality business growth.
+              <p className="text-xl text-muted-foreground">
+                We don't just drive traffic. We create irresistible dining experiences that fill tables, build loyalty, and turn customers into advocates.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Building2 className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Local Competition</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Stand out in crowded local dining markets by creating unique positioning and memorable experiences that customers choose over alternatives.
-                  </p>
-                  <div className="bg-primary/5 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Our Solution:</h4>
-                    <ul className="text-sm space-y-1">
-                      <li>• Unique dining experience positioning</li>
-                      <li>• Local SEO domination strategies</li>
-                      <li>• Community engagement campaigns</li>
-                      <li>• Signature dish/concept marketing</li>
-                    </ul>
-                  </div>
-                  <div className="text-sm text-primary font-medium">Result: 85% increase in local market share</div>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Calendar className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Seasonal Fluctuations</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Navigate seasonal dining patterns and weather impacts with strategic marketing that maintains consistent revenue year-round.
-                  </p>
-                  <div className="bg-primary/5 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Our Solution:</h4>
-                    <ul className="text-sm space-y-1">
-                      <li>• Seasonal menu promotion campaigns</li>
-                      <li>• Weather-responsive marketing</li>
-                      <li>• Holiday and event strategies</li>
-                      <li>• Off-season revenue streams</li>
-                    </ul>
-                  </div>
-                  <div className="text-sm text-primary font-medium">Result: 40% more consistent monthly revenue</div>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Eye className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Online Visibility</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Get found by hungry customers searching for dining options through optimized local search and social media presence.
-                  </p>
-                  <div className="bg-primary/5 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Our Solution:</h4>
-                    <ul className="text-sm space-y-1">
-                      <li>• Google Business Profile optimization</li>
-                      <li>• Local SEO for "restaurants near me"</li>
-                      <li>• Social media content strategy</li>
-                      <li>• Online ordering integration</li>
-                    </ul>
-                  </div>
-                  <div className="text-sm text-primary font-medium">Result: 75% increase in online discovery</div>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Heart className="w-6 h-6 text-primary" />
-                    <CardTitle className="text-xl">Customer Loyalty</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Turn first-time diners into regular customers through loyalty programs and personalized experiences that create emotional connections.
-                  </p>
-                  <div className="bg-primary/5 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Our Solution:</h4>
-                    <ul className="text-sm space-y-1">
-                      <li>• Customer loyalty program development</li>
-                      <li>• Personalized dining recommendations</li>
-                      <li>• Birthday and anniversary campaigns</li>
-                      <li>• VIP customer experience design</li>
-                    </ul>
-                  </div>
-                  <div className="text-sm text-primary font-medium">Result: 65% increase in repeat customer rate</div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Success Metrics */}
-        <section className="py-24 bg-gradient-subtle">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Proven <span className="gradient-text">Restaurant Results</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Our restaurant marketing consistently delivers measurable improvements in reservations, 
-                customer loyalty, and revenue growth.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-              <Card className="card-professional text-center">
-                <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-primary mb-2">280%</div>
-                  <div className="text-lg font-semibold mb-2">Traffic Growth</div>
-                  <p className="text-sm text-muted-foreground">Hungry customers finding you</p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-green-600 mb-2">350%</div>
-                  <div className="text-lg font-semibold mb-2">Reservations</div>
-                  <p className="text-sm text-muted-foreground">Bookings and walk-ins</p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">320%</div>
-                  <div className="text-lg font-semibold mb-2">ROI Increase</div>
-                  <p className="text-sm text-muted-foreground">Marketing return on investment</p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-purple-600 mb-2">65%</div>
-                  <div className="text-lg font-semibold mb-2">Repeat Rate</div>
-                  <p className="text-sm text-muted-foreground">Customers returning</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Case Study */}
-        <section className="py-24 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Restaurant <span className="gradient-text">Success Story</span>
-              </h2>
-            </div>
-
-            <div className="max-w-4xl mx-auto">
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center">
-                      <Utensils className="w-8 h-8" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8">
+                {[
+                  {
+                    icon: Camera,
+                    title: "Visual Craving Creation",
+                    description: "Professional food photography and ambiance visuals that trigger immediate desire and anticipation for your dining experience."
+                  },
+                  {
+                    icon: Star,
+                    title: "Social Proof Amplification",
+                    description: "Strategic review generation and user-generated content that creates desirability and reduces decision anxiety through social validation."
+                  },
+                  {
+                    icon: Heart,
+                    title: "Experience Anticipation Systems",
+                    description: "Behind-the-scenes content and storytelling that builds excitement for the full dining journey from arrival to dessert."
+                  }
+                ].map((solution, index) => (
+                  <div key={index} className="flex gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <solution.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl">Coastal Catch Seafood</CardTitle>
-                      <CardDescription className="text-lg">Upscale Waterfront Restaurant</CardDescription>
+                      <h3 className="text-xl font-semibold mb-2">{solution.title}</h3>
+                      <p className="text-muted-foreground">{solution.description}</p>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-orange-50 rounded-lg">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-600 mb-1">350%</div>
-                      <div className="text-sm text-orange-700">Reservations</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-600 mb-1">4.8★</div>
-                      <div className="text-sm text-orange-700">Review Average</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-orange-600 mb-1">320%</div>
-                      <div className="text-sm text-orange-700">ROI Growth</div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold mb-2">The Challenge</h4>
-                      <p className="text-muted-foreground">
-                        Coastal Catch had amazing food and location but struggled with inconsistent reservations and weak online presence. 
-                        They were losing customers to competitors with better social media and review management, despite having superior 
-                        dining experiences.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="font-semibold mb-2">Our Restaurant Psychology Solution</h4>
-                      <ul className="space-y-2 text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <CheckCircle className="w-4 h-4 text-primary mt-1" />
-                          <span><strong>Visual Strategy:</strong> Professional food photography and waterfront ambiance shots that showcase the full dining experience</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle className="w-4 h-4 text-primary mt-1" />
-                          <span><strong>Social Proof:</strong> Systematic review generation and user-generated content campaigns featuring happy diners</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle className="w-4 h-4 text-primary mt-1" />
-                          <span><strong>Local SEO:</strong> Dominated "waterfront restaurants" and "fresh seafood" searches in the Daytona Beach area</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <CheckCircle className="w-4 h-4 text-primary mt-1" />
-                          <span><strong>Experience Marketing:</strong> Promoted chef expertise, fresh catch stories, and special occasion positioning</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
-                      <h4 className="font-semibold text-orange-800 mb-2">The Results</h4>
-                      <p className="text-orange-700 text-sm">
-                        "Joel understood that restaurant marketing is about selling the experience, not just the food. Our reservations 
-                        tripled, and we're consistently booked on weekends. The visual strategy and review management transformed how 
-                        people perceive our restaurant online."
-                      </p>
-                      <div className="flex items-center gap-2 mt-3">
-                        <div className="flex">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                          ))}
-                        </div>
-                        <span className="text-sm font-medium text-orange-800">Maria Rodriguez, Owner</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Service Packages */}
-        <section className="py-24 bg-gradient-subtle">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Restaurant Marketing <span className="gradient-text">Service Options</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Choose the restaurant marketing package that fits your establishment size and growth goals. 
-                All packages include visual strategy and customer experience optimization.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <Card className="card-professional">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">Local Favorite</CardTitle>
-                  <CardDescription>Perfect for single-location restaurants</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$2,197<span className="text-base font-normal text-muted-foreground">/mo</span></div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Professional food photography</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Local SEO optimization</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Social media content strategy</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Review management system</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Online ordering optimization</span>
-                    </div>
-                  </div>
-                  <Button 
-                    className="w-full" 
-                    variant="outline" 
-                    onClick={() => {
-                      openDialog("Restaurant Marketing Audit");
-                      reset({ selectedService: "Local Favorite - $2,197/mo" });
-                    }}
-                  >
-                    Become Local Favorite
+                ))}
+              </div>
+              
+              <Card className="p-8">
+                <div className="text-center">
+                  <CheckCircle className="w-16 h-16 mx-auto mb-6 text-primary" />
+                  <h3 className="text-2xl font-bold mb-4">Guaranteed Results</h3>
+                  <p className="text-muted-foreground mb-6">
+                    We guarantee a minimum 150% improvement in reservation requests within 90 days, or you don't pay.
+                  </p>
+                  <Button size="lg" className="w-full" onClick={() => openDialog()}>
+                    Get Your Guarantee
                   </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional border-primary/50 shadow-lg scale-105">
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-primary text-primary-foreground px-4 py-1">Most Popular</Badge>
                 </div>
-                <CardHeader className="text-center pt-8">
-                  <CardTitle className="text-2xl mb-2">Dining Destination</CardTitle>
-                  <CardDescription>For established restaurants</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$3,697<span className="text-base font-normal text-muted-foreground">/mo</span></div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in Local Favorite</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Advanced visual strategy</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Experience marketing campaigns</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Loyalty program development</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Event and catering marketing</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Influencer partnerships</span>
-                    </div>
-                  </div>
-                  <Button 
-                    className="w-full" 
-                    onClick={() => {
-                      openDialog("Restaurant Marketing Audit");
-                      reset({ selectedService: "Dining Destination - $3,697/mo" });
-                    }}
-                  >
-                    Become Dining Destination
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">Hospitality Empire</CardTitle>
-                  <CardDescription>For restaurant groups & hotels</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$6,497<span className="text-base font-normal text-muted-foreground">/mo</span></div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in Dining Destination</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Multi-location coordination</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Brand consistency programs</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Enterprise reporting</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Regional market analysis</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Priority support</span>
-                    </div>
-                  </div>
-                  <Button 
-                    className="w-full" 
-                    variant="outline" 
-                    onClick={() => {
-                      openDialog("Restaurant Marketing Audit");
-                      reset({ selectedService: "Hospitality Empire - $6,497/mo" });
-                    }}
-                  >
-                    Build Hospitality Empire
-                  </Button>
-                </CardContent>
               </Card>
             </div>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-24 bg-background">
-          <div className="container mx-auto px-6 max-w-4xl">
+        {/* Services Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Restaurant Marketing <span className="gradient-text">FAQ</span>
-              </h2>
-            </div>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  How do you handle seasonal fluctuations in restaurant traffic?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  We create seasonal marketing strategies that adapt to dining patterns and weather. Summer focuses on outdoor dining and fresh seasonal menus, winter emphasizes cozy ambiance and comfort foods, holidays target special occasions and celebrations. We also develop off-season promotions and events to maintain consistent revenue.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-2" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  What makes restaurant marketing different from other industries?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Restaurant marketing is highly visual and emotion-driven. People choose where to dine based on craving, mood, and social factors. We focus on visual appeal, experience anticipation, and social proof rather than features and benefits. The goal is to make people hungry for your specific dining experience.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  How do you help restaurants compete against delivery apps?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  We position your restaurant as a complete dining experience that delivery can't replicate. This includes emphasizing ambiance, service, freshness, and social dining. We also optimize your presence on delivery platforms while driving direct online ordering and in-person dining that builds loyalty and higher margins.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-4" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  How quickly can restaurants see marketing results?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Restaurants can see results relatively quickly due to local market dynamics. Social media and review improvements show within 30 days, local SEO results appear in 60-90 days, and comprehensive strategies typically achieve full results in 3-6 months. We track reservations, online orders, and customer retention monthly.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-5" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  Do you work with all types of restaurants and hospitality businesses?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Yes, we work with fine dining, casual restaurants, fast casual, bars, cafes, hotels, and catering companies. Each requires different psychology - fine dining emphasizes experience and exclusivity, while fast casual focuses on convenience and value. We tailor strategies to your specific hospitality segment and target customer.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </section>
-
-        {/* Lead Form */}
-        <section className="py-24 bg-gradient-subtle">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Ready to <span className="gradient-text">Fill Your Tables</span>?
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Get a custom restaurant marketing strategy that attracts diners, builds loyalty, and creates a buzz around your establishment.
+              <h2 className="text-4xl font-bold mb-6">Complete Restaurant Experience Marketing</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                End-to-end restaurant marketing services designed to create visual appeal, build community buzz, and maximize table turnover.
               </p>
             </div>
 
-            <Card className="card-professional max-w-2xl mx-auto">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Get Your Free Restaurant Marketing Audit</CardTitle>
-                <CardDescription>
-                  We'll analyze your online presence, local SEO, and customer experience to identify growth opportunities.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                {inlineSubmitSuccess ? (
-                  <div className="text-center py-8">
-                    <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-green-800 mb-2">Request Submitted!</h3>
-                    <p className="text-green-700">
-                      We'll analyze your restaurant and send your custom marketing strategy within 24 hours.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleInlineSubmit(onInlineSubmit)} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Name *</Label>
-                        <Input
-                          id="name"
-                          placeholder="Your name"
-                          {...registerInline("name")}
-                          className={inlineErrors.name ? "border-red-500" : ""}
-                        />
-                        {inlineErrors.name && (
-                          <p className="text-red-500 text-sm">{inlineErrors.name.message}</p>
-                        )}
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="your.email@restaurant.com"
-                          {...registerInline("email")}
-                          className={inlineErrors.email ? "border-red-500" : ""}
-                        />
-                        {inlineErrors.email && (
-                          <p className="text-red-500 text-sm">{inlineErrors.email.message}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="phone">Phone *</Label>
-                        <Input
-                          id="phone"
-                          placeholder="(555) 123-4567"
-                          {...registerInline("phone")}
-                          className={inlineErrors.phone ? "border-red-500" : ""}
-                        />
-                        {inlineErrors.phone && (
-                          <p className="text-red-500 text-sm">{inlineErrors.phone.message}</p>
-                        )}
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="company">Restaurant/Business Name *</Label>
-                        <Input
-                          id="company"
-                          placeholder="Your restaurant name"
-                          {...registerInline("company")}
-                          className={inlineErrors.company ? "border-red-500" : ""}
-                        />
-                        {inlineErrors.company && (
-                          <p className="text-red-500 text-sm">{inlineErrors.company.message}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="industry">Business Type *</Label>
-                      <Select onValueChange={(value) => setValueInline("industry", value)} defaultValue="restaurants-hospitality">
-                        <SelectTrigger className={inlineErrors.industry ? "border-red-500" : ""}>
-                          <SelectValue placeholder="Select your business type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="restaurants-hospitality">Restaurants & Hospitality</SelectItem>
-                          <SelectItem value="fine-dining">Fine Dining</SelectItem>
-                          <SelectItem value="casual-dining">Casual Dining</SelectItem>
-                          <SelectItem value="fast-casual">Fast Casual</SelectItem>
-                          <SelectItem value="bars-nightlife">Bars & Nightlife</SelectItem>
-                          <SelectItem value="hotels-lodging">Hotels & Lodging</SelectItem>
-                          <SelectItem value="catering">Catering Services</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      {inlineErrors.industry && (
-                        <p className="text-red-500 text-sm">{inlineErrors.industry.message}</p>
-                      )}
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Marketing Challenges *</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Describe your restaurant marketing challenges, competition, or goals..."
-                        rows={4}
-                        {...registerInline("message")}
-                        className={inlineErrors.message ? "border-red-500" : ""}
-                      />
-                      {inlineErrors.message && (
-                        <p className="text-red-500 text-sm">{inlineErrors.message.message}</p>
-                      )}
-                    </div>
-
-                    <Button 
-                      type="submit" 
-                      className="w-full" 
-                      size="lg"
-                      disabled={isInlineSubmitting}
-                    >
-                      {isInlineSubmitting ? (
-                        <>
-                          <Clock className="w-5 h-5 mr-2 animate-spin" />
-                          Analyzing Your Restaurant...
-                        </>
-                      ) : (
-                        <>
-                          <Utensils className="w-5 h-5 mr-2" />
-                          Get My Restaurant Growth Strategy
-                          <ArrowRight className="w-5 h-5 ml-2" />
-                        </>
-                      )}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Camera,
+                  title: "Visual Appeal Marketing",
+                  description: "Professional food photography and ambiance visuals that create immediate craving and desire.",
+                  features: ["Food photography", "Ambiance shots", "Menu presentation", "Social media visuals"]
+                },
+                {
+                  icon: Star,
+                  title: "Social Proof Generation",
+                  description: "Review management and user-generated content that builds desirability through social validation.",
+                  features: ["Review campaigns", "User-generated content", "Influencer partnerships", "Social amplification"]
+                },
+                {
+                  icon: Heart,
+                  title: "Experience Anticipation",
+                  description: "Behind-the-scenes content that builds excitement for the complete dining experience.",
+                  features: ["Chef storytelling", "Preparation videos", "Special events", "Seasonal campaigns"]
+                },
+                {
+                  icon: MapPin,
+                  title: "Local SEO Domination",
+                  description: "Optimize for local restaurant searches and location-based dining discovery.",
+                  features: ["Google Business optimization", "Local search ranking", "Area targeting", "Competition analysis"]
+                },
+                {
+                  icon: UserCheck,
+                  title: "Loyalty Program Development",
+                  description: "Create systems that turn first-time diners into regular customers and brand advocates.",
+                  features: ["Loyalty programs", "VIP experiences", "Birthday campaigns", "Repeat customer incentives"]
+                },
+                {
+                  icon: BarChart3,
+                  title: "Revenue Optimization",
+                  description: "Strategic campaigns that maximize table turnover, average check size, and seasonal performance.",
+                  features: ["Seasonal strategies", "Upselling systems", "Event marketing", "Revenue analytics"]
+                }
+              ].map((service, index) => (
+                <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <service.icon className="w-10 h-10 text-primary mb-4" />
+                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <CardDescription>{service.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center">
+                          <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button variant="outline" className="w-full mt-4" onClick={() => selectService(service.title)}>
+                      Learn More
                     </Button>
-                    <p className="text-sm text-muted-foreground text-center">
-                      Free audit • Custom strategy • 24-hour response
-                    </p>
-                  </form>
-                )}
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-24 bg-gradient-to-r from-orange-600 to-red-700">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <div className="text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        {/* CTA Section */}
+        <section className="py-20 bg-primary text-primary-foreground">
+          <div className="container mx-auto px-6 text-center">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Ready to Fill Every Table?
               </h2>
-              <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-                Stop struggling with empty tables and inconsistent reservations. Get restaurant marketing 
-                that creates buzz, builds loyalty, and turns your establishment into the local favorite.
+              <p className="text-xl mb-8 opacity-90">
+                Get your free restaurant marketing audit and discover exactly how to create buzz, build loyalty, and maximize your dining room capacity.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog("Restaurant Marketing Audit")}>
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Get Restaurant Marketing Audit
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-orange-600" onClick={() => window.open('tel:+13865550123')}>
-                  <Phone className="w-5 h-5 mr-2" />
-                  Call: (386) 555-0123
                 </Button>
               </div>
-              <p className="text-orange-200 text-center">
-                Visual marketing • Experience strategy • Local domination
+              <p className="text-sm opacity-75">
+                Free audit includes visual strategy, local SEO analysis, and growth recommendations • No obligations
               </p>
             </div>
           </div>
         </section>
 
         <Footer />
-      </div>
 
-      {/* Contact Form Dialog */}
-      <ContactDialog
-        isOpen={isDialogOpen}
-        onClose={closeDialog}
-        title="Get Started with Restaurant Marketing"
-        description="Let's discuss your dining experience goals and help you fill every table."
-        defaultService="Restaurant Marketing Audit"
-        businessTypes={businessTypes.restaurant}
-      />
+        <ContactDialog 
+          isOpen={isOpen}
+          onClose={closeDialog}
+          title="Get Your Free Restaurant Marketing Audit"
+          description="Let's discuss how we can fill your tables and create a loyal customer base through strategic restaurant marketing."
+          defaultService={selectedService}
+          businessTypes={businessTypes.restaurant}
+        />
+      </div>
     </>
   );
 };
