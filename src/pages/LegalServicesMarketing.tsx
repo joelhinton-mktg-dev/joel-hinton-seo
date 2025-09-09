@@ -10,55 +10,19 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
-
-const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
-  businessType: z.string().min(1, "Please select your business type"),
-  marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
-  selectedService: z.string().default("Legal Services Marketing Audit")
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
+import { ContactDialog } from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 
 const LegalServicesMarketing = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: { selectedService: "Legal Services Marketing Audit" }
-  });
-
-  const onSubmitForm = async (data: ContactFormData) => {
-    if (isSubmitting) return; // Prevent double submission
-    setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1000));
-    if (process.env.NODE_ENV === 'development') {
-      console.log("Legal Services contact form submitted:", data);
-    }
-    setSubmitSuccess(true);
-    reset();
-    setTimeout(() => {
-      setSubmitSuccess(false);
-      setIsDialogOpen(false);
-    }, 2000);
-    setIsSubmitting(false);
-  };
+  const {
+    isDialogOpen,
+    openDialog,
+    closeDialog
+  } = useContactDialog();
 
   // Keep the original form logic for the inline form
   const [isInlineSubmitting, setIsInlineSubmitting] = useState(false);
@@ -177,12 +141,12 @@ const LegalServicesMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
+                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog("Legal Services Marketing Audit")}>
                   <Target className="w-5 h-5 mr-2" />
                   Get Legal Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog("Legal Services Marketing Audit")}>
                   <Phone className="w-5 h-5 mr-2" />
                   Legal Marketing Consultation
                 </Button>
@@ -621,7 +585,7 @@ const LegalServicesMarketing = () => {
                     className="w-full" 
                     variant="outline" 
                     onClick={() => {
-                      setIsDialogOpen(true);
+                      openDialog("Legal Services Marketing Audit");
                       reset({ selectedService: "Solo Practice - $2,697/mo" });
                     }}
                   >
@@ -669,7 +633,7 @@ const LegalServicesMarketing = () => {
                   <Button 
                     className="w-full" 
                     onClick={() => {
-                      setIsDialogOpen(true);
+                      openDialog("Legal Services Marketing Audit");
                       reset({ selectedService: "Established Firm - $4,697/mo" });
                     }}
                   >
@@ -715,7 +679,7 @@ const LegalServicesMarketing = () => {
                     className="w-full" 
                     variant="outline" 
                     onClick={() => {
-                      setIsDialogOpen(true);
+                      openDialog("Legal Services Marketing Audit");
                       reset({ selectedService: "Legal Powerhouse - $7,997/mo" });
                     }}
                   >
@@ -949,7 +913,7 @@ const LegalServicesMarketing = () => {
                 your firm as the trusted expert clients choose in their time of need.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog("Legal Services Marketing Audit")}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Get Legal Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -970,97 +934,14 @@ const LegalServicesMarketing = () => {
       </div>
 
       {/* Contact Form Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>Get Started with Legal Services Marketing</DialogTitle>
-            <DialogDescription>
-              Let's discuss your authority building goals and help you convert more consultations into clients.
-            </DialogDescription>
-          </DialogHeader>
-
-          {submitSuccess ? (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                  <path d="M22 4 12 14.01l-3-3"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
-              <p className="text-muted-foreground">I'll analyze your legal practice and send you a detailed marketing strategy within 48 hours.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Full Name *</Label>
-                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
-                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
-                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
-                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
-                </div>
-                <div className="space-y-2">
-                  <Label>Business Type *</Label>
-                  <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
-                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
-                      <SelectValue placeholder="Select your practice area" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="personal-injury">Personal Injury</SelectItem>
-                      <SelectItem value="criminal-defense">Criminal Defense</SelectItem>
-                      <SelectItem value="family-law">Family Law</SelectItem>
-                      <SelectItem value="corporate-law">Corporate Law</SelectItem>
-                      <SelectItem value="employment-law">Employment Law</SelectItem>
-                      <SelectItem value="real-estate-law">Real Estate Law</SelectItem>
-                      <SelectItem value="estate-planning">Estate Planning</SelectItem>
-                      <SelectItem value="immigration-law">Immigration Law</SelectItem>
-                      <SelectItem value="other">Other Legal Services</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="selectedService">Selected Service *</Label>
-                <Input id="selectedService" readOnly {...register('selectedService')} />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
-                <Textarea 
-                  id="marketingChallenge" 
-                  placeholder="What's your law firm's website? What challenges are you facing with consultation conversion, authority building, or client acquisition?" 
-                  className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} 
-                  {...register('marketingChallenge')} 
-                />
-                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
-              </div>
-
-              <div className="flex items-center justify-end gap-3 pt-2">
-                <DialogClose asChild>
-                  <Button variant="outline">Cancel</Button>
-                </DialogClose>
-                <Button type="submit" variant="hero" disabled={isSubmitting}>
-                  {isSubmitting ? 'Submitting...' : 'Get Started'}
-                </Button>
-              </div>
-            </form>
-          )}
-        </DialogContent>
-      </Dialog>
+      <ContactDialog
+        isOpen={isDialogOpen}
+        onClose={closeDialog}
+        title="Get Started with Legal Services Marketing"
+        description="Let's discuss your authority building goals and help you convert more consultations into clients."
+        defaultService="Legal Services Marketing Audit"
+        businessTypes={businessTypes.legal}
+      />
     </>
   );
 };

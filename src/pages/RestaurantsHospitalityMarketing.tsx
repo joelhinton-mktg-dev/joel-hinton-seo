@@ -10,55 +10,19 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
-
-const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
-  businessType: z.string().min(1, "Please select your business type"),
-  marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
-  selectedService: z.string().default("Restaurant Marketing Audit")
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
+import { ContactDialog } from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 
 const RestaurantsHospitalityMarketing = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: { selectedService: "Restaurant Marketing Audit" }
-  });
-
-  const onSubmitForm = async (data: ContactFormData) => {
-    if (isSubmitting) return; // Prevent double submission
-    setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1000));
-    if (process.env.NODE_ENV === 'development') {
-      console.log("Restaurant contact form submitted:", data);
-    }
-    setSubmitSuccess(true);
-    reset();
-    setTimeout(() => {
-      setSubmitSuccess(false);
-      setIsDialogOpen(false);
-    }, 2000);
-    setIsSubmitting(false);
-  };
+  const {
+    isDialogOpen,
+    openDialog,
+    closeDialog
+  } = useContactDialog();
 
   // Keep the original form logic for the inline form
   const [isInlineSubmitting, setIsInlineSubmitting] = useState(false);
@@ -177,12 +141,12 @@ const RestaurantsHospitalityMarketing = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
+                <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog("Restaurant Marketing Audit")}>
                   <Target className="w-5 h-5 mr-2" />
                   Get Restaurant Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg" onClick={() => openDialog("Restaurant Marketing Audit")}>
                   <Phone className="w-5 h-5 mr-2" />
                   Restaurant Growth Call
                 </Button>
@@ -621,7 +585,7 @@ const RestaurantsHospitalityMarketing = () => {
                     className="w-full" 
                     variant="outline" 
                     onClick={() => {
-                      setIsDialogOpen(true);
+                      openDialog("Restaurant Marketing Audit");
                       reset({ selectedService: "Local Favorite - $2,197/mo" });
                     }}
                   >
@@ -669,7 +633,7 @@ const RestaurantsHospitalityMarketing = () => {
                   <Button 
                     className="w-full" 
                     onClick={() => {
-                      setIsDialogOpen(true);
+                      openDialog("Restaurant Marketing Audit");
                       reset({ selectedService: "Dining Destination - $3,697/mo" });
                     }}
                   >
@@ -715,7 +679,7 @@ const RestaurantsHospitalityMarketing = () => {
                     className="w-full" 
                     variant="outline" 
                     onClick={() => {
-                      setIsDialogOpen(true);
+                      openDialog("Restaurant Marketing Audit");
                       reset({ selectedService: "Hospitality Empire - $6,497/mo" });
                     }}
                   >
@@ -948,7 +912,7 @@ const RestaurantsHospitalityMarketing = () => {
                 that creates buzz, builds loyalty, and turns your establishment into the local favorite.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => setIsDialogOpen(true)}>
+                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog("Restaurant Marketing Audit")}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Get Restaurant Marketing Audit
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -969,97 +933,14 @@ const RestaurantsHospitalityMarketing = () => {
       </div>
 
       {/* Contact Form Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>Get Started with Restaurant Marketing</DialogTitle>
-            <DialogDescription>
-              Let's discuss your dining experience goals and help you fill every table.
-            </DialogDescription>
-          </DialogHeader>
-
-          {submitSuccess ? (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                  <path d="M22 4 12 14.01l-3-3"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
-              <p className="text-muted-foreground">I'll analyze your restaurant and send you a detailed marketing strategy within 48 hours.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Full Name *</Label>
-                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
-                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
-                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
-                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
-                </div>
-                <div className="space-y-2">
-                  <Label>Business Type *</Label>
-                  <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
-                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
-                      <SelectValue placeholder="Select your restaurant type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="fine-dining">Fine Dining</SelectItem>
-                      <SelectItem value="casual-dining">Casual Dining</SelectItem>
-                      <SelectItem value="fast-casual">Fast Casual</SelectItem>
-                      <SelectItem value="bars-nightlife">Bars & Nightlife</SelectItem>
-                      <SelectItem value="hotels-lodging">Hotels & Lodging</SelectItem>
-                      <SelectItem value="catering">Catering Services</SelectItem>
-                      <SelectItem value="food-truck">Food Truck</SelectItem>
-                      <SelectItem value="cafe-bakery">Cafe & Bakery</SelectItem>
-                      <SelectItem value="other">Other Hospitality</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="selectedService">Selected Service *</Label>
-                <Input id="selectedService" readOnly {...register('selectedService')} />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
-                <Textarea 
-                  id="marketingChallenge" 
-                  placeholder="What's your restaurant's website? What challenges are you facing with reservations, customer loyalty, or local competition?" 
-                  className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} 
-                  {...register('marketingChallenge')} 
-                />
-                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
-              </div>
-
-              <div className="flex items-center justify-end gap-3 pt-2">
-                <DialogClose asChild>
-                  <Button variant="outline">Cancel</Button>
-                </DialogClose>
-                <Button type="submit" variant="hero" disabled={isSubmitting}>
-                  {isSubmitting ? 'Submitting...' : 'Get Started'}
-                </Button>
-              </div>
-            </form>
-          )}
-        </DialogContent>
-      </Dialog>
+      <ContactDialog
+        isOpen={isDialogOpen}
+        onClose={closeDialog}
+        title="Get Started with Restaurant Marketing"
+        description="Let's discuss your dining experience goals and help you fill every table."
+        defaultService="Restaurant Marketing Audit"
+        businessTypes={businessTypes.restaurant}
+      />
     </>
   );
 };
