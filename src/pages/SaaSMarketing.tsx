@@ -1,3 +1,4 @@
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { 
   Code2, TrendingUp, Users, CheckCircle, ArrowRight, Target, Award, 
