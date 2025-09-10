@@ -1,28 +1,18 @@
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Building2, Users, TrendingUp, Calendar, Phone, Mail, Star, Waves, Beer, MessageSquare } from 'lucide-react';
+import { MapPin, Building2, Users, TrendingUp, Calendar, Phone, Mail, Star, Waves, Beer, MessageSquare, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 import { floridaTestimonials } from '@/data/floridaTestimonials';
 
 const TampaGrowthMarketing = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const contactFormSchema = z.object({
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Tampa Growth Marketing Consultation');
     name: z.string().min(2, "Name must be at least 2 characters"),
     email: z.string().email("Please enter a valid email address"),
     phone: z.string().min(10, "Please enter a valid phone number"),
@@ -127,7 +117,7 @@ const TampaGrowthMarketing = () => {
                   <Button 
                     size="lg" 
                     variant="hero"
-                    onClick={() => setIsDialogOpen(true)}
+                    onClick={() => openDialog()}
                   >
                     <Phone className="w-5 h-5 mr-2" />
                     Free Tampa Growth Audit
@@ -135,7 +125,7 @@ const TampaGrowthMarketing = () => {
                   <Button 
                     size="lg" 
                     variant="outline"
-                    onClick={() => setIsDialogOpen(true)}
+                    onClick={() => openDialog()}
                   >
                     <Mail className="w-5 h-5 mr-2" />
                     Bay Area Strategy Call
@@ -866,7 +856,7 @@ const TampaGrowthMarketing = () => {
                 <Button 
                   size="lg" 
                   variant="secondary"
-                  onClick={() => setIsDialogOpen(true)}
+                  onClick={() => openDialog()}
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Free Tampa Growth Audit
@@ -875,7 +865,7 @@ const TampaGrowthMarketing = () => {
                   size="lg" 
                   variant="outline" 
                   className="border-white text-white hover:bg-white hover:text-amber-600"
-                  onClick={() => setIsDialogOpen(true)}
+                  onClick={() => openDialog()}
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   Schedule Bay Area Strategy
@@ -984,6 +974,18 @@ const TampaGrowthMarketing = () => {
           )}
         </DialogContent>
       </Dialog>
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        selectedService={selectedService}
+      />
+      
+      <ProfessionalServiceSchema 
+        serviceName="Tampa Growth Marketing"
+        serviceDescription="Growth marketing strategies for Tampa Bay businesses, focusing on Ybor City culture, Westshore professionals, and downtown innovators"
+        serviceUrl="https://joelhintonmarketing.com/locations/tampa-growth-marketing"
+        serviceType="Growth Marketing"
+      />
     </>
   );
 };

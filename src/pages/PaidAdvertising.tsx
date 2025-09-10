@@ -17,6 +17,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
+import ContactDialog from "@/components/ContactDialog";
+import { useContactDialog } from "@/hooks/useContactDialog";
+import { businessTypes } from "@/lib/businessTypes";
 import { 
   Target, 
   TrendingUp, 
@@ -61,22 +64,11 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 type AdAuditFormData = z.infer<typeof adAuditFormSchema>;
 
 const PaidAdvertising = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Paid Advertising Consultation');
   const [isAdAuditSubmitting, setIsAdAuditSubmitting] = useState(false);
   const [adAuditSuccess, setAdAuditSuccess] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: { selectedService: "Paid Advertising Strategy Consultation" }
-  });
+  // Form handling now managed by ContactDialog
 
   const {
     register: registerAdAudit,
@@ -88,21 +80,7 @@ const PaidAdvertising = () => {
     resolver: zodResolver(adAuditFormSchema)
   });
 
-  const onSubmitForm = async (data: ContactFormData) => {
-    if (isSubmitting) return; // Prevent double submission
-    setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1000));
-    if (process.env.NODE_ENV === 'development') {
-      console.log("Paid Advertising contact form submitted:", data);
-    }
-    setSubmitSuccess(true);
-    reset();
-    setTimeout(() => {
-      setSubmitSuccess(false);
-      setIsDialogOpen(false);
-    }, 2000);
-    setIsSubmitting(false);
-  };
+  // Form submission now handled by ContactDialog
 
   const onSubmitAdAudit = async (data: AdAuditFormData) => {
     if (isAdAuditSubmitting) return; // Prevent double submission
@@ -182,7 +160,7 @@ const PaidAdvertising = () => {
             <Button 
               size="lg" 
               className="btn-hero text-lg px-8 py-3"
-              onClick={() => setIsDialogOpen(true)}
+              onClick={() => selectService('Ad Account Audit')}
             >
               <Target className="w-5 h-5 mr-2" />
               Get Your Ad Account Audit
@@ -458,10 +436,7 @@ const PaidAdvertising = () => {
 
                 <Button 
                   className="w-full btn-secondary"
-                  onClick={() => {
-                    setIsDialogOpen(true);
-                    reset({ selectedService: "Paid Media Management - $500/month" });
-                  }}
+                  onClick={() => selectService('Paid Media Management - $500/month')}
                 >
                   Start Managing My Ads
                 </Button>
@@ -522,10 +497,7 @@ const PaidAdvertising = () => {
                 <Button 
                   variant="outline" 
                   className="w-full"
-                  onClick={() => {
-                    setIsDialogOpen(true);
-                    reset({ selectedService: "Paid Media Audit & Strategy - $300" });
-                  }}
+                  onClick={() => selectService('Paid Media Audit & Strategy - $300')}
                 >
                   Audit My Ad Performance
                 </Button>
@@ -992,7 +964,7 @@ const PaidAdvertising = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    onClick={() => setIsDialogOpen(true)}
+                    onClick={() => selectService('Paid Advertising Strategy Call')}
                   >
                     <Phone className="w-4 h-4 mr-2" />
                     Schedule a Strategy Call
@@ -1011,97 +983,15 @@ const PaidAdvertising = () => {
         <Footer />
       </div>
 
-      {/* Contact Form Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>Get Started with Paid Advertising</DialogTitle>
-            <DialogDescription>
-              Let's discuss your advertising goals and get you started with the perfect paid media strategy for your business.
-            </DialogDescription>
-          </DialogHeader>
-
-          {submitSuccess ? (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                  <path d="M22 4 12 14.01l-3-3"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
-              <p className="text-muted-foreground">I'll analyze your advertising needs and send you a detailed strategy within 48 hours.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Full Name *</Label>
-                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
-                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
-                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
-                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
-                </div>
-                <div className="space-y-2">
-                  <Label>Business Type *</Label>
-                  <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
-                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
-                      <SelectValue placeholder="Select your industry" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="ecommerce">E-commerce</SelectItem>
-                      <SelectItem value="saas">SaaS / Tech</SelectItem>
-                      <SelectItem value="professional-services">Professional Services</SelectItem>
-                      <SelectItem value="healthcare">Healthcare</SelectItem>
-                      <SelectItem value="home-services">Home Services</SelectItem>
-                      <SelectItem value="real-estate">Real Estate</SelectItem>
-                      <SelectItem value="restaurant">Restaurant & Hospitality</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="selectedService">Selected Service *</Label>
-                <Input id="selectedService" readOnly {...register('selectedService')} />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="marketingChallenge">Tell us about your advertising challenges *</Label>
-                <Textarea 
-                  id="marketingChallenge" 
-                  placeholder="What's your current monthly ad spend? What advertising challenges are you facing? What results are you looking to achieve?" 
-                  className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} 
-                  {...register('marketingChallenge')} 
-                />
-                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
-              </div>
-
-              <div className="flex items-center justify-end gap-3 pt-2">
-                <DialogClose asChild>
-                  <Button variant="outline">Cancel</Button>
-                </DialogClose>
-                <Button type="submit" variant="hero" disabled={isSubmitting}>
-                  {isSubmitting ? 'Submitting...' : 'Get Started'}
-                </Button>
-              </div>
-            </form>
-          )}
-        </DialogContent>
-      </Dialog>
+      {/* NEW ContactDialog Integration */}
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        title="Get Started with Paid Advertising"
+        description="Let's discuss your advertising goals and get you started with the perfect paid media strategy for your business."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
+      />
     </>
   );
 };

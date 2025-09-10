@@ -7,7 +7,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import ContactSection from "@/components/ContactSection";
 import ProfessionalServiceSchema from "@/components/schema/ProfessionalServiceSchema";
 import { CheckCircle, TrendingUp, Brain, Target, Zap, Users, BarChart, MessageSquare, ArrowRight, Star } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -19,6 +18,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
+import ContactDialog from "@/components/ContactDialog";
+import { useContactDialog } from "@/hooks/useContactDialog";
+import { businessTypes } from "@/lib/businessTypes";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -43,22 +45,11 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 type LeadCaptureFormData = z.infer<typeof leadCaptureFormSchema>;
 
 const GrowthMarketing = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Growth Marketing Consultation');
   const [isLeadCaptureSubmitting, setIsLeadCaptureSubmitting] = useState(false);
   const [leadCaptureSuccess, setLeadCaptureSuccess] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: { selectedService: "Growth Marketing Strategy Consultation" }
-  });
+  // Form handling now managed by ContactDialog
 
   const {
     register: registerLeadCapture,
@@ -70,21 +61,7 @@ const GrowthMarketing = () => {
     resolver: zodResolver(leadCaptureFormSchema)
   });
 
-  const onSubmitForm = async (data: ContactFormData) => {
-    if (isSubmitting) return; // Prevent double submission
-    setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1000));
-    if (process.env.NODE_ENV === 'development') {
-      console.log("Growth Marketing contact form submitted:", data);
-    }
-    setSubmitSuccess(true);
-    reset();
-    setTimeout(() => {
-      setSubmitSuccess(false);
-      setIsDialogOpen(false);
-    }, 2000);
-    setIsSubmitting(false);
-  };
+  // Form submission now handled by ContactDialog
 
   const onSubmitLeadCapture = async (data: LeadCaptureFormData) => {
     if (isLeadCaptureSubmitting) return; // Prevent double submission
@@ -152,7 +129,7 @@ const GrowthMarketing = () => {
         <Button 
           size="lg" 
           className="btn-hero text-lg px-8 py-6 mb-12"
-          onClick={() => setIsDialogOpen(true)}
+          onClick={() => selectService('Growth Marketing Strategy')}
         >
           <Target className="h-5 w-5 mr-2" />
           Get Your Growth Strategy Audit
@@ -926,8 +903,8 @@ const GrowthMarketing = () => {
         <Footer />
       </div>
 
-      {/* Contact Form Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
+      {/* OLD Contact Form Dialog - DISABLED */}
+      {/* <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle>Get Started with Growth Marketing</DialogTitle>
@@ -1016,7 +993,17 @@ const GrowthMarketing = () => {
             </form>
           )}
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
+
+      {/* NEW ContactDialog Integration */}
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        title="Get Started with Growth Marketing"
+        description="Let's discuss your growth goals and get you started with the perfect growth marketing strategy for your business."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
+      />
     </>
   );
 };

@@ -2,64 +2,18 @@ import { Helmet } from 'react-helmet-async';
 import { MapPin, Home, Zap, CheckCircle, ArrowRight, Phone, Mail, Calendar, Star, TrendingUp, Brain, BarChart3, Users, DollarSign, Car, Flag, Waves, Building2, Sun, Clock, Shield, Heart, Trophy, Compass, MessageSquare } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 
 const DaytonaBeachDigitalMarketing = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const contactFormSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
-    email: z.string().email("Please enter a valid email address"),
-    phone: z.string().min(10, "Please enter a valid phone number"),
-    businessType: z.string().min(1, "Please select your business type"),
-    marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
-    selectedService: z.string().default("Daytona Beach Marketing Audit")
-  });
-
-  type ContactFormData = z.infer<typeof contactFormSchema>;
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: { selectedService: "Daytona Beach Marketing Audit" }
-  });
-
-  const onSubmitForm = async (data: ContactFormData) => {
-    if (isSubmitting) return; // Prevent double submission
-    setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1000));
-    if (process.env.NODE_ENV === 'development') {
-      console.log("Daytona Beach contact form submitted:", data);
-    }
-    setSubmitSuccess(true);
-    reset();
-    setTimeout(() => {
-      setSubmitSuccess(false);
-      setIsDialogOpen(false);
-    }, 2000);
-    setIsSubmitting(false);
-  };
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Daytona Beach Marketing Audit');
 
   return (
     <>
@@ -170,7 +124,7 @@ const DaytonaBeachDigitalMarketing = () => {
                 <Button 
                   size="lg" 
                   className="px-8 py-4 text-lg"
-                  onClick={() => setIsDialogOpen(true)}
+                  onClick={() => openDialog()}
                 >
                   <Flag className="w-5 h-5 mr-2" />
                   NASCAR Community Strategy
@@ -180,7 +134,7 @@ const DaytonaBeachDigitalMarketing = () => {
                   size="lg" 
                   variant="outline" 
                   className="px-8 py-4 text-lg"
-                  onClick={() => setIsDialogOpen(true)}
+                  onClick={() => openDialog()}
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   In-Person Consultation Available
@@ -862,325 +816,6 @@ const DaytonaBeachDigitalMarketing = () => {
           </div>
         </section>
 
-        {/* Contact Form Section */}
-        <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-purple-50">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Ready to Dominate Daytona Beach with Local Expertise?
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Get your free Daytona Beach marketing consultation. I'll show you exactly how to leverage our unique market psychology - 
-                from NASCAR culture to beach tourism - for maximum business growth.
-              </p>
-            </div>
-
-            <Card className="card-professional shadow-xl">
-              <CardHeader className="text-center pb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl md:text-3xl">
-                  Schedule Free Daytona Beach Consultation
-                </CardTitle>
-                <CardDescription className="text-lg">
-                  Get a personalized marketing strategy for the Daytona Beach market within 24 hours
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                {submitSuccess ? (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <MessageSquare className="w-8 h-8 text-green-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-green-800 mb-2">Thank You!</h3>
-                    <p className="text-green-700 mb-4">
-                      Your Daytona Beach consultation request has been submitted successfully.
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      I'll review your information and get back to you within 24 hours with your personalized Daytona Beach marketing strategy.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
-                        <Input
-                          id="name"
-                          placeholder="John Smith"
-                          {...register("name")}
-                          className={errors.name ? "border-destructive" : ""}
-                        />
-                        {errors.name && (
-                          <p className="text-sm text-destructive">{errors.name.message}</p>
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="john@company.com"
-                          {...register("email")}
-                          className={errors.email ? "border-destructive" : ""}
-                        />
-                        {errors.email && (
-                          <p className="text-sm text-destructive">{errors.email.message}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number *</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          placeholder="(386) 555-0123"
-                          {...register("phone")}
-                          className={errors.phone ? "border-destructive" : ""}
-                        />
-                        {errors.phone && (
-                          <p className="text-sm text-destructive">{errors.phone.message}</p>
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="businessType">Business Type *</Label>
-                        <Select onValueChange={(value) => {
-                          const event = { target: { value } };
-                          register("businessType").onChange(event);
-                        }}>
-                          <SelectTrigger className={errors.businessType ? "border-destructive" : ""}>
-                            <SelectValue placeholder="Select your industry" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="restaurant-food">Restaurant/Food Service</SelectItem>
-                            <SelectItem value="professional-services">Professional Services</SelectItem>
-                            <SelectItem value="healthcare-medical">Healthcare/Medical</SelectItem>
-                            <SelectItem value="real-estate">Real Estate</SelectItem>
-                            <SelectItem value="home-services">Home Services</SelectItem>
-                            <SelectItem value="retail-ecommerce">Retail/E-commerce</SelectItem>
-                            <SelectItem value="technology-saas">Technology/SaaS</SelectItem>
-                            <SelectItem value="legal-services">Legal Services</SelectItem>
-                            <SelectItem value="financial-services">Financial Services</SelectItem>
-                            <SelectItem value="other-business">Other Business</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        {errors.businessType && (
-                          <p className="text-sm text-destructive">{errors.businessType.message}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
-                      <Textarea
-                        id="marketingChallenge"
-                        placeholder="What's your biggest marketing challenge in Daytona Beach? Are you struggling with seasonal fluctuations, reaching NASCAR fans, competing with tourism businesses, or building local community connections? What results are you looking for?"
-                        className={`min-h-[120px] ${errors.marketingChallenge ? "border-destructive" : ""}`}
-                        {...register("marketingChallenge")}
-                      />
-                      {errors.marketingChallenge && (
-                        <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>
-                      )}
-                    </div>
-
-                    <Button 
-                      type="submit" 
-                      variant="hero" 
-                      size="lg" 
-                      className="w-full py-6 text-lg"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          <Calendar className="w-5 h-5 mr-2" />
-                          Schedule Free Daytona Beach Consultation
-                        </>
-                      )}
-                    </Button>
-
-                    <p className="text-sm text-muted-foreground text-center">
-                      No spam. No sales calls. Just valuable Daytona Beach marketing insights delivered within 24 hours.
-                    </p>
-                  </form>
-                )}
-              </CardContent>
-            </Card>
-
-            <div className="text-center mt-8">
-              <p className="text-muted-foreground">
-                Serving all of Greater Daytona Beach: Downtown, Beachside, Port Orange, Ormond Beach, South Daytona, Holly Hill, and surrounding communities
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Form Section */}
-        <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-purple-50">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Ready to Leverage Daytona Beach's Home Field Advantage?
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Get your free Daytona Beach digital marketing consultation. I'll show you exactly how to capture NASCAR culture, 
-                motorsports tourism, and beach lifestyle enthusiasts with psychology-driven strategies.
-              </p>
-            </div>
-
-            <Card className="card-professional shadow-xl">
-              <CardHeader className="text-center pb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl md:text-3xl">
-                  Schedule Free Daytona Beach Consultation
-                </CardTitle>
-                <CardDescription className="text-lg">
-                  Get a personalized marketing strategy for the Daytona Beach market within 24 hours
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                {submitSuccess ? (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <MessageSquare className="w-8 h-8 text-green-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-green-800 mb-2">Thank You!</h3>
-                    <p className="text-green-700 mb-4">
-                      Your Daytona Beach consultation request has been submitted successfully.
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      I'll review your information and get back to you within 24 hours with your personalized Daytona Beach marketing strategy.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
-                        <Input
-                          id="name"
-                          placeholder="John Smith"
-                          {...register("name")}
-                          className={errors.name ? "border-destructive" : ""}
-                        />
-                        {errors.name && (
-                          <p className="text-sm text-destructive">{errors.name.message}</p>
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="john@company.com"
-                          {...register("email")}
-                          className={errors.email ? "border-destructive" : ""}
-                        />
-                        {errors.email && (
-                          <p className="text-sm text-destructive">{errors.email.message}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number *</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          placeholder="(386) 555-0123"
-                          {...register("phone")}
-                          className={errors.phone ? "border-destructive" : ""}
-                        />
-                        {errors.phone && (
-                          <p className="text-sm text-destructive">{errors.phone.message}</p>
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="businessType">Business Type *</Label>
-                        <Select onValueChange={(value) => {
-                          const event = { target: { value } };
-                          register("businessType").onChange(event);
-                        }}>
-                          <SelectTrigger className={errors.businessType ? "border-destructive" : ""}>
-                            <SelectValue placeholder="Select your industry" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="restaurant-food">Restaurant/Food Service</SelectItem>
-                            <SelectItem value="professional-services">Professional Services</SelectItem>
-                            <SelectItem value="healthcare-medical">Healthcare/Medical</SelectItem>
-                            <SelectItem value="real-estate">Real Estate</SelectItem>
-                            <SelectItem value="home-services">Home Services</SelectItem>
-                            <SelectItem value="retail-ecommerce">Retail/E-commerce</SelectItem>
-                            <SelectItem value="technology-saas">Technology/SaaS</SelectItem>
-                            <SelectItem value="legal-services">Legal Services</SelectItem>
-                            <SelectItem value="financial-services">Financial Services</SelectItem>
-                            <SelectItem value="other-business">Other Business</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        {errors.businessType && (
-                          <p className="text-sm text-destructive">{errors.businessType.message}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
-                      <Textarea
-                        id="marketingChallenge"
-                        placeholder="What's your biggest marketing challenge in the Daytona Beach market? Are you struggling to reach NASCAR fans, motorsports enthusiasts, beach tourists, or local residents? What results are you looking for?"
-                        className={`min-h-[120px] ${errors.marketingChallenge ? "border-destructive" : ""}`}
-                        {...register("marketingChallenge")}
-                      />
-                      {errors.marketingChallenge && (
-                        <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>
-                      )}
-                    </div>
-
-                    <Button 
-                      type="submit" 
-                      variant="hero" 
-                      size="lg" 
-                      className="w-full py-6 text-lg"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          <Calendar className="w-5 h-5 mr-2" />
-                          Schedule Free Daytona Beach Consultation
-                        </>
-                      )}
-                    </Button>
-
-                    <p className="text-sm text-muted-foreground text-center">
-                      No spam. No sales calls. Just valuable Daytona Beach marketing insights delivered within 24 hours.
-                    </p>
-                  </form>
-                )}
-              </CardContent>
-            </Card>
-
-            <div className="text-center mt-8">
-              <p className="text-muted-foreground">
-                Serving all of Greater Daytona Beach: NASCAR Speedway, Beach Street, International Speedway Boulevard, Port Orange, Ormond Beach, and surrounding communities
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* CTA Section */}
         <section className="py-24 bg-gradient-subtle">
@@ -1202,7 +837,7 @@ const DaytonaBeachDigitalMarketing = () => {
               <Button 
                 size="lg" 
                 className="px-8 py-4 text-lg"
-                onClick={() => setIsDialogOpen(true)}
+                onClick={() => selectService('NASCAR Community Strategy Session')}
               >
                 <Flag className="w-5 h-5 mr-2" />
                 NASCAR Community Strategy Session
@@ -1212,7 +847,7 @@ const DaytonaBeachDigitalMarketing = () => {
                 size="lg" 
                 variant="outline" 
                 className="px-8 py-4 text-lg"
-                onClick={() => setIsDialogOpen(true)}
+                onClick={() => selectService('In-Person Consultation')}
               >
                 <Home className="w-5 h-5 mr-2" />
                 In-Person Consultation
@@ -1224,99 +859,14 @@ const DaytonaBeachDigitalMarketing = () => {
         <Footer />
       </div>
 
-      {/* Contact Form Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>Get Started with Daytona Beach Marketing Strategy</DialogTitle>
-            <DialogDescription>
-              Let's discuss how to leverage Daytona Beach's unique NASCAR culture and tourism opportunities for your business growth.
-            </DialogDescription>
-          </DialogHeader>
-
-          {submitSuccess ? (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                  <path d="M22 4 12 14.01l-3-3"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
-              <p className="text-muted-foreground">I'll analyze your Daytona Beach market opportunities and send you a detailed strategy within 48 hours.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Full Name *</Label>
-                  <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
-                  {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
-                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input id="phone" type="tel" placeholder="(386) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
-                  {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
-                </div>
-                <div className="space-y-2">
-                  <Label>Business Type *</Label>
-                  <Select onValueChange={(value) => setValue('businessType', value, { shouldValidate: true })}>
-                    <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
-                      <SelectValue placeholder="Select your industry" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="restaurant-food">Restaurant/Food Service</SelectItem>
-                      <SelectItem value="professional-services">Professional Services</SelectItem>
-                      <SelectItem value="healthcare-medical">Healthcare/Medical</SelectItem>
-                      <SelectItem value="real-estate">Real Estate</SelectItem>
-                      <SelectItem value="home-services">Home Services</SelectItem>
-                      <SelectItem value="retail-ecommerce">Retail/E-commerce</SelectItem>
-                      <SelectItem value="technology-saas">Technology/SaaS</SelectItem>
-                      <SelectItem value="legal-services">Legal Services</SelectItem>
-                      <SelectItem value="financial-services">Financial Services</SelectItem>
-                      <SelectItem value="other-business">Other Business</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="selectedService">Selected Service *</Label>
-                <Input id="selectedService" readOnly {...register('selectedService')} />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
-                <Textarea 
-                  id="marketingChallenge" 
-                  placeholder="What's your biggest marketing challenge in Daytona Beach? Are you struggling with seasonal fluctuations, reaching NASCAR fans, competing with tourism businesses, or building local community connections? What results are you looking for?" 
-                  className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`} 
-                  {...register('marketingChallenge')} 
-                />
-                {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
-              </div>
-
-              <div className="flex items-center justify-end gap-3 pt-2">
-                <DialogClose asChild>
-                  <Button variant="outline">Cancel</Button>
-                </DialogClose>
-                <Button type="submit" variant="hero" disabled={isSubmitting}>
-                  {isSubmitting ? 'Submitting...' : 'Get Started'}
-                </Button>
-              </div>
-            </form>
-          )}
-        </DialogContent>
-      </Dialog>
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        title="Get Started with Daytona Beach Marketing Strategy"
+        description="Let's discuss how to leverage Daytona Beach's unique NASCAR culture and tourism opportunities for your business growth."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
+      />
     </>
   );
 };

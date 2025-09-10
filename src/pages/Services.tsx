@@ -5,11 +5,16 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 import { Link } from 'react-router-dom';
 
 const Services = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Marketing Services Consultation');
+
   return (
     <>
       <Helmet>
@@ -794,6 +799,19 @@ const Services = () => {
 
         <Footer />
       </div>
+      
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        selectedService={selectedService}
+      />
+      
+      <ProfessionalServiceSchema 
+        serviceName="Marketing Services"
+        serviceDescription="Psychology-driven marketing services including SEO, Growth Marketing, Paid Advertising, and Custom Development"
+        serviceUrl="https://joelhintonmarketing.com/services"
+        serviceType="Marketing Services"
+      />
     </>
   );
 };

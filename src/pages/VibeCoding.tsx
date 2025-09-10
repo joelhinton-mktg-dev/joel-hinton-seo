@@ -6,28 +6,14 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 
 const VibeCoding = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const contactFormSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
-    email: z.string().email("Please enter a valid email address"),
-    phone: z.string().min(10, "Please enter a valid phone number"),
-    projectType: z.string().min(1, "Please select your project type"),
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Custom Development Consultation');
     projectDescription: z.string().min(20, "Please provide more details about your project (at least 20 characters)"),
     budget: z.string().min(1, "Please select your budget range"),
     selectedService: z.string().default("Custom Development Project")
@@ -1361,6 +1347,18 @@ const VibeCoding = () => {
           )}
         </DialogContent>
       </Dialog>
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        selectedService={selectedService}
+      />
+      
+      <ProfessionalServiceSchema 
+        serviceName="Custom Development Services"
+        serviceDescription="Custom web development, automation tools, and technical solutions for marketing and business optimization"
+        serviceUrl="https://joelhintonmarketing.com/services/vibe-coding"
+        serviceType="Custom Development"
+      />
     </>
   );
 };

@@ -2,63 +2,17 @@ import { Helmet } from 'react-helmet-async';
 import { MapPin, Users, Calendar, TrendingUp, Phone, Mail, Star, Castle, Building2, MessageSquare } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { floridaTestimonials } from '@/data/floridaTestimonials';
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 
 const OrlandoDigitalMarketing = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const contactFormSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
-    email: z.string().email("Please enter a valid email address"),
-    phone: z.string().min(10, "Please enter a valid phone number"),
-    businessType: z.string().min(1, "Please select your business type"),
-    marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
-    selectedService: z.string().default("Orlando Digital Marketing Audit")
-  });
-
-  type ContactFormData = z.infer<typeof contactFormSchema>;
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: { selectedService: "Orlando Digital Marketing Audit" }
-  });
-
-  const onSubmitForm = async (data: ContactFormData) => {
-    if (isSubmitting) return; // Prevent double submission
-    setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1000));
-    if (process.env.NODE_ENV === 'development') {
-      console.log("Orlando contact form submitted:", data);
-    }
-    setSubmitSuccess(true);
-    reset();
-    setTimeout(() => {
-      setSubmitSuccess(false);
-      setIsDialogOpen(false);
-    }, 2000);
-    setIsSubmitting(false);
-  };
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Orlando Digital Marketing Audit');
 
   return (
     <>
@@ -127,7 +81,7 @@ const OrlandoDigitalMarketing = () => {
                   <Button 
                     size="lg" 
                     variant="hero"
-                    onClick={() => setIsDialogOpen(true)}
+                    onClick={() => openDialog()}
                   >
                     <Phone className="w-5 h-5 mr-2" />
                     Free Orlando Marketing Audit
@@ -135,7 +89,7 @@ const OrlandoDigitalMarketing = () => {
                   <Button 
                     size="lg" 
                     variant="outline"
-                    onClick={() => setIsDialogOpen(true)}
+                    onClick={() => openDialog()}
                   >
                     <Mail className="w-5 h-5 mr-2" />
                     Theme Park Strategy Call
@@ -724,7 +678,7 @@ const OrlandoDigitalMarketing = () => {
                 <Button 
                   size="lg" 
                   variant="secondary"
-                  onClick={() => setIsDialogOpen(true)}
+                  onClick={() => openDialog()}
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Free Orlando Marketing Audit
@@ -733,7 +687,7 @@ const OrlandoDigitalMarketing = () => {
                   size="lg" 
                   variant="outline" 
                   className="border-white text-white hover:bg-white hover:text-purple-600"
-                  onClick={() => setIsDialogOpen(true)}
+                  onClick={() => openDialog()}
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   Schedule Theme Park Strategy

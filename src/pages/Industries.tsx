@@ -10,24 +10,15 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
 import { Link } from "react-router-dom";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 
 const Industries = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const industryAnalysisSchema = z.object({
-    businessName: z.string().min(2, "Business name must be at least 2 characters"),
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Industry Analysis Consultation');
     industry: z.string().min(1, "Please select your industry"),
     email: z.string().email("Please enter a valid email address"),
     phone: z.string().min(10, "Please enter a valid phone number"),
@@ -1074,6 +1065,19 @@ const Industries = () => {
 
         <Footer />
       </div>
+      
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        selectedService={selectedService}
+      />
+      
+      <ProfessionalServiceSchema 
+        serviceName="Industry Marketing Services"
+        serviceDescription="Specialized marketing strategies tailored to specific industries including healthcare, real estate, home services, and more"
+        serviceUrl="https://joelhintonmarketing.com/industries"
+        serviceType="Industry Marketing"
+      />
     </>
   );
 };

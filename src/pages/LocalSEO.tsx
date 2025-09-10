@@ -1141,7 +1141,7 @@ const LocalSEO = () => {
                     className="w-full mt-6" 
                     variant="outline"
                     onClick={() => {
-                      setIsDialogOpen(true);
+                      openDialog();
                       resetContact({ selectedService: "Local Foundation - $1,997/mo" });
                     }}
                   >
@@ -1193,7 +1193,7 @@ const LocalSEO = () => {
                   <Button 
                     className="w-full mt-6"
                     onClick={() => {
-                      setIsDialogOpen(true);
+                      openDialog();
                       resetContact({ selectedService: "Market Dominator - $3,497/mo" });
                     }}
                   >
@@ -1243,7 +1243,7 @@ const LocalSEO = () => {
                     className="w-full mt-6" 
                     variant="outline"
                     onClick={() => {
-                      setIsDialogOpen(true);
+                      openDialog();
                       resetContact({ selectedService: "Multi-Location - $5,997/mo" });
                     }}
                   >
@@ -1619,8 +1619,8 @@ const LocalSEO = () => {
         <Footer />
       </div>
 
-      {/* Contact Form Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) resetContact(); }}>
+      {/* OLD Contact Form Dialog - DISABLED */}
+      {/* <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) resetContact(); }}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle>Get Started with Local SEO</DialogTitle>
@@ -1709,7 +1709,16 @@ const LocalSEO = () => {
             </form>
           )}
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
+
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        title="Get Started with Local SEO"
+        description="Let's discuss your local search optimization goals and get you started with the perfect local SEO strategy for your business."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
+      />
     </>
   );
 };

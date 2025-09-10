@@ -1,14 +1,19 @@
 import { Helmet } from 'react-helmet-async';
-import { MapPin, TrendingUp, Users, Calendar, Phone, Mail, Star } from 'lucide-react';
+import { MapPin, TrendingUp, Users, Calendar, Phone, Mail, Star, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 import { floridaTestimonials } from '@/data/floridaTestimonials';
 
 const FloridaSEOServices = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Florida SEO Services Consultation');
+
   return (
     <>
       <Helmet>
@@ -97,11 +102,26 @@ const FloridaSEOServices = () => {
                   and snowbird migrations with psychology-driven SEO strategies.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" variant="hero">
+                  <Button 
+                    size="lg" 
+                    variant="hero"
+                    onClick={() => {
+                      selectService('Free Florida SEO Audit');
+                      openDialog();
+                    }}
+                  >
                     <Phone className="w-5 h-5 mr-2" />
                     Free Florida SEO Audit
+                    <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
-                  <Button size="lg" variant="outline">
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    onClick={() => {
+                      selectService('Get Local Strategy');
+                      openDialog();
+                    }}
+                  >
                     <Mail className="w-5 h-5 mr-2" />
                     Get Local Strategy
                   </Button>
@@ -564,11 +584,26 @@ const FloridaSEOServices = () => {
                 I'll show you exactly how to outrank your competition and capture more local customers.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary">
+                <Button 
+                  size="lg" 
+                  variant="secondary"
+                  onClick={() => {
+                    selectService('Free Florida SEO Audit');
+                    openDialog();
+                  }}
+                >
                   <Phone className="w-5 h-5 mr-2" />
                   Free Florida SEO Audit
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                  onClick={() => {
+                    selectService('Schedule Consultation');
+                    openDialog();
+                  }}
+                >
                   <Mail className="w-5 h-5 mr-2" />
                   Schedule Consultation
                 </Button>
@@ -579,6 +614,19 @@ const FloridaSEOServices = () => {
 
         <Footer />
       </div>
+      
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        selectedService={selectedService}
+      />
+      
+      <ProfessionalServiceSchema 
+        serviceName="Florida SEO Services"
+        serviceDescription="Comprehensive SEO services across Florida including Orlando, Tampa, Miami, Jacksonville, and Fort Lauderdale with local expertise"
+        serviceUrl="https://joelhintonmarketing.com/services/florida-seo-services"
+        serviceType="SEO Services"
+      />
     </>
   );
 };

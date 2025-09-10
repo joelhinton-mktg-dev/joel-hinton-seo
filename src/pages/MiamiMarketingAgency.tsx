@@ -5,24 +5,14 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 
 const MiamiMarketingAgency = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const contactFormSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
-    email: z.string().email("Please enter a valid email address"),
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Miami Marketing Agency Consultation');
     phone: z.string().min(10, "Please enter a valid phone number"),
     businessType: z.string().min(1, "Please select your business type"),
     marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)")
@@ -911,12 +901,27 @@ const MiamiMarketingAgency = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="px-8 py-4 text-lg">
+              <Button 
+                size="lg" 
+                className="px-8 py-4 text-lg"
+                onClick={() => {
+                  selectService('International Business Strategy Session');
+                  openDialog();
+                }}
+              >
                 <Globe className="w-5 h-5 mr-2" />
                 International Business Strategy Session
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="px-8 py-4 text-lg"
+                onClick={() => {
+                  selectService('Bilingual Marketing Consultation');
+                  openDialog();
+                }}
+              >
                 <Languages className="w-5 h-5 mr-2" />
                 Bilingual Marketing Consultation
               </Button>
@@ -926,6 +931,19 @@ const MiamiMarketingAgency = () => {
 
         <Footer />
       </div>
+      
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        selectedService={selectedService}
+      />
+      
+      <ProfessionalServiceSchema 
+        serviceName="Miami Marketing Agency"
+        serviceDescription="Premium marketing agency services for Miami's diverse international business community and luxury markets"
+        serviceUrl="https://joelhintonmarketing.com/locations/miami-marketing-agency"
+        serviceType="Digital Marketing"
+      />
     </>
   );
 };

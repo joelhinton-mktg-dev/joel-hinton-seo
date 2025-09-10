@@ -5,11 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PageBreadcrumb } from "@/components/ui/breadcrumb";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
 import { 
   TrendingUp, 
   Users, 
@@ -24,10 +21,10 @@ import {
   Globe,
   Zap,
   Calendar,
-  Phone
+  Phone,
+  ArrowRight
 } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
@@ -44,9 +41,7 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Results = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Results Analysis Consultation');
 
   const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -812,6 +807,18 @@ const Results = () => {
           )}
         </DialogContent>
       </Dialog>
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        selectedService={selectedService}
+      />
+      
+      <ProfessionalServiceSchema 
+        serviceName="Marketing Results & Case Studies"
+        serviceDescription="Proven marketing results and case studies showcasing successful SEO, growth marketing, and digital marketing campaigns"
+        serviceUrl="https://joelhintonmarketing.com/results"
+        serviceType="Marketing Results"
+      />
     </>
   );
 };

@@ -19,6 +19,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
+import ContactDialog from "@/components/ContactDialog";
+import { useContactDialog } from "@/hooks/useContactDialog";
+import { businessTypes } from "@/lib/businessTypes";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
@@ -34,11 +37,9 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const GEOOptimization = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('GEO Optimization Consultation');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isContactSubmitting, setIsContactSubmitting] = useState(false);
-  const [contactSubmitSuccess, setContactSubmitSuccess] = useState(false);
 
   const geoAuditSchema = z.object({
     businessName: z.string().min(2, "Business name must be at least 2 characters"),
@@ -187,7 +188,7 @@ const GEOOptimization = () => {
                 <Button 
                   size="lg" 
                   className="px-8 py-4 text-lg"
-                  onClick={() => setIsDialogOpen(true)}
+                  onClick={() => selectService('GEO Analysis')}
                 >
                   <Bot className="w-5 h-5 mr-2" />
                   Get GEO Analysis
@@ -197,7 +198,7 @@ const GEOOptimization = () => {
                   size="lg" 
                   variant="outline" 
                   className="px-8 py-4 text-lg"
-                  onClick={() => setIsDialogOpen(true)}
+                  onClick={() => selectService('GEO Strategy Call')}
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Strategy Call: (386) 555-0123
@@ -2043,7 +2044,8 @@ const GEOOptimization = () => {
       </div>
 
       {/* Contact Form Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) resetContact(); }}>
+      {/* OLD Contact Form Dialog - DISABLED */}
+      {/* <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) resetContact(); }}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle>Get Started with GEO Strategy</DialogTitle>
@@ -2132,7 +2134,17 @@ const GEOOptimization = () => {
             </form>
           )}
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
+
+      {/* NEW ContactDialog Integration */}
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        title="Get Started with GEO Optimization"
+        description="Let's discuss your AI search optimization goals and get you started with the perfect GEO strategy for your business."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
+      />
     </>
   );
 };

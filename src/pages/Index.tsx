@@ -3,11 +3,14 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactSection from "@/components/ContactSection";
+import ContactDialog from "@/components/ContactDialog";
+import { useContactDialog } from "@/hooks/useContactDialog";
 import Footer from "@/components/Footer";
 import LocalBusinessSchema from "@/components/schema/LocalBusinessSchema";
 
 const Index = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Free SEO Audit');
+
   return (
     <>
       <Helmet>
@@ -30,11 +33,14 @@ const Index = () => {
         <section id="results">
           <TestimonialsSection />
         </section>
-        <section id="contact">
-          <ContactSection />
-        </section>
       </main>
       <Footer />
+      
+      <ContactDialog 
+        isOpen={isOpen}
+        onClose={closeDialog}
+        selectedService={selectedService}
+      />
     </>
   );
 };
