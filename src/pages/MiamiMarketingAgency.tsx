@@ -13,40 +13,6 @@ import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSc
 
 const MiamiMarketingAgency = () => {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Miami Marketing Agency Consultation');
-    phone: z.string().min(10, "Please enter a valid phone number"),
-    businessType: z.string().min(1, "Please select your business type"),
-    marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)")
-  });
-
-  type ContactFormData = z.infer<typeof contactFormSchema>;
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema)
-  });
-
-  const onSubmit = async (data: ContactFormData) => {
-    if (isSubmitting) return; // Prevent double submission
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    if (process.env.NODE_ENV === 'development') {
-      console.log("Form submitted:", data);
-    }
-    setSubmitSuccess(true);
-    reset();
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setSubmitSuccess(false), 5000);
-    setIsSubmitting(false);
-  };
 
   return (
     <>
