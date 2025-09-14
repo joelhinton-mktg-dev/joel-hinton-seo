@@ -10,6 +10,7 @@ import { useContactDialog } from '@/hooks/useContactDialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
+import { businessTypes } from '@/types/contact-forms';
 
 const FortLauderdaleAdvertising = () => {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Fort Lauderdale Advertising Consultation');
@@ -248,7 +249,10 @@ const FortLauderdaleAdvertising = () => {
       <ContactDialog 
         isOpen={isOpen}
         onClose={closeDialog}
-        selectedService={selectedService}
+        title="Fort Lauderdale Advertising Strategy"
+        description="Let's discuss how to capture Fort Lauderdale's luxury market, yachting community, and sophisticated consumer base with targeted advertising strategies."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
       />
       
       <ProfessionalServiceSchema 

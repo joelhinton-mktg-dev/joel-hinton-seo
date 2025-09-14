@@ -25,6 +25,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
+import { businessTypes } from '@/types/contact-forms';
 import { Link } from 'react-router-dom';
 
 const Results = () => {
@@ -430,7 +431,10 @@ const Results = () => {
       <ContactDialog 
         isOpen={isOpen}
         onClose={closeDialog}
-        selectedService={selectedService}
+        title="See Your Business Results"
+        description="Get your free marketing analysis and see how our proven strategies can deliver measurable results for your business."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
       />
       
       <ProfessionalServiceSchema 

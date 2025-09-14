@@ -21,7 +21,7 @@ import { z } from "zod";
 import { useState } from "react";
 import ContactDialog from "@/components/ContactDialog";
 import { useContactDialog } from "@/hooks/useContactDialog";
-import { businessTypes } from "@/lib/businessTypes";
+import { businessTypes } from "@/types/contact-forms";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
@@ -93,8 +93,8 @@ const GEOOptimization = () => {
   };
 
   const onSubmitContact = async (data: ContactFormData) => {
-    if (isContactSubmitting) return; // Prevent double submission
-    setIsContactSubmitting(true);
+    if (isSubmitting) return; // Prevent double submission
+    setIsSubmitting(true);
     await new Promise(r => setTimeout(r, 1000));
     if (process.env.NODE_ENV === 'development') {
       console.log("GEO contact form submitted:", data);
@@ -105,7 +105,7 @@ const GEOOptimization = () => {
       setContactSubmitSuccess(false);
       setIsDialogOpen(false);
     }, 2000);
-    setIsContactSubmitting(false);
+    setIsSubmitting(false);
   };
 
   return (
@@ -2127,8 +2127,8 @@ const GEOOptimization = () => {
                 <DialogClose asChild>
                   <Button variant="outline">Cancel</Button>
                 </DialogClose>
-                <Button type="submit" variant="hero" disabled={isContactSubmitting}>
-                  {isContactSubmitting ? 'Submitting...' : 'Get Started'}
+                <Button type="submit" variant="hero" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Get Started'}
                 </Button>
               </div>
             </form>

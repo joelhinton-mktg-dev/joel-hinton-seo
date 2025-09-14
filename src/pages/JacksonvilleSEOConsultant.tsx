@@ -10,6 +10,7 @@ import { useContactDialog } from '@/hooks/useContactDialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
+import { businessTypes } from '@/types/contact-forms';
 
 const JacksonvilleSEOConsultant = () => {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Jacksonville SEO Consultation');
@@ -207,7 +208,10 @@ const JacksonvilleSEOConsultant = () => {
       <ContactDialog 
         isOpen={isOpen}
         onClose={closeDialog}
-        selectedService={selectedService}
+        title="Jacksonville SEO Strategy"
+        description="Let's discuss how to dominate Jacksonville's local search market and connect with military families, beach communities, and maritime businesses."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
       />
       
       <ProfessionalServiceSchema 

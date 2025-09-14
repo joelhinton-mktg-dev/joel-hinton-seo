@@ -11,6 +11,7 @@ import { useContactDialog } from '@/hooks/useContactDialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
+import { businessTypes } from '@/types/contact-forms';
 
 const VibeCoding = () => {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Custom Development Consultation');
@@ -393,7 +394,10 @@ const VibeCoding = () => {
       <ContactDialog 
         isOpen={isOpen}
         onClose={closeDialog}
-        selectedService={selectedService}
+        title="Start Your Custom Development Project"
+        description="Let's discuss your custom development needs and create the perfect solution for your business."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
       />
       
       <ProfessionalServiceSchema 

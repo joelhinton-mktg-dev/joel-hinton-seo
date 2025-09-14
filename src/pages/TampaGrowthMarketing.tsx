@@ -10,6 +10,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 import { floridaTestimonials } from '@/data/floridaTestimonials';
+import { businessTypes } from '@/types/contact-forms';
 
 const TampaGrowthMarketing = () => {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Tampa Growth Marketing Consultation');
@@ -200,7 +201,10 @@ const TampaGrowthMarketing = () => {
       <ContactDialog 
         isOpen={isOpen}
         onClose={closeDialog}
-        selectedService={selectedService}
+        title="Tampa Growth Marketing Strategy"
+        description="Let's discuss how to capture Tampa Bay's diverse markets - from Ybor City's creative scene to Westshore's professionals and downtown's innovation district."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
       />
       
       <ProfessionalServiceSchema 

@@ -11,6 +11,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 import { Link } from 'react-router-dom';
+import { businessTypes } from '@/types/contact-forms';
 
 const Services = () => {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Marketing Services Consultation');
@@ -803,7 +804,10 @@ const Services = () => {
       <ContactDialog 
         isOpen={isOpen}
         onClose={closeDialog}
-        selectedService={selectedService}
+        title="Marketing Services Consultation"
+        description="Discover the psychology-driven marketing services that will transform your business growth and customer acquisition."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
       />
       
       <ProfessionalServiceSchema 

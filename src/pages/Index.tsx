@@ -7,6 +7,7 @@ import ContactDialog from "@/components/ContactDialog";
 import { useContactDialog } from "@/hooks/useContactDialog";
 import Footer from "@/components/Footer";
 import LocalBusinessSchema from "@/components/schema/LocalBusinessSchema";
+import { businessTypes } from '@/types/contact-forms';
 
 const Index = () => {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Free SEO Audit');
@@ -39,7 +40,10 @@ const Index = () => {
       <ContactDialog 
         isOpen={isOpen}
         onClose={closeDialog}
-        selectedService={selectedService}
+        title="Free SEO Audit & Strategy Session"
+        description="Get a comprehensive analysis of your marketing opportunities and discover how psychology-driven strategies can transform your business growth."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
       />
     </>
   );

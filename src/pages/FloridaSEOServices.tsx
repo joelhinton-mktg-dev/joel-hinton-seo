@@ -9,6 +9,7 @@ import { useContactDialog } from '@/hooks/useContactDialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
+import { businessTypes } from '@/types/contact-forms';
 import { floridaTestimonials } from '@/data/floridaTestimonials';
 
 const FloridaSEOServices = () => {
@@ -618,7 +619,10 @@ const FloridaSEOServices = () => {
       <ContactDialog 
         isOpen={isOpen}
         onClose={closeDialog}
-        selectedService={selectedService}
+        title="Florida SEO Strategy"
+        description="Let's discuss how to dominate Florida's local search market and capture your ideal customers across the Sunshine State."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
       />
       
       <ProfessionalServiceSchema 

@@ -10,6 +10,7 @@ import { useContactDialog } from '@/hooks/useContactDialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
+import { businessTypes } from '@/types/contact-forms';
 
 const MiamiMarketingAgency = () => {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Miami Marketing Agency Consultation');
@@ -307,7 +308,10 @@ const MiamiMarketingAgency = () => {
       <ContactDialog 
         isOpen={isOpen}
         onClose={closeDialog}
-        selectedService={selectedService}
+        title="Miami Marketing Consultation"
+        description="Let's discuss how to capture Miami's sophisticated international business community and luxury markets with psychology-driven strategies."
+        defaultService={selectedService}
+        businessTypes={businessTypes.general}
       />
       
       <ProfessionalServiceSchema 
