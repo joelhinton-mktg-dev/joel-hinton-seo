@@ -20,7 +20,7 @@ import { z } from "zod";
 import { useState } from "react";
 import ContactDialog from "@/components/ContactDialog";
 import { useContactDialog } from "@/hooks/useContactDialog";
-import { businessTypes } from "@/lib/businessTypes";
+import { businessTypes } from "@/types/contact-forms";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
