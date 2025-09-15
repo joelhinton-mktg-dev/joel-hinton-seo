@@ -1,0 +1,351 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic:
+    - list
+    - region "Notifications alt+T"
+    - navigation:
+      - generic:
+        - generic:
+          - link:
+            - /url: /
+            - generic:
+              - img
+            - generic:
+              - generic: Joel Hinton
+              - generic: Digital Marketing
+          - button:
+            - img
+    - main:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - img
+              - generic: Psychology-Driven Digital Marketing
+              - img
+            - heading [level=1]:
+              - generic: SEO is
+              - generic: Propaganda.
+              - generic: GEO
+              - generic: is Psychology.
+            - paragraph:
+              - text: AI-powered growth marketing that generates
+              - strong: 200% traffic increases
+              - text: in 45 days. Serving Daytona Beach, FL and businesses nationwide.
+            - paragraph: No retainers. No long-term contracts. Just psychology-driven results that turn search engines into profit engines.
+            - generic:
+              - button:
+                - text: Get Free SEO Audit
+                - img
+              - link:
+                - /url: /results
+                - text: View Case Studies
+                - img
+            - generic:
+              - generic:
+                - generic: 200%
+                - paragraph: Average Traffic Increase
+              - generic:
+                - generic: 100+
+                - paragraph: Leads Per Month Generated
+              - generic:
+                - generic: "45"
+                - paragraph: Days to See Results
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - heading [level=2]:
+                - generic: Psychology-Driven
+                - generic: Marketing Services
+              - paragraph: No retainers. No long-term contracts. Just results-driven marketing that understands consumer psychology and leverages AI optimization.
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - generic: $500 - $1,000
+                  - heading [level=3]: SEO Rewired
+                  - paragraph: Technical SEO + Local Signals
+                  - paragraph: Traditional SEO vs GEO (Generative Engine Optimization). Technical audits, local SEO dominance, and programmatic SEO at scale. Prepare for AI search with Answer Engine Optimization.
+                - generic:
+                  - list:
+                    - listitem: Technical SEO audits
+                    - listitem: Local SEO for Florida
+                    - listitem: Programmatic SEO
+                    - listitem: AI search optimization (AEO)
+                  - link:
+                    - /url: /seo-services
+                    - text: Learn More
+                    - img
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - generic: $1,000 - $2,500
+                  - heading [level=3]: Growth Marketing
+                  - paragraph: Generative Optimization
+                  - paragraph: Multi-channel growth strategies powered by customer psychology and decision science. AI-powered content generation and growth automation workflows.
+                - generic:
+                  - list:
+                    - listitem: Answer Engine Optimization
+                    - listitem: Conversion rate optimization
+                    - listitem: Customer psychology
+                    - listitem: Growth automation
+                  - link:
+                    - /url: /growth-marketing
+                    - text: Learn More
+                    - img
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - generic: $500/month
+                  - heading [level=3]: Paid Performance
+                  - paragraph: Media That Converts
+                  - paragraph: Google Ads, Meta advertising, and LinkedIn campaigns optimized with AI-powered copy testing and custom attribution workflows.
+                - generic:
+                  - list:
+                    - listitem: Google & Meta ads
+                    - listitem: AI-optimized ad copy
+                    - listitem: Landing page strategy
+                    - listitem: Custom attribution
+                  - link:
+                    - /url: /paid-advertising
+                    - text: Learn More
+                    - img
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - generic: Quote-based
+                  - heading [level=3]: Vibe Coding
+                  - paragraph: Custom Tools & Automation
+                  - paragraph: Replace expensive SaaS with custom AI-powered tools. Lead capture systems, marketing automation, and client communication AI agents.
+                - generic:
+                  - list:
+                    - listitem: AI lead capture systems
+                    - listitem: Marketing automation
+                    - listitem: Custom SEO tools
+                    - listitem: AI communication agents
+                  - link:
+                    - /url: /vibe-coding
+                    - text: Learn More
+                    - img
+            - generic:
+              - button:
+                - text: Get Custom Strategy Session
+                - img
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - heading [level=2]:
+                - generic: Proven
+                - generic: Results
+              - paragraph: Real clients. Real results. Psychology-driven marketing that generates measurable growth for Florida businesses and beyond.
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - img
+                    - img
+                    - img
+                    - img
+                    - img
+                  - generic: +200% Traffic in 45 Days
+                  - blockquote: "\"Joel's psychology-driven SEO approach generated a 200% increase in organic traffic within 45 days. His understanding of consumer behavior transformed our entire digital strategy.\""
+                  - generic:
+                    - generic: Privada Cigar Club
+                    - generic: E-commerce Business
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - img
+                    - img
+                    - img
+                    - img
+                    - img
+                  - generic: 100+ Leads Per Month
+                  - blockquote: "\"From 20 leads per month to 100+ qualified leads. Joel's local SEO and paid media strategies completely transformed our lead generation. The ROI speaks for itself.\""
+                  - generic:
+                    - generic: Super Cash For Houses
+                    - generic: Real Estate Investment
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - img
+                    - img
+                    - img
+                    - img
+                    - img
+                  - generic: +300% Online Appointments
+                  - blockquote: "\"Joel's GEO optimization prepared us for AI search while dominating traditional search. His technical expertise combined with marketing psychology is unmatched.\""
+                  - generic:
+                    - generic: Florida Medical Practice
+                    - generic: Healthcare Provider
+            - generic:
+              - paragraph: Trusted by businesses across Florida and nationwide
+              - generic:
+                - link:
+                  - /url: /daytona-beach-digital-marketing
+                  - text: Daytona Beach
+                - link:
+                  - /url: /orlando-digital-marketing
+                  - text: Orlando
+                - link:
+                  - /url: /tampa-growth-marketing
+                  - text: Tampa
+                - link:
+                  - /url: /jacksonville-seo-consultant
+                  - text: Jacksonville
+                - link:
+                  - /url: /miami-marketing-agency
+                  - text: Miami
+    - contentinfo:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+              - generic:
+                - generic: Joel Hinton Digital Marketing
+                - generic: Psychology-Driven SEO & Growth Marketing
+            - paragraph: AI-powered digital marketing strategies that understand consumer psychology. Serving Daytona Beach, FL and businesses nationwide with no-retainer, results-driven services.
+            - generic:
+              - generic:
+                - img
+                - text: Daytona Beach, FL 32114
+              - generic:
+                - img
+                - text: +1 (386) 555-0123
+              - generic:
+                - img
+                - text: joel@joelhintonmarketing.com
+          - generic:
+            - heading [level=4]: Services
+            - list:
+              - listitem:
+                - link:
+                  - /url: /seo-services
+                  - text: SEO Services
+              - listitem:
+                - link:
+                  - /url: /growth-marketing
+                  - text: Growth Marketing
+              - listitem:
+                - link:
+                  - /url: /paid-advertising
+                  - text: Paid Advertising
+              - listitem:
+                - link:
+                  - /url: /local-seo
+                  - text: Local SEO
+          - generic:
+            - heading [level=4]: Areas Served
+            - list:
+              - listitem:
+                - link:
+                  - /url: /daytona-beach-digital-marketing
+                  - text: Daytona Beach, FL
+              - listitem:
+                - link:
+                  - /url: /orlando-digital-marketing
+                  - text: Orlando, FL
+              - listitem:
+                - link:
+                  - /url: /tampa-growth-marketing
+                  - text: Tampa, FL
+              - listitem:
+                - link:
+                  - /url: /jacksonville-seo-consultant
+                  - text: Jacksonville, FL
+              - listitem:
+                - link:
+                  - /url: /miami-marketing-agency
+                  - text: Miami, FL
+              - listitem:
+                - link:
+                  - /url: /areas-we-serve
+                  - text: Nationwide Remote
+        - generic:
+          - generic:
+            - paragraph: © 2024 Joel Hinton Digital Marketing. All rights reserved.
+            - generic:
+              - link:
+                - /url: /privacy
+                - text: Privacy Policy
+              - link:
+                - /url: /terms
+                - text: Terms of Service
+  - dialog:
+    - generic:
+      - heading [level=2]: Request Your Free SEO Audit
+      - paragraph: Fill out the form below and I'll provide a comprehensive SEO analysis of your website within 24 hours.
+    - generic:
+      - generic:
+        - generic:
+          - generic: Full Name *
+          - textbox: Test User Playwright
+        - generic:
+          - generic: Email Address *
+          - textbox: hintonjoel@gmail.com
+      - generic:
+        - generic:
+          - generic: Phone Number *
+          - textbox: 555-123-4567
+        - generic:
+          - generic: Business Type *
+          - combobox [expanded]:
+            - generic: Select your industry
+            - img
+          - combobox
+          - paragraph: Required
+      - generic:
+        - generic: Selected Service *
+        - textbox: Free SEO Audit
+      - generic:
+        - generic: Tell us about your marketing challenge *
+        - textbox
+        - paragraph: Please tell us about your marketing challenge (at least 10 characters)
+      - generic:
+        - button: Cancel
+        - button: Get My Free SEO Audit
+    - button:
+      - img
+      - generic: Close
+  - listbox [ref=e2]:
+    - option "Professional Services" [active] [ref=e3]:
+      - generic [ref=e5]: Professional Services
+    - option "E-commerce" [ref=e6]:
+      - generic [ref=e8]: E-commerce
+    - option "SaaS / Tech" [ref=e9]:
+      - generic [ref=e11]: SaaS / Tech
+    - option "Healthcare" [ref=e12]:
+      - generic [ref=e14]: Healthcare
+    - option "Home Services" [ref=e15]:
+      - generic [ref=e17]: Home Services
+    - option "Real Estate" [ref=e18]:
+      - generic [ref=e20]: Real Estate
+    - option "Restaurant & Hospitality" [ref=e21]:
+      - generic [ref=e23]: Restaurant & Hospitality
+    - option "Other" [ref=e24]:
+      - generic [ref=e26]: Other
+```

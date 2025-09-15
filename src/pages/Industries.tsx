@@ -12,7 +12,7 @@ import { Separator } from '@/components/ui/separator';
 import { PageBreadcrumb } from '@/components/ui/breadcrumb';
 import ContactDialog from '@/components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
@@ -20,6 +20,23 @@ import { businessTypes } from '@/types/contact-forms';
 
 const Industries = () => {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Industry Analysis Consultation');
+  const navigate = useNavigate();
+
+  // Mapping industry IDs to their corresponding routes
+  const industryRoutes = {
+    'real-estate': '/industries/real-estate',
+    'healthcare': '/industries/healthcare',
+    'home-services': '/industries/home-services',
+    'ecommerce': '/industries/ecommerce',
+    'professional-services': '/industries/professional-services',
+    'saas': '/industries/saas',
+    'legal-services': '/industries/legal-services',
+    'education': '/industries/education-training',
+    'automotive': '/industries/automotive-services',
+    'restaurants-hospitality': '/industries/restaurants-hospitality',
+    'fitness': '/industries/fitness-wellness',
+    'financial': '/industries/financial-services'
+  };
 
   const industries = [
     {
@@ -381,8 +398,10 @@ const Industries = () => {
                         variant="outline" 
                         className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
                         onClick={() => {
-                          selectService(`${industry.name} Strategy Session`);
-                          openDialog();
+                          const route = industryRoutes[industry.id as keyof typeof industryRoutes];
+                          if (route) {
+                            navigate(route);
+                          }
                         }}
                       >
                         <BarChart3 className="w-4 h-4 mr-2" />

@@ -1,0 +1,354 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - link "Joel Hinton Digital Marketing" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img [ref=e9] [cursor=pointer]
+          - generic [ref=e19] [cursor=pointer]:
+            - generic [ref=e20] [cursor=pointer]: Joel Hinton
+            - generic [ref=e21] [cursor=pointer]: Digital Marketing
+        - generic [ref=e22]:
+          - link "Home" [ref=e23] [cursor=pointer]:
+            - /url: /
+          - button "Services menu" [ref=e25] [cursor=pointer]:
+            - text: Services
+            - img [ref=e26] [cursor=pointer]
+          - link "Industries" [ref=e28] [cursor=pointer]:
+            - /url: /industries
+          - link "Areas We Serve" [ref=e29] [cursor=pointer]:
+            - /url: /areas-we-serve
+          - link "Blog" [ref=e30] [cursor=pointer]:
+            - /url: /blog
+          - link "Pricing" [ref=e31] [cursor=pointer]:
+            - /url: /pricing
+          - link "Results" [ref=e32] [cursor=pointer]:
+            - /url: /results
+          - link "About" [ref=e33] [cursor=pointer]:
+            - /url: /about
+          - link "Contact" [ref=e34] [cursor=pointer]:
+            - /url: /contact
+        - button "Free Audit" [ref=e36] [cursor=pointer]:
+          - img
+          - text: Free Audit
+    - navigation "breadcrumb" [ref=e39]:
+      - list [ref=e40]:
+        - listitem [ref=e41]:
+          - link "Home" [ref=e42] [cursor=pointer]:
+            - /url: /
+            - img [ref=e43] [cursor=pointer]
+            - text: Home
+        - listitem [ref=e46]:
+          - img [ref=e47]
+        - listitem [ref=e49]:
+          - link "Contact" [disabled] [ref=e50]
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - img [ref=e55]
+        - text: Free Marketing Consultation
+      - heading "Get Your Free Marketing Consultation" [level=1] [ref=e60]:
+        - text: Get Your
+        - generic [ref=e61]: Free Marketing
+        - text: Consultation
+      - paragraph [ref=e62]: Ready to transform your marketing with psychology-driven strategies? Schedule your complimentary consultation and discover exactly how to outthink your competition and accelerate growth.
+      - generic [ref=e63]:
+        - button "Schedule Strategy Session" [ref=e64] [cursor=pointer]:
+          - img
+          - text: Schedule Strategy Session
+          - img
+        - 'button "Call Now: (386) 555-0123" [ref=e65] [cursor=pointer]':
+          - img
+          - text: "Call Now: (386) 555-0123"
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - img [ref=e68]
+          - paragraph [ref=e71]: 24-Hour Response
+        - generic [ref=e72]:
+          - img [ref=e73]
+          - paragraph [ref=e76]: In-Person Available
+        - generic [ref=e77]:
+          - img [ref=e78]
+          - paragraph [ref=e82]: Remote Consultations
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - heading "Multiple Ways to Connect" [level=2] [ref=e86]:
+          - text: Multiple Ways to
+          - generic [ref=e87]: Connect
+        - paragraph [ref=e88]: Choose the communication method that works best for you. I'm here to help accelerate your business growth.
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - img [ref=e93]
+            - heading "Direct Phone Line" [level=3] [ref=e95]
+            - paragraph [ref=e96]: Immediate response during business hours
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - paragraph [ref=e99]: (386) 555-0123
+              - paragraph [ref=e100]: Monday - Friday, 9 AM - 5 PM EST
+            - button "Call Now" [ref=e101] [cursor=pointer]:
+              - img
+              - text: Call Now
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - img [ref=e105]
+            - heading "Email Consultation" [level=3] [ref=e108]
+            - paragraph [ref=e109]: Detailed strategy discussions via email
+          - generic [ref=e110]:
+            - generic [ref=e111]:
+              - paragraph [ref=e112]: joel@joelhintonmarketing.com
+              - paragraph [ref=e113]: Response within 24 hours
+            - button "Send Email" [active] [ref=e114] [cursor=pointer]:
+              - img
+              - text: Send Email
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - img [ref=e118]
+            - heading "Calendar Booking" [level=3] [ref=e123]
+            - paragraph [ref=e124]: Schedule at your convenience
+          - generic [ref=e125]:
+            - generic [ref=e126]:
+              - paragraph [ref=e127]: Online Scheduling
+              - paragraph [ref=e128]: Choose your preferred time slot
+            - button "Book Meeting" [ref=e129] [cursor=pointer]:
+              - img
+              - text: Book Meeting
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - img [ref=e133]
+            - heading "Daytona Beach Headquarters" [level=3] [ref=e136]
+          - paragraph [ref=e137]: In-person consultations available for local businesses
+        - generic [ref=e139]:
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - img [ref=e142]
+              - generic [ref=e145]:
+                - paragraph [ref=e146]: Office Address
+                - paragraph [ref=e147]:
+                  - text: 123 Main Street
+                  - text: Daytona Beach, FL 32114
+            - generic [ref=e148]:
+              - img [ref=e149]
+              - generic [ref=e152]:
+                - paragraph [ref=e153]: Office Hours
+                - paragraph [ref=e154]:
+                  - text: "Monday - Friday: 9:00 AM - 5:00 PM"
+                  - text: "Saturday: By appointment only"
+          - generic [ref=e156]:
+            - heading "Local Advantage" [level=4] [ref=e157]
+            - paragraph [ref=e158]: "In-person meetings available for Daytona Beach area businesses including:"
+            - list [ref=e159]:
+              - listitem [ref=e160]: • Downtown Daytona Beach
+              - listitem [ref=e161]: • Ormond Beach
+              - listitem [ref=e162]: • Port Orange
+              - listitem [ref=e163]: • South Daytona
+              - listitem [ref=e164]: • Holly Hill
+    - generic [ref=e166]:
+      - generic [ref=e167]:
+        - heading "Florida Service Coverage" [level=2] [ref=e168]:
+          - text: Florida
+          - generic [ref=e169]: Service Coverage
+        - paragraph [ref=e170]: Serving businesses across Florida with specialized local market expertise and nationwide remote consultation capabilities.
+      - generic [ref=e171]:
+        - generic [ref=e172]:
+          - generic [ref=e174]:
+            - img [ref=e175]
+            - heading "Local In-Person Service" [level=3] [ref=e178]
+          - generic [ref=e179]:
+            - paragraph [ref=e180]: "Full in-person consultation and ongoing support available in the Greater Daytona Beach area:"
+            - generic [ref=e181]:
+              - generic [ref=e182]:
+                - paragraph [ref=e183]: • Daytona Beach
+                - paragraph [ref=e184]: • Ormond Beach
+                - paragraph [ref=e185]: • Port Orange
+                - paragraph [ref=e186]: • South Daytona
+              - generic [ref=e187]:
+                - paragraph [ref=e188]: • Holly Hill
+                - paragraph [ref=e189]: • Deltona
+                - paragraph [ref=e190]: • New Smyrna Beach
+                - paragraph [ref=e191]: • DeLand
+        - generic [ref=e192]:
+          - generic [ref=e194]:
+            - img [ref=e195]
+            - heading "Florida-Wide Remote Service" [level=3] [ref=e199]
+          - generic [ref=e200]:
+            - paragraph [ref=e201]: "Comprehensive remote consultation services throughout Florida with deep local market knowledge:"
+            - generic [ref=e202]:
+              - generic [ref=e203]:
+                - paragraph [ref=e204]: • Orlando
+                - paragraph [ref=e205]: • Tampa Bay
+                - paragraph [ref=e206]: • Jacksonville
+                - paragraph [ref=e207]: • Miami-Dade
+              - generic [ref=e208]:
+                - paragraph [ref=e209]: • Fort Lauderdale
+                - paragraph [ref=e210]: • Gainesville
+                - paragraph [ref=e211]: • Tallahassee
+                - paragraph [ref=e212]: • All Florida Markets
+    - generic [ref=e214]:
+      - generic [ref=e215]:
+        - heading "Schedule Your Strategy Session" [level=2] [ref=e216]
+        - paragraph [ref=e217]: Get your free marketing consultation. Tell us about your business and marketing challenges, and I'll show you exactly how to accelerate growth with psychology-driven strategies.
+      - generic [ref=e218]:
+        - generic [ref=e219]:
+          - img [ref=e221]
+          - heading "Free Marketing Consultation Request" [level=3] [ref=e223]
+          - paragraph [ref=e224]: Get a personalized marketing strategy within 24 hours
+        - generic [ref=e225]:
+          - paragraph [ref=e226]: Ready to transform your marketing with psychology-driven strategies? Click below to schedule your complimentary consultation and discover exactly how to outthink your competition and accelerate growth.
+          - button "Schedule Free Consultation" [ref=e227] [cursor=pointer]:
+            - img
+            - text: Schedule Free Consultation
+            - img
+          - paragraph [ref=e228]: No spam. No sales pitches. Just valuable marketing insights tailored to your business.
+    - generic [ref=e230]:
+      - generic [ref=e231]:
+        - heading "Why Schedule a Consultation?" [level=2] [ref=e232]:
+          - text: Why Schedule a
+          - generic [ref=e233]: Consultation?
+        - paragraph [ref=e234]: Every business is unique. A personalized consultation ensures you get strategies tailored specifically to your market, audience, and growth objectives.
+      - generic [ref=e235]:
+        - generic [ref=e236]:
+          - generic [ref=e237]:
+            - img [ref=e239]
+            - heading "Personalized Strategy" [level=3] [ref=e241]
+          - paragraph [ref=e243]: Get a custom marketing strategy designed specifically for your business, industry, and target audience. No generic templates or one-size-fits-all solutions.
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - img [ref=e247]
+            - heading "Competitive Analysis" [level=3] [ref=e249]
+          - paragraph [ref=e251]: Discover what your competitors are doing wrong and how you can outthink them with psychology-driven strategies that capture more market share.
+        - generic [ref=e252]:
+          - generic [ref=e253]:
+            - img [ref=e255]
+            - heading "Immediate Wins" [level=3] [ref=e258]
+          - paragraph [ref=e260]: Walk away with actionable tactics you can implement immediately to improve your marketing performance and start seeing results within days.
+        - generic [ref=e261]:
+          - generic [ref=e262]:
+            - img [ref=e264]
+            - heading "Audience Psychology" [level=3] [ref=e267]
+          - paragraph [ref=e269]: Understand the psychological drivers behind your customers' decisions and learn how to craft messaging that resonates and converts.
+        - generic [ref=e270]:
+          - generic [ref=e271]:
+            - img [ref=e273]
+            - heading "Growth Roadmap" [level=3] [ref=e279]
+          - paragraph [ref=e281]: Receive a clear, step-by-step roadmap for scaling your business with proven marketing strategies tailored to your growth goals.
+        - generic [ref=e282]:
+          - generic [ref=e283]:
+            - img [ref=e285]
+            - heading "Time Savings" [level=3] [ref=e288]
+          - paragraph [ref=e290]: Avoid months of trial and error. Get expert guidance that fast-tracks your marketing success and saves you time and resources.
+    - generic [ref=e292]:
+      - heading "Consultation Process FAQs" [level=2] [ref=e294]:
+        - text: Consultation
+        - generic [ref=e295]: Process FAQs
+      - generic [ref=e296]:
+        - heading "What happens during the free consultation?" [level=3] [ref=e298]:
+          - button "What happens during the free consultation?" [ref=e299] [cursor=pointer]:
+            - text: What happens during the free consultation?
+            - img [ref=e300] [cursor=pointer]
+        - heading "How long is the consultation and what format?" [level=3] [ref=e303]:
+          - button "How long is the consultation and what format?" [ref=e304] [cursor=pointer]:
+            - text: How long is the consultation and what format?
+            - img [ref=e305] [cursor=pointer]
+        - heading "Is the consultation really free? What's the catch?" [level=3] [ref=e308]:
+          - button "Is the consultation really free? What's the catch?" [ref=e309] [cursor=pointer]:
+            - text: Is the consultation really free? What's the catch?
+            - img [ref=e310] [cursor=pointer]
+        - heading "What should I prepare for the consultation?" [level=3] [ref=e313]:
+          - button "What should I prepare for the consultation?" [ref=e314] [cursor=pointer]:
+            - text: What should I prepare for the consultation?
+            - img [ref=e315] [cursor=pointer]
+        - heading "Do you work with businesses outside of Florida?" [level=3] [ref=e318]:
+          - button "Do you work with businesses outside of Florida?" [ref=e319] [cursor=pointer]:
+            - text: Do you work with businesses outside of Florida?
+            - img [ref=e320] [cursor=pointer]
+        - heading "What happens after the consultation?" [level=3] [ref=e323]:
+          - button "What happens after the consultation?" [ref=e324] [cursor=pointer]:
+            - text: What happens after the consultation?
+            - img [ref=e325] [cursor=pointer]
+    - generic [ref=e328]:
+      - generic [ref=e329]:
+        - heading "Ready to Accelerate Your Growth?" [level=2] [ref=e330]
+        - paragraph [ref=e331]: Stop guessing what your customers want. Get psychology-driven marketing strategies that convert prospects into loyal customers.
+        - generic [ref=e332]:
+          - img [ref=e333]
+          - generic [ref=e336]: Join 200+ businesses that chose strategic marketing over generic tactics
+      - generic [ref=e337]:
+        - button "Schedule Free Consultation" [ref=e338] [cursor=pointer]:
+          - img
+          - text: Schedule Free Consultation
+          - img
+        - 'button "Call: (386) 555-0123" [ref=e339] [cursor=pointer]':
+          - img
+          - text: "Call: (386) 555-0123"
+      - paragraph [ref=e340]: Free consultations • No sales pressure • Results-focused approach
+    - contentinfo [ref=e341]:
+      - generic [ref=e342]:
+        - generic [ref=e343]:
+          - generic [ref=e344]:
+            - generic [ref=e345]:
+              - img [ref=e347]
+              - generic [ref=e357]:
+                - generic [ref=e358]: Joel Hinton Digital Marketing
+                - generic [ref=e359]: Psychology-Driven SEO & Growth Marketing
+            - paragraph [ref=e360]: AI-powered digital marketing strategies that understand consumer psychology. Serving Daytona Beach, FL and businesses nationwide with no-retainer, results-driven services.
+            - generic [ref=e361]:
+              - generic [ref=e362]:
+                - img [ref=e363]
+                - text: Daytona Beach, FL 32114
+              - generic [ref=e366]:
+                - img [ref=e367]
+                - text: +1 (386) 555-0123
+              - generic [ref=e369]:
+                - img [ref=e370]
+                - text: joel@joelhintonmarketing.com
+          - generic [ref=e373]:
+            - heading "Services" [level=4] [ref=e374]
+            - list [ref=e375]:
+              - listitem [ref=e376]:
+                - link "SEO Services" [ref=e377] [cursor=pointer]:
+                  - /url: /seo-services
+              - listitem [ref=e378]:
+                - link "Growth Marketing" [ref=e379] [cursor=pointer]:
+                  - /url: /growth-marketing
+              - listitem [ref=e380]:
+                - link "Paid Advertising" [ref=e381] [cursor=pointer]:
+                  - /url: /paid-advertising
+              - listitem [ref=e382]:
+                - link "Local SEO" [ref=e383] [cursor=pointer]:
+                  - /url: /local-seo
+          - generic [ref=e384]:
+            - heading "Areas Served" [level=4] [ref=e385]
+            - list [ref=e386]:
+              - listitem [ref=e387]:
+                - link "Daytona Beach, FL" [ref=e388] [cursor=pointer]:
+                  - /url: /daytona-beach-digital-marketing
+              - listitem [ref=e389]:
+                - link "Orlando, FL" [ref=e390] [cursor=pointer]:
+                  - /url: /orlando-digital-marketing
+              - listitem [ref=e391]:
+                - link "Tampa, FL" [ref=e392] [cursor=pointer]:
+                  - /url: /tampa-growth-marketing
+              - listitem [ref=e393]:
+                - link "Jacksonville, FL" [ref=e394] [cursor=pointer]:
+                  - /url: /jacksonville-seo-consultant
+              - listitem [ref=e395]:
+                - link "Miami, FL" [ref=e396] [cursor=pointer]:
+                  - /url: /miami-marketing-agency
+              - listitem [ref=e397]:
+                - link "Nationwide Remote" [ref=e398] [cursor=pointer]:
+                  - /url: /areas-we-serve
+        - generic [ref=e400]:
+          - paragraph [ref=e401]: © 2024 Joel Hinton Digital Marketing. All rights reserved.
+          - generic [ref=e402]:
+            - link "Privacy Policy" [ref=e403] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms of Service" [ref=e404] [cursor=pointer]:
+              - /url: /terms
+```

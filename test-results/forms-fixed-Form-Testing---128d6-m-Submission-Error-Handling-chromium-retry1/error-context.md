@@ -1,0 +1,277 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - navigation [ref=e3]:
+    - generic [ref=e5]:
+      - link "Joel Hinton Digital Marketing" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img [ref=e8] [cursor=pointer]
+        - generic [ref=e18] [cursor=pointer]:
+          - generic [ref=e19] [cursor=pointer]: Joel Hinton
+          - generic [ref=e20] [cursor=pointer]: Digital Marketing
+      - generic [ref=e21]:
+        - link "Home" [ref=e22] [cursor=pointer]:
+          - /url: /
+        - button "Services menu" [ref=e24] [cursor=pointer]:
+          - text: Services
+          - img [ref=e25] [cursor=pointer]
+        - link "Industries" [ref=e27] [cursor=pointer]:
+          - /url: /industries
+        - link "Areas We Serve" [ref=e28] [cursor=pointer]:
+          - /url: /areas-we-serve
+        - link "Blog" [ref=e29] [cursor=pointer]:
+          - /url: /blog
+        - link "Pricing" [ref=e30] [cursor=pointer]:
+          - /url: /pricing
+        - link "Results" [ref=e31] [cursor=pointer]:
+          - /url: /results
+        - link "About" [ref=e32] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e33] [cursor=pointer]:
+          - /url: /contact
+      - button "Free Audit" [ref=e35] [cursor=pointer]:
+        - img
+        - text: Free Audit
+  - main [ref=e36]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - img [ref=e44]
+        - generic [ref=e54]: Psychology-Driven Digital Marketing
+        - img [ref=e55]
+      - heading "SEO is Propaganda. GEO is Psychology." [level=1] [ref=e58]:
+        - generic [ref=e59]: SEO is
+        - generic [ref=e60]: Propaganda.
+        - generic [ref=e61]: GEO
+        - generic [ref=e62]: is Psychology.
+      - paragraph [ref=e63]:
+        - text: AI-powered growth marketing that generates
+        - strong [ref=e64]: 200% traffic increases
+        - text: in 45 days. Serving Daytona Beach, FL and businesses nationwide.
+      - paragraph [ref=e65]: No retainers. No long-term contracts. Just psychology-driven results that turn search engines into profit engines.
+      - generic [ref=e66]:
+        - button "Get Free SEO Audit" [ref=e67] [cursor=pointer]:
+          - text: Get Free SEO Audit
+          - img
+        - link "View Case Studies" [ref=e68] [cursor=pointer]:
+          - /url: /results
+          - text: View Case Studies
+          - img
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - generic [ref=e71]: 200%
+          - paragraph [ref=e72]: Average Traffic Increase
+        - generic [ref=e73]:
+          - generic [ref=e74]: 100+
+          - paragraph [ref=e75]: Leads Per Month Generated
+        - generic [ref=e76]:
+          - generic [ref=e77]: "45"
+          - paragraph [ref=e78]: Days to See Results
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - heading "Psychology-Driven Marketing Services" [level=2] [ref=e83]:
+          - generic [ref=e84]: Psychology-Driven
+          - generic [ref=e85]: Marketing Services
+        - paragraph [ref=e86]: No retainers. No long-term contracts. Just results-driven marketing that understands consumer psychology and leverages AI optimization.
+      - generic [ref=e87]:
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - img [ref=e92]
+              - generic [ref=e96]: $500 - $1,000
+            - heading "SEO Rewired" [level=3] [ref=e97]
+            - paragraph [ref=e98]: Technical SEO + Local Signals
+            - paragraph [ref=e99]: Traditional SEO vs GEO (Generative Engine Optimization). Technical audits, local SEO dominance, and programmatic SEO at scale. Prepare for AI search with Answer Engine Optimization.
+          - generic [ref=e100]:
+            - list [ref=e101]:
+              - listitem [ref=e102]: Technical SEO audits
+              - listitem [ref=e104]: Local SEO for Florida
+              - listitem [ref=e106]: Programmatic SEO
+              - listitem [ref=e108]: AI search optimization (AEO)
+            - link "Learn More" [ref=e110] [cursor=pointer]:
+              - /url: /seo-services
+              - text: Learn More
+              - img
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - generic [ref=e113]:
+              - img [ref=e115]
+              - generic [ref=e119]: $1,000 - $2,500
+            - heading "Growth Marketing" [level=3] [ref=e120]
+            - paragraph [ref=e121]: Generative Optimization
+            - paragraph [ref=e122]: Multi-channel growth strategies powered by customer psychology and decision science. AI-powered content generation and growth automation workflows.
+          - generic [ref=e123]:
+            - list [ref=e124]:
+              - listitem [ref=e125]: Answer Engine Optimization
+              - listitem [ref=e127]: Conversion rate optimization
+              - listitem [ref=e129]: Customer psychology
+              - listitem [ref=e131]: Growth automation
+            - link "Learn More" [ref=e133] [cursor=pointer]:
+              - /url: /growth-marketing
+              - text: Learn More
+              - img
+        - generic [ref=e134]:
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - img [ref=e138]
+              - generic [ref=e142]: $500/month
+            - heading "Paid Performance" [level=3] [ref=e143]
+            - paragraph [ref=e144]: Media That Converts
+            - paragraph [ref=e145]: Google Ads, Meta advertising, and LinkedIn campaigns optimized with AI-powered copy testing and custom attribution workflows.
+          - generic [ref=e146]:
+            - list [ref=e147]:
+              - listitem [ref=e148]: Google & Meta ads
+              - listitem [ref=e150]: AI-optimized ad copy
+              - listitem [ref=e152]: Landing page strategy
+              - listitem [ref=e154]: Custom attribution
+            - link "Learn More" [ref=e156] [cursor=pointer]:
+              - /url: /paid-advertising
+              - text: Learn More
+              - img
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - generic [ref=e159]:
+              - img [ref=e161]
+              - generic [ref=e165]: Quote-based
+            - heading "Vibe Coding" [level=3] [ref=e166]
+            - paragraph [ref=e167]: Custom Tools & Automation
+            - paragraph [ref=e168]: Replace expensive SaaS with custom AI-powered tools. Lead capture systems, marketing automation, and client communication AI agents.
+          - generic [ref=e169]:
+            - list [ref=e170]:
+              - listitem [ref=e171]: AI lead capture systems
+              - listitem [ref=e173]: Marketing automation
+              - listitem [ref=e175]: Custom SEO tools
+              - listitem [ref=e177]: AI communication agents
+            - link "Learn More" [ref=e179] [cursor=pointer]:
+              - /url: /vibe-coding
+              - text: Learn More
+              - img
+      - button "Get Custom Strategy Session" [ref=e181] [cursor=pointer]:
+        - text: Get Custom Strategy Session
+        - img
+    - generic [ref=e184]:
+      - generic [ref=e185]:
+        - heading "Proven Results" [level=2] [ref=e186]:
+          - generic [ref=e187]: Proven
+          - generic [ref=e188]: Results
+        - paragraph [ref=e189]: Real clients. Real results. Psychology-driven marketing that generates measurable growth for Florida businesses and beyond.
+      - generic [ref=e190]:
+        - generic [ref=e192]:
+          - img [ref=e194]
+          - generic [ref=e197]:
+            - img [ref=e198]
+            - img [ref=e200]
+            - img [ref=e202]
+            - img [ref=e204]
+            - img [ref=e206]
+          - generic [ref=e208]: +200% Traffic in 45 Days
+          - blockquote [ref=e209]: "\"Joel's psychology-driven SEO approach generated a 200% increase in organic traffic within 45 days. His understanding of consumer behavior transformed our entire digital strategy.\""
+          - generic [ref=e210]:
+            - generic [ref=e211]: Privada Cigar Club
+            - generic [ref=e212]: E-commerce Business
+        - generic [ref=e214]:
+          - img [ref=e216]
+          - generic [ref=e219]:
+            - img [ref=e220]
+            - img [ref=e222]
+            - img [ref=e224]
+            - img [ref=e226]
+            - img [ref=e228]
+          - generic [ref=e230]: 100+ Leads Per Month
+          - blockquote [ref=e231]: "\"From 20 leads per month to 100+ qualified leads. Joel's local SEO and paid media strategies completely transformed our lead generation. The ROI speaks for itself.\""
+          - generic [ref=e232]:
+            - generic [ref=e233]: Super Cash For Houses
+            - generic [ref=e234]: Real Estate Investment
+        - generic [ref=e236]:
+          - img [ref=e238]
+          - generic [ref=e241]:
+            - img [ref=e242]
+            - img [ref=e244]
+            - img [ref=e246]
+            - img [ref=e248]
+            - img [ref=e250]
+          - generic [ref=e252]: +300% Online Appointments
+          - blockquote [ref=e253]: "\"Joel's GEO optimization prepared us for AI search while dominating traditional search. His technical expertise combined with marketing psychology is unmatched.\""
+          - generic [ref=e254]:
+            - generic [ref=e255]: Florida Medical Practice
+            - generic [ref=e256]: Healthcare Provider
+      - generic [ref=e257]:
+        - paragraph [ref=e258]: Trusted by businesses across Florida and nationwide
+        - generic [ref=e259]:
+          - link "Daytona Beach" [ref=e260] [cursor=pointer]:
+            - /url: /daytona-beach-digital-marketing
+          - link "Orlando" [ref=e262] [cursor=pointer]:
+            - /url: /orlando-digital-marketing
+          - link "Tampa" [ref=e264] [cursor=pointer]:
+            - /url: /tampa-growth-marketing
+          - link "Jacksonville" [ref=e266] [cursor=pointer]:
+            - /url: /jacksonville-seo-consultant
+          - link "Miami" [ref=e268] [cursor=pointer]:
+            - /url: /miami-marketing-agency
+  - contentinfo [ref=e269]:
+    - generic [ref=e270]:
+      - generic [ref=e271]:
+        - generic [ref=e272]:
+          - generic [ref=e273]:
+            - img [ref=e275]
+            - generic [ref=e285]:
+              - generic [ref=e286]: Joel Hinton Digital Marketing
+              - generic [ref=e287]: Psychology-Driven SEO & Growth Marketing
+          - paragraph [ref=e288]: AI-powered digital marketing strategies that understand consumer psychology. Serving Daytona Beach, FL and businesses nationwide with no-retainer, results-driven services.
+          - generic [ref=e289]:
+            - generic [ref=e290]:
+              - img [ref=e291]
+              - text: Daytona Beach, FL 32114
+            - generic [ref=e294]:
+              - img [ref=e295]
+              - text: +1 (386) 555-0123
+            - generic [ref=e297]:
+              - img [ref=e298]
+              - text: joel@joelhintonmarketing.com
+        - generic [ref=e301]:
+          - heading "Services" [level=4] [ref=e302]
+          - list [ref=e303]:
+            - listitem [ref=e304]:
+              - link "SEO Services" [ref=e305] [cursor=pointer]:
+                - /url: /seo-services
+            - listitem [ref=e306]:
+              - link "Growth Marketing" [ref=e307] [cursor=pointer]:
+                - /url: /growth-marketing
+            - listitem [ref=e308]:
+              - link "Paid Advertising" [ref=e309] [cursor=pointer]:
+                - /url: /paid-advertising
+            - listitem [ref=e310]:
+              - link "Local SEO" [ref=e311] [cursor=pointer]:
+                - /url: /local-seo
+        - generic [ref=e312]:
+          - heading "Areas Served" [level=4] [ref=e313]
+          - list [ref=e314]:
+            - listitem [ref=e315]:
+              - link "Daytona Beach, FL" [ref=e316] [cursor=pointer]:
+                - /url: /daytona-beach-digital-marketing
+            - listitem [ref=e317]:
+              - link "Orlando, FL" [ref=e318] [cursor=pointer]:
+                - /url: /orlando-digital-marketing
+            - listitem [ref=e319]:
+              - link "Tampa, FL" [ref=e320] [cursor=pointer]:
+                - /url: /tampa-growth-marketing
+            - listitem [ref=e321]:
+              - link "Jacksonville, FL" [ref=e322] [cursor=pointer]:
+                - /url: /jacksonville-seo-consultant
+            - listitem [ref=e323]:
+              - link "Miami, FL" [ref=e324] [cursor=pointer]:
+                - /url: /miami-marketing-agency
+            - listitem [ref=e325]:
+              - link "Nationwide Remote" [ref=e326] [cursor=pointer]:
+                - /url: /areas-we-serve
+      - generic [ref=e328]:
+        - paragraph [ref=e329]: © 2024 Joel Hinton Digital Marketing. All rights reserved.
+        - generic [ref=e330]:
+          - link "Privacy Policy" [ref=e331] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms of Service" [ref=e332] [cursor=pointer]:
+            - /url: /terms
+```

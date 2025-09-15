@@ -1,0 +1,375 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic:
+    - list
+    - region "Notifications alt+T"
+    - generic:
+      - navigation:
+        - generic:
+          - generic:
+            - link:
+              - /url: /
+              - generic:
+                - img
+              - generic:
+                - generic: Joel Hinton
+                - generic: Digital Marketing
+            - button:
+              - img
+      - generic:
+        - generic:
+          - navigation:
+            - list:
+              - listitem:
+                - link:
+                  - /url: /
+                  - img
+                  - text: Home
+              - listitem:
+                - img
+              - listitem:
+                - link [disabled]: About Joel
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - text: Psychology-Driven Marketing Expert
+            - heading [level=1]: "Meet Joel Hinton: AI Agents, Automation & SEO Growth Expert"
+            - paragraph: The marketing consultant who combines consumer psychology with technical expertise to help businesses outthink and outrank their competition.
+            - generic:
+              - paragraph: "\"SEO is Propaganda. GEO is Psychology. I help brands dominate AI search by understanding how people—and algorithms—actually think.\""
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - heading [level=2]: The Marketing Philosophy
+              - generic:
+                - img
+                - generic: Why Psychology Matters More Than Tactics
+            - generic:
+              - generic:
+                - generic:
+                  - paragraph: "After 15+ years in digital marketing, I've learned that most agencies focus on the wrong things. They obsess over keywords, ad placements, and technical tricks while completely ignoring the most important factor: how people actually make decisions."
+                  - paragraph: Traditional marketing treats customers like search engines—feed them the right keywords and they'll convert. But real growth comes from understanding the psychology behind every click, every search, and every purchase decision.
+                  - paragraph: That's why I built my entire approach around consumer decision science, rooted in lessons from Edward Bernays' work and modern behavioral psychology. When you understand what motivates people at a psychological level, marketing becomes predictable rather than hopeful.
+      - generic:
+        - generic:
+          - generic:
+            - heading [level=2]: The Journey to Marketing Psychology
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                    - heading [level=3]: Early Career Lessons
+                  - paragraph: I started like most marketers—chasing the latest tactics, celebrating vanity metrics, and wondering why campaigns that looked great on paper failed to move business needles. After managing millions in ad spend and countless SEO campaigns, I realized something was fundamentally wrong with how our industry approaches growth.
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                    - heading [level=3]: The Psychology-First Revelation
+                  - paragraph: "The turning point came when I discovered the connection between Edward Bernays' propaganda techniques and modern consumer behavior. I started rebuilding my methodology around one question: \"What would make me, as a customer, actually want to buy this?\" This shift changed everything."
+      - generic:
+        - generic:
+          - generic:
+            - heading [level=2]: Expertise & Credentials
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                  - heading [level=3]: Technical SEO Mastery
+                  - paragraph: Deep understanding of search algorithms and technical optimization
+              - generic:
+                - generic:
+                  - img
+                  - heading [level=3]: Consumer Psychology
+                  - paragraph: Extensive study of decision science and behavioral triggers
+              - generic:
+                - generic:
+                  - img
+                  - heading [level=3]: AI & Automation
+                  - paragraph: Early adopter of AI tools for marketing optimization
+              - generic:
+                - generic:
+                  - img
+                  - heading [level=3]: Business Growth
+                  - paragraph: Hands-on experience scaling businesses to multi-million revenue
+            - generic:
+              - heading [level=3]: 15+ Years of Marketing Evolution
+              - generic:
+                - generic:
+                  - heading [level=4]: Continuous Learning & Innovation
+                  - list:
+                    - listitem: • Marketing Psychology & Consumer Decision Science
+                    - listitem: • AI Technology & Marketing Automation
+                    - listitem: • Industry Evolution & Algorithm Changes
+                    - listitem: • Results Measurement & Optimization
+                - generic:
+                  - heading [level=4]: Industry Recognition
+                  - list:
+                    - listitem: • Featured in marketing publications
+                    - listitem: • Speaking at industry conferences
+                    - listitem: • Active in AI marketing communities
+                    - listitem: • Beta testing emerging marketing tools
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - img
+              - heading [level=2]: The Daytona Beach Advantage
+            - generic:
+              - generic:
+                - generic:
+                  - paragraph: Based in Daytona Beach, Florida, I have unique insight into both local business challenges and seasonal market dynamics. Living through hurricane seasons, Speedway events, and tourism fluctuations has taught me how external factors impact business growth—and how to build marketing systems that adapt.
+                  - paragraph: This local perspective, combined with national and international client experience, gives me a unique understanding of how psychology-driven marketing works across different markets, seasons, and customer segments.
+                - generic:
+                  - generic:
+                    - heading [level=4]: Local Business Understanding
+                    - list:
+                      - listitem: • Seasonal Marketing & Tourism Dynamics
+                      - listitem: • Community Psychology & Local Customer Behavior
+                      - listitem: • Economic Factors & Purchasing Psychology
+                      - listitem: • Florida Business Landscape & Opportunities
+                  - generic:
+                    - generic:
+                      - img
+                      - text: Daytona Beach, FL
+      - generic:
+        - generic:
+          - generic:
+            - heading [level=2]: The Anti-Agency Approach
+            - generic:
+              - generic:
+                - heading [level=3]:
+                  - img
+                  - text: Why I Don't Run a Traditional Agency
+                - paragraph: "I deliberately chose not to build a traditional marketing agency for one simple reason: agency models create conflicts of interest that hurt client results."
+                - paragraph: When agencies charge percentages of ad spend, they profit when you spend more, not when you spend efficiently. When they require monthly retainers, they benefit from dependency, not from building systems that work independently.
+            - generic:
+              - generic:
+                - generic:
+                  - heading [level=4]: My Business Philosophy
+                  - list:
+                    - listitem:
+                      - generic: •
+                      - generic:
+                        - strong: "Transparent Pricing:"
+                        - text: Fixed fees so we focus on results, not billings
+                    - listitem:
+                      - generic: •
+                      - generic:
+                        - strong: "Client Ownership:"
+                        - text: You own everything we build
+                    - listitem:
+                      - generic: •
+                      - generic:
+                        - strong: "Results Focus:"
+                        - text: One-time investments that compound
+                    - listitem:
+                      - generic: •
+                      - generic:
+                        - strong: "Psychology-Driven:"
+                        - text: Understanding motivations, not chasing algorithms
+              - generic:
+                - generic:
+                  - heading [level=4]: Core Values
+                  - list:
+                    - listitem:
+                      - generic: •
+                      - generic:
+                        - strong: "Transparency:"
+                        - text: No hidden fees or mystery processes
+                    - listitem:
+                      - generic: •
+                      - generic:
+                        - strong: "Results:"
+                        - text: Measurable business impact, not vanity metrics
+                    - listitem:
+                      - generic: •
+                      - generic:
+                        - strong: "Education:"
+                        - text: Teaching clients to understand systems
+                    - listitem:
+                      - generic: •
+                      - generic:
+                        - strong: "Innovation:"
+                        - text: Proven psychology + cutting-edge technology
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - img
+              - heading [level=2]: Beyond Marketing
+            - generic:
+              - generic:
+                - paragraph: When I'm not optimizing conversion rates or analyzing customer psychology, you'll find me exploring creative projects that blend technology with human insight. Photography has taught me about visual psychology and storytelling. Travel has shown me how cultural differences impact consumer behavior.
+                - paragraph: Reading behavioral psychology and historical propaganda analysis keeps me sharp on the fundamentals that never change—regardless of which new platform or algorithm update comes next.
+      - generic:
+        - generic:
+          - generic:
+            - heading [level=2]: Ready to Work Together?
+            - generic:
+              - generic:
+                - generic:
+                  - heading [level=3]: My Ideal Clients
+                  - list:
+                    - listitem: "• Ready for Growth: Product-market fit, ready to scale"
+                    - listitem: "• Value Transparency: Appreciate honest communication"
+                    - listitem: "• Long-term Thinkers: Want to build assets, not rent them"
+                    - listitem: "• Results-Focused: Care about business impact over activity"
+              - generic:
+                - generic:
+                  - heading [level=3]: Not a Good Fit If
+                  - list:
+                    - listitem: • Want someone to blame for poor fundamentals
+                    - listitem: • Prefer ongoing retainers to systematic improvements
+                    - listitem: • Looking for magic tricks vs proven principles
+                    - listitem: • Need constant hand-holding vs independent growth
+            - generic:
+              - generic:
+                - heading [level=3]: Let's Connect
+                - paragraph: Marketing psychology is endlessly fascinating because every business, every customer, and every market has unique psychological triggers. I love diving deep into what makes your customers tick and building systems that activate those insights systematically.
+                - generic:
+                  - button:
+                    - img
+                    - text: Schedule Strategy Call
+                  - button:
+                    - img
+                    - text: Get Started Today
+                - generic:
+                  - paragraph:
+                    - strong: "Risk Reversal:"
+                    - text: Every consultation includes actionable insights you can implement immediately, regardless of whether we work together long-term.
+      - contentinfo:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - generic: Joel Hinton Digital Marketing
+                  - generic: Psychology-Driven SEO & Growth Marketing
+              - paragraph: AI-powered digital marketing strategies that understand consumer psychology. Serving Daytona Beach, FL and businesses nationwide with no-retainer, results-driven services.
+              - generic:
+                - generic:
+                  - img
+                  - text: Daytona Beach, FL 32114
+                - generic:
+                  - img
+                  - text: +1 (386) 555-0123
+                - generic:
+                  - img
+                  - text: joel@joelhintonmarketing.com
+            - generic:
+              - heading [level=4]: Services
+              - list:
+                - listitem:
+                  - link:
+                    - /url: /seo-services
+                    - text: SEO Services
+                - listitem:
+                  - link:
+                    - /url: /growth-marketing
+                    - text: Growth Marketing
+                - listitem:
+                  - link:
+                    - /url: /paid-advertising
+                    - text: Paid Advertising
+                - listitem:
+                  - link:
+                    - /url: /local-seo
+                    - text: Local SEO
+            - generic:
+              - heading [level=4]: Areas Served
+              - list:
+                - listitem:
+                  - link:
+                    - /url: /daytona-beach-digital-marketing
+                    - text: Daytona Beach, FL
+                - listitem:
+                  - link:
+                    - /url: /orlando-digital-marketing
+                    - text: Orlando, FL
+                - listitem:
+                  - link:
+                    - /url: /tampa-growth-marketing
+                    - text: Tampa, FL
+                - listitem:
+                  - link:
+                    - /url: /jacksonville-seo-consultant
+                    - text: Jacksonville, FL
+                - listitem:
+                  - link:
+                    - /url: /miami-marketing-agency
+                    - text: Miami, FL
+                - listitem:
+                  - link:
+                    - /url: /areas-we-serve
+                    - text: Nationwide Remote
+          - generic:
+            - generic:
+              - paragraph: © 2024 Joel Hinton Digital Marketing. All rights reserved.
+              - generic:
+                - link:
+                  - /url: /privacy
+                  - text: Privacy Policy
+                - link:
+                  - /url: /terms
+                  - text: Terms of Service
+  - dialog:
+    - generic:
+      - heading [level=2]: Schedule Your Strategy Call
+      - paragraph: Let's discuss your business goals and create a personalized marketing strategy that drives real results.
+    - generic:
+      - generic:
+        - generic:
+          - generic: Full Name *
+          - textbox: Test User Playwright
+        - generic:
+          - generic: Email Address *
+          - textbox: hintonjoel@gmail.com
+      - generic:
+        - generic:
+          - generic: Phone Number *
+          - textbox: 555-123-4567
+        - generic:
+          - generic: Business Type *
+          - combobox [expanded]:
+            - generic: Select your industry
+            - img
+          - combobox
+      - generic:
+        - generic: Selected Service *
+        - textbox: Strategy Call
+      - generic:
+        - generic: Tell us about your marketing challenge *
+        - textbox
+      - generic:
+        - button: Cancel
+        - button: Schedule Strategy Call
+    - button:
+      - img
+      - generic: Close
+  - listbox [ref=e2]:
+    - option "Professional Services" [active] [ref=e3]:
+      - generic [ref=e5]: Professional Services
+    - option "E-commerce" [ref=e6]:
+      - generic [ref=e8]: E-commerce
+    - option "SaaS / Tech" [ref=e9]:
+      - generic [ref=e11]: SaaS / Tech
+    - option "Healthcare" [ref=e12]:
+      - generic [ref=e14]: Healthcare
+    - option "Home Services" [ref=e15]:
+      - generic [ref=e17]: Home Services
+    - option "Real Estate" [ref=e18]:
+      - generic [ref=e20]: Real Estate
+    - option "Restaurant & Hospitality" [ref=e21]:
+      - generic [ref=e23]: Restaurant & Hospitality
+    - option "Other" [ref=e24]:
+      - generic [ref=e26]: Other
+```

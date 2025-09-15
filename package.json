@@ -8,7 +8,18 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:forms": "playwright test tests/forms-fixed.spec.ts",
+    "test:forms:headed": "playwright test tests/forms-fixed.spec.ts --headed",
+    "test:forms:old": "playwright test tests/forms.spec.ts",
+    "test:health": "playwright test tests/site-health.spec.ts",
+    "test:business-types": "playwright test tests/business-types-fixed.spec.ts",
+    "test:business-types:old": "playwright test tests/business-types.spec.ts",
+    "test:debug": "playwright test tests/debug-forms.spec.ts --headed",
+    "test:debug:forms": "playwright test tests/debug-forms.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -68,6 +79,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@playwright/test": "^1.55.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.16.5",
     "@types/react": "^18.3.23",
