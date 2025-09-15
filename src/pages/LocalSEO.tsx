@@ -20,6 +20,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
+import ContactDialog from '@/components/ContactDialog';
+import { useContactDialog } from '@/hooks/useContactDialog';
+import { businessTypes } from '@/types/contact-forms';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
@@ -35,6 +38,7 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const LocalSEO = () => {
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Local SEO Strategy Consultation');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
