@@ -11,6 +11,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -75,9 +76,28 @@ const ServicesSection = () => {
   const onSubmitForm = async (data: ContactFormData) => {
     setIsSubmitting(true);
     await new Promise(r => setTimeout(r, 1000));
-    console.log("Services contact form submitted:", data);
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Services contact form submitted:", data);
+    }
     setSubmitSuccess(true);
     reset();
+    
+    // Track form submission and conversion
+    trackFormSubmission(
+      'services_form',
+      window.location.pathname,
+      data.businessType,
+      'Custom Strategy Session'
+    );
+    
+    trackConversion('strategy_session', 1, 'USD');
+    
+    trackLead(
+      window.location.pathname,
+      'strategy_session',
+      data.businessType
+    );
+    
     setTimeout(() => {
       setSubmitSuccess(false);
       setIsDialogOpen(false);

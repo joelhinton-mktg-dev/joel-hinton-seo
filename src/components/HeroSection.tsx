@@ -10,6 +10,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -55,6 +56,21 @@ const HeroSection = () => {
         setSubmitSuccess(true);
         reset();
         
+        // Track form submission and conversion
+        trackFormSubmission(
+          'hero_form',
+          '/',
+          data.businessType
+        );
+        
+        trackConversion('consultation_request', 1, 'USD');
+        
+        trackLead(
+          'homepage',
+          'consultation',
+          data.businessType
+        );
+        
         if (process.env.NODE_ENV === 'development') {
           console.log("Hero contact form submitted successfully:", data);
         }
@@ -67,7 +83,9 @@ const HeroSection = () => {
         throw new Error('Form submission failed');
       }
     } catch (error) {
-      console.error('Form submission error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Form submission error:', error);
+      }
       // You could add error state handling here
     } finally {
       setIsSubmitting(false);

@@ -4,7 +4,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import CookieConsent from "@/components/CookieConsent";
+import { initializeGA, trackPageView, handleConsentUpdate } from "@/lib/analytics";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 // Lazy load all page components
 const Index = lazy(() => import("./pages/Index"));
@@ -48,6 +52,37 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
+// Analytics wrapper component
+const AnalyticsWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { canUseAnalytics } = useCookieConsent();
+  
+  // Track page views automatically
+  usePageTracking();
+
+  useEffect(() => {
+    // Initialize analytics when consent changes
+    if (canUseAnalytics) {
+      initializeGA();
+      trackPageView(window.location.pathname, document.title);
+    }
+  }, [canUseAnalytics]);
+
+  // Listen for cookie consent updates
+  useEffect(() => {
+    const handleConsentChange = (event: CustomEvent) => {
+      const { preferences } = event.detail;
+      handleConsentUpdate(preferences.analytics);
+    };
+
+    window.addEventListener('cookieConsentUpdated', handleConsentChange as EventListener);
+    return () => {
+      window.removeEventListener('cookieConsentUpdated', handleConsentChange as EventListener);
+    };
+  }, []);
+
+  return <>{children}</>;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
@@ -55,12 +90,13 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Suspense fallback={
-            <div className="min-h-screen flex items-center justify-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-            </div>
-          }>
-            <Routes>
+          <AnalyticsWrapper>
+            <Suspense fallback={
+              <div className="min-h-screen flex items-center justify-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+              </div>
+            }>
+              <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/seo-services" element={<SEOServices />} />
               <Route path="/growth-marketing" element={<GrowthMarketing />} />
@@ -101,8 +137,10 @@ const App = () => (
               <Route path="/not-found" element={<NotFound />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
+              </Routes>
+            </Suspense>
+            <CookieConsent />
+          </AnalyticsWrapper>
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>

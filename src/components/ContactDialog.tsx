@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/ui/button';
 import { CheckCircle } from 'lucide-react';
 import { ContactFormData, contactFormSchema, BusinessTypeOption } from '@/types/contact-forms';
+import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
 
 interface ContactDialogProps {
   isOpen: boolean;
@@ -61,6 +62,22 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
         setSubmitSuccess(true);
         reset();
         
+        // Track form submission and conversion
+        trackFormSubmission(
+          'contact_dialog',
+          window.location.pathname,
+          data.businessType,
+          defaultService
+        );
+        
+        trackConversion('contact_form', 1, 'USD');
+        
+        trackLead(
+          window.location.pathname,
+          'contact',
+          data.businessType
+        );
+        
         if (process.env.NODE_ENV === 'development') {
           console.log("Contact form submitted successfully:", data);
         }
@@ -73,7 +90,9 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
         throw new Error('Form submission failed');
       }
     } catch (error) {
-      console.error('Form submission error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Form submission error:', error);
+      }
       setSubmitError('There was an error submitting the form. Please try again.');
       
       // Clear error after 5 seconds

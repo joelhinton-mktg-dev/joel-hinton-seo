@@ -8,7 +8,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 const TermsOfService = () => {
-  const lastUpdated = "December 15, 2024";
+  const lastUpdated = "January 15, 2025";
   
   return (
     <>
@@ -110,11 +110,31 @@ const TermsOfService = () => {
                     <li>Consumer psychology analysis and application</li>
                     <li>Website optimization and conversion improvement</li>
                     <li>Digital marketing training and education</li>
+                    <li>Industry-specific marketing strategy for 15+ verticals</li>
+                    <li>Marketing audit and competitive analysis</li>
+                    <li>Lead generation and conversion optimization</li>
                   </ul>
-                  <p className="text-slate-700">
-                    All services are provided on a consultation basis. We do not guarantee specific results, rankings, or revenue outcomes. 
-                    Success in digital marketing depends on various factors beyond our control.
-                  </p>
+                  
+                  <Separator />
+                  
+                  <div>
+                    <h3 className="font-semibold text-lg text-slate-900 mb-3">Consultation Terms</h3>
+                    <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
+                      <li><strong>Initial Consultation:</strong> Free 30-minute discovery call to assess needs and fit</li>
+                      <li><strong>Project Scope:</strong> All work is defined by written proposals and service agreements</li>
+                      <li><strong>Deliverables:</strong> Specific deliverables, timelines, and milestones are outlined in project agreements</li>
+                      <li><strong>Communication:</strong> Regular progress updates via agreed communication channels</li>
+                      <li><strong>Revisions:</strong> Reasonable revisions included within project scope; additional revisions may incur extra fees</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <p className="text-sm text-blue-800">
+                      <strong>Performance Disclaimer:</strong> All services are provided on a consultation basis. We do not guarantee specific results, 
+                      rankings, or revenue outcomes. Success in digital marketing depends on various factors including market conditions, 
+                      competition, budget, implementation quality, and external factors beyond our control.
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
 

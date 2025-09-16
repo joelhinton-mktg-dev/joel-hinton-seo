@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 test.use({ actionTimeout: 15000, timeout: 60000 });
 
 // Helper function for Radix Select interaction
-async function interactWithRadixSelect(page: any, targetValue: string) {
+async function interactWithRadixSelect(page: Page, targetValue: string) {
   console.log(`Selecting business type: ${targetValue}`);
   
   // Wait for and click the select trigger

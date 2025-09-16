@@ -8,7 +8,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 const PrivacyPolicy = () => {
-  const lastUpdated = "December 15, 2024";
+  const lastUpdated = "January 15, 2025";
   
   return (
     <>
@@ -121,6 +121,25 @@ const PrivacyPolicy = () => {
                       <li>Pages visited and time spent on our site</li>
                       <li>Referring website information</li>
                       <li>Cookies and similar tracking technologies</li>
+                      <li>Form submission data from contact forms and consultation requests</li>
+                      <li>Marketing campaign interaction data (email opens, clicks, conversions)</li>
+                    </ul>
+                  </div>
+
+                  <Separator />
+
+                  <div>
+                    <h3 className="font-semibold text-lg text-slate-900 mb-3">Analytics and Marketing Technology</h3>
+                    <p className="text-slate-700 mb-2">
+                      We use various analytics and marketing tools to improve our services:
+                    </p>
+                    <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
+                      <li><strong>Google Analytics:</strong> Website traffic analysis and user behavior tracking</li>
+                      <li><strong>Formspree:</strong> Secure form processing and submission handling</li>
+                      <li><strong>Social Media Pixels:</strong> Facebook, LinkedIn, and other platform tracking for advertising optimization</li>
+                      <li><strong>Email Marketing Tools:</strong> Email delivery, open rates, and engagement tracking</li>
+                      <li><strong>Heat Mapping Tools:</strong> User interaction analysis to improve website usability</li>
+                      <li><strong>Conversion Tracking:</strong> Measuring the effectiveness of our marketing campaigns</li>
                     </ul>
                   </div>
                 </CardContent>

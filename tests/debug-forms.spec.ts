@@ -226,8 +226,8 @@ test.describe('Form Debugging and Element Discovery', () => {
   test('Debug Console Errors and Network', async ({ page }) => {
     console.log('=== DEBUGGING CONSOLE AND NETWORK ===');
     
-    const consoleMessages: any[] = [];
-    const networkErrors: any[] = [];
+    const consoleMessages: Array<{type: string, text: string}> = [];
+    const networkErrors: Array<{url: string, status: number, statusText: string}> = [];
     
     page.on('console', msg => {
       consoleMessages.push({

@@ -13,7 +13,7 @@ const testData = {
 };
 
 // Helper function to wait for and interact with Radix Select
-async function selectBusinessType(page: any, value: string) {
+async function selectBusinessType(page: Page, value: string) {
   console.log(`Attempting to select business type: ${value}`);
   
   // Wait for and click the select trigger
@@ -33,7 +33,7 @@ async function selectBusinessType(page: any, value: string) {
 }
 
 // Helper function to fill form with proper waiting
-async function fillForm(page: any, data: any, businessType: string) {
+async function fillForm(page: Page, data: Record<string, string>, businessType: string) {
   console.log('Starting form fill process...');
   
   const dialog = page.locator('[role="dialog"]');
