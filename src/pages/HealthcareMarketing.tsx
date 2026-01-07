@@ -24,8 +24,8 @@ const HealthcareMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Healthcare Marketing Psychology | Medical Practice Marketing | Joel Hinton</title>
-        <meta name="description" content="HIPAA-compliant healthcare marketing that builds trust and drives patient appointments. Psychology-driven strategies for medical practices with 220% traffic growth." />
+        <title>Healthcare Marketing | Medical Practice Marketing | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="HIPAA-compliant healthcare marketing for medical practices in Volusia & Flagler Counties. Local SEO and patient acquisition strategies that build trust and drive appointments." />
         <meta name="keywords" content="healthcare marketing, medical marketing, HIPAA compliant marketing, patient acquisition, medical practice growth, healthcare psychology" />
         <meta name="robots" content="index, follow" />
         
@@ -33,10 +33,10 @@ const HealthcareMarketing = () => {
         <meta property="og:description" content="HIPAA-compliant healthcare marketing strategies that build trust and drive patient appointments with proven results." />
         <meta property="og:type" content="website" />
       </Helmet>
-      <ProfessionalServiceSchema 
+      <ProfessionalServiceSchema
         serviceName="Healthcare Marketing"
-        serviceDescription="HIPAA-compliant healthcare marketing strategies that build trust and drive patient appointments"
-        serviceUrl="https://joelhintonmarketing.com/industries/healthcare"
+        serviceDescription="HIPAA-compliant healthcare marketing strategies for medical practices in Central Florida"
+        serviceUrl="https://aiogrowthseo.com/industries/healthcare"
         serviceType="Healthcare Marketing"
       />
 
@@ -448,8 +448,8 @@ const HealthcareMarketing = () => {
                     <div className="bg-green-50 p-4 rounded-lg border border-green-200">
                       <h4 className="font-semibold text-green-800 mb-2">The Results</h4>
                       <p className="text-green-700 text-sm">
-                        "Healthcare marketing requires incredible sensitivity and trust-building. Joel's HIPAA-compliant strategies 
-                        and patient psychology expertise helped us grow while maintaining the highest ethical standards. 
+                        "Healthcare marketing requires incredible sensitivity and trust-building. The HIPAA-compliant strategies
+                        and patient psychology expertise helped us grow while maintaining the highest ethical standards.
                         We're now the go-to cardiology practice in our area."
                       </p>
                       <div className="flex items-center gap-2 mt-3">

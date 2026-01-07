@@ -23,8 +23,8 @@ const HomeServicesMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Home Services Marketing Psychology | HVAC, Plumbing, Roofing Marketing | Joel Hinton</title>
-        <meta name="description" content="Emergency-driven home services marketing that converts anxious homeowners into customers. Psychology strategies for HVAC, plumbing, roofing with 320% traffic growth." />
+        <title>Home Services Marketing | HVAC, Plumbing, Roofing | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="Home services marketing for HVAC, plumbing, and roofing contractors in Volusia & Flagler Counties. Local lead generation and SEO that converts emergency calls into customers." />
         <meta name="keywords" content="home services marketing, HVAC marketing, plumbing marketing, roofing marketing, emergency service marketing, local contractor marketing" />
         <meta name="robots" content="index, follow" />
         

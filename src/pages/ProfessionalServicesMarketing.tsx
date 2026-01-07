@@ -22,8 +22,8 @@ const ProfessionalServicesMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Professional Services Marketing Psychology | B2B Consulting Marketing | Joel Hinton</title>
-        <meta name="description" content="Authority-driven professional services marketing that converts prospects into high-value clients. B2B psychology strategies with 195% traffic growth and 520% ROI." />
+        <title>Professional Services Marketing | B2B Consulting | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="Professional services marketing for consultants, accountants, and attorneys in Volusia & Flagler Counties. Authority positioning and lead generation for high-value clients." />
         <meta name="keywords" content="professional services marketing, B2B consulting marketing, authority positioning, professional services psychology, consulting lead generation" />
         <meta name="robots" content="index, follow" />
         
@@ -58,7 +58,7 @@ const ProfessionalServicesMarketing = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 B2B buyers need confidence in expertise and results. Our authority-driven strategies position you as the 
                 premium choice through thought leadership, credibility building, and consultation psychology that converts 
-                prospects into high-value clients. Our <Link to="/seo-services" className="text-primary hover:underline">SEO services</Link> and <Link to="/growth-marketing" className="text-primary hover:underline">growth marketing</Link> expertise are particularly effective for professional service firms.
+                prospects into high-value clients. Our <Link to="/seo-services" className="text-primary hover:underline">SEO services</Link> and <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> expertise are particularly effective for professional service firms.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -439,8 +439,8 @@ const ProfessionalServicesMarketing = () => {
                     <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                       <h4 className="font-semibold text-blue-800 mb-2">The Results</h4>
                       <p className="text-blue-700 text-sm">
-                        "Joel transformed how we position our consulting services. Instead of competing on price, we now attract enterprise clients 
-                        who value strategic expertise. Our average project value increased 340%, and we're selective about which opportunities we pursue. 
+                        "AIO Growth transformed how we position our consulting services. Instead of competing on price, we now attract clients
+                        who value strategic expertise. Our average project value increased 340%, and we're selective about which opportunities we pursue.
                         The authority positioning has made us the go-to consultants in our market."
                       </p>
                       <div className="flex items-center gap-2 mt-3">

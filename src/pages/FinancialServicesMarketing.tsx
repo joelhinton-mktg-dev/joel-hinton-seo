@@ -24,8 +24,8 @@ const FinancialServicesMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Financial Services Marketing Psychology | Investment & Insurance Marketing | Joel Hinton</title>
-        <meta name="description" content="Security-focused financial marketing that builds trust and drives qualified leads. Psychology strategies for financial advisors with 275% lead growth." />
+        <title>Financial Services Marketing | Investment & Insurance Marketing | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="Financial marketing for advisors, wealth managers, and insurance agencies in Volusia & Flagler Counties. Security-focused strategies that build trust and drive qualified leads." />
         <meta name="keywords" content="financial services marketing, financial advisor marketing, investment marketing, insurance marketing, financial psychology, wealth management marketing" />
         <meta name="robots" content="index, follow" />
         
@@ -36,7 +36,7 @@ const FinancialServicesMarketing = () => {
       <ProfessionalServiceSchema 
         serviceName="Financial Services Marketing"
         serviceDescription="Security-focused marketing strategies for financial advisors and institutions that build trust and drive qualified leads"
-        serviceUrl="https://joelhintonmarketing.com/industries/financial-services"
+        serviceUrl="https://aiogrowthseo.com/industries/financial-services"
         serviceType="Financial Marketing"
       />
 
@@ -66,8 +66,8 @@ const FinancialServicesMarketing = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 Financial decisions involve security concerns, trust requirements, and long-term planning anxiety. Our compliant 
                 marketing strategies position your firm as the trustworthy choice through credibility building, security emphasis, 
-                and outcome demonstration. Combined with strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and 
-                <Link to="/growth-marketing" className="text-primary hover:underline">growth marketing</Link>, we attract qualified prospects ready to invest in their financial future.
+                and outcome demonstration. Combined with strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and
+                <Link to="/local-lead-generation" className="text-primary hover:underline">local lead generation</Link>, we attract qualified prospects ready to invest in their financial future.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

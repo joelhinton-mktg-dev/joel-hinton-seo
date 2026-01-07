@@ -13,20 +13,20 @@ const PrivacyPolicy = () => {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy | Joel Hinton Digital Marketing | Data Protection & Privacy</title>
-        <meta name="description" content="Privacy Policy for Joel Hinton Digital Marketing. Learn how we collect, use, and protect your personal information in compliance with GDPR and CCPA." />
+        <title>Privacy Policy | AIO Growth SEO | Data Protection & Privacy</title>
+        <meta name="description" content="Privacy Policy for AIO Growth SEO. Learn how we collect, use, and protect your personal information in compliance with GDPR and CCPA." />
         <meta name="robots" content="index, follow" />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Privacy Policy - Joel Hinton Digital Marketing",
+            "name": "Privacy Policy - AIO Growth SEO",
             "description": "Privacy Policy detailing data collection, usage, and protection practices",
-            "url": "https://joelhinton.com/privacy",
+            "url": "https://aiogrowthseo.com/privacy",
             "publisher": {
               "@type": "Organization",
-              "name": "Joel Hinton Digital Marketing"
+              "name": "AIO Growth SEO"
             },
             "dateModified": lastUpdated
           })}
@@ -72,12 +72,12 @@ const PrivacyPolicy = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-slate-700">
-                    Joel Hinton Digital Marketing ("we," "our," or "us") is committed to protecting your privacy. 
-                    This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website 
+                    AIO Growth SEO ("we," "our," or "us") is committed to protecting your privacy.
+                    This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website
                     or use our digital marketing services.
                   </p>
                   <p className="text-slate-700">
-                    This policy applies to our website (joelhinton.com), our marketing consultation services, 
+                    This policy applies to our website (aiogrowthseo.com), our marketing consultation services,
                     and any related services we provide. By using our services, you consent to the collection and use of information 
                     in accordance with this policy.
                   </p>
@@ -299,7 +299,7 @@ const PrivacyPolicy = () => {
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4 text-blue-600" />
-                      <span className="text-slate-700">Email: privacy@joelhintonmarketing.com</span>
+                      <span className="text-slate-700">Email: privacy@aiogrowthseo.com</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Phone className="w-4 h-4 text-blue-600" />
@@ -307,7 +307,7 @@ const PrivacyPolicy = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <FileText className="w-4 h-4 text-blue-600" />
-                      <span className="text-slate-700">Mail: Joel Hinton Digital Marketing, Daytona Beach, FL 32114</span>
+                      <span className="text-slate-700">Mail: AIO Growth SEO, Daytona Beach, FL 32114</span>
                     </div>
                   </div>
                 </CardContent>

@@ -32,24 +32,24 @@ const Navigation = () => {
   }, []);
 
   const servicesItems = [
-    { 
-      label: "View All Services", 
-      href: "/services", 
+    {
+      label: "View All Services",
+      href: "/services",
       description: "Complete overview of all marketing services",
       isMainLink: true
     },
-    { 
-      label: "SEO Services", 
-      href: "/seo-services", 
+    {
+      label: "SEO Services",
+      href: "/seo-services",
       description: "Psychology-driven search optimization",
       subItems: [
         { label: "Local SEO", href: "/local-seo", description: "Florida market domination" },
         { label: "GEO Optimization", href: "/geo-optimization", description: "AI search optimization" },
       ]
     },
-    { label: "Growth Marketing", href: "/growth-marketing", description: "Data-driven growth strategies" },
-    { label: "Paid Advertising", href: "/paid-advertising", description: "Performance-based ad campaigns" },
-    { label: "Vibe Coding", href: "/vibe-coding", description: "Custom AI tools & automation" },
+    { label: "E-commerce SEO", href: "/ecommerce-seo", description: "Online store optimization" },
+    { label: "Local Lead Generation", href: "/local-lead-generation", description: "Google Ads & Facebook leads for local businesses" },
+    { label: "Custom Tools & Automation", href: "/custom-tools-automation", description: "Custom marketing tools & workflow automation" },
   ];
   const mainNavItems = [
     { label: "Home", href: "/" },
@@ -80,10 +80,10 @@ const Navigation = () => {
             </div>
             <div>
               <div className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
-                Joel Hinton
+                AIO Growth SEO
               </div>
               <div className="text-xs text-muted-foreground -mt-1 group-hover:text-muted-foreground/80 transition-colors duration-300">
-                Digital Marketing
+                Central Florida Marketing
               </div>
             </div>
           </Link>
@@ -98,12 +98,12 @@ const Navigation = () => {
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
                       onMouseEnter={() => setIsServicesOpen(true)}
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-accent/50 hover:text-accent-foreground flex items-center gap-1 ${
-                        isServicesOpen || location.pathname.startsWith('/seo-services') || 
-                        location.pathname.startsWith('/growth-marketing') || 
-                        location.pathname.startsWith('/paid-advertising') ||
-                        location.pathname.startsWith('/vibe-coding') || 
-                        location.pathname.startsWith('/local-seo') || 
-                        location.pathname.startsWith('/geo-optimization')
+                        isServicesOpen || location.pathname.startsWith('/seo-services') ||
+                        location.pathname.startsWith('/local-lead-generation') ||
+                        location.pathname.startsWith('/custom-tools-automation') ||
+                        location.pathname.startsWith('/local-seo') ||
+                        location.pathname.startsWith('/geo-optimization') ||
+                        location.pathname.startsWith('/ecommerce-seo')
                           ? "text-primary bg-primary/10"
                           : "text-muted-foreground hover:text-foreground"
                       }`}

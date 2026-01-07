@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Clock, Phone, Mail, Car, Globe, CheckCircle, ArrowRight, Home } from 'lucide-react';
+import { MapPin, Clock, Phone, Mail, Car, CheckCircle, ArrowRight, Home, Users, Building2, Waves, TreePine } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -16,29 +16,29 @@ const AreasWeServe = () => {
   return (
     <>
       <Helmet>
-        <title>Areas We Serve | Florida Digital Marketing Services | Joel Hinton</title>
-        <meta name="description" content="Digital marketing services across Florida from our Daytona Beach base. Serving Orlando, Tampa, Jacksonville, Miami, Fort Lauderdale with local market expertise and nationwide remote consultation." />
-        <meta name="keywords" content="Florida digital marketing areas, Orlando marketing, Tampa marketing, Jacksonville marketing, Miami marketing, Fort Lauderdale marketing, Daytona Beach marketing" />
+        <title>Areas We Serve | Volusia & Flagler County Marketing Expert | AIO Growth SEO</title>
+        <meta name="description" content="Hyper-local digital marketing services for Volusia and Flagler Counties. Serving Daytona Beach, Ormond Beach, Port Orange, New Smyrna Beach, Palm Coast, DeLand, Holly Hill, DeBary, and Sanford with deep community expertise." />
+        <meta name="keywords" content="Volusia County marketing, Flagler County marketing, Daytona Beach marketing, Ormond Beach SEO, Port Orange marketing, New Smyrna Beach marketing, Palm Coast marketing, local business marketing" />
         <meta name="robots" content="index, follow" />
-        
-        <meta property="og:title" content="Areas We Serve | Florida Digital Marketing Services" />
-        <meta property="og:description" content="Digital marketing services across Florida with local market expertise and nationwide remote consultation capabilities." />
+
+        <meta property="og:title" content="Areas We Serve | Volusia & Flagler County Marketing Expert" />
+        <meta property="og:description" content="Hyper-local digital marketing services for Volusia and Flagler Counties with deep community expertise." />
         <meta property="og:type" content="website" />
-        
+
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Areas We Serve | Florida Digital Marketing Services" />
-        <meta name="twitter:description" content="Digital marketing services across Florida with local market expertise and nationwide remote consultation capabilities." />
-        
+        <meta name="twitter:title" content="Areas We Serve | Volusia & Flagler County Marketing Expert" />
+        <meta name="twitter:description" content="Hyper-local digital marketing services for Volusia and Flagler Counties with deep community expertise." />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Joel Hinton Digital Marketing Services",
-            "description": "Digital Marketing Services Across Florida",
-            "url": "https://joelhinton.com/areas-we-serve",
+            "name": "AIO Growth SEO Digital Marketing Services",
+            "description": "Hyper-Local Digital Marketing for Volusia & Flagler Counties",
+            "url": "https://aiogrowthseo.com/areas-we-serve",
             "provider": {
               "@type": "LocalBusiness",
-              "name": "Joel Hinton Digital Marketing",
+              "name": "AIO Growth SEO",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Daytona Beach",
@@ -47,34 +47,17 @@ const AreasWeServe = () => {
               }
             },
             "areaServed": [
-              {
-                "@type": "State",
-                "name": "Florida"
-              },
-              {
-                "@type": "City",
-                "name": "Orlando"
-              },
-              {
-                "@type": "City", 
-                "name": "Tampa"
-              },
-              {
-                "@type": "City",
-                "name": "Miami"
-              },
-              {
-                "@type": "City",
-                "name": "Jacksonville"
-              },
-              {
-                "@type": "City",
-                "name": "Fort Lauderdale"
-              },
-              {
-                "@type": "City",
-                "name": "Daytona Beach"
-              }
+              { "@type": "AdministrativeArea", "name": "Volusia County" },
+              { "@type": "AdministrativeArea", "name": "Flagler County" },
+              { "@type": "City", "name": "Daytona Beach" },
+              { "@type": "City", "name": "Ormond Beach" },
+              { "@type": "City", "name": "Port Orange" },
+              { "@type": "City", "name": "New Smyrna Beach" },
+              { "@type": "City", "name": "Palm Coast" },
+              { "@type": "City", "name": "DeLand" },
+              { "@type": "City", "name": "Holly Hill" },
+              { "@type": "City", "name": "DeBary" },
+              { "@type": "City", "name": "Sanford" }
             ]
           })}
         </script>
@@ -82,7 +65,7 @@ const AreasWeServe = () => {
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
         <Navigation />
-        
+
         <main className="pt-16">
           {/* Hero Section */}
           <section className="py-20 px-4">
@@ -90,116 +73,121 @@ const AreasWeServe = () => {
               <div className="text-center mb-16">
                 <Badge variant="secondary" className="mb-4">
                   <Home className="w-4 h-4 mr-2" />
-                  Based in Daytona Beach, FL
+                  Volusia & Flagler Counties
                 </Badge>
                 <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-                  Florida Digital Marketing Services & Areas We Serve
+                  Hyper-Local Marketing for <span className="gradient-text">Central Florida's</span> Coastal Communities
                 </h1>
                 <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8 leading-relaxed">
-                  Native Florida expertise from Daytona Beach to Miami. I understand the unique psychology of each market - 
-                  from Disney World dreamers to South Beach luxury seekers. Local insights, proven results, statewide reach.
+                  I don't just serve Central Florida—I live here, work here, and know every neighborhood.
+                  From Ormond Beach's upscale charm to New Smyrna's surf culture, from Palm Coast's growing families
+                  to DeLand's historic downtown, I understand what makes each community unique.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     variant="hero"
                     onClick={() => openDialog()}
                   >
                     <Phone className="w-5 h-5 mr-2" />
                     Schedule Local Consultation
                   </Button>
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     variant="outline"
-                    onClick={() => openDialog()}
+                    onClick={() => {
+                      selectService('Community Marketing Strategy');
+                      openDialog();
+                    }}
                   >
-                    <Globe className="w-5 h-5 mr-2" />
-                    Remote Services Available
+                    <MapPin className="w-5 h-5 mr-2" />
+                    Find Your Community
                   </Button>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Florida Expertise Overview */}
+          {/* Local Expertise Overview */}
           <section className="py-16 px-4 bg-white">
             <div className="container mx-auto max-w-6xl">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                    Native Florida Market Expertise
+                    True Hyper-Local Expertise
                   </h2>
                   <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                    Born and raised in Daytona Beach, I've spent my entire career understanding Florida's diverse markets. 
-                    From NASCAR culture to snowbird seasons, hurricane psychology to tourism peaks - I know what makes Florida consumers tick.
+                    Generic marketing agencies treat all Florida markets the same. I know that Ormond Beach families
+                    shop differently than Port Orange residents, and Palm Coast newcomers have different needs than
+                    established DeLand business owners. This hyper-local knowledge drives real results.
                   </p>
-                  
+
                   <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-slate-800">20+ Years Florida Experience</h4>
-                        <p className="text-slate-600 text-sm">Deep understanding of regional cultures, seasonal patterns, and consumer psychology</p>
+                        <h4 className="font-semibold text-slate-800">Born & Raised in Volusia County</h4>
+                        <p className="text-slate-600 text-sm">Deep roots and genuine understanding of our coastal communities</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-slate-800">200+ Florida Success Stories</h4>
-                        <p className="text-slate-600 text-sm">Proven track record across tourism, healthcare, real estate, and tech industries</p>
+                        <h4 className="font-semibold text-slate-800">200+ Local Business Success Stories</h4>
+                        <p className="text-slate-600 text-sm">Proven track record with restaurants, medical practices, retail, and services</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-slate-800">Psychology-Driven Approach</h4>
-                        <p className="text-slate-600 text-sm">Understanding what motivates each Florida market for maximum conversion impact</p>
+                        <h4 className="font-semibold text-slate-800">Community-First Approach</h4>
+                        <p className="text-slate-600 text-sm">Marketing that builds trust and reflects local values</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-slate-800">Bilingual Capabilities</h4>
-                        <p className="text-slate-600 text-sm">Serving Florida's diverse Hispanic and international communities</p>
+                        <h4 className="font-semibold text-slate-800">Neighborhood-Level Targeting</h4>
+                        <p className="text-slate-600 text-sm">Precision marketing that reaches the right customers in the right communities</p>
                       </div>
                     </div>
                   </div>
-                  
-                  <Button size="lg" variant="outline" onClick={() => selectService('Florida Market Analysis')}>
+
+                  <Button size="lg" variant="outline" onClick={() => openDialog()}>
                     <Mail className="w-5 h-5 mr-2" />
-                    Get Florida Market Analysis
+                    Get Local Market Analysis
                   </Button>
                 </div>
 
                 <div className="relative">
-                  <Card className="p-8 bg-gradient-to-br from-blue-50 to-purple-50">
+                  <Card className="p-8 bg-gradient-to-br from-blue-50 to-green-50">
                     <div className="text-center">
                       <MapPin className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                      <h3 className="text-2xl font-bold text-slate-900 mb-4">Daytona Beach Headquarters</h3>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-4">Daytona Beach Home Base</h3>
                       <p className="text-slate-600 mb-6">
-                        Strategically located in the heart of Florida, providing easy access to all major markets 
-                        while maintaining deep local roots and understanding.
+                        Centrally located to serve all of Volusia and Flagler Counties with
+                        in-person meetings, local insights, and rapid response times.
                       </p>
-                      
+
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div className="text-center">
                           <Clock className="w-6 h-6 text-green-600 mx-auto mb-1" />
-                          <p className="font-semibold">1.5 hrs to Orlando</p>
+                          <p className="font-semibold">10 min to Ormond</p>
                         </div>
                         <div className="text-center">
                           <Clock className="w-6 h-6 text-blue-600 mx-auto mb-1" />
-                          <p className="font-semibold">2 hrs to Jacksonville</p>
+                          <p className="font-semibold">15 min to Port Orange</p>
                         </div>
                         <div className="text-center">
                           <Clock className="w-6 h-6 text-purple-600 mx-auto mb-1" />
-                          <p className="font-semibold">3 hrs to Tampa</p>
+                          <p className="font-semibold">25 min to NSB</p>
                         </div>
                         <div className="text-center">
-                          <Clock className="w-6 h-6 text-pink-600 mx-auto mb-1" />
-                          <p className="font-semibold">4 hrs to Miami</p>
+                          <Clock className="w-6 h-6 text-teal-600 mx-auto mb-1" />
+                          <p className="font-semibold">30 min to Palm Coast</p>
                         </div>
                       </div>
                     </div>
@@ -209,16 +197,18 @@ const AreasWeServe = () => {
             </div>
           </section>
 
-          {/* Service Areas */}
+          {/* Primary Service Areas - Coastal Communities */}
           <section className="py-16 px-4 bg-slate-50">
             <div className="container mx-auto max-w-6xl">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                  Primary Service Areas
-                </h2>
+              <div className="text-center mb-12">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <Waves className="w-6 h-6 text-blue-600" />
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+                    Coastal Communities
+                  </h2>
+                </div>
                 <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                  Specialized local market expertise across Florida's major metropolitan areas. 
-                  Each market receives customized strategies based on regional psychology and consumer behavior.
+                  Beach towns and waterfront communities with unique tourism, lifestyle, and local business dynamics.
                 </p>
               </div>
 
@@ -236,34 +226,20 @@ const AreasWeServe = () => {
                         <Badge variant="secondary" className="text-xs">Volusia County</Badge>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-600">
-                      <Car className="w-4 h-4" />
-                      <span>Local Presence</span>
-                    </div>
                   </CardHeader>
                   <CardContent>
                     <p className="text-slate-600 mb-4 text-sm">
-                      My home market advantage - deep NASCAR culture, motorsports tourism, beach lifestyle, 
-                      and Spring Break marketing expertise.
+                      Motorsports capital with NASCAR culture, beach tourism, and vibrant local business community.
                     </p>
-                    
+
                     <div className="mb-4">
-                      <h4 className="font-semibold text-slate-800 mb-2">Key Markets:</h4>
                       <div className="flex flex-wrap gap-1">
                         <Badge variant="outline" className="text-xs">NASCAR Events</Badge>
                         <Badge variant="outline" className="text-xs">Beach Tourism</Badge>
-                        <Badge variant="outline" className="text-xs">Motorcycle Week</Badge>
-                        <Badge variant="outline" className="text-xs">Spring Break</Badge>
+                        <Badge variant="outline" className="text-xs">Bike Week</Badge>
                       </div>
                     </div>
-                    
-                    <div className="space-y-2 text-xs text-slate-600">
-                      <p>• Motorsports & Racing Culture</p>
-                      <p>• Beach & Coastal Tourism</p>
-                      <p>• Seasonal Event Marketing</p>
-                      <p>• Local Business Growth</p>
-                    </div>
-                    
+
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
                       <a href="/daytona-beach-digital-marketing">
@@ -274,240 +250,170 @@ const AreasWeServe = () => {
                   </CardContent>
                 </Card>
 
-                {/* Orlando */}
+                {/* Ormond Beach */}
                 <Card className="group hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-2">
-                      <MapPin className="w-6 h-6 text-purple-600" />
+                      <MapPin className="w-6 h-6 text-indigo-600" />
                       <div>
-                        <CardTitle className="text-xl">Orlando</CardTitle>
-                        <Badge variant="secondary" className="text-xs">Orange County</Badge>
+                        <CardTitle className="text-xl">Ormond Beach</CardTitle>
+                        <Badge variant="secondary" className="text-xs">Volusia County</Badge>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-600">
-                      <Car className="w-4 h-4" />
-                      <span>1.5 hours drive</span>
                     </div>
                   </CardHeader>
                   <CardContent>
                     <p className="text-slate-600 mb-4 text-sm">
-                      Theme park capital psychology - Disney World families, convention attendees, 
-                      Lake Nona medical professionals, and UCF community.
+                      Upscale coastal community with historic downtown, golf courses, and affluent professionals.
                     </p>
-                    
+
                     <div className="mb-4">
-                      <h4 className="font-semibold text-slate-800 mb-2">Key Markets:</h4>
                       <div className="flex flex-wrap gap-1">
-                        <Badge variant="outline" className="text-xs">Disney Tourism</Badge>
-                        <Badge variant="outline" className="text-xs">Convention Center</Badge>
-                        <Badge variant="outline" className="text-xs">Lake Nona</Badge>
-                        <Badge variant="outline" className="text-xs">UCF</Badge>
+                        <Badge variant="outline" className="text-xs">Historic Downtown</Badge>
+                        <Badge variant="outline" className="text-xs">Golf & Leisure</Badge>
+                        <Badge variant="outline" className="text-xs">Upscale Dining</Badge>
                       </div>
                     </div>
-                    
-                    <div className="space-y-2 text-xs text-slate-600">
-                      <p>• Theme Park Visitor Targeting</p>
-                      <p>• Convention & Business Travel</p>
-                      <p>• Medical City Marketing</p>
-                      <p>• University Community</p>
-                    </div>
-                    
+
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
-                      <a href="/orlando-digital-marketing">
-                        Orlando Services
+                      <a href="/ormond-beach-seo">
+                        Ormond Beach Services
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </a>
                     </Button>
                   </CardContent>
                 </Card>
 
-                {/* Tampa */}
-                <Card className="group hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-center gap-3 mb-2">
-                      <MapPin className="w-6 h-6 text-amber-600" />
-                      <div>
-                        <CardTitle className="text-xl">Tampa Bay</CardTitle>
-                        <Badge variant="secondary" className="text-xs">Hillsborough County</Badge>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-600">
-                      <Car className="w-4 h-4" />
-                      <span>3 hours drive</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-slate-600 mb-4 text-sm">
-                      Historic Ybor City meets modern Westshore - cultural authenticity, 
-                      financial services hub, and emerging tech corridor.
-                    </p>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-slate-800 mb-2">Key Markets:</h4>
-                      <div className="flex flex-wrap gap-1">
-                        <Badge variant="outline" className="text-xs">Ybor City</Badge>
-                        <Badge variant="outline" className="text-xs">Westshore</Badge>
-                        <Badge variant="outline" className="text-xs">Downtown</Badge>
-                        <Badge variant="outline" className="text-xs">Hyde Park</Badge>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2 text-xs text-slate-600">
-                      <p>• Cultural Heritage Marketing</p>
-                      <p>• Financial Services Professionals</p>
-                      <p>• Tech Startup Community</p>
-                      <p>• Luxury Lifestyle Targeting</p>
-                    </div>
-                    
-                    <Separator className="my-4" />
-                    <Button variant="outline" size="sm" asChild className="w-full">
-                      <a href="/tampa-growth-marketing">
-                        Tampa Services
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                {/* Jacksonville */}
-                <Card className="group hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-center gap-3 mb-2">
-                      <MapPin className="w-6 h-6 text-green-600" />
-                      <div>
-                        <CardTitle className="text-xl">Jacksonville</CardTitle>
-                        <Badge variant="secondary" className="text-xs">Duval County</Badge>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-600">
-                      <Car className="w-4 h-4" />
-                      <span>2 hours drive</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-slate-600 mb-4 text-sm">
-                      River city meets ocean beaches - maritime industries, beach communities, 
-                      military families, and the largest city in the continental US.
-                    </p>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-slate-800 mb-2">Key Markets:</h4>
-                      <div className="flex flex-wrap gap-1">
-                        <Badge variant="outline" className="text-xs">Beach Communities</Badge>
-                        <Badge variant="outline" className="text-xs">Maritime</Badge>
-                        <Badge variant="outline" className="text-xs">Military</Badge>
-                        <Badge variant="outline" className="text-xs">Downtown</Badge>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2 text-xs text-slate-600">
-                      <p>• Beach Lifestyle Marketing</p>
-                      <p>• Maritime Industry Focus</p>
-                      <p>• Military Family Services</p>
-                      <p>• Urban Professional Targeting</p>
-                    </div>
-                    
-                    <Separator className="my-4" />
-                    <Button variant="outline" size="sm" asChild className="w-full">
-                      <a href="/jacksonville-seo-consultant">
-                        Jacksonville Services
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                {/* Miami */}
-                <Card className="group hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-center gap-3 mb-2">
-                      <MapPin className="w-6 h-6 text-pink-600" />
-                      <div>
-                        <CardTitle className="text-xl">Miami-Dade</CardTitle>
-                        <Badge variant="secondary" className="text-xs">Miami-Dade County</Badge>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-600">
-                      <Car className="w-4 h-4" />
-                      <span>4 hours drive</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-slate-600 mb-4 text-sm">
-                      International gateway with Art Deco flair - luxury consumers, 
-                      bilingual marketing, international business, and vibrant nightlife culture.
-                    </p>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-slate-800 mb-2">Key Markets:</h4>
-                      <div className="flex flex-wrap gap-1">
-                        <Badge variant="outline" className="text-xs">South Beach</Badge>
-                        <Badge variant="outline" className="text-xs">Brickell</Badge>
-                        <Badge variant="outline" className="text-xs">Wynwood</Badge>
-                        <Badge variant="outline" className="text-xs">Coral Gables</Badge>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2 text-xs text-slate-600">
-                      <p>• Luxury Market Positioning</p>
-                      <p>• International Business Focus</p>
-                      <p>• Bilingual Marketing</p>
-                      <p>• Art & Culture Targeting</p>
-                    </div>
-                    
-                    <Separator className="my-4" />
-                    <Button variant="outline" size="sm" asChild className="w-full">
-                      <a href="/miami-marketing-agency">
-                        Miami Services
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                {/* Fort Lauderdale */}
+                {/* New Smyrna Beach */}
                 <Card className="group hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-2">
                       <MapPin className="w-6 h-6 text-cyan-600" />
                       <div>
-                        <CardTitle className="text-xl">Fort Lauderdale</CardTitle>
-                        <Badge variant="secondary" className="text-xs">Broward County</Badge>
+                        <CardTitle className="text-xl">New Smyrna Beach</CardTitle>
+                        <Badge variant="secondary" className="text-xs">Volusia County</Badge>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-600">
-                      <Car className="w-4 h-4" />
-                      <span>4.5 hours drive</span>
                     </div>
                   </CardHeader>
                   <CardContent>
                     <p className="text-slate-600 mb-4 text-sm">
-                      Yachting capital with sophisticated tastes - boating enthusiasts, 
-                      luxury services, Las Olas Boulevard lifestyle, and affluent communities.
+                      Premier surf town with arts district, tourism businesses, and authentic beach lifestyle.
                     </p>
-                    
+
                     <div className="mb-4">
-                      <h4 className="font-semibold text-slate-800 mb-2">Key Markets:</h4>
                       <div className="flex flex-wrap gap-1">
-                        <Badge variant="outline" className="text-xs">Las Olas</Badge>
-                        <Badge variant="outline" className="text-xs">Marina</Badge>
-                        <Badge variant="outline" className="text-xs">Beach</Badge>
-                        <Badge variant="outline" className="text-xs">Luxury</Badge>
+                        <Badge variant="outline" className="text-xs">Surf Culture</Badge>
+                        <Badge variant="outline" className="text-xs">Flagler Avenue</Badge>
+                        <Badge variant="outline" className="text-xs">Art Galleries</Badge>
                       </div>
                     </div>
-                    
-                    <div className="space-y-2 text-xs text-slate-600">
-                      <p>• Yachting Community Focus</p>
-                      <p>• Luxury Service Targeting</p>
-                      <p>• Beach Lifestyle Marketing</p>
-                      <p>• Affluent Professional Services</p>
-                    </div>
-                    
+
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
-                      <a href="/fort-lauderdale-advertising">
-                        Fort Lauderdale Services
+                      <a href="/new-smyrna-beach-marketing">
+                        New Smyrna Beach Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Palm Coast */}
+                <Card className="group hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <MapPin className="w-6 h-6 text-green-600" />
+                      <div>
+                        <CardTitle className="text-xl">Palm Coast</CardTitle>
+                        <Badge variant="secondary" className="text-xs">Flagler County</Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 mb-4 text-sm">
+                      Florida's fastest-growing city with young families, excellent schools, and booming local economy.
+                    </p>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="outline" className="text-xs">Family Community</Badge>
+                        <Badge variant="outline" className="text-xs">Top Schools</Badge>
+                        <Badge variant="outline" className="text-xs">Rapid Growth</Badge>
+                      </div>
+                    </div>
+
+                    <Separator className="my-4" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <a href="/palm-coast-marketing">
+                        Palm Coast Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Port Orange */}
+                <Card className="group hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <MapPin className="w-6 h-6 text-blue-600" />
+                      <div>
+                        <CardTitle className="text-xl">Port Orange</CardTitle>
+                        <Badge variant="secondary" className="text-xs">Volusia County</Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 mb-4 text-sm">
+                      Established residential community with loyal families, Dunlawton corridor, and strong local businesses.
+                    </p>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="outline" className="text-xs">Family Loyalty</Badge>
+                        <Badge variant="outline" className="text-xs">Dunlawton Corridor</Badge>
+                        <Badge variant="outline" className="text-xs">Established</Badge>
+                      </div>
+                    </div>
+
+                    <Separator className="my-4" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <a href="/port-orange-marketing">
+                        Port Orange Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Holly Hill */}
+                <Card className="group hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <MapPin className="w-6 h-6 text-emerald-600" />
+                      <div>
+                        <CardTitle className="text-xl">Holly Hill</CardTitle>
+                        <Badge variant="secondary" className="text-xs">Volusia County</Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 mb-4 text-sm">
+                      Tight-knit small town community with family businesses, retirees, and strong neighborhood loyalty.
+                    </p>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="outline" className="text-xs">Small Town</Badge>
+                        <Badge variant="outline" className="text-xs">Family Business</Badge>
+                        <Badge variant="outline" className="text-xs">Community Trust</Badge>
+                      </div>
+                    </div>
+
+                    <Separator className="my-4" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <a href="/holly-hill-digital-marketing">
+                        Holly Hill Services
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </a>
                     </Button>
@@ -517,74 +423,196 @@ const AreasWeServe = () => {
             </div>
           </section>
 
-          {/* Remote Services */}
+          {/* Inland Communities */}
           <section className="py-16 px-4 bg-white">
             <div className="container mx-auto max-w-6xl">
+              <div className="text-center mb-12">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <TreePine className="w-6 h-6 text-green-600" />
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+                    Inland & West Volusia Communities
+                  </h2>
+                </div>
+                <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                  Historic downtowns, suburban growth, and family-oriented communities in West Volusia and Seminole County.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* DeLand */}
+                <Card className="group hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <Building2 className="w-6 h-6 text-amber-600" />
+                      <div>
+                        <CardTitle className="text-xl">DeLand / West Volusia</CardTitle>
+                        <Badge variant="secondary" className="text-xs">Volusia County</Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 mb-4 text-sm">
+                      Historic downtown charm with Stetson University, antique shops, and growing professional services.
+                    </p>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="outline" className="text-xs">Historic Downtown</Badge>
+                        <Badge variant="outline" className="text-xs">Stetson University</Badge>
+                        <Badge variant="outline" className="text-xs">Antiques</Badge>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2 text-xs text-slate-600">
+                      <p>• Downtown retail & restaurants</p>
+                      <p>• Professional services</p>
+                      <p>• University community</p>
+                      <p>• Historic preservation businesses</p>
+                    </div>
+
+                    <Separator className="my-4" />
+                    <Button variant="outline" size="sm" className="w-full" onClick={() => openDialog()}>
+                      DeLand Marketing Inquiry
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* DeBary */}
+                <Card className="group hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <Users className="w-6 h-6 text-green-600" />
+                      <div>
+                        <CardTitle className="text-xl">DeBary</CardTitle>
+                        <Badge variant="secondary" className="text-xs">Volusia County</Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 mb-4 text-sm">
+                      Suburban family community near the St. Johns River with local restaurants, medical offices, and services.
+                    </p>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="outline" className="text-xs">Family Community</Badge>
+                        <Badge variant="outline" className="text-xs">Local Services</Badge>
+                        <Badge variant="outline" className="text-xs">Suburban</Badge>
+                      </div>
+                    </div>
+
+                    <Separator className="my-4" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <a href="/debary-digital-marketing">
+                        DeBary Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Sanford */}
+                <Card className="group hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <Building2 className="w-6 h-6 text-amber-600" />
+                      <div>
+                        <CardTitle className="text-xl">Sanford</CardTitle>
+                        <Badge variant="secondary" className="text-xs">Seminole County</Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 mb-4 text-sm">
+                      Historic downtown revival with antique shops, professional services, and growing family community.
+                    </p>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="outline" className="text-xs">Historic Revival</Badge>
+                        <Badge variant="outline" className="text-xs">Antique District</Badge>
+                        <Badge variant="outline" className="text-xs">Professional</Badge>
+                      </div>
+                    </div>
+
+                    <Separator className="my-4" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <a href="/sanford-seo-services">
+                        Sanford Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </section>
+
+          {/* Why Hyper-Local Matters */}
+          <section className="py-16 px-4 bg-gradient-to-r from-blue-50 to-green-50">
+            <div className="container mx-auto max-w-6xl">
               <div className="text-center mb-16">
-                <Globe className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                  Nationwide Remote Consultation
+                  Why Hyper-Local Marketing Works
                 </h2>
                 <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                  While Florida is our specialty, psychology-driven marketing principles work everywhere. 
-                  I provide remote digital marketing services nationwide with the same depth of analysis and strategic thinking.
+                  Generic statewide marketing wastes your budget on people who'll never become customers.
+                  Hyper-local expertise means every dollar targets the neighbors, families, and businesses in your community.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <Card className="text-center">
                   <CardHeader>
-                    <Globe className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-                    <CardTitle>Virtual Strategy Sessions</CardTitle>
+                    <MapPin className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+                    <CardTitle>Neighborhood-Level Targeting</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-slate-600 mb-4">
-                      Full-service digital marketing consultation via video conference. 
-                      Same strategic depth, delivered remotely.
+                      I know which neighborhoods shop locally, which areas are growing, and where your ideal customers live.
                     </p>
                     <ul className="text-sm text-slate-600 space-y-2">
-                      <li>• Market psychology analysis</li>
-                      <li>• Competitor landscape review</li>
-                      <li>• Custom strategy development</li>
-                      <li>• Implementation roadmaps</li>
+                      <li>• ZIP code precision targeting</li>
+                      <li>• Community-specific messaging</li>
+                      <li>• Local search domination</li>
+                      <li>• Neighborhood reputation building</li>
                     </ul>
                   </CardContent>
                 </Card>
 
                 <Card className="text-center">
                   <CardHeader>
-                    <CheckCircle className="w-10 h-10 text-green-600 mx-auto mb-4" />
-                    <CardTitle>Proven Remote Success</CardTitle>
+                    <Users className="w-10 h-10 text-green-600 mx-auto mb-4" />
+                    <CardTitle>Community Psychology</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-slate-600 mb-4">
-                      Successfully served clients in 25+ states with the same results-driven approach 
-                      that works in Florida markets.
+                      Understanding local values, seasonal patterns, and community events that drive purchasing decisions.
                     </p>
                     <ul className="text-sm text-slate-600 space-y-2">
-                      <li>• California tech startups</li>
-                      <li>• New York financial services</li>
-                      <li>• Texas healthcare systems</li>
-                      <li>• Nationwide e-commerce brands</li>
+                      <li>• Seasonal tourism patterns</li>
+                      <li>• Local event tie-ins</li>
+                      <li>• Community value alignment</li>
+                      <li>• Trust-building strategies</li>
                     </ul>
                   </CardContent>
                 </Card>
 
                 <Card className="text-center">
                   <CardHeader>
-                    <Phone className="w-10 h-10 text-purple-600 mx-auto mb-4" />
-                    <CardTitle>Flexible Communication</CardTitle>
+                    <CheckCircle className="w-10 h-10 text-purple-600 mx-auto mb-4" />
+                    <CardTitle>Proven Local Results</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-slate-600 mb-4">
-                      Multiple communication channels ensure seamless collaboration 
-                      regardless of location or time zone.
+                      200+ local businesses have grown with strategies built specifically for their community.
                     </p>
                     <ul className="text-sm text-slate-600 space-y-2">
-                      <li>• Video conferencing</li>
-                      <li>• Phone consultations</li>
-                      <li>• Email strategy reviews</li>
-                      <li>• Slack/Teams integration</li>
+                      <li>• Local business case studies</li>
+                      <li>• Community referral networks</li>
+                      <li>• Repeat customer focus</li>
+                      <li>• Long-term partnerships</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -593,36 +621,39 @@ const AreasWeServe = () => {
           </section>
 
           {/* CTA Section */}
-          <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-700">
+          <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-green-600">
             <div className="container mx-auto max-w-4xl text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Ready to Dominate Your Market?
+                Ready to Dominate Your Local Market?
               </h2>
               <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Whether you're in Florida or anywhere across the US, get a free marketing audit 
-                tailored to your local market psychology and competitive landscape.
+                Get a free marketing audit tailored to your specific community. I'll show you exactly how to
+                reach more local customers and build lasting relationships in your neighborhood.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   variant="secondary"
                   onClick={() => openDialog()}
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Schedule Local Consultation
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
+                <Button
+                  size="lg"
+                  variant="outline"
                   className="border-white text-white hover:bg-white hover:text-blue-600"
-                  onClick={() => selectService('Remote Strategy Session')}
+                  onClick={() => {
+                    selectService('Community Marketing Analysis');
+                    openDialog();
+                  }}
                 >
-                  <Globe className="w-5 h-5 mr-2" />
-                  Remote Strategy Session
+                  <MapPin className="w-5 h-5 mr-2" />
+                  Get Community Analysis
                 </Button>
               </div>
               <p className="text-blue-200 mt-6 text-sm">
-                Free consultations available • No obligation • Results-focused approach
+                Serving Volusia County, Flagler County, and Seminole County communities
               </p>
             </div>
           </section>
@@ -631,11 +662,11 @@ const AreasWeServe = () => {
         <Footer />
       </div>
 
-      <ContactDialog 
+      <ContactDialog
         isOpen={isOpen}
         onClose={closeDialog}
         title="Schedule Your Local Consultation"
-        description="Let's discuss your local market opportunities and create a personalized marketing strategy for your area."
+        description="Let's discuss your local market opportunities and create a personalized marketing strategy for your community."
         defaultService={selectedService}
         businessTypes={businessTypes.general}
       />

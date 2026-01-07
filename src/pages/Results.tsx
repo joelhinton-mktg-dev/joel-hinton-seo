@@ -72,7 +72,7 @@ const Results = () => {
         "$15,000 additional monthly revenue",
         "40% increase in subscription conversions"
       ],
-      testimonial: "In just 45 days, Joel's SEO strategy drove a 200% increase in traffic for Privada Cigar Club — proof that real SEO works faster and smarter than traditional agency approaches.",
+      testimonial: "In just 45 days, AIO Growth's SEO strategy drove a 200% increase in traffic for Privada Cigar Club — proof that real SEO works faster and smarter than traditional agency approaches.",
       author: "Brian Descind, Founder",
       keyWin: "Technical fixes create immediate improvements"
     },
@@ -89,7 +89,7 @@ const Results = () => {
         "Geographic expansion to 3 new markets",
         "400% ROI on advertising spend"
       ],
-      testimonial: "Thanks to Joel and his team, we've not only ranked nationally for our industry's top SEO keywords, but they've also helped us generate over 100 leads per month through paid media.",
+      testimonial: "Thanks to AIO Growth and their team, we've not only ranked nationally for our industry's top SEO keywords, but they've also helped us generate over 100 leads per month through paid media.",
       author: "Juanita Couch, Super Cash For Houses",
       keyWin: "Eliminated dependence on expensive lead generation services"
     },
@@ -106,7 +106,7 @@ const Results = () => {
         "$240,000 additional annual revenue",
         "Systematic growth processes established"
       ],
-      testimonial: "Joel's psychology-driven approach transformed our conversion funnel. We went from 2% to 8% trial-to-paid conversion in 90 days.",
+      testimonial: "AIO Growth's psychology-driven approach transformed our conversion funnel. We went from 2% to 8% trial-to-paid conversion in 90 days.",
       author: "SaaS Founder",
       keyWin: "Industry-specific psychological triggers in automation"
     }
@@ -145,7 +145,7 @@ const Results = () => {
 
   const testimonials = [
     {
-      quote: "Joel's approach to SEO is completely different from every other agency we worked with. Instead of promising vague 'ongoing optimization,' he fixed our fundamental issues once and gave us systems that keep working.",
+      quote: "AIO Growth's approach to SEO is completely different from every other agency we worked with. Instead of promising vague 'ongoing optimization,' they fixed our fundamental issues once and gave us systems that keep working.",
       author: "Sarah M., E-commerce Director",
       result: "180% revenue growth",
       rating: 5
@@ -157,7 +157,7 @@ const Results = () => {
       rating: 5
     },
     {
-      quote: "Most consultants give you a report and disappear. Joel built us systems that run themselves and keep generating leads months after the project ended. That's the difference between expense and investment.",
+      quote: "Most consultants give you a report and disappear. AIO Growth built us systems that run themselves and keep generating leads months after the project ended. That's the difference between expense and investment.",
       author: "Lisa K., Professional Services",
       result: "250% lead increase",
       rating: 5
@@ -167,13 +167,13 @@ const Results = () => {
   return (
     <>
       <Helmet>
-        <title>Client Results & Case Studies | Proven Marketing ROI | Joel Hinton</title>
-        <meta name="description" content="Proven SEO and digital marketing results from Joel Hinton. Real case studies showing increased rankings, traffic, and revenue for Florida clients." />
-        <meta name="keywords" content="marketing results, case studies, client testimonials, SEO results, growth marketing ROI" />
+        <title>Client Results & Case Studies | Proven Marketing ROI | AIO Growth SEO</title>
+        <meta name="description" content="Proven SEO and digital marketing results from AIO Growth SEO. Real case studies showing increased rankings, traffic, and revenue for Central Florida clients." />
+        <meta name="keywords" content="marketing results, case studies, client testimonials, SEO results, growth marketing ROI, Volusia County, Flagler County" />
         <meta name="robots" content="index, follow" />
-        
-        <meta property="og:title" content="Client Results & Case Studies | Proven Marketing ROI | Joel Hinton" />
-        <meta property="og:description" content="Proven SEO and digital marketing results from Joel Hinton. Real case studies showing increased rankings, traffic, and revenue." />
+
+        <meta property="og:title" content="Client Results & Case Studies | Proven Marketing ROI | AIO Growth SEO" />
+        <meta property="og:description" content="Proven SEO and digital marketing results from AIO Growth SEO. Real case studies showing increased rankings, traffic, and revenue." />
         <meta property="og:type" content="website" />
       </Helmet>
 
@@ -440,7 +440,7 @@ const Results = () => {
       <ProfessionalServiceSchema 
         serviceName="Marketing Results & Case Studies"
         serviceDescription="Proven marketing results and case studies showcasing successful SEO, growth marketing, and digital marketing campaigns"
-        serviceUrl="https://joelhintonmarketing.com/results"
+        serviceUrl="https://aiogrowthseo.com/results"
         serviceType="Marketing Results"
       />
     </>

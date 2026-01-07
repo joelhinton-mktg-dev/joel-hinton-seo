@@ -77,41 +77,41 @@ const TestimonialsSection = () => {
 
         {/* Trust Indicators */}
         <div className="mt-16 text-center">
-          <p className="text-muted-foreground mb-8">Trusted by businesses across Florida and nationwide</p>
+          <p className="text-muted-foreground mb-8">Trusted by businesses across Volusia & Flagler Counties</p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <Link 
-              to="/daytona-beach-digital-marketing" 
+            <Link
+              to="/daytona-beach-digital-marketing"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Daytona Beach
             </Link>
             <div className="w-px h-8 bg-border"></div>
-            <Link 
-              to="/orlando-digital-marketing" 
+            <Link
+              to="/port-orange-marketing"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
             >
-              Orlando
+              Port Orange
             </Link>
             <div className="w-px h-8 bg-border"></div>
-            <Link 
-              to="/tampa-growth-marketing" 
+            <Link
+              to="/ormond-beach-seo"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
             >
-              Tampa
+              Ormond Beach
             </Link>
             <div className="w-px h-8 bg-border"></div>
-            <Link 
-              to="/jacksonville-seo-consultant" 
+            <Link
+              to="/palm-coast-marketing"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
             >
-              Jacksonville
+              Palm Coast
             </Link>
             <div className="w-px h-8 bg-border"></div>
-            <Link 
-              to="/miami-marketing-agency" 
+            <Link
+              to="/new-smyrna-beach-marketing"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
             >
-              Miami
+              New Smyrna Beach
             </Link>
           </div>
         </div>

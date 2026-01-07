@@ -56,31 +56,34 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Joel Hinton | Florida SEO Expert & Psychology-Driven Marketer</title>
-        <meta name="description" content="Meet Joel Hinton, Florida SEO expert specializing in psychology-driven digital marketing. 10+ years helping businesses dominate search results." />
-        <meta name="keywords" content="Joel Hinton, Florida SEO expert, psychology-driven marketing, digital marketing consultant, search engine optimization" />
+        <title>About AIO Growth SEO | Central Florida Digital Marketing Team</title>
+        <meta name="description" content="AIO Growth SEO is a psychology-driven digital marketing team serving Volusia & Flagler Counties. We combine consumer psychology with technical expertise to help local businesses grow." />
+        <meta name="keywords" content="AIO Growth SEO, Central Florida marketing team, Volusia County SEO, psychology-driven marketing, Daytona Beach digital marketing" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Joel Hinton",
-            "jobTitle": "Digital Marketing Consultant & Psychology Expert",
-            "description": "Marketing consultant specializing in consumer psychology and AI optimization",
+            "@type": "Organization",
+            "name": "AIO Growth SEO",
+            "description": "Psychology-driven digital marketing agency specializing in SEO, GEO optimization, and AI-powered growth strategies for Central Florida businesses",
+            "url": "https://aiogrowthseo.com",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Daytona Beach",
-              "addressRegion": "FL"
+              "addressRegion": "FL",
+              "addressCountry": "US"
             },
-            "expertise": [
-              "Consumer Psychology",
-              "SEO & GEO Optimization", 
-              "AI Marketing Automation",
-              "Conversion Psychology"
+            "areaServed": [
+              "Volusia County",
+              "Flagler County",
+              "Central Florida"
             ],
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Joel Hinton Digital Marketing"
-            }
+            "knowsAbout": [
+              "Consumer Psychology",
+              "SEO & GEO Optimization",
+              "AI Marketing Automation",
+              "Conversion Psychology",
+              "Local Lead Generation"
+            ]
           })}
         </script>
       </Helmet>
@@ -89,9 +92,9 @@ const About = () => {
         <Navigation />
         
         {/* Breadcrumb */}
-        <PageBreadcrumb 
+        <PageBreadcrumb
           items={[
-            { label: "About Joel", current: true }
+            { label: "About Us", current: true }
           ]}
         />
         
@@ -106,21 +109,21 @@ const About = () => {
               <div className="mb-6">
                 <Badge variant="outline" className="mb-4">
                   <Brain className="w-4 h-4 mr-2" />
-                  Psychology-Driven Marketing Expert
+                  Psychology-Driven Marketing Team
                 </Badge>
               </div>
-              
+
               <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-                Meet Joel Hinton: AI Agents, Automation & SEO Growth Expert
+                About AIO Growth SEO: Your Central Florida Growth Partners
               </h1>
-              
+
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                The marketing consultant who combines consumer psychology with technical expertise to help businesses outthink and outrank their competition.
+                A digital marketing team that combines consumer psychology with technical expertise to help Volusia & Flagler County businesses outthink and outrank their competition.
               </p>
-              
+
               <div className="bg-card/50 backdrop-blur-sm border border-border rounded-lg p-6 mb-8">
                 <p className="text-lg font-medium text-foreground">
-                  "SEO is Propaganda. GEO is Psychology. I help brands dominate AI search by understanding how people—and algorithms—actually think."
+                  "SEO is Propaganda. GEO is Psychology. We help brands dominate AI search by understanding how people—and algorithms—actually think."
                 </p>
               </div>
             </div>
@@ -143,13 +146,13 @@ const About = () => {
                 <CardContent className="p-8">
                   <div className="prose prose-lg max-w-none text-muted-foreground">
                     <p className="text-lg leading-relaxed mb-6">
-                      After 15+ years in digital marketing, I've learned that most agencies focus on the wrong things. They obsess over keywords, ad placements, and technical tricks while completely ignoring the most important factor: how people actually make decisions.
+                      After 15+ years in digital marketing, we've learned that most agencies focus on the wrong things. They obsess over keywords, ad placements, and technical tricks while completely ignoring the most important factor: how people actually make decisions.
                     </p>
                     <p className="text-lg leading-relaxed mb-6">
                       Traditional marketing treats customers like search engines—feed them the right keywords and they'll convert. But real growth comes from understanding the psychology behind every click, every search, and every purchase decision.
                     </p>
                     <p className="text-lg leading-relaxed">
-                      That's why I built my entire approach around consumer decision science, rooted in lessons from Edward Bernays' work and modern behavioral psychology. When you understand what motivates people at a psychological level, marketing becomes predictable rather than hopeful.
+                      That's why we built our entire approach around consumer decision science, rooted in lessons from Edward Bernays' work and modern behavioral psychology. When you understand what motivates people at a psychological level, marketing becomes predictable rather than hopeful.
                     </p>
                   </div>
                 </CardContent>
@@ -162,21 +165,21 @@ const About = () => {
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">The Journey to Marketing Psychology</h2>
-              
+              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">How AIO Growth SEO Started</h2>
+
               <div className="grid md:grid-cols-2 gap-8">
                 <Card>
                   <CardContent className="p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <TrendingUp className="w-8 h-8 text-primary" />
-                      <h3 className="text-xl font-semibold">Early Career Lessons</h3>
+                      <h3 className="text-xl font-semibold">Lessons From the Industry</h3>
                     </div>
                     <p className="text-muted-foreground leading-relaxed">
-                      I started like most marketers—chasing the latest tactics, celebrating vanity metrics, and wondering why campaigns that looked great on paper failed to move business needles. After managing millions in ad spend and countless SEO campaigns, I realized something was fundamentally wrong with how our industry approaches growth.
+                      Our founding team started like most marketers—chasing the latest tactics, celebrating vanity metrics, and wondering why campaigns that looked great on paper failed to move business needles. After managing millions in ad spend and countless SEO campaigns, we realized something was fundamentally wrong with how the industry approaches growth.
                     </p>
                   </CardContent>
                 </Card>
-                
+
                 <Card>
                   <CardContent className="p-8">
                     <div className="flex items-center gap-3 mb-6">
@@ -184,7 +187,7 @@ const About = () => {
                       <h3 className="text-xl font-semibold">The Psychology-First Revelation</h3>
                     </div>
                     <p className="text-muted-foreground leading-relaxed">
-                      The turning point came when I discovered the connection between Edward Bernays' propaganda techniques and modern consumer behavior. I started rebuilding my methodology around one question: "What would make me, as a customer, actually want to buy this?" This shift changed everything.
+                      The turning point came when we discovered the connection between Edward Bernays' propaganda techniques and modern consumer behavior. We started rebuilding our methodology around one question: "What would make me, as a customer, actually want to buy this?" This shift became the foundation of AIO Growth SEO.
                     </p>
                   </CardContent>
                 </Card>
@@ -197,7 +200,7 @@ const About = () => {
         <section className="py-16">
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Expertise & Credentials</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Team's Expertise</h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 <Card className="text-center">
@@ -234,7 +237,7 @@ const About = () => {
               </div>
               
               <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-6">15+ Years of Marketing Evolution</h3>
+                <h3 className="text-2xl font-bold mb-6">15+ Years of Combined Marketing Expertise</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-semibold mb-3 text-primary">Continuous Learning & Innovation</h4>
@@ -266,28 +269,28 @@ const About = () => {
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center justify-center gap-3 mb-8">
                 <MapPin className="w-8 h-8 text-primary" />
-                <h2 className="text-3xl md:text-4xl font-bold">The Daytona Beach Advantage</h2>
+                <h2 className="text-3xl md:text-4xl font-bold">Our Central Florida Roots</h2>
               </div>
-              
+
               <Card>
                 <CardContent className="p-8">
                   <div className="prose prose-lg max-w-none">
                     <p className="text-lg leading-relaxed mb-6 text-muted-foreground">
-                      Based in Daytona Beach, Florida, I have unique insight into both local business challenges and seasonal market dynamics. Living through hurricane seasons, Speedway events, and tourism fluctuations has taught me how external factors impact business growth—and how to build marketing systems that adapt.
+                      Based in Daytona Beach, our team has deep roots in Volusia & Flagler Counties. We understand local business challenges and seasonal market dynamics firsthand. Living through hurricane seasons, Speedway events, and tourism fluctuations has taught us how external factors impact business growth—and how to build marketing systems that adapt.
                     </p>
                     <p className="text-lg leading-relaxed text-muted-foreground">
-                      This local perspective, combined with national and international client experience, gives me a unique understanding of how psychology-driven marketing works across different markets, seasons, and customer segments.
+                      This hyper-local perspective, combined with proven marketing methodologies, gives us a unique understanding of how psychology-driven marketing works for Central Florida businesses across different seasons and customer segments.
                     </p>
                   </div>
                   
                   <div className="grid md:grid-cols-2 gap-6 mt-8">
                     <div>
-                      <h4 className="font-semibold mb-3 text-primary">Local Business Understanding</h4>
+                      <h4 className="font-semibold mb-3 text-primary">Deep Local Market Knowledge</h4>
                       <ul className="space-y-2 text-muted-foreground text-sm">
-                        <li>• Seasonal Marketing & Tourism Dynamics</li>
+                        <li>• Volusia & Flagler County Market Dynamics</li>
                         <li>• Community Psychology & Local Customer Behavior</li>
-                        <li>• Economic Factors & Purchasing Psychology</li>
-                        <li>• Florida Business Landscape & Opportunities</li>
+                        <li>• Seasonal Tourism & Event-Driven Marketing</li>
+                        <li>• Central Florida Business Landscape</li>
                       </ul>
                     </div>
                     <div className="flex items-center justify-center">
@@ -313,10 +316,10 @@ const About = () => {
                 <CardContent className="p-8">
                   <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
                     <Shield className="w-6 h-6 text-primary" />
-                    Why I Don't Run a Traditional Agency
+                    Why We're Not a Traditional Agency
                   </h3>
                   <p className="text-lg leading-relaxed text-muted-foreground mb-6">
-                    I deliberately chose not to build a traditional marketing agency for one simple reason: agency models create conflicts of interest that hurt client results.
+                    We deliberately chose not to build a traditional marketing agency for one simple reason: agency models create conflicts of interest that hurt client results.
                   </p>
                   <p className="text-lg leading-relaxed text-muted-foreground">
                     When agencies charge percentages of ad spend, they profit when you spend more, not when you spend efficiently. When they require monthly retainers, they benefit from dependency, not from building systems that work independently.
@@ -327,7 +330,7 @@ const About = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <Card>
                   <CardContent className="p-6">
-                    <h4 className="font-semibold mb-4 text-primary">My Business Philosophy</h4>
+                    <h4 className="font-semibold mb-4 text-primary">Our Business Philosophy</h4>
                     <ul className="space-y-3 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-1">•</span>
@@ -377,22 +380,22 @@ const About = () => {
           </div>
         </section>
 
-        {/* Personal Connection Section */}
+        {/* Team Culture & Values Section */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex items-center justify-center gap-3 mb-8">
                 <Heart className="w-8 h-8 text-primary" />
-                <h2 className="text-3xl md:text-4xl font-bold">Beyond Marketing</h2>
+                <h2 className="text-3xl md:text-4xl font-bold">Our Team Culture</h2>
               </div>
-              
+
               <Card>
                 <CardContent className="p-8">
                   <p className="text-lg leading-relaxed text-muted-foreground mb-6">
-                    When I'm not optimizing conversion rates or analyzing customer psychology, you'll find me exploring creative projects that blend technology with human insight. Photography has taught me about visual psychology and storytelling. Travel has shown me how cultural differences impact consumer behavior.
+                    At AIO Growth SEO, we believe great marketing comes from genuine curiosity about human behavior. Our team stays sharp by continuously studying behavioral psychology, testing new AI tools, and analyzing what actually drives consumer decisions—not just following industry trends.
                   </p>
                   <p className="text-lg leading-relaxed text-muted-foreground">
-                    Reading behavioral psychology and historical propaganda analysis keeps me sharp on the fundamentals that never change—regardless of which new platform or algorithm update comes next.
+                    We're committed to our local community in Volusia & Flagler Counties. When we help a local business grow, we're strengthening the places where we live, work, and raise our families. That's why we take a long-term partnership approach rather than quick-fix tactics.
                   </p>
                 </CardContent>
               </Card>
@@ -409,7 +412,7 @@ const About = () => {
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <Card>
                   <CardContent className="p-8">
-                    <h3 className="text-xl font-semibold mb-6 text-primary">My Ideal Clients</h3>
+                    <h3 className="text-xl font-semibold mb-6 text-primary">Our Ideal Clients</h3>
                     <ul className="space-y-3 text-muted-foreground">
                       <li>• Ready for Growth: Product-market fit, ready to scale</li>
                       <li>• Value Transparency: Appreciate honest communication</li>
@@ -436,7 +439,7 @@ const About = () => {
                 <CardContent className="p-8 text-center">
                   <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
                   <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                    Marketing psychology is endlessly fascinating because every business, every customer, and every market has unique psychological triggers. I love diving deep into what makes your customers tick and building systems that activate those insights systematically.
+                    Marketing psychology is endlessly fascinating because every business, every customer, and every market has unique psychological triggers. We love diving deep into what makes your customers tick and building systems that activate those insights systematically.
                   </p>
                   
                   <div className="flex flex-wrap items-center justify-center gap-4">
@@ -491,7 +494,7 @@ const About = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
-              <p className="text-muted-foreground">I'll review your information and reach out within 24 hours to schedule your strategy call.</p>
+              <p className="text-muted-foreground">We'll review your information and reach out within 24 hours to schedule your strategy call.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">

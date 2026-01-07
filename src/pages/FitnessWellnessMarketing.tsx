@@ -24,8 +24,8 @@ const FitnessWellnessMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Fitness & Wellness Marketing Psychology | Gym & Studio Marketing | Joel Hinton</title>
-        <meta name="description" content="Motivation-driven fitness marketing that converts prospects into committed members. Psychology strategies for gyms and wellness centers with 310% membership growth." />
+        <title>Fitness & Wellness Marketing | Gym & Studio Marketing | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="Fitness marketing for gyms and wellness centers in Volusia & Flagler Counties. Motivation-driven strategies that convert prospects into committed members." />
         <meta name="keywords" content="fitness marketing, gym marketing, wellness center marketing, fitness psychology, member retention, fitness studio marketing" />
         <meta name="robots" content="index, follow" />
         
@@ -36,7 +36,7 @@ const FitnessWellnessMarketing = () => {
       <ProfessionalServiceSchema 
         serviceName="Fitness & Wellness Marketing"
         serviceDescription="Motivation-driven marketing strategies for gyms and wellness centers that inspire commitment and drive membership growth"
-        serviceUrl="https://joelhintonmarketing.com/industries/fitness-wellness"
+        serviceUrl="https://aiogrowthseo.com/industries/fitness-wellness"
         serviceType="Fitness Marketing"
       />
 
@@ -66,8 +66,8 @@ const FitnessWellnessMarketing = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 Fitness decisions involve motivation, body image concerns, and commitment anxiety. Our psychology-driven 
                 strategies position your gym as the supportive community that helps members achieve transformation goals. 
-                Through strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and targeted 
-                <Link to="/paid-advertising" className="text-primary hover:underline">advertising campaigns</Link>, we attract motivated prospects ready to commit to their fitness journey.
+                Through strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and targeted
+                <Link to="/local-lead-generation" className="text-primary hover:underline">advertising campaigns</Link>, we attract motivated prospects ready to commit to their fitness journey.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

@@ -4,457 +4,477 @@ import { PageBreadcrumb } from "@/components/ui/breadcrumb";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
-import { Check, Calculator, Zap, Shield, Target, TrendingUp } from "lucide-react";
+import { Check, Calculator, Zap, Shield, Target, TrendingUp, ArrowRight, Search, MapPin, Sparkles, ShoppingCart, Users, Cog, DollarSign } from "lucide-react";
 import { Helmet } from 'react-helmet-async';
-import { Separator } from '@/components/ui/separator';
 import ContactDialog from '@/components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import { Link } from 'react-router-dom';
 
 const Pricing = () => {
-  const seoServices = [
-    {
-      name: "Basic SEO Plan",
-      price: "$500",
-      type: "One-time",
-      description: "Perfect for small businesses starting their SEO journey",
-      features: [
-        "Complete technical SEO audit and fixes",
-        "On-page optimization for up to 10 pages", 
-        "Keyword research and competitive analysis",
-        "Google Business Profile optimization",
-        "Schema markup implementation",
-        "30-day performance report"
-      ],
-      timeline: "2-3 weeks",
-      bestFor: "Local businesses, service providers, new websites",
-      popular: false
-    },
-    {
-      name: "Growth SEO Plan", 
-      price: "$1,000",
-      type: "One-time",
-      description: "Perfect for businesses ready to scale organically",
-      features: [
-        "Everything in Basic SEO Plan",
-        "Programmatic SEO framework (auto-generate scalable pages)",
-        "Local SEO optimization for up to 3 locations",
-        "Advanced AEO & GEO targeting for AI search",
-        "Content strategy and creation templates", 
-        "90-day performance tracking and optimization"
-      ],
-      timeline: "4-6 weeks",
-      bestFor: "Growing businesses, multi-location companies, e-commerce",
-      popular: true
-    }
-  ];
-
-  const growthServices = [
-    {
-      name: "Growth Strategy Audit",
-      price: "$750", 
-      type: "One-time",
-      description: "Perfect for businesses with traffic but poor conversions",
-      features: [
-        "Complete customer journey analysis",
-        "Conversion psychology assessment",
-        "Channel performance audit and recommendations",
-        "Message-market fit evaluation", 
-        "Competitive positioning analysis",
-        "90-day growth roadmap with priorities"
-      ],
-      timeline: "2 weeks", 
-      bestFor: "SaaS, e-commerce, service businesses with existing traffic",
-      popular: false
-    },
-    {
-      name: "Full Growth Marketing System",
-      price: "$2,500",
-      type: "One-time", 
-      description: "Perfect for businesses ready to systematically scale",
-      features: [
-        "Everything in Growth Strategy Audit",
-        "Landing page optimization using psychology principles",
-        "Email marketing automation setup and sequences",
-        "Multi-channel campaign development",
-        "Attribution tracking and analytics implementation",
-        "6-month performance tracking and optimization"
-      ],
-      timeline: "4-6 weeks",
-      bestFor: "Scaling businesses ready for systematic growth",
-      popular: false
-    }
-  ];
-
-  const paidServices = [
-    {
-      name: "Paid Media Audit",
-      price: "$300",
-      type: "One-time",
-      description: "Perfect for evaluating current ad performance", 
-      features: [
-        "Complete ad account audit (Google, Meta, LinkedIn)",
-        "Customer psychology and targeting analysis",
-        "Creative and copy performance review",
-        "Landing page and conversion assessment",
-        "90-day optimization roadmap"
-      ],
-      timeline: "1 week",
-      bestFor: "Businesses currently running ads with poor ROI",
-      popular: false
-    },
-    {
-      name: "Paid Media Management", 
-      price: "$500",
-      type: "/month",
-      description: "Perfect for businesses ready for professional ad management",
-      features: [
-        "Google Ads, Meta, and LinkedIn campaign management",
-        "AI-optimized ad copy and creative testing", 
-        "Landing page strategy and conversion tracking",
-        "Custom attribution workflows and reporting",
-        "Monthly strategy calls and optimization"
-      ],
-      timeline: "Month-to-month",
-      bestFor: "Businesses spending $2K-$20K/month on ads", 
-      popular: true,
-      note: "Minimum Ad Spend: $1,500/month"
-    }
-  ];
-
-  const packages = [
-    {
-      name: "The Local Dominator",
-      price: "$800",
-      services: ["Basic SEO Plan ($500)", "Paid Media Audit ($300)"],
-      description: "Perfect for local businesses starting digital marketing",
-      benefit: "Get found organically AND optimize your advertising"
-    },
-    {
-      name: "The Growth Accelerator", 
-      price: "$1,750",
-      services: ["Growth SEO Plan ($1,000)", "Growth Strategy Audit ($750)"],
-      description: "Perfect for businesses ready to scale systematically",
-      benefit: "Organic visibility + conversion optimization",
-      popular: true
-    },
-    {
-      name: "The Complete System",
-      price: "$3,000 first month, then $500/month", 
-      services: ["Growth SEO Plan ($1,000)", "Full Growth Marketing System ($2,500)", "Paid Media Management ($500/month)"],
-      description: "Perfect for serious businesses ready for comprehensive growth",
-      benefit: "Everything you need to dominate your market"
-    }
-  ];
-
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Get Started');
+
+  const services = [
+    {
+      id: 'seo',
+      icon: Search,
+      name: "SEO Services",
+      description: "Technical foundation + topical authority mapping for sustainable organic growth",
+      href: "/seo-services",
+      color: "from-blue-500 to-blue-600",
+      setup: {
+        price: "$1,000",
+        label: "one-time",
+        features: [
+          "Complete technical SEO audit & fixes",
+          "Topical authority mapping",
+          "Keyword research & strategy",
+          "On-page optimization",
+          "Schema markup implementation",
+          "90-day roadmap"
+        ]
+      },
+      monthly: [
+        { name: "Maintenance", price: "$500/mo", features: ["10 hours optimization", "Technical monitoring", "Content updates"] },
+        { name: "Advanced", price: "$1,000/mo", features: ["20 hours optimization", "Link building campaigns", "AI content management"] }
+      ]
+    },
+    {
+      id: 'local-seo',
+      icon: MapPin,
+      name: "Local SEO",
+      description: "Complete local foundation for Google Business Profile and map pack dominance",
+      href: "/local-seo",
+      color: "from-green-500 to-green-600",
+      setup: {
+        price: "$1,500",
+        label: "one-time",
+        features: [
+          "Complete local SEO audit & fixes",
+          "Google Business Profile optimization",
+          "25-30 core citations built",
+          "Local schema implementation",
+          "Review management system setup",
+          "Geographic authority roadmap"
+        ]
+      },
+      monthly: [
+        { name: "Growth", price: "$500/mo", features: ["Monthly monitoring", "GMB posts", "Citation maintenance"] },
+        { name: "Domination", price: "$750/mo", features: ["Weekly content", "Review campaigns", "Competitor monitoring"] },
+        { name: "Enterprise", price: "$2,500/mo", features: ["10+ locations", "Programmatic SEO", "Link building"] }
+      ]
+    },
+    {
+      id: 'geo',
+      icon: Sparkles,
+      name: "GEO Optimization",
+      description: "AI search foundation + entity mapping for ChatGPT and AI assistant visibility",
+      href: "/geo-optimization",
+      color: "from-purple-500 to-purple-600",
+      setup: {
+        price: "$1,750",
+        label: "one-time",
+        features: [
+          "Topical/entity mapping & strategy",
+          "AI prompt research & competitor analysis",
+          "GEO/AI mentions app setup",
+          "Initial link building campaign",
+          "Reddit marketing foundation",
+          "AI mention tracking"
+        ]
+      },
+      monthly: [
+        { name: "Growth", price: "$750/mo", features: ["AI monitoring", "Entity building", "$500 link budget"] },
+        { name: "Authority", price: "$1,500/mo", features: ["Reddit campaigns", "Advanced links", "Weekly optimization"] },
+        { name: "Enterprise", price: "$2,500/mo", features: ["20 content pieces", "10 backlinks", "Full ecosystem"] }
+      ]
+    },
+    {
+      id: 'ecommerce',
+      icon: ShoppingCart,
+      name: "E-commerce SEO",
+      description: "Product optimization, technical SEO, and conversion strategies for online stores",
+      href: "/ecommerce-seo",
+      color: "from-fuchsia-500 to-pink-600",
+      setup: null,
+      monthly: [
+        { name: "Starter", price: "$1,500/mo", features: ["100 products", "Technical SEO", "2 articles/month"] },
+        { name: "Growth", price: "$3,000/mo", features: ["500 products", "CRO", "8 articles/month"] },
+        { name: "Enterprise", price: "Custom", features: ["Unlimited products", "Multi-marketplace", "Dedicated specialist"] }
+      ]
+    },
+    {
+      id: 'lead-gen',
+      icon: Users,
+      name: "Local Lead Generation",
+      description: "Complete funnel setup with Google LSA, landing pages, and email automation",
+      href: "/local-lead-generation",
+      color: "from-orange-500 to-amber-600",
+      setup: {
+        price: "$1,000",
+        label: "one-time",
+        features: [
+          "Google Local Service Ads setup",
+          "Custom landing page creation",
+          "Email automation sequences",
+          "Call tracking & CRM integration",
+          "Lead scoring system",
+          "30 days optimization included"
+        ]
+      },
+      monthly: [
+        { name: "Management", price: "$500/mo", features: ["Campaign management", "Lead monitoring", "Performance reports"], note: "Recommend $1,000 ad spend - 3-4X ROAS" }
+      ]
+    },
+    {
+      id: 'automation',
+      icon: Cog,
+      name: "Custom Tools & Automation",
+      description: "Custom marketing tools, dashboards, and workflow automation for your business",
+      href: "/custom-tools-automation",
+      color: "from-slate-600 to-slate-700",
+      setup: {
+        price: "$2,500",
+        label: "starting at",
+        features: [
+          "Custom SEO automation tools",
+          "Reporting dashboards",
+          "Lead generation systems",
+          "Workflow automation",
+          "API integrations",
+          "Training & documentation"
+        ]
+      },
+      monthly: [
+        { name: "Maintenance", price: "$750/mo", features: ["System monitoring", "Updates & fixes", "Support"] },
+        { name: "Advanced", price: "$1,500/mo", features: ["New feature development", "Priority support", "Custom requests"] }
+      ]
+    }
+  ];
+
+  const popularCombinations = [
+    {
+      name: "Local Business Starter",
+      total: "$2,000 setup + $500/mo",
+      services: ["Local SEO Setup ($1,500)", "Lead Gen Setup ($1,000)", "Local Growth ($500/mo)"],
+      description: "Perfect for local service businesses ready to dominate their market",
+      savings: "Save $500 on combined setup"
+    },
+    {
+      name: "Growth Marketing System",
+      total: "$2,750 setup + $1,250/mo",
+      services: ["SEO Foundation ($1,000)", "GEO Foundation ($1,750)", "SEO Advanced ($1,000/mo)", "GEO Growth ($750/mo)"],
+      description: "Dominate both traditional and AI search results",
+      savings: "Most comprehensive coverage",
+      popular: true
+    },
+    {
+      name: "E-commerce Accelerator",
+      total: "$1,750 setup + $3,750/mo",
+      services: ["GEO Foundation ($1,750)", "E-commerce Growth ($3,000/mo)", "GEO Growth ($750/mo)"],
+      description: "Scale your online store with organic + AI visibility",
+      savings: "Future-proof your e-commerce"
+    }
+  ];
 
   return (
     <>
       <Helmet>
-        <title>Pricing - Digital Marketing Agency</title>
-        <meta name="description" content="Transparent pricing for real results. Choose what you need, pay what it's worth, own what you build." />
+        <title>Transparent Pricing | Setup + Monthly Model | AIO Growth SEO</title>
+        <meta name="description" content="No retainers. No fluff. Just plans that work. Transparent setup + monthly pricing for SEO, Local SEO, GEO optimization, and lead generation services." />
+        <meta name="keywords" content="SEO pricing, local SEO cost, GEO optimization pricing, digital marketing pricing, transparent pricing" />
+        <link rel="canonical" href="https://aiogrowthseo.com/pricing" />
       </Helmet>
       <Navigation />
-      
-      {/* Breadcrumb */}
-      <PageBreadcrumb 
+
+      <PageBreadcrumb
         items={[
           { label: "Pricing", current: true }
         ]}
       />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-12 px-6">
+      <section className="pt-24 pb-16 px-6 bg-gradient-to-br from-background via-primary/5 to-background">
         <div className="container mx-auto max-w-4xl text-center">
-         
-          
-          <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
-            No Retainers. No Fluff. Just Plans That Work.
+          <Badge className="mb-6 bg-primary/10 text-primary border-primary/20">
+            Transparent Pricing
+          </Badge>
+
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <span className="gradient-text">No Retainers. No Fluff.</span>
+            <br />
+            <span className="text-foreground">Just Plans That Work.</span>
           </h1>
-          
+
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Transparent pricing for real results. Choose what you need, pay what it's worth, own what you build.
+            Build a solid foundation with one-time setup, then maintain momentum with affordable monthly optimization.
+            You own everything we build.
           </p>
-          
-          <p className="text-lg text-foreground mb-8">
-            We believe marketing pricing should be simple and transparent. Whether you're just starting out or ready to scale, 
-            our plans give you exactly what you need — without bloated retainers or hidden costs.
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-6 text-sm">
-            <Badge variant="outline" className="px-4 py-2">
+
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <Badge variant="outline" className="px-4 py-2 text-sm">
               <Shield className="w-4 h-4 mr-2" />
               No Long-Term Contracts
             </Badge>
-            <Badge variant="outline" className="px-4 py-2">
+            <Badge variant="outline" className="px-4 py-2 text-sm">
               <Target className="w-4 h-4 mr-2" />
               No Percentage Fees
             </Badge>
-            <Badge variant="outline" className="px-4 py-2">
+            <Badge variant="outline" className="px-4 py-2 text-sm">
               <Zap className="w-4 h-4 mr-2" />
-              No Hidden Costs
+              Own Everything We Build
             </Badge>
           </div>
+
+          <Button size="lg" onClick={() => openDialog()}>
+            Get Your Custom Quote
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
         </div>
       </section>
 
-      {/* Why Our Pricing is Different */}
-      <section className="py-16 px-6">
+      {/* Setup + Monthly Model Explanation */}
+      <section className="py-16 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12">Why Our Pricing is Different</h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="text-xl text-destructive">The Agency Problem</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-muted-foreground">$3,000/month retainers for basic keyword research and two blog posts</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-muted-foreground">20% of your ad spend just to click buttons in Google Ads</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-muted-foreground">6-month minimum contracts with vague "ongoing optimization"</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-muted-foreground">You never own what you pay for - everything disappears when you leave</p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional border-primary/20">
-              <CardHeader>
-                <CardTitle className="text-xl text-primary">Our Transparent Approach</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Fixed Pricing</p>
-                    <p className="text-muted-foreground text-sm">Know exactly what you're paying and what you get</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Own Everything</p>
-                    <p className="text-muted-foreground text-sm">You keep all accounts, data, content, and systems we build</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">No Minimums</p>
-                    <p className="text-muted-foreground text-sm">Month-to-month on ongoing services, one-time for projects</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Value-Based</p>
-                    <p className="text-muted-foreground text-sm">Pay for results and systems, not time and retainers</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          
-          <div className="text-center mt-8">
-            <p className="text-lg italic text-muted-foreground max-w-3xl mx-auto">
-              "If you've been told marketing means paying for ongoing mystery work, you've been sold a retainer, not results."
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">The Setup + Monthly Model</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Why pay $3,000+/month for a retainer when you can build a foundation once and maintain it for less?
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* SEO Services */}
-      <section className="py-16 px-6 bg-muted/20">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-4">SEO Services</h2>
-          <p className="text-center text-muted-foreground mb-12">One-time investments that compound over time</p>
-          
           <div className="grid md:grid-cols-2 gap-8">
-            {seoServices.map((service, index) => (
-              <Card key={index} className={`card-professional relative ${service.popular ? 'ring-2 ring-primary' : ''}`}>
-                {service.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
-                    Most Popular
-                  </Badge>
-                )}
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-xl">{service.name}</CardTitle>
-                      <CardDescription className="mt-2">{service.description}</CardDescription>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-3xl font-bold text-primary">{service.price}</div>
-                      <div className="text-sm text-muted-foreground">{service.type}</div>
-                    </div>
+            <Card className="border-destructive/20 bg-destructive/5">
+              <CardHeader>
+                <CardTitle className="text-xl text-destructive flex items-center gap-2">
+                  <DollarSign className="w-5 h-5" />
+                  Traditional Agency Model
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-muted-foreground">$3,000-5,000/month retainers for ongoing "optimization"</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-muted-foreground">6-12 month minimum contracts lock you in</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-muted-foreground">20% of ad spend just to manage campaigns</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-muted-foreground">You lose everything when you leave</p>
+                </div>
+                <div className="pt-4 border-t border-destructive/20">
+                  <p className="font-semibold text-destructive">Year 1 Cost: $36,000 - $60,000+</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-primary/20 bg-primary/5">
+              <CardHeader>
+                <CardTitle className="text-xl text-primary flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5" />
+                  Our Setup + Monthly Model
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium">One-time foundation setup</p>
+                    <p className="text-sm text-muted-foreground">Build it right once, own it forever</p>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <Check className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </div>
-                    ))}
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium">Affordable monthly maintenance</p>
+                    <p className="text-sm text-muted-foreground">Keep momentum without breaking the bank</p>
                   </div>
-                  
-                  <div className="space-y-2 mb-6 text-sm">
-                    <p><strong>Timeline:</strong> {service.timeline}</p>
-                    <p><strong>Best for:</strong> {service.bestFor}</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium">Month-to-month flexibility</p>
+                    <p className="text-sm text-muted-foreground">Cancel anytime, keep everything</p>
                   </div>
-                  
-                  <Button variant={service.popular ? "hero" : "outline"} className="w-full" onClick={() => selectService(service.name)}>
-                    Get Started
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium">You own all assets</p>
+                    <p className="text-sm text-muted-foreground">Accounts, content, systems - it's all yours</p>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-primary/20">
+                  <p className="font-semibold text-primary">Year 1 Cost: $7,000 - $15,000</p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Growth Marketing Services */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-4">Growth Marketing Services</h2>
-          <p className="text-center text-muted-foreground mb-12">Systematic scaling based on psychology and data</p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {growthServices.map((service, index) => (
-              <Card key={index} className="card-professional">
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-xl">{service.name}</CardTitle>
-                      <CardDescription className="mt-2">{service.description}</CardDescription>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-3xl font-bold text-secondary">{service.price}</div>
-                      <div className="text-sm text-muted-foreground">{service.type}</div>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <Check className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
+      {/* All Services Pricing */}
+      <section className="py-24 px-6 bg-gradient-to-br from-slate-50 to-slate-100">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+              All Services
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Transparent Pricing for Every Service</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Choose the services that fit your business. Mix and match setup + monthly options.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {services.map((service) => {
+              const IconComponent = service.icon;
+              return (
+                <Card key={service.id} className="overflow-hidden">
+                  <div className={`h-2 bg-gradient-to-r ${service.color}`} />
+                  <CardHeader className="pb-4">
+                    <div className="flex items-start justify-between flex-wrap gap-4">
+                      <div className="flex items-center gap-4">
+                        <div className={`w-12 h-12 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center`}>
+                          <IconComponent className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <CardTitle className="text-2xl">{service.name}</CardTitle>
+                          <CardDescription className="text-base mt-1">{service.description}</CardDescription>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                  
-                  <div className="space-y-2 mb-6 text-sm">
-                    <p><strong>Timeline:</strong> {service.timeline}</p>
-                    <p><strong>Best for:</strong> {service.bestFor}</p>
-                  </div>
-                  
-                  <Button variant="cta" className="w-full" onClick={() => selectService(service.name)}>
-                    Get Started
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                      <Link to={service.href}>
+                        <Button variant="outline" size="sm">
+                          Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      {/* Setup Package */}
+                      {service.setup && (
+                        <div className="bg-slate-50 rounded-xl p-6">
+                          <div className="flex items-center justify-between mb-4">
+                            <Badge variant="secondary" className="text-sm">Setup Package</Badge>
+                            <div className="text-right">
+                              <span className="text-2xl font-bold text-primary">{service.setup.price}</span>
+                              <span className="text-muted-foreground ml-1">{service.setup.label}</span>
+                            </div>
+                          </div>
+                          <ul className="space-y-2">
+                            {service.setup.features.map((feature, idx) => (
+                              <li key={idx} className="flex items-start gap-2 text-sm">
+                                <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                                <span>{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button
+                            className="w-full mt-4"
+                            onClick={() => selectService(`${service.name} Setup - ${service.setup.price}`)}
+                          >
+                            Get {service.name} Setup
+                          </Button>
+                        </div>
+                      )}
+
+                      {/* Monthly Options */}
+                      <div className={service.setup ? "" : "lg:col-span-2"}>
+                        <div className="flex items-center justify-between mb-4">
+                          <Badge variant="secondary" className="text-sm">Monthly Options</Badge>
+                        </div>
+                        <div className={`grid ${service.monthly.length > 2 ? 'grid-cols-1 sm:grid-cols-3' : service.monthly.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'} gap-4`}>
+                          {service.monthly.map((option, idx) => (
+                            <div key={idx} className="bg-white border rounded-lg p-4 hover:border-primary/50 transition-colors">
+                              <div className="flex items-center justify-between mb-2">
+                                <span className="font-semibold">{option.name}</span>
+                                <span className="text-lg font-bold text-primary">{option.price}</span>
+                              </div>
+                              <ul className="space-y-1 mb-3">
+                                {option.features.map((feature, fidx) => (
+                                  <li key={fidx} className="flex items-start gap-2 text-xs text-muted-foreground">
+                                    <Check className="w-3 h-3 text-primary mt-0.5 flex-shrink-0" />
+                                    <span>{feature}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                              {option.note && (
+                                <p className="text-xs text-secondary font-medium mb-2">{option.note}</p>
+                              )}
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="w-full"
+                                onClick={() => selectService(`${service.name} ${option.name} - ${option.price}`)}
+                              >
+                                Select
+                              </Button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Paid Media Services */}
-      <section className="py-16 px-6 bg-muted/20">
+      {/* Popular Combinations */}
+      <section className="py-24 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-4">Paid Advertising Services</h2>
-          <p className="text-center text-muted-foreground mb-12">AI-optimized campaigns with transparent, flat-fee pricing</p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {paidServices.map((service, index) => (
-              <Card key={index} className={`card-professional relative ${service.popular ? 'ring-2 ring-primary' : ''}`}>
-                {service.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
-                    Most Popular
-                  </Badge>
-                )}
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-xl">{service.name}</CardTitle>
-                      <CardDescription className="mt-2">{service.description}</CardDescription>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-3xl font-bold text-primary">{service.price}</div>
-                      <div className="text-sm text-muted-foreground">{service.type}</div>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <Check className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="space-y-2 mb-6 text-sm">
-                    <p><strong>Timeline:</strong> {service.timeline}</p>
-                    <p><strong>Best for:</strong> {service.bestFor}</p>
-                    {service.note && <p><strong>Note:</strong> {service.note}</p>}
-                  </div>
-                  
-                  <Button variant={service.popular ? "hero" : "outline"} className="w-full" onClick={() => selectService(service.name)}>
-  Get Started
-</Button>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">
+              Recommended
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Popular Package Combinations</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Strategic bundles designed for maximum impact
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Popular Package Combinations */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-4">Popular Package Combinations</h2>
-          <p className="text-center text-muted-foreground mb-12">Save money with strategic service bundles</p>
-          
           <div className="grid md:grid-cols-3 gap-8">
-            {packages.map((pkg, index) => (
-              <Card key={index} className={`card-professional relative ${pkg.popular ? 'ring-2 ring-secondary' : ''}`}>
-                {pkg.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-secondary text-secondary-foreground">
-                    Best Value
+            {popularCombinations.map((combo, index) => (
+              <Card
+                key={index}
+                className={`relative ${combo.popular ? 'border-primary shadow-lg scale-105' : ''}`}
+              >
+                {combo.popular && (
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground">
+                    Most Popular
                   </Badge>
                 )}
-                <CardHeader>
-                  <CardTitle className="text-xl">{pkg.name}</CardTitle>
-                  <div className="text-2xl font-bold text-primary">{pkg.price}</div>
-                  <CardDescription>{pkg.description}</CardDescription>
+                <CardHeader className={combo.popular ? 'pt-8' : ''}>
+                  <CardTitle className="text-xl">{combo.name}</CardTitle>
+                  <div className="text-2xl font-bold text-primary">{combo.total}</div>
+                  <CardDescription>{combo.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2 mb-4">
-                    {pkg.services.map((service, idx) => (
-                      <div key={idx} className="text-sm text-muted-foreground">
-                        • {service}
+                    {combo.services.map((service, idx) => (
+                      <div key={idx} className="flex items-start gap-2 text-sm">
+                        <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span>{service}</span>
                       </div>
                     ))}
                   </div>
-                  <p className="text-sm font-medium text-primary mb-6">{pkg.benefit}</p>
-                  <Button variant={pkg.popular ? "cta" : "outline"} className="w-full" onClick={() => selectService(pkg.name)}>
-  Choose Package
-</Button>
+                  <p className="text-sm font-medium text-secondary mb-4">{combo.savings}</p>
+                  <Button
+                    className="w-full"
+                    variant={combo.popular ? 'default' : 'outline'}
+                    onClick={() => selectService(combo.name)}
+                  >
+                    Get This Package
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -463,58 +483,73 @@ const Pricing = () => {
       </section>
 
       {/* ROI Calculator */}
-      <section className="py-16 px-6 bg-muted/20">
+      <section className="py-24 px-6 bg-gradient-to-br from-primary/5 via-secondary/5 to-primary/5">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl font-bold text-center mb-12">
-            <Calculator className="w-8 h-8 inline-block mr-3" />
-            ROI Calculator
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <Card className="card-professional">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+              <Calculator className="w-4 h-4 mr-2" />
+              ROI Comparison
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">See the Difference</h2>
+            <p className="text-xl text-muted-foreground">
+              Compare our setup + monthly model to traditional agency retainers
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="border-destructive/20">
               <CardHeader>
-                <CardTitle className="text-xl text-destructive">Traditional Agency Costs</CardTitle>
+                <CardTitle className="text-xl text-destructive">Traditional Agency (Year 1)</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span>Website:</span>
-                    <span className="font-medium">$10,000+</span>
+                    <span>SEO Retainer (12 months):</span>
+                    <span className="font-medium">$36,000</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>SEO Retainer:</span>
-                    <span className="font-medium">$36,000/year</span>
+                    <span>PPC Management (20% of $2K/mo):</span>
+                    <span className="font-medium">$4,800</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Paid Media (20% of $5K/month):</span>
-                    <span className="font-medium">$12,000/year</span>
+                    <span>Local SEO Add-on:</span>
+                    <span className="font-medium">$6,000</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Setup/Onboarding Fees:</span>
+                    <span className="font-medium">$2,500</span>
                   </div>
                   <hr className="my-4" />
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total Year 1:</span>
-                    <span className="text-destructive">$58,000+</span>
+                    <span className="text-destructive">$49,300</span>
                   </div>
+                  <p className="text-sm text-muted-foreground">*And you lose it all when you leave</p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="card-professional border-primary/20">
+            <Card className="border-primary/20 bg-primary/5">
               <CardHeader>
-                <CardTitle className="text-xl text-primary">Our Approach</CardTitle>
+                <CardTitle className="text-xl text-primary">Our Model (Year 1)</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span>Growth SEO Plan:</span>
-                    <span className="font-medium">$1,000 (one-time)</span>
+                    <span>SEO Foundation Setup:</span>
+                    <span className="font-medium">$1,000</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Growth Marketing System:</span>
-                    <span className="font-medium">$2,500 (one-time)</span>
+                    <span>Local SEO Setup:</span>
+                    <span className="font-medium">$1,500</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Paid Media Management:</span>
-                    <span className="font-medium">$6,000/year</span>
+                    <span>Lead Gen Funnel Setup:</span>
+                    <span className="font-medium">$1,000</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Monthly Maintenance (12 mo):</span>
+                    <span className="font-medium">$6,000</span>
                   </div>
                   <hr className="my-4" />
                   <div className="flex justify-between text-lg font-bold">
@@ -522,14 +557,14 @@ const Pricing = () => {
                     <span className="text-primary">$9,500</span>
                   </div>
                 </div>
-                
+
                 <div className="mt-6 p-4 bg-primary/10 rounded-lg">
                   <div className="flex items-center gap-2 mb-2">
                     <TrendingUp className="w-5 h-5 text-primary" />
-                    <span className="font-bold text-primary">You Save: $48,500+ in Year 1</span>
+                    <span className="font-bold text-primary">You Save: $39,800 in Year 1</span>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Plus: You own everything we build (agencies take it when you leave)
+                    Plus: You own everything. Forever.
                   </p>
                 </div>
               </CardContent>
@@ -538,61 +573,68 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Ready to Get Started */}
-      <section className="py-16 px-6">
+      {/* Clear Next Steps */}
+      <section className="py-24 px-6 bg-white">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-bold mb-8">Ready to Get Started?</h2>
-          
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+          <p className="text-xl text-muted-foreground mb-12">
+            Three ways to move forward
+          </p>
+
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <Card className="card-professional">
               <CardHeader>
-                <CardTitle>Start with an Audit</CardTitle>
-                <CardDescription>Not sure what you need? Begin with a comprehensive audit</CardDescription>
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-primary">1</span>
+                </div>
+                <CardTitle>Free Consultation</CardTitle>
+                <CardDescription>Not sure where to start? Let's talk about your goals and create a custom plan.</CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
-                  <li>• Low-risk way to see exactly where you're losing money/opportunities</li>
-                  <li>• Get specific recommendations for your situation</li>
-                </ul>
-                <Button variant="outline" className="w-full" onClick={() => selectService("SEO Audit")}>Schedule Audit</Button>
-                </CardContent>
+                <Button variant="outline" className="w-full" onClick={() => selectService("Free Consultation")}>
+                  Schedule Call
+                </Button>
+              </CardContent>
             </Card>
 
-            <Card className="card-professional ring-2 ring-primary">
+            <Card className="card-professional border-primary shadow-lg">
               <CardHeader>
-                <CardTitle>Book a Strategy Call</CardTitle>
-                <CardDescription>30-minute consultation to discuss your goals</CardDescription>
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-primary-foreground">2</span>
+                </div>
+                <CardTitle>Get a Custom Quote</CardTitle>
+                <CardDescription>Tell us about your business and get a tailored pricing recommendation.</CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
-                  <li>• Get personalized recommendations for your business</li>
-                  <li>• Understand which services will deliver the highest ROI</li>
-                </ul>
-                <Button variant="hero" className="w-full" onClick={() => selectService("Strategy Call")}>Book Strategy Call</Button>
-                </CardContent>
+                <Button className="w-full" onClick={() => openDialog()}>
+                  Get Custom Quote
+                </Button>
+              </CardContent>
             </Card>
 
             <Card className="card-professional">
               <CardHeader>
-                <CardTitle>Choose a Plan</CardTitle>
-                <CardDescription>Ready to move forward? Select your service above</CardDescription>
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-primary">3</span>
+                </div>
+                <CardTitle>Choose a Service</CardTitle>
+                <CardDescription>Know what you need? Select any service above to get started.</CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="text-sm text-muted-foreground mb-6 space-y-1">
-                  <li>• All plans include consultation and strategic guidance</li>
-                  <li>• Start seeing results in 2-4 weeks depending on service</li>
-                </ul>
                 <Link to="/services">
-                  <Button variant="cta" className="w-full">View All Services</Button>
-                </Link>              
+                  <Button variant="outline" className="w-full">
+                    View All Services
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>
-          
-          <div className="bg-primary/10 p-6 rounded-lg">
-            <p className="text-lg font-medium text-primary mb-2">Risk Reversal</p>
-            <p className="text-muted-foreground">
-              Every service includes strategic consultation to ensure you're investing in the right solutions for your business goals.
+
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-8 rounded-2xl">
+            <h3 className="text-xl font-bold mb-2">Our Guarantee</h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Every service includes strategic consultation to ensure you're investing in the right solutions.
+              If you don't see measurable improvement within 90 days, we'll work for free until you do.
             </p>
           </div>
         </div>
@@ -600,11 +642,11 @@ const Pricing = () => {
 
       <Footer />
 
-      <ContactDialog 
+      <ContactDialog
         isOpen={isOpen}
         onClose={closeDialog}
-        title="Get Started with Professional Marketing"
-        description="Let's discuss which package is right for your business."
+        title="Get Your Custom Quote"
+        description="Tell us about your business and goals, and we'll recommend the right combination of services."
         defaultService={selectedService}
         businessTypes={businessTypes.general}
       />

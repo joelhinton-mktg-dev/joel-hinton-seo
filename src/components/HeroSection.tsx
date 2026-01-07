@@ -107,29 +107,30 @@ const HeroSection = () => {
           <div className="inline-flex items-center gap-2 bg-card border border-border rounded-full px-6 py-3 mb-8 card-professional hover-lift transition-all duration-300">
             <Brain className="w-5 h-5 text-primary" />
             <span className="text-sm font-medium text-muted-foreground">
-              Psychology-Driven Digital Marketing
+              Central Florida's SEO & GEO Optimization Experts
             </span>
             <TrendingUp className="w-4 h-4 text-secondary" />
           </div>
 
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 fade-in">
-            <span className="text-foreground">SEO is </span>
-            <span className="gradient-text">Propaganda.</span>
+            <span className="gradient-text">SEO + GEO</span>
+            <span className="text-foreground"> That Drives</span>
             <br />
-            <span className="gradient-text">GEO</span>
-            <span className="text-foreground"> is Psychology.</span>
+            <span className="text-foreground">Real </span>
+            <span className="gradient-text">Revenue</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-4xl mx-auto slide-up" style={{ animationDelay: "100ms" }}>
-            AI-powered growth marketing that generates <strong className="text-secondary">200% traffic increases</strong> in 45 days. 
-            Serving Daytona Beach, FL and businesses nationwide.
+            Dominate Google <strong className="text-secondary">AND</strong> AI search results. We help Central Florida businesses
+            get found by customers searching on Google, ChatGPT, and voice assistants.
           </p>
 
           {/* Value Proposition */}
           <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto slide-up" style={{ animationDelay: "200ms" }}>
-            No retainers. No long-term contracts. Just psychology-driven results that turn search engines into profit engines.
+            <strong className="text-foreground">Volusia & Flagler Counties' trusted marketing partner.</strong> No long-term contracts.
+            Just measurable results that turn search visibility into profit.
           </p>
 
           {/* CTA Buttons */}
@@ -157,18 +158,22 @@ const HeroSection = () => {
           </div>
 
           {/* Social Proof Numbers */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div className="text-center slide-up" style={{ animationDelay: "350ms" }}>
-              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">200%</div>
-              <p className="text-muted-foreground">Average Traffic Increase</p>
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">200%</div>
+              <p className="text-sm text-muted-foreground">Avg Traffic Growth</p>
+            </div>
+            <div className="text-center slide-up" style={{ animationDelay: "400ms" }}>
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">100+</div>
+              <p className="text-sm text-muted-foreground">Local Clients</p>
             </div>
             <div className="text-center slide-up" style={{ animationDelay: "450ms" }}>
-              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">100+</div>
-              <p className="text-muted-foreground">Leads Per Month Generated</p>
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">45</div>
+              <p className="text-sm text-muted-foreground">Days to Results</p>
             </div>
-            <div className="text-center slide-up" style={{ animationDelay: "550ms" }}>
-              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">45</div>
-              <p className="text-muted-foreground">Days to See Results</p>
+            <div className="text-center slide-up" style={{ animationDelay: "500ms" }}>
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">12</div>
+              <p className="text-sm text-muted-foreground">Industries Served</p>
             </div>
           </div>
         </div>
@@ -181,7 +186,7 @@ const HeroSection = () => {
         <DialogHeader>
           <DialogTitle>Request Your Free SEO Audit</DialogTitle>
           <DialogDescription>
-            Fill out the form below and I'll provide a comprehensive SEO analysis of your website within 24 hours.
+            Fill out the form below and we'll provide a comprehensive SEO analysis of your website within 24 hours.
           </DialogDescription>
         </DialogHeader>
 
@@ -194,7 +199,7 @@ const HeroSection = () => {
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
-            <p className="text-muted-foreground">I'll review your website and send your free SEO audit within 24 hours.</p>
+            <p className="text-muted-foreground">We'll review your website and send your free SEO audit within 24 hours.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">

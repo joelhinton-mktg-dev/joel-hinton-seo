@@ -23,8 +23,8 @@ const EcommerceMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>E-commerce Marketing Psychology | Online Store Growth | Conversion Optimization | Joel Hinton</title>
-        <meta name="description" content="E-commerce marketing psychology that reduces cart abandonment and increases conversions. Proven strategies for online stores with 265% traffic growth." />
+        <title>E-commerce Marketing | Online Store Growth | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="E-commerce marketing for online retailers in Volusia & Flagler Counties. Psychology-driven strategies that reduce cart abandonment and increase conversions." />
         <meta name="keywords" content="ecommerce marketing, conversion optimization, cart abandonment, online store marketing, ecommerce psychology, retail marketing" />
         <meta name="robots" content="index, follow" />
         
@@ -59,8 +59,8 @@ const EcommerceMarketing = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 Online shoppers are bombarded with choices and distractions. Our psychology-driven strategies leverage social proof, 
                 scarcity urgency, and personalization to overcome purchase hesitation and reduce cart abandonment. 
-                Combined with our proven <Link to="/growth-marketing" className="text-primary hover:underline">growth marketing</Link> techniques and targeted 
-                <Link to="/paid-advertising" className="text-primary hover:underline">paid advertising</Link>, we maximize your conversion potential.
+                Combined with our proven <Link to="/seo-services" className="text-primary hover:underline">SEO services</Link> and targeted
+                <Link to="/local-lead-generation" className="text-primary hover:underline">local lead generation</Link>, we maximize your conversion potential.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

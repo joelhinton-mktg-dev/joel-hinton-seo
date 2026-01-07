@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
-import { MapPin, TrendingUp, Users, Calendar, Phone, Mail, Star, ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
+import { MapPin, TrendingUp, Users, Calendar, Phone, Mail, Star, ArrowRight, Search, Globe, Target, ShoppingCart } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
@@ -18,7 +19,7 @@ const FloridaSEOServices = () => {
   return (
     <>
       <Helmet>
-        <title>Florida SEO Services | Local Digital Marketing Expert | Joel Hinton</title>
+        <title>Florida SEO Services | Central Florida Digital Marketing | AIO Growth SEO</title>
         <meta name="description" content="Florida SEO services from a local expert. Dominate search results across Orlando, Tampa, Miami, Jacksonville, and Fort Lauderdale. Hurricane-season marketing, tourism optimization, and local business growth." />
         <meta name="keywords" content="Florida SEO, Florida digital marketing, Orlando SEO, Tampa SEO, Miami SEO, Jacksonville SEO, Fort Lauderdale SEO, local SEO Florida" />
         <meta name="robots" content="index, follow" />
@@ -35,9 +36,9 @@ const FloridaSEOServices = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Joel Hinton Digital Marketing",
+            "name": "AIO Growth SEO",
             "description": "Florida SEO and Digital Marketing Services",
-            "url": "https://joelhinton.com/florida-seo-services",
+            "url": "https://aiogrowthseo.com/florida-seo-services",
             "telephone": "+1-555-0123",
             "address": {
               "@type": "PostalAddress",
@@ -98,7 +99,7 @@ const FloridaSEOServices = () => {
                   Florida SEO Services That Dominate Local Search
                 </h1>
                 <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8 leading-relaxed">
-                  From the beaches of Jacksonville to the nightlife of South Beach, I understand Florida's unique market psychology. 
+                  From the beaches of Jacksonville to the nightlife of South Beach, we understand Florida's unique market psychology. 
                   As a Daytona Beach native, I've helped 200+ Florida businesses thrive through hurricane seasons, tourism peaks, 
                   and snowbird migrations with psychology-driven SEO strategies.
                 </p>
@@ -205,6 +206,102 @@ const FloridaSEOServices = () => {
             </div>
           </section>
 
+          {/* Our Services for Florida */}
+          <section className="py-16 px-4 bg-gradient-to-r from-blue-50/50 to-purple-50/50">
+            <div className="container mx-auto max-w-6xl">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                  Our Services for <span className="text-blue-600">Florida</span> Businesses
+                </h2>
+                <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                  Comprehensive digital marketing solutions designed for Florida's unique seasonal patterns, diverse communities, and tourism-driven economy.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <Card className="group hover:shadow-lg transition-all hover:-translate-y-1">
+                  <CardHeader>
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <Search className="w-7 h-7 text-white" />
+                    </div>
+                    <CardTitle className="text-xl">Local SEO</CardTitle>
+                    <CardDescription className="text-base">
+                      Dominate Florida search results from Jacksonville to Miami. We optimize for seasonal patterns, tourism cycles, and the diverse communities across the Sunshine State.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link to="/local-seo">
+                      <Button variant="outline" className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        Learn More
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                <Card className="group hover:shadow-lg transition-all hover:-translate-y-1">
+                  <CardHeader>
+                    <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <Globe className="w-7 h-7 text-white" />
+                    </div>
+                    <CardTitle className="text-xl">GEO/AEO Optimization</CardTitle>
+                    <CardDescription className="text-base">
+                      Be the answer when tourists, snowbirds, and locals ask AI assistants for Florida recommendations. Capture voice searches across all major Florida markets.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link to="/geo-optimization">
+                      <Button variant="outline" className="w-full group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        Learn More
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                <Card className="group hover:shadow-lg transition-all hover:-translate-y-1">
+                  <CardHeader>
+                    <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <Target className="w-7 h-7 text-white" />
+                    </div>
+                    <CardTitle className="text-xl">Local Lead Generation</CardTitle>
+                    <CardDescription className="text-base">
+                      Convert Florida's diverse population—tourists, retirees, families, and professionals—into customers with psychology-driven lead generation strategies.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link to="/local-lead-generation">
+                      <Button variant="outline" className="w-full group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                        Learn More
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                <Card className="group hover:shadow-lg transition-all hover:-translate-y-1">
+                  <CardHeader>
+                    <div className="w-14 h-14 bg-gradient-to-br from-fuchsia-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <ShoppingCart className="w-7 h-7 text-white" />
+                    </div>
+                    <CardTitle className="text-xl">E-commerce SEO</CardTitle>
+                    <CardDescription className="text-base">
+                      Grow your Florida online store with e-commerce SEO built for the Sunshine State. From tourism products to statewide retail, we optimize for Florida's unique market.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link to="/ecommerce-seo">
+                      <Button variant="outline" className="w-full group-hover:bg-fuchsia-600 group-hover:text-white transition-colors">
+                        Learn More
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </section>
+
           {/* Regional Expertise Section */}
           <section className="py-16 px-4 bg-slate-50">
             <div className="container mx-auto max-w-6xl">
@@ -260,7 +357,7 @@ const FloridaSEOServices = () => {
                       <li>• Bay area lifestyle marketing</li>
                     </ul>
                     <Button variant="outline" size="sm" asChild>
-                      <a href="/tampa-growth-marketing">Tampa Services →</a>
+                      <a href="/palm-coast-marketing">Palm Coast Services →</a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -378,7 +475,7 @@ const FloridaSEOServices = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-slate-600 mb-4">
-                      From boutique hotels to vacation rentals, I understand the seasonal psychology of travelers. 
+                      From boutique hotels to vacation rentals, we understand the seasonal psychology of travelers. 
                       Targeting families planning Disney trips, couples seeking romantic getaways, and business travelers.
                     </p>
                     <ul className="text-sm text-slate-600 space-y-2">
@@ -504,7 +601,7 @@ const FloridaSEOServices = () => {
                       <CardContent className="p-6">
                         <h4 className="font-bold text-green-700 mb-2">Native Market Understanding</h4>
                         <p className="text-slate-600">
-                          Born and raised in Daytona Beach, I understand Florida's culture, seasonal patterns, and consumer psychology from personal experience.
+                          Based in Daytona Beach, we understand Florida's culture, seasonal patterns, and consumer psychology from years of local experience.
                         </p>
                       </CardContent>
                     </Card>
@@ -582,7 +679,7 @@ const FloridaSEOServices = () => {
               </h2>
               <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
                 Get a free SEO audit specifically tailored to your Florida market. 
-                I'll show you exactly how to outrank your competition and capture more local customers.
+                We'll show you exactly how to outrank your competition and capture more local customers.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
@@ -628,7 +725,7 @@ const FloridaSEOServices = () => {
       <ProfessionalServiceSchema 
         serviceName="Florida SEO Services"
         serviceDescription="Comprehensive SEO services across Florida including Orlando, Tampa, Miami, Jacksonville, and Fort Lauderdale with local expertise"
-        serviceUrl="https://joelhintonmarketing.com/services/florida-seo-services"
+        serviceUrl="https://aiogrowthseo.com/services/florida-seo-services"
         serviceType="SEO Services"
       />
     </>

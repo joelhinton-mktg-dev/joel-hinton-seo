@@ -242,7 +242,7 @@ const Industries = () => {
   return (
     <>
       <Helmet>
-        <title>Industry Marketing Expertise | 15+ Verticals | Psychology-Driven Results | Joel Hinton</title>
+        <title>Industry Marketing Expertise | 15+ Verticals | Psychology-Driven Results | AIO Growth SEO</title>
         <meta name="description" content="Deep marketing expertise across 15+ industries with psychology-driven strategies. Real estate, healthcare, SaaS, legal services, and more. Proven results in every sector." />
         <meta name="keywords" content="industry marketing expertise, vertical marketing, real estate marketing, healthcare marketing, SaaS marketing, legal marketing, home services marketing" />
         <meta name="robots" content="index, follow" />
@@ -481,7 +481,7 @@ const Industries = () => {
       <ProfessionalServiceSchema 
         serviceName="Industry Marketing Services"
         serviceDescription="Specialized marketing strategies tailored to specific industries including healthcare, real estate, home services, and more"
-        serviceUrl="https://joelhintonmarketing.com/industries"
+        serviceUrl="https://aiogrowthseo.com/industries"
         serviceType="Industry Marketing"
       />
     </>

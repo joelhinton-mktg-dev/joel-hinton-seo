@@ -13,25 +13,26 @@ import { usePageTracking } from "@/hooks/usePageTracking";
 // Lazy load all page components
 const Index = lazy(() => import("./pages/Index"));
 const SEOServices = lazy(() => import("./pages/SEOServices"));
-const GrowthMarketing = lazy(() => import("./pages/GrowthMarketing"));
-const PaidAdvertising = lazy(() => import("./pages/PaidAdvertising"));
+const LocalLeadGeneration = lazy(() => import("./pages/LocalLeadGeneration"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Results = lazy(() => import("./pages/Results"));
 const About = lazy(() => import("./pages/About"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
 const FloridaSEOServices = lazy(() => import("./pages/FloridaSEOServices"));
-const OrlandoDigitalMarketing = lazy(() => import("./pages/OrlandoDigitalMarketing"));
-const TampaGrowthMarketing = lazy(() => import("./pages/TampaGrowthMarketing"));
-const JacksonvilleSEOConsultant = lazy(() => import("./pages/JacksonvilleSEOConsultant"));
-const MiamiMarketingAgency = lazy(() => import("./pages/MiamiMarketingAgency"));
 const AreasWeServe = lazy(() => import("./pages/AreasWeServe"));
-const FortLauderdaleAdvertising = lazy(() => import("./pages/FortLauderdaleAdvertising"));
+const DebaryDigitalMarketing = lazy(() => import("./pages/DebaryDigitalMarketing"));
+const SanfordSEOServices = lazy(() => import("./pages/SanfordSEOServices"));
+const NewSmyrnaBeachMarketing = lazy(() => import("./pages/NewSmyrnaBeachMarketing"));
+const HollyHillDigitalMarketing = lazy(() => import("./pages/HollyHillDigitalMarketing"));
+const OrmondBeachSEO = lazy(() => import("./pages/OrmondBeachSEO"));
+const PalmCoastMarketing = lazy(() => import("./pages/PalmCoastMarketing"));
+const PortOrangeMarketing = lazy(() => import("./pages/PortOrangeMarketing"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const DaytonaBeachDigitalMarketing = lazy(() => import("./pages/DaytonaBeachDigitalMarketing"));
 const Contact = lazy(() => import("./pages/Contact"));
-const VibeCoding = lazy(() => import("./pages/VibeCoding"));
+const CustomToolsAutomation = lazy(() => import("./pages/CustomToolsAutomation"));
 const Services = lazy(() => import("./pages/Services"));
 const LocalSEO = lazy(() => import("./pages/LocalSEO"));
 const GEOOptimization = lazy(() => import("./pages/GEOOptimization"));
@@ -48,6 +49,7 @@ const EducationTrainingMarketing = lazy(() => import("./pages/EducationTrainingM
 const AutomotiveServicesMarketing = lazy(() => import("./pages/AutomotiveServicesMarketing"));
 const FitnessWellnessMarketing = lazy(() => import("./pages/FitnessWellnessMarketing"));
 const FinancialServicesMarketing = lazy(() => import("./pages/FinancialServicesMarketing"));
+const EcommerceSEO = lazy(() => import("./pages/EcommerceSEO"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -99,28 +101,30 @@ const App = () => (
               <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/seo-services" element={<SEOServices />} />
-              <Route path="/growth-marketing" element={<GrowthMarketing />} />
-              <Route path="/paid-advertising" element={<PaidAdvertising />} />
+                            <Route path="/local-lead-generation" element={<LocalLeadGeneration />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/results" element={<Results />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPostPage />} />
               <Route path="/florida-seo-services" element={<FloridaSEOServices />} />
-              <Route path="/orlando-digital-marketing" element={<OrlandoDigitalMarketing />} />
-              <Route path="/tampa-growth-marketing" element={<TampaGrowthMarketing />} />
-              <Route path="/jacksonville-seo-consultant" element={<JacksonvilleSEOConsultant />} />
-              <Route path="/miami-marketing-agency" element={<MiamiMarketingAgency />} />
               <Route path="/areas-we-serve" element={<AreasWeServe />} />
-              <Route path="/fort-lauderdale-advertising" element={<FortLauderdaleAdvertising />} />
+              <Route path="/debary-digital-marketing" element={<DebaryDigitalMarketing />} />
+              <Route path="/sanford-seo-services" element={<SanfordSEOServices />} />
+              <Route path="/new-smyrna-beach-marketing" element={<NewSmyrnaBeachMarketing />} />
+              <Route path="/holly-hill-digital-marketing" element={<HollyHillDigitalMarketing />} />
+              <Route path="/ormond-beach-seo" element={<OrmondBeachSEO />} />
+              <Route path="/palm-coast-marketing" element={<PalmCoastMarketing />} />
+              <Route path="/port-orange-marketing" element={<PortOrangeMarketing />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
               <Route path="/daytona-beach-digital-marketing" element={<DaytonaBeachDigitalMarketing />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/vibe-coding" element={<VibeCoding />} />
+              <Route path="/custom-tools-automation" element={<CustomToolsAutomation />} />
               <Route path="/services" element={<Services />} />
               <Route path="/local-seo" element={<LocalSEO />} />
               <Route path="/geo-optimization" element={<GEOOptimization />} />
+              <Route path="/ecommerce-seo" element={<EcommerceSEO />} />
               <Route path="/industries" element={<Industries />} />
               <Route path="/industries/real-estate" element={<RealEstateMarketing />} />
               <Route path="/industries/healthcare" element={<HealthcareMarketing />} />

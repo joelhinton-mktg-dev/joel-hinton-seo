@@ -24,8 +24,8 @@ const AutomotiveServicesMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Automotive Services Marketing Psychology | Auto Repair Marketing | Joel Hinton</title>
-        <meta name="description" content="Trust-driven automotive marketing that converts car owners into loyal customers. Psychology strategies for auto repair shops with 285% service growth." />
+        <title>Automotive Services Marketing | Auto Repair Marketing | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="Automotive marketing for auto repair shops, tire shops, and body shops in Volusia & Flagler Counties. Trust-driven strategies that convert car owners into loyal customers." />
         <meta name="keywords" content="automotive marketing, auto repair marketing, car service marketing, automotive psychology, local auto shop marketing" />
         <meta name="robots" content="index, follow" />
         
@@ -36,7 +36,7 @@ const AutomotiveServicesMarketing = () => {
       <ProfessionalServiceSchema 
         serviceName="Automotive Services Marketing"
         serviceDescription="Trust-driven marketing strategies for auto repair shops and automotive services that build customer loyalty"
-        serviceUrl="https://joelhintonmarketing.com/industries/automotive-services"
+        serviceUrl="https://aiogrowthseo.com/industries/automotive-services"
         serviceType="Automotive Marketing"
       />
 
@@ -66,8 +66,8 @@ const AutomotiveServicesMarketing = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 Car owners need trust in automotive services, especially for major repairs and maintenance. Our psychology-driven 
                 strategies position your shop as the reliable, honest choice through transparency, expertise demonstration, and 
-                customer care focus. Combined with strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and 
-                <Link to="/paid-advertising" className="text-primary hover:underline">targeted advertising</Link>, we help customers find your shop when they need automotive care most.
+                customer care focus. Combined with strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and
+                <Link to="/local-lead-generation" className="text-primary hover:underline">targeted advertising</Link>, we help customers find your shop when they need automotive care most.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

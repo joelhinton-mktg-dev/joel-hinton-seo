@@ -24,8 +24,8 @@ const RestaurantsHospitalityMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Restaurant Marketing Psychology | Hospitality Marketing | Food Service Marketing | Joel Hinton</title>
-        <meta name="description" content="Restaurant marketing psychology that drives reservations and repeat customers. Visual appeal and experience marketing for hospitality with 280% traffic growth." />
+        <title>Restaurant Marketing | Hospitality Marketing | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="Restaurant and hospitality marketing for food service businesses in Volusia & Flagler Counties. Visual appeal strategies that drive reservations and repeat customers." />
         <meta name="keywords" content="restaurant marketing, hospitality marketing, food service marketing, restaurant psychology, dining experience marketing, food photography marketing" />
         <meta name="robots" content="index, follow" />
         
@@ -36,23 +36,8 @@ const RestaurantsHospitalityMarketing = () => {
       <ProfessionalServiceSchema 
         serviceName="Restaurant Marketing"
         serviceDescription="Visual appeal and experience marketing strategies for restaurants and hospitality businesses"
-        serviceUrl="https://joelhintonmarketing.com/industries/restaurants"
+        serviceUrl="https://aiogrowthseo.com/industries/restaurants"
         serviceType="Restaurant Marketing"
-        industryType="Hospitality"
-        areaServed="Florida, United States"
-        hasOfferCatalog={true}
-        provider={{
-          name: "Joel Hinton Digital Marketing",
-          telephone: "+1-386-555-0123",
-          email: "joel@joelhintonmarketing.com",
-          address: {
-            streetAddress: "",
-            addressLocality: "Daytona Beach",
-            addressRegion: "FL",
-            postalCode: "32114",
-            addressCountry: "US"
-          }
-        }}
       />
       <div className="min-h-screen bg-background">
         <Navigation />

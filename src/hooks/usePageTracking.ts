@@ -32,8 +32,8 @@ const getPageInfo = (pathname: string) => {
   
   // Service pages
   const servicePages = [
-    'seo-services', 'growth-marketing', 'paid-advertising', 
-    'local-seo', 'geo-optimization'
+    'seo-services', 'local-seo', 'geo-optimization',
+    'local-lead-generation', 'custom-tools-automation'
   ];
   
   if (servicePages.includes(segments[0])) {
@@ -46,9 +46,10 @@ const getPageInfo = (pathname: string) => {
   
   // Location pages
   const locationPages = [
-    'florida-seo-services', 'orlando-digital-marketing', 'tampa-growth-marketing',
-    'jacksonville-seo-consultant', 'miami-marketing-agency', 'fort-lauderdale-advertising',
-    'daytona-beach-digital-marketing'
+    'florida-seo-services', 'daytona-beach-digital-marketing', 'port-orange-marketing',
+    'ormond-beach-seo', 'palm-coast-marketing', 'new-smyrna-beach-marketing',
+    'debary-digital-marketing', 'sanford-seo-services', 'holly-hill-digital-marketing',
+    'areas-we-serve'
   ];
   
   if (locationPages.includes(segments[0])) {

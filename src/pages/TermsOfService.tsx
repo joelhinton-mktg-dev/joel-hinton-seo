@@ -13,20 +13,20 @@ const TermsOfService = () => {
   return (
     <>
       <Helmet>
-        <title>Terms of Service | Joel Hinton Digital Marketing | Legal Terms & Conditions</title>
-        <meta name="description" content="Terms of Service for Joel Hinton Digital Marketing. Review the legal terms and conditions for our digital marketing consultation and services." />
+        <title>Terms of Service | AIO Growth SEO | Legal Terms & Conditions</title>
+        <meta name="description" content="Terms of Service for AIO Growth SEO. Review the legal terms and conditions for our digital marketing consultation and services." />
         <meta name="robots" content="index, follow" />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Terms of Service - Joel Hinton Digital Marketing",
+            "name": "Terms of Service - AIO Growth SEO",
             "description": "Legal terms and conditions for digital marketing services",
-            "url": "https://joelhinton.com/terms",
+            "url": "https://aiogrowthseo.com/terms",
             "publisher": {
               "@type": "Organization",
-              "name": "Joel Hinton Digital Marketing"
+              "name": "AIO Growth SEO"
             },
             "dateModified": lastUpdated
           })}
@@ -73,10 +73,10 @@ const TermsOfService = () => {
                 <CardContent className="space-y-4">
                   <p className="text-slate-700">
                     These Terms of Service ("Terms") constitute a legally binding agreement between you ("Client," "you," or "your") 
-                    and Joel Hinton Digital Marketing ("Company," "we," "our," or "us") regarding your use of our website and services.
+                    and AIO Growth SEO ("Company," "we," "our," or "us") regarding your use of our website and services.
                   </p>
                   <p className="text-slate-700">
-                    By accessing our website at joelhinton.com or engaging our services, you agree to be bound by these Terms. 
+                    By accessing our website at aiogrowthseo.com or engaging our services, you agree to be bound by these Terms. 
                     If you do not agree to these Terms, please do not use our website or services.
                   </p>
                   <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
@@ -100,7 +100,7 @@ const TermsOfService = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-slate-700">
-                    Joel Hinton Digital Marketing provides digital marketing consultation, strategy development, and implementation services, including but not limited to:
+                    AIO Growth SEO provides digital marketing consultation, strategy development, and implementation services, including but not limited to:
                   </p>
                   <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
                     <li>Search Engine Optimization (SEO) consultation and implementation</li>
@@ -210,7 +210,7 @@ const TermsOfService = () => {
                   <div>
                     <h3 className="font-semibold text-lg text-slate-900 mb-2">Our Intellectual Property</h3>
                     <p className="text-slate-700">
-                      All proprietary methodologies, strategies, frameworks, templates, and materials developed by Joel Hinton Digital Marketing 
+                      All proprietary methodologies, strategies, frameworks, templates, and materials developed by AIO Growth SEO
                       remain our exclusive intellectual property. This includes our psychological marketing frameworks, optimization techniques, 
                       and analytical methodologies.
                     </p>
@@ -352,7 +352,7 @@ const TermsOfService = () => {
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4 text-blue-600" />
-                      <span className="text-slate-700">Email: legal@joelhintonmarketing.com</span>
+                      <span className="text-slate-700">Email: legal@aiogrowthseo.com</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Phone className="w-4 h-4 text-blue-600" />
@@ -360,7 +360,7 @@ const TermsOfService = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <FileText className="w-4 h-4 text-blue-600" />
-                      <span className="text-slate-700">Mail: Joel Hinton Digital Marketing, Daytona Beach, FL 32114</span>
+                      <span className="text-slate-700">Mail: AIO Growth SEO, Daytona Beach, FL 32114</span>
                     </div>
                   </div>
                 </CardContent>

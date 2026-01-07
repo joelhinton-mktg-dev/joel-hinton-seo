@@ -38,20 +38,20 @@ const SEOServices = () => {
   return (
     <>
       <Helmet>
-        <title>Comprehensive SEO Services | Technical & Local SEO Expert | Joel Hinton</title>
-        <meta name="description" content="Comprehensive SEO services combining technical optimization with behavioral psychology to drive Florida business growth and higher search rankings." />
-        <meta name="keywords" content="SEO services, technical SEO, local SEO, search engine optimization, Florida SEO expert" />
+        <title>Comprehensive SEO Services | Technical & Local SEO Expert | AIO Growth SEO</title>
+        <meta name="description" content="Comprehensive SEO services combining technical optimization with behavioral psychology to drive Central Florida business growth and higher search rankings. Volusia & Flagler County SEO experts." />
+        <meta name="keywords" content="SEO services, technical SEO, local SEO, search engine optimization, Volusia County SEO, Flagler County SEO, Central Florida SEO" />
         <meta name="robots" content="index, follow" />
         
-        <meta property="og:title" content="Comprehensive SEO Services | Technical & Local SEO Expert" />
-        <meta property="og:description" content="Technical SEO optimization combined with behavioral psychology for proven business growth." />
+        <meta property="og:title" content="Comprehensive SEO Services | AIO Growth SEO" />
+        <meta property="og:description" content="Technical SEO optimization combined with behavioral psychology for proven Central Florida business growth." />
         <meta property="og:type" content="website" />
       </Helmet>
-      <ProfessionalServiceSchema 
+      <ProfessionalServiceSchema
         serviceName="SEO Services"
-        serviceDescription="Comprehensive SEO services combining technical optimization with behavioral psychology"
-        serviceUrl="https://joelhintonmarketing.com/seo-services"
-        price="500"
+        serviceDescription="Comprehensive SEO services combining technical optimization, topical authority mapping, and AI-powered content systems"
+        serviceUrl="https://aiogrowthseo.com/seo-services"
+        price="1000"
         serviceType="Search Engine Optimization"
       />
       <div className="min-h-screen bg-background">
@@ -176,10 +176,10 @@ const SEOServices = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              SEO vs <span className="gradient-text">GEO</span>: The Future is Here
+              Traditional SEO vs <span className="gradient-text">Our SEO/GEO System</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Traditional SEO is propaganda. GEO is psychology.
+              We create a strategic roadmap to topical authority using semantic SEO and AI-powered content systems.
             </p>
           </div>
 
@@ -190,23 +190,26 @@ const SEOServices = () => {
                   <Search className="w-6 h-6" />
                   Traditional SEO Approach
                 </CardTitle>
+                <CardDescription className="text-destructive/80 font-medium mt-2">
+                  Keywords → Content → Hope for Rankings
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 rounded-full bg-destructive"></div>
-                  <span>Keyword stuffing and content farms</span>
+                  <span>Keyword research with no strategic context</span>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 rounded-full bg-destructive"></div>
-                  <span>Generic blog posts that no one reads</span>
+                  <span>Random blog posts targeting individual keywords</span>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 rounded-full bg-destructive"></div>
-                  <span>Outdated link building tactics</span>
+                  <span>No understanding of topical relationships</span>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 rounded-full bg-destructive"></div>
-                  <span>Monthly retainers with no clear ROI</span>
+                  <span>Ignores AI search and answer engines entirely</span>
                 </div>
               </CardContent>
             </Card>
@@ -215,25 +218,28 @@ const SEOServices = () => {
               <CardHeader>
                 <CardTitle className="text-xl text-primary flex items-center gap-2">
                   <Bot className="w-6 h-6" />
-                  Our GEO Approach
+                  Our SEO/GEO System
                 </CardTitle>
+                <CardDescription className="text-primary font-medium mt-2">
+                  Technical Audit → Topical Mapping → Semantic SEO → Content Automation
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span><strong>G</strong>enerative Engine Optimization for AI search</span>
+                  <span><strong>Topical authority mapping</strong> - understand your entire topic cluster</span>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span><strong>E</strong>ntity-based content that answers real questions</span>
+                  <span><strong>Entity-based SEO</strong> - optimize for concepts, not just keywords</span>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span><strong>O</strong>ptimization for how people actually think and search</span>
+                  <span><strong>Answer Engine Optimization (AEO)</strong> - rank in AI & voice search</span>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>Psychology-driven content that converts visitors to customers</span>
+                  <span><strong>AI content automation</strong> - scale with 80/20 human oversight</span>
                 </div>
               </CardContent>
             </Card>
@@ -317,27 +323,27 @@ const SEOServices = () => {
                 <div className="w-16 h-16 rounded-full bg-primary/20 text-primary flex items-center justify-center mx-auto mb-4">
                   <BarChart3 className="w-8 h-8" />
                 </div>
-                <CardTitle className="text-xl">Phase 3: Programmatic Scaling</CardTitle>
+                <CardTitle className="text-xl">Phase 3: AI Content Engine</CardTitle>
                 <CardDescription className="text-primary font-semibold">Week 5-6</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3 text-left">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />
-                  Programmatic SEO framework for scalable content
+                  AI Content Engine setup and automation
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />
-                  AI-powered content generation at scale
+                  Automated content creation using topical map as roadmap
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />
-                  Internal linking strategy and site architecture
+                  80/20 approach: AI generates, humans perfect
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />
-                  Performance tracking and ROI measurement
+                  Content strategy tied to topical authority building
                 </div>
-                <p className="text-xs italic text-primary mt-4">"Build once, scale forever"</p>
+                <p className="text-xs italic text-primary mt-4">"AI generates, humans perfect, rankings compound"</p>
               </CardContent>
             </Card>
           </div>
@@ -356,32 +362,33 @@ const SEOServices = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* One-Time Packages */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
             <Card className="card-professional">
               <CardHeader className="text-center pb-8">
-                <Badge variant="secondary" className="w-fit mx-auto mb-4">Most Popular</Badge>
-                <CardTitle className="text-2xl mb-2">Basic SEO Plan</CardTitle>
-                <div className="text-4xl font-bold text-primary mb-2">$500</div>
+                <Badge variant="secondary" className="w-fit mx-auto mb-4">Foundation</Badge>
+                <CardTitle className="text-2xl mb-2">Basic SEO Foundation</CardTitle>
+                <div className="text-4xl font-bold text-primary mb-2">$1,000</div>
                 <CardDescription className="text-muted-foreground">One-time investment</CardDescription>
-                <p className="text-sm text-primary font-medium mt-2">Perfect for: Small businesses starting their SEO journey</p>
+                <p className="text-sm text-primary font-medium mt-2">Foundation for search & answer engine success</p>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Complete technical SEO audit (normally $300 value)</span>
+                    <span className="text-sm">Complete technical SEO audit & fixes</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Fix up to 20 technical issues affecting rankings</span>
+                    <span className="text-sm">On-page optimization for core pages</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm">On-page optimization for up to 10 pages</span>
+                    <span className="text-sm"><strong>Topical map creation</strong> - your content roadmap</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Keyword research and competitive analysis</span>
+                    <span className="text-sm">Competitive gap analysis</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
@@ -396,7 +403,7 @@ const SEOServices = () => {
                     <span className="text-sm">30-day performance report</span>
                   </div>
                 </div>
-                
+
                 <div className="pt-4 border-t border-border">
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-muted-foreground">Timeline:</span>
@@ -408,11 +415,11 @@ const SEOServices = () => {
                   </div>
                 </div>
 
-                <Button 
+                <Button
                   className="w-full mt-6"
-                  onClick={() => selectService("Basic SEO Plan - $500")}
+                  onClick={() => selectService("Basic SEO Foundation - $1,000")}
                 >
-                  Get Started - $500
+                  Get Started - $1,000
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </CardContent>
@@ -421,20 +428,28 @@ const SEOServices = () => {
             <Card className="card-professional border-primary/50 bg-primary/5">
               <CardHeader className="text-center pb-8">
                 <Badge className="w-fit mx-auto mb-4 bg-primary">Recommended</Badge>
-                <CardTitle className="text-2xl mb-2">Growth SEO Plan</CardTitle>
-                <div className="text-4xl font-bold text-primary mb-2">$1,000</div>
+                <CardTitle className="text-2xl mb-2">Growth SEO System</CardTitle>
+                <div className="text-4xl font-bold text-primary mb-2">$2,000</div>
                 <CardDescription className="text-muted-foreground">One-time investment</CardDescription>
-                <p className="text-sm text-primary font-medium mt-2">Perfect for: Businesses ready to scale organically</p>
+                <p className="text-sm text-primary font-medium mt-2">Complete SEO + AI Content Engine setup</p>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-medium">Everything in Basic Plan</span>
+                    <span className="text-sm font-medium">Everything in Basic Foundation</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Programmatic SEO framework setup</span>
+                    <span className="text-sm"><strong>AI Content Engine</strong> setup & automation</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary" />
+                    <span className="text-sm">Content strategy implementation (first 5 articles)</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary" />
+                    <span className="text-sm">Initial backlink building (directories + 1-2 guest posts)</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
@@ -446,22 +461,10 @@ const SEOServices = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Content strategy and creation templates</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Competitor analysis and gap identification</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Custom automation for ongoing optimization</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary" />
                     <span className="text-sm">90-day performance tracking</span>
                   </div>
                 </div>
-                
+
                 <div className="pt-4 border-t border-border">
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-muted-foreground">Timeline:</span>
@@ -469,19 +472,87 @@ const SEOServices = () => {
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Ideal for:</span>
-                    <span className="font-medium text-right">Growing businesses, multi-location</span>
+                    <span className="font-medium text-right">Growing businesses, content-focused</span>
                   </div>
                 </div>
 
-                <Button 
+                <Button
                   className="w-full mt-6 btn-hero text-primary-foreground"
-                  onClick={() => selectService("Growth SEO Plan - $1,000")}
+                  onClick={() => selectService("Growth SEO System - $2,000")}
                 >
-                  Get Started - $1,000
+                  Get Started - $2,000
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Monthly Maintenance Options */}
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-2">Optional Monthly Maintenance</h3>
+              <p className="text-muted-foreground">For businesses that want ongoing optimization support after foundation setup</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="card-professional">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg">Monthly Maintenance</CardTitle>
+                    <div className="text-2xl font-bold text-primary">$500<span className="text-sm font-normal text-muted-foreground">/mo</span></div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      10 hours of optimization work monthly
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Content updates and new page optimization
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Technical monitoring and fixes
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Monthly performance reporting
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional border-primary/30">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-lg">Advanced Monthly</CardTitle>
+                    <div className="text-2xl font-bold text-primary">$1,000<span className="text-sm font-normal text-muted-foreground">/mo</span></div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Everything in Monthly Maintenance
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Monthly link building campaigns
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      AI Content Engine management
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Priority support and strategy calls
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -570,7 +641,7 @@ const SEOServices = () => {
                   ))}
                 </div>
                 <blockquote className="text-lg italic mb-4">
-                  "In just 45 days, Joel's SEO strategy drove a 200% increase in traffic for Privada Cigar Club — proof that real SEO works faster and smarter."
+                  "In just 45 days, AIO Growth's SEO strategy drove a 200% increase in traffic for Privada Cigar Club — proof that real SEO works faster and smarter."
                 </blockquote>
                 <cite className="text-sm text-muted-foreground">Brian Descind, Privada Cigar Club</cite>
               </div>

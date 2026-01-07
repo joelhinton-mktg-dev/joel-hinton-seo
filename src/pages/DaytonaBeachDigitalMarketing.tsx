@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Home, Zap, CheckCircle, ArrowRight, Phone, Mail, Calendar, Star, TrendingUp, Brain, BarChart3, Users, DollarSign, Car, Flag, Waves, Building2, Sun, Clock, Shield, Heart, Trophy, Compass, MessageSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MapPin, Home, Zap, CheckCircle, ArrowRight, Phone, Mail, Calendar, Star, TrendingUp, Brain, BarChart3, Users, DollarSign, Car, Flag, Waves, Building2, Sun, Clock, Shield, Heart, Trophy, Compass, MessageSquare, Search, Globe, Target, ShoppingCart } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -18,7 +19,7 @@ const DaytonaBeachDigitalMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Daytona Beach Digital Marketing | NASCAR Culture & Motorsports Expert | Joel Hinton</title>
+        <title>Daytona Beach Digital Marketing | NASCAR Culture & Motorsports Expert | AIO Growth SEO</title>
         <meta name="description" content="Daytona Beach digital marketing with deep local expertise. NASCAR culture, motorsports tourism, beach lifestyle psychology. Home field advantage with fastest response times." />
         <meta name="keywords" content="Daytona Beach digital marketing, NASCAR marketing, motorsports tourism, beach lifestyle marketing, Daytona SEO, local digital marketing expert" />
         <meta name="robots" content="index, follow" />
@@ -35,9 +36,9 @@ const DaytonaBeachDigitalMarketing = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Joel Hinton - Daytona Beach Digital Marketing",
+            "name": "AIO Growth SEO - Daytona Beach Digital Marketing",
             "description": "Daytona Beach Digital Marketing Expert specializing in NASCAR culture and motorsports tourism psychology",
-            "url": "https://joelhinton.com/daytona-beach-digital-marketing",
+            "url": "https://aiogrowthseo.com/daytona-beach-digital-marketing",
             "telephone": "+1-386-555-0123",
             "address": {
               "@type": "PostalAddress",
@@ -85,8 +86,8 @@ const DaytonaBeachDigitalMarketing = () => {
             "serviceType": "Digital Marketing Services",
             "priceRange": "$$",
             "founder": {
-              "@type": "Person",
-              "name": "Joel Hinton"
+              "@type": "Organization",
+              "name": "AIO Growth SEO"
             }
           })}
         </script>
@@ -674,6 +675,102 @@ const DaytonaBeachDigitalMarketing = () => {
           </div>
         </section>
 
+        {/* Our Services for Daytona Beach */}
+        <section className="py-24 bg-gradient-subtle">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Our Services for <span className="gradient-text">Daytona Beach</span> Businesses
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Comprehensive digital marketing solutions tailored for Daytona Beach's unique market dynamics, from NASCAR culture to beach tourism.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <Card className="card-professional group hover:shadow-lg transition-all hover:-translate-y-1">
+                <CardHeader>
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Search className="w-7 h-7 text-white" />
+                  </div>
+                  <CardTitle className="text-xl">Local SEO</CardTitle>
+                  <CardDescription className="text-base">
+                    Dominate Daytona Beach search results during Speedweeks, Bike Week, and year-round. We optimize your business for local customers and the 10+ million tourists who visit annually.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link to="/local-seo">
+                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional group hover:shadow-lg transition-all hover:-translate-y-1">
+                <CardHeader>
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Globe className="w-7 h-7 text-white" />
+                  </div>
+                  <CardTitle className="text-xl">GEO/AEO Optimization</CardTitle>
+                  <CardDescription className="text-base">
+                    Get your Daytona Beach business featured in AI-powered search results and voice assistants. Be the answer when visitors ask "What's the best [service] near Daytona Speedway?"
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link to="/geo-optimization">
+                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional group hover:shadow-lg transition-all hover:-translate-y-1">
+                <CardHeader>
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Target className="w-7 h-7 text-white" />
+                  </div>
+                  <CardTitle className="text-xl">Local Lead Generation</CardTitle>
+                  <CardDescription className="text-base">
+                    Convert NASCAR fans, beach tourists, and local residents into paying customers with psychology-driven lead generation strategies built for Daytona's unique seasonal patterns.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link to="/local-lead-generation">
+                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="card-professional group hover:shadow-lg transition-all hover:-translate-y-1">
+                <CardHeader>
+                  <div className="w-14 h-14 bg-gradient-to-br from-fuchsia-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <ShoppingCart className="w-7 h-7 text-white" />
+                  </div>
+                  <CardTitle className="text-xl">E-commerce SEO</CardTitle>
+                  <CardDescription className="text-base">
+                    Grow your Daytona Beach retail or tourism business online. We help local shops, motorsports merchandise stores, and beachside retailers reach customers beyond the boardwalk.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link to="/ecommerce-seo">
+                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         {/* Daytona Beach Success Stories */}
         <section className="py-24 bg-gradient-subtle">
           <div className="container mx-auto px-6">
@@ -758,7 +855,7 @@ const DaytonaBeachDigitalMarketing = () => {
                     ))}
                   </div>
                   <blockquote className="text-lg italic mb-4">
-                    "Working with Joel was like having an insider's advantage. He didn't just understand our business - he understood our customers, our community, and the unique rhythms of Daytona Beach. Our Speedweeks revenue quadrupled because he knew exactly how to reach NASCAR fans at the right time with the right message."
+                    "Working with AIO Growth was like having an insider's advantage. They didn't just understand our business - they understood our customers, our community, and the unique rhythms of Daytona Beach. Our Speedweeks revenue quadrupled because they knew exactly how to reach NASCAR fans at the right time with the right message."
                   </blockquote>
                   <cite className="text-sm text-muted-foreground">Sarah Martinez, Speedway Hospitality Group</cite>
                 </div>

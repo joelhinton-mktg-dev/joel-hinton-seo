@@ -2,11 +2,11 @@ const LocalBusinessSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Joel Hinton Digital Marketing",
-    "description": "Psychology-driven SEO and digital marketing services for Florida businesses",
-    "url": "https://joelhintonmarketing.com",
+    "name": "AIO Growth SEO",
+    "description": "Psychology-driven SEO and digital marketing services for businesses in Volusia & Flagler Counties, Central Florida",
+    "url": "https://aiogrowthseo.com",
     "telephone": "(386) 555-0123",
-    "email": "joel@joelhintonmarketing.com",
+    "email": "info@aiogrowthseo.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Daytona Beach",
@@ -21,19 +21,20 @@ const LocalBusinessSchema = () => {
     "priceRange": "$500-$5000",
     "openingHours": "Mo-Fr 09:00-17:00",
     "areaServed": [
-      "Florida",
+      "Volusia County",
+      "Flagler County",
       "Daytona Beach",
-      "Orlando", 
-      "Jacksonville",
-      "Tampa",
-      "Miami"
+      "Port Orange",
+      "Ormond Beach",
+      "Palm Coast",
+      "New Smyrna Beach"
     ],
     "serviceType": [
       "SEO Services",
-      "Digital Marketing",
-      "Growth Marketing",
       "Local SEO",
-      "Paid Advertising"
+      "GEO Optimization",
+      "Local Lead Generation",
+      "Custom Marketing Tools & Automation"
     ]
   };
 

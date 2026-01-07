@@ -18,29 +18,29 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Florida SEO Expert Joel Hinton | Free Marketing Consultation</title>
-        <meta name="description" content="Contact Florida SEO specialist Joel Hinton for a free consultation. Psychology-driven marketing strategies that drive real business results." />
-        <meta name="keywords" content="contact SEO expert, Florida marketing consultant, free SEO consultation, digital marketing help" />
+        <title>Contact Central Florida SEO Experts | Free Marketing Consultation | AIO Growth SEO</title>
+        <meta name="description" content="Contact AIO Growth SEO for a free consultation. Psychology-driven marketing strategies for Volusia & Flagler County businesses." />
+        <meta name="keywords" content="contact SEO expert, Central Florida marketing, free SEO consultation, Volusia County marketing, Flagler County SEO" />
         <meta name="robots" content="index, follow" />
-        
-        <meta property="og:title" content="Contact Joel Hinton | Free Marketing Consultation | Daytona Beach FL" />
-        <meta property="og:description" content="Get your free marketing consultation with Joel Hinton. Daytona Beach headquarters with in-person meetings available." />
+
+        <meta property="og:title" content="Contact AIO Growth SEO | Free Marketing Consultation | Daytona Beach FL" />
+        <meta property="og:description" content="Get your free marketing consultation with AIO Growth SEO. Daytona Beach headquarters with in-person meetings available." />
         <meta property="og:type" content="website" />
-        
+
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact Joel Hinton | Free Marketing Consultation" />
-        <meta name="twitter:description" content="Get your free marketing consultation with Joel Hinton. Daytona Beach headquarters with in-person meetings available." />
+        <meta name="twitter:title" content="Contact AIO Growth SEO | Free Marketing Consultation" />
+        <meta name="twitter:description" content="Get your free marketing consultation with AIO Growth SEO. Daytona Beach headquarters with in-person meetings available." />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "name": "Contact Joel Hinton Digital Marketing",
-            "description": "Contact page for Joel Hinton Digital Marketing consultation services",
-            "url": "https://joelhinton.com/contact",
+            "name": "Contact AIO Growth SEO",
+            "description": "Contact page for AIO Growth SEO digital marketing consultation services",
+            "url": "https://aiogrowthseo.com/contact",
             "mainEntity": {
               "@type": "LocalBusiness",
-              "name": "Joel Hinton Digital Marketing",
+              "name": "AIO Growth SEO",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "123 Main Street",
@@ -55,11 +55,11 @@ const Contact = () => {
                 "longitude": "-81.0228"
               },
               "telephone": "+1-386-555-0123",
-              "email": "joel@joelhintonmarketing.com",
+              "email": "info@aiogrowthseo.com",
               "openingHours": "Mo-Fr 09:00-17:00",
               "serviceArea": {
-                "@type": "State",
-                "name": "Florida"
+                "@type": "AdministrativeArea",
+                "name": "Volusia & Flagler Counties, Florida"
               }
             }
           })}
@@ -140,7 +140,7 @@ const Contact = () => {
                 Multiple Ways to <span className="gradient-text">Connect</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Choose the communication method that works best for you. I'm here to help accelerate your business growth.
+                Choose the communication method that works best for you. We're here to help accelerate your business growth.
               </p>
             </div>
 
@@ -175,7 +175,7 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <p className="text-lg font-semibold">joel@joelhintonmarketing.com</p>
+                    <p className="text-lg font-semibold">info@aiogrowthseo.com</p>
                     <p className="text-sm text-muted-foreground">Response within 24 hours</p>
                   </div>
                   <Button variant="outline" className="w-full">
@@ -336,8 +336,8 @@ const Contact = () => {
                 Schedule Your Strategy Session
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Get your free marketing consultation. Tell us about your business and marketing challenges, 
-                and I'll show you exactly how to accelerate growth with psychology-driven strategies.
+                Get your free marketing consultation. Tell us about your business and marketing challenges,
+                and we'll show you exactly how to accelerate growth with psychology-driven strategies.
               </p>
             </div>
 
@@ -498,7 +498,7 @@ const Contact = () => {
                   What happens during the free consultation?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  During our consultation, I'll analyze your current marketing, understand your business goals, identify your target audience psychology, and provide specific recommendations for growth. You'll receive actionable strategies you can implement immediately, plus a roadmap for long-term success.
+                  During our consultation, we'll analyze your current marketing, understand your business goals, identify your target audience psychology, and provide specific recommendations for growth. You'll receive actionable strategies you can implement immediately, plus a roadmap for long-term success.
                 </AccordionContent>
               </AccordionItem>
 
@@ -507,7 +507,7 @@ const Contact = () => {
                   How long is the consultation and what format?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Consultations typically last 45-60 minutes. For Daytona Beach area businesses, I offer in-person meetings at my office or your location. For other markets, we'll conduct the consultation via video conference, phone, or detailed email exchange based on your preference.
+                  Consultations typically last 45-60 minutes. For Daytona Beach area businesses, we offer in-person meetings at our office or your location. For other markets, we'll conduct the consultation via video conference, phone, or detailed email exchange based on your preference.
                 </AccordionContent>
               </AccordionItem>
 
@@ -516,7 +516,7 @@ const Contact = () => {
                   Is the consultation really free? What's the catch?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Yes, it's completely free with no strings attached. I provide genuine value during our consultation because I believe in demonstrating expertise rather than just talking about it. Some businesses choose to work with me afterward, but there's no pressure or obligation to do so.
+                  Yes, it's completely free with no strings attached. We provide genuine value during our consultation because we believe in demonstrating expertise rather than just talking about it. Some businesses choose to work with us afterward, but there's no pressure or obligation to do so.
                 </AccordionContent>
               </AccordionItem>
 
@@ -525,7 +525,7 @@ const Contact = () => {
                   What should I prepare for the consultation?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Come prepared to discuss your current marketing efforts, biggest challenges, and growth goals. If possible, bring information about your target audience, competitors, and any marketing data you have. The more context you provide, the more specific and valuable my recommendations will be.
+                  Come prepared to discuss your current marketing efforts, biggest challenges, and growth goals. If possible, bring information about your target audience, competitors, and any marketing data you have. The more context you provide, the more specific and valuable our recommendations will be.
                 </AccordionContent>
               </AccordionItem>
 
@@ -534,7 +534,7 @@ const Contact = () => {
                   Do you work with businesses outside of Florida?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Absolutely. While I specialize in Florida markets and offer in-person service in the Daytona Beach area, I work with businesses nationwide through remote consultations. The psychology-driven marketing principles I use are effective regardless of location.
+                  Absolutely. While we specialize in Volusia & Flagler County markets and offer in-person service in the Daytona Beach area, we work with businesses throughout Central Florida through remote consultations. The psychology-driven marketing principles we use are effective regardless of location.
                 </AccordionContent>
               </AccordionItem>
 

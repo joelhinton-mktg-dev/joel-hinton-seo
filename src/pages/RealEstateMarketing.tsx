@@ -23,8 +23,8 @@ const RealEstateMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Real Estate Marketing Psychology | Investment Property Marketing | Joel Hinton</title>
-        <meta name="description" content="Psychology-driven real estate marketing that converts browsers to buyers. Specialized strategies for luxury, investment, and residential properties with 285% traffic growth." />
+        <title>Real Estate Marketing | Investment Property Marketing | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="Real estate marketing for agents and brokers in Volusia & Flagler Counties. Local SEO and lead generation strategies that convert browsers to buyers." />
         <meta name="keywords" content="real estate marketing, property marketing psychology, real estate lead generation, luxury home marketing, investment property marketing" />
         <meta name="robots" content="index, follow" />
         
@@ -63,8 +63,8 @@ const RealEstateMarketing = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 Real estate is sold with emotion and justified with logic. Our psychology-driven strategies tap into dream fulfillment, 
                 investment anxiety, and lifestyle aspirations to turn prospects into qualified buyers ready to act. 
-                Through strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and targeted 
-                <Link to="/paid-advertising" className="text-primary hover:underline">paid advertising</Link> campaigns, we ensure your properties get maximum visibility.
+                Through strategic <Link to="/local-seo" className="text-primary hover:underline">local SEO</Link> and targeted
+                <Link to="/local-lead-generation" className="text-primary hover:underline">local lead generation</Link> campaigns, we ensure your properties get maximum visibility.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -445,9 +445,9 @@ const RealEstateMarketing = () => {
                     <div className="bg-green-50 p-4 rounded-lg border border-green-200">
                       <h4 className="font-semibold text-green-800 mb-2">The Results</h4>
                       <p className="text-green-700 text-sm">
-                        "Joel understood luxury real estate psychology better than agencies we'd worked with for years. 
-                        The investment mindset triggers and lifestyle visualization strategies transformed our lead quality completely. 
-                        We're not just selling houses—we're selling dreams and status symbols."
+                        "AIO Growth understood real estate psychology better than agencies we'd worked with for years.
+                        The investment mindset triggers and lifestyle visualization strategies transformed our lead quality completely.
+                        We're not just selling houses—we're selling dreams and lifestyles."
                       </p>
                       <div className="flex items-center gap-2 mt-3">
                         <div className="flex">

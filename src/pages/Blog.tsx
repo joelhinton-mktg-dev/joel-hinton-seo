@@ -92,17 +92,17 @@ const Blog: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Marketing Psychology Blog | Joel Hinton</title>
+        <title>Marketing Psychology Blog | AIO Growth SEO</title>
         <meta name="description" content="Explore psychology-driven marketing strategies, growth hacking techniques, and data-driven case studies to boost your business performance." />
-        <meta name="keywords" content="marketing psychology, growth marketing, conversion optimization, consumer behavior, marketing strategy" />
+        <meta name="keywords" content="marketing psychology, growth marketing, conversion optimization, consumer behavior, marketing strategy, Central Florida" />
         <meta name="robots" content="index, follow" />
-        
-        <meta property="og:title" content="Marketing Psychology Blog | Joel Hinton" />
+
+        <meta property="og:title" content="Marketing Psychology Blog | AIO Growth SEO" />
         <meta property="og:description" content="Explore psychology-driven marketing strategies, growth hacking techniques, and data-driven case studies to boost your business performance." />
         <meta property="og:type" content="website" />
-        
+
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Marketing Psychology Blog | Joel Hinton" />
+        <meta name="twitter:title" content="Marketing Psychology Blog | AIO Growth SEO" />
         <meta name="twitter:description" content="Explore psychology-driven marketing strategies, growth hacking techniques, and data-driven case studies to boost your business performance." />
       </Helmet>
 

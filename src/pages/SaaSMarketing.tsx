@@ -24,8 +24,8 @@ const SaaSMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>SaaS Marketing Psychology | Trial Conversion Optimization | Customer Onboarding | Joel Hinton</title>
-        <meta name="description" content="SaaS marketing psychology that optimizes trial conversion and reduces churn. Proven strategies for software companies with 245% traffic growth and 380% ROI." />
+        <title>SaaS Marketing | Trial Conversion Optimization | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="SaaS marketing for software companies in Volusia & Flagler Counties. Psychology-driven strategies that optimize trial conversion and reduce churn." />
         <meta name="keywords" content="SaaS marketing, trial conversion, customer onboarding, SaaS psychology, software marketing, churn reduction, freemium marketing" />
         <meta name="robots" content="index, follow" />
         
@@ -36,23 +36,8 @@ const SaaSMarketing = () => {
       <ProfessionalServiceSchema 
         serviceName="SaaS Marketing"
         serviceDescription="Psychology-driven SaaS marketing strategies that optimize trial conversion and customer success"
-        serviceUrl="https://joelhintonmarketing.com/industries/saas"
+        serviceUrl="https://aiogrowthseo.com/industries/saas"
         serviceType="SaaS Marketing"
-        industryType="Software"
-        areaServed="Florida, United States"
-        hasOfferCatalog={true}
-        provider={{
-          name: "Joel Hinton Digital Marketing",
-          telephone: "+1-386-555-0123",
-          email: "joel@joelhintonmarketing.com",
-          address: {
-            streetAddress: "",
-            addressLocality: "Daytona Beach",
-            addressRegion: "FL",
-            postalCode: "32114",
-            addressCountry: "US"
-          }
-        }}
       />
       <div className="min-h-screen bg-background">
         <Navigation />

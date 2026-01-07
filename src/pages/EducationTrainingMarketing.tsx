@@ -24,8 +24,8 @@ const EducationTrainingMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Education & Training Marketing Psychology | Student Enrollment Marketing | Joel Hinton</title>
-        <meta name="description" content="Trust-driven education marketing that converts parents and students into enrollments. Psychology strategies for schools and training programs with 240% enrollment growth." />
+        <title>Education & Training Marketing | Student Enrollment | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="Education marketing for schools and training programs in Volusia & Flagler Counties. Trust-driven strategies that convert parents and students into enrollments." />
         <meta name="keywords" content="education marketing, student enrollment, school marketing, training program marketing, educational psychology, parent decision marketing" />
         <meta name="robots" content="index, follow" />
         
@@ -36,7 +36,7 @@ const EducationTrainingMarketing = () => {
       <ProfessionalServiceSchema 
         serviceName="Education & Training Marketing"
         serviceDescription="Trust-driven marketing strategies for schools and training programs that build credibility and drive enrollments"
-        serviceUrl="https://joelhintonmarketing.com/industries/education-training"
+        serviceUrl="https://aiogrowthseo.com/industries/education-training"
         serviceType="Educational Marketing"
       />
 

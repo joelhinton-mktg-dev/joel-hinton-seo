@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Search, TrendingUp, Target, Code, Brain, CheckCircle, ArrowRight, Users, Zap, Star, BarChart3, DollarSign, MessageSquare, Shield, Clock, Award, HelpCircle } from 'lucide-react';
+import { Search, MapPin, Sparkles, Users, Cog, Brain, CheckCircle, ArrowRight, Zap, Star, BarChart3, DollarSign, MessageSquare, Shield, Clock, Award, HelpCircle, Target, ShoppingCart, TrendingUp } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -19,33 +19,33 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Marketing Services | Psychology-Driven SEO, Growth Marketing & Custom Tools | Joel Hinton</title>
-        <meta name="description" content="Psychology-driven marketing services that actually work. SEO, Growth Marketing, Paid Advertising, and Custom Development. Results-focused approach with proven ROI." />
-        <meta name="keywords" content="marketing services, psychology-driven marketing, SEO services, growth marketing, paid advertising, custom development, marketing consultant" />
+        <title>Digital Marketing Services | SEO, Local Lead Generation & Custom Tools | AIO Growth SEO</title>
+        <meta name="description" content="Full-service digital marketing for local businesses in Volusia & Flagler Counties. SEO, Local SEO, GEO Optimization, Lead Generation, and Custom Marketing Tools." />
+        <meta name="keywords" content="digital marketing services, SEO services, local SEO, lead generation, GEO optimization, custom marketing tools, Volusia County, Flagler County" />
         <meta name="robots" content="index, follow" />
-        
-        <meta property="og:title" content="Marketing Services | Psychology-Driven SEO, Growth Marketing & Custom Tools" />
-        <meta property="og:description" content="Psychology-driven marketing services that actually work. SEO, Growth Marketing, Paid Advertising, and Custom Development." />
+
+        <meta property="og:title" content="Digital Marketing Services | AIO Growth SEO" />
+        <meta property="og:description" content="Full-service digital marketing for local businesses. SEO, Local SEO, Lead Generation, and Custom Tools." />
         <meta property="og:type" content="website" />
-        
+
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Marketing Services | Psychology-Driven SEO, Growth Marketing & Custom Tools" />
-        <meta name="twitter:description" content="Psychology-driven marketing services that actually work. SEO, Growth Marketing, Paid Advertising, and Custom Development." />
+        <meta name="twitter:title" content="Digital Marketing Services | AIO Growth SEO" />
+        <meta name="twitter:description" content="Full-service digital marketing for local businesses. SEO, Local SEO, Lead Generation, and Custom Tools." />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Joel Hinton Digital Marketing Services",
-            "description": "Psychology-driven marketing services including SEO, Growth Marketing, Paid Advertising, and Custom Development",
-            "url": "https://joelhinton.com/services",
+            "name": "AIO Growth SEO Digital Marketing Services",
+            "description": "Digital marketing services including SEO, Local SEO, GEO Optimization, Lead Generation, and Custom Marketing Tools",
+            "url": "https://aiogrowthseo.com/services",
             "provider": {
-              "@type": "Person",
-              "name": "Joel Hinton"
+              "@type": "Organization",
+              "name": "AIO Growth SEO"
             },
             "areaServed": {
-              "@type": "Country", 
-              "name": "United States"
+              "@type": "State",
+              "name": "Florida"
             },
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
@@ -56,31 +56,31 @@ const Services = () => {
                   "itemOffered": {
                     "@type": "Service",
                     "name": "SEO Services",
-                    "description": "Psychology-driven search engine optimization"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service", 
-                    "name": "Growth Marketing",
-                    "description": "Data-driven growth strategies and optimization"
+                    "description": "Technical and content SEO for sustainable organic growth"
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Paid Advertising",
-                    "description": "Performance-based advertising campaigns"
+                    "name": "Local SEO",
+                    "description": "Google Business Profile and local search optimization"
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Custom Development",
-                    "description": "Custom marketing tools and automation systems"
+                    "name": "Local Lead Generation",
+                    "description": "Google Ads and Facebook lead campaigns for local businesses"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Custom Tools & Automation",
+                    "description": "Custom marketing tools and workflow automation"
                   }
                 }
               ]
@@ -108,12 +108,12 @@ const Services = () => {
               </Badge>
               
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                <span className="text-primary">Psychology-Driven</span> Marketing Services That <span className="gradient-text">Actually Work</span>
+                <span className="text-primary">Digital Marketing</span> Services That <span className="gradient-text">Deliver Results</span>
               </h1>
-              
+
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Stop wasting money on marketing tactics that sound good but don't deliver results. 
-                Get proven strategies based on consumer psychology that turn prospects into loyal customers.
+                Full-service digital marketing for local businesses in Volusia & Flagler Counties.
+                SEO, lead generation, and custom tools that grow your business.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -132,21 +132,29 @@ const Services = () => {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-center">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto text-center">
                 <div className="p-4">
                   <Search className="w-8 h-8 text-primary mx-auto mb-2" />
                   <p className="text-sm font-medium">SEO Services</p>
                 </div>
                 <div className="p-4">
-                  <TrendingUp className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">Growth Marketing</p>
+                  <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <p className="text-sm font-medium">Local SEO</p>
                 </div>
                 <div className="p-4">
-                  <Target className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">Paid Advertising</p>
+                  <Sparkles className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <p className="text-sm font-medium">GEO Optimization</p>
                 </div>
                 <div className="p-4">
-                  <Code className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <ShoppingCart className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <p className="text-sm font-medium">E-commerce SEO</p>
+                </div>
+                <div className="p-4">
+                  <Users className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <p className="text-sm font-medium">Lead Generation</p>
+                </div>
+                <div className="p-4">
+                  <Cog className="w-8 h-8 text-primary mx-auto mb-2" />
                   <p className="text-sm font-medium">Custom Tools</p>
                 </div>
               </div>
@@ -166,224 +174,254 @@ const Services = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {/* SEO Services */}
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 rounded-full bg-blue-500/20 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Search className="w-8 h-8" />
+                    <div className="w-14 h-14 rounded-full bg-blue-500/20 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Search className="w-7 h-7" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl">SEO Services</CardTitle>
-                      <CardDescription className="text-base">Psychology-driven search optimization</CardDescription>
+                      <CardTitle className="text-xl">SEO Services</CardTitle>
+                      <CardDescription>Technical & content optimization</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <p className="text-muted-foreground">
-                    SEO that understands search psychology. We optimize for how people actually search, think, and make decisions - 
-                    not just algorithms. Get rankings that convert.
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground text-sm">
+                    Comprehensive SEO combining technical excellence with content strategy for sustainable organic growth.
                   </p>
-                  
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm">Search psychology optimization</span>
+                      <span className="text-sm">Technical SEO audits</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm">Answer Engine Optimization (AEO)</span>
+                      <span className="text-sm">Keyword research & strategy</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm">Local & Geographic SEO (GEO)</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm">Content strategy & optimization</span>
+                      <span className="text-sm">Content optimization</span>
                     </div>
                   </div>
-
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-blue-900">Investment Range</span>
-                      <Badge variant="outline" className="text-blue-600 border-blue-200">Most Popular</Badge>
-                    </div>
-                    <p className="text-2xl font-bold text-blue-600">$2,500 - $7,500</p>
-                    <p className="text-sm text-blue-700">per month</p>
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <p className="text-lg font-bold text-blue-600">$500 - $1,000/mo</p>
                   </div>
-
                   <Button className="w-full bg-blue-600 hover:bg-blue-700" asChild>
                     <Link to="/seo-services">
-                      Learn More About SEO
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                      Learn More <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
 
-              {/* Growth Marketing */}
+              {/* Local SEO */}
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 rounded-full bg-green-500/20 text-green-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <TrendingUp className="w-8 h-8" />
+                    <div className="w-14 h-14 rounded-full bg-green-500/20 text-green-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <MapPin className="w-7 h-7" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl">Growth Marketing</CardTitle>
-                      <CardDescription className="text-base">Data-driven growth strategies</CardDescription>
+                      <CardTitle className="text-xl">Local SEO</CardTitle>
+                      <CardDescription>Dominate local search</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <p className="text-muted-foreground">
-                    Full-funnel growth strategies that understand customer psychology at every stage. 
-                    From awareness to advocacy, we optimize each touchpoint for maximum impact.
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground text-sm">
+                    Get found by customers in your area. Google Business Profile optimization and local search dominance.
                   </p>
-                  
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">Conversion rate optimization</span>
+                      <span className="text-sm">Google Business Profile</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">Customer journey mapping</span>
+                      <span className="text-sm">Local citations & directories</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">A/B testing & optimization</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">Marketing automation setup</span>
+                      <span className="text-sm">Review management</span>
                     </div>
                   </div>
-
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-green-900">Investment Range</span>
-                    </div>
-                    <p className="text-2xl font-bold text-green-600">$3,500 - $8,500</p>
-                    <p className="text-sm text-green-700">per month</p>
+                  <div className="bg-green-50 p-3 rounded-lg">
+                    <p className="text-lg font-bold text-green-600">$400 - $800/mo</p>
                   </div>
-
                   <Button className="w-full bg-green-600 hover:bg-green-700" asChild>
-                    <Link to="/growth-marketing">
-                      Learn More About Growth Marketing
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                    <Link to="/local-seo">
+                      Learn More <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
 
-              {/* Paid Advertising */}
+              {/* GEO Optimization */}
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 rounded-full bg-purple-500/20 text-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Target className="w-8 h-8" />
+                    <div className="w-14 h-14 rounded-full bg-purple-500/20 text-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Sparkles className="w-7 h-7" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl">Paid Advertising</CardTitle>
-                      <CardDescription className="text-base">Performance-based ad campaigns</CardDescription>
+                      <CardTitle className="text-xl">GEO Optimization</CardTitle>
+                      <CardDescription>AI search ready</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <p className="text-muted-foreground">
-                    Advertising campaigns built on psychological triggers and behavioral insights. 
-                    Every ad is designed to resonate with your ideal customer's mindset and motivations.
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground text-sm">
+                    Prepare for the future. Optimize for AI assistants and generative search engines.
                   </p>
-                  
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-purple-600" />
-                      <span className="text-sm">Google Ads & Microsoft Ads</span>
+                      <span className="text-sm">AI search optimization</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-purple-600" />
-                      <span className="text-sm">Social media advertising</span>
+                      <span className="text-sm">Structured data & entities</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-purple-600" />
-                      <span className="text-sm">Psychological targeting & messaging</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-purple-600" />
-                      <span className="text-sm">ROI tracking & optimization</span>
+                      <span className="text-sm">Answer Engine Optimization</span>
                     </div>
                   </div>
-
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-purple-900">Management Fee</span>
-                    </div>
-                    <p className="text-2xl font-bold text-purple-600">15-20%</p>
-                    <p className="text-sm text-purple-700">of ad spend + $1,500 minimum</p>
+                  <div className="bg-purple-50 p-3 rounded-lg">
+                    <p className="text-lg font-bold text-purple-600">$600 - $1,200/mo</p>
                   </div>
-
                   <Button className="w-full bg-purple-600 hover:bg-purple-700" asChild>
-                    <Link to="/paid-advertising">
-                      Learn More About Paid Ads
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                    <Link to="/geo-optimization">
+                      Learn More <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
 
-              {/* Vibe Coding */}
+              {/* Local Lead Generation */}
               <Card className="card-professional group hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Code className="w-8 h-8" />
+                    <div className="w-14 h-14 rounded-full bg-orange-500/20 text-orange-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Users className="w-7 h-7" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl">Vibe Coding</CardTitle>
-                      <CardDescription className="text-base">Custom tools & automation</CardDescription>
+                      <CardTitle className="text-xl">Local Lead Generation</CardTitle>
+                      <CardDescription>Ads that deliver leads</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <p className="text-muted-foreground">
-                    Replace expensive SaaS with custom-coded solutions built specifically for your business. 
-                    Own your marketing technology instead of renting it.
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground text-sm">
+                    Google Local Service Ads, Search Ads, and Facebook campaigns for home services and professionals.
                   </p>
-                  
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-orange-600" />
-                      <span className="text-sm">AI agents & automation systems</span>
+                      <span className="text-sm">Google Local Service Ads</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-orange-600" />
-                      <span className="text-sm">Lead capture & nurturing tools</span>
+                      <span className="text-sm">Search & Facebook campaigns</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-orange-600" />
-                      <span className="text-sm">Custom dashboards & reporting</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-orange-600" />
-                      <span className="text-sm">AEO/GEO automation</span>
+                      <span className="text-sm">Call tracking & reporting</span>
                     </div>
                   </div>
-
-                  <div className="bg-orange-50 p-4 rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-orange-900">Project Range</span>
-                      <Badge variant="outline" className="text-orange-600 border-orange-200">One-time</Badge>
-                    </div>
-                    <p className="text-2xl font-bold text-orange-600">$5K - $35K+</p>
-                    <p className="text-sm text-orange-700">per project</p>
+                  <div className="bg-orange-50 p-3 rounded-lg">
+                    <p className="text-lg font-bold text-orange-600">$500/mo + ad spend</p>
                   </div>
-
                   <Button className="w-full bg-orange-600 hover:bg-orange-700" asChild>
-                    <Link to="/vibe-coding">
-                      Learn More About Custom Development
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                    <Link to="/local-lead-generation">
+                      Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* E-commerce SEO */}
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 rounded-full bg-fuchsia-500/20 text-fuchsia-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <ShoppingCart className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl">E-commerce SEO</CardTitle>
+                      <CardDescription>Grow your online store</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground text-sm">
+                    Drive more organic traffic and sales with e-commerce SEO for Shopify, WooCommerce, and marketplaces.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-fuchsia-600" />
+                      <span className="text-sm">Product page optimization</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-fuchsia-600" />
+                      <span className="text-sm">Technical e-commerce SEO</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-fuchsia-600" />
+                      <span className="text-sm">Marketplace optimization</span>
+                    </div>
+                  </div>
+                  <div className="bg-fuchsia-50 p-3 rounded-lg">
+                    <p className="text-lg font-bold text-fuchsia-600">$1,500 - $3,000+/mo</p>
+                  </div>
+                  <Button className="w-full bg-fuchsia-600 hover:bg-fuchsia-700" asChild>
+                    <Link to="/ecommerce-seo">
+                      Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Custom Tools & Automation */}
+              <Card className="card-professional group hover:shadow-xl transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 rounded-full bg-teal-500/20 text-teal-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Cog className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl">Custom Tools & Automation</CardTitle>
+                      <CardDescription>Built for your business</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground text-sm">
+                    Custom SEO tools, dashboards, lead systems, and workflow automation designed for your needs.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-teal-600" />
+                      <span className="text-sm">SEO automation tools</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-teal-600" />
+                      <span className="text-sm">Custom reporting dashboards</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-teal-600" />
+                      <span className="text-sm">Lead generation systems</span>
+                    </div>
+                  </div>
+                  <div className="bg-teal-50 p-3 rounded-lg">
+                    <p className="text-lg font-bold text-teal-600">$5K - $25K+ project</p>
+                  </div>
+                  <Button className="w-full bg-teal-600 hover:bg-teal-700" asChild>
+                    <Link to="/custom-tools-automation">
+                      Learn More <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
                 </CardContent>
@@ -534,7 +572,7 @@ const Services = () => {
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      "Joel's psychology-driven approach to SEO didn't just improve our rankings - it transformed how we think about our customers."
+                      "The SEO approach didn't just improve our rankings - it transformed how we think about our customers."
                     </p>
                     <cite className="text-xs text-muted-foreground">- Sarah Chen, Marketing Director</cite>
                   </div>
@@ -648,50 +686,50 @@ const Services = () => {
                     </div>
                   </Link>
 
-                  <Link to="/growth-marketing">
-                  <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
-                    <div className="flex items-center gap-3">
-                      <TrendingUp className="w-6 h-6 text-green-600" />
-                      <div>
-                        <h4 className="font-semibold">Improve Conversion Rates & Sales</h4>
-                        <p className="text-sm text-muted-foreground">Getting traffic but need better conversion rates</p>
+                  <Link to="/local-seo">
+                    <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
+                      <div className="flex items-center gap-3">
+                        <MapPin className="w-6 h-6 text-green-600" />
+                        <div>
+                          <h4 className="font-semibold">Get Found by Local Customers</h4>
+                          <p className="text-sm text-muted-foreground">Need to dominate local search in your area</p>
+                        </div>
+                      </div>
+                      <div className="mt-3 pl-9">
+                        <Badge variant="outline" className="text-green-600">→ Local SEO</Badge>
                       </div>
                     </div>
-                    <div className="mt-3 pl-9">
-                      <Badge variant="outline" className="text-green-600">→ Growth Marketing</Badge>
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
 
-                <Link to="/paid-advertising">
-                  <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
-                    <div className="flex items-center gap-3">
-                      <Target className="w-6 h-6 text-purple-600" />
-                      <div>
-                        <h4 className="font-semibold">Generate Immediate Leads & Sales</h4>
-                        <p className="text-sm text-muted-foreground">Need fast results from paid advertising</p>
+                  <Link to="/local-lead-generation">
+                    <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
+                      <div className="flex items-center gap-3">
+                        <Users className="w-6 h-6 text-orange-600" />
+                        <div>
+                          <h4 className="font-semibold">Generate Leads Fast</h4>
+                          <p className="text-sm text-muted-foreground">Need immediate leads from Google & Facebook ads</p>
+                        </div>
+                      </div>
+                      <div className="mt-3 pl-9">
+                        <Badge variant="outline" className="text-orange-600">→ Local Lead Generation</Badge>
                       </div>
                     </div>
-                    <div className="mt-3 pl-9">
-                      <Badge variant="outline" className="text-purple-600">→ Paid Advertising</Badge>
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
 
-                <Link to="/vibe-coding">
-                  <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
-                    <div className="flex items-center gap-3">
-                      <Code className="w-6 h-6 text-orange-600" />
-                      <div>
-                        <h4 className="font-semibold">Replace Expensive SaaS Tools</h4>
-                        <p className="text-sm text-muted-foreground">Want custom solutions that fit your business perfectly</p>
+                  <Link to="/custom-tools-automation">
+                    <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
+                      <div className="flex items-center gap-3">
+                        <Cog className="w-6 h-6 text-teal-600" />
+                        <div>
+                          <h4 className="font-semibold">Automate Marketing Tasks</h4>
+                          <p className="text-sm text-muted-foreground">Want custom tools that fit your business perfectly</p>
+                        </div>
+                      </div>
+                      <div className="mt-3 pl-9">
+                        <Badge variant="outline" className="text-teal-600">→ Custom Tools & Automation</Badge>
                       </div>
                     </div>
-                    <div className="mt-3 pl-9">
-                      <Badge variant="outline" className="text-orange-600">→ Vibe Coding</Badge>
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
               </div>
                 </CardContent>
               </Card>
@@ -703,15 +741,15 @@ const Services = () => {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <h4 className="font-semibold mb-3">Quick Results (1-3 months)</h4>
+                    <h4 className="font-semibold mb-3">Quick Results (1-4 weeks)</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span>Paid Advertising:</span>
-                        <span className="text-purple-600">15-20% of ad spend</span>
+                        <span>Local Lead Generation:</span>
+                        <span className="text-orange-600">$500/mo + ad spend</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Growth Marketing (CRO):</span>
-                        <span className="text-green-600">$3,500-8,500/mo</span>
+                        <span>Local SEO:</span>
+                        <span className="text-green-600">$400-800/mo</span>
                       </div>
                     </div>
                   </div>
@@ -723,11 +761,11 @@ const Services = () => {
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
                         <span>SEO Services:</span>
-                        <span className="text-blue-600">$2,500-7,500/mo</span>
+                        <span className="text-blue-600">$500-1,000/mo</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Full Growth Marketing:</span>
-                        <span className="text-green-600">$3,500-8,500/mo</span>
+                        <span>GEO Optimization:</span>
+                        <span className="text-purple-600">$600-1,200/mo</span>
                       </div>
                     </div>
                   </div>
@@ -735,15 +773,15 @@ const Services = () => {
                   <Separator />
 
                   <div>
-                    <h4 className="font-semibold mb-3">Long-term Assets (2-6 months)</h4>
+                    <h4 className="font-semibold mb-3">Long-term Assets (one-time)</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
                         <span>Custom Tools (Simple):</span>
-                        <span className="text-orange-600">$5K-15K</span>
+                        <span className="text-teal-600">$5K-15K</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>AI-Powered Systems:</span>
-                        <span className="text-orange-600">$15K-35K</span>
+                        <span>Full Automation Systems:</span>
+                        <span className="text-teal-600">$15K-25K+</span>
                       </div>
                     </div>
                   </div>
@@ -810,10 +848,10 @@ const Services = () => {
         businessTypes={businessTypes.general}
       />
       
-      <ProfessionalServiceSchema 
-        serviceName="Marketing Services"
-        serviceDescription="Psychology-driven marketing services including SEO, Growth Marketing, Paid Advertising, and Custom Development"
-        serviceUrl="https://joelhintonmarketing.com/services"
+      <ProfessionalServiceSchema
+        serviceName="Digital Marketing Services"
+        serviceDescription="Digital marketing services including SEO, Local SEO, GEO Optimization, Lead Generation, and Custom Marketing Tools"
+        serviceUrl="https://aiogrowthseo.com/services"
         serviceType="Marketing Services"
       />
     </>

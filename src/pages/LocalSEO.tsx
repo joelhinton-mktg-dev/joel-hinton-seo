@@ -112,61 +112,62 @@ const LocalSEO = () => {
     setIsContactSubmitting(false);
   };
 
-  const floridaCities = [
-    "Miami", "Orlando", "Tampa", "Jacksonville", "Fort Lauderdale", "St. Petersburg", "Hialeah", "Tallahassee",
-    "Cape Coral", "Port St. Lucie", "Pembroke Pines", "Hollywood", "Gainesville", "Miramar", "Coral Springs",
-    "Palm Bay", "West Palm Beach", "Clearwater", "Lakeland", "Pompano Beach", "Davie", "Miami Beach",
-    "Sunrise", "Boca Raton", "Deltona", "Plantation", "Palm Coast", "Largo", "Melbourne", "Boynton Beach",
-    "Fort Myers", "Kissimmee", "Homestead", "Deerfield Beach", "Sarasota", "Daytona Beach", "Other Florida City"
+  const localCities = [
+    "Daytona Beach", "Ormond Beach", "Port Orange", "New Smyrna Beach", "Palm Coast", "DeLand",
+    "Holly Hill", "DeBary", "Sanford", "Deltona", "Orange City", "Edgewater", "South Daytona",
+    "Flagler Beach", "Bunnell", "Lake Mary", "Longwood", "Altamonte Springs", "Other Volusia/Flagler City"
   ];
 
   return (
     <>
       <Helmet>
-        <title>Local SEO Florida | Dominate Your Market | Joel Hinton</title>
-        <meta name="description" content="Florida Local SEO expert helping businesses dominate their local markets. Google Business Profile optimization, citation building, and review management strategies." />
-        <meta name="keywords" content="local SEO Florida, Google Business Profile optimization, local search marketing, citation building, review management, Florida local SEO expert" />
+        <title>Local SEO Services | Dominate Your Market | AIO Growth SEO</title>
+        <meta name="description" content="Volusia & Flagler County Local SEO experts helping businesses dominate their local markets. Google Business Profile optimization, citation building, and review management strategies." />
+        <meta name="keywords" content="local SEO Volusia County, local SEO Flagler County, Google Business Profile optimization, local search marketing, citation building, review management, Central Florida local SEO" />
         <meta name="robots" content="index, follow" />
         
-        <meta property="og:title" content="Local SEO Florida | Dominate Your Market | Joel Hinton" />
-        <meta property="og:description" content="Florida Local SEO expert helping businesses dominate their local markets with psychology-driven strategies." />
+        <meta property="og:title" content="Local SEO Services | Dominate Your Market | AIO Growth SEO" />
+        <meta property="og:description" content="Volusia & Flagler County Local SEO experts helping businesses dominate their local markets with psychology-driven strategies." />
         <meta property="og:type" content="website" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Local SEO Florida | Dominate Your Market" />
-        <meta name="twitter:description" content="Florida Local SEO expert helping businesses dominate their local markets with psychology-driven strategies." />
+        <meta name="twitter:title" content="Local SEO Services | AIO Growth SEO" />
+        <meta name="twitter:description" content="Volusia & Flagler County Local SEO experts helping businesses dominate their local markets with psychology-driven strategies." />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Local SEO Services Florida",
-            "description": "Local SEO services helping Florida businesses dominate their local markets",
-            "url": "https://joelhinton.com/local-seo",
+            "name": "Local SEO Services - Volusia & Flagler County",
+            "description": "Local SEO services helping Central Florida businesses dominate their local markets",
+            "url": "https://aiogrowthseo.com/local-seo",
             "provider": {
               "@type": "Organization",
-              "name": "Joel Hinton Digital Marketing",
+              "name": "AIO Growth SEO",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Main Street",
                 "addressLocality": "Daytona Beach",
                 "addressRegion": "FL",
                 "postalCode": "32114",
                 "addressCountry": "US"
-              },
-              "telephone": "+1-386-555-0123",
-              "email": "joel@joelhintonmarketing.com"
+              }
             },
-            "areaServed": {
-              "@type": "State",
-              "name": "Florida"
-            },
+            "areaServed": [
+              { "@type": "AdministrativeArea", "name": "Volusia County" },
+              { "@type": "AdministrativeArea", "name": "Flagler County" }
+            ],
             "serviceType": "Local SEO",
             "offers": {
               "@type": "Offer",
-              "description": "Local SEO services for Florida businesses",
+              "description": "Local SEO setup and monthly services for Central Florida businesses",
               "priceCurrency": "USD",
-              "priceRange": "$$"
+              "price": "1500",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1500",
+                "priceCurrency": "USD",
+                "unitText": "one-time setup"
+              }
             }
           })}
         </script>
@@ -188,15 +189,15 @@ const LocalSEO = () => {
             <div className="max-w-4xl mx-auto text-center">
               <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
                 <MapPin className="w-4 h-4 mr-2" />
-                Florida Market Domination
+                Volusia & Flagler County Market Domination
               </Badge>
               
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                <span className="text-primary">Local SEO</span> That Dominates Florida Markets
+                <span className="text-primary">Local SEO</span> That Dominates Central Florida Markets
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Stop losing customers to competitors who show up first in local searches. My psychology-driven Local SEO strategies help Florida businesses in <Link to="/industries/real-estate" className="text-primary hover:underline">real estate</Link>, <Link to="/industries/home-services" className="text-primary hover:underline">home services</Link>, and <Link to="/industries/healthcare" className="text-primary hover:underline">healthcare</Link> capture more local customers and dominate their markets.
+                Stop losing customers to competitors who show up first in local searches. Our psychology-driven Local SEO strategies help Central Florida businesses in <Link to="/industries/real-estate" className="text-primary hover:underline">real estate</Link>, <Link to="/industries/home-services" className="text-primary hover:underline">home services</Link>, and <Link to="/industries/healthcare" className="text-primary hover:underline">healthcare</Link> capture more local customers and dominate their markets.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -1095,7 +1096,7 @@ const LocalSEO = () => {
           </div>
         </section>
 
-        {/* Pricing Integration */}
+        {/* Pricing - Setup + Monthly Model */}
         <section className="py-24 bg-background">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
@@ -1103,156 +1104,263 @@ const LocalSEO = () => {
                 Local SEO <span className="gradient-text">Investment Options</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Choose the local SEO package that fits your business goals and budget. All packages include our psychology-driven approach and Florida market expertise.
+                Start with a solid foundation, then maintain your momentum. Our setup + monthly model gets you ranking fast and keeps you there.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <Card className="card-professional relative">
+            {/* Setup Package */}
+            <div className="max-w-4xl mx-auto mb-16">
+              <div className="text-center mb-8">
+                <Badge variant="secondary" className="mb-4 px-4 py-2">
+                  <Zap className="w-4 h-4 mr-2" />
+                  Step 1: Foundation Setup
+                </Badge>
+                <h3 className="text-2xl font-bold">Start with a Complete Local SEO Foundation</h3>
+              </div>
+
+              <Card className="card-professional border-primary/30 bg-gradient-to-br from-primary/5 to-secondary/5">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">Local Foundation</CardTitle>
-                  <CardDescription>Perfect for single-location businesses</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$1,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-3xl mb-2">Local Foundation Setup</CardTitle>
+                  <CardDescription className="text-lg">Everything you need to dominate local search</CardDescription>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-primary">$1,500</span>
+                    <span className="text-lg text-muted-foreground ml-2">one-time</span>
+                  </div>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Google Business Profile optimization</span>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Complete Local SEO Audit & Technical Fixes</p>
+                          <p className="text-sm text-muted-foreground">Comprehensive analysis and implementation of all technical optimizations</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Google Business Profile Optimization</p>
+                          <p className="text-sm text-muted-foreground">Full GBP setup, optimization, and verification</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">25-30 Core Citations Built</p>
+                          <p className="text-sm text-muted-foreground">High-authority local directories and platforms</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">25 high-quality citations</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Review management system</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Local schema markup</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Monthly performance reports</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Florida market optimization</span>
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Local Schema Implementation</p>
+                          <p className="text-sm text-muted-foreground">LocalBusiness, Service, and Review schema markup</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Review Management System Setup</p>
+                          <p className="text-sm text-muted-foreground">Automated review requests and monitoring tools</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Geographic & Topical Authority Roadmap</p>
+                          <p className="text-sm text-muted-foreground">Custom strategy for your market and industry</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full mt-6" 
-                    variant="outline"
-                    onClick={() => {
-                      openDialog();
-                      resetContact({ selectedService: "Local Foundation - $1,997/mo" });
-                    }}
-                  >
-                    Start Local Foundation
-                  </Button>
+                  <div className="mt-8 text-center">
+                    <Button
+                      size="lg"
+                      className="px-8"
+                      onClick={() => {
+                        openDialog();
+                        resetContact({ selectedService: "Local Foundation Setup - $1,500" });
+                      }}
+                    >
+                      Get Started with Foundation Setup
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
+            </div>
 
-              <Card className="card-professional relative border-primary/50 shadow-lg scale-105">
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-primary text-primary-foreground px-4 py-1">Most Popular</Badge>
-                </div>
-                <CardHeader className="text-center pt-8">
-                  <CardTitle className="text-2xl mb-2">Market Dominator</CardTitle>
-                  <CardDescription>Complete local SEO domination</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$3,497<span className="text-base font-normal text-muted-foreground">/mo</span></div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in Local Foundation</span>
+            {/* Monthly Packages */}
+            <div className="max-w-5xl mx-auto mb-16">
+              <div className="text-center mb-8">
+                <Badge variant="secondary" className="mb-4 px-4 py-2">
+                  <TrendingUp className="w-4 h-4 mr-2" />
+                  Step 2: Monthly Maintenance
+                </Badge>
+                <h3 className="text-2xl font-bold">Keep Your Local Rankings Growing</h3>
+                <p className="text-muted-foreground mt-2">Choose the level of ongoing optimization that fits your goals</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Card className="card-professional relative">
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-2xl mb-2">Local Growth</CardTitle>
+                    <CardDescription>Maintain and steadily improve rankings</CardDescription>
+                    <div className="text-3xl font-bold text-primary mt-4">$500<span className="text-base font-normal text-muted-foreground">/month</span></div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Monthly monitoring & updates</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Basic GMB posts & optimization</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Citation maintenance</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Monthly performance reports</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Review response management</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">50+ premium citations</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Competitor analysis & monitoring</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Local content creation</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Advanced schema implementation</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Psychology-driven review strategy</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Weekly progress updates</span>
-                    </div>
+                    <Button
+                      className="w-full mt-6"
+                      variant="outline"
+                      onClick={() => {
+                        openDialog();
+                        resetContact({ selectedService: "Local Growth - $500/month" });
+                      }}
+                    >
+                      Choose Local Growth
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card className="card-professional relative border-primary/50 shadow-lg">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <Badge className="bg-primary text-primary-foreground px-4 py-1">Recommended</Badge>
                   </div>
-                  <Button 
-                    className="w-full mt-6"
-                    onClick={() => {
-                      openDialog();
-                      resetContact({ selectedService: "Market Dominator - $3,497/mo" });
-                    }}
-                  >
-                    Dominate My Market
-                  </Button>
-                </CardContent>
-              </Card>
+                  <CardHeader className="text-center pt-8">
+                    <CardTitle className="text-2xl mb-2">Market Domination</CardTitle>
+                    <CardDescription>Aggressive growth and competitor crushing</CardDescription>
+                    <div className="text-3xl font-bold text-primary mt-4">$750<span className="text-base font-normal text-muted-foreground">/month</span></div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm font-medium">Everything in Local Growth +</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Weekly content creation</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Review generation campaigns</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Competitor monitoring</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Weekly progress updates</span>
+                      </div>
+                    </div>
+                    <Button
+                      className="w-full mt-6"
+                      onClick={() => {
+                        openDialog();
+                        resetContact({ selectedService: "Market Domination - $750/month" });
+                      }}
+                    >
+                      Choose Market Domination
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
 
-              <Card className="card-professional relative">
+            {/* Enterprise Package */}
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-8">
+                <Badge variant="secondary" className="mb-4 px-4 py-2">
+                  <Building2 className="w-4 h-4 mr-2" />
+                  Enterprise Solution
+                </Badge>
+                <h3 className="text-2xl font-bold">Multi-Location & Statewide Coverage</h3>
+              </div>
+
+              <Card className="card-professional border-secondary/30 bg-gradient-to-br from-secondary/5 to-primary/5">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">Multi-Location</CardTitle>
-                  <CardDescription>For businesses with multiple locations</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$5,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-3xl mb-2">Full Coverage Package</CardTitle>
+                  <CardDescription className="text-lg">For 10+ locations or statewide market domination</CardDescription>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-primary">$2,500</span>
+                    <span className="text-lg text-muted-foreground ml-2">/month</span>
+                  </div>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in Market Dominator</span>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Weekly GMB Posts Across All Locations</p>
+                          <p className="text-sm text-muted-foreground">Consistent engagement across your entire footprint</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Monthly Link Building Campaigns</p>
+                          <p className="text-sm text-muted-foreground">Authority-building backlinks for each location</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Up to 5 locations included</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Location-specific strategies</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Centralized citation management</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Multi-location analytics</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Cross-location optimization</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Priority support</span>
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Location-Specific Content Creation</p>
+                          <p className="text-sm text-muted-foreground">Unique, locally-optimized content for each market</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Programmatic SEO Implementation</p>
+                          <p className="text-sm text-muted-foreground">Scalable location page generation and optimization</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full mt-6" 
-                    variant="outline"
-                    onClick={() => {
-                      openDialog();
-                      resetContact({ selectedService: "Multi-Location - $5,997/mo" });
-                    }}
-                  >
-                    Scale Multiple Locations
-                  </Button>
+                  <div className="mt-8 text-center">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="px-8"
+                      onClick={() => {
+                        openDialog();
+                        resetContact({ selectedService: "Full Coverage Package - $2,500/month" });
+                      }}
+                    >
+                      Discuss Enterprise Solution
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -1263,7 +1371,7 @@ const LocalSEO = () => {
               </p>
               <Button size="lg" variant="outline">
                 <Phone className="w-4 h-4 mr-2" />
-                Discuss Custom Solutions
+                Schedule a Strategy Call
               </Button>
             </div>
           </div>
@@ -1441,7 +1549,7 @@ const LocalSEO = () => {
                 Get Your Free Local SEO Audit
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Discover exactly where your local search presence stands and get a personalized roadmap for dominating your Florida market.
+                Discover exactly where your local search presence stands and get a personalized roadmap for dominating your Central Florida market.
               </p>
             </div>
 
@@ -1468,7 +1576,7 @@ const LocalSEO = () => {
                       Your local SEO audit request has been submitted successfully.
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      I'll analyze your local search presence and send you a detailed report with personalized recommendations within 48 hours.
+                      We'll analyze your local search presence and send you a detailed report with personalized recommendations within 48 hours.
                     </p>
                   </div>
                 ) : (
@@ -1532,13 +1640,13 @@ const LocalSEO = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="city">Primary Florida City *</Label>
+                        <Label htmlFor="city">Primary City *</Label>
                         <Select onValueChange={(value) => setValue("city", value, { shouldValidate: true })}>
                           <SelectTrigger className={errors.city ? "border-destructive" : ""}>
                             <SelectValue placeholder="Select your primary city" />
                           </SelectTrigger>
                           <SelectContent className="max-h-48">
-                            {floridaCities.map((city) => (
+                            {localCities.map((city) => (
                               <SelectItem key={city} value={city.toLowerCase().replace(/ /g, '-')}>
                                 {city}
                               </SelectItem>
@@ -1642,7 +1750,7 @@ const LocalSEO = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
-              <p className="text-muted-foreground">I'll analyze your local search presence and send you a detailed local SEO strategy within 48 hours.</p>
+              <p className="text-muted-foreground">We'll analyze your local search presence and send you a detailed local SEO strategy within 48 hours.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmitContact(onSubmitContact)} className="space-y-6">

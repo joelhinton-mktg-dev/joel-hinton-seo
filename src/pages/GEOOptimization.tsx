@@ -111,7 +111,7 @@ const GEOOptimization = () => {
   return (
     <>
       <Helmet>
-        <title>GEO - Generative Engine Optimization | Future-Proof Search Strategy | Joel Hinton</title>
+        <title>GEO - Generative Engine Optimization | Future-Proof Search Strategy | AIO Growth SEO</title>
         <meta name="description" content="Master GEO (Generative Engine Optimization) for AI search engines like ChatGPT, Claude, and Perplexity. The future of search beyond traditional SEO." />
         <meta name="keywords" content="GEO optimization, generative engine optimization, AI search optimization, ChatGPT SEO, Claude search, Perplexity optimization, answer engine optimization, AEO" />
         <meta name="robots" content="index, follow" />
@@ -130,27 +130,30 @@ const GEOOptimization = () => {
             "@type": "Service",
             "name": "GEO - Generative Engine Optimization Services",
             "description": "Generative Engine Optimization services for AI search engines and answer engines",
-            "url": "https://joelhinton.com/geo-optimization",
+            "url": "https://aiogrowthseo.com/geo-optimization",
             "provider": {
               "@type": "Organization",
-              "name": "Joel Hinton Digital Marketing",
+              "name": "AIO Growth SEO",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Main Street",
                 "addressLocality": "Daytona Beach",
                 "addressRegion": "FL",
                 "postalCode": "32114",
                 "addressCountry": "US"
-              },
-              "telephone": "+1-386-555-0123",
-              "email": "joel@joelhintonmarketing.com"
+              }
             },
             "serviceType": "GEO Optimization",
             "offers": {
               "@type": "Offer",
-              "description": "Generative Engine Optimization for AI search visibility",
+              "description": "Generative Engine Optimization setup and monthly services for AI search visibility",
               "priceCurrency": "USD",
-              "priceRange": "$$$$"
+              "price": "1750",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1750",
+                "priceCurrency": "USD",
+                "unitText": "one-time setup"
+              }
             }
           })}
         </script>
@@ -1323,8 +1326,8 @@ const GEOOptimization = () => {
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    "My expertise is now embedded in AI systems. When business owners ask about marketing strategy, 
-                    AI consistently references my frameworks and recommends my consultation."
+                    "Our expertise is now embedded in AI systems. When business owners ask about marketing strategy,
+                    AI consistently references our frameworks and recommends our consultation."
                   </p>
                   <div className="flex items-center gap-2 text-sm">
                     <CheckCircle className="w-4 h-4 text-primary" />
@@ -1561,7 +1564,7 @@ const GEOOptimization = () => {
           </div>
         </section>
 
-        {/* Pricing Integration */}
+        {/* Pricing - Setup + Monthly Model */}
         <section className="py-24 bg-background">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
@@ -1569,170 +1572,298 @@ const GEOOptimization = () => {
                 GEO Investment <span className="gradient-text">Options</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Choose the GEO package that aligns with your vision for AI search dominance. 
-                All packages include our exclusive early adopter advantage strategies.
+                Get ahead of the AI search revolution with accessible pricing. Start with a solid foundation,
+                then maintain your competitive edge with ongoing optimization.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <Card className="card-professional relative">
+            {/* Setup Package */}
+            <div className="max-w-4xl mx-auto mb-16">
+              <div className="text-center mb-8">
+                <Badge variant="secondary" className="mb-4 px-4 py-2">
+                  <Zap className="w-4 h-4 mr-2" />
+                  Step 1: Foundation Setup
+                </Badge>
+                <h3 className="text-2xl font-bold">Build Your AI Search Foundation</h3>
+              </div>
+
+              <Card className="card-professional border-primary/30 bg-gradient-to-br from-primary/5 to-secondary/5">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">GEO Foundation</CardTitle>
-                  <CardDescription>Essential AI search optimization</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$4,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+                  <CardTitle className="text-3xl mb-2">GEO Foundation Setup</CardTitle>
+                  <CardDescription className="text-lg">Everything you need to start dominating AI search</CardDescription>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-primary">$1,750</span>
+                    <span className="text-lg text-muted-foreground ml-2">one-time</span>
+                  </div>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">AI search presence audit</span>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Comprehensive Topical/Entity Mapping & Strategy</p>
+                          <p className="text-sm text-muted-foreground">Complete analysis of your industry's AI search landscape</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">AI Prompt Research & Competitor Analysis</p>
+                          <p className="text-sm text-muted-foreground">Discover how AI recommends your competitors</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">GEO/AI Mentions App Setup & Reporting Access</p>
+                          <p className="text-sm text-muted-foreground">Track your AI presence across all major platforms</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Basic entity optimization</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Answer engine content creation</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Advanced schema implementation</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Monthly AI mention reports</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Psychology-driven optimization</span>
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Initial Link Building Campaign</p>
+                          <p className="text-sm text-muted-foreground">$500-1,000 value included to jumpstart authority</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Organic Reddit Marketing Foundation</p>
+                          <p className="text-sm text-muted-foreground">Strategic presence where AI models source information</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Monthly AI Mention Tracking & Reports</p>
+                          <p className="text-sm text-muted-foreground">Ongoing visibility into your AI search presence</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full mt-6" 
-                    variant="outline"
-                    onClick={() => {
-                      setIsDialogOpen(true);
-                      resetContact({ selectedService: "GEO Foundation - $4,997/mo" });
-                    }}
-                  >
-                    Start GEO Foundation
-                  </Button>
+                  <div className="mt-8 text-center">
+                    <Button
+                      size="lg"
+                      className="px-8"
+                      onClick={() => {
+                        setIsDialogOpen(true);
+                        resetContact({ selectedService: "GEO Foundation Setup - $1,750" });
+                      }}
+                    >
+                      Get Started with GEO Foundation
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
+            </div>
 
-              <Card className="card-professional relative border-primary/50 shadow-lg scale-105">
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-primary text-primary-foreground px-4 py-1">Recommended</Badge>
-                </div>
-                <CardHeader className="text-center pt-8">
-                  <CardTitle className="text-2xl mb-2">GEO Domination</CardTitle>
-                  <CardDescription>Complete AI search authority</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$8,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in GEO Foundation</span>
+            {/* Monthly Packages */}
+            <div className="max-w-5xl mx-auto mb-16">
+              <div className="text-center mb-8">
+                <Badge variant="secondary" className="mb-4 px-4 py-2">
+                  <TrendingUp className="w-4 h-4 mr-2" />
+                  Step 2: Monthly Optimization
+                </Badge>
+                <h3 className="text-2xl font-bold">Maintain & Grow Your AI Presence</h3>
+                <p className="text-muted-foreground mt-2">Choose the level of ongoing optimization that fits your goals</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Card className="card-professional relative">
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-2xl mb-2">GEO Growth</CardTitle>
+                    <CardDescription>Maintain and steadily grow AI visibility</CardDescription>
+                    <div className="text-3xl font-bold text-primary mt-4">$750<span className="text-base font-normal text-muted-foreground">/month</span></div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">AI presence monitoring & optimization</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Basic entity relationship building</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">$500 monthly link building budget</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Quarterly strategy updates</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Monthly AI mention reports</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Advanced entity relationship building</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Training data optimization</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Multi-platform AI presence</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Competitive AI intelligence</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Authority acceleration campaigns</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Weekly strategy optimization</span>
-                    </div>
+                    <Button
+                      className="w-full mt-6"
+                      variant="outline"
+                      onClick={() => {
+                        setIsDialogOpen(true);
+                        resetContact({ selectedService: "GEO Growth - $750/month" });
+                      }}
+                    >
+                      Choose GEO Growth
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card className="card-professional relative border-primary/50 shadow-lg">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <Badge className="bg-primary text-primary-foreground px-4 py-1">Recommended</Badge>
                   </div>
-                  <Button 
-                    className="w-full mt-6"
-                    onClick={() => {
-                      setIsDialogOpen(true);
-                      resetContact({ selectedService: "GEO Domination - $8,997/mo" });
-                    }}
-                  >
-                    Dominate AI Search
-                  </Button>
-                </CardContent>
-              </Card>
+                  <CardHeader className="text-center pt-8">
+                    <CardTitle className="text-2xl mb-2">GEO Authority</CardTitle>
+                    <CardDescription>Aggressive growth and market domination</CardDescription>
+                    <div className="text-3xl font-bold text-primary mt-4">$1,500<span className="text-base font-normal text-muted-foreground">/month</span></div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm font-medium">Everything in GEO Growth +</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Organic Reddit marketing campaigns</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Advanced link building & mentions</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Weekly AI presence optimization</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm">Priority support</span>
+                      </div>
+                    </div>
+                    <Button
+                      className="w-full mt-6"
+                      onClick={() => {
+                        setIsDialogOpen(true);
+                        resetContact({ selectedService: "GEO Authority - $1,500/month" });
+                      }}
+                    >
+                      Choose GEO Authority
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
 
-              <Card className="card-professional relative">
+            {/* Enterprise Package */}
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-8">
+                <Badge variant="secondary" className="mb-4 px-4 py-2">
+                  <Award className="w-4 h-4 mr-2" />
+                  Enterprise Solution
+                </Badge>
+                <h3 className="text-2xl font-bold">Complete AI Search Domination</h3>
+              </div>
+
+              <Card className="card-professional border-secondary/30 bg-gradient-to-br from-secondary/5 to-primary/5">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl mb-2">GEO Enterprise</CardTitle>
-                  <CardDescription>Industry leadership positioning</CardDescription>
-                  <div className="text-3xl font-bold text-primary mt-4">$15,997<span className="text-base font-normal text-muted-foreground">/mo</span></div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Everything in GEO Domination</span>
+                  <CardTitle className="text-3xl mb-2">GEO Enterprise</CardTitle>
+                  <CardDescription className="text-lg">For businesses ready to own their AI search category</CardDescription>
+                  <div className="mt-4 flex items-center justify-center gap-4 flex-wrap">
+                    <div>
+                      <span className="text-3xl font-bold text-primary">$6,500</span>
+                      <span className="text-muted-foreground ml-1">setup</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Industry thought leadership campaigns</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Knowledge graph domination</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Custom AI monitoring dashboard</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Executive AI strategy consulting</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Priority support & implementation</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-sm">Future AI platform preparation</span>
+                    <span className="text-muted-foreground">+</span>
+                    <div>
+                      <span className="text-3xl font-bold text-primary">$2,500</span>
+                      <span className="text-muted-foreground ml-1">/month</span>
                     </div>
                   </div>
-                  <Button 
-                    className="w-full mt-6" 
-                    variant="outline"
-                    onClick={() => {
-                      setIsDialogOpen(true);
-                      resetContact({ selectedService: "GEO Enterprise - $15,997/mo" });
-                    }}
-                  >
-                    Lead Your Industry
-                  </Button>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Complete AI Search Domination Strategy</p>
+                          <p className="text-sm text-muted-foreground">Comprehensive plan for category leadership</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">20 Pieces of Optimized Content Monthly</p>
+                          <p className="text-sm text-muted-foreground">AI-optimized content at scale</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">10 High-Authority Backlinks Monthly</p>
+                          <p className="text-sm text-muted-foreground">Premium link building from trusted sources</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Full Entity Ecosystem Management</p>
+                          <p className="text-sm text-muted-foreground">Complete control over how AI perceives your brand</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Priority Support & Custom Reporting</p>
+                          <p className="text-sm text-muted-foreground">Dedicated attention and tailored analytics</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5" />
+                        <div>
+                          <p className="font-semibold">Executive Strategy Sessions</p>
+                          <p className="text-sm text-muted-foreground">Monthly calls to align on goals and results</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-8 text-center">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="px-8"
+                      onClick={() => {
+                        setIsDialogOpen(true);
+                        resetContact({ selectedService: "GEO Enterprise - $6,500 setup + $2,500/month" });
+                      }}
+                    >
+                      Discuss Enterprise Solution
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </div>
 
             <div className="text-center mt-12">
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-xl max-w-3xl mx-auto">
-                <h3 className="text-2xl font-bold mb-3">🚀 Early Adopter Advantage</h3>
+                <h3 className="text-2xl font-bold mb-3">Early Adopter Advantage</h3>
                 <p className="mb-4">
-                  You're among the first 1% of businesses to optimize for AI search. This head start creates 
+                  You're among the first 1% of businesses to optimize for AI search. This head start creates
                   a sustainable competitive moat that will be impossible to replicate once GEO becomes mainstream.
                 </p>
                 <div className="text-sm opacity-90">
-                  Limited spots available • AI search is growing 40% monthly • Early adopters see 3-5x better results
+                  AI search is growing 40% monthly • Early adopters see 3-5x better results • Act now before competitors catch on
                 </div>
               </div>
             </div>
@@ -1889,7 +2020,7 @@ const GEOOptimization = () => {
                       Your GEO analysis request has been submitted successfully.
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      I'll analyze your current AI search presence and send you a detailed report with personalized 
+                      We'll analyze your current AI search presence and send you a detailed report with personalized 
                       recommendations for dominating AI search engines within 48 hours.
                     </p>
                   </div>

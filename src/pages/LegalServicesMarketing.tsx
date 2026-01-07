@@ -24,8 +24,8 @@ const LegalServicesMarketing = () => {
   return (
     <>
       <Helmet>
-        <title>Legal Services Marketing Psychology | Law Firm Marketing | Attorney Marketing | Joel Hinton</title>
-        <meta name="description" content="Legal services marketing psychology that converts prospects in crisis moments. Authority-driven strategies for law firms with 180% traffic growth and 420% lead increase." />
+        <title>Legal Services Marketing | Law Firm Marketing | Central Florida | AIO Growth SEO</title>
+        <meta name="description" content="Legal marketing for attorneys and law firms in Volusia & Flagler Counties. Authority positioning and lead generation that converts prospects in crisis moments." />
         <meta name="keywords" content="legal marketing, law firm marketing, attorney marketing, legal services psychology, lawyer lead generation, legal authority positioning" />
         <meta name="robots" content="index, follow" />
         
@@ -33,26 +33,11 @@ const LegalServicesMarketing = () => {
         <meta property="og:description" content="Legal marketing strategies that convert prospects in crisis moments with authority positioning and proven results." />
         <meta property="og:type" content="website" />
       </Helmet>
-      <ProfessionalServiceSchema 
+      <ProfessionalServiceSchema
         serviceName="Legal Services Marketing"
-        serviceDescription="Authority-driven marketing strategies for law firms and legal services"
-        serviceUrl="https://joelhintonmarketing.com/industries/legal"
+        serviceDescription="Authority-driven marketing strategies for law firms in Central Florida"
+        serviceUrl="https://aiogrowthseo.com/industries/legal-services"
         serviceType="Legal Services Marketing"
-        industryType="Legal"
-        areaServed="Florida, United States"
-        hasOfferCatalog={true}
-        provider={{
-          name: "Joel Hinton Digital Marketing",
-          telephone: "+1-386-555-0123",
-          email: "joel@joelhintonmarketing.com",
-          address: {
-            streetAddress: "",
-            addressLocality: "Daytona Beach",
-            addressRegion: "FL",
-            postalCode: "32114",
-            addressCountry: "US"
-          }
-        }}
       />
       <div className="min-h-screen bg-background">
         <Navigation />
