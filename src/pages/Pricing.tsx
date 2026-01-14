@@ -155,25 +155,25 @@ const Pricing = () => {
   const popularCombinations = [
     {
       name: "Local Business Starter",
-      total: "$2,000 setup + $500/mo",
-      services: ["Local SEO Setup ($1,500)", "Lead Gen Setup ($1,000)", "Local Growth ($500/mo)"],
+      total: "$1,500 setup + $500/mo",
+      services: ["Local SEO Setup ($1,500)", "Local Growth ($500/mo)"],
       description: "Perfect for local service businesses ready to dominate their market",
-      savings: "Save $500 on combined setup"
+      savings: "Complete local foundation"
     },
     {
       name: "Growth Marketing System",
       total: "$2,750 setup + $1,250/mo",
-      services: ["SEO Foundation ($1,000)", "GEO Foundation ($1,750)", "SEO Advanced ($1,000/mo)", "GEO Growth ($750/mo)"],
+      services: ["SEO Foundation ($1,000)", "GEO Foundation ($1,750)", "SEO Maintenance ($500/mo)", "GEO Growth ($750/mo)"],
       description: "Dominate both traditional and AI search results",
       savings: "Most comprehensive coverage",
       popular: true
     },
     {
       name: "E-commerce Accelerator",
-      total: "$1,750 setup + $3,750/mo",
-      services: ["GEO Foundation ($1,750)", "E-commerce Growth ($3,000/mo)", "GEO Growth ($750/mo)"],
-      description: "Scale your online store with organic + AI visibility",
-      savings: "Future-proof your e-commerce"
+      total: "$2,500 setup + $1,500/mo",
+      services: ["Custom Tools Setup ($2,500)", "E-commerce Starter ($1,500/mo)"],
+      description: "Scale your online store with custom automation tools",
+      savings: "Automation-powered growth"
     }
   ];
 

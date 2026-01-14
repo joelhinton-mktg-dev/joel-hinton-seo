@@ -7,21 +7,16 @@ import { Badge } from "@/components/ui/badge";
 import { PageBreadcrumb } from "@/components/ui/breadcrumb";
 import ContactDialog from '@/components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
-import { 
-  TrendingUp, 
-  Users, 
-  DollarSign, 
+import {
+  TrendingUp,
+  Users,
+  DollarSign,
   Target,
   ArrowUp,
   CheckCircle,
-  Star,
   BarChart3,
   Trophy,
-  Building,
-  Globe,
-  Zap,
   Calendar,
-  Phone,
   ArrowRight
 } from "lucide-react";
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
@@ -35,132 +30,85 @@ const Results = () => {
     {
       icon: <TrendingUp className="w-8 h-8" />,
       value: "200%+",
-      label: "Average Traffic Increase",
-      description: "Within 90 days"
+      label: "Average Traffic Growth",
+      description: "Across client campaigns"
     },
     {
       icon: <Users className="w-8 h-8" />,
       value: "150+",
-      label: "Leads Per Month",
-      description: "Generated for clients"
+      label: "Businesses Served",
+      description: "Across agency experience"
     },
     {
       icon: <DollarSign className="w-8 h-8" />,
-      value: "$180K+",
-      label: "Revenue Growth",
-      description: "Additional annual revenue"
+      value: "$500K+",
+      label: "Revenue Impact",
+      description: "Client sales growth"
     },
     {
       icon: <Target className="w-8 h-8" />,
       value: "50+",
-      label: "Successful Projects",
-      description: "Across 15+ industries"
+      label: "Top Rankings",
+      description: "Page 1 positions achieved"
     }
   ];
 
   const caseStudies = [
     {
-      client: "Privada Cigar Club",
-      industry: "E-commerce",
-      challenge: "New website with minimal organic visibility in competitive luxury market",
-      service: "Growth SEO Plan",
-      investment: "$1,000 one-time",
-      timeline: "45 days",
+      client: "Health & Wellness Brand",
+      industry: "Clinical Fitness & Pilates",
+      challenge: "Low organic visibility, limited local presence in competitive wellness market",
+      services: ["Technical SEO", "Content Strategy", "Local SEO"],
+      timeline: "6 months",
       results: [
-        "200% increase in organic traffic",
-        "350% improvement in keyword rankings",
-        "$15,000 additional monthly revenue",
-        "40% increase in subscription conversions"
+        "150% increase in website sessions",
+        "121% organic traffic growth",
+        "50%+ keywords ranking Top 3-10",
+        "Dominant local map pack presence"
       ],
-      testimonial: "In just 45 days, AIO Growth's SEO strategy drove a 200% increase in traffic for Privada Cigar Club — proof that real SEO works faster and smarter than traditional agency approaches.",
-      author: "Brian Descind, Founder",
-      keyWin: "Technical fixes create immediate improvements"
+      keyWin: "Combined technical foundation with local authority building for sustainable growth"
     },
     {
-      client: "Super Cash For Houses",
-      industry: "Real Estate Investment",
-      challenge: "Competing in saturated 'we buy houses' market with limited differentiation",
-      service: "Growth SEO Plan + Paid Media Management",
-      investment: "$1,000 + $500/month",
-      timeline: "Ongoing",
+      client: "Professional Services Firm",
+      industry: "Legal/Professional Services",
+      challenge: "Competing across multiple Florida markets with inconsistent visibility",
+      services: ["Programmatic SEO", "Local SEO", "Technical Optimization"],
+      timeline: "8 months",
       results: [
-        "150+ qualified leads per month",
-        "$33 average cost per lead",
-        "Geographic expansion to 3 new markets",
-        "400% ROI on advertising spend"
+        "35+ position improvements across key terms",
+        "90% impression growth in target markets",
+        "Consistent Top 3 rankings for priority keywords",
+        "Expanded reach to new geographic areas"
       ],
-      testimonial: "Thanks to AIO Growth and their team, we've not only ranked nationally for our industry's top SEO keywords, but they've also helped us generate over 100 leads per month through paid media.",
-      author: "Juanita Couch, Super Cash For Houses",
-      keyWin: "Eliminated dependence on expensive lead generation services"
+      keyWin: "Programmatic approach enabled scalable local content across statewide markets"
     },
     {
-      client: "B2B SaaS Company",
-      industry: "Technology",
-      challenge: "High traffic but poor trial-to-paid conversion (2%)",
-      service: "Full Growth Marketing System",
-      investment: "$2,500 one-time",
-      timeline: "90 days",
+      client: "Cybersecurity SaaS",
+      industry: "B2B Software/Technology",
+      challenge: "Low market share and limited visibility against established competitors",
+      services: ["Technical SEO", "Content Strategy", "Link Building"],
+      timeline: "12 months",
       results: [
-        "4x improvement in trial-to-paid conversion",
-        "35% reduction in customer churn",
-        "$240,000 additional annual revenue",
-        "Systematic growth processes established"
+        "Share of Voice grew from 15% to 50%",
+        "90+ keywords ranking in Top 3",
+        "20+ quality backlinks acquired",
+        "Established thought leadership positioning"
       ],
-      testimonial: "AIO Growth's psychology-driven approach transformed our conversion funnel. We went from 2% to 8% trial-to-paid conversion in 90 days.",
-      author: "SaaS Founder",
-      keyWin: "Industry-specific psychological triggers in automation"
-    }
-  ];
-
-  const industryResults = [
-    {
-      industry: "Real Estate & Investment",
-      icon: <Building className="w-6 h-6" />,
-      results: "150+ leads/month, $30-40 cost per lead",
-      expansion: "Clients expanding to 2-5 new markets",
-      keyWins: "Local SEO domination, psychology-driven seller messaging"
+      keyWin: "Strategic content and link building transformed market position in competitive SaaS space"
     },
     {
-      industry: "Healthcare & Medical",
-      icon: <Target className="w-6 h-6" />,
-      results: "200%+ increase in patient inquiries",
-      expansion: "HIPAA-compliant lead generation",
-      keyWins: "Local authority building, trust-based content marketing"
-    },
-    {
-      industry: "Home Services",
-      icon: <Zap className="w-6 h-6" />,
-      results: "300%+ increase in service calls",
-      expansion: "Emergency service positioning",
-      keyWins: "Seasonal optimization, local market domination"
-    },
-    {
-      industry: "E-commerce & Retail",
-      icon: <Globe className="w-6 h-6" />,
-      results: "180% increase in organic revenue",
-      expansion: "40% AOV improvement",
-      keyWins: "Conversion psychology, systematic testing frameworks"
-    }
-  ];
-
-  const testimonials = [
-    {
-      quote: "AIO Growth's approach to SEO is completely different from every other agency we worked with. Instead of promising vague 'ongoing optimization,' they fixed our fundamental issues once and gave us systems that keep working.",
-      author: "Sarah M., E-commerce Director",
-      result: "180% revenue growth",
-      rating: 5
-    },
-    {
-      quote: "The flat-fee paid advertising management saved us thousands while delivering better results than our previous percentage-based agency. We finally have transparent reporting and campaigns that actually focus on our business goals.",
-      author: "Mike R., SaaS Founder",
-      result: "400% ROAS improvement",
-      rating: 5
-    },
-    {
-      quote: "Most consultants give you a report and disappear. AIO Growth built us systems that run themselves and keep generating leads months after the project ended. That's the difference between expense and investment.",
-      author: "Lisa K., Professional Services",
-      result: "250% lead increase",
-      rating: 5
+      client: "E-commerce Retailer",
+      industry: "Retail/E-commerce",
+      challenge: "Limited organic traffic and poor conversion rates despite quality products",
+      services: ["E-commerce SEO", "Technical Optimization", "Conversion Strategy"],
+      timeline: "6 months",
+      results: [
+        "Traffic grew from 5K to 15K monthly visitors",
+        "200% increase in sales within 90 days",
+        "Improved product page rankings across categories",
+        "Optimized site architecture for crawlability"
+      ],
+      keyWin: "Technical foundation combined with conversion optimization delivered rapid revenue growth"
     }
   ];
 
@@ -195,11 +143,11 @@ const Results = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                See exactly how psychology-driven marketing and transparent pricing deliver measurable business impact for companies across industries.
+                See exactly how our SEO, Local SEO, GEO optimization, and marketing services deliver measurable business impact across industries.
               </p>
-              
+
               <p className="text-lg text-foreground/80 mb-12">
-                Don't take our word for it. Here's what happens when you combine consumer psychology with technical expertise and transparent pricing.
+                Don't take our word for it. Here's what happens when you combine technical expertise with strategic execution and transparent pricing.
               </p>
 
               {/* Key Metrics Banner */}
@@ -243,20 +191,20 @@ const Results = () => {
                   <h3 className="text-xl font-bold text-foreground mb-4">Performance Metrics</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Total Clients Served</span>
-                      <span className="font-semibold text-foreground">50+ businesses</span>
+                      <span className="text-muted-foreground">Businesses Served</span>
+                      <span className="font-semibold text-foreground">150+ across agencies</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Average Traffic Increase</span>
-                      <span className="font-semibold text-foreground">180% within 90 days</span>
+                      <span className="text-muted-foreground">Average Traffic Growth</span>
+                      <span className="font-semibold text-foreground">121-200% increase</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Lead Generation Improvement</span>
-                      <span className="font-semibold text-foreground">140% average increase</span>
+                      <span className="text-muted-foreground">Top 3 Rankings Achieved</span>
+                      <span className="font-semibold text-foreground">90+ keywords</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Total Ad Spend Managed</span>
-                      <span className="font-semibold text-foreground">$2M+ transparently</span>
+                      <span className="text-muted-foreground">Share of Voice Growth</span>
+                      <span className="font-semibold text-foreground">Up to 35% improvement</span>
                     </div>
                   </div>
                 </CardContent>
@@ -265,23 +213,23 @@ const Results = () => {
               <Card className="bg-card border-border">
                 <CardContent className="p-8">
                   <Trophy className="w-12 h-12 text-primary mb-6" />
-                  <h3 className="text-xl font-bold text-foreground mb-4">Success Metrics</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-4">Client Outcomes</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Client Retention Rate</span>
-                      <span className="font-semibold text-foreground">85% choose additional services</span>
+                      <span className="text-muted-foreground">Revenue Impact</span>
+                      <span className="font-semibold text-foreground">$500K+ documented growth</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Average ROI</span>
-                      <span className="font-semibold text-foreground">400%+ return on investment</span>
+                      <span className="text-muted-foreground">Typical Sales Lift</span>
+                      <span className="font-semibold text-foreground">200% within 90 days</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-muted-foreground">Industries Served</span>
                       <span className="font-semibold text-foreground">15+ verticals</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Project Success Rate</span>
-                      <span className="font-semibold text-foreground">95%+ client satisfaction</span>
+                      <span className="text-muted-foreground">Services Portfolio</span>
+                      <span className="font-semibold text-foreground">6 core offerings</span>
                     </div>
                   </div>
                 </CardContent>
@@ -295,78 +243,63 @@ const Results = () => {
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Featured Success Stories
+                Real Client Results
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Detailed case studies showing exactly how psychology-driven marketing delivers measurable business impact
+                Case studies showcasing measurable growth across our 6-service portfolio
               </p>
             </div>
 
-            <div className="space-y-12">
+            <div className="grid md:grid-cols-2 gap-8">
               {caseStudies.map((study, index) => (
                 <Card key={index} className="bg-card border-border overflow-hidden">
                   <CardContent className="p-0">
-                    <div className="grid md:grid-cols-3 gap-0">
-                      {/* Client Info */}
-                      <div className="bg-primary/5 p-8">
-                        <Badge className="mb-4">{study.industry}</Badge>
-                        <h3 className="text-2xl font-bold text-foreground mb-3">
-                          {study.client}
-                        </h3>
-                        <div className="space-y-3 text-sm">
-                          <div>
-                            <span className="font-medium text-foreground">Challenge:</span>
-                            <p className="text-muted-foreground mt-1">{study.challenge}</p>
-                          </div>
-                          <div>
-                            <span className="font-medium text-foreground">Service:</span>
-                            <p className="text-muted-foreground mt-1">{study.service}</p>
-                          </div>
-                          <div>
-                            <span className="font-medium text-foreground">Investment:</span>
-                            <p className="text-muted-foreground mt-1">{study.investment}</p>
-                          </div>
-                          <div>
-                            <span className="font-medium text-foreground">Timeline:</span>
-                            <p className="text-muted-foreground mt-1">{study.timeline}</p>
-                          </div>
-                        </div>
-                      </div>
+                    {/* Header */}
+                    <div className="bg-primary/5 p-6">
+                      <Badge className="mb-3">{study.industry}</Badge>
+                      <h3 className="text-xl font-bold text-foreground mb-2">
+                        {study.client}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">{study.challenge}</p>
+                    </div>
 
-                      {/* Results */}
-                      <div className="p-8">
-                        <h4 className="text-lg font-bold text-foreground mb-4 flex items-center">
+                    {/* Results */}
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <h4 className="text-lg font-bold text-foreground flex items-center">
                           <ArrowUp className="w-5 h-5 text-primary mr-2" />
-                          Results Achieved
+                          Results
                         </h4>
-                        <div className="space-y-3">
-                          {study.results.map((result, resultIndex) => (
-                            <div key={resultIndex} className="flex items-start">
-                              <CheckCircle className="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                              <span className="text-foreground font-medium">{result}</span>
-                            </div>
+                        <Badge variant="outline" className="text-xs">
+                          <Calendar className="w-3 h-3 mr-1" />
+                          {study.timeline}
+                        </Badge>
+                      </div>
+                      <div className="space-y-2 mb-6">
+                        {study.results.map((result, resultIndex) => (
+                          <div key={resultIndex} className="flex items-start">
+                            <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-foreground">{result}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Services Used */}
+                      <div className="border-t pt-4">
+                        <p className="text-xs font-medium text-muted-foreground mb-2">Services Used:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {study.services.map((service, serviceIndex) => (
+                            <Badge key={serviceIndex} variant="secondary" className="text-xs">
+                              {service}
+                            </Badge>
                           ))}
-                        </div>
-                        
-                        <div className="mt-6 p-4 bg-primary/5 rounded-lg">
-                          <p className="text-sm font-medium text-primary mb-1">Key Innovation:</p>
-                          <p className="text-sm text-muted-foreground">{study.keyWin}</p>
                         </div>
                       </div>
 
-                      {/* Testimonial */}
-                      <div className="p-8 bg-muted/30">
-                        <div className="flex mb-3">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 text-primary fill-current" />
-                          ))}
-                        </div>
-                        <blockquote className="text-foreground mb-4 italic">
-                          "{study.testimonial}"
-                        </blockquote>
-                        <p className="text-sm font-medium text-muted-foreground">
-                          — {study.author}
-                        </p>
+                      {/* Key Win */}
+                      <div className="mt-4 p-3 bg-primary/5 rounded-lg">
+                        <p className="text-xs font-medium text-primary mb-1">Key Insight:</p>
+                        <p className="text-xs text-muted-foreground">{study.keyWin}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -419,7 +352,7 @@ const Results = () => {
 
             <div className="text-center mt-8">
               <p className="text-muted-foreground">
-                Join 50+ businesses across 15+ industries that chose proven results over promises
+                Join 150+ businesses across 15+ industries that chose proven results over promises
               </p>
             </div>
           </div>
