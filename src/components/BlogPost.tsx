@@ -33,8 +33,16 @@ const generateShareLinks = (post: BlogPostType, currentUrl: string): ShareLinks 
 };
 
 const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const canonicalUrl = `https://aiogrowthseo.com/blog/${post.slug}`;
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : canonicalUrl;
   const shareLinks = generateShareLinks(post, currentUrl);
+  
+  // Ensure OG/Twitter images use absolute URLs
+  const ogImageUrl = post.seo.ogImage 
+    ? (post.seo.ogImage.startsWith('http') 
+        ? post.seo.ogImage 
+        : `https://aiogrowthseo.com${post.seo.ogImage.startsWith('/') ? '' : '/'}${post.seo.ogImage}`)
+    : undefined;
 
   const handleShare = (platform: keyof ShareLinks) => {
     window.open(shareLinks[platform], '_blank', 'noopener,noreferrer');
@@ -48,13 +56,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
         <meta name="keywords" content={post.seo.keywords.join(', ')} />
         <meta name="author" content={post.author} />
         <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={canonicalUrl} />
         
         {/* Open Graph */}
         <meta property="og:title" content={post.seo.metaTitle} />
         <meta property="og:description" content={post.seo.metaDescription} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={currentUrl} />
-        {post.seo.ogImage && <meta property="og:image" content={post.seo.ogImage} />}
+        <meta property="og:url" content={canonicalUrl} />
+        {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
         <meta property="article:author" content={post.author} />
         <meta property="article:published_time" content={post.publishDate} />
         <meta property="article:section" content={post.category} />
@@ -66,7 +75,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.seo.metaTitle} />
         <meta name="twitter:description" content={post.seo.metaDescription} />
-        {post.seo.ogImage && <meta name="twitter:image" content={post.seo.ogImage} />}
+        <meta name="twitter:url" content={canonicalUrl} />
+        {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
         
         {/* JSON-LD Structured Data */}
         <script type="application/ld+json">
@@ -83,14 +93,15 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
             "dateModified": post.lastModified || post.publishDate,
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": currentUrl
+              "@id": canonicalUrl
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Joel Hinton Marketing"
+              "name": "AIO Growth SEO"
             },
             "articleSection": post.category,
-            "keywords": post.tags.join(", ")
+            "keywords": post.tags.join(", "),
+            ...(ogImageUrl && { "image": ogImageUrl })
           })}
         </script>
       </Helmet>

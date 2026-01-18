@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"src/lib/analytics.ts -> web-vitals\":{\"id\":\"src/lib/analytics.ts -> web-vitals\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_web-vitals_dist_web-vitals_js.js\"]}}"

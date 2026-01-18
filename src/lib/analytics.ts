@@ -103,7 +103,7 @@ export const trackFormSubmission = (
 
 // Conversion tracking
 export const trackConversion = (
-  conversionType: 'contact_form' | 'consultation_request' | 'phone_click' | 'email_click',
+  conversionType: 'contact_form' | 'consultation_request' | 'phone_click' | 'email_click' | 'strategy_session',
   value?: number,
   currency?: string
 ): void => {
@@ -118,7 +118,7 @@ export const trackConversion = (
 // Lead generation tracking
 export const trackLead = (
   leadSource: string,
-  leadType: 'consultation' | 'contact' | 'inquiry',
+  leadType: 'consultation' | 'contact' | 'inquiry' | 'strategy_session',
   businessType?: string
 ): void => {
   trackEvent('generate_lead', {
@@ -154,7 +154,7 @@ export const trackIndustryView = (industry: string, pageType: 'industry_page' | 
 // Service interest tracking
 export const trackServiceInterest = (
   serviceName: string,
-  interactionType: 'button_click' | 'form_open' | 'pricing_view'
+  interactionType: 'button_click' | 'form_open' | 'pricing_view' | 'page_view'
 ): void => {
   trackEvent('service_interest', {
     service_name: serviceName,

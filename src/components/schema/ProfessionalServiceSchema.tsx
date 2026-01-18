@@ -21,8 +21,8 @@ const ProfessionalServiceSchema = ({
     "url": serviceUrl,
     "provider": {
       "@type": "LocalBusiness",
-      "name": "Joel Hinton Digital Marketing",
-      "url": "https://joelhintonmarketing.com",
+      "name": "AIO Growth SEO",
+      "url": "https://aiogrowthseo.com",
       "telephone": "(386) 555-0123",
       "address": {
         "@type": "PostalAddress",

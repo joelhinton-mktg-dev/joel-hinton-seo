@@ -11,46 +11,48 @@ import { useCookieConsent } from "@/hooks/useCookieConsent";
 import { usePageTracking } from "@/hooks/usePageTracking";
 
 // Lazy load all page components
-const Index = lazy(() => import("./pages/Index"));
-const SEOServices = lazy(() => import("./pages/SEOServices"));
-const LocalLeadGeneration = lazy(() => import("./pages/LocalLeadGeneration"));
-const Pricing = lazy(() => import("./pages/Pricing"));
-const Results = lazy(() => import("./pages/Results"));
-const About = lazy(() => import("./pages/About"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
-const FloridaSEOServices = lazy(() => import("./pages/FloridaSEOServices"));
-const AreasWeServe = lazy(() => import("./pages/AreasWeServe"));
-const DebaryDigitalMarketing = lazy(() => import("./pages/DebaryDigitalMarketing"));
-const SanfordSEOServices = lazy(() => import("./pages/SanfordSEOServices"));
-const NewSmyrnaBeachMarketing = lazy(() => import("./pages/NewSmyrnaBeachMarketing"));
-const HollyHillDigitalMarketing = lazy(() => import("./pages/HollyHillDigitalMarketing"));
-const OrmondBeachSEO = lazy(() => import("./pages/OrmondBeachSEO"));
-const PalmCoastMarketing = lazy(() => import("./pages/PalmCoastMarketing"));
-const PortOrangeMarketing = lazy(() => import("./pages/PortOrangeMarketing"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const TermsOfService = lazy(() => import("./pages/TermsOfService"));
-const DaytonaBeachDigitalMarketing = lazy(() => import("./pages/DaytonaBeachDigitalMarketing"));
-const Contact = lazy(() => import("./pages/Contact"));
-const CustomToolsAutomation = lazy(() => import("./pages/CustomToolsAutomation"));
-const Services = lazy(() => import("./pages/Services"));
-const LocalSEO = lazy(() => import("./pages/LocalSEO"));
-const GEOOptimization = lazy(() => import("./pages/GEOOptimization"));
-const Industries = lazy(() => import("./pages/Industries"));
-const RealEstateMarketing = lazy(() => import("./pages/RealEstateMarketing"));
-const HealthcareMarketing = lazy(() => import("./pages/HealthcareMarketing"));
-const HomeServicesMarketing = lazy(() => import("./pages/HomeServicesMarketing"));
-const EcommerceMarketing = lazy(() => import("./pages/EcommerceMarketing"));
-const ProfessionalServicesMarketing = lazy(() => import("./pages/ProfessionalServicesMarketing"));
-const SaaSMarketing = lazy(() => import("./pages/SaaSMarketing"));
-const RestaurantsHospitalityMarketing = lazy(() => import("./pages/RestaurantsHospitalityMarketing"));
-const LegalServicesMarketing = lazy(() => import("./pages/LegalServicesMarketing"));
-const EducationTrainingMarketing = lazy(() => import("./pages/EducationTrainingMarketing"));
-const AutomotiveServicesMarketing = lazy(() => import("./pages/AutomotiveServicesMarketing"));
-const FitnessWellnessMarketing = lazy(() => import("./pages/FitnessWellnessMarketing"));
-const FinancialServicesMarketing = lazy(() => import("./pages/FinancialServicesMarketing"));
-const EcommerceSEO = lazy(() => import("./pages/EcommerceSEO"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Index = lazy(() => import("./views/Index"));
+const SEOServices = lazy(() => import("./views/SEOServices"));
+const LocalLeadGeneration = lazy(() => import("./views/LocalLeadGeneration"));
+const Pricing = lazy(() => import("./views/Pricing"));
+const Results = lazy(() => import("./views/Results"));
+const About = lazy(() => import("./views/About"));
+const Blog = lazy(() => import("./views/Blog"));
+const BlogPostPage = lazy(() => import("./views/BlogPostPage"));
+const FloridaSEOServices = lazy(() => import("./views/FloridaSEOServices"));
+const AreasWeServe = lazy(() => import("./views/AreasWeServe"));
+const DebaryDigitalMarketing = lazy(() => import("./views/DebaryDigitalMarketing"));
+const SanfordSEOServices = lazy(() => import("./views/SanfordSEOServices"));
+const NewSmyrnaBeachMarketing = lazy(() => import("./views/NewSmyrnaBeachMarketing"));
+const HollyHillDigitalMarketing = lazy(() => import("./views/HollyHillDigitalMarketing"));
+const OrmondBeachSEO = lazy(() => import("./views/OrmondBeachSEO"));
+const PalmCoastMarketing = lazy(() => import("./views/PalmCoastMarketing"));
+const PortOrangeMarketing = lazy(() => import("./views/PortOrangeMarketing"));
+const PrivacyPolicy = lazy(() => import("./views/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./views/TermsOfService"));
+const DaytonaBeachDigitalMarketing = lazy(() => import("./views/DaytonaBeachDigitalMarketing"));
+const Contact = lazy(() => import("./views/Contact"));
+const CustomToolsAutomation = lazy(() => import("./views/CustomToolsAutomation"));
+const Services = lazy(() => import("./views/Services"));
+const LocalSEO = lazy(() => import("./views/LocalSEO"));
+const GEOOptimization = lazy(() => import("./views/GEOOptimization"));
+const Industries = lazy(() => import("./views/Industries"));
+const RealEstateMarketing = lazy(() => import("./views/RealEstateMarketing"));
+const HealthcareMarketing = lazy(() => import("./views/HealthcareMarketing"));
+const HomeServicesMarketing = lazy(() => import("./views/HomeServicesMarketing"));
+const EcommerceMarketing = lazy(() => import("./views/EcommerceMarketing"));
+const ProfessionalServicesMarketing = lazy(() => import("./views/ProfessionalServicesMarketing"));
+const SaaSMarketing = lazy(() => import("./views/SaaSMarketing"));
+const RestaurantsHospitalityMarketing = lazy(() => import("./views/RestaurantsHospitalityMarketing"));
+const LegalServicesMarketing = lazy(() => import("./views/LegalServicesMarketing"));
+const EducationTrainingMarketing = lazy(() => import("./views/EducationTrainingMarketing"));
+const AutomotiveServicesMarketing = lazy(() => import("./views/AutomotiveServicesMarketing"));
+const FitnessWellnessMarketing = lazy(() => import("./views/FitnessWellnessMarketing"));
+const FinancialServicesMarketing = lazy(() => import("./views/FinancialServicesMarketing"));
+const EcommerceSEO = lazy(() => import("./views/EcommerceSEO"));
+const Guides = lazy(() => import("./views/Guides"));
+const GuidePage = lazy(() => import("./views/GuidePage"));
+const NotFound = lazy(() => import("./views/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -138,6 +140,8 @@ const App = () => (
               <Route path="/industries/automotive-services" element={<AutomotiveServicesMarketing />} />
               <Route path="/industries/fitness-wellness" element={<FitnessWellnessMarketing />} />
               <Route path="/industries/financial-services" element={<FinancialServicesMarketing />} />
+              <Route path="/guides" element={<Guides />} />
+              <Route path="/guides/:slug" element={<GuidePage />} />
               <Route path="/not-found" element={<NotFound />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
