@@ -74,7 +74,7 @@ export default function FreeSEOAuditPage() {
           <MultiStepForm
             page="free-seo-audit"
             source="landing-page"
-            formspreeEndpoint="https://formspree.io/f/xrbarnbp"
+            formspreeEndpoint="https://formspree.io/f/mjggakgp"
           />
         </div>
       </section>
