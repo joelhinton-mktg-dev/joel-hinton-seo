@@ -41,7 +41,7 @@ export default function LandingPageLayout({
                 <span className="text-white font-bold text-xs">AIO</span>
               </div>
               <span className="text-sm text-slate-400">
-                &copy; {new Date().getFullYear()} AIO Growth SEO
+                &copy; 2025 AIO Growth SEO
               </span>
             </div>
             <div className="flex items-center gap-6 text-sm text-slate-400">
