@@ -5,3 +5,8 @@ export { PainPoints } from './PainPoints';
 export { BenefitsGrid, seoAuditBenefits } from './BenefitsGrid';
 export { FAQAccordion, seoAuditFAQs } from './FAQAccordion';
 export { StickyFooterCTA } from './StickyFooterCTA';
+export { CredibilityBar } from './CredibilityBar';
+export { SystemFlow } from './SystemFlow';
+export { ComparisonTable } from './ComparisonTable';
+export { OfferStack } from './OfferStack';
+export { ActivityFeed } from './ActivityFeed';

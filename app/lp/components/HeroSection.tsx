@@ -12,6 +12,11 @@ interface HeroSectionProps {
   onCtaClick: () => void;
   badgeText?: string;
   city?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  spotsConfig?: { total: number; filled: number };
+  heroVisual?: React.ReactNode;
+  showDefaultTrustIndicators?: boolean;
 }
 
 export function HeroSection({
@@ -21,6 +26,11 @@ export function HeroSection({
   onCtaClick,
   badgeText,
   city,
+  secondaryCtaText,
+  secondaryCtaHref,
+  spotsConfig,
+  heroVisual,
+  showDefaultTrustIndicators = true,
 }: HeroSectionProps) {
   // Replace {city} placeholder in headline
   const processedHeadline = city
@@ -93,11 +103,12 @@ export function HeroSection({
             {subheadline}
           </motion.p>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button
               onClick={onCtaClick}
@@ -106,28 +117,78 @@ export function HeroSection({
             >
               {ctaText}
             </Button>
+            {secondaryCtaText && secondaryCtaHref && (
+              <a
+                href={secondaryCtaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white border border-white/30 rounded-md hover:bg-white/10 transition-colors"
+              >
+                {secondaryCtaText}
+              </a>
+            )}
           </motion.div>
 
+          {/* Spots remaining */}
+          {spotsConfig && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-6 flex flex-col items-center gap-2"
+            >
+              <div className="flex gap-2">
+                {Array.from({ length: spotsConfig.total }).map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-3 h-3 rounded-full border-2 ${
+                      i < spotsConfig.filled
+                        ? 'bg-emerald-500 border-emerald-500'
+                        : 'border-emerald-500/40 bg-transparent'
+                    }`}
+                  />
+                ))}
+              </div>
+              <p className="text-sm text-slate-400">
+                {spotsConfig.total - spotsConfig.filled} of {spotsConfig.total} spots remaining
+              </p>
+            </motion.div>
+          )}
+
+          {/* Hero visual */}
+          {heroVisual && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-12"
+            >
+              {heroVisual}
+            </motion.div>
+          )}
+
           {/* Trust indicators */}
-          <motion.div
-            className="mt-12 flex flex-wrap justify-center gap-8 text-slate-400"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <div className="flex items-center gap-2">
-              <Users className="w-5 h-5 text-emerald-400" />
-              <span className="text-sm">500+ Businesses Served</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-              <span className="text-sm">4.9/5 Client Rating</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-emerald-400" />
-              <span className="text-sm">312% Avg. Traffic Increase</span>
-            </div>
-          </motion.div>
+          {showDefaultTrustIndicators && (
+            <motion.div
+              className="mt-12 flex flex-wrap justify-center gap-8 text-slate-400"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <div className="flex items-center gap-2">
+                <Users className="w-5 h-5 text-emerald-400" />
+                <span className="text-sm">500+ Businesses Served</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                <span className="text-sm">4.9/5 Client Rating</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-emerald-400" />
+                <span className="text-sm">312% Avg. Traffic Increase</span>
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
 

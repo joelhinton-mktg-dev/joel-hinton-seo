@@ -7,7 +7,7 @@ export default function LandingPageLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col lp-layout">
       {/* Minimal Header - Logo only */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
