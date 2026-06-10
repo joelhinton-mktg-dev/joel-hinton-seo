@@ -521,7 +521,7 @@ export default function LocalSEOOfferPage() {
         onCtaClick={openModal}
         badgeText="Limited — 5 Spots at 50% Off"
         secondaryCtaText="Book a Free Strategy Call"
-        secondaryCtaHref="https://calendly.com/placeholder"
+        secondaryCtaHref="https://calendly.com/joel-aiogrowthseo/30min"
         spotsConfig={SPOTS_CONFIG}
         heroVisual={<HeroVisualPlaceholder />}
         showDefaultTrustIndicators={false}
@@ -608,7 +608,7 @@ export default function LocalSEOOfferPage() {
                 Apply for a Spot
               </Button>
               <a
-                href="https://calendly.com/placeholder"
+                href="https://calendly.com/joel-aiogrowthseo/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white border border-white/40 rounded-md hover:bg-white/10 transition-colors"
