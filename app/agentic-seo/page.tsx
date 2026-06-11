@@ -25,11 +25,27 @@ import {
   Workflow,
 } from 'lucide-react';
 import { agenticOffer } from '@/data/pricing';
+import { trackPrimaryCtaClick } from '@/lib/analytics';
+
+const CTA_LABEL = 'Get a Custom Quote';
 
 export default function AgenticSeoPage() {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog(
     agenticOffer.serviceLabel,
   );
+
+  const openQuoteDialog = (ctaLocation: string, serviceLabel?: string) => {
+    trackPrimaryCtaClick({
+      pagePath: '/agentic-seo',
+      ctaLabel: CTA_LABEL,
+      ctaLocation,
+      serviceName: serviceLabel ?? agenticOffer.serviceLabel,
+    });
+    if (serviceLabel) {
+      selectService(serviceLabel);
+    }
+    openDialog();
+  };
 
   return (
     <>
@@ -56,8 +72,8 @@ export default function AgenticSeoPage() {
               cycle — not a site that goes stale the day it launches.
             </p>
 
-            <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
-              Get a Custom Quote
+            <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openQuoteDialog('hero')}>
+              {CTA_LABEL}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
@@ -264,12 +280,9 @@ export default function AgenticSeoPage() {
             <CardContent className="text-center">
               <Button
                 size="lg"
-                onClick={() => {
-                  selectService(agenticOffer.serviceLabel);
-                  openDialog();
-                }}
+                onClick={() => openQuoteDialog('pricing', agenticOffer.serviceLabel)}
               >
-                Get a Custom Quote
+                {CTA_LABEL}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </CardContent>
@@ -299,8 +312,8 @@ export default function AgenticSeoPage() {
           <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
             Tell us about your current site and goals. We will scope the rebuild and engine to fit.
           </p>
-          <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
-            Get a Custom Quote
+          <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openQuoteDialog('final')}>
+            {CTA_LABEL}
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
           <p className="text-indigo-200 mt-6 text-sm">

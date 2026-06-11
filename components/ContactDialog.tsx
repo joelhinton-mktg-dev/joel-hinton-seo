@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/ui/button';
 import { CheckCircle } from 'lucide-react';
 import { ContactFormData, contactFormSchema, BusinessTypeOption } from '@/types/contact-forms';
-import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
+import { trackFormSubmission } from '@/lib/analytics';
 import {
   FORMSPREE_CONTACT_ENDPOINT,
   FORMSPREE_NOTIFICATION_EMAIL,
@@ -70,20 +70,11 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
         setSubmitSuccess(true);
         reset();
 
-        // Track form submission and conversion
         trackFormSubmission(
           'contact_dialog',
           window.location.pathname,
           data.businessType,
-          defaultService
-        );
-
-        trackConversion('contact_form', 1, 'USD');
-
-        trackLead(
-          window.location.pathname,
-          'contact',
-          data.businessType
+          data.selectedService,
         );
 
         if (process.env.NODE_ENV === 'development') {

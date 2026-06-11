@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { funnelSprintOffer } from '@/data/pricing';
+import { trackPrimaryCtaClick } from '@/lib/analytics';
 import {
   Target,
   TrendingUp,
@@ -29,10 +30,25 @@ import {
   BadgeCheck,
 } from 'lucide-react';
 
+const CTA_LABEL = 'Get a Custom Quote';
+
 export default function LocalLeadGenerationPage() {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog(
     funnelSprintOffer.serviceLabel,
   );
+
+  const openQuoteDialog = (ctaLocation: string, serviceLabel?: string) => {
+    trackPrimaryCtaClick({
+      pagePath: '/local-lead-generation',
+      ctaLabel: CTA_LABEL,
+      ctaLocation,
+      serviceName: serviceLabel ?? funnelSprintOffer.serviceLabel,
+    });
+    if (serviceLabel) {
+      selectService(serviceLabel);
+    }
+    openDialog();
+  };
 
   const homeServiceTypes = [
     { name: "HVAC", icon: "🌡️" },
@@ -89,9 +105,9 @@ export default function LocalLeadGenerationPage() {
               <Button
                 size="lg"
                 className="px-8 py-4 text-lg bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                onClick={() => openDialog()}
+                onClick={() => openQuoteDialog('hero')}
               >
-                Get a Custom Quote
+                {CTA_LABEL}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
@@ -597,12 +613,9 @@ export default function LocalLeadGenerationPage() {
 
                 <Button
                   className="w-full bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                  onClick={() => {
-                    selectService(funnelSprintOffer.serviceLabel);
-                    openDialog();
-                  }}
+                  onClick={() => openQuoteDialog('pricing', funnelSprintOffer.serviceLabel)}
                 >
-                  Get a Custom Quote
+                  {CTA_LABEL}
                 </Button>
               </CardContent>
             </Card>
@@ -707,9 +720,9 @@ export default function LocalLeadGenerationPage() {
               <Button
                 size="lg"
                 className="px-8 py-4 text-lg bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                onClick={() => openDialog()}
+                onClick={() => openQuoteDialog('final')}
               >
-                Get a Custom Quote
+                {CTA_LABEL}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </CardContent>

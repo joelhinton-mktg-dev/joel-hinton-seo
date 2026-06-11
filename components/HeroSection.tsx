@@ -12,7 +12,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import Link from "next/link";
-import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
+import { trackFormSubmission } from '@/lib/analytics';
 import {
   FORMSPREE_HERO_ENDPOINT,
   FORMSPREE_NOTIFICATION_EMAIL,
@@ -64,9 +64,7 @@ const HeroSection = () => {
         setSubmitSuccess(true);
         reset();
 
-        trackFormSubmission('hero_form', '/', data.businessType);
-        trackConversion('consultation_request', 1, 'USD');
-        trackLead('homepage', 'consultation', data.businessType);
+        trackFormSubmission('hero_form', '/', data.businessType, data.selectedService);
 
         if (process.env.NODE_ENV === 'development') {
           console.log("Hero contact form submitted successfully:", data);

@@ -13,7 +13,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import Link from "next/link";
-import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
+import { trackFormSubmission } from '@/lib/analytics';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -106,15 +106,7 @@ const ServicesSection = () => {
       'services_form',
       window.location.pathname,
       data.businessType,
-      'Custom Strategy Session'
-    );
-
-    trackConversion('strategy_session', 1, 'USD');
-
-    trackLead(
-      window.location.pathname,
-      'strategy_session',
-      data.businessType
+      data.selectedService,
     );
 
     setTimeout(() => {

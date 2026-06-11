@@ -7,6 +7,9 @@ export const SITE_PHONE_DISPLAY = `+1 ${SITE_PHONE}`;
 
 export const SITE_EMAIL = 'info@aiogrowthseo.com';
 
+/** Google Tag Manager container — GA4 (G-8LRYYJ3JVP) is configured inside GTM, not in code. */
+export const GTM_CONTAINER_ID = 'GTM-5JZLHMHS';
+
 /**
  * Primary Formspree notification address for contact/quote submissions.
  * Multi-recipient notification (also notify joel@aiogrowthseo.com + Samantha)
