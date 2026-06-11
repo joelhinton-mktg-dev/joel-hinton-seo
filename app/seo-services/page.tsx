@@ -9,7 +9,7 @@ import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
 import ContactDialog from '../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
-import { setupTiers, monthlyTiers, multiLocationMonthlyNote } from '@/data/pricing';
+import { seoFoundation, seoMonthlyTiers } from '@/data/pricing';
 import {
   Search,
   TrendingUp,
@@ -336,31 +336,33 @@ export default function SEOServicesPage() {
               </p>
             </div>
 
-            {/* Foundation Setup Tiers */}
-            <div className="mb-16">
-              <h3 className="text-2xl font-bold text-center mb-8">Foundation Setup</h3>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                {setupTiers.map((tier) => (
-                  <Card key={tier.name} className="card-professional">
-                    <CardHeader className="text-center pb-6">
-                      <Badge variant="secondary" className="w-fit mx-auto mb-4">One-Time Setup</Badge>
-                      <CardTitle className="text-2xl mb-2">{tier.name}</CardTitle>
-                      <div className="text-4xl font-bold text-primary mb-2">{tier.price}</div>
-                      <CardDescription className="text-muted-foreground">One-time investment</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-sm text-muted-foreground">{tier.description}</p>
-                      <Button
-                        className="w-full mt-2"
-                        onClick={() => selectService(tier.serviceLabel)}
-                      >
-                        Get Started - {tier.price}
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+            {/* SEO Foundation */}
+            <div className="mb-16 max-w-2xl mx-auto">
+              <Card className="card-professional border-primary/50">
+                <CardHeader className="text-center pb-6">
+                  <Badge variant="secondary" className="w-fit mx-auto mb-4">One-Time Setup</Badge>
+                  <CardTitle className="text-2xl mb-2">SEO Foundation</CardTitle>
+                  <div className="text-4xl font-bold text-primary mb-2">{seoFoundation.price}</div>
+                  <CardDescription className="text-muted-foreground">One-time investment</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-3">
+                    {seoFoundation.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    className="w-full mt-2"
+                    onClick={() => selectService(seoFoundation.serviceLabel)}
+                  >
+                    Get Started - {seoFoundation.price}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
 
             {/* Monthly Plans */}
@@ -371,7 +373,7 @@ export default function SEOServicesPage() {
               </div>
 
               <div className="space-y-4">
-                {monthlyTiers.map((tier) => (
+                {seoMonthlyTiers.map((tier) => (
                   <div
                     key={tier.name}
                     className={`p-4 border rounded-lg ${tier.highlighted ? 'border-primary/30 bg-primary/5' : ''}`}
@@ -399,7 +401,6 @@ export default function SEOServicesPage() {
                   </div>
                 ))}
               </div>
-              <p className="text-sm text-muted-foreground text-center mt-6">{multiLocationMonthlyNote}</p>
             </div>
           </div>
         </section>
