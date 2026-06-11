@@ -13,6 +13,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import Link from "next/link";
 import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
+import {
+  FORMSPREE_HERO_ENDPOINT,
+  FORMSPREE_NOTIFICATION_EMAIL,
+} from '@/data/site';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -40,7 +44,9 @@ const HeroSection = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/mjkejnko', {
+      // Formspree recipient (sales@aiogrowthseo.com) is set per form ID in the Formspree dashboard.
+      // Multi-recipient notification (also joel@aiogrowthseo.com + Samantha) must be configured there too.
+      const response = await fetch(FORMSPREE_HERO_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -49,7 +55,8 @@ const HeroSection = () => {
           phone: data.phone,
           businessType: data.businessType,
           selectedService: data.selectedService,
-          marketingChallenge: data.marketingChallenge
+          marketingChallenge: data.marketingChallenge,
+          _notification_email: FORMSPREE_NOTIFICATION_EMAIL,
         })
       });
 

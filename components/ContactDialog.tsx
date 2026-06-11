@@ -12,6 +12,10 @@ import { Button } from '@/components/ui/button';
 import { CheckCircle } from 'lucide-react';
 import { ContactFormData, contactFormSchema, BusinessTypeOption } from '@/types/contact-forms';
 import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
+import {
+  FORMSPREE_CONTACT_ENDPOINT,
+  FORMSPREE_NOTIFICATION_EMAIL,
+} from '@/data/site';
 
 interface ContactDialogProps {
   isOpen: boolean;
@@ -46,8 +50,9 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
     setIsSubmitting(true);
 
     try {
-      // Submit to Formspree
-      const response = await fetch('https://formspree.io/f/xrbarnbp', {
+      // Formspree recipient (sales@aiogrowthseo.com) is set per form ID in the Formspree dashboard.
+      // Multi-recipient notification (also joel@aiogrowthseo.com + Samantha) must be configured there too.
+      const response = await fetch(FORMSPREE_CONTACT_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -56,7 +61,8 @@ export const ContactDialog: React.FC<ContactDialogProps> = ({
           phone: data.phone,
           businessType: data.businessType,
           selectedService: data.selectedService,
-          marketingChallenge: data.marketingChallenge
+          marketingChallenge: data.marketingChallenge,
+          _notification_email: FORMSPREE_NOTIFICATION_EMAIL,
         })
       });
 
