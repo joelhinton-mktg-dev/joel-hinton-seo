@@ -391,10 +391,12 @@ export default function SEOServicesPage() {
                       ))}
                     </ul>
                     <Button
-                      variant="outline"
                       size="sm"
-                      className="mt-3"
-                      onClick={() => selectService(tier.serviceLabel)}
+                      className={`mt-3 ${tier.highlighted ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-primary/90 hover:bg-primary text-primary-foreground'}`}
+                      onClick={() => {
+                        selectService(tier.serviceLabel);
+                        openDialog();
+                      }}
                     >
                       Choose {tier.name}
                     </Button>

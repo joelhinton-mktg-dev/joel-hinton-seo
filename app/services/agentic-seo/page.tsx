@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
-import ContactDialog from '../../components/ContactDialog';
+import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
@@ -24,7 +24,7 @@ import {
   Sparkles,
   Workflow,
 } from 'lucide-react';
-import { agenticOffer } from '@/data/pricing';
+import { agenticEngineTiers, agenticOffer } from '@/data/pricing';
 import { trackPrimaryCtaClick } from '@/lib/analytics';
 
 const CTA_LABEL = 'Get a Custom Quote';
@@ -36,7 +36,7 @@ export default function AgenticSeoPage() {
 
   const openQuoteDialog = (ctaLocation: string, serviceLabel?: string) => {
     trackPrimaryCtaClick({
-      pagePath: '/agentic-seo',
+      pagePath: '/services/agentic-seo',
       ctaLabel: CTA_LABEL,
       ctaLocation,
       serviceName: serviceLabel ?? agenticOffer.serviceLabel,
@@ -49,7 +49,12 @@ export default function AgenticSeoPage() {
 
   return (
     <>
-      <PageBreadcrumb items={[{ label: 'Agentic SEO Site', current: true }]} />
+      <PageBreadcrumb
+        items={[
+          { label: 'Services', href: '/services' },
+          { label: 'Agentic SEO Site', current: true },
+        ]}
+      />
 
       {/* Hero */}
       <section className="py-24 px-4 bg-gradient-to-br from-slate-50 via-indigo-50 to-violet-50">
@@ -103,22 +108,12 @@ export default function AgenticSeoPage() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
-                    <span>llms.txt — tell AI crawlers what your business is and what to cite</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
-                    <span>Structured data across every page type that matters</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
-                    <span>Internal-linking architecture built for topical authority, not random menus</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
-                    <span>Agentic browsing audit — how AI agents actually see and navigate your site</span>
-                  </li>
+                  {agenticOffer.setupDeliverables.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </CardContent>
             </Card>
@@ -222,71 +217,79 @@ export default function AgenticSeoPage() {
           </div>
 
           <div className="space-y-6">
-            {[
-              {
-                icon: FileText,
-                title: 'Measure',
-                text: 'Pull search, funnel, and AI-visibility data from your live site each cycle.',
-              },
-              {
-                icon: Cpu,
-                title: 'Analyze',
-                text: 'Identify what is working, what is leaking traffic, and where competitors are gaining ground.',
-              },
-              {
-                icon: Workflow,
-                title: 'Act',
-                text: 'Update content, structure, and entity signals based on evidence — not guesses.',
-              },
-              {
-                icon: GitBranch,
-                title: 'Repeat',
-                text: 'Every cycle the site gets sharper. That is the point.',
-              },
-            ].map((step, index) => (
-              <div key={step.title} className="flex items-start gap-4 p-4 border rounded-lg">
-                <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
-                  <step.icon className="w-5 h-5 text-indigo-600" />
+            {agenticOffer.engineCycle.map((step, index) => {
+              const icons = [FileText, Cpu, Workflow, GitBranch, RefreshCw];
+              const Icon = icons[index] ?? RefreshCw;
+              return (
+                <div key={step.step} className="flex items-start gap-4 p-4 border rounded-lg">
+                  <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-indigo-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">
+                      {index + 1}. {step.step}
+                    </p>
+                    <p className="text-sm text-muted-foreground mt-1">{step.detail}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold">
-                    {index + 1}. {step.title}
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">{step.text}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Pricing */}
       <section className="py-24 px-4 bg-gradient-to-br from-indigo-50 via-violet-50 to-slate-50">
-        <div className="container mx-auto max-w-3xl">
+        <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="gradient-text">Pricing</span>
             </h2>
           </div>
 
-          <Card className="card-professional border-indigo-200">
+          <p className="text-center text-lg font-medium text-indigo-700 mb-8">{agenticOffer.smbEntry}</p>
+
+          <Card className="card-professional border-indigo-200 mb-12">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl">Agentic SEO Site</CardTitle>
-              <CardDescription className="text-base mt-4 space-y-2">
+              <CardTitle className="text-2xl">Site Rebuild</CardTitle>
+              <CardDescription className="text-base mt-4">
                 <p className="text-2xl font-bold text-indigo-600">{agenticOffer.setup}</p>
-                <p className="text-xl font-semibold text-foreground">+ {agenticOffer.monthly}</p>
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
-              <Button
-                size="lg"
-                onClick={() => openQuoteDialog('pricing', agenticOffer.serviceLabel)}
-              >
+              <Button size="lg" onClick={() => openQuoteDialog('setup', agenticOffer.serviceLabel)}>
                 {CTA_LABEL}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </CardContent>
           </Card>
+
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-2">Agentic Engine</h3>
+            <p className="text-muted-foreground">Monthly tiers for the self-improving engine after launch</p>
+          </div>
+
+          <div className="space-y-4 max-w-3xl mx-auto">
+            {agenticEngineTiers.map((tier) => (
+              <div
+                key={tier.name}
+                className={`p-4 border rounded-lg ${tier.highlighted ? 'border-indigo-200 bg-indigo-50' : ''}`}
+              >
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-semibold">{tier.name}</span>
+                  <span className="text-xl font-bold text-indigo-600">{tier.price}</span>
+                </div>
+                <p className="text-sm text-muted-foreground mb-3">{tier.cadence}</p>
+                <Button
+                  size="sm"
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white"
+                  onClick={() => openQuoteDialog('engine', tier.serviceLabel)}
+                >
+                  Choose {tier.name}
+                </Button>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -338,7 +341,7 @@ export default function AgenticSeoPage() {
       <ProfessionalServiceSchema
         serviceName="Agentic SEO Site"
         serviceDescription="An AI-ready website rebuild with a self-improving engine that reads search, funnel, and AI-visibility data and gets better every cycle."
-        serviceUrl="https://aiogrowthseo.com/agentic-seo"
+        serviceUrl={`https://aiogrowthseo.com${agenticOffer.canonicalPath}`}
         price="2500-5000"
         serviceType="Agentic SEO Site"
       />

@@ -7,7 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, MapPin, Sparkles, Users, Cog, ArrowRight, ShoppingCart } from "lucide-react";
+import { Search, MapPin, Sparkles, Users, Cog, ArrowRight, ShoppingCart, type LucideIcon } from "lucide-react";
+import { serviceCards, type ServiceCardId } from '@/data/serviceCards';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,62 +27,19 @@ const contactFormSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
-const services = [
-  {
-    icon: Search,
-    title: "SEO Services",
-    subtitle: "Technical SEO + Content Strategy",
-    description: "Comprehensive SEO that combines technical excellence with content strategy. Site audits, keyword research, and ongoing optimization for sustainable organic growth.",
-    features: ["Technical SEO audits", "Keyword research", "Content optimization", "Backlink strategy"],
-    price: "$500 - $1,000",
-    href: "/seo-services"
-  },
-  {
-    icon: MapPin,
-    title: "Local SEO",
-    subtitle: "Dominate Your Local Market",
-    description: "Get found by customers in Volusia & Flagler Counties. Google Business Profile optimization, local citations, and review management for local businesses.",
-    features: ["Google Business Profile", "Local citations", "Review management", "Map pack rankings"],
-    price: "From $1,500 setup + $500/mo.",
-    href: "/local-seo"
-  },
-  {
-    icon: Sparkles,
-    title: "GEO Optimization",
-    subtitle: "AI-search visibility — built into every SEO plan.",
-    description: "Prepare for the future of search. Optimize your content for AI assistants, ChatGPT, and generative search engines that are changing how people find businesses.",
-    features: ["AI search optimization", "Answer Engine Optimization", "Structured data", "Entity optimization"],
-    price: "",
-    href: "/geo-optimization"
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-commerce SEO",
-    subtitle: "Grow Your Online Store",
-    description: "Drive organic traffic and sales for Shopify, WooCommerce, and marketplace stores. Product optimization, technical SEO, and conversion strategies.",
-    features: ["Product page optimization", "Technical e-commerce SEO", "Marketplace optimization", "Conversion optimization"],
-    price: "$1,500 - $3,000",
-    href: "/ecommerce-seo"
-  },
-  {
-    icon: Users,
-    title: "Local Lead Generation",
-    subtitle: "Ads That Deliver Leads",
-    description: "Google Local Service Ads, Search Ads, and Facebook campaigns for home services and professional services. Pay for leads, not clicks.",
-    features: ["Google Local Service Ads", "Search campaigns", "Facebook lead ads", "Call tracking"],
-    price: "$500/month",
-    href: "/local-lead-generation"
-  },
-  {
-    icon: Cog,
-    title: "Custom Tools & Automation",
-    subtitle: "Marketing Technology Built for You",
-    description: "Custom SEO tools, reporting dashboards, lead generation systems, and workflow automation designed specifically for your business needs.",
-    features: ["SEO automation tools", "Custom dashboards", "Lead systems", "Workflow automation"],
-    price: "From $2,500 setup + $750/mo.",
-    href: "/custom-tools-automation"
-  }
-];
+const serviceIcons: Record<ServiceCardId, LucideIcon> = {
+  'seo-services': Search,
+  'local-seo': MapPin,
+  'geo-optimization': Sparkles,
+  'ecommerce-seo': ShoppingCart,
+  'local-lead-generation': Users,
+  'custom-tools-automation': Cog,
+};
+
+const services = serviceCards.map((card) => ({
+  ...card,
+  icon: serviceIcons[card.id],
+}));
 
 const ServicesSection = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

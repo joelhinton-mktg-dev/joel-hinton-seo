@@ -295,20 +295,23 @@ export default function LocalSEOPage() {
 
             <div className="mb-16">
               <h3 className="text-2xl font-bold text-center mb-8">Foundation Setup</h3>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
                 {setupTiers.map((tier) => (
-                  <Card key={tier.name} className="card-professional border-green-200">
+                  <Card key={tier.name} className="card-professional border-green-200 flex flex-col h-full">
                     <CardHeader className="text-center">
                       <Badge variant="secondary" className="w-fit mx-auto mb-4">One-Time Setup</Badge>
                       <CardTitle className="text-2xl">{tier.name}</CardTitle>
                       <div className="text-4xl font-bold text-green-600 mt-2">{tier.price}</div>
                       <CardDescription>One-time investment</CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-sm text-muted-foreground">{tier.description}</p>
+                    <CardContent className="space-y-4 flex flex-col flex-1">
+                      <p className="text-sm text-muted-foreground flex-1">{tier.description}</p>
                       <Button
-                        className="w-full bg-green-600 hover:bg-green-700"
-                        onClick={() => selectService(tier.serviceLabel)}
+                        className="w-full bg-green-600 hover:bg-green-700 mt-auto"
+                        onClick={() => {
+                          selectService(tier.serviceLabel);
+                          openDialog();
+                        }}
                       >
                         Get Started
                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -337,10 +340,12 @@ export default function LocalSEOPage() {
                       ))}
                     </ul>
                     <Button
-                      variant="outline"
                       size="sm"
-                      className="mt-3"
-                      onClick={() => selectService(tier.serviceLabel)}
+                      className={`mt-3 ${tier.highlighted ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-green-600/90 hover:bg-green-700 text-white'}`}
+                      onClick={() => {
+                        selectService(tier.serviceLabel);
+                        openDialog();
+                      }}
                     >
                       Choose {tier.name}
                     </Button>
