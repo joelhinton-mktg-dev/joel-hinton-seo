@@ -1,3 +1,15 @@
+import { agenticOffer } from './pricing';
+
+/** Flagship card for /services hub only — not shown on homepage. */
+export const agenticServiceCard = {
+  id: 'agentic-seo',
+  title: agenticOffer.cardTitle,
+  subtitle: agenticOffer.cardSubtitle,
+  description: agenticOffer.cardDescription,
+  price: agenticOffer.cardPrice,
+  href: agenticOffer.canonicalPath,
+} as const;
+
 /** Shared service card copy — homepage ServicesSection and /services hub. */
 export const serviceCards = [
   {

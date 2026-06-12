@@ -10,11 +10,13 @@ import {
   ArrowRight,
   ShoppingCart,
   CheckCircle,
+  Bot,
   type LucideIcon,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { serviceCards, type ServiceCardId } from '@/data/serviceCards';
+import { Badge } from '@/components/ui/badge';
+import { agenticServiceCard, serviceCards, type ServiceCardId } from '@/data/serviceCards';
 
 const icons: Record<ServiceCardId, LucideIcon> = {
   'seo-services': Search,
@@ -66,7 +68,41 @@ const accentStyles = {
 
 export function ServiceHubCards() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto space-y-12">
+      <Card className="card-professional overflow-hidden border-2 border-indigo-200 bg-gradient-to-br from-indigo-50 via-violet-50 to-slate-50 shadow-lg hover:shadow-xl transition-shadow">
+        <CardContent className="p-8 md:p-10">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+            <div className="flex-1 space-y-4">
+              <Badge className="bg-indigo-600 hover:bg-indigo-600 text-white w-fit">
+                <Bot className="w-3.5 h-3.5 mr-1.5" />
+                Flagship Offer
+              </Badge>
+              <div>
+                <CardTitle className="text-2xl md:text-3xl mb-2">{agenticServiceCard.title}</CardTitle>
+                <CardDescription className="text-base font-medium text-indigo-700">
+                  {agenticServiceCard.subtitle}
+                </CardDescription>
+              </div>
+              <p className="text-muted-foreground max-w-2xl">{agenticServiceCard.description}</p>
+              <p className="text-xl font-bold text-indigo-600">{agenticServiceCard.price}</p>
+            </div>
+            <div className="shrink-0 lg:text-right">
+              <Button
+                size="lg"
+                className="w-full lg:w-auto bg-indigo-600 hover:bg-indigo-700 text-white px-8"
+                asChild
+              >
+                <Link href={agenticServiceCard.href}>
+                  Explore Agentic SEO
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {serviceCards.map((service) => {
         const Icon = icons[service.id];
         const styles = accentStyles[service.accent];
@@ -111,6 +147,7 @@ export function ServiceHubCards() {
           </Card>
         );
       })}
+      </div>
     </div>
   );
 }

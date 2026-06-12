@@ -110,6 +110,11 @@ export const seoMonthlyTiers = [
 
 /** Agentic SEO Site — /services/agentic-seo flagship offer. */
 export const agenticOffer = {
+  cardTitle: 'Agentic SEO Site',
+  cardSubtitle: 'A website that improves itself',
+  cardDescription:
+    'An AI-ready site rebuild with a self-improving engine that reads search, funnel, and AI-visibility data — and gets better every cycle.',
+  cardPrice: 'From $2,500 setup + $500/mo',
   setup: 'Setup $2,500–$5,000 (scoped by site size)',
   smbEntry: 'SMB entry point: $2,500 setup + Lite engine at $500/mo',
   ownership:
