@@ -136,20 +136,20 @@ export const agenticEngineTiers = [
   {
     name: 'Lite',
     price: '$500/mo',
-    cadence: 'Quarterly cycle — data review and prioritized recommendations (lighter cadence, lower cost to run)',
+    cadence: 'Monthly cycle — data review and prioritized recommendations',
     serviceLabel: 'Agentic Engine - Lite - $500/mo',
   },
   {
     name: 'Standard',
     price: '$1,000/mo',
-    cadence: 'Monthly cycle — read, propose, human QA, deploy, and measure',
+    cadence: 'Bi-weekly cycle — read, propose, human QA, deploy, and measure',
     serviceLabel: 'Agentic Engine - Standard - $1,000/mo',
     highlighted: true,
   },
   {
     name: 'Full',
     price: '$1,500/mo',
-    cadence: 'Bi-weekly cycle — full read → propose → QA → deploy → measure loop',
+    cadence: 'Weekly cycle — full read → propose → QA → deploy → measure loop',
     serviceLabel: 'Agentic Engine - Full - $1,500/mo',
   },
 ] as const;
