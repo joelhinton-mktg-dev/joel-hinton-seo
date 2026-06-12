@@ -1,3 +1,5 @@
+import { SITE_EMAIL, SITE_PHONE } from "@/data/site";
+
 const LocalBusinessSchema = () => {
   const schema = {
     "@context": "https://schema.org",
@@ -5,8 +7,8 @@ const LocalBusinessSchema = () => {
     "name": "AIO Growth SEO",
     "description": "Psychology-driven SEO and digital marketing services for businesses in Volusia & Flagler Counties, Central Florida",
     "url": "https://aiogrowthseo.com",
-    "telephone": "(386) 555-0123",
-    "email": "info@aiogrowthseo.com",
+    "telephone": SITE_PHONE,
+    "email": SITE_EMAIL,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Daytona Beach",

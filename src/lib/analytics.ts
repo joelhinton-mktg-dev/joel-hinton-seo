@@ -1,208 +1,161 @@
 import { getCookiePreferences } from '@/hooks/useCookieConsent';
+import { GTM_CONTAINER_ID } from '@/data/site';
 
-// GA4 Measurement ID
-export const GA_TRACKING_ID = 'G-EB6WBLQY1P';
+export interface AnalyticsConsentPreferences {
+  analytics: boolean;
+  marketing: boolean;
+  functional: boolean;
+}
 
-// Check if user has consented to analytics cookies
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[];
+  }
+}
+
 export const canUseAnalytics = (): boolean => {
+  if (typeof window === 'undefined') return false;
   const preferences = getCookiePreferences();
   return preferences?.analytics ?? false;
 };
 
-// Initialize Google Analytics
-export const initializeGA = (): void => {
-  if (!canUseAnalytics()) {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('GA4: Analytics blocked by cookie preferences');
-    }
-    return;
-  }
+/** Push to dataLayer only when analytics consent is granted. Safe to call from client event handlers. */
+export const pushToDataLayer = (payload: Record<string, unknown>): void => {
+  if (typeof window === 'undefined' || !canUseAnalytics()) return;
 
-  // Load gtag script
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(payload);
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log('GTM dataLayer:', payload);
+  }
+};
+
+const isGtmScriptPresent = (): boolean => {
+  if (typeof document === 'undefined') return false;
+  return !!document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}"]`);
+};
+
+/** Inject GTM container script + noscript iframe. Idempotent — safe to call once per session. */
+export const loadGtmContainer = (): void => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (!canUseAnalytics() || isGtmScriptPresent()) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
   const script = document.createElement('script');
   script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+  script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
   document.head.appendChild(script);
 
-  // Initialize gtag
+  const noscript = document.createElement('noscript');
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`;
+  iframe.height = '0';
+  iframe.width = '0';
+  iframe.style.display = 'none';
+  iframe.style.visibility = 'hidden';
+  noscript.appendChild(iframe);
+  document.body.appendChild(noscript);
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log('GTM: Container loaded:', GTM_CONTAINER_ID);
+  }
+};
+
+/** Fired when the user actively grants consent (banner / settings save). */
+export const pushConsentGranted = (prefs: AnalyticsConsentPreferences): void => {
+  if (typeof window === 'undefined') return;
+
   window.dataLayer = window.dataLayer || [];
-  function gtag(...args: any[]) {
-    window.dataLayer.push(args);
-  }
-  
-  // Make gtag available globally
-  (window as any).gtag = gtag;
-
-  gtag('js', new Date());
-  gtag('config', GA_TRACKING_ID, {
-    page_title: document.title,
-    page_location: window.location.href,
-    anonymize_ip: true, // GDPR compliance
-    allow_google_signals: false, // GDPR compliance
-    allow_ad_personalization_signals: false, // GDPR compliance
+  window.dataLayer.push({
+    event: 'consent_granted',
+    analytics_consent: prefs.analytics,
+    marketing_consent: prefs.marketing,
+    functional_consent: prefs.functional,
   });
 
   if (process.env.NODE_ENV === 'development') {
-    console.log('GA4: Initialized with ID:', GA_TRACKING_ID);
+    console.log('GTM: consent_granted pushed');
   }
 };
 
-// Track page views
-export const trackPageView = (path: string, title?: string): void => {
-  if (!canUseAnalytics() || typeof window === 'undefined' || !(window as any).gtag) {
-    return;
-  }
-
-  (window as any).gtag('config', GA_TRACKING_ID, {
-    page_path: path,
-    page_title: title || document.title,
-    page_location: window.location.href,
-  });
-
-  if (process.env.NODE_ENV === 'development') {
-    console.log('GA4: Page view tracked:', path, title);
-  }
-};
-
-// Track custom events
-export const trackEvent = (
-  eventName: string,
-  parameters?: Record<string, any>
+/** Called from CookieConsent when the user updates preferences. */
+export const handleConsentUpdate = (
+  prefsOrAnalyticsEnabled: AnalyticsConsentPreferences | boolean,
 ): void => {
-  if (!canUseAnalytics() || typeof window === 'undefined' || !(window as any).gtag) {
-    return;
-  }
+  const analyticsEnabled =
+    typeof prefsOrAnalyticsEnabled === 'boolean'
+      ? prefsOrAnalyticsEnabled
+      : prefsOrAnalyticsEnabled.analytics;
 
-  (window as any).gtag('event', eventName, {
-    ...parameters,
-    // Add default parameters
-    timestamp: new Date().toISOString(),
-  });
-
-  if (process.env.NODE_ENV === 'development') {
-    console.log('GA4: Event tracked:', eventName, parameters);
+  if (analyticsEnabled) {
+    loadGtmContainer();
   }
 };
 
-// Form submission tracking
+/** Called from CookieConsent on accept / save when analytics is newly enabled. */
+export const handleConsentGranted = (prefs: AnalyticsConsentPreferences): void => {
+  if (!prefs.analytics) return;
+  pushConsentGranted(prefs);
+  loadGtmContainer();
+};
+
+/** Activate GTM for returning visitors who already consented (no consent_granted replay). */
+export const activateGtmForExistingConsent = (): void => {
+  if (!canUseAnalytics()) return;
+  loadGtmContainer();
+};
+
+export type FormType = 'contact_dialog' | 'hero_form' | 'services_form' | 'custom_form';
+
 export const trackFormSubmission = (
-  formType: 'contact_dialog' | 'hero_form' | 'services_form' | 'custom_form',
+  formType: FormType,
   formLocation: string,
   businessType?: string,
-  serviceName?: string
+  serviceName?: string,
 ): void => {
-  trackEvent('form_submit', {
+  pushToDataLayer({
+    event: 'form_submit',
     form_type: formType,
     form_location: formLocation,
-    business_type: businessType,
-    service_name: serviceName,
-    event_category: 'engagement',
-    value: 1,
+    business_type: businessType ?? '',
+    service_name: serviceName ?? '',
   });
 };
 
-// Conversion tracking
-export const trackConversion = (
-  conversionType: 'contact_form' | 'consultation_request' | 'phone_click' | 'email_click' | 'strategy_session',
-  value?: number,
-  currency?: string
-): void => {
-  trackEvent('conversion', {
-    conversion_type: conversionType,
-    value: value || 1,
-    currency: currency || 'USD',
-    event_category: 'conversion',
+export const trackPhoneClick = (phoneNumber: string, linkLocation: string): void => {
+  pushToDataLayer({
+    event: 'phone_click',
+    phone_number: phoneNumber,
+    link_location: linkLocation,
   });
 };
 
-// Lead generation tracking
-export const trackLead = (
-  leadSource: string,
-  leadType: 'consultation' | 'contact' | 'inquiry' | 'strategy_session',
-  businessType?: string
-): void => {
-  trackEvent('generate_lead', {
-    lead_source: leadSource,
-    lead_type: leadType,
-    business_type: businessType,
-    event_category: 'lead_generation',
-    value: 1,
+export type PrimaryCtaPage = '/agentic-seo' | '/local-lead-generation';
+
+export const trackPrimaryCtaClick = (params: {
+  pagePath: PrimaryCtaPage;
+  ctaLabel: string;
+  ctaLocation: string;
+  serviceName?: string;
+}): void => {
+  pushToDataLayer({
+    event: 'primary_cta_click',
+    page_path: params.pagePath,
+    cta_label: params.ctaLabel,
+    cta_location: params.ctaLocation,
+    service_name: params.serviceName ?? '',
   });
 };
 
-// User engagement tracking
-export const trackEngagement = (
-  engagementType: 'scroll' | 'time_on_page' | 'cta_click' | 'service_view',
-  engagementValue?: string | number
-): void => {
-  trackEvent('engagement', {
-    engagement_type: engagementType,
-    engagement_value: engagementValue,
-    event_category: 'user_engagement',
-  });
-};
-
-// Industry page tracking
-export const trackIndustryView = (industry: string, pageType: 'industry_page' | 'service_page'): void => {
-  trackEvent('view_industry', {
-    industry_name: industry,
-    page_type: pageType,
-    event_category: 'content_engagement',
-  });
-};
-
-// Service interest tracking
-export const trackServiceInterest = (
-  serviceName: string,
-  interactionType: 'button_click' | 'form_open' | 'pricing_view' | 'page_view'
-): void => {
-  trackEvent('service_interest', {
-    service_name: serviceName,
-    interaction_type: interactionType,
-    event_category: 'service_engagement',
-  });
-};
-
-// Performance tracking
-export const trackPerformance = (): void => {
-  if (!canUseAnalytics() || typeof window === 'undefined') {
-    return;
-  }
-
-  // Track Core Web Vitals
-  if ('web-vital' in window) {
-    import('web-vitals').then(({ onCLS, onFID, onFCP, onLCP, onTTFB }) => {
-      onCLS((metric) => trackEvent('web_vital_cls', { value: metric.value }));
-      onFID((metric) => trackEvent('web_vital_fid', { value: metric.value }));
-      onFCP((metric) => trackEvent('web_vital_fcp', { value: metric.value }));
-      onLCP((metric) => trackEvent('web_vital_lcp', { value: metric.value }));
-      onTTFB((metric) => trackEvent('web_vital_ttfb', { value: metric.value }));
-    });
-  }
-};
-
-// Initialize analytics when consent is given
-export const handleConsentUpdate = (hasAnalyticsConsent: boolean): void => {
-  if (hasAnalyticsConsent) {
-    initializeGA();
-    trackPageView(window.location.pathname, document.title);
-  } else {
-    // Disable analytics if consent is withdrawn
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('consent', 'update', {
-        analytics_storage: 'denied',
-      });
-    }
-    if (process.env.NODE_ENV === 'development') {
-      console.log('GA4: Analytics disabled due to consent withdrawal');
-    }
-  }
-};
-
-// Type declarations for gtag
-declare global {
-  interface Window {
-    dataLayer: any[];
-    gtag: (...args: any[]) => void;
-  }
-}
+/** Legacy Vite app stubs — Next.js App Router uses GTM dataLayer helpers above. */
+export const initializeGA = (): void => {};
+export const trackPageView = (_path: string, _title?: string): void => {};
+export const trackConversion = (_type: string, _value?: number, _currency?: string): void => {};
+export const trackLead = (_source: string, _type: string, _businessType?: string): void => {};
+export const trackEngagement = (_type: string, _value?: string | number): void => {};
+export const trackIndustryView = (_industry: string, _pageType: string): void => {};
+export const trackServiceInterest = (_service: string, _interaction: string): void => {};
+export const trackPerformance = (): void => {};

@@ -6,6 +6,7 @@ import { Providers } from '../components/Providers';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import CookieConsent from '../components/CookieConsent';
+import GoogleTagManager from '../components/GoogleTagManager';
 import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 
@@ -59,6 +60,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <CookieConsent />
+          <GoogleTagManager />
         </Providers>
       </body>
     </html>

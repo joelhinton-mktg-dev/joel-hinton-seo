@@ -9,6 +9,7 @@ import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
 import ContactDialog from '../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
+import { seoFoundation, seoMonthlyTiers } from '@/data/pricing';
 import {
   Search,
   TrendingUp,
@@ -335,174 +336,70 @@ export default function SEOServicesPage() {
               </p>
             </div>
 
-            {/* One-Time Packages */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
-              <Card className="card-professional">
-                <CardHeader className="text-center pb-8">
-                  <Badge variant="secondary" className="w-fit mx-auto mb-4">Foundation</Badge>
-                  <CardTitle className="text-2xl mb-2">Basic SEO Foundation</CardTitle>
-                  <div className="text-4xl font-bold text-primary mb-2">$1,000</div>
+            {/* SEO Foundation */}
+            <div className="mb-16 max-w-2xl mx-auto">
+              <Card className="card-professional border-primary/50">
+                <CardHeader className="text-center pb-6">
+                  <Badge variant="secondary" className="w-fit mx-auto mb-4">One-Time Setup</Badge>
+                  <CardTitle className="text-2xl mb-2">SEO Foundation</CardTitle>
+                  <div className="text-4xl font-bold text-primary mb-2">{seoFoundation.price}</div>
                   <CardDescription className="text-muted-foreground">One-time investment</CardDescription>
-                  <p className="text-sm text-primary font-medium mt-2">Foundation for search & answer engine success</p>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Complete technical SEO audit & fixes</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">On-page optimization for core pages</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm"><strong>Topical map creation</strong> - your content roadmap</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Competitive gap analysis</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Google Business Profile optimization</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Schema markup implementation</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">30-day performance report</span>
-                    </div>
-                  </div>
-
+                  <ul className="space-y-3">
+                    {seoFoundation.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                   <Button
-                    className="w-full mt-6"
-                    onClick={() => selectService("Basic SEO Foundation - $1,000")}
+                    className="w-full mt-2"
+                    onClick={() => selectService(seoFoundation.serviceLabel)}
                   >
-                    Get Started - $1,000
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional border-primary/50 bg-primary/5">
-                <CardHeader className="text-center pb-8">
-                  <Badge className="w-fit mx-auto mb-4 bg-primary">Recommended</Badge>
-                  <CardTitle className="text-2xl mb-2">Growth SEO System</CardTitle>
-                  <div className="text-4xl font-bold text-primary mb-2">$2,000</div>
-                  <CardDescription className="text-muted-foreground">One-time investment</CardDescription>
-                  <p className="text-sm text-primary font-medium mt-2">Complete SEO + AI Content Engine setup</p>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm font-medium">Everything in Basic Foundation</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm"><strong>AI Content Engine</strong> setup & automation</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Content strategy implementation (first 5 articles)</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Initial backlink building (directories + 1-2 guest posts)</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Advanced AEO (Answer Engine Optimization)</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">Multi-location SEO (up to 3 locations)</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span className="text-sm">90-day performance tracking</span>
-                    </div>
-                  </div>
-
-                  <Button
-                    className="w-full mt-6 btn-hero text-primary-foreground"
-                    onClick={() => selectService("Growth SEO System - $2,000")}
-                  >
-                    Get Started - $2,000
+                    Get Started - {seoFoundation.price}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </CardContent>
               </Card>
             </div>
 
-            {/* Monthly Maintenance Options */}
-            <div className="max-w-5xl mx-auto">
+            {/* Monthly Plans */}
+            <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Optional Monthly Maintenance</h3>
-                <p className="text-muted-foreground">For businesses that want ongoing optimization support after foundation setup</p>
+                <h3 className="text-2xl font-bold mb-2">Monthly Plans</h3>
+                <p className="text-muted-foreground">Ongoing optimization after foundation setup</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card className="card-professional">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-lg">Monthly Maintenance</CardTitle>
-                      <div className="text-2xl font-bold text-primary">$500<span className="text-sm font-normal text-muted-foreground">/mo</span></div>
+              <div className="space-y-4">
+                {seoMonthlyTiers.map((tier) => (
+                  <div
+                    key={tier.name}
+                    className={`p-4 border rounded-lg ${tier.highlighted ? 'border-primary/30 bg-primary/5' : ''}`}
+                  >
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-semibold">{tier.name}</span>
+                      <span className="text-xl font-bold text-primary">{tier.price}</span>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        10 hours of optimization work monthly
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        Content updates and new page optimization
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        Technical monitoring and fixes
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        Monthly performance reporting
-                      </li>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      {tier.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
                     </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="card-professional border-primary/30">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-lg">Advanced Monthly</CardTitle>
-                      <div className="text-2xl font-bold text-primary">$1,000<span className="text-sm font-normal text-muted-foreground">/mo</span></div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        Everything in Monthly Maintenance
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        Monthly link building campaigns
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        AI Content Engine management
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        Priority support and strategy calls
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="mt-3"
+                      onClick={() => selectService(tier.serviceLabel)}
+                    >
+                      Choose {tier.name}
+                    </Button>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
 import ContactButton from '../../components/ContactButton';
+import { SITE_EMAIL, SITE_PHONE, SITE_PHONE_TEL } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Contact Central Florida SEO Experts | Free Marketing Consultation',
@@ -63,9 +64,9 @@ export default function ContactPage() {
                 className="px-8 py-4 text-lg"
                 asChild
               >
-                <a href="tel:+13865550123">
+                <a href={`tel:${SITE_PHONE_TEL}`}>
                   <Phone className="w-5 h-5 mr-2" />
-                  Call Now: (386) 555-0123
+                  Call Now: {SITE_PHONE}
                 </a>
               </Button>
             </div>
@@ -111,11 +112,11 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <p className="text-2xl font-bold text-primary">(386) 555-0123</p>
+                  <p className="text-2xl font-bold text-primary">{SITE_PHONE}</p>
                   <p className="text-sm text-muted-foreground">Monday - Friday, 9 AM - 5 PM EST</p>
                 </div>
                 <Button variant="outline" className="w-full" asChild>
-                  <a href="tel:+13865550123">
+                  <a href={`tel:${SITE_PHONE_TEL}`}>
                     <Phone className="w-4 h-4 mr-2" />
                     Call Now
                   </a>
@@ -133,11 +134,11 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <p className="text-lg font-semibold">info@aiogrowthseo.com</p>
+                  <p className="text-lg font-semibold">{SITE_EMAIL}</p>
                   <p className="text-sm text-muted-foreground">Response within 24 hours</p>
                 </div>
                 <Button variant="outline" className="w-full" asChild>
-                  <a href="mailto:info@aiogrowthseo.com">
+                  <a href={`mailto:${SITE_EMAIL}`}>
                     <Mail className="w-4 h-4 mr-2" />
                     Send Email
                   </a>
@@ -434,9 +435,9 @@ export default function ContactPage() {
               className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600"
               asChild
             >
-              <a href="tel:+13865550123">
+              <a href={`tel:${SITE_PHONE_TEL}`}>
                 <Phone className="w-5 h-5 mr-2" />
-                Call: (386) 555-0123
+                Call: {SITE_PHONE}
               </a>
             </Button>
           </div>
@@ -473,8 +474,8 @@ export default function ContactPage() {
                 "latitude": "29.2108",
                 "longitude": "-81.0228"
               },
-              "telephone": "+1-386-555-0123",
-              "email": "info@aiogrowthseo.com",
+              "telephone": SITE_PHONE_TEL,
+              "email": SITE_EMAIL,
               "openingHours": "Mo-Fr 09:00-17:00"
             }
           })

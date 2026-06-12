@@ -7,6 +7,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Cookie, Settings, Shield, Info, CheckCircle, ExternalLink } from 'lucide-react';
+import { handleConsentGranted, handleConsentUpdate } from '@/lib/analytics';
+import type { AnalyticsConsentPreferences } from '@/lib/analytics';
 
 interface CookiePreferences {
   essential: boolean;
@@ -45,6 +47,17 @@ const CookieConsent: React.FC = () => {
     }
   }, []);
 
+  const dispatchConsentUpdate = (prefs: CookiePreferences) => {
+    const analyticsPrefs: AnalyticsConsentPreferences = {
+      analytics: prefs.analytics,
+      marketing: prefs.marketing,
+      functional: prefs.functional,
+    };
+    window.dispatchEvent(
+      new CustomEvent('cookieConsentUpdated', { detail: { preferences: analyticsPrefs } }),
+    );
+  };
+
   const handleAcceptAll = () => {
     const allAccepted: CookiePreferences = {
       essential: true,
@@ -57,8 +70,13 @@ const CookieConsent: React.FC = () => {
     localStorage.setItem('cookie-consent-date', new Date().toISOString());
     setShowBanner(false);
 
-    // Initialize analytics and marketing tools here
     initializeAnalytics(allAccepted);
+    handleConsentGranted({
+      analytics: allAccepted.analytics,
+      marketing: allAccepted.marketing,
+      functional: allAccepted.functional,
+    });
+    dispatchConsentUpdate(allAccepted);
   };
 
   const handleRejectAll = () => {
@@ -74,15 +92,45 @@ const CookieConsent: React.FC = () => {
     setShowBanner(false);
 
     initializeAnalytics(essentialOnly);
+    handleConsentUpdate({
+      analytics: essentialOnly.analytics,
+      marketing: essentialOnly.marketing,
+      functional: essentialOnly.functional,
+    });
+    dispatchConsentUpdate(essentialOnly);
   };
 
   const handleSaveSettings = () => {
+    let hadAnalyticsConsent = false;
+    try {
+      const previous = localStorage.getItem('cookie-consent');
+      if (previous) {
+        hadAnalyticsConsent = (JSON.parse(previous) as CookiePreferences).analytics;
+      }
+    } catch {
+      hadAnalyticsConsent = false;
+    }
+
     localStorage.setItem('cookie-consent', JSON.stringify(preferences));
     localStorage.setItem('cookie-consent-date', new Date().toISOString());
     setShowBanner(false);
     setShowSettings(false);
 
     initializeAnalytics(preferences);
+
+    const analyticsPrefs: AnalyticsConsentPreferences = {
+      analytics: preferences.analytics,
+      marketing: preferences.marketing,
+      functional: preferences.functional,
+    };
+
+    if (preferences.analytics && !hadAnalyticsConsent) {
+      handleConsentGranted(analyticsPrefs);
+    } else {
+      handleConsentUpdate(analyticsPrefs);
+    }
+
+    dispatchConsentUpdate(preferences);
   };
 
   const handlePreferenceChange = (type: keyof CookiePreferences, value: boolean) => {
@@ -93,9 +141,8 @@ const CookieConsent: React.FC = () => {
   // Initialize analytics tools based on consent
   const initializeAnalytics = (prefs: CookiePreferences) => {
     if (prefs.analytics) {
-      // Initialize Google Analytics or other analytics tools
       if (process.env.NODE_ENV === 'development') {
-        console.log('Analytics cookies enabled');
+        console.log('Analytics cookies enabled — GTM will load');
       }
     }
 
@@ -127,7 +174,7 @@ const CookieConsent: React.FC = () => {
       id: 'analytics',
       name: 'Analytics Cookies',
       description: 'Help us understand how visitors interact with our website to improve user experience.',
-      examples: 'Google Analytics, page views, user behavior, performance metrics',
+      examples: 'Google Tag Manager, page views, user behavior, performance metrics',
       required: false,
       color: 'bg-blue-100 text-blue-800 border-blue-200'
     },

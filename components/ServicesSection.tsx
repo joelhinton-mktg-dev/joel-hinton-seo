@@ -13,7 +13,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import Link from "next/link";
-import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
+import { trackFormSubmission } from '@/lib/analytics';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -42,16 +42,16 @@ const services = [
     subtitle: "Dominate Your Local Market",
     description: "Get found by customers in Volusia & Flagler Counties. Google Business Profile optimization, local citations, and review management for local businesses.",
     features: ["Google Business Profile", "Local citations", "Review management", "Map pack rankings"],
-    price: "$400 - $800",
+    price: "From $1,500 setup + $500/mo.",
     href: "/local-seo"
   },
   {
     icon: Sparkles,
     title: "GEO Optimization",
-    subtitle: "AI Search Ready",
+    subtitle: "AI-search visibility — built into every SEO plan.",
     description: "Prepare for the future of search. Optimize your content for AI assistants, ChatGPT, and generative search engines that are changing how people find businesses.",
     features: ["AI search optimization", "Answer Engine Optimization", "Structured data", "Entity optimization"],
-    price: "$600 - $1,200",
+    price: "",
     href: "/geo-optimization"
   },
   {
@@ -78,7 +78,7 @@ const services = [
     subtitle: "Marketing Technology Built for You",
     description: "Custom SEO tools, reporting dashboards, lead generation systems, and workflow automation designed specifically for your business needs.",
     features: ["SEO automation tools", "Custom dashboards", "Lead systems", "Workflow automation"],
-    price: "Quote-based",
+    price: "From $2,500 setup + $750/mo.",
     href: "/custom-tools-automation"
   }
 ];
@@ -106,15 +106,7 @@ const ServicesSection = () => {
       'services_form',
       window.location.pathname,
       data.businessType,
-      'Custom Strategy Session'
-    );
-
-    trackConversion('strategy_session', 1, 'USD');
-
-    trackLead(
-      window.location.pathname,
-      'strategy_session',
-      data.businessType
+      data.selectedService,
     );
 
     setTimeout(() => {
@@ -148,9 +140,11 @@ const ServicesSection = () => {
                     <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <div className="text-right">
-                      <div className="text-sm font-semibold text-secondary">{service.price}</div>
-                    </div>
+                    {service.price ? (
+                      <div className="text-right">
+                        <div className="text-sm font-semibold text-secondary">{service.price}</div>
+                      </div>
+                    ) : null}
                   </div>
                   <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
                   <CardDescription className="text-sm font-medium text-primary mb-3">

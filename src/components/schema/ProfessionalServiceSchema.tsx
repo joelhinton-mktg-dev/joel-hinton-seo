@@ -1,3 +1,5 @@
+import { SITE_PHONE } from "@/data/site";
+
 interface ProfessionalServiceSchemaProps {
   serviceName: string;
   serviceDescription: string;
@@ -23,7 +25,7 @@ const ProfessionalServiceSchema = ({
       "@type": "LocalBusiness",
       "name": "AIO Growth SEO",
       "url": "https://aiogrowthseo.com",
-      "telephone": "(386) 555-0123",
+      "telephone": SITE_PHONE,
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Daytona Beach",

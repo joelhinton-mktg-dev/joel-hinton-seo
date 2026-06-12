@@ -1,5 +1,6 @@
 import { Brain, Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
+import { COPYRIGHT_YEAR, SITE_EMAIL, SITE_PHONE_DISPLAY } from "@/data/site";
 
 const Footer = () => {
   return (
@@ -28,11 +29,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2 text-sm text-background/70">
                 <Phone className="w-4 h-4" />
-                +1 (386) 555-0123
+                {SITE_PHONE_DISPLAY}
               </div>
               <div className="flex items-center gap-2 text-sm text-background/70">
                 <Mail className="w-4 h-4" />
-                joel@joelhintonmarketing.com
+                {SITE_EMAIL}
               </div>
             </div>
           </div>
@@ -77,7 +78,7 @@ const Footer = () => {
         <div className="border-t border-background/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-background/70">
-              © 2024 AIO Growth SEO. All rights reserved.
+              © {COPYRIGHT_YEAR} AIO Growth SEO. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-background/70">
               <Link href="/privacy" className="hover:text-background transition-colors">Privacy Policy</Link>
