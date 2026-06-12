@@ -108,22 +108,12 @@ export default function AgenticSeoPage() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
-                    <span>llms.txt — tell AI crawlers what your business is and what to cite</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
-                    <span>Structured data across every page type that matters</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
-                    <span>Internal-linking architecture built for topical authority, not random menus</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
-                    <span>Agentic browsing audit — how AI agents actually see and navigate your site</span>
-                  </li>
+                  {agenticOffer.setupDeliverables.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </CardContent>
             </Card>
@@ -227,40 +217,23 @@ export default function AgenticSeoPage() {
           </div>
 
           <div className="space-y-6">
-            {[
-              {
-                icon: FileText,
-                title: 'Measure',
-                text: 'Pull search, funnel, and AI-visibility data from your live site each cycle.',
-              },
-              {
-                icon: Cpu,
-                title: 'Analyze',
-                text: 'Identify what is working, what is leaking traffic, and where competitors are gaining ground.',
-              },
-              {
-                icon: Workflow,
-                title: 'Act',
-                text: 'Update content, structure, and entity signals based on evidence — not guesses.',
-              },
-              {
-                icon: GitBranch,
-                title: 'Repeat',
-                text: 'Every cycle the site gets sharper. That is the point.',
-              },
-            ].map((step, index) => (
-              <div key={step.title} className="flex items-start gap-4 p-4 border rounded-lg">
-                <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
-                  <step.icon className="w-5 h-5 text-indigo-600" />
+            {agenticOffer.engineCycle.map((step, index) => {
+              const icons = [FileText, Cpu, Workflow, GitBranch, RefreshCw];
+              const Icon = icons[index] ?? RefreshCw;
+              return (
+                <div key={step.step} className="flex items-start gap-4 p-4 border rounded-lg">
+                  <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-indigo-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">
+                      {index + 1}. {step.step}
+                    </p>
+                    <p className="text-sm text-muted-foreground mt-1">{step.detail}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold">
-                    {index + 1}. {step.title}
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">{step.text}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -273,6 +246,8 @@ export default function AgenticSeoPage() {
               <span className="gradient-text">Pricing</span>
             </h2>
           </div>
+
+          <p className="text-center text-lg font-medium text-indigo-700 mb-8">{agenticOffer.smbEntry}</p>
 
           <Card className="card-professional border-indigo-200 mb-12">
             <CardHeader className="text-center">
@@ -300,10 +275,11 @@ export default function AgenticSeoPage() {
                 key={tier.name}
                 className={`p-4 border rounded-lg ${tier.highlighted ? 'border-indigo-200 bg-indigo-50' : ''}`}
               >
-                <div className="flex justify-between items-center mb-3">
+                <div className="flex justify-between items-center mb-2">
                   <span className="font-semibold">{tier.name}</span>
                   <span className="text-xl font-bold text-indigo-600">{tier.price}</span>
                 </div>
+                <p className="text-sm text-muted-foreground mb-3">{tier.cadence}</p>
                 <Button
                   size="sm"
                   className="bg-indigo-600 hover:bg-indigo-700 text-white"

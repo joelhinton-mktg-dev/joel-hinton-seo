@@ -3,21 +3,21 @@ export const setupTiers = [
     name: 'Single-Location',
     price: '$1,500',
     description:
-      'We make your existing site technically sound, run a full gap analysis plus market, keyword, and AI-prompt research, and build your topical map and execution roadmap — then add up to 10 new pages (service-area pages, any mix). You own all of it.',
+      'We make your existing site technically sound, run a full gap analysis plus market, keyword, and AI-prompt research, and build your topical map and execution roadmap — then add up to 10 new service-area and service pages (any mix). You own all of it.',
     serviceLabel: 'Single-Location Foundation - $1,500',
   },
   {
     name: 'Multi-Location',
     price: '$2,500',
     description:
-      'Everything in Single-Location, built across 2–5 locations / Google Business Profiles, with programmatic location and service pages for every market.',
+      'Everything in Single-Location, built across 2–5 locations / Google Business Profiles, with programmatic location and service pages for every market. You own all of it.',
     serviceLabel: 'Multi-Location Foundation - $2,500',
   },
   {
     name: 'Regional',
     price: '$5,000',
     description:
-      'For 6+ locations or multiple markets — a heavy programmatic build to own search across your entire region.',
+      'For 6+ locations or multiple markets — a heavy programmatic build to own search across your entire region. You own all of it.',
     serviceLabel: 'Regional Foundation - $5,000',
   },
 ] as const;
@@ -74,6 +74,7 @@ export const seoFoundation = {
     'Topical map + roadmap',
     'On-page optimization',
     'Schema implementation',
+    'Develop up to 10 additional pages',
   ],
 } as const;
 
@@ -110,28 +111,45 @@ export const seoMonthlyTiers = [
 /** Agentic SEO Site — /services/agentic-seo flagship offer. */
 export const agenticOffer = {
   setup: 'Setup $2,500–$5,000 (scoped by site size)',
+  smbEntry: 'SMB entry point: $2,500 setup + Lite engine at $500/mo',
   ownership:
     'You own the site forever. Leave anytime and we hand over everything — you keep the website; you only lose the agentic engine layer.',
   serviceLabel: 'Agentic SEO Site - Custom Quote',
   canonicalPath: '/services/agentic-seo',
+  setupDeliverables: [
+    'Full site rebuild on a modern, AI-ready stack',
+    'llms.txt and structured data across every page type that matters',
+    'Internal-linking architecture built for topical authority',
+    'Agentic browsing audit — how AI agents see and navigate your site',
+  ],
+  engineCycle: [
+    { step: 'Read', detail: 'Pull search, funnel, and AI-visibility data from your live site.' },
+    { step: 'Propose', detail: 'Identify gaps and rank what to fix next based on evidence.' },
+    { step: 'Human QA', detail: 'Every change is reviewed before it ships — no autopilot rewrites.' },
+    { step: 'Deploy', detail: 'Push approved updates to content, structure, and entity signals.' },
+    { step: 'Measure', detail: 'Track impact and feed results into the next cycle.' },
+  ],
 } as const;
 
-/** Agentic engine monthly ladder — SMB tiers. */
+/** Agentic engine monthly ladder — SMB tiers, cadence-differentiated. */
 export const agenticEngineTiers = [
   {
     name: 'Lite',
     price: '$500/mo',
+    cadence: 'Quarterly cycle — data review and prioritized recommendations (lighter cadence, lower cost to run)',
     serviceLabel: 'Agentic Engine - Lite - $500/mo',
   },
   {
     name: 'Standard',
     price: '$1,000/mo',
+    cadence: 'Monthly cycle — read, propose, human QA, deploy, and measure',
     serviceLabel: 'Agentic Engine - Standard - $1,000/mo',
     highlighted: true,
   },
   {
     name: 'Full',
     price: '$1,500/mo',
+    cadence: 'Bi-weekly cycle — full read → propose → QA → deploy → measure loop',
     serviceLabel: 'Agentic Engine - Full - $1,500/mo',
   },
 ] as const;
