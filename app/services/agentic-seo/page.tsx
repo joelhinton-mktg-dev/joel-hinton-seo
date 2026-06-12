@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
-import ContactDialog from '../../components/ContactDialog';
+import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
@@ -24,7 +24,7 @@ import {
   Sparkles,
   Workflow,
 } from 'lucide-react';
-import { agenticOffer } from '@/data/pricing';
+import { agenticEngineTiers, agenticOffer } from '@/data/pricing';
 import { trackPrimaryCtaClick } from '@/lib/analytics';
 
 const CTA_LABEL = 'Get a Custom Quote';
@@ -36,7 +36,7 @@ export default function AgenticSeoPage() {
 
   const openQuoteDialog = (ctaLocation: string, serviceLabel?: string) => {
     trackPrimaryCtaClick({
-      pagePath: '/agentic-seo',
+      pagePath: '/services/agentic-seo',
       ctaLabel: CTA_LABEL,
       ctaLocation,
       serviceName: serviceLabel ?? agenticOffer.serviceLabel,
@@ -49,7 +49,12 @@ export default function AgenticSeoPage() {
 
   return (
     <>
-      <PageBreadcrumb items={[{ label: 'Agentic SEO Site', current: true }]} />
+      <PageBreadcrumb
+        items={[
+          { label: 'Services', href: '/services' },
+          { label: 'Agentic SEO Site', current: true },
+        ]}
+      />
 
       {/* Hero */}
       <section className="py-24 px-4 bg-gradient-to-br from-slate-50 via-indigo-50 to-violet-50">
@@ -262,31 +267,53 @@ export default function AgenticSeoPage() {
 
       {/* Pricing */}
       <section className="py-24 px-4 bg-gradient-to-br from-indigo-50 via-violet-50 to-slate-50">
-        <div className="container mx-auto max-w-3xl">
+        <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="gradient-text">Pricing</span>
             </h2>
           </div>
 
-          <Card className="card-professional border-indigo-200">
+          <Card className="card-professional border-indigo-200 mb-12">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl">Agentic SEO Site</CardTitle>
-              <CardDescription className="text-base mt-4 space-y-2">
+              <CardTitle className="text-2xl">Site Rebuild</CardTitle>
+              <CardDescription className="text-base mt-4">
                 <p className="text-2xl font-bold text-indigo-600">{agenticOffer.setup}</p>
-                <p className="text-xl font-semibold text-foreground">+ {agenticOffer.monthly}</p>
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
-              <Button
-                size="lg"
-                onClick={() => openQuoteDialog('pricing', agenticOffer.serviceLabel)}
-              >
+              <Button size="lg" onClick={() => openQuoteDialog('setup', agenticOffer.serviceLabel)}>
                 {CTA_LABEL}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </CardContent>
           </Card>
+
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-2">Agentic Engine</h3>
+            <p className="text-muted-foreground">Monthly tiers for the self-improving engine after launch</p>
+          </div>
+
+          <div className="space-y-4 max-w-3xl mx-auto">
+            {agenticEngineTiers.map((tier) => (
+              <div
+                key={tier.name}
+                className={`p-4 border rounded-lg ${tier.highlighted ? 'border-indigo-200 bg-indigo-50' : ''}`}
+              >
+                <div className="flex justify-between items-center mb-3">
+                  <span className="font-semibold">{tier.name}</span>
+                  <span className="text-xl font-bold text-indigo-600">{tier.price}</span>
+                </div>
+                <Button
+                  size="sm"
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white"
+                  onClick={() => openQuoteDialog('engine', tier.serviceLabel)}
+                >
+                  Choose {tier.name}
+                </Button>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -338,7 +365,7 @@ export default function AgenticSeoPage() {
       <ProfessionalServiceSchema
         serviceName="Agentic SEO Site"
         serviceDescription="An AI-ready website rebuild with a self-improving engine that reads search, funnel, and AI-visibility data and gets better every cycle."
-        serviceUrl="https://aiogrowthseo.com/agentic-seo"
+        serviceUrl={`https://aiogrowthseo.com${agenticOffer.canonicalPath}`}
         price="2500-5000"
         serviceType="Agentic SEO Site"
       />

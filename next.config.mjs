@@ -49,6 +49,16 @@ const nextConfig = {
     return config;
   },
 
+  async redirects() {
+    return [
+      {
+        source: '/agentic-seo',
+        destination: '/services/agentic-seo',
+        statusCode: 301,
+      },
+    ];
+  },
+
   // Headers for security and caching
   async headers() {
     return [

@@ -3,7 +3,7 @@ export const setupTiers = [
     name: 'Single-Location',
     price: '$1,500',
     description:
-      'We make your existing site technically sound, run a full gap analysis plus market, keyword, and AI-prompt research, and build your topical map and execution roadmap — then add up to 10 new pages (5 location + 5 service). You own all of it.',
+      'We make your existing site technically sound, run a full gap analysis plus market, keyword, and AI-prompt research, and build your topical map and execution roadmap — then add up to 10 new pages (service-area pages, any mix). You own all of it.',
     serviceLabel: 'Single-Location Foundation - $1,500',
   },
   {
@@ -107,14 +107,34 @@ export const seoMonthlyTiers = [
   },
 ] as const;
 
-/** Agentic SEO Site — /agentic-seo flagship offer. */
+/** Agentic SEO Site — /services/agentic-seo flagship offer. */
 export const agenticOffer = {
   setup: 'Setup $2,500–$5,000 (scoped by site size)',
-  monthly: '$1,000–$1,500/mo for the engine',
   ownership:
     'You own the site forever. Leave anytime and we hand over everything — you keep the website; you only lose the agentic engine layer.',
   serviceLabel: 'Agentic SEO Site - Custom Quote',
+  canonicalPath: '/services/agentic-seo',
 } as const;
+
+/** Agentic engine monthly ladder — SMB tiers. */
+export const agenticEngineTiers = [
+  {
+    name: 'Lite',
+    price: '$500/mo',
+    serviceLabel: 'Agentic Engine - Lite - $500/mo',
+  },
+  {
+    name: 'Standard',
+    price: '$1,000/mo',
+    serviceLabel: 'Agentic Engine - Standard - $1,000/mo',
+    highlighted: true,
+  },
+  {
+    name: 'Full',
+    price: '$1,500/mo',
+    serviceLabel: 'Agentic Engine - Full - $1,500/mo',
+  },
+] as const;
 
 /** Funnel Sprint — /local-lead-generation offer framing. */
 export const funnelSprintOffer = {

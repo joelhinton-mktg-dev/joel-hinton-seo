@@ -48,6 +48,7 @@ const Navigation = () => {
       subItems: [
         { label: "Local SEO", href: "/local-seo", description: "Florida market domination" },
         { label: "GEO Optimization", href: "/geo-optimization", description: "AI search optimization" },
+        { label: "Agentic SEO", href: "/services/agentic-seo", description: "A website that improves itself" },
       ]
     },
     { label: "E-commerce SEO", href: "/ecommerce-seo", description: "Online store optimization" },
@@ -106,7 +107,8 @@ const Navigation = () => {
                         pathname.startsWith('/custom-tools-automation') ||
                         pathname.startsWith('/local-seo') ||
                         pathname.startsWith('/geo-optimization') ||
-                        pathname.startsWith('/ecommerce-seo')
+                        pathname.startsWith('/ecommerce-seo') ||
+                        pathname.startsWith('/services/agentic-seo')
                           ? "text-primary bg-primary/10"
                           : "text-muted-foreground hover:text-foreground"
                       }`}
