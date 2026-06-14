@@ -162,7 +162,7 @@ export const agenticEngineTiers = [
 
 /** Funnel Sprint — MintCRO / local-lead-generation offer framing. */
 export const funnelSprintOffer = {
-  name: 'MintCRO Funnel Sprint',
+  name: 'Funnel Sprint',
   sprintPrice: '$5,000',
   sprintIncludes: 'includes the build, management, and a managed testing budget',
   guarantee: 'We keep testing until we hit your target conversion rate.',
@@ -317,8 +317,8 @@ export function formatUsd(amount: number): string {
 /** Year-one ROI comparison for /pricing. Amounts in USD (integers). */
 export const roiComparison = {
   traditionalTotal: 49300,
-  ourTotal: 14000,
-  savings: 35300,
+  ourTotal: 17500,
+  savings: 31800,
   traditionalFootnote: '*And you lose it all when you leave',
   ourTagline: 'Plus: You own everything. Forever.',
   traditionalLines: [
@@ -331,6 +331,6 @@ export const roiComparison = {
     { label: 'SEO Foundation Setup:', amount: 1500 },
     { label: 'Single-Location Local Setup:', amount: 1500 },
     { label: 'Agentic SMB Site Setup:', amount: 2500 },
-    { label: 'Growth + Lite engine (12 months):', amount: 8500 },
+    { label: 'Growth + Lite engine (12 months):', amount: 12000 },
   ],
 } as const;
