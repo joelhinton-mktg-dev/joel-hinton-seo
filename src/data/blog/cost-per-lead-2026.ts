@@ -7,17 +7,11 @@ export const costPerLead2026Post: BlogPost = {
   excerpt: "2026 cost-per-lead benchmarks for HVAC, plumbing & electrical contractors: branded vs non-branded CPL, book rate, and how to lower your number.",
   content: `![HVAC and home services cost per lead benchmarks](/images/blog/placeholders/cost-per-lead-hero.svg)
 
-## Quick answer
+## What does a contractor lead actually cost in 2026?
 
-- The blended HVAC cost per lead in early 2026 is about $104 (SearchLight Digital, 816 contractors).
-- That average hides a 4x spread: branded leads run about $34, non-branded about $149.
-- Performance Max sits in the middle at roughly $72 per lead.
-- CPL alone is the wrong scoreboard. Your book rate decides profitability.
-- Across all campaign types, contractors book just 41.7% of the leads they pay for.
-- Keep blended CPL under about $100 for first-job profitability.
-- AI search is quietly the cheapest channel in 2026, and almost no local contractor is set up for it yet.
+**TL;DR:** The blended Google Ads cost per lead for HVAC in early 2026 is about $104, but that average hides a roughly 4x spread: branded leads run about $34, non-branded about $149, and Performance Max about $72 (SearchLight Digital, January 2026). CPL is the wrong scoreboard on its own. Book rate decides profitability, and across all campaign types contractors book only about 42% of the leads they pay for. The cheapest channel almost no local contractor is set up for yet is AI search, where referrals are scarce but convert at far higher rates.
 
-If you run a home-services business in Volusia County or anywhere in Florida, this breaks down what a lead really costs in 2026, why the headline number misleads, and what to fix first.
+If you run a home-services business in Volusia County or anywhere in Florida, this breaks down what a lead really costs in 2026, why the headline number misleads, and what to fix first. Every figure here is from a named, verifiable source, because in this trade a number you cannot back up is worse than no number at all.
 
 ## What "cost per lead" actually means, and why the blended number lies
 
@@ -93,28 +87,6 @@ None of this is in a national CPL report. It is local market knowledge, and it i
 3. **Segment campaigns by service.** One campaign per major service (maintenance, repair, replacement) typically trims CPL 15 to 25%.
 4. **Lean on Performance Max for efficiency.** At roughly half the non-branded CPL, PMax is a strong middle lane once your conversion tracking is clean.
 5. **Get found in AI search now.** Being the answer ChatGPT and Google's AI give for "best [service] in [your city]" is among the cheapest acquisition channels available in 2026, while it is still uncontested.
-
-## Frequently asked questions
-
-**What is a good cost per lead for HVAC contractors in 2026?**
-
-Under about $100 blended is healthy, since that is roughly the line for first-job profitability. Branded leads can run about $34 and non-branded about $149, so your blended number depends heavily on your branded-to-non-branded mix.
-
-**Why is my cost per lead so high?**
-
-Usually one of three things: you are running mostly non-branded campaigns, you have not segmented by service, or, most often, your book rate is low, which inflates your true cost per job even when CPL looks fine.
-
-**Is cost per lead the right metric to track?**
-
-Not on its own. Cost per booked job (CPL divided by book rate) reflects real profitability. Track both.
-
-**Do plumbing and electrical contractors have different CPLs than HVAC?**
-
-The dollar amounts differ by trade and market, but the pattern holds: branded is cheapest and books best, non-branded is most expensive, and Performance Max is in between.
-
-**How does AI search affect my lead costs?**
-
-AI referrals tend to convert at higher rates than standard organic, especially for research-heavy decisions, so being recommended by ChatGPT or Google's AI can lower your effective cost per customer. Few local contractors are optimized for it yet.
 
 ## Get your numbers straight
 

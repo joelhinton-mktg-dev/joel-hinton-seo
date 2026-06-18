@@ -8,12 +8,9 @@ export const localPack2026Post: BlogPost = {
     'How the Google local pack ranks businesses in 2026: relevance, distance, prominence, the Vicinity update, and the profile signals that actually move you up.',
   content: `![Google local pack ranking overview](/images/blog/placeholders/local-pack-hero.svg)
 
-## Quick answer
+## How does the Google local pack decide who ranks?
 
-- The local pack is the map plus the top three businesses Google shows for a local search, and it ranks on three things: relevance, distance, and prominence.
-- Since the 2021 Vicinity update, proximity carries more weight and keyword-stuffed business names carry less.
-- The levers you actually control are listing-data accuracy, reviews and review responses, and your primary category.
-- For Florida trades, putting your state contractor license number in your profile is a trust signal most competitors skip.
+**TL;DR:** The local pack is the map plus the top three businesses Google shows for a local search, and it ranks on three things: relevance, distance, and prominence. Since the 2021 Vicinity update, proximity carries more weight and keyword-stuffed business names carry less. The levers you actually control are listing-data accuracy, reviews and review responses, and your primary category. For Florida trades, putting your state contractor license number in your profile is a trust signal most competitors skip.
 
 If you run a service business in Volusia County, the local pack is the most valuable real estate on Google. It sits above the regular links and takes the bulk of the clicks for "near me" searches. Here is exactly how it decides who lands in the top three, and what you can change to get there.
 
@@ -72,28 +69,6 @@ This is no longer only a Google Maps story. When someone asks ChatGPT or Google'
 3. **Get reviews flowing and respond to all of them.** Speed and consistency signal active management.
 4. **Add your Florida license number** to your profile description if you are in a regulated trade.
 5. **Build a location page** for each area you serve to win on proximity across the county.
-
-## Frequently asked questions
-
-**What is the Google local pack?**
-
-It is the map and top three business listings Google shows for local searches. It ranks on relevance, distance, and prominence, and it captures most of the clicks for "near me" queries.
-
-**What was the Vicinity update?**
-
-A late-2021 Google update that increased the weight of proximity and reduced the impact of keyword-stuffed business names, rewarding genuinely close, legitimate businesses.
-
-**How do I rank higher in the local pack?**
-
-Fix your listing-data accuracy, choose a specific primary category, generate and respond to reviews, and for service-area businesses, build location-specific pages to win on proximity.
-
-**Does my business name still affect local rankings?**
-
-Far less than before Vicinity. Stuffing keywords into your name can now hurt more than it helps. Accuracy and legitimacy matter more.
-
-**Why should Florida contractors add their license number to their profile?**
-
-It is a verifiable trust signal for regulated trades, and most competitors do not bother, so it sets you apart at no cost.
 
 ## See where you stand in the pack
 

@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { blogPosts } from '@/data/blogPosts';
 import ShareButtons from './ShareButtons';
+import BlogPostFaqs from './BlogPostFaqs';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -271,6 +272,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.content}
               </ReactMarkdown>
             </div>
+
+            {post.faqs && post.faqs.length > 0 && <BlogPostFaqs faqs={post.faqs} />}
 
             {/* Share Section */}
             <ShareButtons post={post} canonicalUrl={canonicalUrl} />
