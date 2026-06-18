@@ -36,6 +36,13 @@ export const metadata: Metadata = {
     title: 'AIO Growth SEO | Central Florida Digital Marketing',
     description: 'Psychology-driven digital marketing for Volusia & Flagler County businesses.',
   },
+  alternates: {
+    types: {
+      'application/rss+xml': [
+        { url: 'https://aiogrowthseo.com/feed.xml', title: 'AIO Growth SEO Blog RSS' },
+      ],
+    },
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'AIO Growth SEO | Central Florida Digital Marketing',

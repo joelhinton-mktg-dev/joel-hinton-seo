@@ -1,10 +1,12 @@
-'use client';
-
 import LocationPage from '@/components/LocationPage';
-import { getLocationBySlug } from '@/data/locations';
+import { buildLocationMetadata, getLocationBySlug } from '@/data/locations';
 
-export default function OrmondBeachSEOPage() {
-  const location = getLocationBySlug('ormond-beach-seo');
+const SLUG = 'ormond-beach-seo';
+
+export const metadata = buildLocationMetadata(SLUG);
+
+export default function OrmondBeachSeoPage() {
+  const location = getLocationBySlug(SLUG);
 
   if (!location) {
     return <div>Location not found</div>;

@@ -118,7 +118,7 @@ const HeroSection = () => {
           </p>
 
           <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto slide-up" style={{ animationDelay: "200ms" }}>
-            <strong className="text-foreground">Volusia & Flagler Counties' trusted marketing partner.</strong> No long-term contracts.
+            <strong className="text-foreground">Your Daytona Beach SEO company</strong> for Volusia and Flagler Counties. No long-term contracts.
             Just measurable results that turn search visibility into profit.
           </p>
 

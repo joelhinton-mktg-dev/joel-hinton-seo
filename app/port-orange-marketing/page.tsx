@@ -1,10 +1,12 @@
-'use client';
-
 import LocationPage from '@/components/LocationPage';
-import { getLocationBySlug } from '@/data/locations';
+import { buildLocationMetadata, getLocationBySlug } from '@/data/locations';
+
+const SLUG = 'port-orange-marketing';
+
+export const metadata = buildLocationMetadata(SLUG);
 
 export default function PortOrangeMarketingPage() {
-  const location = getLocationBySlug('port-orange-marketing');
+  const location = getLocationBySlug(SLUG);
 
   if (!location) {
     return <div>Location not found</div>;

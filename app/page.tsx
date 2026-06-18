@@ -22,9 +22,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: 'Central Florida SEO & Digital Marketing | Volusia & Flagler Counties',
-  description: 'AIO Growth SEO delivers psychology-driven digital marketing for businesses in Volusia & Flagler Counties. Local SEO, lead generation, and custom automation tools that drive real results.',
-  keywords: ['Central Florida SEO', 'Volusia County digital marketing', 'Flagler County SEO', 'local SEO', 'Daytona Beach marketing', 'psychology-driven marketing'],
+  title: 'Daytona Beach SEO Company | Central Florida Digital Marketing',
+  description: 'Your Daytona Beach SEO company for Volusia and Flagler Counties. Psychology-driven local SEO, GEO optimization, lead generation, and automation that turns search visibility into revenue.',
+  keywords: ['Daytona Beach SEO company', 'Daytona Beach SEO', 'Central Florida SEO', 'Volusia County digital marketing', 'Flagler County SEO', 'local SEO', 'psychology-driven marketing'],
   robots: {
     index: true,
     follow: true,
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     canonical: 'https://aiogrowthseo.com/',
   },
   openGraph: {
-    title: 'Central Florida SEO & Digital Marketing | AIO Growth SEO',
-    description: 'Psychology-driven digital marketing for Volusia & Flagler County businesses. Local SEO, lead generation, and automation that delivers measurable growth.',
+    title: 'Daytona Beach SEO Company | AIO Growth SEO',
+    description: 'Your Daytona Beach SEO company for Volusia and Flagler Counties. Local SEO, GEO optimization, lead generation, and measurable growth.',
     type: 'website',
     url: 'https://aiogrowthseo.com/',
   },

@@ -1,0 +1,167 @@
+import { BlogPost } from '@/types/blog';
+
+export const ragMechanismPost: BlogPost = {
+  id: 'how-to-get-cited-by-ai-search-2026',
+  title: 'How to Get Your Business Cited by AI Search in 2026 (GEO Explained)',
+  slug: 'how-to-get-cited-by-ai-search-2026',
+  excerpt:
+    'What generative engine optimization (GEO) is, the tactics proven to lift AI citation rates, and why low-authority local businesses gain the most.',
+  content: `![How to get cited by AI search engines](/images/blog/placeholders/rag-mechanism-hero.svg)
+
+## Quick answer
+
+- Generative engine optimization (GEO) is the practice of making your content the source an AI answer cites.
+- The first large academic study of it, from Princeton and collaborators, found that citing credible sources, adding statistics, and including quotations each lifted visibility in AI answers by roughly 30 to 40%, while keyword stuffing did nothing.
+- The most important finding for a local business: lower-ranked sites gained the most, with one tactic producing a 115% visibility increase for a site sitting at position 5.
+- If you are not yet dominating Google, GEO is structurally more in your favor than traditional SEO.
+
+Search is splitting into two motions. People still type into Google, but more of them now ask ChatGPT, Perplexity, or Google's AI a full question and read the answer the engine assembles. For a local service business, the question is no longer only "do I rank?" It is also "am I the business the AI names?" This explains what decides that, with every claim tied to a verifiable source.
+
+## What GEO actually is
+
+GEO stands for generative engine optimization: shaping your content so AI engines treat it as a trustworthy source worth citing. It is the cousin of SEO, but the target is different. Traditional SEO competes for a ranked link in a list. GEO competes to be the material the model pulls from when it writes an answer, often with a citation back to you.
+
+The mechanism behind it is retrieval. When you ask an AI engine a question, it retrieves a set of candidate sources, then composes an answer from the ones it trusts most. GEO is about being in that trusted set. The term was formalized in a 2024 study presented at KDD, "GEO: Generative Engine Optimization", from researchers at Princeton, Georgia Tech, IIT Delhi, and the Allen Institute for AI.
+
+## The tactics that actually move AI citations
+
+The Princeton team tested nine tactics across 10,000 queries. The paper reports that the strongest tactics lifted source visibility by over 40% on diverse queries. Here are the standouts:
+
+![GEO tactics that lift AI citation visibility](/images/blog/placeholders/rag-citation-factors.svg)
+
+| GEO tactic | Visibility lift |
+|---|---|
+| Cite credible sources | ~+40% |
+| Add relevant statistics | ~+37% |
+| Add quotations from sources | ~+22% |
+| Keyword stuffing (control) | ~0% (slightly negative) |
+
+*Source: Aggarwal et al., "GEO: Generative Engine Optimization," KDD 2024. Lifts are relative improvements in visibility within generative-engine answers.*
+
+The headline for anyone who came up through traditional SEO: keyword stuffing produced no benefit and a slight decline. The signals that work are credibility signals, not keyword density. Cite real sources, back claims with specific numbers, and quote authorities, and the engines are measurably more likely to surface you.
+
+## Why low-authority local businesses gain the most
+
+This is the part that should change how a page-7 business thinks about its odds. The same Princeton research found that the Cite Sources tactic produced a 115% visibility increase for content ranked fifth in traditional Google results, while pages already at position 1 saw minimal change. In other words, GEO compresses the gap. The sites with the most to gain are the ones not already winning organic search.
+
+For a local agency or contractor that is not yet a household name, that is the opening. You do not have to outrank a national brand on Google to be the answer ChatGPT gives for "best [service] in [your city]." You have to be the most credible, specific, well-cited source on that narrow local question. That is a fight a focused local business can win, and it is the core of our [GEO optimization](/geo-optimization) work.
+
+## Why being cited is worth more than a click
+
+AI referrals are still a small slice of traffic, around 1% for most sites, but they behave differently from a normal click. A Seer Interactive case study found ChatGPT referrals converting at 15.9% versus 1.76% for standard Google organic, roughly 9x higher, because the visitor has already been pre-qualified by the AI before they ever land on your site.
+
+Two honest caveats, because they keep the claim defensible. That Seer figure is from a single business-services client, and the advantage is largest in research-heavy decisions. A separate large-scale ecommerce study found the opposite for simple product purchases, with organic still converting better. So the right way to say it: AI referrals are low-volume but high-intent, and the lift is real where the buying decision involves research, which describes choosing a contractor or a clinic well.
+
+## How AI search and local search reinforce each other
+
+GEO is not a separate silo from your local SEO. When an engine answers "best HVAC company in Daytona Beach," it leans on many of the same trust signals that power Google's local pack: accurate listing data, reviews, and a consistent presence across the web. Strengthening your [local search presence](/local-seo) feeds both the map pack and the AI answer. The two motions compound rather than compete.
+
+Reviews are a concrete example. Recent industry research has found that businesses with even a minimal third-party review profile are cited far more often in AI answers than businesses with none. The same groundwork that earns local trust earns AI citations.
+
+## How to start showing up in AI answers this quarter
+
+![Retrieval and citation flow in AI search](/images/blog/placeholders/rag-flow.svg)
+
+1. **Answer real questions, in question form.** Use the actual query as a heading and answer it directly underneath. That structure is what AI engines and People Also Ask pull from.
+2. **Cite credible sources inline.** Link to authoritative research, government data, and industry reports at the claim. The Princeton data shows this is the single strongest lever, and counterintuitively, citing others gets you cited.
+3. **Back claims with specific numbers.** Replace vague statements with verifiable statistics and name the source. Specificity is a credibility signal the engines reward.
+4. **Build local depth.** Dedicated pages for each service and each city you serve give the engine concrete, local material to cite.
+5. **Earn and answer reviews.** A real review profile across Google and third-party sites is both a local-pack signal and an AI-citation signal.
+
+## Frequently asked questions
+
+**What is generative engine optimization (GEO)?**
+
+GEO is the practice of optimizing content so AI search engines like ChatGPT, Perplexity, and Google's AI cite it when answering questions. It focuses on credibility signals (citations, statistics, quotations) rather than keyword density.
+
+**Does GEO replace SEO?**
+
+No. It builds on it. Authority, accurate data, reviews, and good content still matter, and they feed both Google rankings and AI citations. GEO extends that work into AI answers.
+
+**Do small or low-ranked businesses have a real shot at AI citations?**
+
+Yes, and arguably a better one than in traditional search. Princeton's research found lower-ranked pages saw the largest visibility gains from GEO tactics, with one tactic producing a 115% lift for a position-5 page.
+
+**Is AI traffic worth chasing if it is only 1% of visits?**
+
+For research-heavy decisions like choosing a contractor or clinic, yes, because those visitors arrive pre-qualified and convert at higher rates. It is low-volume, high-intent traffic that few local competitors are positioned for yet.
+
+## See if AI search recommends you
+
+We will check whether your business shows up when someone asks AI for the best provider in your area, and map the fastest path to being the answer. See our [pricing](/pricing) or [book a free audit](/contact).`,
+  author: 'Joel Hinton',
+  publishDate: '2026-06-16T10:00:00Z',
+  lastModified: '2026-06-16T10:00:00Z',
+  category: 'AI Marketing',
+  tags: [
+    'how to get cited by AI search',
+    'generative engine optimization',
+    'GEO',
+    'AI search citations',
+    'ChatGPT SEO',
+    'local business AI visibility',
+  ],
+  featuredImage: '/images/blog/placeholders/rag-mechanism-hero.svg',
+  imagePlaceholders: [
+    {
+      id: 'hero',
+      alt: 'How to get cited by AI search engines',
+      width: 1200,
+      height: 630,
+      src: '/images/blog/placeholders/rag-mechanism-hero.svg',
+    },
+    {
+      id: 'citation-factors',
+      alt: 'GEO tactics that lift AI citation visibility',
+      width: 1200,
+      height: 675,
+      src: '/images/blog/placeholders/rag-citation-factors.svg',
+    },
+    {
+      id: 'rag-flow',
+      alt: 'Retrieval and citation flow in AI search',
+      width: 1200,
+      height: 675,
+      src: '/images/blog/placeholders/rag-flow.svg',
+    },
+  ],
+  faqs: [
+    {
+      question: 'What is generative engine optimization (GEO)?',
+      answer:
+        "GEO is the practice of optimizing content so AI search engines like ChatGPT, Perplexity, and Google's AI cite it when answering questions. It focuses on credibility signals (citations, statistics, quotations) rather than keyword density.",
+    },
+    {
+      question: 'Does GEO replace SEO?',
+      answer:
+        'No. It builds on it. Authority, accurate data, reviews, and good content still matter, and they feed both Google rankings and AI citations. GEO extends that work into AI answers.',
+    },
+    {
+      question: 'Do small or low-ranked businesses have a real shot at AI citations?',
+      answer:
+        "Yes, and arguably a better one than in traditional search. Princeton's research found lower-ranked pages saw the largest visibility gains from GEO tactics, with one tactic producing a 115% lift for a position-5 page.",
+    },
+    {
+      question: 'Is AI traffic worth chasing if it is only 1% of visits?',
+      answer:
+        'For research-heavy decisions like choosing a contractor or clinic, yes, because those visitors arrive pre-qualified and convert at higher rates. It is low-volume, high-intent traffic that few local competitors are positioned for yet.',
+    },
+  ],
+  readingTime: 8,
+  seo: {
+    metaTitle: 'How to Get Your Business Cited by AI Search (2026 GEO Guide)',
+    metaDescription:
+      'What generative engine optimization (GEO) is, the tactics proven to lift AI citation rates, and why low-authority local businesses gain the most.',
+    keywords: [
+      'how to get cited by AI search',
+      'generative engine optimization',
+      'GEO 2026',
+      'AI search citations',
+      'ChatGPT local business',
+      'get cited by Perplexity',
+      'AI visibility for small business',
+    ],
+    ogImage: '/images/blog/placeholders/rag-mechanism-hero.svg',
+  },
+  published: true,
+};

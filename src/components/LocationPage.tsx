@@ -50,12 +50,39 @@ export default function LocationPage({ location }: LocationPageProps) {
             )}
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              {location.city} <span className="gradient-text">{location.tagline}</span>
+              {location.heroHeadline ? (
+                <>
+                  {location.heroHeadline}{' '}
+                  {location.heroTagline && (
+                    <span className="gradient-text">{location.heroTagline}</span>
+                  )}
+                </>
+              ) : (
+                <>
+                  {location.city} <span className="gradient-text">{location.tagline}</span>
+                </>
+              )}
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto">
               {location.description}
             </p>
+
+            {location.supplementalCopy && (
+              <p className="text-lg text-muted-foreground mb-8 max-w-4xl mx-auto">
+                {location.slug === 'holly-hill-digital-marketing' ? (
+                  <>
+                    Holly Hill digital marketing should speak to families and retirees in a close-knit community, not copy a metro-wide Daytona playbook. When you need broader search coverage across the beach market, work with our{' '}
+                    <Link href="/" className="text-primary underline hover:text-primary/80">
+                      Daytona Beach SEO company
+                    </Link>{' '}
+                    on the homepage for Volusia-wide visibility.
+                  </>
+                ) : (
+                  location.supplementalCopy
+                )}
+              </p>
+            )}
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button

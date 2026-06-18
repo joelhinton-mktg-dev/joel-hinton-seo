@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -46,6 +47,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     description: post.seo.metaDescription,
     keywords: post.seo.keywords,
     authors: [{ name: post.author }],
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: canonicalUrl,
     },
@@ -86,7 +91,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     "headline": post.title,
     "description": post.excerpt,
     "author": {
@@ -101,12 +106,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "AIO Growth SEO"
+      "name": "AIO Growth SEO",
+      "url": "https://aiogrowthseo.com"
     },
     "articleSection": post.category,
     "keywords": post.tags.join(", "),
     ...(ogImageUrl && { "image": ogImageUrl })
   };
+
+  const faqJsonLd = post.faqs && post.faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": post.faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  } : null;
 
   return (
     <>
@@ -114,6 +133,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
         {/* Breadcrumb */}
@@ -182,11 +207,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Featured Image */}
             {post.featuredImage && (
-              <div className="mb-12">
-                <img
+              <div className="mb-12 relative w-full h-64 md:h-96">
+                <Image
                   src={post.featuredImage}
                   alt={post.title}
-                  className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+                  fill
+                  className="object-cover rounded-lg shadow-lg"
+                  sizes="(max-width: 768px) 100vw, 896px"
+                  priority
                 />
               </div>
             )}
@@ -224,6 +252,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       {children}
                     </Link>
                   ),
+                  img: ({src, alt}) => {
+                    if (!src || typeof src !== 'string') return null;
+                    return (
+                      <span className="block my-8 relative w-full aspect-[16/9]">
+                        <Image
+                          src={src}
+                          alt={alt || ''}
+                          fill
+                          className="object-contain rounded-lg"
+                          sizes="(max-width: 768px) 100vw, 896px"
+                        />
+                      </span>
+                    );
+                  },
                 }}
               >
                 {post.content}

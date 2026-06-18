@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 export interface Location {
   id: string;
   slug: string;
@@ -23,6 +25,9 @@ export interface Location {
     title: string;
     description: string;
   }[];
+  heroHeadline?: string;
+  heroTagline?: string;
+  supplementalCopy?: string;
 }
 
 export const locations: Location[] = [
@@ -102,17 +107,20 @@ export const locations: Location[] = [
     city: 'Palm Coast',
     region: 'Flagler County',
     tagline: 'Flagler County Growth Leader',
-    description: 'Palm Coast is one of Florida fastest-growing cities with a unique mix of retirees and young families. Our marketing captures both demographics effectively.',
+    description: 'Palm Coast SEO and marketing for Flagler County businesses in Florida fastest-growing family market. We help you rank in the local pack, earn AI recommendations, and convert searches from new residents, retirees, and healthcare and real estate brands.',
     features: ['Rapid Growth', 'Retirement Community', 'New Construction', 'Coastal Living'],
     services: ['Local SEO', 'Real Estate Marketing', 'Healthcare Marketing', 'Lead Generation'],
     neighborhoods: ['Palm Harbor', 'Grand Haven', 'European Village', 'Hammock Beach'],
     nearbyAreas: ['Flagler Beach', 'Bunnell', 'Ormond Beach'],
     coordinates: { latitude: '29.5844', longitude: '-81.2078' },
     seo: {
-      metaTitle: 'Palm Coast Marketing | Flagler County Digital Marketing | AIO Growth SEO',
-      metaDescription: 'Palm Coast marketing services for Flagler County businesses. Rapid growth market with retirees and families. Real estate and healthcare expertise.',
-      keywords: ['Palm Coast marketing', 'Palm Coast SEO', 'Flagler County marketing', 'Palm Coast digital marketing']
+      metaTitle: 'Palm Coast SEO | Local Search & Digital Marketing | AIO Growth SEO',
+      metaDescription: 'Palm Coast SEO and digital marketing for Flagler County businesses. Google Business Profile, local pack rankings, content, and lead generation in Florida fastest-growing family market.',
+      keywords: ['Palm Coast SEO', 'Palm Coast SEO company', 'Palm Coast marketing', 'Palm Coast digital marketing', 'Flagler County SEO', 'local SEO Palm Coast']
     },
+    heroHeadline: 'Palm Coast SEO',
+    heroTagline: '& Flagler County Marketing',
+    supplementalCopy: 'Palm Coast SEO is a distinct local-search game from Daytona or Orlando: dual demographics (retirees and young families), rapid new construction, and neighborhood-by-neighborhood proximity in the map pack. We build Palm Coast-specific GBP optimization, citation accuracy, review velocity, and location pages so you rank for Palm Coast SEO queries, not just generic statewide terms.',
     uniqueSellingPoints: [
       { title: 'Growth Market Positioning', description: 'Capturing market share in one of Florida fastest-growing regions.' },
       { title: 'Dual Demographic Expertise', description: 'Marketing to both retirees and young families effectively.' },
@@ -193,18 +201,21 @@ export const locations: Location[] = [
     slug: 'holly-hill-digital-marketing',
     city: 'Holly Hill',
     region: 'Volusia County',
-    tagline: 'Affordable Daytona Alternative',
-    description: 'Holly Hill offers businesses an affordable alternative to Daytona Beach while maintaining proximity to the action. Our marketing reaches value-conscious consumers.',
+    tagline: 'Small-Town Local Marketing',
+    description: 'Holly Hill digital marketing for neighborhood businesses serving families and retirees in Volusia County. We help restaurants, medical practices, home services, and small retail connect with the community that already trusts local operators.',
     features: ['Affordable Market', 'Daytona Adjacent', 'Small Business Focus', 'Working Class'],
     services: ['Local SEO', 'Budget Marketing', 'Small Business Services', 'Lead Generation'],
     neighborhoods: ['Riverside', 'Nova Road Corridor', 'Downtown Holly Hill'],
     nearbyAreas: ['Daytona Beach', 'Ormond Beach', 'South Daytona'],
     coordinates: { latitude: '29.2438', longitude: '-81.0406' },
     seo: {
-      metaTitle: 'Holly Hill Digital Marketing | Affordable Daytona Alternative | AIO Growth SEO',
-      metaDescription: 'Holly Hill digital marketing for budget-conscious businesses. Proximity to Daytona Beach with affordable advertising and local SEO services.',
-      keywords: ['Holly Hill digital marketing', 'Holly Hill SEO', 'Holly Hill marketing', 'affordable Daytona marketing']
+      metaTitle: 'Holly Hill Digital Marketing | Local SEO & Ads | AIO Growth SEO',
+      metaDescription: 'Holly Hill digital marketing for restaurants, medical practices, home services, and small retail in Volusia County. Local SEO, Google Ads, and lead generation.',
+      keywords: ['holly hill digital marketing', 'Holly Hill digital marketing', 'Holly Hill SEO', 'Holly Hill marketing', 'Volusia County small business marketing']
     },
+    heroHeadline: 'Holly Hill Digital Marketing',
+    heroTagline: 'for Local Volusia Businesses',
+    supplementalCopy: 'Holly Hill digital marketing should speak to families and retirees in a close-knit community, not copy a metro-wide Daytona playbook. When you need broader search coverage across the beach market, work with our Daytona Beach SEO company on the homepage for Volusia-wide visibility.',
     uniqueSellingPoints: [
       { title: 'Value-Focused Marketing', description: 'Reaching budget-conscious consumers effectively.' },
       { title: 'Small Business Expertise', description: 'Affordable marketing solutions for local businesses.' },
@@ -239,3 +250,31 @@ export const locations: Location[] = [
 export const getLocationBySlug = (slug: string): Location | undefined => {
   return locations.find((location) => location.slug === slug);
 };
+
+
+export function buildLocationMetadata(slug: string): Metadata {
+  const location = getLocationBySlug(slug);
+  if (!location) {
+    return { title: 'Location Not Found | AIO Growth SEO' };
+  }
+  const url = `https://aiogrowthseo.com/${slug}`;
+  return {
+    title: location.seo.metaTitle,
+    description: location.seo.metaDescription,
+    keywords: location.seo.keywords,
+    robots: { index: true, follow: true },
+    alternates: { canonical: url },
+    openGraph: {
+      title: location.seo.metaTitle,
+      description: location.seo.metaDescription,
+      url,
+      type: 'website',
+      siteName: 'AIO Growth SEO',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: location.seo.metaTitle,
+      description: location.seo.metaDescription,
+    },
+  };
+}

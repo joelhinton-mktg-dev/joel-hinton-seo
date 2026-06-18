@@ -1,10 +1,12 @@
-'use client';
-
 import LocationPage from '@/components/LocationPage';
-import { getLocationBySlug } from '@/data/locations';
+import { buildLocationMetadata, getLocationBySlug } from '@/data/locations';
+
+const SLUG = 'new-smyrna-beach-marketing';
+
+export const metadata = buildLocationMetadata(SLUG);
 
 export default function NewSmyrnaBeachMarketingPage() {
-  const location = getLocationBySlug('new-smyrna-beach-marketing');
+  const location = getLocationBySlug(SLUG);
 
   if (!location) {
     return <div>Location not found</div>;
