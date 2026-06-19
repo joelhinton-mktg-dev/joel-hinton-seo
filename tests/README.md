@@ -51,7 +51,7 @@ npm install
 npx playwright install
 ```
 
-**Note**: Tests run against the live Netlify deployment at https://admirable-blini-e3d47a.netlify.app - no local development server required.
+**Note**: Tests run against production at https://aiogrowthseo.com (Next.js on Vercel) — no local development server required.
 
 ### Test Commands:
 
@@ -90,7 +90,7 @@ npm run test:business-types:old
 
 ### Test Configuration:
 
-- **Base URL**: https://admirable-blini-e3d47a.netlify.app (Live Netlify deployment)
+- **Base URL**: https://aiogrowthseo.com (production Next.js site on Vercel)
 - **Browsers**: Chrome, Firefox, Safari, Mobile Chrome, Mobile Safari
 - **Timeouts**: 60s global, 15s actions, 30s navigation
 - **Retries**: 2 on CI, 1 locally
@@ -182,7 +182,7 @@ Tests are configured to run in CI with:
 - Parallel execution disabled for CI stability
 - 2 retries on failure
 - Screenshot and video capture on failure
-- Tests run against live Netlify deployment (no server startup required)
+- Tests run against live production (no server startup required)
 
 ## Mock Endpoints
 

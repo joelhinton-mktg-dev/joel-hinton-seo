@@ -3,7 +3,8 @@
 **Project**: Joel Hinton Digital Marketing Website  
 **Timeline**: September 2024 - January 2025  
 **Repository**: https://github.com/tippin-goober/joel-hinton-seo  
-**Live Site**: https://admirable-blini-e3d47a.netlify.app  
+**Live Site**: https://aiogrowthseo.com (Next.js on Vercel)
+**Legacy note**: Early development used Vite + Netlify; that stack was retired in 2026.  
 
 ## Chronological Development Record
 
@@ -130,6 +131,13 @@
   - DEPLOYMENT_CHECKLIST.md
   - LESSONS_LEARNED.md
 
+
+### Phase 7: Next.js Migration (2025–2026)
+- Migrated all public routes from Vite SPA (`src/views/`) to Next.js App Router (`app/`)
+- Production deployment moved from Netlify (Vite `dist/`) to Vercel (`next build`)
+- Shared content layer retained under `src/data/` and `src/types/`
+- Removed orphaned Vite shell and Netlify config (2026 cleanup PR)
+
 ## Current Status
 
 ### Production Ready ✅
@@ -149,12 +157,12 @@
 - **Bundle Size**: Optimized to 1.9MB with code splitting
 
 ### Infrastructure
-- **Frontend**: React 18 + TypeScript + Vite
+- **Frontend**: Next.js 14 App Router + TypeScript (SSG)
 - **Styling**: Tailwind CSS + Shadcn/ui
 - **Forms**: Formspree integration with validation
-- **SEO**: React Helmet for meta tags + Schema markup
-- **Testing**: Playwright for E2E testing
-- **Deployment**: Netlify with automatic builds
+- **SEO**: Next.js metadata API + JSON-LD schema
+- **Testing**: Playwright against https://aiogrowthseo.com
+- **Deployment**: Vercel (production branch: `main`)
 - **Analytics**: Ready for Google Analytics integration
 
 ## Next Steps

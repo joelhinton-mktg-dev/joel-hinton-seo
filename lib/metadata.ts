@@ -68,12 +68,15 @@ export function createMetadata({
 
   // Add article-specific metadata for blog posts and guides
   if (ogType === 'article' && metadata.openGraph) {
-    const ogArticle = metadata.openGraph as any;
-    if (publishedTime) ogArticle.publishedTime = publishedTime;
-    if (modifiedTime) ogArticle.modifiedTime = modifiedTime;
-    if (authors) ogArticle.authors = authors;
-    if (section) ogArticle.section = section;
-    if (tags) ogArticle.tags = tags;
+    metadata.openGraph = {
+      ...metadata.openGraph,
+      type: 'article',
+      ...(publishedTime ? { publishedTime } : {}),
+      ...(modifiedTime ? { modifiedTime } : {}),
+      ...(authors ? { authors } : {}),
+      ...(section ? { section } : {}),
+      ...(tags ? { tags } : {}),
+    };
   }
 
   return metadata;

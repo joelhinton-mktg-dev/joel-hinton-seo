@@ -1,18 +1,14 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "aio-growth-seo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "dev:next": "next dev",
-    "build": "vite build",
-    "build:next": "next build",
-    "build:dev": "vite build --mode development",
-    "start:next": "next start",
-    "postbuild:next": "next-sitemap --config next-sitemap.config.cjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "lint": "eslint .",
-    "preview": "vite preview",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
@@ -23,7 +19,8 @@
     "test:business-types": "playwright test tests/business-types-fixed.spec.ts",
     "test:business-types:old": "playwright test tests/business-types.spec.ts",
     "test:debug": "playwright test tests/debug-forms.spec.ts --headed",
-    "test:debug:forms": "playwright test tests/debug-forms.spec.ts"
+    "test:debug:forms": "playwright test tests/debug-forms.spec.ts",
+    "build:next": "next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -70,11 +67,9 @@
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
-    "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.61.1",
     "react-markdown": "^10.1.0",
     "react-resizable-panels": "^2.1.9",
-    "react-router-dom": "^6.30.1",
     "recharts": "^2.15.4",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
@@ -93,19 +88,13 @@
     "@types/node": "^22.16.5",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
-    "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
-    "lovable-tagger": "^1.1.9",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
-    "terser": "^5.43.1",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.38.0",
-    "vite": "^5.4.19",
-    "vite-bundle-analyzer": "^1.2.3"
+    "typescript-eslint": "^8.38.0"
   }
 }

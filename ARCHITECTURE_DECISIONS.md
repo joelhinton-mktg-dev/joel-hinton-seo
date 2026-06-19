@@ -4,8 +4,8 @@
 
 ### ADR-001: Frontend Framework Selection
 **Date**: September 2024  
-**Status**: Accepted  
-**Decision**: React 18 + TypeScript + Vite
+**Status**: Superseded (June 2026) — see ADR-011  
+**Decision**: React 18 + TypeScript + Vite *(original SPA stack)*
 
 #### Context
 Need to build a high-performance marketing website with 37+ pages, complex forms, and SEO optimization.
@@ -383,8 +383,8 @@ Marketing website requiring excellent SEO for organic traffic generation.
 
 ### ADR-009: Deployment Strategy
 **Date**: September 2024  
-**Status**: Accepted  
-**Decision**: Netlify with automatic deployments
+**Status**: Superseded (June 2026) — see ADR-011  
+**Decision**: Netlify with automatic deployments *(original SPA hosting)*
 
 #### Context
 Need reliable, fast deployment with CDN and form processing support.
@@ -469,6 +469,46 @@ export const useCookieConsent = (): CookieConsentHook => {
 ✅ Full GDPR/CCPA compliance  
 ✅ Professional user experience  
 ✅ No ongoing subscription costs
+
+
+---
+
+### ADR-011: Next.js Production Stack
+**Date**: June 2026  
+**Status**: Accepted  
+**Decision**: Next.js 14 App Router (SSG) on Vercel
+
+#### Context
+The original Vite SPA achieved poor crawlability (client-rendered HTML shell). A full route migration to Next.js was completed; production runs on Vercel. Orphaned Vite entry files and Netlify config were removed to prevent duplicate deploy targets.
+
+#### Decision Rationale
+**Chose: Next.js 14 + Vercel**
+
+- Pre-rendered HTML for every public route (SEO + AEO)
+- App Router metadata API replaces react-helmet-async
+- Vercel-native Next.js builds and preview deployments
+- Shared `@/` imports from `src/data`, `src/types`, and selected `src/components`
+
+#### Build & Deploy
+```json
+// package.json (production)
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs"
+  }
+}
+```
+
+**Production URL:** https://aiogrowthseo.com  
+**Build command (Vercel):** `npm run build` → `next build`
+
+#### Outcome
+✅ 10/10 crawlability on static routes  
+✅ Single deploy target (no ghost Netlify Vite preview)  
+✅ Blog, guides, locations, and service pages served from `app/`
+
 
 ---
 
