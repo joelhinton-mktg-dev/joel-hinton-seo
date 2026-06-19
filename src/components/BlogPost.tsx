@@ -32,6 +32,16 @@ const generateShareLinks = (post: BlogPostType, currentUrl: string): ShareLinks 
   };
 };
 
+/** Drop a leading markdown hero image when it duplicates post.featuredImage. */
+function stripDuplicateFeaturedImage(content: string, featuredImage?: string): string {
+  if (!featuredImage) return content;
+  const match = content.match(/^!\[[^\]]*\]\(([^)]+)\)\s*\n\n/);
+  if (match && match[1] === featuredImage) {
+    return content.slice(match[0].length);
+  }
+  return content;
+}
+
 const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   const canonicalUrl = `https://aiogrowthseo.com/blog/${post.slug}`;
   const currentUrl = typeof window !== 'undefined' ? window.location.href : canonicalUrl;
@@ -192,9 +202,37 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
                   ul: ({children}) => <ul className="list-disc list-inside mb-6 space-y-2">{children}</ul>,
                   ol: ({children}) => <ol className="list-decimal list-inside mb-6 space-y-2">{children}</ol>,
                   li: ({children}) => <li className="text-slate-700">{children}</li>,
+                  table: ({children}) => (
+                    <div className="overflow-x-auto my-8">
+                      <table className="min-w-full border-collapse border border-slate-200">
+                        {children}
+                      </table>
+                    </div>
+                  ),
+                  thead: ({children}) => <thead>{children}</thead>,
+                  tbody: ({children}) => <tbody>{children}</tbody>,
+                  tr: ({children}) => <tr>{children}</tr>,
+                  th: ({children}) => (
+                    <th className="border border-slate-200 bg-slate-100 px-4 py-2 text-left font-semibold align-top">
+                      {children}
+                    </th>
+                  ),
+                  td: ({children}) => (
+                    <td className="border border-slate-200 px-4 py-2 text-left align-top">
+                      {children}
+                    </td>
+                  ),
+                  img: ({src, alt}) => (
+                    <img
+                      src={src}
+                      alt={alt || ''}
+                      className="w-full my-8 rounded-lg object-contain"
+                      loading="lazy"
+                    />
+                  ),
                 }}
               >
-                {post.content}
+                {stripDuplicateFeaturedImage(post.content, post.featuredImage)}
               </ReactMarkdown>
             </div>
 
