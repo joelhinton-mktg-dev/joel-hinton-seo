@@ -18,6 +18,17 @@ const POSTS_PER_PAGE = 6;
 
 const categories: BlogCategory[] = ['SEO Psychology', 'Growth Marketing', 'Case Studies', 'AI Marketing', 'Local SEO'];
 
+function sortPostsByPublishDate(posts: typeof blogPosts) {
+  return [...posts].sort((a, b) => {
+    const dateDiff = new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
+    if (dateDiff !== 0) return dateDiff;
+    const modA = new Date(a.lastModified ?? a.publishDate).getTime();
+    const modB = new Date(b.lastModified ?? b.publishDate).getTime();
+    if (modB !== modA) return modB - modA;
+    return blogPosts.findIndex(p => p.id === b.id) - blogPosts.findIndex(p => p.id === a.id);
+  });
+}
+
 export default function BlogPage() {
   const [filters, setFilters] = useState<BlogFilters>({});
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,8 +41,10 @@ export default function BlogPage() {
     return Array.from(tags).sort();
   }, []);
 
-  const filteredPosts = useMemo(() => {
-    return blogPosts.filter(post => {
+  const hasActiveFilters = Boolean(filters.category || filters.tag || filters.search);
+
+  const sortedFilteredPosts = useMemo(() => {
+    const filtered = blogPosts.filter(post => {
       if (!post.published) return false;
 
       if (filters.category && post.category !== filters.category) return false;
@@ -49,14 +62,26 @@ export default function BlogPage() {
 
       return true;
     });
+
+    return sortPostsByPublishDate(filtered);
   }, [filters]);
 
+  const featuredPost = useMemo(() => {
+    if (hasActiveFilters) return undefined;
+    return sortedFilteredPosts[0];
+  }, [sortedFilteredPosts, hasActiveFilters]);
+
+  const gridPosts = useMemo(() => {
+    if (!featuredPost) return sortedFilteredPosts;
+    return sortedFilteredPosts.filter(post => post.id !== featuredPost.id);
+  }, [sortedFilteredPosts, featuredPost]);
+
   const paginatedPosts = useMemo((): PaginatedBlogPosts => {
-    const totalPosts = filteredPosts.length;
+    const totalPosts = gridPosts.length;
     const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
     const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
     const endIndex = startIndex + POSTS_PER_PAGE;
-    const posts = filteredPosts.slice(startIndex, endIndex);
+    const posts = gridPosts.slice(startIndex, endIndex);
 
     return {
       posts,
@@ -66,7 +91,7 @@ export default function BlogPage() {
       hasNextPage: currentPage < totalPages,
       hasPreviousPage: currentPage > 1,
     };
-  }, [filteredPosts, currentPage]);
+  }, [gridPosts, currentPage]);
 
   const handleFilterChange = (key: keyof BlogFilters, value: string) => {
     setFilters(prev => ({
@@ -85,8 +110,6 @@ export default function BlogPage() {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const featuredPost = blogPosts.find(post => post.published && post.id === 'psychology-driven-cro');
 
   return (
     <>
