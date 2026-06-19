@@ -16,7 +16,7 @@
 - [ ] **Lint and Type Check**
   ```bash
   npm run lint               # ESLint check
-  npm run build              # TypeScript compilation
+  npm run build:next         # Next.js production build
   ```
   ✅ Expected: 0 errors (warnings acceptable)
 
@@ -30,8 +30,8 @@
 #### 📊 **Performance Optimization**
 - [ ] **Build Analysis**
   ```bash
-  npm run build              # Generate production build
-  ls -la dist/               # Check total size
+  npm run build:next         # Generate production build
+  ls -la .next/              # Verify Next output
   ```
   ✅ Target: <2MB total build size
 
@@ -74,7 +74,7 @@
 
 ### Production Deployment
 
-#### 🚀 **Netlify Deployment Process**
+#### 🚀 **Vercel Deployment Process**
 
 1. **Pre-Deploy Setup**
    ```bash
@@ -85,13 +85,13 @@
    npm run build              # Test production build
    ```
 
-2. **Deploy to Netlify**
+2. **Deploy to Vercel**
    ```bash
-   # Push to main branch (triggers auto-deploy)
+   # Push to main branch (triggers auto-deploy on Vercel)
    git push origin main
    
-   # Or manual deploy via CLI
-   netlify deploy --prod --dir=dist
+   # Vercel runs: npm run build (next build) + postbuild sitemap
+   # Preview deployments: automatic on every PR branch
    ```
 
 3. **Domain Configuration**
@@ -262,20 +262,20 @@
 #### 🔄 **Emergency Rollback Process**
 
 **Immediate Issues (Site Down)**
-1. **Netlify Rollback**
+1. **Vercel Rollback**
    ```bash
-   # Via Netlify dashboard
+   # Via Vercel dashboard → Deployments → Promote previous deployment
    1. Go to Deploys section
    2. Find last working deployment
    3. Click "Publish deploy"
    
    # Via CLI
-   netlify rollback
+   vercel rollback  # or promote prior deployment in dashboard
    ```
 
 2. **DNS Issues**
    - [ ] Check DNS propagation
-   - [ ] Verify Netlify DNS settings
+   - [ ] Verify Vercel DNS settings
    - [ ] Contact domain registrar if needed
 
 **Form Issues**
