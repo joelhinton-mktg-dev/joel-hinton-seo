@@ -202,7 +202,7 @@ We will calculate your true cost per booked job and show you where the book-rate
     featuredImage: '/images/blog/book-rate-vs-cost-per-lead.jpg',
     readingTime: 7,
     seo: {
-      metaTitle: "Book Rate vs Cost Per Lead: Why Cheap Leads Cost the Most.",
+      metaTitle: "Book Rate vs Cost Per Lead: Why Cheap Leads Cost Most (2026)",
       metaDescription: "Why cost per lead is the wrong number to chase. The book-rate math that shows a $34 branded lead can cost $62 per booked job while a $149 lead costs $396, and.",
       keywords: ["book rate vs cost per lead", "cost per booked job", "HVAC lead generation", "Google Ads contractors"],
       ogImage: '/images/blog/book-rate-vs-cost-per-lead.jpg'
@@ -316,7 +316,7 @@ We will audit your campaigns, your book rate, and whether you show up in AI sear
     featuredImage: '/images/blog/daytona-google-ads-wasted-budget.jpg',
     readingTime: 6,
     seo: {
-      metaTitle: "Why Daytona Service Businesses Waste Google Ads Budget.",
+      metaTitle: "Why Daytona Businesses Waste Google Ads Budget (2026)",
       metaDescription: "The real ways Daytona contractors burn Google Ads budget: broad match without negatives, homepage landing pages, weak book rate, no tracking, and Florida's.",
       keywords: ["google ads for contractors", "Google Ads waste", "Daytona Beach marketing", "HVAC advertising"],
       ogImage: '/images/blog/daytona-google-ads-wasted-budget.jpg'
