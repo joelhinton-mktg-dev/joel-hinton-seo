@@ -1,6 +1,7 @@
 import { BlogPost } from '@/types/blog';
+import { localClusterPosts } from '@/data/localClusterPosts';
 
-export const blogPosts: BlogPost[] = [
+const legacyBlogPosts: BlogPost[] = [
   {
     id: 'psychology-driven-cro',
     title: 'The Psychology Behind High-Converting Landing Pages: 7 Cognitive Biases That Drive Action',
@@ -1127,3 +1128,5 @@ Remember: The best color isn't the one that looks prettiest in isolation—it's 
     published: true
   }
 ];
+
+export const blogPosts: BlogPost[] = [...legacyBlogPosts, ...localClusterPosts];

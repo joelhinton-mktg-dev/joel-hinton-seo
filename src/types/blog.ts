@@ -20,7 +20,7 @@ export interface BlogPost {
   published: boolean;
 }
 
-export type BlogCategory = 'SEO Psychology' | 'Growth Marketing' | 'Case Studies' | 'AI Marketing';
+export type BlogCategory = 'SEO Psychology' | 'Growth Marketing' | 'Case Studies' | 'AI Marketing' | 'Local SEO';
 
 export interface BlogFilters {
   category?: BlogCategory;

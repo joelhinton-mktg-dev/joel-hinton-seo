@@ -17,7 +17,7 @@ import { blogPosts } from '@/data/blogPosts';
 
 const POSTS_PER_PAGE = 6;
 
-const categories: BlogCategory[] = ['SEO Psychology', 'Growth Marketing', 'Case Studies', 'AI Marketing'];
+const categories: BlogCategory[] = ['SEO Psychology', 'Growth Marketing', 'Case Studies', 'AI Marketing', 'Local SEO'];
 
 const Blog: React.FC = () => {
   const [filters, setFilters] = useState<BlogFilters>({});

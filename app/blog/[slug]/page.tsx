@@ -12,6 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { blogPosts } from '@/data/blogPosts';
+import { buildBlogPostSchemas } from '@/lib/blogSchema';
 import ShareButtons from './ShareButtons';
 
 interface BlogPostPageProps {
@@ -84,36 +85,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         : `https://aiogrowthseo.com${post.seo.ogImage.startsWith('/') ? '' : '/'}${post.seo.ogImage}`)
     : undefined;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.excerpt,
-    "author": {
-      "@type": "Person",
-      "name": post.author
-    },
-    "datePublished": post.publishDate,
-    "dateModified": post.lastModified || post.publishDate,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": canonicalUrl
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "AIO Growth SEO"
-    },
-    "articleSection": post.category,
-    "keywords": post.tags.join(", "),
-    ...(ogImageUrl && { "image": ogImageUrl })
-  };
+  const { articleSchema, breadcrumbSchema, faqSchema } = buildBlogPostSchemas(post, canonicalUrl, ogImageUrl);
+  const structuredData = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {structuredData.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
         {/* Breadcrumb */}
@@ -164,7 +147,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <span>{post.readingTime} min read</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span>By {post.author}</span>
+                  <span>By {post.author} · AIO Growth SEO, Daytona Beach, FL</span>
                 </div>
               </div>
 
