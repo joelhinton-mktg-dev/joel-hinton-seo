@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Live Site Health Check', () => {
   
-  test('Netlify deployment is accessible and loads correctly', async ({ page }) => {
+  test('Production site is accessible and loads correctly', async ({ page }) => {
     // Navigate to the live site
     await page.goto('/');
     
@@ -16,7 +16,7 @@ test.describe('Live Site Health Check', () => {
     // Check for key page elements
     await expect(page.locator('h1')).toBeVisible();
     
-    // Verify that JavaScript is working (React app loaded)
+    // Verify that JavaScript is working (Next.js app loaded)
     await expect(page.locator('[data-testid], button, [role="button"]')).toHaveCount({ min: 1 });
   });
 

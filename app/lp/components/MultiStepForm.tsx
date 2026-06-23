@@ -25,6 +25,10 @@ import {
   Shield,
   Loader2,
 } from 'lucide-react';
+import {
+  FORMSPREE_LP_ENDPOINT,
+  FORMSPREE_NOTIFICATION_EMAIL,
+} from '@/data/site';
 
 const formSchema = z.object({
   businessType: z.string().min(1, 'Please select a business type'),
@@ -66,7 +70,7 @@ const challenges = [
 ];
 
 export function MultiStepForm({
-  formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID',
+  formspreeEndpoint = FORMSPREE_LP_ENDPOINT,
   source = 'landing-page',
   page,
   city,
@@ -130,6 +134,8 @@ export function MultiStepForm({
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
+      // Formspree recipient (sales@aiogrowthseo.com) is set per form ID in the Formspree dashboard.
+      // Multi-recipient notification (also joel@aiogrowthseo.com + Samantha) must be configured there too.
       const response = await fetch(formspreeEndpoint, {
         method: 'POST',
         headers: {
@@ -141,6 +147,7 @@ export function MultiStepForm({
           page,
           city: city || 'not-specified',
           timestamp: new Date().toISOString(),
+          _notification_email: FORMSPREE_NOTIFICATION_EMAIL,
         }),
       });
 

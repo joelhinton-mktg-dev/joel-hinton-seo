@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { COPYRIGHT_YEAR } from '@/data/site';
 
 export default function LandingPageLayout({
   children,
@@ -7,7 +8,7 @@ export default function LandingPageLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col lp-layout">
       {/* Minimal Header - Logo only */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -41,7 +42,7 @@ export default function LandingPageLayout({
                 <span className="text-white font-bold text-xs">AIO</span>
               </div>
               <span className="text-sm text-slate-400">
-                &copy; 2025 AIO Growth SEO
+                &copy; {COPYRIGHT_YEAR} AIO Growth SEO
               </span>
             </div>
             <div className="flex items-center gap-6 text-sm text-slate-400">

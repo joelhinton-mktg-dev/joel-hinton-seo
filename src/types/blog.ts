@@ -1,3 +1,16 @@
+export interface BlogFaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface BlogImagePlaceholder {
+  id: string;
+  alt: string;
+  width: number;
+  height: number;
+  src: string;
+}
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -10,6 +23,8 @@ export interface BlogPost {
   category: BlogCategory;
   tags: string[];
   featuredImage?: string;
+  imagePlaceholders?: BlogImagePlaceholder[];
+  faqs?: BlogFaqItem[];
   readingTime: number;
   seo: {
     metaTitle: string;
@@ -20,7 +35,12 @@ export interface BlogPost {
   published: boolean;
 }
 
-export type BlogCategory = 'SEO Psychology' | 'Growth Marketing' | 'Case Studies' | 'AI Marketing' | 'Local SEO';
+export type BlogCategory =
+  | 'SEO Psychology'
+  | 'Growth Marketing'
+  | 'Case Studies'
+  | 'AI Marketing'
+  | 'Local SEO';
 
 export interface BlogFilters {
   category?: BlogCategory;

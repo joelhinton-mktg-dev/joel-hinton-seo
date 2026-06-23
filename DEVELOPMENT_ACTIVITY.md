@@ -1,3 +1,5 @@
+> **Historical document (pre-migration).** Written for the original Vite + Netlify stack. Production now runs **Next.js 14 SSG on Vercel** at https://aiogrowthseo.com. See `README.md` for the current architecture.
+
 # Development Activity Report - Joel Hinton Marketing Website
 
 ## Issues Identified, Solutions Implemented, and Outcomes

@@ -10,6 +10,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { funnelSprintOffer } from '@/data/pricing';
+import { trackPrimaryCtaClick } from '@/lib/analytics';
 import {
   Target,
   TrendingUp,
@@ -25,11 +27,28 @@ import {
   Calendar,
   Building2,
   Sparkles,
-  BadgeCheck
+  BadgeCheck,
 } from 'lucide-react';
 
+const CTA_LABEL = 'Get a Custom Quote';
+
 export default function LocalLeadGenerationPage() {
-  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Local Lead Generation Consultation');
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog(
+    funnelSprintOffer.serviceLabel,
+  );
+
+  const openQuoteDialog = (ctaLocation: string, serviceLabel?: string) => {
+    trackPrimaryCtaClick({
+      pagePath: '/local-lead-generation',
+      ctaLabel: CTA_LABEL,
+      ctaLocation,
+      serviceName: serviceLabel ?? funnelSprintOffer.serviceLabel,
+    });
+    if (serviceLabel) {
+      selectService(serviceLabel);
+    }
+    openDialog();
+  };
 
   const homeServiceTypes = [
     { name: "HVAC", icon: "🌡️" },
@@ -66,12 +85,15 @@ export default function LocalLeadGenerationPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
-              <MapPin className="w-4 h-4 mr-2" />
-              Volusia & Flagler Counties
+              <Sparkles className="w-4 h-4 mr-2" />
+              Funnel Sprint
             </Badge>
 
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Local Leads That <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Actually Call</span>
+              Funnel Sprint —{' '}
+              <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
+                a validated winning ad + landing page in 6–8 weeks.
+              </span>
             </h1>
 
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
@@ -83,47 +105,55 @@ export default function LocalLeadGenerationPage() {
               <Button
                 size="lg"
                 className="px-8 py-4 text-lg bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                onClick={() => {
-                  selectService('Local Lead Generation Strategy');
-                  openDialog();
-                }}
+                onClick={() => openQuoteDialog('hero')}
               >
-                <Phone className="w-5 h-5 mr-2" />
-                Get More Local Leads
+                {CTA_LABEL}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="px-8 py-4 text-lg border-orange-300 hover:bg-orange-50"
-                onClick={() => {
-                  selectService('Local Ads Audit');
-                  openDialog();
-                }}
-              >
-                <Target className="w-5 h-5 mr-2" />
-                Free Lead Gen Audit
-              </Button>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-center">
-              <div className="p-4">
-                <BadgeCheck className="w-8 h-8 text-orange-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">Google Screened</p>
-              </div>
-              <div className="p-4">
-                <Search className="w-8 h-8 text-orange-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">Search Ads</p>
-              </div>
-              <div className="p-4">
-                <Users className="w-8 h-8 text-orange-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">Facebook Leads</p>
-              </div>
-              <div className="p-4">
-                <MapPin className="w-8 h-8 text-orange-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">Hyper-Local</p>
-              </div>
-            </div>
+      {/* Method */}
+      <section className="py-20 px-4 bg-background">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              The <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Method</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Find the winning message cheaply first — rapid ad sprints — then build and optimize the funnel around
+              the proven winner.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="card-professional">
+              <CardHeader>
+                <Target className="w-10 h-10 text-orange-600 mb-4" />
+                <CardTitle className="text-xl">Phase 1: Rapid Ad Sprints</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Test angles, hooks, and offers across small-budget ad sprints. Kill losers fast. Double down on what
+                  gets clicks and leads at the lowest cost.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="card-professional border-orange-200 bg-orange-50/30">
+              <CardHeader>
+                <Zap className="w-10 h-10 text-amber-600 mb-4" />
+                <CardTitle className="text-xl">Phase 2: Build the Funnel</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Once the message wins, we build the landing page and funnel around it — then keep optimizing until
+                  conversion hits your target.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -527,145 +557,65 @@ export default function LocalLeadGenerationPage() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Funnel Sprint Offer */}
       <section className="py-20 px-4 bg-gradient-to-r from-orange-50 to-amber-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Local Lead Generation <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Pricing</span>
+              Funnel Sprint <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Pricing</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Flat monthly management fee - we succeed when you get more leads
-            </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="card-professional relative">
-              <Badge className="absolute -top-3 left-6 bg-orange-600">Most Popular</Badge>
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <TrendingUp className="w-6 h-6 text-orange-600" />
-                  Local Lead Management
-                </CardTitle>
-                <CardDescription className="text-lg">
-                  <span className="text-3xl font-bold text-orange-600">$500</span>
-                  <span className="text-muted-foreground">/month</span>
+          <div className="grid lg:grid-cols-1 gap-8 max-w-3xl mx-auto">
+            <Card className="card-professional border-orange-200">
+              <CardHeader className="text-center">
+                <Badge className="w-fit mx-auto mb-4 bg-orange-600">Funnel Sprint</Badge>
+                <CardTitle className="text-2xl">6–8 Week Funnel Sprint</CardTitle>
+                <CardDescription className="text-lg mt-4">
+                  <span className="text-4xl font-bold text-orange-600">{funnelSprintOffer.sprintPrice}</span>
+                  <span className="block text-base text-muted-foreground mt-2">
+                    — {funnelSprintOffer.sprintIncludes}
+                  </span>
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span>Google Local Service Ads management</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span>Google Search Ads campaigns</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span>Facebook/Instagram lead campaigns</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span>Call tracking & recording</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span>Lead quality monitoring</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span>Monthly performance reports</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span className="font-medium text-orange-600">No percentage fees</span>
+                <div className="p-4 border border-amber-200 bg-amber-50 rounded-lg text-center">
+                  <p className="font-semibold text-amber-900">Guarantee</p>
+                  <p className="text-sm text-amber-800 mt-1">{funnelSprintOffer.guarantee}</p>
+                </div>
+
+                <div>
+                  <p className="font-semibold mb-3">Ongoing management</p>
+                  <div className="space-y-2">
+                    {funnelSprintOffer.ongoingTiers.map((tier) => (
+                      <div key={tier.price} className="flex justify-between items-center p-3 border rounded-lg text-sm">
+                        <span className="font-medium">{tier.price}</span>
+                        <span className="text-muted-foreground">({tier.adSpend})</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 <Separator />
 
-                <div className="space-y-2 text-sm">
-                  <p><span className="font-medium">Recommended Ad Spend:</span> $1,000/month</p>
-                  <p className="text-muted-foreground">Average ROAS is 3-4X after 60-90 days</p>
-                  <p><span className="font-medium">Contract:</span> Month-to-month</p>
+                <div className="text-center">
+                  <p className="font-semibold mb-2">DIY path</p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Prefer to run it yourself? Watch our free long-form walkthrough.
+                  </p>
+                  <Button variant="outline" asChild>
+                    <a href={funnelSprintOffer.diyVideoHref}>
+                      Free Long-Form Walkthrough
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </a>
+                  </Button>
                 </div>
 
                 <Button
                   className="w-full bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                  onClick={() => {
-                    selectService('Local Lead Management - $500/month');
-                    openDialog();
-                  }}
+                  onClick={() => openQuoteDialog('pricing', funnelSprintOffer.serviceLabel)}
                 >
-                  Start Getting Leads
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional border-amber-200 bg-gradient-to-br from-amber-50/50 to-orange-50/50">
-              <CardHeader>
-                <Badge className="w-fit mb-2 bg-amber-100 text-amber-800 border-amber-200">Complete Setup</Badge>
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <Zap className="w-6 h-6 text-amber-600" />
-                  Local Lead Generation Funnel Setup
-                </CardTitle>
-                <CardDescription className="text-lg">
-                  <span className="text-3xl font-bold text-amber-600">$1,000</span>
-                  <span className="text-muted-foreground"> one-time</span>
-                </CardDescription>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Complete lead generation infrastructure for local businesses - not just ads, but the entire system to capture, nurture, and convert leads.
-                </p>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-amber-600" />
-                    <span>Google Local Service Ads setup & optimization</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-amber-600" />
-                    <span>Custom landing page creation</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-amber-600" />
-                    <span>Email automation sequences & drip campaigns</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-amber-600" />
-                    <span>Call tracking & CRM integration</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-amber-600" />
-                    <span>Lead scoring & nurturing system</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-amber-600" />
-                    <span>Performance tracking dashboard</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-amber-600" />
-                    <span className="font-medium text-amber-700">30 days of optimization included</span>
-                  </div>
-                </div>
-
-                <Separator />
-
-                <div className="space-y-2 text-sm">
-                  <p><span className="font-medium">Timeline:</span> 2-3 weeks to full deployment</p>
-                  <p><span className="font-medium">Perfect for:</span> Local businesses ready to scale lead generation</p>
-                </div>
-
-                <Button
-                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white"
-                  onClick={() => {
-                    selectService('Local Lead Generation Funnel Setup - $1,000');
-                    openDialog();
-                  }}
-                >
-                  Build My Lead Funnel
+                  {CTA_LABEL}
                 </Button>
               </CardContent>
             </Card>
@@ -747,10 +697,10 @@ export default function LocalLeadGenerationPage() {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Ready for More Local Leads?
+              Ready for a Validated Winning Funnel?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Let&apos;s discuss your service area, target customers, and build a lead generation strategy that fills your schedule.
+              Tell us about your service area and target customers. We will scope a Funnel Sprint for your market.
             </p>
           </div>
 
@@ -760,29 +710,21 @@ export default function LocalLeadGenerationPage() {
                 <Phone className="w-8 h-8 text-white" />
               </div>
               <CardTitle className="text-2xl md:text-3xl">
-                Get Your Free Lead Gen Strategy Call
+                Get a Custom Quote
               </CardTitle>
               <CardDescription className="text-lg">
-                We&apos;ll analyze your market and show you exactly how to get more local leads
+                Tell us about your business and service area — no obligation
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
               <Button
                 size="lg"
                 className="px-8 py-4 text-lg bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                onClick={() => {
-                  selectService('Local Lead Generation Strategy Call');
-                  openDialog();
-                }}
+                onClick={() => openQuoteDialog('final')}
               >
-                <Calendar className="w-5 h-5 mr-2" />
-                Schedule Strategy Call
+                {CTA_LABEL}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-
-              <p className="text-sm text-muted-foreground mt-4">
-                No obligation. We&apos;ll show you what&apos;s possible in your specific market.
-              </p>
             </CardContent>
           </Card>
 
@@ -797,8 +739,8 @@ export default function LocalLeadGenerationPage() {
       <ContactDialog
         isOpen={isOpen}
         onClose={closeDialog}
-        title="Local Lead Generation"
-        description="Tell us about your business and service area, and we'll show you how to generate more qualified local leads."
+        title="Get a Custom Quote"
+        description="Tell us about your business and service area, and we'll scope a Funnel Sprint for your market."
         defaultService={selectedService}
         businessTypes={businessTypes.general}
       />

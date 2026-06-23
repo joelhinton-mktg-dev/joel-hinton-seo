@@ -1,10 +1,12 @@
-'use client';
-
 import LocationPage from '@/components/LocationPage';
-import { getLocationBySlug } from '@/data/locations';
+import { buildLocationMetadata, getLocationBySlug } from '@/data/locations';
 
-export default function DeBaryDigitalMarketingPage() {
-  const location = getLocationBySlug('debary-digital-marketing');
+const SLUG = 'debary-digital-marketing';
+
+export const metadata = buildLocationMetadata(SLUG);
+
+export default function DebaryDigitalMarketingPage() {
+  const location = getLocationBySlug(SLUG);
 
   if (!location) {
     return <div>Location not found</div>;

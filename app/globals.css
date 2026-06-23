@@ -1,2 +1,13 @@
 /* Import existing styles from src/index.css */
 @import '../src/index.css';
+
+/* Hide root layout nav/footer on landing pages */
+body:has(.lp-layout) > nav {
+  display: none;
+}
+body:has(.lp-layout) > footer {
+  display: none;
+}
+body:has(.lp-layout) > main {
+  padding-top: 0;
+}

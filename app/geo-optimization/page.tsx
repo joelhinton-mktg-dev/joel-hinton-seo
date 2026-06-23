@@ -294,106 +294,58 @@ export default function GEOOptimizationPage() {
           </div>
         </section>
 
-        {/* Pricing */}
+        {/* GEO + SEO */}
         <section className="py-24 px-4 bg-background">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
+          <div className="container mx-auto max-w-4xl">
+            <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                GEO <span className="gradient-text">Pricing</span>
+                GEO Is <span className="gradient-text">Built Into Every SEO Plan</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Get ahead of the AI search revolution with transparent, results-focused pricing.
+                GEO is built into every SEO plan — baseline AI-search optimization comes standard, and the full play
+                (Reddit growth, deep entity work, AI-citation building) lives in our Domination tier.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <Card className="card-professional border-purple-200">
-                <CardHeader className="text-center">
-                  <Badge variant="secondary" className="w-fit mx-auto mb-4">One-Time Setup</Badge>
-                  <CardTitle className="text-2xl">GEO Foundation</CardTitle>
-                  <div className="text-4xl font-bold text-purple-600 mt-2">$1,750</div>
-                  <CardDescription>One-time investment</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-purple-600" />
-                      <span className="text-sm">Topical/entity mapping & strategy</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-purple-600" />
-                      <span className="text-sm">AI prompt research & competitor analysis</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-purple-600" />
-                      <span className="text-sm">GEO/AI mentions app setup</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-purple-600" />
-                      <span className="text-sm">Initial link building campaign</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-purple-600" />
-                      <span className="text-sm">Reddit marketing foundation</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-purple-600" />
-                      <span className="text-sm">AI mention tracking setup</span>
-                    </div>
-                  </div>
-                  <Button
-                    className="w-full bg-purple-600 hover:bg-purple-700"
-                    onClick={() => selectService("GEO Foundation - $1,750")}
-                  >
-                    Get Started
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
+            <Card className="card-professional border-purple-200 mb-8">
+              <CardHeader>
+                <CardTitle className="text-2xl">What You Get at Every Tier</CardTitle>
+                <CardDescription>Baseline GEO is standard — not a separate purchase</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Entity mapping and AI-prompt research</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Schema and structured data for AI crawlers</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Answer-focused content structure</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Baseline AI-search monitoring</li>
+                </ul>
+              </CardContent>
+            </Card>
 
-              <Card className="space-y-6">
-                <CardHeader className="text-center">
-                  <Badge variant="outline" className="w-fit mx-auto mb-4">Monthly Options</Badge>
-                  <CardTitle className="text-2xl">Ongoing GEO</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="p-4 border rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold">Growth</span>
-                      <span className="text-xl font-bold text-purple-600">$750/mo</span>
-                    </div>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• AI monitoring & optimization</li>
-                      <li>• Entity building</li>
-                      <li>• $500 link budget included</li>
-                    </ul>
-                  </div>
-                  <div className="p-4 border rounded-lg border-purple-200 bg-purple-50">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold">Authority</span>
-                      <span className="text-xl font-bold text-purple-600">$1,500/mo</span>
-                    </div>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Everything in Growth</li>
-                      <li>• Reddit campaigns</li>
-                      <li>• Advanced link building</li>
-                      <li>• Weekly optimization</li>
-                    </ul>
-                  </div>
-                  <div className="p-4 border rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold">Enterprise</span>
-                      <span className="text-xl font-bold text-purple-600">$2,500/mo</span>
-                    </div>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• 20 content pieces/month</li>
-                      <li>• 10 backlinks/month</li>
-                      <li>• Full ecosystem management</li>
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            <Card className="card-professional border-purple-200 bg-purple-50">
+              <CardHeader>
+                <Badge className="w-fit mb-4 bg-purple-600">Domination Tier</Badge>
+                <CardTitle className="text-2xl">The Full GEO Play</CardTitle>
+                <CardDescription>$1,500–$2,500/mo as part of Complete SEO + GEO</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Organic Reddit growth</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Deep entity and authority work</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> AI-citation building and tracking</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> 10+ articles and 5+ backlinks monthly</li>
+                </ul>
+                <Button
+                  className="w-full bg-purple-600 hover:bg-purple-700"
+                  asChild
+                >
+                  <Link href="/seo-services">
+                    View SEO Plans & Domination Tier
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
@@ -459,11 +411,13 @@ export default function GEOOptimizationPage() {
               size="lg"
               variant="secondary"
               className="px-8 py-4 text-lg"
-              onClick={() => openDialog()}
+              asChild
             >
-              <Sparkles className="w-5 h-5 mr-2" />
-              Start Your GEO Strategy
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <Link href="/seo-services">
+                <Sparkles className="w-5 h-5 mr-2" />
+                Explore SEO & Domination Plans
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
             </Button>
           </div>
         </section>

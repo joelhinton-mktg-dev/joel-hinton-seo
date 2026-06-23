@@ -6,6 +6,7 @@ import { Providers } from '../components/Providers';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import CookieConsent from '../components/CookieConsent';
+import GoogleTagManager from '../components/GoogleTagManager';
 import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 
@@ -35,6 +36,13 @@ export const metadata: Metadata = {
     title: 'AIO Growth SEO | Central Florida Digital Marketing',
     description: 'Psychology-driven digital marketing for Volusia & Flagler County businesses.',
   },
+  alternates: {
+    types: {
+      'application/rss+xml': [
+        { url: 'https://aiogrowthseo.com/feed.xml', title: 'AIO Growth SEO Blog RSS' },
+      ],
+    },
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'AIO Growth SEO | Central Florida Digital Marketing',
@@ -59,6 +67,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <CookieConsent />
+          <GoogleTagManager />
         </Providers>
       </body>
     </html>

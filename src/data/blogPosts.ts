@@ -1,5 +1,8 @@
 import { BlogPost } from '@/types/blog';
 import { localClusterPosts } from '@/data/localClusterPosts';
+import { costPerLead2026Post } from './blog/cost-per-lead-2026';
+import { ragMechanismPost } from './blog/rag-mechanism';
+import { localPack2026Post } from './blog/local-pack-2026';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1126,7 +1129,13 @@ Remember: The best color isn't the one that looks prettiest in isolation—it's 
       ogImage: '/images/blog/color-psychology-og.jpg'
     },
     published: true
-  }
+  },
 ];
 
-export const blogPosts: BlogPost[] = [...legacyBlogPosts, ...localClusterPosts];
+export const blogPosts: BlogPost[] = [
+  ...legacyBlogPosts,
+  costPerLead2026Post,
+  ragMechanismPost,
+  localPack2026Post,
+  ...localClusterPosts,
+];

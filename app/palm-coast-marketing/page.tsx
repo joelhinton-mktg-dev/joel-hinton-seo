@@ -1,10 +1,12 @@
-'use client';
-
 import LocationPage from '@/components/LocationPage';
-import { getLocationBySlug } from '@/data/locations';
+import { buildLocationMetadata, getLocationBySlug } from '@/data/locations';
+
+const SLUG = 'palm-coast-marketing';
+
+export const metadata = buildLocationMetadata(SLUG);
 
 export default function PalmCoastMarketingPage() {
-  const location = getLocationBySlug('palm-coast-marketing');
+  const location = getLocationBySlug(SLUG);
 
   if (!location) {
     return <div>Location not found</div>;

@@ -15,6 +15,7 @@ import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
 import ContactDialog from '../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
+import { setupTiers, monthlyTiers, multiLocationMonthlyNote } from '@/data/pricing';
 
 const localCities = [
   "Daytona Beach", "Ormond Beach", "Port Orange", "New Smyrna Beach", "Palm Coast", "DeLand",
@@ -292,93 +293,66 @@ export default function LocalSEOPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <Card className="card-professional border-green-200">
-                <CardHeader className="text-center">
-                  <Badge variant="secondary" className="w-fit mx-auto mb-4">One-Time Setup</Badge>
-                  <CardTitle className="text-2xl">Local SEO Foundation</CardTitle>
-                  <div className="text-4xl font-bold text-green-600 mt-2">$1,500</div>
-                  <CardDescription>One-time investment</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-sm">Complete local SEO audit & fixes</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-sm">Google Business Profile optimization</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-sm">25-30 core citations built</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-sm">Local schema implementation</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-sm">Review management setup</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-sm">Geographic authority roadmap</span>
-                    </div>
-                  </div>
-                  <Button
-                    className="w-full bg-green-600 hover:bg-green-700"
-                    onClick={() => selectService("Local SEO Foundation - $1,500")}
-                  >
-                    Get Started
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold text-center mb-8">Foundation Setup</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                {setupTiers.map((tier) => (
+                  <Card key={tier.name} className="card-professional border-green-200 flex flex-col h-full">
+                    <CardHeader className="text-center">
+                      <Badge variant="secondary" className="w-fit mx-auto mb-4">One-Time Setup</Badge>
+                      <CardTitle className="text-2xl">{tier.name}</CardTitle>
+                      <div className="text-4xl font-bold text-green-600 mt-2">{tier.price}</div>
+                      <CardDescription>One-time investment</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4 flex flex-col flex-1">
+                      <p className="text-sm text-muted-foreground flex-1">{tier.description}</p>
+                      <Button
+                        className="w-full bg-green-600 hover:bg-green-700 mt-auto"
+                        onClick={() => {
+                          selectService(tier.serviceLabel);
+                          openDialog();
+                        }}
+                      >
+                        Get Started
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
 
-              <Card className="space-y-6">
-                <CardHeader className="text-center">
-                  <Badge variant="outline" className="w-fit mx-auto mb-4">Monthly Options</Badge>
-                  <CardTitle className="text-2xl">Ongoing Maintenance</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="p-4 border rounded-lg">
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold text-center mb-8">Monthly Plans</h3>
+              <div className="space-y-4">
+                {monthlyTiers.map((tier) => (
+                  <div
+                    key={tier.name}
+                    className={`p-4 border rounded-lg ${tier.highlighted ? 'border-green-200 bg-green-50' : ''}`}
+                  >
                     <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold">Growth</span>
-                      <span className="text-xl font-bold text-green-600">$500/mo</span>
+                      <span className="font-semibold">{tier.name}</span>
+                      <span className="text-xl font-bold text-green-600">{tier.price}</span>
                     </div>
                     <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Monthly monitoring & optimization</li>
-                      <li>• GMB posts & updates</li>
-                      <li>• Citation maintenance</li>
+                      {tier.features.map((feature) => (
+                        <li key={feature}>• {feature}</li>
+                      ))}
                     </ul>
+                    <Button
+                      size="sm"
+                      className={`mt-3 ${tier.highlighted ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-green-600/90 hover:bg-green-700 text-white'}`}
+                      onClick={() => {
+                        selectService(tier.serviceLabel);
+                        openDialog();
+                      }}
+                    >
+                      Choose {tier.name}
+                    </Button>
                   </div>
-                  <div className="p-4 border rounded-lg border-green-200 bg-green-50">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold">Domination</span>
-                      <span className="text-xl font-bold text-green-600">$750/mo</span>
-                    </div>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Everything in Growth</li>
-                      <li>• Weekly content updates</li>
-                      <li>• Review campaign management</li>
-                      <li>• Competitor monitoring</li>
-                    </ul>
-                  </div>
-                  <div className="p-4 border rounded-lg">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold">Enterprise (10+ locations)</span>
-                      <span className="text-xl font-bold text-green-600">$2,500/mo</span>
-                    </div>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Multi-location management</li>
-                      <li>• Programmatic local SEO</li>
-                      <li>• Local link building</li>
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground text-center mt-6">{multiLocationMonthlyNote}</p>
             </div>
           </div>
         </section>

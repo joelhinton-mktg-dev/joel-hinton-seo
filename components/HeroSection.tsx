@@ -12,7 +12,11 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import Link from "next/link";
-import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
+import { trackFormSubmission } from '@/lib/analytics';
+import {
+  FORMSPREE_HERO_ENDPOINT,
+  FORMSPREE_NOTIFICATION_EMAIL,
+} from '@/data/site';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -40,7 +44,9 @@ const HeroSection = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/mjkejnko', {
+      // Formspree recipient (sales@aiogrowthseo.com) is set per form ID in the Formspree dashboard.
+      // Multi-recipient notification (also joel@aiogrowthseo.com + Samantha) must be configured there too.
+      const response = await fetch(FORMSPREE_HERO_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -49,7 +55,8 @@ const HeroSection = () => {
           phone: data.phone,
           businessType: data.businessType,
           selectedService: data.selectedService,
-          marketingChallenge: data.marketingChallenge
+          marketingChallenge: data.marketingChallenge,
+          _notification_email: FORMSPREE_NOTIFICATION_EMAIL,
         })
       });
 
@@ -57,9 +64,7 @@ const HeroSection = () => {
         setSubmitSuccess(true);
         reset();
 
-        trackFormSubmission('hero_form', '/', data.businessType);
-        trackConversion('consultation_request', 1, 'USD');
-        trackLead('homepage', 'consultation', data.businessType);
+        trackFormSubmission('hero_form', '/', data.businessType, data.selectedService);
 
         if (process.env.NODE_ENV === 'development') {
           console.log("Hero contact form submitted successfully:", data);
@@ -113,7 +118,7 @@ const HeroSection = () => {
           </p>
 
           <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto slide-up" style={{ animationDelay: "200ms" }}>
-            <strong className="text-foreground">Volusia & Flagler Counties' trusted marketing partner.</strong> No long-term contracts.
+            <strong className="text-foreground">Your Daytona Beach SEO company</strong> for Volusia and Flagler Counties. No long-term contracts.
             Just measurable results that turn search visibility into profit.
           </p>
 

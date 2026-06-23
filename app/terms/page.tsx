@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
+import { SITE_PHONE_DISPLAY } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | AIO Growth SEO | Legal Terms & Conditions',
@@ -366,7 +367,7 @@ export default function TermsOfServicePage() {
                     </div>
                     <div className="flex items-center gap-2">
                       <Phone className="w-4 h-4 text-blue-600" />
-                      <span className="text-slate-700">Phone: +1 (386) 555-0123</span>
+                      <span className="text-slate-700">Phone: {SITE_PHONE_DISPLAY}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <FileText className="w-4 h-4 text-blue-600" />

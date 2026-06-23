@@ -54,7 +54,7 @@ export function extractFaqsFromContent(content: string): FaqItem[] {
 }
 
 export function buildBlogPostSchemas(post: BlogPost, canonicalUrl: string, ogImageUrl?: string) {
-  const faqs = extractFaqsFromContent(post.content);
+  const faqs = post.faqs?.length ? post.faqs : extractFaqsFromContent(post.content);
 
   const articleSchema = {
     '@context': 'https://schema.org',
