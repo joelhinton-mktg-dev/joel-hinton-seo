@@ -6,10 +6,10 @@ export const localClusterPosts: BlogPost[] = [
     title: "How to Rank in the Daytona Beach Map Pack (2026)",
     slug: 'how-to-rank-daytona-beach-map-pack',
     excerpt: "How to get into the Daytona Beach map pack in 2026: the ranking factors and their real weights, the GBP and review tactics that move you, and the multi-city strategy Volusia businesses need.",
-    content: `# How to Rank in the Daytona Beach Map Pack (2026)
-*By Joel Hinton · AIO Growth SEO, Daytona Beach, FL*
-## How do you get into the Daytona Beach map pack?
-**TL;DR: **The map pack is the map and top three businesses Google shows for a local search, and it ranks on three things: relevance, distance, and prominence. In Whitespark’s 2026 industry survey, proximity carries the most weight (around 55%), followed by your Google Business Profile (around 32%), reviews (16 to 20%), and your website (around 19%). You cannot change distance, but you can win on everything else: a complete profile, the right primary category, a steady flow of recent reviews, and a page for each city you serve. That last point matters more in Volusia than almost anywhere, because one Daytona pin will not rank across a county this spread out.
+    content: `## How do you get into the Daytona Beach map pack?
+
+**TL;DR:** The map pack is the map and top three businesses Google shows for a local search, and it ranks on three things: relevance, distance, and prominence. In Whitespark’s 2026 industry survey, proximity carries the most weight (around 55%), followed by your Google Business Profile (around 32%), reviews (16 to 20%), and your website (around 19%). You cannot change distance, but you can win on everything else: a complete profile, the right primary category, a steady flow of recent reviews, and a page for each city you serve. That last point matters more in Volusia than almost anywhere, because one Daytona pin will not rank across a county this spread out.
+
 If you run a service business in the Daytona Beach area, the map pack is the most valuable spot on Google. It shows up in the vast majority of local searches and takes most of the clicks, the top three map results pull a large share of all local-search activity while everything below position three fights over the scraps. This guide breaks down exactly how Google decides those three spots, what the real ranking weights are, and the local strategy most Daytona businesses miss.
 ## What the map pack is, and why it is the whole game locally
 When someone searches “AC repair near me” or “plumber Daytona Beach,” Google shows a map with three pinned business listings before the regular blue links. That is the map pack, sometimes called the 3-pack. Some listings show extra elements: a call button, a directions tap, a price range, even short “justification” snippets pulled straight from customer reviews. Those elements are part of why the pack converts so well; it answers the searcher’s real question (who is near me, open, and trusted) without making them dig.
@@ -55,17 +55,7 @@ Build a page for each city you serve. This is how you compete on proximity acros
 Add your Florida license number. A verifiable trust signal most competitors skip.
 ## How AI search uses the same signals
 This is no longer only a Maps story. When someone asks ChatGPT or Google’s AI for the best HVAC company in Daytona Beach, the engine leans on many of the same prominence and trust signals that power the map pack: accurate data, recent reviews, curated-list mentions, and a consistent presence. In fact, AI search visibility became its own formal category in the 2026 ranking-factors research. Optimizing your profile increasingly feeds both the map pack and [AI answers](https://aiogrowthseo.com/geo-optimization), two of the traffic streams that matter most in 2026.
-## Frequently asked questions
-**What is the Daytona Beach map pack?**
-It is the map and top three business listings Google shows for local searches in the Daytona area. It ranks on relevance, distance, and prominence and captures most clicks for “near me” queries.
-**What is the most important map pack ranking factor?**
-Proximity carries the most weight overall (around 55% in Whitespark’s 2026 survey), but it is not controllable. The most important factor you control is your Google Business Profile, and within it, your primary category.
-**How many reviews do I need to rank in the map pack?**
-There is no magic number, and recency now matters more than total count. A steady flow of fresh reviews with responses out-performs a larger but stale review count.
-**Why am I not showing up in nearby Volusia cities?**
-Because proximity is the heaviest factor. One location ranks near itself. To appear across Daytona, Port Orange, Ormond, and New Smyrna, you need a dedicated page for each city you serve.
-**Does my business name still affect map pack ranking?**
-Far less than before the 2021 Vicinity update. Stuffing keywords into your name can now hurt more than help, and risks suspension. Accuracy and legitimacy matter more.
+
 ## See where you stand in the pack
 We will audit your Google Business Profile, your review velocity, and your local data, show you exactly why you rank where you do across Volusia, and map the fastest path into the top three. See our [pricing](https://aiogrowthseo.com/pricing) or [book a free audit](https://aiogrowthseo.com/contact).`,
     author: 'Joel Hinton',
@@ -74,6 +64,13 @@ We will audit your Google Business Profile, your review velocity, and your local
     category: 'Local SEO',
     tags: ["map pack", "Daytona Beach", "local SEO", "Google Business Profile", "Volusia County"],
     featuredImage: '/images/blog/how-to-rank-daytona-beach-map-pack.webp',
+    faqs: [
+      { question: "What is the Daytona Beach map pack?", answer: "It is the map and top three business listings Google shows for local searches in the Daytona area. It ranks on relevance, distance, and prominence and captures most clicks for \"near me\" queries." },
+      { question: "What is the most important map pack ranking factor?", answer: "Proximity carries the most weight overall (around 55% in Whitespark's 2026 survey), but it is not controllable. The most important factor you control is your Google Business Profile, and within it, your primary category." },
+      { question: "How many reviews do I need to rank in the map pack?", answer: "There is no magic number, and recency now matters more than total count. A steady flow of fresh reviews with responses out-performs a larger but stale review count." },
+      { question: "Why am I not showing up in nearby Volusia cities?", answer: "Because proximity is the heaviest factor. One location ranks near itself. To appear across Daytona, Port Orange, Ormond, and New Smyrna, you need a dedicated page for each city you serve." },
+      { question: "Does my business name still affect map pack ranking?", answer: "Far less than before the 2021 Vicinity update. Stuffing keywords into your name can now hurt more than help, and risks suspension. Accuracy and legitimacy matter more." },
+    ],
     readingTime: 11,
     seo: {
       metaTitle: "How to Rank in the Daytona Beach Map Pack (2026)",
@@ -88,10 +85,10 @@ We will audit your Google Business Profile, your review velocity, and your local
     title: "Google Business Profile Optimization for Daytona Contractors (2026)",
     slug: 'google-business-profile-optimization-daytona',
     excerpt: "A Daytona contractor's guide to Google Business Profile optimization: category research, review velocity, photo strategy, posts, and the Florida license trust signal competitors skip.",
-    content: `# Google Business Profile Optimization for Daytona Contractors (2026)
-*By Joel Hinton · AIO Growth SEO, Daytona Beach, FL*
-## What actually moves a Google Business Profile up?
-**TL;DR: **Your Google Business Profile drives more phone calls than your website, and in Whitespark’s 2026 survey it accounts for roughly 32% of local pack ranking weight, more than any other controllable factor. The levers that move it, in order: the right primary category (the single most important field), full completeness, a steady flow of recent reviews with responses, fresh photos, and regular posts. For Florida trades, your verifiable state license number is a trust signal most competitors skip. None of this is one-time setup. The profiles that win are the ones kept active.
+    content: `## What actually moves a Google Business Profile up?
+
+**TL;DR:** Your Google Business Profile drives more phone calls than your website, and in Whitespark’s 2026 survey it accounts for roughly 32% of local pack ranking weight, more than any other controllable factor. The levers that move it, in order: the right primary category (the single most important field), full completeness, a steady flow of recent reviews with responses, fresh photos, and regular posts. For Florida trades, your verifiable state license number is a trust signal most competitors skip. None of this is one-time setup. The profiles that win are the ones kept active.
+
 Here is something most contractors do not realize: the listing that appears when someone Googles “plumber near me” generates more calls than your website does, and it is often the only thing a customer interacts with before deciding to call you or the next name on the list. Yet most contractor profiles look like they were set up years ago and never touched: wrong category, no posts, a few blurry photos. That neglect is your opening. Here is how to optimize every part that matters, in order of impact.
 ## Start with category research, not guesswork
 Your primary category is the single most important field on your profile. Whitespark’s 2026 research names it the strongest individual ranking factor, ahead of reviews and links, because it tells Google what you fundamentally are. Most HVAC contractors pick “HVAC contractor” and stop. That is not enough, and it is also not how the best-ranked profiles choose.
@@ -113,17 +110,7 @@ Here is an angle most competitors skip, and it got stronger in 2025. As of the J
 Your name, address, and phone must be identical everywhere Google sees them: your site, your profile, and every directory. “123 Main St” on your site and “123 Main Street” on Yelp is enough to soften your prominence signal. Pick one format, match your state license filing exactly, and use it everywhere. Citation inconsistency is one of the most common and most fixable local SEO problems for contractors, and it ties directly into your broader [local SEO](https://aiogrowthseo.com/local-seo).
 ## How this feeds the map pack and AI search
 Profile optimization is not a standalone task. Everything above feeds the [Daytona map pack](https://aiogrowthseo.com/blog/how-to-rank-daytona-beach-map-pack), and increasingly it feeds AI answers too: when someone asks ChatGPT for the best HVAC company in Daytona, the engine leans on the same signals, accurate data, recent reviews, consistent presence. Strong profile work shows up in both [AI search](https://aiogrowthseo.com/geo-optimization) and the map.
-## Frequently asked questions
-**What is the most important Google Business Profile setting?**
-Your primary category. It is the strongest individual ranking factor. Research what the top-ranked businesses for your money keyword use, match it, then add secondary categories for your other services.
-**How many reviews do I need, and how often?**
-There is no magic number, and recency matters more than total. Aim for several new reviews a month with a response to each, which out-performs a larger but stale review count.
-**Does my business description affect ranking?**
-No, Google has confirmed the description does not directly affect ranking. But it strongly affects whether a customer calls, so write it for the human reader.
-**Should I put my Florida license number on my profile?**
-Yes. Since the July 2025 license centralization, a verifiable state license is a strong trust signal in Volusia, and most competitors omit it. It will not directly change your ranking, but it helps win the customer.
-**Can I get suspended for optimizing my profile?**
-Only if you try to game it, keyword-stuffing your business name or faking a category is a suspension risk. Accurate, complete, consistent optimization is safe and out-performs the majority of competitors.
+
 ## Get your profile audited
 We will review your categories, completeness, review velocity, and photos against your top Daytona competitors and show you what to fix first. See our [pricing](https://aiogrowthseo.com/pricing) or [book a free audit](https://aiogrowthseo.com/contact).`,
     author: 'Joel Hinton',
@@ -132,6 +119,13 @@ We will review your categories, completeness, review velocity, and photos agains
     category: 'Local SEO',
     tags: ["Google Business Profile", "Daytona Beach", "contractors", "local SEO", "GBP optimization"],
     featuredImage: '/images/blog/google-business-profile-optimization-daytona.webp',
+    faqs: [
+      { question: "What is the most important Google Business Profile setting?", answer: "Your primary category. It is the strongest individual ranking factor. Research what the top-ranked businesses for your money keyword use, match it, then add secondary categories for your other services." },
+      { question: "How many reviews do I need, and how often?", answer: "There is no magic number, and recency matters more than total. Aim for several new reviews a month with a response to each, which out-performs a larger but stale review count." },
+      { question: "Does my business description affect ranking?", answer: "No, Google has confirmed the description does not directly affect ranking. But it strongly affects whether a customer calls, so write it for the human reader." },
+      { question: "Should I put my Florida license number on my profile?", answer: "Yes. Since the July 2025 license centralization, a verifiable state license is a strong trust signal in Volusia, and most competitors omit it. It will not directly change your ranking, but it helps win the customer." },
+      { question: "Can I get suspended for optimizing my profile?", answer: "Only if you try to game it, keyword-stuffing your business name or faking a category is a suspension risk. Accurate, complete, consistent optimization is safe and out-performs the majority of competitors." },
+    ],
     readingTime: 7,
     seo: {
       metaTitle: "Google Business Profile Optimization for Daytona Contractors (2026)",
@@ -146,10 +140,10 @@ We will review your categories, completeness, review velocity, and photos agains
     title: "Book Rate vs Cost Per Lead: Why Your Cheapest Leads Cost the Most",
     slug: 'book-rate-vs-cost-per-lead',
     excerpt: "Why cost per lead is the wrong number to chase. The book-rate math that shows a $34 branded lead can cost $62 per booked job while a $149 lead costs $396, and the 5-minute rule that fixes it.",
-    content: `# Book Rate vs Cost Per Lead: Why Your Cheapest Leads Cost the Most
-*By Joel Hinton · AIO Growth SEO, Daytona Beach, FL*
-## Is cost per lead the wrong number to chase?
-**TL;DR: **On its own, yes. Cost per lead tells you what you paid for the phone to ring, not what happened next. The number that decides profitability is cost per booked job, which is CPL divided by book rate. By that math a $34 branded lead at a 55.3% book rate costs about $62 per booked job, while a $149 non-branded lead at 37.6% costs about $396, a 6x difference driven by book rate, not lead price. And the fastest book-rate lever is speed: answering a lead within five minutes makes you 21 times more likely to connect than waiting thirty.
+    content: `## Is cost per lead the wrong number to chase?
+
+**TL;DR:** On its own, yes. Cost per lead tells you what you paid for the phone to ring, not what happened next. The number that decides profitability is cost per booked job, which is CPL divided by book rate. By that math a $34 branded lead at a 55.3% book rate costs about $62 per booked job, while a $149 non-branded lead at 37.6% costs about $396, a 6x difference driven by book rate, not lead price. And the fastest book-rate lever is speed: answering a lead within five minutes makes you 21 times more likely to connect than waiting thirty.
+
 Most contractors, and most agencies, watch cost per lead and ignore the number underneath it. That is how you end up with “cheap” leads that quietly cost the most. Here is the full math, using verified 2026 benchmark data, plus the specific levers that move the number that actually matters.
 ## Why cost per lead misleads
 Cost per lead is total ad spend divided by leads generated. Simple, and incomplete. Two contractors can both report a $150 CPL and run completely different businesses. [SearchLight Digital’s January 2026 benchmark](https://searchlightdigital.io/what-is-a-good-cost-per-lead-for-hvac-google-ads/) shows it cleanly: same $150 CPL, but Contractor A books 45% at a $3,200 ticket and lands a $625 cost per paying customer at 5.1x ROAS, while Contractor B books 28% at a smaller ticket and lands at $1,071 per customer and 1.7x. The lead price was identical. Everything that mattered happened after the click.
@@ -181,17 +175,7 @@ Branded leads, people searching for you by name, book at 55.3% because they alre
 The durable fix is to manufacture more branded demand: build a presence through your [local SEO](https://aiogrowthseo.com/local-seo), reviews, and content so more people search for you by name. Branded volume is downstream of being known, which is also why so many contractors [waste their Google Ads budget](https://aiogrowthseo.com/blog/daytona-google-ads-wasted-budget) buying non-branded clicks they could have earned instead.
 ## How we target the book-rate gap
 Most agencies optimize the lead number because it is easy to report. The money is in the booked-job number. Our [lead generation work](https://aiogrowthseo.com/local-lead-generation) tests the ad and landing page until the booked-job math works, not just the cost per lead. We attack speed to lead, message match, and the offer, the levers that move book rate, because that is where a quarter of your cost per job can disappear without spending another dollar. The full CPL breakdown lives in our guide to [cost per lead for contractors](https://aiogrowthseo.com/local-lead-generation).
-## Frequently asked questions
-**What is book rate?**
-The percentage of leads that turn into a booked appointment. In the January 2026 SearchLight data, the blended book rate across HVAC campaign types was 41.7%.
-**What is cost per booked job?**
-Cost per lead divided by book rate. It reflects what you actually pay to put a job on the calendar, which is far more useful than CPL alone.
-**How fast do I really need to answer a lead?**
-Within five minutes if you can. Responding in five minutes makes you about 21 times more likely to connect than waiting thirty, and most leads that hit voicemail never call back.
-**Why do my cheap leads not turn into jobs?**
-Cheap usually means non-branded, which books at a lower rate (37.6% vs 55.3% branded) because those searchers are still comparing options. A low lead price plus a low book rate equals a high cost per booked job.
-**Should I lower CPL or raise book rate?**
-Raising book rate usually wins. Going from a 30% to 40% book rate cuts cost per booked job by about 25% with no change to ad spend.
+
 ## Find out your real cost per booked job
 We will calculate your true cost per booked job and show you where the book-rate leak is, starting with speed to lead. See our [pricing](https://aiogrowthseo.com/pricing) or [book a free audit](https://aiogrowthseo.com/contact).`,
     author: 'Joel Hinton',
@@ -200,6 +184,13 @@ We will calculate your true cost per booked job and show you where the book-rate
     category: 'Local SEO',
     tags: ["book rate", "cost per lead", "lead generation", "HVAC marketing", "Google Ads"],
     featuredImage: '/images/blog/book-rate-vs-cost-per-lead.webp',
+    faqs: [
+      { question: "What is book rate?", answer: "The percentage of leads that turn into a booked appointment. In the January 2026 SearchLight data, the blended book rate across HVAC campaign types was 41.7%." },
+      { question: "What is cost per booked job?", answer: "Cost per lead divided by book rate. It reflects what you actually pay to put a job on the calendar, which is far more useful than CPL alone." },
+      { question: "How fast do I really need to answer a lead?", answer: "Within five minutes if you can. Responding in five minutes makes you about 21 times more likely to connect than waiting thirty, and most leads that hit voicemail never call back." },
+      { question: "Why do my cheap leads not turn into jobs?", answer: "Cheap usually means non-branded, which books at a lower rate (37.6% vs 55.3% branded) because those searchers are still comparing options. A low lead price plus a low book rate equals a high cost per booked job." },
+      { question: "Should I lower CPL or raise book rate?", answer: "Raising book rate usually wins. Going from a 30% to 40% book rate cuts cost per booked job by about 25% with no change to ad spend." },
+    ],
     readingTime: 7,
     seo: {
       metaTitle: "Book Rate vs Cost Per Lead: Why Cheap Leads Cost the Most (2026)",
@@ -214,10 +205,10 @@ We will calculate your true cost per booked job and show you where the book-rate
     title: "Local SEO for HVAC and Plumbing in Volusia County (2026)",
     slug: 'local-seo-hvac-plumbing-volusia-county',
     excerpt: "How local SEO works for HVAC and plumbing businesses in Volusia County: GBP, service-area vs location pages, the 5 keyword types, review velocity, and Florida's seasonal demand.",
-    content: `# Local SEO for HVAC and Plumbing in Volusia County (2026)
-*By Joel Hinton · AIO Growth SEO, Daytona Beach, FL*
-## How does local SEO work for an HVAC or plumbing business?
-**TL;DR: **Local SEO gets your business found in Google Maps, the map pack, and AI answers when nearby customers search for your service. It rests on four things working together: a complete Google Business Profile, a clear page structure with one page per service and per city, steady reviews, and consistent local data. In Volusia the differentiators are covering multiple cities (one Daytona pin will not rank countywide after the Vicinity update) and matching Florida’s seasonal demand. A newer business with clean signals can crack the map pack in months while a 15-year-old competitor with messy signals stays buried.
+    content: `## How does local SEO work for an HVAC or plumbing business?
+
+**TL;DR:** Local SEO gets your business found in Google Maps, the map pack, and AI answers when nearby customers search for your service. It rests on four things working together: a complete Google Business Profile, a clear page structure with one page per service and per city, steady reviews, and consistent local data. In Volusia the differentiators are covering multiple cities (one Daytona pin will not rank countywide after the Vicinity update) and matching Florida’s seasonal demand. A newer business with clean signals can crack the map pack in months while a 15-year-old competitor with messy signals stays buried.
+
 If you run an HVAC or plumbing business in Volusia County and you are researching local SEO, here is how it actually works, the moves that matter, and the local specifics no national guide covers.
 ## The four pillars (and the order that matters)
 A high-performing local SEO strategy for trades comes down to local visibility, strong service pages, review trust, and a conversion-focused site. A lot of owners assume SEO is mostly blog writing and start there while their main “AC repair” or “drain cleaning” page sits weak, with thin copy, no local signals, and a buried phone number. That is backwards. Start with the pages that make money, then layer content on top.
@@ -241,17 +232,7 @@ National playbooks miss this entirely. Volusia runs on its own demand cycle. “
 Increasingly, customers ask ChatGPT or Google’s AI for the best HVAC or plumbing company in their city. Those answers lean on the same trust signals as the map pack, accurate data, recent reviews, consistent presence, so strong local SEO feeds your [AI search visibility](https://aiogrowthseo.com/geo-optimization) too. One practical tactic that serves both: start each service and location page with a direct 40-to-60-word answer to the question it targets, so AI engines can extract it cleanly. Two channels, one foundation.
 ## Why a newer business can still win
 The encouraging part: longevity is not destiny. A newer HVAC company with clean, clear signals can crack the map pack in months while a 15-year-old competitor stays buried, because Google in 2026 filters harder on clarity. Stalled businesses often have history but messy signals: outdated categories, inconsistent service areas, a site that says one thing while the profile says another. When Google has to guess, you lose. Clear services, clear locations, consistent data over time, that is what wins, and it is entirely within your control.
-## Frequently asked questions
-**How long does local SEO take for an HVAC business?**
-Foundational gains (profile, categories, accuracy) can show in weeks. Ranking across multiple Volusia cities and building review depth typically takes a few months of consistent work, faster if your signals start clean.
-**Do I need a separate Google Business Profile for each city?**
-Only for cities where you have a physical office and staff. Everywhere else uses service-area pages backed by your one profile. Extra profiles for cities you do not physically operate in violate Google’s rules.
-**How do Florida seasons affect my local SEO?**
-Demand swings hard, summer AC spikes, snowbird shifts November through April, event-week noise. Planning content and coverage around those cycles out-performs a flat national template.
-**Why can a newer company out-rank an established one?**
-Because Google rewards signal clarity, not just age. A new business with clean categories, consistent data, and active reviews can pass a 15-year-old competitor whose signals are messy.
-**Does local SEO help with AI search?**
-Yes. AI answers rely on many of the same signals as the map pack, so a strong local presence improves your odds of being the business AI recommends.
+
 ## Build your Volusia local presence
 We will map your local SEO across every city you serve, run the grid to find your weak zones, and show you where the gaps are. See our [local SEO services](https://aiogrowthseo.com/local-seo) or [book a free audit](https://aiogrowthseo.com/contact).`,
     author: 'Joel Hinton',
@@ -260,6 +241,13 @@ We will map your local SEO across every city you serve, run the grid to find you
     category: 'Local SEO',
     tags: ["local SEO", "HVAC", "plumbing", "Volusia County", "service-area pages"],
     featuredImage: '/images/blog/local-seo-hvac-plumbing-volusia-county.webp',
+    faqs: [
+      { question: "How long does local SEO take for an HVAC business?", answer: "Foundational gains (profile, categories, accuracy) can show in weeks. Ranking across multiple Volusia cities and building review depth typically takes a few months of consistent work, faster if your signals start clean." },
+      { question: "Do I need a separate Google Business Profile for each city?", answer: "Only for cities where you have a physical office and staff. Everywhere else uses service-area pages backed by your one profile. Extra profiles for cities you do not physically operate in violate Google's rules." },
+      { question: "How do Florida seasons affect my local SEO?", answer: "Demand swings hard, summer AC spikes, snowbird shifts November through April, event-week noise. Planning content and coverage around those cycles out-performs a flat national template." },
+      { question: "Why can a newer company out-rank an established one?", answer: "Because Google rewards signal clarity, not just age. A new business with clean categories, consistent data, and active reviews can pass a 15-year-old competitor whose signals are messy." },
+      { question: "Does local SEO help with AI search?", answer: "Yes. AI answers rely on many of the same signals as the map pack, so a strong local presence improves your odds of being the business AI recommends." },
+    ],
     readingTime: 7,
     seo: {
       metaTitle: "Local SEO for HVAC & Plumbing in Volusia County (2026)",
@@ -274,10 +262,10 @@ We will map your local SEO across every city you serve, run the grid to find you
     title: "Why Daytona Service Businesses Waste Google Ads Budget",
     slug: 'daytona-google-ads-wasted-budget',
     excerpt: "The real ways Daytona contractors burn Google Ads budget: broad match without negatives, homepage landing pages, weak book rate, no tracking, and Florida's seasonal swings. Plus the fixes.",
-    content: `# Why Daytona Service Businesses Waste Google Ads Budget
-*By Joel Hinton · AIO Growth SEO, Daytona Beach, FL*
-## Why is your Google Ads budget disappearing?
-**TL;DR: **Usually some mix of five leaks: broad match keywords with no negative list (the single biggest waste source in 2026), sending ad clicks to your homepage instead of a dedicated landing page, leaning on expensive non-branded clicks at about $149 each instead of building $34 branded volume, a low book rate so leads never become jobs, and no real call tracking so you are optimizing blind. Add Florida’s seasonal swings on top. The fix is rarely “spend more.” It is plugging the leaks, and often shifting budget into SEO and GEO so you stop renting every click.
+    content: `## Why is your Google Ads budget disappearing?
+
+**TL;DR:** Usually some mix of five leaks: broad match keywords with no negative list (the single biggest waste source in 2026), sending ad clicks to your homepage instead of a dedicated landing page, leaning on expensive non-branded clicks at about $149 each instead of building $34 branded volume, a low book rate so leads never become jobs, and no real call tracking so you are optimizing blind. Add Florida’s seasonal swings on top. The fix is rarely “spend more.” It is plugging the leaks, and often shifting budget into SEO and GEO so you stop renting every click.
+
 If your Google Ads budget vanishes every month with little to show for it, the platform is rarely the problem. The structure is. Here is where Daytona service businesses actually leak budget, with verified 2026 numbers and the fix for each.
 ## Leak 1: broad match with no negative keywords
 This is the single biggest waste source in 2026. Google’s AI has pushed broad match hard, and it can find new demand, but without a strict negative keyword list it also bids on “free,” “DIY,” “jobs,” and every low-intent query adjacent to yours. The fix is not to avoid broad match; it is to pair it with a regularly updated negative list and to check your search-terms report weekly to see what you actually paid for. Most contractors set campaigns and forget them, which in 2026 is how budgets bleed.
@@ -295,17 +283,7 @@ Here is the reframe that makes the leaks concrete. A click is not a lead. If you
 National agencies cannot write this for you. In Volusia, “AC repair” and “no cooling” searches spike May through September, pulling in more advertisers and pushing non-branded costs up in exactly the months you most need leads. A flat monthly budget overspends in slow months and runs dry in peak weeks. There is a smart seasonal move here: HVAC contractors can cut CPL by shifting some spend toward the season’s real intent, heating and maintenance in cooler months, emergency cooling in summer, rather than running one flat campaign year-round. Snowbird season and Daytona event weeks add more noise that inflates traffic without booking jobs.
 ## When SEO and GEO beat more ad spend
 Ads rent attention. The moment you stop paying, the leads stop. Building a branded presence through [local SEO](https://aiogrowthseo.com/local-seo) and getting found in [AI search](https://aiogrowthseo.com/geo-optimization) lowers your reliance on expensive non-branded clicks over time, because branded volume and AI citations keep working after the ad budget is spent. For many Daytona businesses the smarter move is not a bigger ad budget, it is plugging the leaks above and shifting some spend into assets you own. See how we structure that in our [SEO services](https://aiogrowthseo.com/seo-services).
-## Frequently asked questions
-**Why is my Google Ads cost per lead so high?**
-Usually broad match with no negatives, homepage landing pages, non-branded over-reliance (about $149 vs $34 branded), or a low book rate inflating your true cost per booked job.
-**Is broad match bad for contractors?**
-Not inherently, Google’s AI has made it viable, but only with a strict, regularly updated negative keyword list and weekly review of your search terms. Without those guardrails it is the fastest way to waste budget.
-**Should I run branded search campaigns?**
-Yes. Branded leads cost about 77% less and book best. Even a small branded allocation lowers your blended cost and stops competitors from bidding on your name.
-**How do Florida seasons affect my ad budget?**
-Summer AC demand pushes non-branded costs up when you most need leads. A flat budget wastes money in slow months and falls short in peak weeks. Shift spend to match the season’s real intent.
-**Is it better to spend on ads or SEO?**
-Ads deliver speed but stop when you stop paying. SEO and GEO build assets you own. Most businesses need both, but over-relying on non-branded ads is the costliest path.
+
 ## Stop the budget leak
 We will audit your campaigns, your book rate, and whether you show up in AI search, then show you exactly where the budget is leaking. See our [pricing](https://aiogrowthseo.com/pricing) or [book a free audit](https://aiogrowthseo.com/contact).`,
     author: 'Joel Hinton',
@@ -314,6 +292,13 @@ We will audit your campaigns, your book rate, and whether you show up in AI sear
     category: 'Local SEO',
     tags: ["Google Ads", "Daytona Beach", "contractors", "lead generation", "ad budget"],
     featuredImage: '/images/blog/daytona-google-ads-wasted-budget.webp',
+    faqs: [
+      { question: "Why is my Google Ads cost per lead so high?", answer: "Usually broad match with no negatives, homepage landing pages, non-branded over-reliance (about $149 vs $34 branded), or a low book rate inflating your true cost per booked job." },
+      { question: "Is broad match bad for contractors?", answer: "Not inherently, Google's AI has made it viable, but only with a strict, regularly updated negative keyword list and weekly review of your search terms. Without those guardrails it is the fastest way to waste budget." },
+      { question: "Should I run branded search campaigns?", answer: "Yes. Branded leads cost about 77% less and book best. Even a small branded allocation lowers your blended cost and stops competitors from bidding on your name." },
+      { question: "How do Florida seasons affect my ad budget?", answer: "Summer AC demand pushes non-branded costs up when you most need leads. A flat budget wastes money in slow months and falls short in peak weeks. Shift spend to match the season's real intent." },
+      { question: "Is it better to spend on ads or SEO?", answer: "Ads deliver speed but stop when you stop paying. SEO and GEO build assets you own. Most businesses need both, but over-relying on non-branded ads is the costliest path." },
+    ],
     readingTime: 6,
     seo: {
       metaTitle: "Why Daytona Service Businesses Waste Google Ads Budget (2026)",

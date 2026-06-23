@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Children, isValidElement } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -19,6 +20,13 @@ import BlogPostFaqs from './BlogPostFaqs';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
+}
+
+function isTldrParagraph(children: React.ReactNode): boolean {
+  const first = Children.toArray(children)[0];
+  if (!isValidElement(first) || first.type !== 'strong') return false;
+  const label = Children.toArray(first.props.children).join('');
+  return label.trim() === 'TL;DR:';
 }
 
 /** Drop a leading markdown hero image when it duplicates post.featuredImage. */
@@ -202,7 +210,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   h1: ({children}) => <h1 className="text-3xl font-bold text-slate-900 mt-12 mb-6">{children}</h1>,
                   h2: ({children}) => <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">{children}</h2>,
                   h3: ({children}) => <h3 className="text-xl font-bold text-slate-900 mt-8 mb-3">{children}</h3>,
-                  p: ({children}) => <p className="text-slate-700 mb-6 leading-relaxed">{children}</p>,
+                  p: ({children}) =>
+                    isTldrParagraph(children) ? (
+                      <p className="text-slate-700 mb-6 leading-relaxed bg-[#f0f7ff] border-l-4 border-blue-500 pl-6 py-4 rounded-r-lg">
+                        {children}
+                      </p>
+                    ) : (
+                      <p className="text-slate-700 mb-6 leading-relaxed">{children}</p>
+                    ),
                   blockquote: ({children}) => (
                     <blockquote className="border-l-4 border-blue-500 pl-6 my-8 italic text-slate-600 bg-blue-50 py-4 rounded-r-lg">
                       {children}
