@@ -5,7 +5,7 @@ export const localClusterPosts: BlogPost[] = [
     id: 'how-to-rank-daytona-beach-map-pack',
     title: "How to Rank in the Daytona Beach Map Pack (2026)",
     slug: 'how-to-rank-daytona-beach-map-pack',
-    excerpt: "How to get into the Daytona Beach map pack in 2026: the ranking factors and their real weights, the GBP and review tactics that move you, and the multi-city.",
+    excerpt: "How to get into the Daytona Beach map pack in 2026: the ranking factors and their real weights, the GBP and review tactics that move you, and the multi-city strategy Volusia businesses need.",
     content: `# How to Rank in the Daytona Beach Map Pack (2026)
 *By Joel Hinton · AIO Growth SEO, Daytona Beach, FL*
 ## How do you get into the Daytona Beach map pack?
@@ -73,13 +73,13 @@ We will audit your Google Business Profile, your review velocity, and your local
     lastModified: '2026-06-22T12:00:00Z',
     category: 'Local SEO',
     tags: ["map pack", "Daytona Beach", "local SEO", "Google Business Profile", "Volusia County"],
-    featuredImage: '/images/blog/how-to-rank-daytona-beach-map-pack.jpg',
+    featuredImage: '/images/blog/how-to-rank-daytona-beach-map-pack.png',
     readingTime: 11,
     seo: {
       metaTitle: "How to Rank in the Daytona Beach Map Pack (2026)",
-      metaDescription: "How to get into the Daytona Beach map pack in 2026: the ranking factors and their real weights, the GBP and review tactics that move you, and the multi-city.",
+      metaDescription: "How to get into the Daytona Beach map pack in 2026: the ranking factors and their real weights, the GBP and review tactics that move you, and the multi-city strategy Volusia businesses need.",
       keywords: ["how to rank in the map pack", "Daytona Beach map pack", "local SEO", "Google map pack", "Volusia County"],
-      ogImage: '/images/blog/how-to-rank-daytona-beach-map-pack.jpg'
+      ogImage: '/images/blog/how-to-rank-daytona-beach-map-pack.png'
     },
     published: true
   },
@@ -87,7 +87,7 @@ We will audit your Google Business Profile, your review velocity, and your local
     id: 'google-business-profile-optimization-daytona',
     title: "Google Business Profile Optimization for Daytona Contractors (2026)",
     slug: 'google-business-profile-optimization-daytona',
-    excerpt: "A Daytona contractor's guide to Google Business Profile optimization: category research, review velocity, photo strategy, posts, and the Florida license trust.",
+    excerpt: "A Daytona contractor's guide to Google Business Profile optimization: category research, review velocity, photo strategy, posts, and the Florida license trust signal competitors skip.",
     content: `# Google Business Profile Optimization for Daytona Contractors (2026)
 *By Joel Hinton · AIO Growth SEO, Daytona Beach, FL*
 ## What actually moves a Google Business Profile up?
@@ -131,13 +131,13 @@ We will review your categories, completeness, review velocity, and photos agains
     lastModified: '2026-06-22T12:00:00Z',
     category: 'Local SEO',
     tags: ["Google Business Profile", "Daytona Beach", "contractors", "local SEO", "GBP optimization"],
-    featuredImage: '/images/blog/google-business-profile-optimization-daytona.jpg',
+    featuredImage: '/images/blog/google-business-profile-optimization-daytona.png',
     readingTime: 7,
     seo: {
-      metaTitle: "Google Business Profile Optimization for Daytona (2026)",
-      metaDescription: "A Daytona contractor's guide to Google Business Profile optimization: category research, review velocity, photo strategy, posts, and the Florida license trust.",
+      metaTitle: "Google Business Profile Optimization for Daytona Contractors (2026)",
+      metaDescription: "A Daytona contractor's guide to Google Business Profile optimization: category research, review velocity, photo strategy, posts, and the Florida license trust signal competitors skip.",
       keywords: ["google business profile optimization", "GBP optimization", "Daytona contractors", "local SEO"],
-      ogImage: '/images/blog/google-business-profile-optimization-daytona.jpg'
+      ogImage: '/images/blog/google-business-profile-optimization-daytona.png'
     },
     published: true
   },
@@ -145,7 +145,7 @@ We will review your categories, completeness, review velocity, and photos agains
     id: 'book-rate-vs-cost-per-lead',
     title: "Book Rate vs Cost Per Lead: Why Your Cheapest Leads Cost the Most",
     slug: 'book-rate-vs-cost-per-lead',
-    excerpt: "Why cost per lead is the wrong number to chase. The book-rate math that shows a $34 branded lead can cost $62 per booked job while a $149 lead costs $396, and.",
+    excerpt: "Why cost per lead is the wrong number to chase. The book-rate math that shows a $34 branded lead can cost $62 per booked job while a $149 lead costs $396, and the 5-minute rule that fixes it.",
     content: `# Book Rate vs Cost Per Lead: Why Your Cheapest Leads Cost the Most
 *By Joel Hinton · AIO Growth SEO, Daytona Beach, FL*
 ## Is cost per lead the wrong number to chase?
@@ -199,13 +199,13 @@ We will calculate your true cost per booked job and show you where the book-rate
     lastModified: '2026-06-22T12:00:00Z',
     category: 'Local SEO',
     tags: ["book rate", "cost per lead", "lead generation", "HVAC marketing", "Google Ads"],
-    featuredImage: '/images/blog/book-rate-vs-cost-per-lead.jpg',
+    featuredImage: '/images/blog/book-rate-vs-cost-per-lead.png',
     readingTime: 7,
     seo: {
-      metaTitle: "Book Rate vs Cost Per Lead: Why Cheap Leads Cost Most (2026)",
-      metaDescription: "Why cost per lead is the wrong number to chase. The book-rate math that shows a $34 branded lead can cost $62 per booked job while a $149 lead costs $396, and.",
+      metaTitle: "Book Rate vs Cost Per Lead: Why Cheap Leads Cost the Most (2026)",
+      metaDescription: "Why cost per lead is the wrong number to chase. The book-rate math that shows a $34 branded lead can cost $62 per booked job while a $149 lead costs $396, and the 5-minute rule that fixes it.",
       keywords: ["book rate vs cost per lead", "cost per booked job", "HVAC lead generation", "Google Ads contractors"],
-      ogImage: '/images/blog/book-rate-vs-cost-per-lead.jpg'
+      ogImage: '/images/blog/book-rate-vs-cost-per-lead.png'
     },
     published: true
   },
@@ -213,7 +213,7 @@ We will calculate your true cost per booked job and show you where the book-rate
     id: 'local-seo-hvac-plumbing-volusia-county',
     title: "Local SEO for HVAC and Plumbing in Volusia County (2026)",
     slug: 'local-seo-hvac-plumbing-volusia-county',
-    excerpt: "How local SEO works for HVAC and plumbing businesses in Volusia County: GBP, service-area vs location pages, the 5 keyword types, review velocity, and.",
+    excerpt: "How local SEO works for HVAC and plumbing businesses in Volusia County: GBP, service-area vs location pages, the 5 keyword types, review velocity, and Florida's seasonal demand.",
     content: `# Local SEO for HVAC and Plumbing in Volusia County (2026)
 *By Joel Hinton · AIO Growth SEO, Daytona Beach, FL*
 ## How does local SEO work for an HVAC or plumbing business?
@@ -259,13 +259,13 @@ We will map your local SEO across every city you serve, run the grid to find you
     lastModified: '2026-06-22T12:00:00Z',
     category: 'Local SEO',
     tags: ["local SEO", "HVAC", "plumbing", "Volusia County", "service-area pages"],
-    featuredImage: '/images/blog/local-seo-hvac-plumbing-volusia-county.jpg',
+    featuredImage: '/images/blog/local-seo-hvac-plumbing-volusia-county.png',
     readingTime: 7,
     seo: {
       metaTitle: "Local SEO for HVAC & Plumbing in Volusia County (2026)",
-      metaDescription: "How local SEO works for HVAC and plumbing businesses in Volusia County: GBP, service-area vs location pages, the 5 keyword types, review velocity, and.",
+      metaDescription: "How local SEO works for HVAC and plumbing businesses in Volusia County: GBP, service-area vs location pages, the 5 keyword types, review velocity, and Florida's seasonal demand.",
       keywords: ["local seo for hvac", "plumbing local SEO", "Volusia County SEO", "service-area pages"],
-      ogImage: '/images/blog/local-seo-hvac-plumbing-volusia-county.jpg'
+      ogImage: '/images/blog/local-seo-hvac-plumbing-volusia-county.png'
     },
     published: true
   },
@@ -273,7 +273,7 @@ We will map your local SEO across every city you serve, run the grid to find you
     id: 'daytona-google-ads-wasted-budget',
     title: "Why Daytona Service Businesses Waste Google Ads Budget",
     slug: 'daytona-google-ads-wasted-budget',
-    excerpt: "The real ways Daytona contractors burn Google Ads budget: broad match without negatives, homepage landing pages, weak book rate, no tracking, and Florida's.",
+    excerpt: "The real ways Daytona contractors burn Google Ads budget: broad match without negatives, homepage landing pages, weak book rate, no tracking, and Florida's seasonal swings. Plus the fixes.",
     content: `# Why Daytona Service Businesses Waste Google Ads Budget
 *By Joel Hinton · AIO Growth SEO, Daytona Beach, FL*
 ## Why is your Google Ads budget disappearing?
@@ -313,13 +313,13 @@ We will audit your campaigns, your book rate, and whether you show up in AI sear
     lastModified: '2026-06-22T12:00:00Z',
     category: 'Local SEO',
     tags: ["Google Ads", "Daytona Beach", "contractors", "lead generation", "ad budget"],
-    featuredImage: '/images/blog/daytona-google-ads-wasted-budget.jpg',
+    featuredImage: '/images/blog/daytona-google-ads-wasted-budget.png',
     readingTime: 6,
     seo: {
-      metaTitle: "Why Daytona Businesses Waste Google Ads Budget (2026)",
-      metaDescription: "The real ways Daytona contractors burn Google Ads budget: broad match without negatives, homepage landing pages, weak book rate, no tracking, and Florida's.",
+      metaTitle: "Why Daytona Service Businesses Waste Google Ads Budget (2026)",
+      metaDescription: "The real ways Daytona contractors burn Google Ads budget: broad match without negatives, homepage landing pages, weak book rate, no tracking, and Florida's seasonal swings. Plus the fixes.",
       keywords: ["google ads for contractors", "Google Ads waste", "Daytona Beach marketing", "HVAC advertising"],
-      ogImage: '/images/blog/daytona-google-ads-wasted-budget.jpg'
+      ogImage: '/images/blog/daytona-google-ads-wasted-budget.png'
     },
     published: true
   },
