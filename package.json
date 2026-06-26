@@ -20,7 +20,7 @@
     "test:business-types:old": "playwright test tests/business-types.spec.ts",
     "test:debug": "playwright test tests/debug-forms.spec.ts --headed",
     "test:debug:forms": "playwright test tests/debug-forms.spec.ts",
-    "build:next": "next build"
+    "build:next": "next build && next-sitemap --config next-sitemap.config.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
