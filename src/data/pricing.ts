@@ -171,7 +171,7 @@ export const funnelSprintOffer = {
     { price: '$1,000/mo', adSpend: 'up to $20k ad spend' },
   ],
   diyVideoHref: '[YouTube link — pending]',
-  href: '/local-lead-generation',
+  href: '/services/local-lead-generation',
   serviceLabel: 'Funnel Sprint - $5,000',
 } as const;
 
@@ -180,7 +180,7 @@ export const geoOffer = {
   name: 'GEO Optimization',
   description:
     'AI-search visibility is built into every SEO plan — baseline optimization comes standard, and the full play lives in Domination-tier monthly work.',
-  href: '/geo-optimization',
+  href: '/services/geo-optimization',
   headline: 'GEO Is Built Into Every SEO Plan',
   subhead:
     'GEO is built into every SEO plan — baseline AI-search optimization comes standard, and the full play (Reddit growth, deep entity work, AI-citation building) lives in our Domination tier.',
@@ -200,7 +200,7 @@ export const geoOffer = {
     'AI-citation building and tracking',
     '10+ articles and 5+ backlinks monthly',
   ],
-  seoPlansHref: '/seo-services',
+  seoPlansHref: '/services/search-engine-optimization',
   serviceLabel: 'GEO — included in SEO plans',
 } as const;
 
@@ -258,7 +258,7 @@ export const customToolsOffer = {
   name: 'Custom Tools & Automation',
   description:
     'Custom marketing tools, dashboards, and workflow automation built for your business — you own the code and data.',
-  href: '/custom-tools-automation',
+  href: '/services/custom-tools-automation',
   projectRange:
     'Projects typically range from $5,000 for focused single-purpose tools to $25,000+ for comprehensive systems — scoped on the discovery call.',
   comparisonNote:

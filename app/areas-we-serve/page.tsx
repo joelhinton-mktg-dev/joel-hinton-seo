@@ -1,5 +1,7 @@
 'use client';
 
+import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
+
 import Link from 'next/link';
 import { MapPin, Clock, Phone, Mail, Car, CheckCircle, ArrowRight, Home, Users, Building2, Waves, TreePine } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,6 +17,12 @@ export default function AreasWeServePage() {
 
   return (
     <>
+      <PageBreadcrumb
+        items={[
+          { label: "Areas We Serve", href: "/areas-we-serve", current: true }
+        ]}
+      />
+
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
         <main className="pt-16">
           {/* Hero Section */}
@@ -192,7 +200,7 @@ export default function AreasWeServePage() {
 
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
-                      <Link href="/daytona-beach-digital-marketing">
+                      <Link href="/areas-we-serve/daytona-beach">
                         Daytona Beach Services
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
@@ -226,7 +234,7 @@ export default function AreasWeServePage() {
 
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
-                      <Link href="/ormond-beach-seo">
+                      <Link href="/areas-we-serve/ormond-beach">
                         Ormond Beach Services
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
@@ -260,7 +268,7 @@ export default function AreasWeServePage() {
 
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
-                      <Link href="/new-smyrna-beach-marketing">
+                      <Link href="/areas-we-serve/new-smyrna-beach">
                         New Smyrna Beach Services
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
@@ -294,7 +302,7 @@ export default function AreasWeServePage() {
 
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
-                      <Link href="/palm-coast-marketing">
+                      <Link href="/areas-we-serve/palm-coast">
                         Palm Coast Services
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
@@ -328,7 +336,7 @@ export default function AreasWeServePage() {
 
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
-                      <Link href="/port-orange-marketing">
+                      <Link href="/areas-we-serve/port-orange">
                         Port Orange Services
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
@@ -362,7 +370,7 @@ export default function AreasWeServePage() {
 
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
-                      <Link href="/holly-hill-digital-marketing">
+                      <Link href="/areas-we-serve/holly-hill">
                         Holly Hill Services
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
@@ -454,7 +462,7 @@ export default function AreasWeServePage() {
 
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
-                      <Link href="/debary-digital-marketing">
+                      <Link href="/areas-we-serve/debary">
                         DeBary Services
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
@@ -488,7 +496,7 @@ export default function AreasWeServePage() {
 
                     <Separator className="my-4" />
                     <Button variant="outline" size="sm" asChild className="w-full">
-                      <Link href="/sanford-seo-services">
+                      <Link href="/areas-we-serve/sanford">
                         Sanford Services
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>

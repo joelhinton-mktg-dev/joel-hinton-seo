@@ -433,7 +433,7 @@ Reality: Ranking guarantees constitute misleading claims. SEO functions as optim
 
 - Google AI Overviews appear in 33%+ of searches
 - ChatGPT, Perplexity, and comparable AI systems function as search alternatives
-- [Generative Engine Optimization (GEO)](/geo-optimization) becomes increasingly essential
+- [Generative Engine Optimization (GEO)](/services/geo-optimization) becomes increasingly essential
 - Traditional and AI search optimization require distinct approaches
 
 ### E-E-A-T Persistence
@@ -464,9 +464,9 @@ Search extends beyond Google to:
 
 **Ready to improve your SEO?**
 
-- Explore our [SEO Services](/seo-services) for professional optimization
-- Learn about [Local SEO](/local-seo) for geographic targeting
-- Discover [GEO Optimization](/geo-optimization) for AI search visibility
+- Explore our [SEO Services](/services/search-engine-optimization) for professional optimization
+- Learn about [Local SEO](/services/local-seo) for geographic targeting
+- Discover [GEO Optimization](/services/geo-optimization) for AI search visibility
 - [Contact us](/contact) for a free audit
 
 SEO represents long-term strategic investment rather than quick solution. Organizations willing to invest will experience results compounding across years.
@@ -478,7 +478,7 @@ SEO represents long-term strategic investment rather than quick solution. Organi
     category: 'SEO Fundamentals',
     tags: ['SEO', 'Search Engine Optimization', 'Digital Marketing', 'Google', '2026', 'Technical SEO', 'On-Page SEO'],
     seo: {
-      metaTitle: 'What is SEO? The Complete Guide for 2026 | AIO Growth SEO',
+      metaTitle: 'What is SEO? The Complete Guide for 2026',
       metaDescription: 'Learn everything about SEO in 2026. Comprehensive guide covering technical SEO, on-page optimization, link building, and AI search optimization strategies.',
       keywords: ['what is SEO', 'SEO guide 2026', 'search engine optimization', 'SEO basics', 'how SEO works', 'SEO tutorial'],
     },
@@ -847,9 +847,9 @@ AI Overviews and voice search typically feature just 1-2 sources. Non-top-rankin
 
 **Ready to optimize for AI search?**
 
-- Learn about [GEO Optimization](/geo-optimization) for comprehensive AI visibility strategies
-- Explore our [SEO Services](/seo-services) for professional implementation
-- Discover [Custom Tools & Automation](/custom-tools-automation) for AI monitoring
+- Learn about [GEO Optimization](/services/geo-optimization) for comprehensive AI visibility strategies
+- Explore our [SEO Services](/services/search-engine-optimization) for professional implementation
+- Discover [Custom Tools & Automation](/services/custom-tools-automation) for AI monitoring
 - [Contact us](/contact) for a free AI search audit
 
 **The time to optimize for AI is now.** By 2028-2029, AI optimization will become a baseline requirement. Brands mastering these tactics now will own their niches in AI citations.
@@ -861,7 +861,7 @@ AI Overviews and voice search typically feature just 1-2 sources. Non-top-rankin
     category: 'AI & GEO',
     tags: ['AI Search', 'ChatGPT', 'Perplexity', 'Answer Engines', 'GEO', 'AI Optimization', 'Featured Snippets'],
     seo: {
-      metaTitle: 'AI Search Optimization Implementation Guide | AIO Growth SEO',
+      metaTitle: 'AI Search Optimization Implementation Guide',
       metaDescription: 'Practical guide to optimizing content for AI search engines like ChatGPT and Perplexity. Learn 9 implementation strategies for AI visibility.',
       keywords: ['AI search optimization', 'ChatGPT SEO', 'Perplexity optimization', 'AI visibility', 'answer engine optimization', 'GEO strategies'],
     },
@@ -1172,7 +1172,7 @@ Create ongoing processes for:
 
 **Ready to master GEO?**
 
-- Explore our [GEO Optimization services](/geo-optimization) for professional implementation
+- Explore our [GEO Optimization services](/services/geo-optimization) for professional implementation
 - Learn how [SEO and GEO work together](/guides/geo-vs-seo-whats-the-difference)
 - Discover our [AI Search Optimization strategies](/guides/ai-search-optimization-implementation-guide)
 - [Contact us](/contact) for a free GEO audit
@@ -1186,7 +1186,7 @@ Create ongoing processes for:
     category: 'AI & GEO',
     tags: ['GEO', 'Generative Engine Optimization', 'AI Search', 'ChatGPT', 'Answer Engines', 'Perplexity'],
     seo: {
-      metaTitle: 'What is GEO? Complete Beginner\'s Guide to Generative Engine Optimization | AIO Growth SEO',
+      metaTitle: 'What is GEO? Complete Beginner\'s Guide to Generative Engine Optimization',
       metaDescription: 'Learn about Generative Engine Optimization (GEO) - optimizing for AI search engines like ChatGPT and Perplexity. Comprehensive guide to GEO strategies.',
       keywords: ['what is GEO', 'generative engine optimization', 'GEO meaning', 'AI search optimization', 'GEO strategy', 'GEO guide'],
     },
@@ -1624,9 +1624,9 @@ Define both SEO and GEO success metrics:
 
 **Ready to master both SEO and GEO?**
 
-- Explore our [SEO Services](/seo-services) for traditional optimization
-- Learn about [GEO Optimization](/geo-optimization) for AI visibility
-- Discover [Local SEO](/local-seo) for geographic targeting
+- Explore our [SEO Services](/services/search-engine-optimization) for traditional optimization
+- Learn about [GEO Optimization](/services/geo-optimization) for AI visibility
+- Discover [Local SEO](/services/local-seo) for geographic targeting
 - [Contact us](/contact) to assess your multi-channel visibility
 
 **The future belongs to brands visible everywhere their customers search.** The question is whether you'll adapt fast enough to capture it.
@@ -1638,7 +1638,7 @@ Define both SEO and GEO success metrics:
     category: 'Strategy',
     tags: ['GEO', 'SEO', 'Comparison', 'Digital Marketing Strategy', 'AI Search', 'Multi-Channel', 'Entity SEO'],
     seo: {
-      metaTitle: 'GEO vs SEO: What\'s the Difference & Why It Matters in 2026 | AIO Growth SEO',
+      metaTitle: 'GEO vs SEO: What\'s the Difference & Why It Matters in 2026',
       metaDescription: 'Compare GEO (Generative Engine Optimization) and SEO (Search Engine Optimization). Learn the differences, similarities, and when to use each strategy.',
       keywords: ['GEO vs SEO', 'SEO vs GEO', 'difference between GEO and SEO', 'GEO or SEO', 'AI SEO comparison', 'multi-channel SEO'],
     },
@@ -1722,7 +1722,7 @@ Content strategy must address all query classification types to build comprehens
 
 ## Prediction #3: GEO Defines Market Share
 
-[Generative Engine Optimization](/geo-optimization) focuses on earning citations from AI systems rather than just ranking for keywords.
+[Generative Engine Optimization](/services/geo-optimization) focuses on earning citations from AI systems rather than just ranking for keywords.
 
 ### The Data
 
@@ -1937,10 +1937,10 @@ For each major topic, create content addressing:
 
 **Ready to future-proof your SEO strategy?**
 
-- Explore our [SEO Services](/seo-services) for comprehensive optimization
-- Learn about [GEO Optimization](/geo-optimization) for AI visibility
-- Discover [Local SEO](/local-seo) for geographic targeting
-- Try [Custom Tools & Automation](/custom-tools-automation) for monitoring
+- Explore our [SEO Services](/services/search-engine-optimization) for comprehensive optimization
+- Learn about [GEO Optimization](/services/geo-optimization) for AI visibility
+- Discover [Local SEO](/services/local-seo) for geographic targeting
+- Try [Custom Tools & Automation](/services/custom-tools-automation) for monitoring
 - [Contact us](/contact) for a free multi-channel visibility audit
 
 **Competitive advantages from early implementation compound significantly over time.** The brands mastering these tactics in 2026 will dominate their niches by 2028.
@@ -1952,7 +1952,7 @@ For each major topic, create content addressing:
     category: 'Industry Trends',
     tags: ['SEO Predictions', '2026', 'AI SEO', 'Automation', 'Entity SEO', 'Future of SEO', 'Voice Search', 'Multi-Channel'],
     seo: {
-      metaTitle: '2026 SEO Predictions: AI, Automation & Entity Optimization | AIO Growth SEO',
+      metaTitle: '2026 SEO Predictions: AI, Automation & Entity Optimization',
       metaDescription: 'Expert SEO predictions for 2026. Learn how AI, automation, and entity optimization are transforming search engine optimization strategies.',
       keywords: ['SEO predictions 2026', 'future of SEO', 'AI SEO', 'entity optimization', 'SEO trends 2026', 'voice search SEO'],
     },

@@ -59,12 +59,12 @@ Created utility hook `src/hooks/useCanonical.ts` for potential future use:
 
 | Route | Component | Canonical URL | og:url Match | Status |
 |-------|-----------|--------------|--------------|--------|
-| `/seo-services` | `SEOServices.tsx` | `https://aiogrowthseo.com/seo-services` | ✅ | ✅ Fixed |
-| `/local-seo` | `LocalSEO.tsx` | `https://aiogrowthseo.com/local-seo` | ✅ | ✅ Fixed |
-| `/geo-optimization` | `GEOOptimization.tsx` | `https://aiogrowthseo.com/geo-optimization` | ✅ | ✅ Fixed |
-| `/local-lead-generation` | `LocalLeadGeneration.tsx` | `https://aiogrowthseo.com/local-lead-generation` | ✅ | ✅ Fixed |
-| `/custom-tools-automation` | `CustomToolsAutomation.tsx` | `https://aiogrowthseo.com/custom-tools-automation` | ✅ | ✅ Fixed |
-| `/ecommerce-seo` | `EcommerceSEO.tsx` | `https://aiogrowthseo.com/ecommerce-seo` | ✅ | ✅ Already had |
+| `/services/search-engine-optimization` | `SEOServices.tsx` | `https://aiogrowthseo.com/services/search-engine-optimization` | ✅ | ✅ Fixed |
+| `/services/local-seo` | `LocalSEO.tsx` | `https://aiogrowthseo.com/services/local-seo` | ✅ | ✅ Fixed |
+| `/services/geo-optimization` | `GEOOptimization.tsx` | `https://aiogrowthseo.com/services/geo-optimization` | ✅ | ✅ Fixed |
+| `/services/local-lead-generation` | `LocalLeadGeneration.tsx` | `https://aiogrowthseo.com/services/local-lead-generation` | ✅ | ✅ Fixed |
+| `/services/custom-tools-automation` | `CustomToolsAutomation.tsx` | `https://aiogrowthseo.com/services/custom-tools-automation` | ✅ | ✅ Fixed |
+| `/services/ecommerce-seo` | `EcommerceSEO.tsx` | `https://aiogrowthseo.com/services/ecommerce-seo` | ✅ | ✅ Already had |
 
 ### Blog & Guides ✅
 
@@ -80,15 +80,15 @@ Created utility hook `src/hooks/useCanonical.ts` for potential future use:
 | Route | Component | Canonical URL | og:url Match | Status |
 |-------|-----------|--------------|--------------|--------|
 | `/areas-we-serve` | `AreasWeServe.tsx` | `https://aiogrowthseo.com/areas-we-serve` | ✅ | ✅ Fixed |
-| `/florida-seo-services` | `FloridaSEOServices.tsx` | `https://aiogrowthseo.com/florida-seo-services` | ✅ | ✅ Fixed |
-| `/daytona-beach-digital-marketing` | `DaytonaBeachDigitalMarketing.tsx` | `https://aiogrowthseo.com/daytona-beach-digital-marketing` | ✅ | ✅ Fixed |
-| `/port-orange-marketing` | `PortOrangeMarketing.tsx` | `https://aiogrowthseo.com/port-orange-marketing` | ✅ | ✅ Fixed |
-| `/ormond-beach-seo` | `OrmondBeachSEO.tsx` | `https://aiogrowthseo.com/ormond-beach-seo` | ✅ | ✅ Fixed |
-| `/palm-coast-marketing` | `PalmCoastMarketing.tsx` | `https://aiogrowthseo.com/palm-coast-marketing` | ✅ | ✅ Fixed |
-| `/new-smyrna-beach-marketing` | `NewSmyrnaBeachMarketing.tsx` | `https://aiogrowthseo.com/new-smyrna-beach-marketing` | ✅ | ✅ Fixed |
-| `/debary-digital-marketing` | `DebaryDigitalMarketing.tsx` | `https://aiogrowthseo.com/debary-digital-marketing` | ✅ | ✅ Fixed |
-| `/sanford-seo-services` | `SanfordSEOServices.tsx` | `https://aiogrowthseo.com/sanford-seo-services` | ✅ | ✅ Fixed |
-| `/holly-hill-digital-marketing` | `HollyHillDigitalMarketing.tsx` | `https://aiogrowthseo.com/holly-hill-digital-marketing` | ✅ | ✅ Fixed |
+| `/areas-we-serve` | `FloridaSEOServices.tsx` | `https://aiogrowthseo.com/areas-we-serve` | ✅ | ✅ Fixed |
+| `/areas-we-serve/daytona-beach` | `DaytonaBeachDigitalMarketing.tsx` | `https://aiogrowthseo.com/areas-we-serve/daytona-beach` | ✅ | ✅ Fixed |
+| `/areas-we-serve/port-orange` | `PortOrangeMarketing.tsx` | `https://aiogrowthseo.com/areas-we-serve/port-orange` | ✅ | ✅ Fixed |
+| `/areas-we-serve/ormond-beach` | `OrmondBeachSEO.tsx` | `https://aiogrowthseo.com/areas-we-serve/ormond-beach` | ✅ | ✅ Fixed |
+| `/areas-we-serve/palm-coast` | `PalmCoastMarketing.tsx` | `https://aiogrowthseo.com/areas-we-serve/palm-coast` | ✅ | ✅ Fixed |
+| `/areas-we-serve/new-smyrna-beach` | `NewSmyrnaBeachMarketing.tsx` | `https://aiogrowthseo.com/areas-we-serve/new-smyrna-beach` | ✅ | ✅ Fixed |
+| `/areas-we-serve/debary` | `DebaryDigitalMarketing.tsx` | `https://aiogrowthseo.com/areas-we-serve/debary` | ✅ | ✅ Fixed |
+| `/areas-we-serve/sanford` | `SanfordSEOServices.tsx` | `https://aiogrowthseo.com/areas-we-serve/sanford` | ✅ | ✅ Fixed |
+| `/areas-we-serve/holly-hill` | `HollyHillDigitalMarketing.tsx` | `https://aiogrowthseo.com/areas-we-serve/holly-hill` | ✅ | ✅ Fixed |
 
 ### Industry Pages ✅
 
@@ -161,7 +161,7 @@ Created utility hook `src/hooks/useCanonical.ts` for potential future use:
    ```bash
    # After deployment, verify canonical URLs:
    curl -s https://aiogrowthseo.com/about | grep -i canonical
-   curl -s https://aiogrowthseo.com/seo-services | grep -i canonical
+   curl -s https://aiogrowthseo.com/services/search-engine-optimization | grep -i canonical
    # etc.
    ```
 
@@ -236,7 +236,7 @@ https://aiogrowthseo.com/<path>
 - Homepage: `https://aiogrowthseo.com/`
 - Blog listing: `https://aiogrowthseo.com/blog`
 - Blog post: `https://aiogrowthseo.com/blog/psychology-driven-cro`
-- Location page: `https://aiogrowthseo.com/daytona-beach-digital-marketing`
+- Location page: `https://aiogrowthseo.com/areas-we-serve/daytona-beach`
 - Industry page: `https://aiogrowthseo.com/industries/real-estate`
 
 ---

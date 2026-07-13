@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
 
   if (!guide || !guide.published) {
     return {
-      title: 'Guide Not Found | AIO Growth SEO',
+      title: 'Guide Not Found',
     };
   }
 

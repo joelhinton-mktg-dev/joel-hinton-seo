@@ -52,7 +52,7 @@ export default function AgenticSeoPage() {
       <PageBreadcrumb
         items={[
           { label: 'Services', href: '/services' },
-          { label: 'Agentic SEO Site', current: true },
+          { label: "Agentic SEO Site", href: "/services/agentic-seo", current: true },
         ]}
       />
 
@@ -321,7 +321,7 @@ export default function AgenticSeoPage() {
           </Button>
           <p className="text-indigo-200 mt-6 text-sm">
             Or explore our{' '}
-            <Link href="/seo-services" className="underline hover:text-white">
+            <Link href="/services/search-engine-optimization" className="underline hover:text-white">
               SEO Foundation and monthly plans
             </Link>{' '}
             if you are not ready for a full agentic rebuild.

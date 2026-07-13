@@ -1,5 +1,7 @@
 'use client';
 
+import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
+
 import Link from 'next/link';
 import { Search, MapPin, Sparkles, Users, Cog, Brain, CheckCircle, ArrowRight, Zap, Star, BarChart3, DollarSign, MessageSquare, Shield, Clock, Award, HelpCircle, Target, ShoppingCart, TrendingUp } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -16,6 +18,12 @@ export default function ServicesPage() {
 
   return (
     <>
+      <PageBreadcrumb
+        items={[
+          { label: "Services", href: "/services", current: true }
+        ]}
+      />
+
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
         <section className="pt-24 pb-16 bg-background">
@@ -223,7 +231,7 @@ export default function ServicesPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-4">
-                    <Link href="/seo-services">
+                    <Link href="/services/search-engine-optimization">
                       <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
                         <div className="flex items-center gap-3">
                           <Search className="w-6 h-6 text-blue-600" />
@@ -238,7 +246,7 @@ export default function ServicesPage() {
                       </div>
                     </Link>
 
-                    <Link href="/local-seo">
+                    <Link href="/services/local-seo">
                       <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
                         <div className="flex items-center gap-3">
                           <MapPin className="w-6 h-6 text-green-600" />
@@ -253,7 +261,7 @@ export default function ServicesPage() {
                       </div>
                     </Link>
 
-                    <Link href="/local-lead-generation">
+                    <Link href="/services/local-lead-generation">
                       <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
                         <div className="flex items-center gap-3">
                           <Users className="w-6 h-6 text-orange-600" />
@@ -268,7 +276,7 @@ export default function ServicesPage() {
                       </div>
                     </Link>
 
-                    <Link href="/custom-tools-automation">
+                    <Link href="/services/custom-tools-automation">
                       <div className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
                         <div className="flex items-center gap-3">
                           <Cog className="w-6 h-6 text-teal-600" />

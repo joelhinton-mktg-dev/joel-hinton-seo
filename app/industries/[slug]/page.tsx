@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
 
   if (!industry) {
     return {
-      title: 'Industry Not Found | AIO Growth SEO',
+      title: 'Industry Not Found',
     };
   }
 
@@ -300,7 +300,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/seo-services">
+              <Link href="/services/search-engine-optimization">
                 <Card className="card-professional hover:shadow-lg transition-shadow cursor-pointer h-full">
                   <CardContent className="p-6">
                     <BarChart3 className="w-10 h-10 text-primary mb-4" />
@@ -312,7 +312,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 </Card>
               </Link>
 
-              <Link href="/local-seo">
+              <Link href="/services/local-seo">
                 <Card className="card-professional hover:shadow-lg transition-shadow cursor-pointer h-full">
                   <CardContent className="p-6">
                     <MapPin className="w-10 h-10 text-primary mb-4" />
@@ -324,7 +324,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 </Card>
               </Link>
 
-              <Link href="/geo-optimization">
+              <Link href="/services/geo-optimization">
                 <Card className="card-professional hover:shadow-lg transition-shadow cursor-pointer h-full">
                   <CardContent className="p-6">
                     <Sparkles className="w-10 h-10 text-primary mb-4" />
@@ -336,7 +336,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 </Card>
               </Link>
 
-              <Link href="/local-lead-generation">
+              <Link href="/services/local-lead-generation">
                 <Card className="card-professional hover:shadow-lg transition-shadow cursor-pointer h-full">
                   <CardContent className="p-6">
                     <Target className="w-10 h-10 text-primary mb-4" />
@@ -348,7 +348,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 </Card>
               </Link>
 
-              <Link href="/ecommerce-seo">
+              <Link href="/services/ecommerce-seo">
                 <Card className="card-professional hover:shadow-lg transition-shadow cursor-pointer h-full">
                   <CardContent className="p-6">
                     <TrendingUp className="w-10 h-10 text-primary mb-4" />
@@ -360,7 +360,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 </Card>
               </Link>
 
-              <Link href="/custom-tools-automation">
+              <Link href="/services/custom-tools-automation">
                 <Card className="card-professional hover:shadow-lg transition-shadow cursor-pointer h-full">
                   <CardContent className="p-6">
                     <Zap className="w-10 h-10 text-primary mb-4" />

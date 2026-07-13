@@ -1,7 +1,7 @@
 'use client';
 
-import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
-import ContactDialog from '../../components/ContactDialog';
+import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
@@ -31,9 +31,10 @@ export default function CustomToolsAutomationPage() {
   return (
     <>
       <PageBreadcrumb
-        items={[
-          { label: "Custom Tools & Automation", current: true }
-        ]}
+          items={[
+            { label: "Services", href: "/services" },
+            { label: "Custom Tools & Automation", href: "/services/custom-tools-automation", current: true }
+          ]}
       />
 
       {/* Hero Section */}
@@ -642,7 +643,7 @@ export default function CustomToolsAutomationPage() {
       <ProfessionalServiceSchema
         serviceName="Custom Digital Marketing Tools & Automation"
         serviceDescription="Custom SEO automation tools, lead generation systems, reporting dashboards, and workflow automation built for your specific business needs"
-        serviceUrl="https://aiogrowthseo.com/custom-tools-automation"
+        serviceUrl="https://aiogrowthseo.com/services/custom-tools-automation"
         serviceType="Marketing Automation Services"
       />
     </>

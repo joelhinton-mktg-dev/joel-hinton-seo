@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
-import ContactDialog from '../../components/ContactDialog';
+import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -31,7 +31,7 @@ export default function DaytonaBeachDigitalMarketingPage() {
       <PageBreadcrumb
         items={[
           { label: "Areas We Serve", href: "/areas-we-serve" },
-          { label: "Daytona Beach Digital Marketing", current: true }
+          { label: "Daytona Beach Digital Marketing", href: "/areas-we-serve/daytona-beach", current: true }
         ]}
       />
 

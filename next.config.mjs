@@ -51,11 +51,57 @@ const nextConfig = {
 
   async redirects() {
     return [
-      {
-        source: '/agentic-seo',
-        destination: '/services/agentic-seo',
-        statusCode: 301,
-      },
+      // --- Service page migrations (flat → /services/[slug]) ---
+      { source: '/seo-services', destination: '/services/search-engine-optimization', permanent: true },
+      { source: '/seo-services/', destination: '/services/search-engine-optimization', permanent: true },
+      { source: '/local-seo', destination: '/services/local-seo', permanent: true },
+      { source: '/local-seo/', destination: '/services/local-seo', permanent: true },
+      { source: '/geo-optimization', destination: '/services/geo-optimization', permanent: true },
+      { source: '/geo-optimization/', destination: '/services/geo-optimization', permanent: true },
+      { source: '/local-lead-generation', destination: '/services/local-lead-generation', permanent: true },
+      { source: '/local-lead-generation/', destination: '/services/local-lead-generation', permanent: true },
+      { source: '/ecommerce-seo', destination: '/services/ecommerce-seo', permanent: true },
+      { source: '/ecommerce-seo/', destination: '/services/ecommerce-seo', permanent: true },
+      { source: '/custom-tools-automation', destination: '/services/custom-tools-automation', permanent: true },
+      { source: '/custom-tools-automation/', destination: '/services/custom-tools-automation', permanent: true },
+      { source: '/florida-seo-services', destination: '/areas-we-serve', permanent: true },
+      { source: '/florida-seo-services/', destination: '/areas-we-serve', permanent: true },
+
+      // --- Location page migrations (flat → /areas-we-serve/[slug]) ---
+      { source: '/daytona-beach-digital-marketing', destination: '/areas-we-serve/daytona-beach', permanent: true },
+      { source: '/daytona-beach-digital-marketing/', destination: '/areas-we-serve/daytona-beach', permanent: true },
+      { source: '/port-orange-marketing', destination: '/areas-we-serve/port-orange', permanent: true },
+      { source: '/port-orange-marketing/', destination: '/areas-we-serve/port-orange', permanent: true },
+      { source: '/ormond-beach-seo', destination: '/areas-we-serve/ormond-beach', permanent: true },
+      { source: '/ormond-beach-seo/', destination: '/areas-we-serve/ormond-beach', permanent: true },
+      { source: '/palm-coast-marketing', destination: '/areas-we-serve/palm-coast', permanent: true },
+      { source: '/palm-coast-marketing/', destination: '/areas-we-serve/palm-coast', permanent: true },
+      { source: '/new-smyrna-beach-marketing', destination: '/areas-we-serve/new-smyrna-beach', permanent: true },
+      { source: '/new-smyrna-beach-marketing/', destination: '/areas-we-serve/new-smyrna-beach', permanent: true },
+      { source: '/holly-hill-digital-marketing', destination: '/areas-we-serve/holly-hill', permanent: true },
+      { source: '/holly-hill-digital-marketing/', destination: '/areas-we-serve/holly-hill', permanent: true },
+      { source: '/debary-digital-marketing', destination: '/areas-we-serve/debary', permanent: true },
+      { source: '/debary-digital-marketing/', destination: '/areas-we-serve/debary', permanent: true },
+      { source: '/sanford-seo-services', destination: '/areas-we-serve/sanford', permanent: true },
+      { source: '/sanford-seo-services/', destination: '/areas-we-serve/sanford', permanent: true },
+
+      // --- Alias / variant redirects (single hop) ---
+      { source: '/agentic-seo', destination: '/services/agentic-seo', permanent: true },
+      { source: '/agentic-seo/', destination: '/services/agentic-seo', permanent: true },
+      { source: '/services/seo', destination: '/services/search-engine-optimization', permanent: true },
+      { source: '/services/seo-services', destination: '/services/search-engine-optimization', permanent: true },
+      { source: '/services/geo', destination: '/services/geo-optimization', permanent: true },
+      { source: '/geo', destination: '/services/geo-optimization', permanent: true },
+      { source: '/locations/:slug', destination: '/areas-we-serve/:slug', permanent: true },
+      { source: '/contact-us', destination: '/contact', permanent: true },
+      { source: '/about-us', destination: '/about', permanent: true },
+      { source: '/privacy-policy', destination: '/privacy', permanent: true },
+      { source: '/terms-of-service', destination: '/terms', permanent: true },
+      { source: '/free-seo-audit', destination: '/lp/free-seo-audit', permanent: true },
+      { source: '/free-audit', destination: '/lp/free-seo-audit', permanent: true },
+      { source: '/feed', destination: '/feed.xml', permanent: true },
+      { source: '/rss', destination: '/feed.xml', permanent: true },
+      { source: '/rss.xml', destination: '/feed.xml', permanent: true },
     ];
   },
 

@@ -133,7 +133,7 @@ export const trackPhoneClick = (phoneNumber: string, linkLocation: string): void
   });
 };
 
-export type PrimaryCtaPage = '/services/agentic-seo' | '/local-lead-generation';
+export type PrimaryCtaPage = '/services/agentic-seo' | '/services/local-lead-generation';
 
 export const trackPrimaryCtaClick = (params: {
   pagePath: PrimaryCtaPage;

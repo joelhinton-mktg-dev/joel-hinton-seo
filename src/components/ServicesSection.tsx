@@ -32,7 +32,7 @@ const services = [
     description: "Comprehensive SEO that combines technical excellence with content strategy. Site audits, keyword research, and ongoing optimization for sustainable organic growth.",
     features: ["Technical SEO audits", "Keyword research", "Content optimization", "Backlink strategy"],
     price: "$500 - $1,000",
-    href: "/seo-services"
+    href: "/services/search-engine-optimization"
   },
   {
     icon: MapPin,
@@ -41,7 +41,7 @@ const services = [
     description: "Get found by customers in Volusia & Flagler Counties. Google Business Profile optimization, local citations, and review management for local businesses.",
     features: ["Google Business Profile", "Local citations", "Review management", "Map pack rankings"],
     price: "$400 - $800",
-    href: "/local-seo"
+    href: "/services/local-seo"
   },
   {
     icon: Sparkles,
@@ -50,7 +50,7 @@ const services = [
     description: "Prepare for the future of search. Optimize your content for AI assistants, ChatGPT, and generative search engines that are changing how people find businesses.",
     features: ["AI search optimization", "Answer Engine Optimization", "Structured data", "Entity optimization"],
     price: "$600 - $1,200",
-    href: "/geo-optimization"
+    href: "/services/geo-optimization"
   },
   {
     icon: ShoppingCart,
@@ -59,7 +59,7 @@ const services = [
     description: "Drive organic traffic and sales for Shopify, WooCommerce, and marketplace stores. Product optimization, technical SEO, and conversion strategies.",
     features: ["Product page optimization", "Technical e-commerce SEO", "Marketplace optimization", "Conversion optimization"],
     price: "$1,500 - $3,000",
-    href: "/ecommerce-seo"
+    href: "/services/ecommerce-seo"
   },
   {
     icon: Users,
@@ -68,7 +68,7 @@ const services = [
     description: "Google Local Service Ads, Search Ads, and Facebook campaigns for home services and professional services. Pay for leads, not clicks.",
     features: ["Google Local Service Ads", "Search campaigns", "Facebook lead ads", "Call tracking"],
     price: "$500/month",
-    href: "/local-lead-generation"
+    href: "/services/local-lead-generation"
   },
   {
     icon: Cog,
@@ -77,7 +77,7 @@ const services = [
     description: "Custom SEO tools, reporting dashboards, lead generation systems, and workflow automation designed specifically for your business needs.",
     features: ["SEO automation tools", "Custom dashboards", "Lead systems", "Workflow automation"],
     price: "Quote-based",
-    href: "/custom-tools-automation"
+    href: "/services/custom-tools-automation"
   }
 ];
 

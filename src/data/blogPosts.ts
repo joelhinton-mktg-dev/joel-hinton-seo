@@ -10,7 +10,7 @@ const legacyBlogPosts: BlogPost[] = [
     title: 'The Psychology Behind High-Converting Landing Pages: 7 Cognitive Biases That Drive Action',
     slug: 'psychology-driven-cro',
     excerpt: 'Discover how understanding cognitive biases like loss aversion, social proof, and the paradox of choice can dramatically improve your conversion rates and create more persuasive user experiences.',
-    content: `# The Psychology Behind High-Converting Landing Pages
+    content: `## The Psychology Behind High-Converting Landing Pages
 
 In the world of digital marketing, understanding human psychology isn't just an advantage—it's essential. After analyzing over 500 landing pages and their conversion data, I've identified seven key cognitive biases that consistently drive higher conversion rates.
 
@@ -136,7 +136,7 @@ The most successful marketers aren't just great at advertising; they're students
     title: 'AI-Powered Content Strategy: How to Scale Personalization Without Losing Authenticity',
     slug: 'ai-content-strategy',
     excerpt: 'Explore how AI can revolutionize your content marketing while maintaining brand authenticity. Learn practical frameworks for scaling personalized content that converts.',
-    content: `# AI-Powered Content Strategy: Scaling Personalization Without Losing Authenticity
+    content: `## AI-Powered Content Strategy: Scaling Personalization Without Losing Authenticity
 
 The content marketing landscape has fundamentally shifted. With AI tools becoming more sophisticated, marketers now have unprecedented power to create personalized content at scale. But here's the challenge: How do you leverage AI without losing the human touch that builds genuine connections?
 
@@ -316,8 +316,7 @@ The brands that succeed in this new landscape will be those that master the bala
     title: 'Growth Hacking SaaS: The Psychology of User Onboarding and Retention',
     slug: 'growth-hacking-saas',
     excerpt: 'Discover the psychological principles behind successful SaaS onboarding flows and retention strategies that turn trial users into long-term customers.',
-    content: `# Growth Hacking SaaS: The Psychology of User Onboarding and Retention
-
+    content: `
 In the competitive SaaS landscape, user onboarding isn't just about showing features—it's about psychology. The first 10 minutes of a user's experience can determine whether they become a long-term customer or churn immediately.
 
 After optimizing onboarding flows for 50+ SaaS companies, I've discovered the psychological principles that separate high-retention products from the rest.
@@ -554,8 +553,7 @@ The companies that master onboarding psychology don't just reduce churn—they c
     title: 'Case Study: How We Increased E-commerce Conversions by 347% Using Behavioral Psychology',
     slug: 'ecommerce-conversion-case-study',
     excerpt: 'A detailed breakdown of how we applied consumer psychology principles to transform an underperforming e-commerce site into a conversion machine.',
-    content: `# Case Study: How We Increased E-commerce Conversions by 347% Using Behavioral Psychology
-
+    content: `
 When SportGear Pro approached us, they were struggling with a 1.2% conversion rate despite having great products and competitive prices. Six months later, their conversion rate had jumped to 5.4%—a 347% increase that added $2.3M in annual revenue.
 
 Here's exactly how we did it, and more importantly, why it worked.
@@ -833,7 +831,7 @@ The key is to start with empathy, design with psychology in mind, and always tes
     title: 'The Hidden Psychology of Color in Digital Marketing: What Your Brand Colors Really Say',
     slug: 'color-psychology-branding',
     excerpt: 'Dive deep into how color psychology affects consumer behavior, brand perception, and conversion rates across different cultures and contexts.',
-    content: `# The Hidden Psychology of Color in Digital Marketing
+    content: `## The Hidden Psychology of Color in Digital Marketing
 
 Color isn't just about aesthetics—it's one of your most powerful psychological tools. Research shows that people make subconscious judgments about products within 90 seconds, and 62-90% of that assessment is based on color alone.
 

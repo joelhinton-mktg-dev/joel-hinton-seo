@@ -1,7 +1,7 @@
 'use client';
 
-import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
-import ContactDialog from '../../components/ContactDialog';
+import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
@@ -39,7 +39,7 @@ export default function LocalLeadGenerationPage() {
 
   const openQuoteDialog = (ctaLocation: string, serviceLabel?: string) => {
     trackPrimaryCtaClick({
-      pagePath: '/local-lead-generation',
+      pagePath: '/services/local-lead-generation',
       ctaLabel: CTA_LABEL,
       ctaLocation,
       serviceName: serviceLabel ?? funnelSprintOffer.serviceLabel,
@@ -75,9 +75,10 @@ export default function LocalLeadGenerationPage() {
   return (
     <>
       <PageBreadcrumb
-        items={[
-          { label: "Local Lead Generation", current: true }
-        ]}
+          items={[
+            { label: "Services", href: "/services" },
+            { label: "Local Lead Generation", href: "/services/local-lead-generation", current: true }
+          ]}
       />
 
       {/* Hero Section */}
@@ -748,7 +749,7 @@ export default function LocalLeadGenerationPage() {
       <ProfessionalServiceSchema
         serviceName="Local Lead Generation Ads"
         serviceDescription="Google Local Service Ads, Search Ads, and Facebook lead generation campaigns for home services and professional services businesses in Volusia and Flagler Counties"
-        serviceUrl="https://aiogrowthseo.com/local-lead-generation"
+        serviceUrl="https://aiogrowthseo.com/services/local-lead-generation"
         serviceType="Local Advertising Services"
       />
     </>

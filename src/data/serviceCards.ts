@@ -21,7 +21,7 @@ export const serviceCards = [
       'Comprehensive SEO that combines technical excellence with content strategy. Site audits, keyword research, and ongoing optimization for sustainable organic growth.',
     features: ['Technical SEO audits', 'Keyword research', 'Content optimization', 'Backlink strategy'],
     price: 'From $1,500 setup + $500/mo.',
-    href: '/seo-services',
+    href: '/services/search-engine-optimization',
     accent: 'blue',
   },
   {
@@ -33,7 +33,7 @@ export const serviceCards = [
       'Get found by customers in Volusia & Flagler Counties. Google Business Profile optimization, local citations, and review management for local businesses.',
     features: ['Google Business Profile', 'Local citations', 'Review management', 'Map pack rankings'],
     price: 'From $1,500 setup + $500/mo.',
-    href: '/local-seo',
+    href: '/services/local-seo',
     accent: 'green',
   },
   {
@@ -45,7 +45,7 @@ export const serviceCards = [
       'Prepare for the future of search. Optimize your content for AI assistants, ChatGPT, and generative search engines that are changing how people find businesses.',
     features: ['AI search optimization', 'Answer Engine Optimization', 'Structured data', 'Entity optimization'],
     price: '',
-    href: '/geo-optimization',
+    href: '/services/geo-optimization',
     accent: 'purple',
   },
   {
@@ -57,7 +57,7 @@ export const serviceCards = [
       'Drive organic traffic and sales for Shopify, WooCommerce, and marketplace stores. Product optimization, technical SEO, and conversion strategies.',
     features: ['Product page optimization', 'Technical e-commerce SEO', 'Marketplace optimization', 'Conversion optimization'],
     price: '$1,500 - $3,000',
-    href: '/ecommerce-seo',
+    href: '/services/ecommerce-seo',
     accent: 'fuchsia',
   },
   {
@@ -69,7 +69,7 @@ export const serviceCards = [
       'Google Local Service Ads, Search Ads, and Facebook campaigns for home services and professional services. Pay for leads, not clicks.',
     features: ['Google Local Service Ads', 'Search campaigns', 'Facebook lead ads', 'Call tracking'],
     price: '$500/month',
-    href: '/local-lead-generation',
+    href: '/services/local-lead-generation',
     accent: 'orange',
   },
   {
@@ -81,7 +81,7 @@ export const serviceCards = [
       'Custom SEO tools, reporting dashboards, lead generation systems, and workflow automation designed specifically for your business needs.',
     features: ['SEO automation tools', 'Custom dashboards', 'Lead systems', 'Workflow automation'],
     price: 'From $2,500 setup + $750/mo.',
-    href: '/custom-tools-automation',
+    href: '/services/custom-tools-automation',
     accent: 'teal',
   },
 ] as const;

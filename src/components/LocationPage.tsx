@@ -34,7 +34,11 @@ export default function LocationPage({ location }: LocationPageProps) {
       <PageBreadcrumb
         items={[
           { label: "Areas We Serve", href: "/areas-we-serve" },
-          { label: `${location.city} ${location.slug.includes('seo') ? 'SEO' : 'Marketing'}`, current: true }
+          {
+            label: location.seo.metaTitle.split('|')[0].trim(),
+            href: `/areas-we-serve/${location.slug}`,
+            current: true,
+          },
         ]}
       />
 
@@ -70,7 +74,7 @@ export default function LocationPage({ location }: LocationPageProps) {
 
             {location.supplementalCopy && (
               <p className="text-lg text-muted-foreground mb-8 max-w-4xl mx-auto">
-                {location.slug === 'holly-hill-digital-marketing' ? (
+                {location.slug === 'holly-hill' ? (
                   <>
                     Holly Hill digital marketing should speak to families and retirees in a close-knit community, not copy a metro-wide Daytona playbook. When you need broader search coverage across the beach market, work with our{' '}
                     <Link href="/" className="text-primary underline hover:text-primary/80">

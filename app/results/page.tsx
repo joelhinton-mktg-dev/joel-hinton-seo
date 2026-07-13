@@ -115,7 +115,7 @@ export default function ResultsPage() {
       <div className="min-h-screen bg-background">
         <PageBreadcrumb
           items={[
-            { label: "Results", current: true }
+            { label: "Results", href: "/results", current: true }
           ]}
         />
 

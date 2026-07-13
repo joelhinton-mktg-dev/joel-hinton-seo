@@ -40,16 +40,16 @@ const Navigation = () => {
     },
     {
       label: "SEO Services",
-      href: "/seo-services",
+      href: "/services/search-engine-optimization",
       description: "Psychology-driven search optimization",
       subItems: [
-        { label: "Local SEO", href: "/local-seo", description: "Florida market domination" },
-        { label: "GEO Optimization", href: "/geo-optimization", description: "AI search optimization" },
+        { label: "Local SEO", href: "/services/local-seo", description: "Florida market domination" },
+        { label: "GEO Optimization", href: "/services/geo-optimization", description: "AI search optimization" },
       ]
     },
-    { label: "E-commerce SEO", href: "/ecommerce-seo", description: "Online store optimization" },
-    { label: "Local Lead Generation", href: "/local-lead-generation", description: "Google Ads & Facebook leads for local businesses" },
-    { label: "Custom Tools & Automation", href: "/custom-tools-automation", description: "Custom marketing tools & workflow automation" },
+    { label: "E-commerce SEO", href: "/services/ecommerce-seo", description: "Online store optimization" },
+    { label: "Local Lead Generation", href: "/services/local-lead-generation", description: "Google Ads & Facebook leads for local businesses" },
+    { label: "Custom Tools & Automation", href: "/services/custom-tools-automation", description: "Custom marketing tools & workflow automation" },
   ];
   const mainNavItems = [
     { label: "Home", href: "/" },
@@ -98,12 +98,12 @@ const Navigation = () => {
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
                       onMouseEnter={() => setIsServicesOpen(true)}
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-accent/50 hover:text-accent-foreground flex items-center gap-1 ${
-                        isServicesOpen || location.pathname.startsWith('/seo-services') ||
-                        location.pathname.startsWith('/local-lead-generation') ||
-                        location.pathname.startsWith('/custom-tools-automation') ||
-                        location.pathname.startsWith('/local-seo') ||
-                        location.pathname.startsWith('/geo-optimization') ||
-                        location.pathname.startsWith('/ecommerce-seo')
+                        isServicesOpen || location.pathname.startsWith('/services/search-engine-optimization') ||
+                        location.pathname.startsWith('/services/local-lead-generation') ||
+                        location.pathname.startsWith('/services/custom-tools-automation') ||
+                        location.pathname.startsWith('/services/local-seo') ||
+                        location.pathname.startsWith('/services/geo-optimization') ||
+                        location.pathname.startsWith('/services/ecommerce-seo')
                           ? "text-primary bg-primary/10"
                           : "text-muted-foreground hover:text-foreground"
                       }`}

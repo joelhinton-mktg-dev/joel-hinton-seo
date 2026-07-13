@@ -11,8 +11,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
-import ContactDialog from '../../components/ContactDialog';
+import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 
@@ -24,7 +24,8 @@ export default function GEOOptimizationPage() {
       <div className="min-h-screen bg-background">
         <PageBreadcrumb
           items={[
-            { label: "GEO Optimization", current: true }
+            { label: "Services", href: "/services" },
+            { label: "GEO Optimization", href: "/services/geo-optimization", current: true }
           ]}
         />
 
@@ -339,7 +340,7 @@ export default function GEOOptimizationPage() {
                   className="w-full bg-purple-600 hover:bg-purple-700"
                   asChild
                 >
-                  <Link href="/seo-services">
+                  <Link href="/services/search-engine-optimization">
                     View SEO Plans & Domination Tier
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
@@ -413,7 +414,7 @@ export default function GEOOptimizationPage() {
               className="px-8 py-4 text-lg"
               asChild
             >
-              <Link href="/seo-services">
+              <Link href="/services/search-engine-optimization">
                 <Sparkles className="w-5 h-5 mr-2" />
                 Explore SEO & Domination Plans
                 <ArrowRight className="w-5 h-5 ml-2" />

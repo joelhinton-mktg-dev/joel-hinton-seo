@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
-import ContactDialog from '../../components/ContactDialog';
+import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import { seoFoundation, seoMonthlyTiers } from '@/data/pricing';
@@ -34,7 +34,8 @@ export default function SEOServicesPage() {
       <div className="min-h-screen bg-background">
         <PageBreadcrumb
           items={[
-            { label: "SEO Services", current: true }
+            { label: "Services", href: "/services" },
+            { label: "SEO Services", href: "/services/search-engine-optimization", current: true }
           ]}
         />
 

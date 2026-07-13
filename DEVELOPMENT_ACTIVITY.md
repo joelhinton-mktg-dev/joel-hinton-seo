@@ -12,8 +12,8 @@
 **Error**: `Uncaught ReferenceError: Label is not defined`
 
 **Affected Files**:
-- `/seo-services` (SEOServices.tsx)
-- `/local-seo` (LocalSEO.tsx) 
+- `/services/search-engine-optimization` (SEOServices.tsx)
+- `/services/local-seo` (LocalSEO.tsx) 
 - `/growth-marketing` (OrlandoDigitalMarketing.tsx)
 
 **Root Cause**: Missing imports for form UI components after ContactDialog integration

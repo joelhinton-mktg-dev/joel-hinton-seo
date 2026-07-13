@@ -8,14 +8,14 @@ import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
 import { getPublishedGuides } from '@/data/guides';
 
 export const metadata: Metadata = {
-  title: 'SEO & GEO Guides | Free Educational Resources | AIO Growth SEO',
+  title: 'SEO & GEO Guides | Free Educational Resources',
   description: 'Comprehensive guides on SEO, GEO (Generative Engine Optimization), and AI search optimization. Free educational resources to help you master digital marketing.',
   keywords: ['SEO guides', 'GEO guides', 'digital marketing resources', 'SEO education', 'AI search optimization guides'],
   alternates: {
     canonical: 'https://aiogrowthseo.com/guides',
   },
   openGraph: {
-    title: 'SEO & GEO Guides | Free Educational Resources | AIO Growth SEO',
+    title: 'SEO & GEO Guides | Free Educational Resources',
     description: 'Comprehensive guides on SEO, GEO, and AI search optimization. Free educational resources for digital marketers.',
     type: 'website',
     url: 'https://aiogrowthseo.com/guides',
@@ -196,7 +196,7 @@ export default function GuidesPage() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Technical SEO, content strategy, and link building to improve your search rankings.
                 </p>
-                <Link href="/seo-services">
+                <Link href="/services/search-engine-optimization">
                   <Button variant="outline" size="sm">Learn More</Button>
                 </Link>
               </Card>
@@ -207,7 +207,7 @@ export default function GuidesPage() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Optimize for AI search engines like ChatGPT and Perplexity to increase brand visibility.
                 </p>
-                <Link href="/geo-optimization">
+                <Link href="/services/geo-optimization">
                   <Button variant="outline" size="sm">Learn More</Button>
                 </Link>
               </Card>
@@ -218,7 +218,7 @@ export default function GuidesPage() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Dominate local search results and Google Business Profile for your service area.
                 </p>
-                <Link href="/local-seo">
+                <Link href="/services/local-seo">
                   <Button variant="outline" size="sm">Learn More</Button>
                 </Link>
               </Card>

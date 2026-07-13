@@ -75,35 +75,35 @@ const TestimonialsSection = () => {
           <p className="text-muted-foreground mb-8">Trusted by businesses across Volusia & Flagler Counties</p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
             <Link
-              href="/daytona-beach-digital-marketing"
+              href="/areas-we-serve/daytona-beach"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Daytona Beach
             </Link>
             <div className="w-px h-8 bg-border"></div>
             <Link
-              href="/port-orange-marketing"
+              href="/areas-we-serve/port-orange"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Port Orange
             </Link>
             <div className="w-px h-8 bg-border"></div>
             <Link
-              href="/ormond-beach-seo"
+              href="/areas-we-serve/ormond-beach"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Ormond Beach
             </Link>
             <div className="w-px h-8 bg-border"></div>
             <Link
-              href="/palm-coast-marketing"
+              href="/areas-we-serve/palm-coast"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Palm Coast
             </Link>
             <div className="w-px h-8 bg-border"></div>
             <Link
-              href="/new-smyrna-beach-marketing"
+              href="/areas-we-serve/new-smyrna-beach"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               New Smyrna Beach

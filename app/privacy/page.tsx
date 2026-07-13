@@ -7,7 +7,7 @@ import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
 import { SITE_PHONE_DISPLAY } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | AIO Growth SEO | Data Protection & Privacy',
+  title: 'Privacy Policy | Data Protection & Privacy',
   description: 'Privacy Policy for AIO Growth SEO. Learn how we collect, use, and protect your personal information in compliance with GDPR and CCPA.',
   robots: {
     index: true,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     canonical: 'https://aiogrowthseo.com/privacy',
   },
   openGraph: {
-    title: 'Privacy Policy | AIO Growth SEO',
+    title: 'Privacy Policy',
     description: 'Privacy Policy for AIO Growth SEO. Learn how we collect, use, and protect your personal information.',
     url: 'https://aiogrowthseo.com/privacy',
   },

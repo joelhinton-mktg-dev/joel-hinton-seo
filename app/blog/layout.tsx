@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Blog | AIO Growth SEO',
+    title: 'Blog',
     description:
       'Expert insights on SEO psychology, conversion optimization, AI search visibility, and growth marketing.',
     url: 'https://aiogrowthseo.com/blog',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog | AIO Growth SEO',
+    title: 'Blog',
     description:
       'Expert insights on SEO psychology, conversion optimization, AI search visibility, and growth marketing.',
   },

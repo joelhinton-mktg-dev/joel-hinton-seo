@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: 'https://aiogrowthseo.com/',
   },
   openGraph: {
-    title: 'Daytona Beach SEO Company | AIO Growth SEO',
+    title: 'Daytona Beach SEO Company',
     description: 'Your Daytona Beach SEO company for Volusia and Flagler Counties. Local SEO, GEO optimization, lead generation, and measurable growth.',
     type: 'website',
     url: 'https://aiogrowthseo.com/',
@@ -100,14 +100,14 @@ const industries = [
 ];
 
 const localMarkets = [
-  { name: "Daytona Beach", href: "/daytona-beach-digital-marketing", highlight: true },
-  { name: "Ormond Beach", href: "/ormond-beach-seo" },
-  { name: "Port Orange", href: "/port-orange-marketing" },
-  { name: "Palm Coast", href: "/palm-coast-marketing" },
-  { name: "New Smyrna Beach", href: "/new-smyrna-beach-marketing" },
-  { name: "DeBary", href: "/debary-digital-marketing" },
-  { name: "Sanford", href: "/sanford-seo-services" },
-  { name: "Holly Hill", href: "/holly-hill-digital-marketing" }
+  { name: "Daytona Beach", href: "/areas-we-serve/daytona-beach", highlight: true },
+  { name: "Ormond Beach", href: "/areas-we-serve/ormond-beach" },
+  { name: "Port Orange", href: "/areas-we-serve/port-orange" },
+  { name: "Palm Coast", href: "/areas-we-serve/palm-coast" },
+  { name: "New Smyrna Beach", href: "/areas-we-serve/new-smyrna-beach" },
+  { name: "DeBary", href: "/areas-we-serve/debary" },
+  { name: "Sanford", href: "/areas-we-serve/sanford" },
+  { name: "Holly Hill", href: "/areas-we-serve/holly-hill" }
 ];
 
 export default function HomePage() {

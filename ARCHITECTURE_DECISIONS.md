@@ -127,7 +127,7 @@ const SEOServices = lazy(() => import("./pages/SEOServices"));
 <Suspense fallback={<LoadingSpinner />}>
   <Routes>
     <Route path="/" element={<Index />} />
-    <Route path="/seo-services" element={<SEOServices />} />
+    <Route path="/services/search-engine-optimization" element={<SEOServices />} />
     // ... comprehensive routing
   </Routes>
 </Suspense>

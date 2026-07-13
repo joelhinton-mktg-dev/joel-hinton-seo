@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   if (!post) {
     return {
-      title: 'Post Not Found | AIO Growth SEO',
+      title: 'Post Not Found',
     };
   }
 

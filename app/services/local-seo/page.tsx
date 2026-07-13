@@ -11,8 +11,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
-import ContactDialog from '../../components/ContactDialog';
+import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import { setupTiers, monthlyTiers, multiLocationMonthlyNote } from '@/data/pricing';
@@ -31,7 +31,8 @@ export default function LocalSEOPage() {
       <div className="min-h-screen bg-background">
         <PageBreadcrumb
           items={[
-            { label: "Local SEO", current: true }
+            { label: "Services", href: "/services" },
+            { label: "Local SEO", href: "/services/local-seo", current: true }
           ]}
         />
 

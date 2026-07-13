@@ -41,11 +41,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm text-background/70">
-              <li><Link to="/seo-services" className="hover:text-background transition-colors">SEO Services</Link></li>
-              <li><Link to="/local-seo" className="hover:text-background transition-colors">Local SEO</Link></li>
-              <li><Link to="/geo-optimization" className="hover:text-background transition-colors">GEO Optimization</Link></li>
-              <li><Link to="/local-lead-generation" className="hover:text-background transition-colors">Local Lead Generation</Link></li>
-              <li><Link to="/custom-tools-automation" className="hover:text-background transition-colors">Custom Tools & Automation</Link></li>
+              <li><Link to="/services/search-engine-optimization" className="hover:text-background transition-colors">SEO Services</Link></li>
+              <li><Link to="/services/local-seo" className="hover:text-background transition-colors">Local SEO</Link></li>
+              <li><Link to="/services/geo-optimization" className="hover:text-background transition-colors">GEO Optimization</Link></li>
+              <li><Link to="/services/local-lead-generation" className="hover:text-background transition-colors">Local Lead Generation</Link></li>
+              <li><Link to="/services/custom-tools-automation" className="hover:text-background transition-colors">Custom Tools & Automation</Link></li>
             </ul>
           </div>
 
@@ -53,11 +53,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Areas Served</h4>
             <ul className="space-y-2 text-sm text-background/70">
-              <li><Link to="/daytona-beach-digital-marketing" className="hover:text-background transition-colors">Daytona Beach</Link></li>
-              <li><Link to="/port-orange-marketing" className="hover:text-background transition-colors">Port Orange</Link></li>
-              <li><Link to="/ormond-beach-seo" className="hover:text-background transition-colors">Ormond Beach</Link></li>
-              <li><Link to="/palm-coast-marketing" className="hover:text-background transition-colors">Palm Coast</Link></li>
-              <li><Link to="/new-smyrna-beach-marketing" className="hover:text-background transition-colors">New Smyrna Beach</Link></li>
+              <li><Link to="/areas-we-serve/daytona-beach" className="hover:text-background transition-colors">Daytona Beach</Link></li>
+              <li><Link to="/areas-we-serve/port-orange" className="hover:text-background transition-colors">Port Orange</Link></li>
+              <li><Link to="/areas-we-serve/ormond-beach" className="hover:text-background transition-colors">Ormond Beach</Link></li>
+              <li><Link to="/areas-we-serve/palm-coast" className="hover:text-background transition-colors">Palm Coast</Link></li>
+              <li><Link to="/areas-we-serve/new-smyrna-beach" className="hover:text-background transition-colors">New Smyrna Beach</Link></li>
               <li><Link to="/areas-we-serve" className="hover:text-background transition-colors">All Areas We Serve</Link></li>
             </ul>
           </div>

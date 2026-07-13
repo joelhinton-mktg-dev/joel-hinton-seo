@@ -119,7 +119,7 @@ export default function PricingPage() {
 
   return (
     <>
-      <PageBreadcrumb items={[{ label: 'Pricing', current: true }]} />
+      <PageBreadcrumb items={[{ label: 'Pricing', href: '/pricing', current: true }]} />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6 bg-gradient-to-br from-background via-primary/5 to-background">
@@ -316,7 +316,7 @@ export default function PricingPage() {
               icon={Search}
               name="SEO Services"
               description="Technical foundation + topical authority for sustainable organic growth"
-              href="/seo-services"
+              href="/services/search-engine-optimization"
               color="from-blue-500 to-blue-600"
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -365,7 +365,7 @@ export default function PricingPage() {
               icon={MapPin}
               name="Local SEO"
               description="Location-tiered foundation plus monthly plans for map pack and GBP dominance"
-              href="/local-seo"
+              href="/services/local-seo"
               color="from-green-500 to-green-600"
             >
               <div className="space-y-8">
@@ -450,7 +450,7 @@ export default function PricingPage() {
               icon={ShoppingCart}
               name="E-commerce SEO"
               description="Product optimization, technical SEO, and conversion strategies for online stores"
-              href="/ecommerce-seo"
+              href="/services/ecommerce-seo"
               color="from-fuchsia-500 to-pink-600"
             >
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

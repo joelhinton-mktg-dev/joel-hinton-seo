@@ -33,7 +33,7 @@ export interface Location {
 export const locations: Location[] = [
   {
     id: 'daytona-beach',
-    slug: 'daytona-beach-digital-marketing',
+    slug: 'daytona-beach',
     city: 'Daytona Beach',
     region: 'Volusia County',
     tagline: 'NASCAR Culture & Motorsports Expert',
@@ -45,7 +45,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Ormond Beach', 'Port Orange', 'South Daytona', 'Holly Hill'],
     coordinates: { latitude: '29.2108', longitude: '-81.0228' },
     seo: {
-      metaTitle: 'Daytona Beach Digital Marketing | NASCAR Culture & Motorsports Expert | AIO Growth SEO',
+      metaTitle: 'Daytona Beach Digital Marketing | NASCAR Culture & Motorsports Expert',
       metaDescription: 'Daytona Beach digital marketing with deep local expertise. NASCAR culture, motorsports tourism, beach lifestyle psychology. Home field advantage with fastest response times.',
       keywords: ['Daytona Beach digital marketing', 'NASCAR marketing', 'motorsports tourism', 'beach lifestyle marketing', 'Daytona SEO']
     },
@@ -57,7 +57,7 @@ export const locations: Location[] = [
   },
   {
     id: 'ormond-beach',
-    slug: 'ormond-beach-seo',
+    slug: 'ormond-beach',
     city: 'Ormond Beach',
     region: 'Volusia County',
     tagline: 'Birthplace of Speed Marketing',
@@ -68,7 +68,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'Flagler Beach', 'Palm Coast'],
     coordinates: { latitude: '29.2858', longitude: '-81.0559' },
     seo: {
-      metaTitle: 'Ormond Beach SEO | Birthplace of Speed Marketing | AIO Growth SEO',
+      metaTitle: 'Ormond Beach SEO | Birthplace of Speed Marketing',
       metaDescription: 'Ormond Beach SEO services for local businesses. Historic charm meets modern marketing. Affluent demographics and tourism marketing expertise.',
       keywords: ['Ormond Beach SEO', 'Ormond Beach marketing', 'birthplace of speed', 'Ormond Beach digital marketing']
     },
@@ -80,7 +80,7 @@ export const locations: Location[] = [
   },
   {
     id: 'port-orange',
-    slug: 'port-orange-marketing',
+    slug: 'port-orange',
     city: 'Port Orange',
     region: 'Volusia County',
     tagline: 'Family-Focused Community Marketing',
@@ -91,7 +91,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'New Smyrna Beach', 'South Daytona'],
     coordinates: { latitude: '29.1383', longitude: '-80.9956' },
     seo: {
-      metaTitle: 'Port Orange Marketing | Family-Focused Digital Marketing | AIO Growth SEO',
+      metaTitle: 'Port Orange Marketing | Family-Focused Digital Marketing',
       metaDescription: 'Port Orange marketing services for family-oriented businesses. Growing community with excellent demographics for local service providers.',
       keywords: ['Port Orange marketing', 'Port Orange SEO', 'Port Orange digital marketing', 'family marketing']
     },
@@ -103,7 +103,7 @@ export const locations: Location[] = [
   },
   {
     id: 'palm-coast',
-    slug: 'palm-coast-marketing',
+    slug: 'palm-coast',
     city: 'Palm Coast',
     region: 'Flagler County',
     tagline: 'Flagler County Growth Leader',
@@ -114,7 +114,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Flagler Beach', 'Bunnell', 'Ormond Beach'],
     coordinates: { latitude: '29.5844', longitude: '-81.2078' },
     seo: {
-      metaTitle: 'Palm Coast SEO | Local Search & Digital Marketing | AIO Growth SEO',
+      metaTitle: 'Palm Coast SEO | Local Search & Digital Marketing',
       metaDescription: 'Palm Coast SEO and digital marketing for Flagler County businesses. Google Business Profile, local pack rankings, content, and lead generation in Florida fastest-growing family market.',
       keywords: ['Palm Coast SEO', 'Palm Coast SEO company', 'Palm Coast marketing', 'Palm Coast digital marketing', 'Flagler County SEO', 'local SEO Palm Coast']
     },
@@ -129,7 +129,7 @@ export const locations: Location[] = [
   },
   {
     id: 'new-smyrna-beach',
-    slug: 'new-smyrna-beach-marketing',
+    slug: 'new-smyrna-beach',
     city: 'New Smyrna Beach',
     region: 'Volusia County',
     tagline: 'Surf Culture & Beach Lifestyle',
@@ -140,7 +140,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Edgewater', 'Port Orange', 'Oak Hill'],
     coordinates: { latitude: '29.0258', longitude: '-80.9270' },
     seo: {
-      metaTitle: 'New Smyrna Beach Marketing | Surf Culture & Beach Lifestyle | AIO Growth SEO',
+      metaTitle: 'New Smyrna Beach Marketing | Surf Culture & Beach Lifestyle',
       metaDescription: 'New Smyrna Beach marketing for surf shops, restaurants, and beach businesses. Capture the laid-back lifestyle that makes NSB unique.',
       keywords: ['New Smyrna Beach marketing', 'NSB SEO', 'surf culture marketing', 'beach lifestyle marketing']
     },
@@ -152,7 +152,7 @@ export const locations: Location[] = [
   },
   {
     id: 'debary',
-    slug: 'debary-digital-marketing',
+    slug: 'debary',
     city: 'DeBary',
     region: 'Volusia County',
     tagline: 'West Volusia Business Hub',
@@ -163,7 +163,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Deltona', 'Orange City', 'Sanford', 'Lake Mary'],
     coordinates: { latitude: '28.8831', longitude: '-81.3086' },
     seo: {
-      metaTitle: 'DeBary Digital Marketing | West Volusia Business Hub | AIO Growth SEO',
+      metaTitle: 'DeBary Digital Marketing | West Volusia Business Hub',
       metaDescription: 'DeBary digital marketing for West Volusia businesses. Orlando commuter market, SunRail access, growing retail and service sectors.',
       keywords: ['DeBary digital marketing', 'DeBary SEO', 'West Volusia marketing', 'DeBary business marketing']
     },
@@ -175,7 +175,7 @@ export const locations: Location[] = [
   },
   {
     id: 'sanford',
-    slug: 'sanford-seo-services',
+    slug: 'sanford',
     city: 'Sanford',
     region: 'Seminole County',
     tagline: 'Historic Downtown Revival',
@@ -186,7 +186,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Lake Mary', 'Longwood', 'Winter Springs', 'DeBary'],
     coordinates: { latitude: '28.8001', longitude: '-81.2731' },
     seo: {
-      metaTitle: 'Sanford SEO Services | Historic Downtown Revival | AIO Growth SEO',
+      metaTitle: 'Sanford SEO Services | Historic Downtown Revival',
       metaDescription: 'Sanford SEO services for historic downtown businesses. Craft breweries, restaurants, retail shops, and emerging businesses in Seminole County.',
       keywords: ['Sanford SEO', 'Sanford marketing', 'Sanford digital marketing', 'downtown Sanford marketing']
     },
@@ -198,7 +198,7 @@ export const locations: Location[] = [
   },
   {
     id: 'holly-hill',
-    slug: 'holly-hill-digital-marketing',
+    slug: 'holly-hill',
     city: 'Holly Hill',
     region: 'Volusia County',
     tagline: 'Small-Town Local Marketing',
@@ -209,7 +209,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'Ormond Beach', 'South Daytona'],
     coordinates: { latitude: '29.2438', longitude: '-81.0406' },
     seo: {
-      metaTitle: 'Holly Hill Digital Marketing | Local SEO & Ads | AIO Growth SEO',
+      metaTitle: 'Holly Hill Digital Marketing | Local SEO & Ads',
       metaDescription: 'Holly Hill digital marketing for restaurants, medical practices, home services, and small retail in Volusia County. Local SEO, Google Ads, and lead generation.',
       keywords: ['holly hill digital marketing', 'Holly Hill digital marketing', 'Holly Hill SEO', 'Holly Hill marketing', 'Volusia County small business marketing']
     },
@@ -222,30 +222,7 @@ export const locations: Location[] = [
       { title: 'Daytona Spillover', description: 'Capturing overflow traffic from Daytona Beach.' }
     ]
   },
-  {
-    id: 'florida',
-    slug: 'florida-seo-services',
-    city: 'Florida',
-    region: 'Statewide',
-    tagline: 'Statewide SEO Excellence',
-    description: 'While we specialize in Central Florida, our SEO services extend throughout the state. We understand Florida unique markets from the Panhandle to the Keys.',
-    features: ['Statewide Coverage', 'Tourism Industry', 'Real Estate Markets', 'Diverse Demographics'],
-    services: ['SEO Services', 'Content Marketing', 'Link Building', 'Technical SEO'],
-    neighborhoods: [],
-    nearbyAreas: ['Central Florida', 'South Florida', 'Tampa Bay', 'Jacksonville'],
-    coordinates: { latitude: '27.6648', longitude: '-81.5158' },
-    seo: {
-      metaTitle: 'Florida SEO Services | Statewide Search Engine Optimization | AIO Growth SEO',
-      metaDescription: 'Florida SEO services for businesses statewide. From Central Florida expertise to statewide reach. Tourism, real estate, and local business SEO.',
-      keywords: ['Florida SEO', 'Florida SEO services', 'Florida digital marketing', 'statewide SEO']
-    },
-    uniqueSellingPoints: [
-      { title: 'Statewide Reach', description: 'SEO expertise that extends throughout Florida.' },
-      { title: 'Tourism Industry Focus', description: 'Understanding Florida unique tourism-driven economy.' },
-      { title: 'Central Florida Base', description: 'Local expertise with statewide service capability.' }
-    ]
-  }
-];
+  ];
 
 export const getLocationBySlug = (slug: string): Location | undefined => {
   return locations.find((location) => location.slug === slug);
@@ -255,9 +232,9 @@ export const getLocationBySlug = (slug: string): Location | undefined => {
 export function buildLocationMetadata(slug: string): Metadata {
   const location = getLocationBySlug(slug);
   if (!location) {
-    return { title: 'Location Not Found | AIO Growth SEO' };
+    return { title: 'Location Not Found' };
   }
-  const url = `https://aiogrowthseo.com/${slug}`;
+  const url = `https://aiogrowthseo.com/areas-we-serve/${slug}`;
   return {
     title: location.seo.metaTitle,
     description: location.seo.metaDescription,

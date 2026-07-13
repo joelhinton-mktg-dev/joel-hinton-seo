@@ -21,7 +21,7 @@ export default function IndustriesPage() {
     <>
       <PageBreadcrumb
         items={[
-          { label: "Industries", current: true }
+          { label: "Industries", href: "/industries", current: true }
         ]}
       />
 

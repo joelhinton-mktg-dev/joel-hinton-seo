@@ -5,7 +5,19 @@ module.exports = {
   generateIndexSitemap: false,
   changefreq: 'weekly',
   priority: 0.7,
-  exclude: ['/404'],
+  // Non-indexable / non-page assets and routes must stay out of the sitemap
+  exclude: [
+    '/404',
+    '/feed.xml',
+    '/icon.png',
+    '/icon',
+    '/apple-icon.png',
+    '/apple-icon',
+    '/opengraph-image',
+    '/twitter-image',
+    '/lp/free-seo-audit', // robots: noindex
+    '/lp/local-seo-offer', // robots: noindex,nofollow
+  ],
 
   robotsTxtOptions: {
     policies: [

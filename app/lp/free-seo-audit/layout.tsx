@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Free SEO Audit | AIO Growth SEO',
+  title: 'Free SEO Audit',
   description:
     'Get a free, comprehensive SEO audit that reveals why your competitors are outranking you. No strings attached—actionable insights delivered in 24 hours.',
   keywords: [
@@ -15,8 +15,11 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  alternates: {
+    canonical: 'https://aiogrowthseo.com/lp/free-seo-audit',
+  },
   openGraph: {
-    title: 'Free SEO Audit | AIO Growth SEO',
+    title: 'Free SEO Audit',
     description:
       'Discover why your competitors are outranking you with our free, comprehensive SEO audit.',
     type: 'website',
