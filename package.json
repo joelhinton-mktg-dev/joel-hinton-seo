@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postbuild": "next-sitemap --config next-sitemap.config.cjs",
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs && node scripts/indexnow-on-deploy.mjs",
     "lint": "eslint .",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
@@ -20,7 +20,8 @@
     "test:business-types:old": "playwright test tests/business-types.spec.ts",
     "test:debug": "playwright test tests/debug-forms.spec.ts --headed",
     "test:debug:forms": "playwright test tests/debug-forms.spec.ts",
-    "build:next": "next build && next-sitemap --config next-sitemap.config.cjs"
+    "build:next": "next build && next-sitemap --config next-sitemap.config.cjs && node scripts/indexnow-on-deploy.mjs",
+    "indexnow": "INDEXNOW_FORCE=1 node scripts/indexnow-on-deploy.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
