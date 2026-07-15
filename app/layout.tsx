@@ -18,7 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://aiogrowthseo.com'),
   title: {
-    default: 'AIO Growth SEO | Central Florida Digital Marketing',
+    default: 'AIO Growth SEO — Central Florida Digital Marketing',
     template: '%s | AIO Growth SEO',
   },
   description: 'Psychology-driven digital marketing for Volusia & Flagler County businesses. Local SEO, lead generation, and custom automation tools that drive real results.',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://aiogrowthseo.com',
     siteName: 'AIO Growth SEO',
-    title: 'AIO Growth SEO | Central Florida Digital Marketing',
+    title: 'AIO Growth SEO — Central Florida Digital Marketing',
     description: 'Psychology-driven digital marketing for Volusia & Flagler County businesses.',
   },
   alternates: {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AIO Growth SEO | Central Florida Digital Marketing',
+    title: 'AIO Growth SEO — Central Florida Digital Marketing',
     description: 'Psychology-driven digital marketing for Volusia & Flagler County businesses.',
   },
 };

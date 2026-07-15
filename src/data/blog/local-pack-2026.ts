@@ -26,7 +26,7 @@ export const localPack2026Post: BlogPost = {
   ],
   readingTime: 7,
   seo: {
-    metaTitle: "How the Google Local Pack Works in 2026 (Ranking Factors)",
+    metaTitle: "How the Google Local Pack Works in 2026",
     metaDescription: "How the Google local pack ranks businesses in 2026: relevance, distance, prominence, the Vicinity update, and the profile signals that actually move you up.",
     keywords: ["how the Google local pack works", "Google local pack ranking factors 2026", "Vicinity update", "local 3-pack ranking", "Google Business Profile ranking", "how to rank in the map pack", "local SEO Florida"],
     ogImage: "/images/blog/local-pack-hero.png",

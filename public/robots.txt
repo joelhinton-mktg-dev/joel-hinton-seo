@@ -2,10 +2,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_next/
-
-# Host
-Host: https://aiogrowthseo.com
 
 # Sitemaps
 Sitemap: https://aiogrowthseo.com/sitemap.xml

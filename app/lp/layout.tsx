@@ -46,10 +46,10 @@ export default function LandingPageLayout({
               </span>
             </div>
             <div className="flex items-center gap-6 text-sm text-slate-400">
-              <Link href="/privacy-policy" className="hover:text-white transition-colors">
+              <Link href="/privacy" className="hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="hover:text-white transition-colors">
+              <Link href="/terms" className="hover:text-white transition-colors">
                 Terms of Service
               </Link>
               <Link href="/" className="hover:text-white transition-colors">

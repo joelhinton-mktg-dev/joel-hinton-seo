@@ -82,7 +82,7 @@ We will audit your Google Business Profile, your review velocity, and your local
   },
   {
     id: 'google-business-profile-optimization-daytona',
-    title: "Google Business Profile Optimization for Daytona Contractors (2026)",
+    title: "GBP Optimization for Daytona Contractors (2026)",
     slug: 'google-business-profile-optimization-daytona',
     excerpt: "A Daytona contractor's guide to Google Business Profile optimization: category research, review velocity, photo strategy, posts, and the Florida license trust signal competitors skip.",
     content: `## What actually moves a Google Business Profile up?
@@ -128,7 +128,7 @@ We will review your categories, completeness, review velocity, and photos agains
     ],
     readingTime: 7,
     seo: {
-      metaTitle: "Google Business Profile Optimization for Daytona Contractors (2026)",
+      metaTitle: "GBP Optimization for Daytona Contractors (2026)",
       metaDescription: "A Daytona contractor's guide to Google Business Profile optimization: category research, review velocity, photo strategy, posts, and the Florida license trust signal competitors skip.",
       keywords: ["google business profile optimization", "GBP optimization", "Daytona contractors", "local SEO"],
       ogImage: '/images/blog/google-business-profile-optimization-daytona.webp'
@@ -193,7 +193,7 @@ We will calculate your true cost per booked job and show you where the book-rate
     ],
     readingTime: 7,
     seo: {
-      metaTitle: "Book Rate vs Cost Per Lead: Why Cheap Leads Cost the Most (2026)",
+      metaTitle: "Book Rate vs Cost Per Lead: Why Cheap Leads Cost More",
       metaDescription: "Why cost per lead is the wrong number to chase. The book-rate math that shows a $34 branded lead can cost $62 per booked job while a $149 lead costs $396, and the 5-minute rule that fixes it.",
       keywords: ["book rate vs cost per lead", "cost per booked job", "HVAC lead generation", "Google Ads contractors"],
       ogImage: '/images/blog/book-rate-vs-cost-per-lead.webp'
@@ -250,7 +250,7 @@ We will map your local SEO across every city you serve, run the grid to find you
     ],
     readingTime: 7,
     seo: {
-      metaTitle: "Local SEO for HVAC & Plumbing in Volusia County (2026)",
+      metaTitle: "Local SEO for HVAC & Plumbing — Volusia County",
       metaDescription: "How local SEO works for HVAC and plumbing businesses in Volusia County: GBP, service-area vs location pages, the 5 keyword types, review velocity, and Florida's seasonal demand.",
       keywords: ["local seo for hvac", "plumbing local SEO", "Volusia County SEO", "service-area pages"],
       ogImage: '/images/blog/local-seo-hvac-plumbing-volusia-county.webp'
@@ -301,7 +301,7 @@ We will audit your campaigns, your book rate, and whether you show up in AI sear
     ],
     readingTime: 6,
     seo: {
-      metaTitle: "Why Daytona Service Businesses Waste Google Ads Budget (2026)",
+      metaTitle: "Why Daytona Businesses Waste Google Ads Budget (2026)",
       metaDescription: "The real ways Daytona contractors burn Google Ads budget: broad match without negatives, homepage landing pages, weak book rate, no tracking, and Florida's seasonal swings. Plus the fixes.",
       keywords: ["google ads for contractors", "Google Ads waste", "Daytona Beach marketing", "HVAC advertising"],
       ogImage: '/images/blog/daytona-google-ads-wasted-budget.webp'

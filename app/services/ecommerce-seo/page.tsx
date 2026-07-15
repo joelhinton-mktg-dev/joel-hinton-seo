@@ -1,5 +1,7 @@
 'use client';
 
+import CoreServiceSchema from '@/components/schema/CoreServiceSchema';
+
 import Link from 'next/link';
 import {
   ShoppingCart, Search, TrendingUp, Package, Store, BarChart3, ArrowRight,
@@ -75,6 +77,12 @@ export default function EcommerceSEOPage() {
 
   return (
     <>
+      <CoreServiceSchema
+        name="E-commerce SEO That Drives Sales"
+        description="Search optimization built around revenue, not rankings. We focus on the pages that convert and build authority where buyers are searching."
+        url="https://aiogrowthseo.com/services/ecommerce-seo"
+      />
+
       <div className="min-h-screen bg-background">
         <PageBreadcrumb
           items={[

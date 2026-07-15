@@ -207,7 +207,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings]}
                 components={{
-                  h1: ({children}) => <h1 className="text-3xl font-bold text-slate-900 mt-12 mb-6">{children}</h1>,
+                  h1: ({children}) => <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">{children}</h2>,
                   h2: ({children}) => <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">{children}</h2>,
                   h3: ({children}) => <h3 className="text-xl font-bold text-slate-900 mt-8 mb-3">{children}</h3>,
                   p: ({children}) =>

@@ -205,7 +205,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
                   remarkPlugins={[remarkGfm]}
                   rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings]}
                   components={{
-                    h1: ({children}) => <h1 className="text-2xl md:text-3xl font-bold text-slate-900 mt-12 mb-6">{children}</h1>,
+                    h1: ({children}) => <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-12 mb-6">{children}</h2>,
                     h2: ({children}) => <h2 className="text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4">{children}</h2>,
                     h3: ({children}) => <h3 className="text-lg md:text-xl font-bold text-slate-900 mt-8 mb-3">{children}</h3>,
                     p: ({children}) => <p className="text-slate-700 mb-6 leading-relaxed">{children}</p>,

@@ -6,14 +6,14 @@ import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
 import ContactButton from '../../components/ContactButton';
 
 export const metadata: Metadata = {
-  title: 'About AIO Growth SEO | Central Florida Digital Marketing Team',
+  title: 'About AIO Growth SEO — Central Florida Digital Marketing Team',
   description: 'AIO Growth SEO is a psychology-driven digital marketing team serving Volusia & Flagler Counties. We combine consumer psychology with technical expertise to help local businesses grow.',
   keywords: ['AIO Growth SEO', 'Central Florida marketing team', 'Volusia County SEO', 'psychology-driven marketing', 'Daytona Beach digital marketing'],
   alternates: {
     canonical: 'https://aiogrowthseo.com/about',
   },
   openGraph: {
-    title: 'About AIO Growth SEO | Central Florida Digital Marketing Team',
+    title: 'About AIO Growth SEO — Central Florida Digital Marketing Team',
     description: 'Psychology-driven digital marketing agency specializing in SEO, GEO optimization, and AI-powered growth strategies for Central Florida businesses.',
     type: 'website',
     url: 'https://aiogrowthseo.com/about',

@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'SEO Pricing — Simple, Transparent, No Lock-Ins',
+  title: {
+    default: 'SEO Pricing — Simple, Transparent, No Lock-Ins',
+    template: '%s | AIO Growth SEO',
+  },
   description: 'Flat setup fees and clear monthly rates. No long-term lock-ins, no surprise invoices. See exactly what you get and what it costs.',
   alternates: {
     canonical: 'https://aiogrowthseo.com/pricing',

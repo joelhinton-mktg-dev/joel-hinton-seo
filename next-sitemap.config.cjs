@@ -5,7 +5,6 @@ module.exports = {
   generateIndexSitemap: false,
   changefreq: 'weekly',
   priority: 0.7,
-  // Non-indexable / non-page assets and routes must stay out of the sitemap
   exclude: [
     '/404',
     '/feed.xml',
@@ -15,8 +14,8 @@ module.exports = {
     '/apple-icon',
     '/opengraph-image',
     '/twitter-image',
-    '/lp/free-seo-audit', // robots: noindex
-    '/lp/local-seo-offer', // robots: noindex,nofollow
+    '/lp/free-seo-audit',
+    '/lp/local-seo-offer',
   ],
 
   robotsTxtOptions: {
@@ -24,8 +23,17 @@ module.exports = {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/api/'],
       },
     ],
+    transformRobotsTxt: async (_, robotsTxt) => {
+      const lines = robotsTxt.split('\n').filter((line) => {
+        const trimmed = line.trim();
+        if (/^Host:/i.test(trimmed)) return false;
+        if (trimmed === '# Host') return false;
+        return true;
+      });
+      return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim() + '\n';
+    },
   },
 };

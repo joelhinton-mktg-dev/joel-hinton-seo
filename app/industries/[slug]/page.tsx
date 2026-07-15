@@ -86,11 +86,40 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
     "serviceType": `${industry.name} Marketing`
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://aiogrowthseo.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Industries",
+        "item": "https://aiogrowthseo.com/industries"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": industry.name,
+        "item": `https://aiogrowthseo.com/industries/${industry.slug}`
+      }
+    ]
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <div className="min-h-screen bg-background">

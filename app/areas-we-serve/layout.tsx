@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Local SEO Services — Volusia & Flagler County',
+  title: {
+    default: 'Local SEO Services — Volusia & Flagler County',
+    template: '%s | AIO Growth SEO',
+  },
   description: 'Hyper-local SEO for Daytona Beach, Ormond Beach, Port Orange, Palm Coast, and surrounding communities. We know this market.',
   alternates: {
     canonical: 'https://aiogrowthseo.com/areas-we-serve',

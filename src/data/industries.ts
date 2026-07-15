@@ -47,8 +47,8 @@ export const industries: Industry[] = [
       messaging: 'Luxury: Exclusivity and status. Starter homes: Opportunity and future growth. Investment: ROI and market timing.'
     },
     seo: {
-      metaTitle: 'Real Estate Marketing | Investment Property Marketing | Central Florida',
-      metaDescription: 'Real estate marketing for agents and brokers in Volusia & Flagler Counties. Local SEO and lead generation strategies that convert browsers to buyers.',
+      metaTitle: 'Local SEO for Real Estate Agents — Volusia County',
+      metaDescription: 'SEO and lead generation for real estate agents and brokers in Volusia and Flagler Counties. Get found by buyers and sellers actively searching your market.',
       keywords: ['real estate marketing', 'property marketing psychology', 'real estate lead generation', 'luxury home marketing', 'investment property marketing']
     }
   },
@@ -69,8 +69,8 @@ export const industries: Industry[] = [
       journey: 'Symptom awareness → Research → Provider selection → Appointment booking → Treatment commitment.'
     },
     seo: {
-      metaTitle: 'Healthcare Marketing | Medical Practice Growth | Patient Acquisition',
-      metaDescription: 'Healthcare marketing strategies for medical practices in Central Florida. HIPAA-compliant patient acquisition and online reputation management.',
+      metaTitle: 'Local SEO for Medical Practices — Central Florida',
+      metaDescription: 'Patient acquisition and local search for medical and dental practices. HIPAA-aware strategy built around how patients search for providers in your area.',
       keywords: ['healthcare marketing', 'medical practice marketing', 'patient acquisition', 'HIPAA compliant marketing', 'doctor marketing']
     }
   },
@@ -91,8 +91,8 @@ export const industries: Industry[] = [
       trust: 'Local presence, customer reviews, licensing credentials, insurance verification, and community involvement.'
     },
     seo: {
-      metaTitle: 'Home Services Marketing | HVAC, Plumbing, Roofing Marketing',
-      metaDescription: 'Home services marketing for HVAC, plumbing, roofing, and contractors in Central Florida. Local SEO and emergency lead generation.',
+      metaTitle: 'Local SEO for HVAC, Plumbing & Home Services',
+      metaDescription: 'More service calls from local search. We help HVAC, plumbing, roofing, and electrical contractors in Volusia County rank where homeowners are looking.',
       keywords: ['home services marketing', 'HVAC marketing', 'plumber marketing', 'contractor marketing', 'local service marketing']
     }
   },
@@ -113,8 +113,8 @@ export const industries: Industry[] = [
       conversion: 'Trust badges, reviews, guarantees, limited-time offers, and abandoned cart recovery sequences.'
     },
     seo: {
-      metaTitle: 'E-commerce Marketing | Online Store Growth | Conversion Optimization',
-      metaDescription: 'E-commerce marketing strategies to increase conversions and reduce cart abandonment. Product page optimization and customer retention.',
+      metaTitle: 'E-commerce SEO — More Traffic That Actually Buys',
+      metaDescription: 'Search optimization built around revenue, not sessions. We focus on product pages, category structure, and the keywords buyers use when they\'re ready to purchase.',
       keywords: ['ecommerce marketing', 'online store marketing', 'cart abandonment', 'conversion optimization', 'product page optimization']
     }
   },
@@ -135,8 +135,8 @@ export const industries: Industry[] = [
       consultation: 'Free consultation psychology, value demonstration, problem amplification, and solution positioning.'
     },
     seo: {
-      metaTitle: 'Professional Services Marketing | B2B Lead Generation | Consulting Marketing',
-      metaDescription: 'Professional services marketing for consultants, accountants, and B2B service providers. Authority positioning and lead generation.',
+      metaTitle: 'Local SEO for Consultants & Professional Services',
+      metaDescription: 'Authority-building SEO for consultants, accountants, and B2B service providers. Get found by decision-makers searching for your expertise in Volusia County.',
       keywords: ['professional services marketing', 'B2B marketing', 'consulting marketing', 'accountant marketing', 'authority marketing']
     }
   },
@@ -157,8 +157,8 @@ export const industries: Industry[] = [
       retention: 'Success metrics, usage analytics, expansion opportunities, and customer success programs.'
     },
     seo: {
-      metaTitle: 'SaaS Marketing | Software Marketing | Trial Conversion | Customer Acquisition',
-      metaDescription: 'SaaS marketing strategies for software companies. Trial conversion optimization, customer onboarding, and churn reduction.',
+      metaTitle: 'SEO & Content Marketing for SaaS Companies',
+      metaDescription: 'Organic growth strategy for software companies. We focus on trial conversion keywords, product-led content, and the search terms your buyers use before they sign up.',
       keywords: ['SaaS marketing', 'software marketing', 'trial conversion', 'customer onboarding', 'churn reduction']
     }
   },
@@ -179,8 +179,8 @@ export const industries: Industry[] = [
       consultation: 'Free consultation offers, case evaluation, fee transparency, and outcome expectations.'
     },
     seo: {
-      metaTitle: 'Legal Marketing | Law Firm SEO | Attorney Lead Generation',
-      metaDescription: 'Legal marketing for law firms and attorneys in Central Florida. Client acquisition, reputation management, and case lead generation.',
+      metaTitle: 'Local SEO for Law Firms — Central Florida',
+      metaDescription: 'Client acquisition and local search for attorneys and law firms in Central Florida. Rank for the practice area searches that bring in qualified case leads.',
       keywords: ['legal marketing', 'law firm marketing', 'attorney marketing', 'lawyer SEO', 'legal lead generation']
     }
   },
@@ -201,8 +201,8 @@ export const industries: Industry[] = [
       retention: 'Engagement psychology, progress tracking, community building, and completion rewards.'
     },
     seo: {
-      metaTitle: 'Education Marketing | Course Marketing | Training Program Growth',
-      metaDescription: 'Education and training marketing for schools, courses, and training programs. Student acquisition and enrollment optimization.',
+      metaTitle: 'SEO for Schools, Courses & Training Programs',
+      metaDescription: 'Student and enrollment-focused SEO for education and training providers. Get found by people actively searching for the skills and credentials you teach.',
       keywords: ['education marketing', 'course marketing', 'training marketing', 'student acquisition', 'enrollment marketing']
     }
   },
@@ -223,8 +223,8 @@ export const industries: Industry[] = [
       convenience: 'Online scheduling, service reminders, pickup/delivery, and mobile services.'
     },
     seo: {
-      metaTitle: 'Automotive Marketing | Auto Shop Marketing | Car Dealer Marketing',
-      metaDescription: 'Automotive marketing for auto shops, car dealers, and service centers. Service appointment generation and customer retention.',
+      metaTitle: 'Local SEO for Auto Shops & Automotive Services',
+      metaDescription: 'More service appointments from local search. We help auto shops, dealerships, and service centers in Volusia County rank where drivers are looking.',
       keywords: ['automotive marketing', 'auto shop marketing', 'car dealer marketing', 'auto service marketing', 'mechanic marketing']
     }
   },
@@ -245,8 +245,8 @@ export const industries: Industry[] = [
       loyalty: 'Reward programs, personalization, special occasions, and community building.'
     },
     seo: {
-      metaTitle: 'Restaurant Marketing | Hospitality Marketing | Local Dining SEO',
-      metaDescription: 'Restaurant and hospitality marketing for dining establishments in Central Florida. Reservation growth and customer loyalty programs.',
+      metaTitle: 'Local SEO for Restaurants — Volusia County',
+      metaDescription: 'More covers, more reservations, more repeat customers. Local search and Google Maps optimization for restaurants and hospitality businesses in Central Florida.',
       keywords: ['restaurant marketing', 'hospitality marketing', 'dining marketing', 'restaurant SEO', 'reservation marketing']
     }
   },
@@ -267,8 +267,8 @@ export const industries: Industry[] = [
       retention: 'Habit formation, social connections, progress celebration, and personalized programs.'
     },
     seo: {
-      metaTitle: 'Fitness Marketing | Gym Marketing | Wellness Center Growth',
-      metaDescription: 'Fitness and wellness marketing for gyms, studios, and wellness centers. Membership growth and retention strategies.',
+      metaTitle: 'Local SEO for Gyms & Fitness Studios',
+      metaDescription: 'Membership growth through local search. We help gyms, yoga studios, and wellness centers in Volusia County get found by people ready to sign up.',
       keywords: ['fitness marketing', 'gym marketing', 'wellness marketing', 'personal trainer marketing', 'health club marketing']
     }
   },
@@ -289,8 +289,8 @@ export const industries: Industry[] = [
       complexity: 'Educational content, simplified explanations, comparison tools, and consultation processes.'
     },
     seo: {
-      metaTitle: 'Financial Services Marketing | Advisor Marketing | Investment Marketing',
-      metaDescription: 'Financial services marketing for advisors, planners, and investment firms. Trust-building and client acquisition strategies.',
+      metaTitle: 'Local SEO for Financial Advisors — Florida',
+      metaDescription: 'Trust-building SEO for financial advisors, planners, and investment firms. Get found by clients searching for the financial guidance you provide.',
       keywords: ['financial services marketing', 'financial advisor marketing', 'investment marketing', 'wealth management marketing', 'insurance marketing']
     }
   }

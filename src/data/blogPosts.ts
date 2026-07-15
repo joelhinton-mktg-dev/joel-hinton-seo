@@ -124,7 +124,7 @@ The most successful marketers aren't just great at advertising; they're students
     tags: ['conversion optimization', 'cognitive biases', 'landing pages', 'user experience', 'psychology'],
     readingTime: 8,
     seo: {
-      metaTitle: 'Psychology-Driven Landing Pages: 7 Cognitive Biases for Higher Conversions',
+      metaTitle: 'Landing Page Psychology: 7 Biases That Lift Conversions',
       metaDescription: 'Learn how to use cognitive biases like loss aversion and social proof to create high-converting landing pages that drive action and improve user experience.',
       keywords: ['conversion optimization', 'cognitive biases', 'landing page psychology', 'loss aversion', 'social proof', 'marketing psychology'],
       ogImage: '/images/blog/psychology-cro-og.jpg'
@@ -304,7 +304,7 @@ The brands that succeed in this new landscape will be those that master the bala
     tags: ['artificial intelligence', 'content strategy', 'personalization', 'marketing automation', 'brand authenticity'],
     readingTime: 10,
     seo: {
-      metaTitle: 'AI Content Strategy: Scale Personalization While Maintaining Authenticity',
+      metaTitle: 'AI Content Strategy: Scale Without Losing Authenticity',
       metaDescription: 'Learn how to use AI to create personalized content at scale without losing your brand\'s authentic voice. Practical frameworks and case studies included.',
       keywords: ['AI content marketing', 'content personalization', 'marketing automation', 'brand authenticity', 'content strategy'],
       ogImage: '/images/blog/ai-content-strategy-og.jpg'
@@ -541,7 +541,7 @@ The companies that master onboarding psychology don't just reduce churn—they c
     tags: ['SaaS growth', 'user onboarding', 'retention psychology', 'growth hacking', 'user experience'],
     readingTime: 12,
     seo: {
-      metaTitle: 'SaaS Growth Hacking: Psychology of User Onboarding & Retention',
+      metaTitle: 'SaaS Growth Hacking: Onboarding & Retention Psychology',
       metaDescription: 'Master the psychology behind successful SaaS onboarding flows. Learn proven strategies to turn trial users into loyal customers with psychological triggers.',
       keywords: ['SaaS onboarding', 'user retention', 'growth hacking', 'psychology', 'customer success'],
       ogImage: '/images/blog/saas-onboarding-og.jpg'
@@ -819,7 +819,7 @@ The key is to start with empathy, design with psychology in mind, and always tes
     tags: ['conversion optimization', 'e-commerce', 'behavioral psychology', 'case study', 'consumer psychology'],
     readingTime: 15,
     seo: {
-      metaTitle: 'E-commerce Conversion Case Study: 347% Increase Using Psychology',
+      metaTitle: 'E-commerce Conversion Case Study: 347% Increase',
       metaDescription: 'Detailed case study showing how behavioral psychology principles increased e-commerce conversions by 347% and added $2.3M in annual revenue.',
       keywords: ['e-commerce conversion', 'case study', 'behavioral psychology', 'conversion rate optimization', 'consumer psychology'],
       ogImage: '/images/blog/ecommerce-case-study-og.jpg'
@@ -1121,7 +1121,7 @@ Remember: The best color isn't the one that looks prettiest in isolation—it's 
     tags: ['color psychology', 'branding', 'conversion optimization', 'visual design', 'consumer behavior'],
     readingTime: 14,
     seo: {
-      metaTitle: 'Color Psychology in Digital Marketing: What Your Brand Colors Really Say',
+      metaTitle: 'What Your Brand Colors Say About Your Business',
       metaDescription: 'Learn how color psychology affects consumer behavior and conversion rates. Discover which colors work best for different industries and marketing contexts.',
       keywords: ['color psychology', 'brand colors', 'digital marketing', 'conversion optimization', 'consumer psychology'],
       ogImage: '/images/blog/color-psychology-og.jpg'

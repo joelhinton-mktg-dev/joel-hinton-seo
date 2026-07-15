@@ -1,5 +1,7 @@
 'use client';
 
+import LocationAreaSchema from '@/components/schema/LocationAreaSchema';
+
 import Link from 'next/link';
 import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
 import ContactDialog from '../../../components/ContactDialog';
@@ -18,16 +20,20 @@ export default function DaytonaBeachDigitalMarketingPage() {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Daytona Beach Marketing Audit');
 
   const services = [
-    { name: 'Local SEO', description: 'Dominate Daytona Beach search results', icon: Search },
-    { name: 'Google Business Profile', description: 'Optimize your local presence', icon: MapPin },
-    { name: 'Content Marketing', description: 'NASCAR & beach culture content', icon: Globe },
-    { name: 'Paid Advertising', description: 'Targeted local campaigns', icon: Target },
+    { name: 'Local SEO', description: 'Dominate Daytona Beach search results', icon: Search, href: '/services/local-seo' as string | undefined },
+    { name: 'Google Business Profile', description: 'Optimize your local presence', icon: MapPin, href: undefined as string | undefined },
+    { name: 'Content Marketing', description: 'NASCAR & beach culture content', icon: Globe, href: undefined as string | undefined },
+    { name: 'Paid Advertising', description: 'Targeted local campaigns', icon: Target, href: undefined as string | undefined },
   ];
 
   const neighborhoods = ['Main Street District', 'Downtown Daytona Beach', 'Seabreeze', 'Midtown', 'South Daytona', 'Holly Hill'];
 
   return (
     <>
+      <LocationAreaSchema
+        city="Daytona Beach"
+        description="We help Daytona Beach contractors, clinics, and service businesses get found first in local search. Home field advantage — we know this market."
+      />
       <PageBreadcrumb
         items={[
           { label: "Areas We Serve", href: "/areas-we-serve" },
@@ -170,7 +176,15 @@ export default function DaytonaBeachDigitalMarketingPage() {
                 <Card key={service.name} className="card-professional">
                   <CardContent className="p-6 text-center">
                     <IconComponent className="w-10 h-10 text-primary mx-auto mb-4" />
-                    <h3 className="font-semibold mb-2">{service.name}</h3>
+                    <h3 className="font-semibold mb-2">
+                      {service.href ? (
+                        <Link href={service.href} className="text-primary hover:underline">
+                          {service.name === 'Local SEO' ? 'local SEO' : service.name}
+                        </Link>
+                      ) : (
+                        service.name
+                      )}
+                    </h3>
                     <p className="text-sm text-muted-foreground">{service.description}</p>
                   </CardContent>
                 </Card>
@@ -245,7 +259,8 @@ export default function DaytonaBeachDigitalMarketingPage() {
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 NASCAR brings over 100,000 visitors multiple times per year. We help businesses capture this traffic with
-                race-week promotions, tourism-focused SEO, and seasonal campaigns that align with the motorsports calendar.
+                race-week promotions, tourism-focused{' '}
+                <Link href="/services/local-seo" className="text-primary hover:underline">local SEO</Link>, and seasonal campaigns that align with the motorsports calendar.
               </AccordionContent>
             </AccordionItem>
 

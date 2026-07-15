@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Local SEO by Industry — Volusia County',
+  title: {
+    default: 'Local SEO by Industry — Volusia County',
+    template: '%s | AIO Growth SEO',
+  },
   description: 'Industry-specific SEO built around how your customers actually search. We work with HVAC, dental, legal, home services, and more.',
   alternates: {
     canonical: 'https://aiogrowthseo.com/industries',

@@ -45,8 +45,8 @@ export const locations: Location[] = [
     nearbyAreas: ['Ormond Beach', 'Port Orange', 'South Daytona', 'Holly Hill'],
     coordinates: { latitude: '29.2108', longitude: '-81.0228' },
     seo: {
-      metaTitle: 'Daytona Beach Digital Marketing | NASCAR Culture & Motorsports Expert',
-      metaDescription: 'Daytona Beach digital marketing with deep local expertise. NASCAR culture, motorsports tourism, beach lifestyle psychology. Home field advantage with fastest response times.',
+      metaTitle: 'Local SEO for Daytona Beach Businesses',
+      metaDescription: 'We help Daytona Beach contractors, clinics, and service businesses get found first in local search. Home field advantage — we know this market.',
       keywords: ['Daytona Beach digital marketing', 'NASCAR marketing', 'motorsports tourism', 'beach lifestyle marketing', 'Daytona SEO']
     },
     uniqueSellingPoints: [
@@ -68,8 +68,8 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'Flagler Beach', 'Palm Coast'],
     coordinates: { latitude: '29.2858', longitude: '-81.0559' },
     seo: {
-      metaTitle: 'Ormond Beach SEO | Birthplace of Speed Marketing',
-      metaDescription: 'Ormond Beach SEO services for local businesses. Historic charm meets modern marketing. Affluent demographics and tourism marketing expertise.',
+      metaTitle: 'Local SEO for Ormond Beach, Florida',
+      metaDescription: 'Ormond Beach SEO for local service businesses. Affluent demographics, strong tourism traffic, and a tight local market we know how to win.',
       keywords: ['Ormond Beach SEO', 'Ormond Beach marketing', 'birthplace of speed', 'Ormond Beach digital marketing']
     },
     uniqueSellingPoints: [
@@ -91,8 +91,8 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'New Smyrna Beach', 'South Daytona'],
     coordinates: { latitude: '29.1383', longitude: '-80.9956' },
     seo: {
-      metaTitle: 'Port Orange Marketing | Family-Focused Digital Marketing',
-      metaDescription: 'Port Orange marketing services for family-oriented businesses. Growing community with excellent demographics for local service providers.',
+      metaTitle: 'Local SEO for Port Orange, Florida',
+      metaDescription: 'Port Orange is one of Volusia County\'s fastest-growing markets. We help local service businesses get found by the families moving here.',
       keywords: ['Port Orange marketing', 'Port Orange SEO', 'Port Orange digital marketing', 'family marketing']
     },
     uniqueSellingPoints: [
@@ -114,8 +114,8 @@ export const locations: Location[] = [
     nearbyAreas: ['Flagler Beach', 'Bunnell', 'Ormond Beach'],
     coordinates: { latitude: '29.5844', longitude: '-81.2078' },
     seo: {
-      metaTitle: 'Palm Coast SEO | Local Search & Digital Marketing',
-      metaDescription: 'Palm Coast SEO and digital marketing for Flagler County businesses. Google Business Profile, local pack rankings, content, and lead generation in Florida fastest-growing family market.',
+      metaTitle: 'Local SEO for Palm Coast & Flagler County',
+      metaDescription: 'Palm Coast is Florida\'s fastest-growing family market. We help Flagler County businesses rank in local search before competitors catch on.',
       keywords: ['Palm Coast SEO', 'Palm Coast SEO company', 'Palm Coast marketing', 'Palm Coast digital marketing', 'Flagler County SEO', 'local SEO Palm Coast']
     },
     heroHeadline: 'Palm Coast SEO',
@@ -140,8 +140,8 @@ export const locations: Location[] = [
     nearbyAreas: ['Edgewater', 'Port Orange', 'Oak Hill'],
     coordinates: { latitude: '29.0258', longitude: '-80.9270' },
     seo: {
-      metaTitle: 'New Smyrna Beach Marketing | Surf Culture & Beach Lifestyle',
-      metaDescription: 'New Smyrna Beach marketing for surf shops, restaurants, and beach businesses. Capture the laid-back lifestyle that makes NSB unique.',
+      metaTitle: 'Local SEO for New Smyrna Beach',
+      metaDescription: 'NSB has a distinct local culture — surf shops, restaurants, and beach businesses need marketing that fits. We know what works here.',
       keywords: ['New Smyrna Beach marketing', 'NSB SEO', 'surf culture marketing', 'beach lifestyle marketing']
     },
     uniqueSellingPoints: [
@@ -163,8 +163,8 @@ export const locations: Location[] = [
     nearbyAreas: ['Deltona', 'Orange City', 'Sanford', 'Lake Mary'],
     coordinates: { latitude: '28.8831', longitude: '-81.3086' },
     seo: {
-      metaTitle: 'DeBary Digital Marketing | West Volusia Business Hub',
-      metaDescription: 'DeBary digital marketing for West Volusia businesses. Orlando commuter market, SunRail access, growing retail and service sectors.',
+      metaTitle: 'Local SEO for DeBary & West Volusia',
+      metaDescription: 'DeBary\'s Orlando commuter base and SunRail access make it a growing market. We help West Volusia service businesses rank where it counts.',
       keywords: ['DeBary digital marketing', 'DeBary SEO', 'West Volusia marketing', 'DeBary business marketing']
     },
     uniqueSellingPoints: [
@@ -186,8 +186,8 @@ export const locations: Location[] = [
     nearbyAreas: ['Lake Mary', 'Longwood', 'Winter Springs', 'DeBary'],
     coordinates: { latitude: '28.8001', longitude: '-81.2731' },
     seo: {
-      metaTitle: 'Sanford SEO Services | Historic Downtown Revival',
-      metaDescription: 'Sanford SEO services for historic downtown businesses. Craft breweries, restaurants, retail shops, and emerging businesses in Seminole County.',
+      metaTitle: 'Local SEO for Sanford, Florida',
+      metaDescription: 'Sanford\'s downtown revival is bringing new customers to Seminole County. We help local businesses get found as the market grows.',
       keywords: ['Sanford SEO', 'Sanford marketing', 'Sanford digital marketing', 'downtown Sanford marketing']
     },
     uniqueSellingPoints: [
@@ -209,8 +209,8 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'Ormond Beach', 'South Daytona'],
     coordinates: { latitude: '29.2438', longitude: '-81.0406' },
     seo: {
-      metaTitle: 'Holly Hill Digital Marketing | Local SEO & Ads',
-      metaDescription: 'Holly Hill digital marketing for restaurants, medical practices, home services, and small retail in Volusia County. Local SEO, Google Ads, and lead generation.',
+      metaTitle: 'Local SEO for Holly Hill, Florida',
+      metaDescription: 'Holly Hill is a tight-knit Volusia community with loyal local buyers. We help restaurants, medical practices, and home services get found.',
       keywords: ['holly hill digital marketing', 'Holly Hill digital marketing', 'Holly Hill SEO', 'Holly Hill marketing', 'Volusia County small business marketing']
     },
     heroHeadline: 'Holly Hill Digital Marketing',

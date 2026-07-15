@@ -14,6 +14,7 @@ import {
   Users, Target, Search, Globe, BarChart3
 } from 'lucide-react';
 import { Location } from '@/data/locations';
+import LocationAreaSchema from '@/components/schema/LocationAreaSchema';
 
 interface LocationPageProps {
   location: Location;
@@ -23,14 +24,18 @@ export default function LocationPage({ location }: LocationPageProps) {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog(`${location.city} Marketing Audit`);
 
   const services = [
-    { name: 'Local SEO', description: `Dominate ${location.city} search results`, icon: Search },
-    { name: 'Google Business Profile', description: 'Optimize your local presence', icon: MapPin },
-    { name: 'Content Marketing', description: 'Local-focused content strategy', icon: Globe },
-    { name: 'Lead Generation', description: 'Targeted local campaigns', icon: Target },
+    { name: 'Local SEO', description: `Dominate ${location.city} search results`, icon: Search, href: '/services/local-seo' as string | undefined },
+    { name: 'Google Business Profile', description: 'Optimize your local presence', icon: MapPin, href: undefined as string | undefined },
+    { name: 'Content Marketing', description: 'Local-focused content strategy', icon: Globe, href: undefined as string | undefined },
+    { name: 'Lead Generation', description: 'Targeted local campaigns', icon: Target, href: undefined as string | undefined },
   ];
 
   return (
     <>
+      <LocationAreaSchema
+        city={location.city}
+        description={location.seo.metaDescription}
+      />
       <PageBreadcrumb
         items={[
           { label: "Areas We Serve", href: "/areas-we-serve" },
@@ -170,7 +175,15 @@ export default function LocationPage({ location }: LocationPageProps) {
                 <Card key={service.name} className="card-professional">
                   <CardContent className="p-6 text-center">
                     <IconComponent className="w-10 h-10 text-primary mx-auto mb-4" />
-                    <h3 className="font-semibold mb-2">{service.name}</h3>
+                    <h3 className="font-semibold mb-2">
+                      {service.href ? (
+                        <Link href={service.href} className="text-primary hover:underline">
+                          {service.name === 'Local SEO' ? 'local SEO' : service.name}
+                        </Link>
+                      ) : (
+                        service.name
+                      )}
+                    </h3>
                     <p className="text-sm text-muted-foreground">{service.description}</p>
                   </CardContent>
                 </Card>
@@ -294,7 +307,9 @@ export default function LocationPage({ location }: LocationPageProps) {
                 How quickly can I see results?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                For local SEO in {location.city}, most clients see improvements within 30-90 days. Paid advertising
+                For{' '}
+                <Link href="/services/local-seo" className="text-primary hover:underline">local SEO</Link>{' '}
+                in {location.city}, most clients see improvements within 30-90 days. Paid advertising
                 can generate leads within days. We provide clear timelines based on your specific goals.
               </AccordionContent>
             </AccordionItem>

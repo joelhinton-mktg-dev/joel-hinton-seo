@@ -1,5 +1,7 @@
 'use client';
 
+import CoreServiceSchema from '@/components/schema/CoreServiceSchema';
+
 import Link from 'next/link';
 import {
   Brain, Search, Star, TrendingUp, CheckCircle, ArrowRight, Zap, Users,
@@ -21,6 +23,12 @@ export default function GEOOptimizationPage() {
 
   return (
     <>
+      <CoreServiceSchema
+        name="GEO Optimization — Get Found in AI Search"
+        description="Generative Engine Optimization helps your business show up in AI-generated answers. Built for the way search actually works in 2026."
+        url="https://aiogrowthseo.com/services/geo-optimization"
+      />
+
       <div className="min-h-screen bg-background">
         <PageBreadcrumb
           items={[
@@ -44,7 +52,9 @@ export default function GEOOptimizationPage() {
 
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
                 When 40% of GenZ uses TikTok and AI assistants instead of Google, traditional SEO isn&apos;t enough.
-                GEO ensures your business is cited and recommended by ChatGPT, Claude, Perplexity, and other AI search tools.
+                GEO ensures you know{' '}
+                <Link href="/blog/how-to-get-cited-by-ai-search-2026" className="text-primary hover:underline">how to get cited by AI search</Link>{' '}
+                and get recommended by ChatGPT, Claude, Perplexity, and other AI search tools.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -108,7 +118,9 @@ export default function GEOOptimizationPage() {
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
                   AI assistants are becoming the new search interface. When someone asks ChatGPT &quot;Who&apos;s the best plumber in Daytona Beach?&quot;
-                  will your business be mentioned? GEO ensures you&apos;re part of AI-generated recommendations.
+                  will your business be mentioned?{' '}
+                  <Link href="/areas-we-serve/daytona-beach" className="text-primary hover:underline">Daytona Beach businesses</Link>{' '}
+                  that invest in GEO show up in those AI-generated recommendations.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">

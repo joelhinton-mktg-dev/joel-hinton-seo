@@ -5,6 +5,7 @@ import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -423,7 +424,10 @@ export default function LocalLeadGenerationPage() {
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <p>Waste budget on areas you don&apos;t serve</p>
+                  <p>
+                    Don&apos;t know{' '}
+                    <Link href="/blog/daytona-google-ads-wasted-budget" className="text-primary hover:underline">why most local ad spend gets wasted</Link>
+                  </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
@@ -489,22 +493,26 @@ export default function LocalLeadGenerationPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              "Daytona Beach",
-              "Port Orange",
-              "Ormond Beach",
-              "DeLand",
-              "New Smyrna Beach",
-              "Palm Coast",
-              "DeBary",
-              "Deltona",
-              "Sanford",
-              "Holly Hill",
-              "Edgewater",
-              "Orange City"
+              { name: "Daytona Beach", href: "/areas-we-serve/daytona-beach" },
+              { name: "Port Orange", href: "/areas-we-serve/port-orange" },
+              { name: "Ormond Beach" },
+              { name: "DeLand" },
+              { name: "New Smyrna Beach" },
+              { name: "Palm Coast" },
+              { name: "DeBary" },
+              { name: "Deltona" },
+              { name: "Sanford" },
+              { name: "Holly Hill" },
+              { name: "Edgewater" },
+              { name: "Orange City" },
             ].map((city) => (
-              <div key={city} className="flex items-center gap-2 bg-white p-3 rounded-lg shadow-sm">
+              <div key={city.name} className="flex items-center gap-2 bg-white p-3 rounded-lg shadow-sm">
                 <MapPin className="w-4 h-4 text-orange-600" />
-                <span className="font-medium">{city}</span>
+                {city.href ? (
+                  <Link href={city.href} className="font-medium text-primary hover:underline">{city.name}</Link>
+                ) : (
+                  <span className="font-medium">{city.name}</span>
+                )}
               </div>
             ))}
           </div>
@@ -675,7 +683,9 @@ export default function LocalLeadGenerationPage() {
               <AccordionContent className="text-muted-foreground">
                 With Local Service Ads, you can dispute invalid leads (wrong service, wrong area, spam) and get refunds from Google.
                 For Search Ads and Facebook, we use negative keywords, quality targeting, and lead form questions to filter out
-                bad leads before they cost you money. We also track lead quality and optimize campaigns to attract better leads over time.
+                bad leads before they cost you money. We also track{' '}
+                <Link href="/blog/book-rate-vs-cost-per-lead" className="text-primary hover:underline">book rate vs cost per lead</Link>{' '}
+                and optimize campaigns to attract better leads over time.
               </AccordionContent>
             </AccordionItem>
 

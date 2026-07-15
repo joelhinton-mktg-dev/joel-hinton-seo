@@ -1,7 +1,7 @@
 import { SITE_EMAIL, SITE_PHONE } from "@/data/site";
 
 const LocalBusinessSchema = () => {
-  const schema = {
+  const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "AIO Growth SEO",
@@ -40,11 +40,51 @@ const LocalBusinessSchema = () => {
     ]
   };
 
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AIO Growth SEO",
+    "url": "https://aiogrowthseo.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://aiogrowthseo.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const organization = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AIO Growth SEO",
+    "url": "https://aiogrowthseo.com",
+    "logo": "https://aiogrowthseo.com/icon.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": "English"
+    },
+    "areaServed": {
+      "@type": "County",
+      "name": "Volusia County"
+    }
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 2) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness, null, 2) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(website, null, 2) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organization, null, 2) }}
+      />
+    </>
   );
 };
 

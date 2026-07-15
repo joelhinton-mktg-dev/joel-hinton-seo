@@ -7,7 +7,7 @@ import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
 import { SITE_PHONE_DISPLAY } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Legal Terms & Conditions',
+  title: 'Terms of Service — Legal Terms & Conditions',
   description: 'Terms of Service for AIO Growth SEO. Review the legal terms and conditions for our digital marketing consultation and services.',
   robots: {
     index: true,

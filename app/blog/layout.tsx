@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog | Psychology-Driven SEO & Marketing Insights',
+  title: {
+    default: 'Blog — Psychology-Driven SEO & Marketing Insights',
+    template: '%s | AIO Growth SEO',
+  },
   description:
     'Expert insights on SEO psychology, conversion optimization, AI search visibility, and growth marketing from AIO Growth SEO.',
   robots: { index: true, follow: true },

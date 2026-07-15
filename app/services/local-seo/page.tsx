@@ -1,5 +1,7 @@
 'use client';
 
+import CoreServiceSchema from '@/components/schema/CoreServiceSchema';
+
 import Link from 'next/link';
 import {
   MapPin, Search, Star, TrendingUp, Calendar, CheckCircle, ArrowRight,
@@ -28,6 +30,12 @@ export default function LocalSEOPage() {
 
   return (
     <>
+      <CoreServiceSchema
+        name="Local SEO Services — Volusia County, Florida"
+        description="Get found first in Google Search and Google Maps. We build local authority for contractors, clinics, and professional services in Volusia County."
+        url="https://aiogrowthseo.com/services/local-seo"
+      />
+
       <div className="min-h-screen bg-background">
         <PageBreadcrumb
           items={[
@@ -50,7 +58,10 @@ export default function LocalSEOPage() {
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                When someone searches &quot;[your service] near me&quot; in Daytona Beach, Ormond Beach, Port Orange, or Palm Coast - are you showing up? Our Local SEO services put your business in front of customers actively looking for what you offer.
+                When someone searches &quot;[your service] near me&quot; in{' '}
+                <Link href="/areas-we-serve/daytona-beach" className="text-primary hover:underline">Daytona Beach</Link>,{' '}
+                <Link href="/areas-we-serve/ormond-beach" className="text-primary hover:underline">Ormond Beach</Link>,{' '}
+                <Link href="/areas-we-serve/port-orange" className="text-primary hover:underline">Port Orange</Link>, or Palm Coast - are you showing up? Our Local SEO services put your business in front of customers actively looking for what you offer.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -99,20 +110,27 @@ export default function LocalSEOPage() {
                   Why <span className="gradient-text">Local SEO</span> Matters for Central Florida Businesses
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  46% of all Google searches have local intent. When potential customers search for services in Volusia or Flagler County, Local SEO determines whether they find you or your competitors.
+                  46% of all Google searches have local intent. When potential customers search for services in Volusia or Flagler County — including{' '}
+                  <Link href="/blog/local-seo-hvac-plumbing-volusia-county" className="text-primary hover:underline">local SEO for contractors in Volusia County</Link> — Local SEO determines whether they find you or your competitors.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="font-semibold text-foreground">Google Map Pack Visibility</h4>
-                      <p className="text-muted-foreground text-sm">Appear in the top 3 local results when customers search &quot;near me&quot;</p>
+                      <p className="text-muted-foreground text-sm">
+                        Appear in the top 3 local results when customers search &quot;near me&quot; — understanding{' '}
+                        <Link href="/blog/how-google-local-pack-works-2026" className="text-primary hover:underline">how the Google Local Pack works</Link>{' '}
+                        is the foundation of every campaign we run.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-foreground">Google Business Profile Optimization</h4>
+                      <h4 className="font-semibold text-foreground">
+                        <Link href="/blog/google-business-profile-optimization-daytona" className="text-primary hover:underline">Google Business Profile optimization</Link>
+                      </h4>
                       <p className="text-muted-foreground text-sm">Complete profile that converts browsers into customers</p>
                     </div>
                   </div>

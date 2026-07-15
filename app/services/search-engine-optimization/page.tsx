@@ -1,5 +1,7 @@
 'use client';
 
+import CoreServiceSchema from '@/components/schema/CoreServiceSchema';
+
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,6 +33,12 @@ export default function SEOServicesPage() {
 
   return (
     <>
+      <CoreServiceSchema
+        name="SEO Services That Drive Real Organic Growth"
+        description="Technical SEO combined with content strategy built for service businesses. No bloated retainers — just the work that actually moves rankings."
+        url="https://aiogrowthseo.com/services/search-engine-optimization"
+      />
+
       <div className="min-h-screen bg-background">
         <PageBreadcrumb
           items={[
@@ -416,7 +424,11 @@ export default function SEOServicesPage() {
                 Proven <span className="gradient-text">Results</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Real businesses. Real growth. Real ROI.
+                Real businesses. Real growth. Real ROI. We track{' '}
+                <Link href="/blog/cost-per-lead-hvac-plumbing-electrical-2026" className="text-primary hover:underline">cost per lead benchmarks</Link>{' '}
+                and{' '}
+                <Link href="/blog/book-rate-vs-cost-per-lead" className="text-primary hover:underline">book rate vs cost per lead</Link>{' '}
+                so traffic gains turn into booked jobs — not vanity metrics.
               </p>
             </div>
 

@@ -25,7 +25,7 @@ export const ragMechanismPost: BlogPost = {
   ],
   readingTime: 8,
   seo: {
-    metaTitle: "How to Get Your Business Cited by AI Search (2026 GEO Guide)",
+    metaTitle: "How to Get Cited by AI Search in 2026",
     metaDescription: "What generative engine optimization (GEO) is, the tactics proven to lift AI citation rates, and why low-authority local businesses gain the most.",
     keywords: ["how to get cited by AI search", "generative engine optimization", "GEO 2026", "AI search citations", "ChatGPT local business", "get cited by Perplexity", "AI visibility for small business"],
     ogImage: "/images/blog/rag-mechanism-hero.png",

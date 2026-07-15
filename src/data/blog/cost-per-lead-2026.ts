@@ -26,7 +26,7 @@ export const costPerLead2026Post: BlogPost = {
   ],
   readingTime: 9,
   seo: {
-    metaTitle: "Cost Per Lead for HVAC, Plumbing & Electrical (2026)",
+    metaTitle: "Cost Per Lead: HVAC, Plumbing & Electrical (2026)",
     metaDescription: "2026 cost-per-lead benchmarks for HVAC, plumbing and electrical contractors: branded vs non-branded CPL, book rate, and how to lower your number.",
     keywords: ["cost per lead for HVAC contractors 2026", "contractor cost per lead", "branded vs non-branded CPL", "HVAC book rate", "Google Ads cost per lead home services", "HVAC lead generation cost", "Florida contractor marketing cost"],
     ogImage: "/images/blog/cost-per-lead-hero.png",
