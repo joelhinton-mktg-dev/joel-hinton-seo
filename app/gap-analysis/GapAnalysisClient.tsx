@@ -169,21 +169,21 @@ export default function GapAnalysisClient() {
               <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
               <span>
                 <strong className="text-slate-900">Daytona Beach, FL</strong>
-                {' — '}serving Volusia County and businesses nationwide
+                {': '}serving Volusia County and businesses nationwide
               </span>
             </li>
             <li className="flex gap-3 text-sm text-slate-700">
               <Layers3 className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
               <span>
                 <strong className="text-slate-900">Three traffic streams on every project</strong>
-                {' — '}organic, local, and AI visibility
+                {': '}organic, local, and AI visibility
               </span>
             </li>
             <li className="flex gap-3 text-sm text-slate-700">
               <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
               <span>
                 <strong className="text-slate-900">Honest scoping</strong>
-                {' — '}if there is no realistic path to page one for your keywords, we tell you. No
+                {': '}if there is no realistic path to page one for your keywords, we tell you. No
                 charge, no pitch.
               </span>
             </li>
@@ -256,7 +256,7 @@ export default function GapAnalysisClient() {
       <section className="bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 py-16 md:py-24 text-white">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Local SEO Setup — $1,500
+            Local SEO Setup: $1,500
           </h2>
           <ul className="mt-8 space-y-4">
             {offerItems.map((item) => (
