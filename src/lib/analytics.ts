@@ -10,6 +10,7 @@ export interface AnalyticsConsentPreferences {
 declare global {
   interface Window {
     dataLayer: Record<string, unknown>[];
+    fbq?: (...args: unknown[]) => void;
   }
 }
 
@@ -148,6 +149,31 @@ export const trackPrimaryCtaClick = (params: {
     cta_location: params.ctaLocation,
     service_name: params.serviceName ?? '',
   });
+};
+
+/**
+ * Fire Meta Pixel Lead + GTM dataLayer Lead event.
+ * Safe when the pixel is not installed yet (no-ops until Samantha's dataset is wired).
+ */
+export const trackMetaLead = (params?: {
+  contentName?: string;
+  contentCategory?: string;
+}): void => {
+  const contentName = params?.contentName ?? 'gap-analysis';
+  const contentCategory = params?.contentCategory ?? 'funnel-a';
+
+  pushToDataLayer({
+    event: 'Lead',
+    content_name: contentName,
+    content_category: contentCategory,
+  });
+
+  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+    window.fbq('track', 'Lead', {
+      content_name: contentName,
+      content_category: contentCategory,
+    });
+  }
 };
 
 /** Legacy Vite app stubs — Next.js App Router uses GTM dataLayer helpers above. */
