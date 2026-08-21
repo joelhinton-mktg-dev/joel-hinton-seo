@@ -140,7 +140,7 @@ export function ServiceHubCards() {
               </div>
               <Button className={`w-full text-white ${styles.btn}`} asChild>
                 <Link href={service.href}>
-                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                  Learn More<span className="sr-only"> about {service.title}</span> <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
             </CardContent>

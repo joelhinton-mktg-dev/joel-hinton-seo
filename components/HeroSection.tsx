@@ -89,9 +89,9 @@ const HeroSection = () => {
   return (
     <>
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
+      <div className="absolute inset-0" aria-hidden="true">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -113,7 +113,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-4xl mx-auto slide-up" style={{ animationDelay: "100ms" }}>
-            Dominate Google <strong className="text-secondary">AND</strong> AI search results. We help Central Florida businesses
+            Dominate Google <strong className="text-secondary-text">AND</strong> AI search results. We help Central Florida businesses
             get found by customers searching on Google, ChatGPT, and voice assistants.
           </p>
 

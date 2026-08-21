@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,6 +19,8 @@
     --secondary: 25 95% 53%;
     --secondary-foreground: 0 0% 100%;
     --secondary-glow: 25 100% 65%;
+    /* Darker orange for text on light backgrounds - meets WCAG AA (4.5:1) */
+    --secondary-text: 25 95% 34%;
     
     /* Neutral Grays - Professional Foundation */
     --muted: 220 13% 96%;

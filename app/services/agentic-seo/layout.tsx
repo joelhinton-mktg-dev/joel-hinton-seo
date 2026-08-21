@@ -1,15 +1,36 @@
 import type { Metadata } from 'next';
-import { agenticOffer } from '@/data/pricing';
+import { agenticFaqs, agenticOffer } from '@/data/pricing';
 
 export const metadata: Metadata = {
-  title: 'Agentic SEO Site',
+  title: 'AI SEO Services — Sites That Improve Themselves',
   description:
-    'An AI-ready website rebuild with a self-improving engine that reads search, funnel, and AI-visibility data and gets better every cycle.',
+    'AI SEO services with transparent pricing: an agentic website that reads your search, funnel, and AI-visibility data, then improves itself every cycle. From $2,500.',
   alternates: {
     canonical: `https://aiogrowthseo.com${agenticOffer.canonicalPath}`,
   },
 };
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: agenticFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
 export default function AgenticSeoLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      {children}
+    </>
+  );
 }
