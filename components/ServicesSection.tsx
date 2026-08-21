@@ -100,7 +100,7 @@ const ServicesSection = () => {
                     </div>
                     {service.price ? (
                       <div className="text-right">
-                        <div className="text-sm font-semibold text-secondary">{service.price}</div>
+                        <div className="text-sm font-semibold text-secondary-text">{service.price}</div>
                       </div>
                     ) : null}
                   </div>
@@ -127,7 +127,7 @@ const ServicesSection = () => {
                     asChild
                   >
                     <Link href={service.href}>
-                      Learn More
+                      Learn More<span className="sr-only"> about {service.title}</span>
                       <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
                   </Button>

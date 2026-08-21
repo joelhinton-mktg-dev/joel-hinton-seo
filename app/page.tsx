@@ -155,7 +155,7 @@ export default function HomePage() {
                   <CardContent className="pt-0">
                     <Link href={industry.href}>
                       <Button variant="ghost" size="sm" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
-                        Learn More
+                        Learn More<span className="sr-only"> about {industry.title} marketing</span>
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </Link>

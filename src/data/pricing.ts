@@ -122,19 +122,59 @@ export const agenticOffer = {
   serviceLabel: 'Agentic SEO Site - Custom Quote',
   canonicalPath: '/services/agentic-seo',
   setupDeliverables: [
-    'Full site rebuild on a modern, AI-ready stack',
-    'llms.txt and structured data across every page type that matters',
+    'Full rebuild on a modern headless CMS stack — fast, structured, crawlable by Google and AI agents alike',
+    'llms.txt and structured data on every page type that matters',
     'Internal-linking architecture built for topical authority',
-    'Agentic browsing audit — how AI agents see and navigate your site',
+    'An agentic browsing audit — we test how AI agents see and navigate your site',
+  ],
+  engineDeliverables: [
+    'Connections to Search Console, analytics, funnel events, and AI-visibility tracking',
+    'Continuous cycle: read → propose → human QA → deploy → measure',
+    'Human review of every change before it ships — no autopilot rewrites',
+    'Weekly intelligence brief showing what changed and why',
   ],
   engineCycle: [
-    { step: 'Read', detail: 'Pull search, funnel, and AI-visibility data from your live site.' },
-    { step: 'Propose', detail: 'Identify gaps and rank what to fix next based on evidence.' },
-    { step: 'Human QA', detail: 'Every change is reviewed before it ships — no autopilot rewrites.' },
+    { step: 'Read', detail: 'Pull search performance, funnel behavior, and AI-visibility data from your live site.' },
+    { step: 'Propose', detail: 'Identify gaps and rank what to fix next, based on evidence rather than a guess in a strategy deck.' },
+    { step: 'Human QA', detail: 'Every change gets reviewed before it ships. No autopilot rewrites, ever.' },
     { step: 'Deploy', detail: 'Push approved updates to content, structure, and entity signals.' },
-    { step: 'Measure', detail: 'Track impact and feed results into the next cycle.' },
+    { step: 'Measure', detail: 'Track what moved, send a weekly intelligence brief, and feed the results into the next cycle.' },
   ],
 } as const;
+
+/** FAQs for /services/agentic-seo — used as on-page copy and FAQPage JSON-LD. */
+export const agenticFaqs = [
+  {
+    question: 'What do AI SEO services include?',
+    answer:
+      'Ours include a full AI-ready site rebuild (headless CMS, structured data, llms.txt, internal-linking architecture), connections to your search and funnel data sources, an agentic improvement engine that proposes and ships changes on a weekly to monthly cycle, human review of every change, and a weekly intelligence brief reporting what changed and what it did.',
+  },
+  {
+    question: 'Does AI SEO replace traditional SEO?',
+    answer:
+      "No. It runs on top of it. Title tags, site speed, internal links, and content quality still decide rankings — AI changes how fast you can find problems and fix them, and adds a second battleground: AI-generated answers. Our local SEO and core SEO plans handle the foundations if that's where you need to start.",
+  },
+  {
+    question: 'Do you use AI to write content?',
+    answer:
+      "Yes — and a human reviews every word before it ships. The engine drafts from your actual data: real queries people use to find you, real gaps in your funnel. What we don't do is bulk-publish unreviewed AI text. That's the fastest way to lose the trust of both Google and your customers.",
+  },
+  {
+    question: 'How long until AI SEO shows results?',
+    answer:
+      'Structural improvements (crawlability, structured data, AI-agent readability) land immediately. Ranking movement typically shows in 4–12 weeks depending on your market and starting point. AI-answer citations can move faster — AI systems refresh their sources more often than Google refreshes rankings.',
+  },
+  {
+    question: 'How much do AI SEO services cost?',
+    answer:
+      'With us: $2,500–$5,000 setup plus $500–$1,500/month, scoped by cycle frequency. Full breakdown on our pricing page. Industry-wide, agencies charge anywhere from $1,000 to $10,000+ monthly — usually without telling you until the sales call.',
+  },
+  {
+    question: 'What happens if I cancel?',
+    answer:
+      "You keep the website. It's yours — the rebuild, the content, the structure, everything. You only lose the engine layer that keeps improving it. The site doesn't break; it just stops getting smarter.",
+  },
+] as const;
 
 /** Agentic engine monthly ladder — SMB tiers, cadence-differentiated. */
 export const agenticEngineTiers = [

@@ -607,18 +607,20 @@ export default function LocalLeadGenerationPage() {
 
                 <Separator />
 
-                <div className="text-center">
-                  <p className="font-semibold mb-2">DIY path</p>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Prefer to run it yourself? Watch our free long-form walkthrough.
-                  </p>
-                  <Button variant="outline" asChild>
-                    <a href={funnelSprintOffer.diyVideoHref}>
-                      Free Long-Form Walkthrough
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
-                  </Button>
-                </div>
+                {funnelSprintOffer.diyVideoHref.startsWith('http') && (
+                  <div className="text-center">
+                    <p className="font-semibold mb-2">DIY path</p>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Prefer to run it yourself? Watch our free long-form walkthrough.
+                    </p>
+                    <Button variant="outline" asChild>
+                      <a href={funnelSprintOffer.diyVideoHref}>
+                        Free Long-Form Walkthrough
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
+                    </Button>
+                  </div>
+                )}
 
                 <Button
                   className="w-full bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"

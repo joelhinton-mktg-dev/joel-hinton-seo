@@ -1,0 +1,4 @@
+# Production is Vercel (aiogrowthseo.com). A leftover Netlify GitHub app still
+# posts deploy-preview checks; skip every Netlify build so those checks don't fail.
+[build]
+  ignore = "exit 0"

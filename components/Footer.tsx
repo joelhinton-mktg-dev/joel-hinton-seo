@@ -40,7 +40,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
+            <h2 className="font-semibold mb-4 text-base">Services</h2>
             <ul className="space-y-2 text-sm text-background/70">
               <li><Link href="/services/search-engine-optimization" className="hover:text-background transition-colors">SEO Services</Link></li>
               <li><Link href="/services/local-seo" className="hover:text-background transition-colors">Local SEO</Link></li>
@@ -52,7 +52,7 @@ const Footer = () => {
 
           {/* Areas Served */}
           <div>
-            <h4 className="font-semibold mb-4">Areas Served</h4>
+            <h2 className="font-semibold mb-4 text-base">Areas Served</h2>
             <ul className="space-y-2 text-sm text-background/70">
               <li><Link href="/areas-we-serve/daytona-beach" className="hover:text-background transition-colors">Daytona Beach</Link></li>
               <li><Link href="/areas-we-serve/port-orange" className="hover:text-background transition-colors">Port Orange</Link></li>
@@ -65,7 +65,7 @@ const Footer = () => {
 
           {/* Resources */}
           <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
+            <h2 className="font-semibold mb-4 text-base">Resources</h2>
             <ul className="space-y-2 text-sm text-background/70">
               <li><Link href="/guides" className="hover:text-background transition-colors">SEO & GEO Guides</Link></li>
               <li><Link href="/blog" className="hover:text-background transition-colors">Blog</Link></li>

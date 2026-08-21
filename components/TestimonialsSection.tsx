@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
                   ))}
                 </div>
 
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-semibold mb-6">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-secondary/10 text-secondary-text text-sm font-semibold mb-6">
                   {testimonial.results}
                 </div>
 
@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
 
         <div className="mt-16 text-center">
           <p className="text-muted-foreground mb-8">Trusted by businesses across Volusia & Flagler Counties</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+          <div className="flex flex-wrap justify-center items-center gap-8">
             <Link
               href="/areas-we-serve/daytona-beach"
               className="text-2xl font-bold text-muted-foreground hover:text-primary transition-colors duration-300"

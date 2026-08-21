@@ -197,7 +197,7 @@ export default function GuidesPage() {
                   Technical SEO, content strategy, and link building to improve your search rankings.
                 </p>
                 <Link href="/services/search-engine-optimization">
-                  <Button variant="outline" size="sm">Learn More</Button>
+                  <Button variant="outline" size="sm">Learn More<span className="sr-only"> about SEO services</span></Button>
                 </Link>
               </Card>
 
@@ -208,7 +208,7 @@ export default function GuidesPage() {
                   Optimize for AI search engines like ChatGPT and Perplexity to increase brand visibility.
                 </p>
                 <Link href="/services/geo-optimization">
-                  <Button variant="outline" size="sm">Learn More</Button>
+                  <Button variant="outline" size="sm">Learn More<span className="sr-only"> about GEO optimization</span></Button>
                 </Link>
               </Card>
 
@@ -219,7 +219,7 @@ export default function GuidesPage() {
                   Dominate local search results and Google Business Profile for your service area.
                 </p>
                 <Link href="/services/local-seo">
-                  <Button variant="outline" size="sm">Learn More</Button>
+                  <Button variant="outline" size="sm">Learn More<span className="sr-only"> about local SEO</span></Button>
                 </Link>
               </Card>
             </div>

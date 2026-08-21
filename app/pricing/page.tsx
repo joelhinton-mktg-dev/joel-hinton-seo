@@ -84,7 +84,7 @@ function ServiceCardShell({
           </div>
           <Link href={href}>
             <Button variant="outline" size="sm">
-              Learn More <ArrowRight className="w-4 h-4 ml-2" />
+              Learn More<span className="sr-only"> about {name}</span> <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
         </div>
