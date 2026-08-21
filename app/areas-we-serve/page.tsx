@@ -310,6 +310,40 @@ export default function AreasWeServePage() {
                   </CardContent>
                 </Card>
 
+                {/* Flagler Beach */}
+                <Card className="group hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <MapPin className="w-6 h-6 text-teal-600" />
+                      <div>
+                        <CardTitle className="text-xl">Flagler Beach</CardTitle>
+                        <Badge variant="secondary" className="text-xs">Flagler County</Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 mb-4 text-sm">
+                      Old Florida on A1A — independent restaurants, surf shops, and service businesses with a walkable downtown.
+                    </p>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="outline" className="text-xs">A1A Oceanfront</Badge>
+                        <Badge variant="outline" className="text-xs">Independent</Badge>
+                        <Badge variant="outline" className="text-xs">Palm Coast Spillover</Badge>
+                      </div>
+                    </div>
+
+                    <Separator className="my-4" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <Link href="/areas-we-serve/flagler-beach">
+                        Flagler Beach Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+
                 {/* Port Orange */}
                 <Card className="group hover:shadow-lg transition-shadow">
                   <CardHeader>
@@ -429,9 +463,11 @@ export default function AreasWeServePage() {
                     </div>
 
                     <Separator className="my-4" />
-                    <Button variant="outline" size="sm" className="w-full" onClick={() => openDialog()}>
-                      DeLand Marketing Inquiry
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <Link href="/areas-we-serve/deland">
+                        DeLand Services
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>

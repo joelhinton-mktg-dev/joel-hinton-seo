@@ -1,4 +1,14 @@
 import type { Metadata } from 'next';
+import {
+  daytonaBeachLocalContent,
+  delandLocalContent,
+  flaglerBeachLocalContent,
+  hollyHillLocalContent,
+  newSmyrnaBeachLocalContent,
+  ormondBeachLocalContent,
+  palmCoastLocalContent,
+  portOrangeLocalContent,
+} from './locationLocalContent';
 
 export interface Location {
   id: string;
@@ -28,6 +38,7 @@ export interface Location {
   heroHeadline?: string;
   heroTagline?: string;
   supplementalCopy?: string;
+  localContent?: { heading: string; body: string }[];
 }
 
 export const locations: Location[] = [
@@ -45,7 +56,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Ormond Beach', 'Port Orange', 'South Daytona', 'Holly Hill'],
     coordinates: { latitude: '29.2108', longitude: '-81.0228' },
     seo: {
-      metaTitle: 'Local SEO for Daytona Beach Businesses',
+      metaTitle: 'Local SEO Services in Daytona Beach, Florida',
       metaDescription: 'We help Daytona Beach contractors, clinics, and service businesses get found first in local search. Home field advantage — we know this market.',
       keywords: ['Daytona Beach digital marketing', 'NASCAR marketing', 'motorsports tourism', 'beach lifestyle marketing', 'Daytona SEO']
     },
@@ -53,7 +64,8 @@ export const locations: Location[] = [
       { title: 'NASCAR Culture Expertise', description: 'Deep understanding of motorsports tourism and race-week marketing psychology.' },
       { title: 'Beach Tourism Marketing', description: 'Seasonal strategies for snowbirds, spring breakers, and year-round visitors.' },
       { title: 'Home Base Advantage', description: 'Same-day meetings, fastest response times, and deep community connections.' }
-    ]
+    ],
+    localContent: daytonaBeachLocalContent,
   },
   {
     id: 'ormond-beach',
@@ -68,7 +80,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'Flagler Beach', 'Palm Coast'],
     coordinates: { latitude: '29.2858', longitude: '-81.0559' },
     seo: {
-      metaTitle: 'Local SEO for Ormond Beach, Florida',
+      metaTitle: 'Local SEO Services in Ormond Beach, Florida',
       metaDescription: 'Ormond Beach SEO for local service businesses. Affluent demographics, strong tourism traffic, and a tight local market we know how to win.',
       keywords: ['Ormond Beach SEO', 'Ormond Beach marketing', 'birthplace of speed', 'Ormond Beach digital marketing']
     },
@@ -76,7 +88,8 @@ export const locations: Location[] = [
       { title: 'Affluent Market Understanding', description: 'Marketing strategies for higher-income demographics and luxury services.' },
       { title: 'Historic Heritage Marketing', description: 'Leveraging the Birthplace of Speed story for unique brand positioning.' },
       { title: 'Golf Community Expertise', description: 'Targeting residents of premium golf course communities.' }
-    ]
+    ],
+    localContent: ormondBeachLocalContent,
   },
   {
     id: 'port-orange',
@@ -91,7 +104,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'New Smyrna Beach', 'South Daytona'],
     coordinates: { latitude: '29.1383', longitude: '-80.9956' },
     seo: {
-      metaTitle: 'Local SEO for Port Orange, Florida',
+      metaTitle: 'Local SEO Services in Port Orange, Florida',
       metaDescription: 'Port Orange is one of Volusia County\'s fastest-growing markets. We help local service businesses get found by the families moving here.',
       keywords: ['Port Orange marketing', 'Port Orange SEO', 'Port Orange digital marketing', 'family marketing']
     },
@@ -99,7 +112,8 @@ export const locations: Location[] = [
       { title: 'Family Market Expertise', description: 'Understanding the needs and buying patterns of family households.' },
       { title: 'Growing Community', description: 'Positioning businesses for growth in one of Florida fastest-growing areas.' },
       { title: 'Local Service Focus', description: 'Marketing strategies for home services, healthcare, and family businesses.' }
-    ]
+    ],
+    localContent: portOrangeLocalContent,
   },
   {
     id: 'palm-coast',
@@ -114,7 +128,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Flagler Beach', 'Bunnell', 'Ormond Beach'],
     coordinates: { latitude: '29.5844', longitude: '-81.2078' },
     seo: {
-      metaTitle: 'Local SEO for Palm Coast & Flagler County',
+      metaTitle: 'Local SEO Services in Palm Coast, Florida',
       metaDescription: 'Palm Coast is Florida\'s fastest-growing family market. We help Flagler County businesses rank in local search before competitors catch on.',
       keywords: ['Palm Coast SEO', 'Palm Coast SEO company', 'Palm Coast marketing', 'Palm Coast digital marketing', 'Flagler County SEO', 'local SEO Palm Coast']
     },
@@ -125,7 +139,8 @@ export const locations: Location[] = [
       { title: 'Growth Market Positioning', description: 'Capturing market share in one of Florida fastest-growing regions.' },
       { title: 'Dual Demographic Expertise', description: 'Marketing to both retirees and young families effectively.' },
       { title: 'Real Estate Focus', description: 'New construction and relocation marketing expertise.' }
-    ]
+    ],
+    localContent: palmCoastLocalContent,
   },
   {
     id: 'new-smyrna-beach',
@@ -140,7 +155,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Edgewater', 'Port Orange', 'Oak Hill'],
     coordinates: { latitude: '29.0258', longitude: '-80.9270' },
     seo: {
-      metaTitle: 'Local SEO for New Smyrna Beach',
+      metaTitle: 'Local SEO Services in New Smyrna Beach, Florida',
       metaDescription: 'NSB has a distinct local culture — surf shops, restaurants, and beach businesses need marketing that fits. We know what works here.',
       keywords: ['New Smyrna Beach marketing', 'NSB SEO', 'surf culture marketing', 'beach lifestyle marketing']
     },
@@ -148,7 +163,8 @@ export const locations: Location[] = [
       { title: 'Surf Culture Marketing', description: 'Authentic marketing for the surf and beach lifestyle community.' },
       { title: 'Arts & Culture Focus', description: 'Connecting with the creative community and art scene.' },
       { title: 'Tourism Expertise', description: 'Seasonal marketing for beach tourism and vacation rentals.' }
-    ]
+    ],
+    localContent: newSmyrnaBeachLocalContent,
   },
   {
     id: 'debary',
@@ -209,7 +225,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'Ormond Beach', 'South Daytona'],
     coordinates: { latitude: '29.2438', longitude: '-81.0406' },
     seo: {
-      metaTitle: 'Local SEO for Holly Hill, Florida',
+      metaTitle: 'Local SEO Services in Holly Hill, Florida',
       metaDescription: 'Holly Hill is a tight-knit Volusia community with loyal local buyers. We help restaurants, medical practices, and home services get found.',
       keywords: ['holly hill digital marketing', 'Holly Hill digital marketing', 'Holly Hill SEO', 'Holly Hill marketing', 'Volusia County small business marketing']
     },
@@ -220,9 +236,74 @@ export const locations: Location[] = [
       { title: 'Value-Focused Marketing', description: 'Reaching budget-conscious consumers effectively.' },
       { title: 'Small Business Expertise', description: 'Affordable marketing solutions for local businesses.' },
       { title: 'Daytona Spillover', description: 'Capturing overflow traffic from Daytona Beach.' }
-    ]
+    ],
+    localContent: hollyHillLocalContent,
   },
-  ];
+  {
+    id: 'deland',
+    slug: 'deland',
+    city: 'DeLand',
+    region: 'Volusia County',
+    tagline: "West Volusia's Main Street Market",
+    description:
+      "DeLand is West Volusia's hub — the county seat, a nationally recognized Main Street downtown, and a university town with Stetson at its core. We help downtown shops, trades, and professional practices win the year-round local search market that the beach towns don't have.",
+    features: ['Historic Downtown', 'Stetson University', 'Main Street Destination', 'Inland Growth'],
+    services: ['Local SEO', 'Google Business Profile', 'GEO Optimization', 'Content Marketing'],
+    neighborhoods: ['Downtown DeLand', 'Stetson University area', 'Victoria Park'],
+    nearbyAreas: ['Deltona', 'Orange City', 'Daytona Beach'],
+    coordinates: { latitude: '29.0283', longitude: '-81.3031' },
+    seo: {
+      metaTitle: 'Local SEO Services in DeLand, Florida',
+      metaDescription:
+        'Local SEO for DeLand and West Volusia. Downtown destination searches, Stetson season, and map-pack fundamentals for shops, trades, and professional practices.',
+      keywords: [
+        'local SEO services DeLand Florida',
+        'DeLand SEO',
+        'DeLand marketing',
+        'West Volusia SEO',
+        'DeLand local SEO',
+      ],
+    },
+    uniqueSellingPoints: [
+      { title: 'Main Street Destination Search', description: 'Rank for the downtown DeLand queries that drive real foot traffic from Deltona, Orange City, and beyond.' },
+      { title: 'University-Season Playbook', description: 'Capture the August reset of students and parents searching for housing, food, healthcare, and auto repair.' },
+      { title: 'West Volusia Growth', description: 'Get in front of new Victoria Park and 44-corridor households before they pick a favorite.' },
+    ],
+    localContent: delandLocalContent,
+  },
+  {
+    id: 'flagler-beach',
+    slug: 'flagler-beach',
+    city: 'Flagler Beach',
+    region: 'Flagler County',
+    tagline: 'Old Florida, Found Online',
+    description:
+      'Flagler Beach is deliberately small — independent restaurants, surf shops, charters, and service businesses with no franchise SEO budgets crowding the map pack. We help you own local search on A1A and pull Friday-night demand from Palm Coast.',
+    features: ['A1A Corridor', 'Independent Businesses', 'Surf & Pier Culture', 'Palm Coast Spillover'],
+    services: ['Local SEO', 'Google Business Profile', 'GEO Optimization', 'Review Generation'],
+    neighborhoods: ['A1A Oceanfront', 'Downtown Flagler Beach', 'South Flagler'],
+    nearbyAreas: ['Palm Coast', 'Ormond Beach', 'Daytona Beach'],
+    coordinates: { latitude: '29.4750', longitude: '-81.1270' },
+    seo: {
+      metaTitle: 'Local SEO Services in Flagler Beach, Florida',
+      metaDescription:
+        'Local SEO for Flagler Beach independents. Own the A1A map pack, capture Palm Coast weekend traffic, and be ready when storm-season searches spike.',
+      keywords: [
+        'local SEO services Flagler Beach Florida',
+        'Flagler Beach SEO',
+        'Flagler Beach marketing',
+        'Flagler County SEO',
+        'A1A local SEO',
+      ],
+    },
+    uniqueSellingPoints: [
+      { title: 'Independent Map Pack', description: 'No franchise SEO budgets to fight — a complete profile and steady reviews can put you first in category.' },
+      { title: 'A1A + Palm Coast Coverage', description: 'Rank for same-hour visitor searches on A1A and Friday-night demand from 90,000+ Palm Coast residents.' },
+      { title: 'Storm-Season Ready', description: 'Home-services profiles prepped before June so roof, tree, and restoration searches go to you, not whoever ranked last year.' },
+    ],
+    localContent: flaglerBeachLocalContent,
+  },
+];
 
 export const getLocationBySlug = (slug: string): Location | undefined => {
   return locations.find((location) => location.slug === slug);
