@@ -15,9 +15,37 @@ import {
 } from 'lucide-react';
 import { Location } from '@/data/locations';
 import LocationAreaSchema from '@/components/schema/LocationAreaSchema';
+import type { ReactNode } from 'react';
 
 interface LocationPageProps {
   location: Location;
+}
+
+function LinkedProse({ text }: { text: string }) {
+  const nodes: ReactNode[] = [];
+  const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let key = 0;
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      nodes.push(text.slice(lastIndex, match.index));
+    }
+    nodes.push(
+      <Link key={key} href={match[2]} className="text-primary hover:underline">
+        {match[1]}
+      </Link>,
+    );
+    key += 1;
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex));
+  }
+
+  return <>{nodes}</>;
 }
 
 export default function LocationPage({ location }: LocationPageProps) {
@@ -242,6 +270,25 @@ export default function LocationPage({ location }: LocationPageProps) {
           </div>
         </div>
       </section>
+
+      {location.localContent && location.localContent.length > 0 && (
+        <section className="py-20 px-4 bg-background">
+          <div className="container mx-auto max-w-4xl space-y-12">
+            {location.localContent.map((section) => (
+              <div key={section.heading}>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">{section.heading}</h2>
+                <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                  {section.body.split(/\n\n+/).map((paragraph, index) => (
+                    <p key={index}>
+                      <LinkedProse text={paragraph} />
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Results */}
       <section className="py-20 px-4 bg-gradient-to-r from-primary to-blue-600 text-white">
