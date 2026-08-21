@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import {
+  daytonaBeachLocalContent,
   delandLocalContent,
   flaglerBeachLocalContent,
   hollyHillLocalContent,
   newSmyrnaBeachLocalContent,
   ormondBeachLocalContent,
+  palmCoastLocalContent,
   portOrangeLocalContent,
 } from './locationLocalContent';
 
@@ -54,7 +56,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Ormond Beach', 'Port Orange', 'South Daytona', 'Holly Hill'],
     coordinates: { latitude: '29.2108', longitude: '-81.0228' },
     seo: {
-      metaTitle: 'Local SEO for Daytona Beach Businesses',
+      metaTitle: 'Local SEO Services in Daytona Beach, Florida',
       metaDescription: 'We help Daytona Beach contractors, clinics, and service businesses get found first in local search. Home field advantage — we know this market.',
       keywords: ['Daytona Beach digital marketing', 'NASCAR marketing', 'motorsports tourism', 'beach lifestyle marketing', 'Daytona SEO']
     },
@@ -62,7 +64,8 @@ export const locations: Location[] = [
       { title: 'NASCAR Culture Expertise', description: 'Deep understanding of motorsports tourism and race-week marketing psychology.' },
       { title: 'Beach Tourism Marketing', description: 'Seasonal strategies for snowbirds, spring breakers, and year-round visitors.' },
       { title: 'Home Base Advantage', description: 'Same-day meetings, fastest response times, and deep community connections.' }
-    ]
+    ],
+    localContent: daytonaBeachLocalContent,
   },
   {
     id: 'ormond-beach',
@@ -125,7 +128,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Flagler Beach', 'Bunnell', 'Ormond Beach'],
     coordinates: { latitude: '29.5844', longitude: '-81.2078' },
     seo: {
-      metaTitle: 'Local SEO for Palm Coast & Flagler County',
+      metaTitle: 'Local SEO Services in Palm Coast, Florida',
       metaDescription: 'Palm Coast is Florida\'s fastest-growing family market. We help Flagler County businesses rank in local search before competitors catch on.',
       keywords: ['Palm Coast SEO', 'Palm Coast SEO company', 'Palm Coast marketing', 'Palm Coast digital marketing', 'Flagler County SEO', 'local SEO Palm Coast']
     },
@@ -136,7 +139,8 @@ export const locations: Location[] = [
       { title: 'Growth Market Positioning', description: 'Capturing market share in one of Florida fastest-growing regions.' },
       { title: 'Dual Demographic Expertise', description: 'Marketing to both retirees and young families effectively.' },
       { title: 'Real Estate Focus', description: 'New construction and relocation marketing expertise.' }
-    ]
+    ],
+    localContent: palmCoastLocalContent,
   },
   {
     id: 'new-smyrna-beach',

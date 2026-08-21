@@ -10,11 +10,11 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import {
-  MapPin, CheckCircle, ArrowRight, Phone, Star, TrendingUp,
-  Users, Target, Search, Globe, BarChart3
+  MapPin, CheckCircle, ArrowRight, Phone, Star, Target, Search, Globe, Sparkles,
 } from 'lucide-react';
-import { Location } from '@/data/locations';
+import { Location, locations } from '@/data/locations';
 import LocationAreaSchema from '@/components/schema/LocationAreaSchema';
+import { testimonials } from '@/data/clientTestimonials';
 import type { ReactNode } from 'react';
 
 interface LocationPageProps {
@@ -48,15 +48,26 @@ function LinkedProse({ text }: { text: string }) {
   return <>{nodes}</>;
 }
 
+const OFFICE_MAP_EMBED =
+  'https://maps.google.com/maps?q=Daytona+Beach,+FL+32114&z=14&output=embed';
+
+const socialProofQuotes = testimonials.slice(0, 2);
+
 export default function LocationPage({ location }: LocationPageProps) {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog(`${location.city} Marketing Audit`);
 
   const services = [
-    { name: 'Local SEO', description: `Dominate ${location.city} search results`, icon: Search, href: '/services/local-seo' as string | undefined },
-    { name: 'Google Business Profile', description: 'Optimize your local presence', icon: MapPin, href: undefined as string | undefined },
-    { name: 'Content Marketing', description: 'Local-focused content strategy', icon: Globe, href: undefined as string | undefined },
-    { name: 'Lead Generation', description: 'Targeted local campaigns', icon: Target, href: undefined as string | undefined },
+    { name: 'Local SEO', description: `Dominate ${location.city} search results`, icon: Search, href: '/services/local-seo' },
+    { name: 'Google Business Profile', description: 'Optimize your local presence', icon: MapPin, href: '/services/local-seo' },
+    { name: 'Content Marketing', description: 'Local-focused content strategy', icon: Globe, href: '/services/search-engine-optimization' },
+    { name: 'Lead Generation', description: 'Targeted local campaigns', icon: Target, href: '/services/local-lead-generation' },
+    { name: 'GEO Optimization', description: 'Get cited in AI search answers', icon: Sparkles, href: '/services/geo-optimization' },
   ];
+
+  const nearbyPages = location.nearbyAreas.flatMap((name) => {
+    const match = locations.find((entry) => entry.city === name);
+    return match ? [match] : [];
+  });
 
   return (
     <>
@@ -157,117 +168,34 @@ export default function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
-      {/* Unique Selling Points */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why <span className="gradient-text">{location.city}</span> Businesses Choose Us
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Local expertise combined with proven marketing strategies
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {location.uniqueSellingPoints.map((usp, index) => (
-              <Card key={index} className="card-professional text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4">
-                    <Star className="w-8 h-8" />
-                  </div>
-                  <CardTitle>{usp.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{usp.description}</p>
-                </CardContent>
-              </Card>
+      {/* Social proof strip */}
+      <section className="py-6 px-4 border-y border-slate-200 bg-white">
+        <div className="container mx-auto max-w-6xl flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-8">
+          <div className="flex items-center justify-center gap-1 shrink-0" aria-label="5 star rating">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="w-5 h-5 fill-secondary text-secondary" />
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Services */}
-      <section className="py-20 px-4 bg-gradient-to-r from-slate-50 to-slate-100">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {location.city} <span className="gradient-text">Marketing Services</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service) => {
-              const IconComponent = service.icon;
-              return (
-                <Card key={service.name} className="card-professional">
-                  <CardContent className="p-6 text-center">
-                    <IconComponent className="w-10 h-10 text-primary mx-auto mb-4" />
-                    <h3 className="font-semibold mb-2">
-                      {service.href ? (
-                        <Link href={service.href} className="text-primary hover:underline">
-                          {service.name === 'Local SEO' ? 'local SEO' : service.name}
-                        </Link>
-                      ) : (
-                        service.name
-                      )}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{service.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-
-          <div className="text-center mt-8">
-            <Link href="/services">
-              <Button variant="outline">
-                View All Services
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Areas Served */}
-      {location.neighborhoods.length > 0 && (
-        <section className="py-20 px-4">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Areas We Serve in <span className="gradient-text">{location.city}</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {location.neighborhoods.map((neighborhood) => (
-                <div key={neighborhood} className="flex items-center gap-2 bg-white p-4 rounded-lg shadow-sm">
-                  <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="font-medium">{neighborhood}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Nearby Areas */}
-      <section className="py-20 px-4 bg-gradient-to-r from-slate-50 to-slate-100">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Also Serving <span className="gradient-text">Nearby Areas</span>
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            {location.nearbyAreas.map((area) => (
-              <Badge key={area} variant="outline" className="px-4 py-2 text-sm">
-                {area}
-              </Badge>
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 min-w-0">
+            {socialProofQuotes.map((quote) => (
+              <blockquote key={quote.name} className="text-sm text-muted-foreground leading-snug">
+                <p className="line-clamp-2">&ldquo;{quote.content}&rdquo;</p>
+                <footer className="mt-1 text-xs font-medium text-foreground">
+                  {quote.name}
+                  <span className="text-muted-foreground font-normal"> — {quote.role}</span>
+                </footer>
+              </blockquote>
             ))}
           </div>
+
+          <Link
+            href="/results"
+            className="shrink-0 text-sm font-semibold text-primary hover:underline inline-flex items-center justify-center"
+          >
+            View case studies
+            <ArrowRight className="w-4 h-4 ml-1" />
+          </Link>
         </div>
       </section>
 
@@ -290,37 +218,91 @@ export default function LocationPage({ location }: LocationPageProps) {
         </section>
       )}
 
-      {/* Results */}
-      <section className="py-20 px-4 bg-gradient-to-r from-primary to-blue-600 text-white">
+      {/* Services */}
+      <section className="py-20 px-4 bg-gradient-to-r from-slate-50 to-slate-100">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {location.city} Marketing Results
+              {location.city} <span className="gradient-text">Marketing Services</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <TrendingUp className="w-12 h-12 mx-auto mb-4 opacity-80" />
-              <div className="text-5xl font-bold mb-2">250%+</div>
-              <p className="text-lg opacity-90">Traffic Growth</p>
-            </div>
-            <div className="text-center">
-              <Users className="w-12 h-12 mx-auto mb-4 opacity-80" />
-              <div className="text-5xl font-bold mb-2">300%+</div>
-              <p className="text-lg opacity-90">Lead Increase</p>
-            </div>
-            <div className="text-center">
-              <BarChart3 className="w-12 h-12 mx-auto mb-4 opacity-80" />
-              <div className="text-5xl font-bold mb-2">4x</div>
-              <p className="text-lg opacity-90">ROI Average</p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {services.map((service) => {
+              const IconComponent = service.icon;
+              return (
+                <Link key={service.name} href={service.href} className="block h-full group">
+                  <Card className="card-professional h-full transition-shadow group-hover:shadow-md">
+                    <CardContent className="p-6 text-center">
+                      <IconComponent className="w-10 h-10 text-primary mx-auto mb-4" />
+                      <h3 className="font-semibold mb-2 text-primary group-hover:underline">
+                        {service.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/services">
+              <Button variant="outline">
+                View All Services
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Serving from Daytona Beach */}
       <section className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Serving {location.city} from <span className="gradient-text">Daytona Beach</span>
+            </h2>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="overflow-hidden rounded-lg border border-slate-200 bg-slate-100 aspect-[16/9]">
+              <iframe
+                title="AIO Growth SEO office in Daytona Beach, Florida"
+                src={OFFICE_MAP_EMBED}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full border-0"
+                allowFullScreen
+              />
+            </div>
+            <p className="text-center text-muted-foreground mt-4">
+              Based in Daytona Beach, serving {location.city} and all of Volusia &amp; Flagler Counties.
+            </p>
+          </div>
+
+          {nearbyPages.length > 0 && (
+            <div className="mt-12">
+              <h3 className="text-xl font-semibold text-center mb-6">Also serving nearby</h3>
+              <div className="flex flex-wrap justify-center gap-3">
+                {nearbyPages.map((area) => (
+                  <Link
+                    key={area.slug}
+                    href={`/areas-we-serve/${area.slug}`}
+                    className="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
+                  >
+                    {area.city}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 px-4 bg-gradient-to-r from-slate-50 to-slate-100">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -329,7 +311,7 @@ export default function LocationPage({ location }: LocationPageProps) {
           </div>
 
           <Accordion type="single" collapsible className="w-full space-y-4">
-            <AccordionItem value="item-1" className="border rounded-lg px-6">
+            <AccordionItem value="item-1" className="border rounded-lg px-6 bg-white">
               <AccordionTrigger className="text-left font-semibold">
                 Do you specialize in {location.city} marketing?
               </AccordionTrigger>
@@ -339,7 +321,7 @@ export default function LocationPage({ location }: LocationPageProps) {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="border rounded-lg px-6">
+            <AccordionItem value="item-2" className="border rounded-lg px-6 bg-white">
               <AccordionTrigger className="text-left font-semibold">
                 What industries do you serve in {location.city}?
               </AccordionTrigger>
@@ -349,7 +331,7 @@ export default function LocationPage({ location }: LocationPageProps) {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="border rounded-lg px-6">
+            <AccordionItem value="item-3" className="border rounded-lg px-6 bg-white">
               <AccordionTrigger className="text-left font-semibold">
                 How quickly can I see results?
               </AccordionTrigger>

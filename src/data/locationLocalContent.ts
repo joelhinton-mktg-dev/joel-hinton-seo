@@ -143,3 +143,49 @@ export const flaglerBeachLocalContent: LocalContentSection[] = [
     body: `[GEO optimization](/services/geo-optimization) — structuring your business data so AI assistants cite you when someone asks "best seafood in Flagler Beach" — is included in every plan. In a town this size, being the one structured answer is a moat. We're based in [Daytona Beach](/areas-we-serve/daytona-beach), 30 minutes down A1A. Month-to-month, no contracts.`,
   },
 ];
+
+export const daytonaBeachLocalContent: LocalContentSection[] = [
+  {
+    heading: 'Local SEO Services in Daytona Beach, Florida',
+    body: `Daytona Beach is the most competitive local-search market in Volusia County — and the most misunderstood. Half the businesses here optimize like they're chasing tourists; half ignore tourists entirely. The right answer depends on where you sit. A beachside restaurant near the Boardwalk lives on visitor searches that spike with every event weekend. An HVAC company off Bellevue Avenue lives on year-round resident demand from neighborhoods tourists never see. [Local SEO](/services/local-seo) that works here starts by knowing which economy you're actually in — most agencies never ask.`,
+  },
+  {
+    heading: 'Two Daytonas, Two Search Strategies',
+    body: `The visitor economy runs on the event calendar: Speedweeks and the 500 in February, Bike Week in March, spring break, summer families, Biketoberfest in October. Search demand for restaurants, bars, auto service, and things-to-do multiplies during those windows, and the winners locked in their Google Business Profile, photos, and reviews weeks earlier. The resident economy — ISB and Beville Road corridors, Midtown, the growing LPGA area — searches like any American suburb: home services, healthcare, auto repair, legal. Steadier, higher lifetime value, and won with fundamentals: complete profiles, review velocity, consistent citations, and pages that name real neighborhoods.`,
+  },
+  {
+    heading: 'The Growth Is Inland',
+    body: `The LPGA corridor is where Daytona's new rooftops are — new households with no established favorites, searching "near me" for everything from dentists to lawn care. Businesses that build visibility there now inherit customers for a decade. Our [map pack guide](/blog/how-to-rank-daytona-beach-map-pack) breaks down the exact mechanics we use.`,
+  },
+  {
+    heading: 'AI Search Is Already Here',
+    body: `Ask ChatGPT for "a good roofer in Daytona Beach" and it gives names. Whether yours comes up is decided by [GEO optimization](/services/geo-optimization) — structured data, consistent business information, and content AI systems can verify. We build it into every plan, and AI-driven queries are already appearing in our own Search Console data for this market.`,
+  },
+  {
+    heading: 'A Daytona Company, Literally',
+    body: `This is our home base — our office is in the 32114. We serve the whole metro from here: [Holly Hill](/areas-we-serve/holly-hill), [Port Orange](/areas-we-serve/port-orange), [Ormond Beach](/areas-we-serve/ormond-beach), and the rest of the county. Month-to-month plans, no long-term contracts, and reporting that shows exactly what moved.`,
+  },
+];
+
+export const palmCoastLocalContent: LocalContentSection[] = [
+  {
+    heading: 'Local SEO Services in Palm Coast, Florida',
+    body: `Palm Coast added more new residents than almost any city its size in Florida over the past decade, and the local-search market still hasn't caught up. New subdivisions fill with households that have no plumber, no dentist, no favorite restaurant — every one of them running "near me" searches with zero loyalty. For a local business, that's the best possible SEO customer: high intent, no incumbent. [Local SEO](/services/local-seo) here is a land grab, and most of the land is still unclaimed.`,
+  },
+  {
+    heading: 'A City of Neighborhoods, and Google Knows It',
+    body: `Palm Coast's map pack is unusually proximity-sensitive because the city is built as distinct sections — the P, B, E, and W sections, Grand Haven, European Village, the Hammock along the coast. A contractor in the W section and one near Town Center are effectively in different markets for "near me" searches. We build Google Business Profiles, service-area settings, and location content around that geography, so you show up where your actual customers search — not just at your street address.`,
+  },
+  {
+    heading: 'Dual Demographics, Dual Playbooks',
+    body: `Palm Coast runs on two buyer types: retirees who research carefully, read every review, and pick the most credible option; and young families who search fast and choose from the map pack. Winning both means review depth AND profile completeness — reviews convince the retiree, proximity and photos win the parent. Healthcare, home services, landscaping and pools, real estate services, and restaurants are the categories where we see the clearest wins here.`,
+  },
+  {
+    heading: 'New Construction Is a Search Calendar',
+    body: `Every closing in a new subdivision triggers a predictable search sequence: internet and utilities first, then fences, window treatments, landscaping, pool contractors, pediatricians, dentists. Businesses positioned for those searches before the certificate of occupancy get the whole sequence. We time content and GBP posts to where construction is actually happening.`,
+  },
+  {
+    heading: 'The AI Layer Is Wide Open in Flagler',
+    body: `[GEO optimization](/services/geo-optimization) — being the business AI assistants cite when a new resident asks "who should I call for X in Palm Coast" — is essentially uncontested in Flagler County. New residents are exactly the people who ask AI for recommendations, because they don't know anyone here yet. We're minutes away, also serving [Flagler Beach](/areas-we-serve/flagler-beach) and [Ormond Beach](/areas-we-serve/ormond-beach). Month-to-month, no contracts.`,
+  },
+];
