@@ -23,11 +23,20 @@ interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
+function isTldrLabel(node: React.ReactNode): boolean {
+  if (!isValidElement(node) || node.type !== 'strong') return false;
+  const label = Children.toArray(node.props.children).join('').trim();
+  return label === 'TL;DR:' || label === 'TL;DR';
+}
+
 function isTldrParagraph(children: React.ReactNode): boolean {
-  const first = Children.toArray(children)[0];
-  if (!isValidElement(first) || first.type !== 'strong') return false;
-  const label = Children.toArray(first.props.children).join('');
-  return label.trim() === 'TL;DR:';
+  return isTldrLabel(Children.toArray(children)[0]);
+}
+
+/** Drop the visible “TL;DR:” prefix; keep the summary copy. */
+function withoutTldrLabel(children: React.ReactNode): React.ReactNode {
+  const nodes = Children.toArray(children);
+  return isTldrLabel(nodes[0]) ? nodes.slice(1) : children;
 }
 
 /** Drop a leading markdown hero image when it duplicates post.featuredImage. */
@@ -214,7 +223,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   p: ({children}) =>
                     isTldrParagraph(children) ? (
                       <p className="text-slate-700 mb-6 leading-relaxed bg-[#f0f7ff] border-l-4 border-blue-500 pl-6 py-4 rounded-r-lg">
-                        {children}
+                        {withoutTldrLabel(children)}
                       </p>
                     ) : (
                       <p className="text-slate-700 mb-6 leading-relaxed">{children}</p>

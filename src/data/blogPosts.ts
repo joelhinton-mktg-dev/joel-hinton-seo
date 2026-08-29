@@ -3,6 +3,10 @@ import { localClusterPosts } from '@/data/localClusterPosts';
 import { costPerLead2026Post } from './blog/cost-per-lead-2026';
 import { ragMechanismPost } from './blog/rag-mechanism';
 import { localPack2026Post } from './blog/local-pack-2026';
+import { aiOverviewsLocalBusinessPost } from './blog/ai-overviews-local-business';
+import { geoCostLocalBusinessPost } from './blog/geo-cost-local-business';
+import { chooseDaytonaSeoCompanyPost } from './blog/choose-daytona-seo-company';
+import { volusiaHvacBuriedGooglePost } from './blog/volusia-hvac-buried-google';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1135,5 +1139,9 @@ export const blogPosts: BlogPost[] = [
   costPerLead2026Post,
   ragMechanismPost,
   localPack2026Post,
+  aiOverviewsLocalBusinessPost,
+  geoCostLocalBusinessPost,
+  chooseDaytonaSeoCompanyPost,
+  volusiaHvacBuriedGooglePost,
   ...localClusterPosts,
 ];
