@@ -79,8 +79,8 @@ Here is the local reality, and it is genuinely good news. Search “best [your s
 We will check whether your business shows up when someone asks ChatGPT or Google's AI for the best provider in your area, and map the fastest path to being the answer. See our [GEO optimization](https://aiogrowthseo.com/geo-optimization) and [Florida SEO services](https://aiogrowthseo.com/florida-seo-services), or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
-  publishDate: '2026-08-21T10:00:00Z',
-  lastModified: '2026-08-21T10:00:00Z',
+  publishDate: '2026-08-12T10:00:00Z',
+  lastModified: '2026-08-12T10:00:00Z',
   category: "AI Marketing",
   tags: ['GEO', 'AEO', 'AI Overviews', 'ChatGPT', 'Local SEO'],
   faqs: [

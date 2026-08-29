@@ -58,8 +58,8 @@ You can use AI tools to help, drafting content, spotting gaps, but they will not
 We will tell you plainly whether GEO is worth it for your business, what is already covered by good local SEO, and what, if anything, is worth adding, no relabeled packages. See our [GEO optimization](https://aiogrowthseo.com/geo-optimization) and [local SEO](https://aiogrowthseo.com/local-seo), or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
-  publishDate: '2026-08-21T10:00:00Z',
-  lastModified: '2026-08-21T10:00:00Z',
+  publishDate: '2026-08-19T10:00:00Z',
+  lastModified: '2026-08-19T10:00:00Z',
   category: "AI Marketing",
   tags: ['GEO', 'Generative Engine Optimization', 'AI Search', 'Pricing', 'Local SEO'],
   faqs: [

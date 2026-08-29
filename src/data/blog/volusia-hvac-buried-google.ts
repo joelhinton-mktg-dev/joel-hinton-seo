@@ -62,8 +62,8 @@ Here is the uncomfortable and encouraging truth: longevity is not destiny. A new
 We will check your profile health, your proximity across Volusia, your reviews, and your city coverage, then show you the specific reasons you rank where you do and what to fix first. See our [local SEO services](https://aiogrowthseo.com/local-seo) or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
-  publishDate: '2026-08-21T10:00:00Z',
-  lastModified: '2026-08-21T10:00:00Z',
+  publishDate: '2026-08-28T10:00:00Z',
+  lastModified: '2026-08-28T10:00:00Z',
   category: "Local SEO",
   tags: ['Local SEO', 'HVAC', 'Volusia County', 'Home Services', 'Map Pack'],
   faqs: [

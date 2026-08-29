@@ -65,8 +65,8 @@ Yes, and arguably more than before, but the reason has shifted. AI has not kille
 We will tell you honestly where you stand, what is realistic, and what we would do, no guaranteed-rankings pitch, no jargon, public pricing. See our [SEO services](https://aiogrowthseo.com/seo-services) or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
-  publishDate: '2026-08-21T10:00:00Z',
-  lastModified: '2026-08-21T10:00:00Z',
+  publishDate: '2026-08-26T10:00:00Z',
+  lastModified: '2026-08-26T10:00:00Z',
   category: "Local SEO",
   tags: ['SEO', 'Daytona Beach', 'Hiring an Agency', 'Pricing', 'Local SEO'],
   faqs: [
