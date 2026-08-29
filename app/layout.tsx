@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 import { Providers } from '../components/Providers';
@@ -57,6 +58,41 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <Script
+          src="https://news.google.com/swg/js/v1/publisher.js"
+          strategy="beforeInteractive"
+          data-preferred-sources-control="manual"
+          {...{ 'preferred-sources-control': 'manual' }}
+        />
+        <Script id="preferred-sources-init" strategy="afterInteractive">
+          {`
+            (self.PREFERRED_SOURCE = self.PREFERRED_SOURCE
+            || []).push(function(preferredSource) {
+              preferredSource.init({
+                theme: 'light',
+                lang: 'en'
+              });
+              document.querySelectorAll(
+                '.aio-preferred-source-btn'
+              ).forEach(function(btn) {
+                btn.setAttribute('data-aio-ps-bound', '1');
+                btn.addEventListener('click', function() {
+                  preferredSource.addPreferredSource();
+                });
+              });
+              document.addEventListener('click', function(event) {
+                var target = event.target;
+                if (!target || !target.closest) return;
+                var btn = target.closest('.aio-preferred-source-btn');
+                if (btn && btn.getAttribute('data-aio-ps-bound') !== '1') {
+                  preferredSource.addPreferredSource();
+                }
+              });
+            });
+          `}
+        </Script>
+      </head>
       <body className="font-inter antialiased">
         <Providers>
           <Toaster />

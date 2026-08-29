@@ -1,11 +1,15 @@
 import { Brain, Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 import { COPYRIGHT_YEAR, SITE_EMAIL, SITE_PHONE_DISPLAY } from "@/data/site";
+import PreferredSourceButton from "./PreferredSourceButton";
 
 const Footer = () => {
   return (
     <footer className="bg-foreground text-background py-16">
       <div className="container mx-auto px-6">
+        <div className="mb-10 flex justify-center md:justify-start">
+          <PreferredSourceButton />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">

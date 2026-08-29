@@ -4,6 +4,7 @@ import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import LocalBusinessSchema from '../components/schema/LocalBusinessSchema';
+import PreferredSourceButton from '../components/PreferredSourceButton';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -239,6 +240,12 @@ export default function HomePage() {
 
       <section id="results">
         <TestimonialsSection />
+      </section>
+
+      <section className="pb-24">
+        <div className="container mx-auto px-6 flex justify-center">
+          <PreferredSourceButton />
+        </div>
       </section>
     </>
   );

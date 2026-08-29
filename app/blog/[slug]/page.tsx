@@ -17,6 +17,7 @@ import { blogPosts } from '@/data/blogPosts';
 import { buildBlogPostSchemas } from '@/lib/blogSchema';
 import ShareButtons from './ShareButtons';
 import BlogPostFaqs from './BlogPostFaqs';
+import PreferredSourceButton from '../../../components/PreferredSourceButton';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -282,6 +283,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
 
             {post.faqs && post.faqs.length > 0 && <BlogPostFaqs faqs={post.faqs} />}
+
+            <div className="mt-12 mb-8">
+              <p className="text-slate-700 mb-4">
+                Enjoying this content? Add us to your Google Preferred Sources to see our
+                articles first.
+              </p>
+              <PreferredSourceButton />
+            </div>
 
             {/* Share Section */}
             <ShareButtons post={post} canonicalUrl={canonicalUrl} />
