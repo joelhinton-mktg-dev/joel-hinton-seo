@@ -348,9 +348,7 @@ export default function LocationPage({ location }: LocationPageProps) {
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 We work with all types of local businesses in {location.city} including home services, healthcare,
-                real estate,{' '}
-                <Link href="/industries/restaurants-hospitality" className="text-primary hover:underline">restaurants</Link>
-                , retail, and professional services. Our strategies are customized for each industry.
+                real estate, restaurants, retail, and professional services. Our strategies are customized for each industry.
               </AccordionContent>
             </AccordionItem>
 
