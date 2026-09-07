@@ -176,7 +176,7 @@ export const locations: Location[] = [
     features: ['Orlando Commuters', 'SunRail Access', 'Growing Retail', 'Nature Recreation'],
     services: ['Local SEO', 'B2B Marketing', 'Service Area Marketing', 'Google Ads'],
     neighborhoods: ['Glen Abbey', 'DeBary Plantation', 'River Oaks', 'Riviera Bella'],
-    nearbyAreas: ['Deltona', 'Orange City', 'Sanford', 'Lake Mary'],
+    nearbyAreas: ['Deltona', 'Orange City', 'Sanford', 'Lake Mary', 'DeLand'],
     coordinates: { latitude: '28.8831', longitude: '-81.3086' },
     seo: {
       metaTitle: 'Local SEO for DeBary & West Volusia',
@@ -250,7 +250,7 @@ export const locations: Location[] = [
     features: ['Historic Downtown', 'Stetson University', 'Main Street Destination', 'Inland Growth'],
     services: ['Local SEO', 'Google Business Profile', 'GEO Optimization', 'Content Marketing'],
     neighborhoods: ['Downtown DeLand', 'Stetson University area', 'Victoria Park'],
-    nearbyAreas: ['Deltona', 'Orange City', 'Daytona Beach'],
+    nearbyAreas: ['Deltona', 'Orange City', 'Daytona Beach', 'DeBary'],
     coordinates: { latitude: '29.0283', longitude: '-81.3031' },
     seo: {
       metaTitle: 'Local SEO Services in DeLand, Florida',

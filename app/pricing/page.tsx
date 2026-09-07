@@ -186,7 +186,12 @@ export default function PricingPage() {
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-destructive rounded-full mt-2 shrink-0" />
-                  <p className="text-muted-foreground">6-12 month minimum contracts lock you in</p>
+                  <p className="text-muted-foreground">
+                    6-12 month{' '}
+                    <Link href="/blog/how-to-choose-daytona-beach-seo-company" className="text-primary hover:underline">
+                      minimum contracts lock you in
+                    </Link>
+                  </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-destructive rounded-full mt-2 shrink-0" />

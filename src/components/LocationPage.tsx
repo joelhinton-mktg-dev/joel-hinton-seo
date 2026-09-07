@@ -282,6 +282,27 @@ export default function LocationPage({ location }: LocationPageProps) {
             </p>
           </div>
 
+          <div className="mt-16 max-w-2xl mx-auto">
+            <h3 className="text-xl font-semibold text-center mb-6">Local SEO resources</h3>
+            <ul className="space-y-3 text-center">
+              <li>
+                <Link href="/blog/how-to-rank-daytona-beach-map-pack" className="text-primary hover:underline">
+                  how to rank in the local map pack
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/why-volusia-hvac-businesses-buried-google" className="text-primary hover:underline">
+                  why local businesses get buried on Google
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/local-seo-hvac-plumbing-volusia-county" className="text-primary hover:underline">
+                  local SEO for home-service businesses
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {nearbyPages.length > 0 && (
             <div className="mt-12">
               <h3 className="text-xl font-semibold text-center mb-6">Also serving nearby</h3>
@@ -327,7 +348,9 @@ export default function LocationPage({ location }: LocationPageProps) {
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 We work with all types of local businesses in {location.city} including home services, healthcare,
-                real estate, restaurants, retail, and professional services. Our strategies are customized for each industry.
+                real estate,{' '}
+                <Link href="/industries/restaurants-hospitality" className="text-primary hover:underline">restaurants</Link>
+                , retail, and professional services. Our strategies are customized for each industry.
               </AccordionContent>
             </AccordionItem>
 
