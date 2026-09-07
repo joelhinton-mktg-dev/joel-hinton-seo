@@ -89,7 +89,10 @@ export default function SEOServicesPage() {
                     <div className="w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0 mt-1">
                       <DollarSign className="w-4 h-4 text-destructive" />
                     </div>
-                    <p className="text-muted-foreground">Most agencies charge $3,000/month for basic keyword research and two blog posts</p>
+                    <p className="text-muted-foreground">
+                      <Link href="/blog/how-to-choose-daytona-beach-seo-company" className="text-primary hover:underline">Most agencies</Link>{' '}
+                      charge $3,000/month for basic keyword research and two blog posts
+                    </p>
                   </div>
 
                   <div className="flex items-start gap-4">
@@ -214,7 +217,12 @@ export default function SEOServicesPage() {
                   </div>
                   <div className="flex items-center gap-3 text-muted-foreground">
                     <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span><strong>Entity-based SEO</strong> - optimize for concepts, not just keywords</span>
+                    <span>
+                      <Link href="/guides/2026-seo-predictions-ai-automation-entity-optimization" className="text-primary hover:underline">
+                        <strong>Entity-based SEO</strong>
+                      </Link>
+                      {' '}- optimize for concepts, not just keywords
+                    </span>
                   </div>
                   <div className="flex items-center gap-3 text-muted-foreground">
                     <div className="w-2 h-2 rounded-full bg-primary"></div>

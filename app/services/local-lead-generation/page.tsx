@@ -302,7 +302,11 @@ export default function LocalLeadGenerationPage() {
                 </div>
                 <div className="pt-4 border-t">
                   <p className="text-xs text-muted-foreground">
-                    <strong>Best for:</strong> HVAC, Plumbing, Electrical, Roofing, Legal, Financial
+                    <strong>Best for:</strong>{' '}
+                    <Link href="/blog/cost-per-lead-hvac-plumbing-electrical-2026" className="text-primary hover:underline">
+                      HVAC, Plumbing, Electrical
+                    </Link>
+                    , Roofing, Legal, Financial
                   </p>
                 </div>
               </CardContent>
@@ -496,13 +500,13 @@ export default function LocalLeadGenerationPage() {
               { name: "Daytona Beach", href: "/areas-we-serve/daytona-beach" },
               { name: "Port Orange", href: "/areas-we-serve/port-orange" },
               { name: "Ormond Beach" },
-              { name: "DeLand" },
+              { name: "DeLand", href: "/areas-we-serve/deland" },
               { name: "New Smyrna Beach" },
               { name: "Palm Coast" },
-              { name: "DeBary" },
+              { name: "DeBary", href: "/areas-we-serve/debary" },
               { name: "Deltona" },
-              { name: "Sanford" },
-              { name: "Holly Hill" },
+              { name: "Sanford", href: "/areas-we-serve/sanford" },
+              { name: "Holly Hill", href: "/areas-we-serve/holly-hill" },
               { name: "Edgewater" },
               { name: "Orange City" },
             ].map((city) => (

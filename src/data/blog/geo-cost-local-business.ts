@@ -11,11 +11,11 @@ export const geoCostLocalBusinessPost: BlogPost = {
 
 If you have heard “GEO” or “AI search optimization” and wondered whether it is a genuine service or a buzzword agencies invented to charge more, this is a straight answer for a local business owner, not a marketer. Every number here is tied to a source you can check.
 
-## Is GEO a real thing, or just a new buzzword?
+## Is [GEO a real thing](https://aiogrowthseo.com/guides/what-is-geo-generative-engine-optimization), or just a new buzzword?
 
-It is real, and the shift behind it is measurable. When someone searches an informational question now, Google often shows an AI-generated answer at the top, and that answer takes clicks that used to go to websites. Ahrefs, analyzing 300,000 keywords, found the top result can lose up to 58% of its clicks when an AI Overview appears (measured against forecast, so read it as a strong direction). People also ask ChatGPT and Perplexity directly and never touch Google. GEO is simply the work of making sure your business is the one those tools name. That part is not hype.
+It is real, and the shift behind it is measurable. When someone searches an informational question now, Google often shows an AI-generated answer at the top, and that answer takes clicks that used to go to websites. Ahrefs, analyzing 300,000 keywords, found the top result can lose up to 58% of its clicks when an AI Overview appears (measured against forecast, so read it as a strong direction). People also ask ChatGPT and Perplexity directly and never touch Google. GEO is simply the work of [making sure your business is the one those tools name](https://aiogrowthseo.com/blog/how-to-get-cited-by-ai-search-2026). That part is not hype.
 
-What is hype is treating GEO as a brand-new discipline disconnected from everything else. It is not. The things that get you cited by AI, accurate business information, real reviews, clear content that answers questions, credible sources, are the same things that have always signaled a trustworthy business. GEO is an extension of good SEO, not a replacement for it.
+What is hype is treating GEO as a brand-new discipline disconnected from everything else. It is not. The things that get you cited by AI, accurate business information, real reviews, clear content that answers questions, credible sources, are the same things that have always signaled a trustworthy business. GEO is an [extension of good SEO, not a replacement for it](https://aiogrowthseo.com/guides/geo-vs-seo-whats-the-difference).
 
 ## How much does GEO cost?
 
@@ -55,7 +55,7 @@ You can use AI tools to help, drafting content, spotting gaps, but they will not
 
 ## Get an honest read on what you actually need
 
-We will tell you plainly whether GEO is worth it for your business, what is already covered by good local SEO, and what, if anything, is worth adding, no relabeled packages. See our [GEO optimization](https://aiogrowthseo.com/geo-optimization) and [local SEO](https://aiogrowthseo.com/local-seo), or [book a free audit](https://aiogrowthseo.com/contact).
+We will tell you plainly whether GEO is worth it for your business, what is already covered by good local SEO, and what, if anything, is worth adding, no relabeled packages. See our [GEO optimization](https://aiogrowthseo.com/services/geo-optimization) and [local SEO](https://aiogrowthseo.com/services/local-seo), or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
   publishDate: '2026-08-19T10:00:00Z',

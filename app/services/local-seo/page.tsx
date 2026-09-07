@@ -25,6 +25,11 @@ const localCities = [
   "Flagler Beach", "Bunnell", "Lake Mary", "Longwood", "Altamonte Springs"
 ];
 
+const localCityHrefs: Record<string, string> = {
+  "Holly Hill": "/areas-we-serve/holly-hill",
+  "Sanford": "/areas-we-serve/sanford",
+};
+
 export default function LocalSEOPage() {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Local SEO Strategy Consultation');
 
@@ -61,7 +66,7 @@ export default function LocalSEOPage() {
                 When someone searches &quot;[your service] near me&quot; in{' '}
                 <Link href="/areas-we-serve/daytona-beach" className="text-primary hover:underline">Daytona Beach</Link>,{' '}
                 <Link href="/areas-we-serve/ormond-beach" className="text-primary hover:underline">Ormond Beach</Link>,{' '}
-                <Link href="/areas-we-serve/port-orange" className="text-primary hover:underline">Port Orange</Link>, or Palm Coast - are you showing up? Our Local SEO services put your business in front of customers actively looking for what you offer.
+                <Link href="/areas-we-serve/port-orange" className="text-primary hover:underline">Port Orange</Link>, or Palm Coast - <Link href="/blog/why-volusia-hvac-businesses-buried-google" className="text-primary hover:underline">are you showing up</Link>? Our Local SEO services put your business in front of customers actively looking for what you offer.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -90,10 +95,16 @@ export default function LocalSEOPage() {
 
               {/* Service Area Tags */}
               <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
-                {localCities.slice(0, 8).map((city) => (
+                {localCities.slice(0, 9).map((city) => (
                   <Badge key={city} variant="outline" className="text-xs">
                     <MapPin className="w-3 h-3 mr-1" />
-                    {city}
+                    {localCityHrefs[city] ? (
+                      <Link href={localCityHrefs[city]} className="hover:underline">
+                        {city}
+                      </Link>
+                    ) : (
+                      city
+                    )}
                   </Badge>
                 ))}
               </div>
@@ -432,7 +443,11 @@ export default function LocalSEOPage() {
               Ready to Dominate Local Search?
             </h2>
             <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-              Get your free Local SEO audit and see exactly what&apos;s preventing you from ranking in the local map pack.
+              Get your free Local SEO audit and see exactly what&apos;s preventing you from{' '}
+              <Link href="/blog/how-to-rank-daytona-beach-map-pack" className="text-white underline hover:text-green-50">
+                ranking in the local map pack
+              </Link>
+              .
             </p>
             <Button
               size="lg"

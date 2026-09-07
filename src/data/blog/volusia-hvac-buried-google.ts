@@ -43,7 +43,7 @@ Reviews feed ranking, and recency now matters more than raw total. A profile ear
 
 ## Problem 4: no dedicated page for each city you serve
 
-This is the fix for the proximity problem, and it is the step most contractors skip. Because Google weighs distance so heavily, the way to rank beyond your home city is a dedicated, genuinely useful page for each city you serve, not one template with the city name swapped. Real local content for Daytona Beach, Port Orange, Ormond Beach, New Smyrna Beach, and DeLand is how you compete on distance across the county. This is the backbone of our [service-area approach](https://aiogrowthseo.com/areas-we-serve), and the full build is in our [Volusia local SEO guide](https://aiogrowthseo.com/blog/local-seo-hvac-plumbing-volusia-county). A contractor covering all of Volusia from one pin, with one page, is choosing to be invisible in half the county.
+This is the fix for the proximity problem, and it is the step most contractors skip. Because Google weighs distance so heavily, the way to rank beyond your home city is a dedicated, genuinely useful page for each city you serve, not one template with the city name swapped. Real local content for Daytona Beach, Port Orange, Ormond Beach, New Smyrna Beach, and [DeLand](https://aiogrowthseo.com/areas-we-serve/deland) is how you compete on distance across the county. This is the backbone of our [service-area approach](https://aiogrowthseo.com/areas-we-serve), and the full build is in our [Volusia local SEO guide](https://aiogrowthseo.com/blog/local-seo-hvac-plumbing-volusia-county). A contractor covering all of Volusia from one pin, with one page, is choosing to be invisible in half the county.
 
 ## Problem 5: your website describes services instead of answering questions
 
@@ -55,11 +55,11 @@ One reason national advice underperforms here: Volusia runs on its own demand cy
 
 ## Why a newer business can out-rank you (and how you catch up)
 
-Here is the uncomfortable and encouraging truth: longevity is not destiny. A newer HVAC business with clean, clear signals can crack the Volusia map pack in months while a 15-year-old competitor stays buried, because Google rewards signal clarity, not age. Stalled businesses usually have history but messy signals: wrong categories, inconsistent data across the web, a website that says one thing while the profile says another. When Google has to guess who you are, you lose. Fix the five problems above in order, verify the technical basics, optimize the profile, build review velocity, add per-city pages, answer real questions, and you close the gap faster than the head start suggests.
+Here is the uncomfortable and encouraging truth: longevity is not destiny. A newer HVAC business with clean, clear signals can crack the [Volusia map pack](https://aiogrowthseo.com/blog/how-to-rank-daytona-beach-map-pack) in months while a 15-year-old competitor stays buried, because Google rewards signal clarity, not age. Stalled businesses usually have history but messy signals: wrong categories, inconsistent data across the web, a website that says one thing while the profile says another. When Google has to guess who you are, you lose. Fix the five problems above in order, verify the technical basics, optimize the profile, build review velocity, add per-city pages, answer real questions, and you close the gap faster than the head start suggests.
 
 ## Find out exactly why you're buried
 
-We will check your profile health, your proximity across Volusia, your reviews, and your city coverage, then show you the specific reasons you rank where you do and what to fix first. See our [local SEO services](https://aiogrowthseo.com/local-seo) or [book a free audit](https://aiogrowthseo.com/contact).
+We will check your profile health, your proximity across Volusia, your reviews, and your city coverage, then show you the specific reasons you rank where you do and what to fix first. See our [local SEO services](https://aiogrowthseo.com/services/local-seo) or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
   publishDate: '2026-08-28T10:00:00Z',

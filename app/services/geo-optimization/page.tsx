@@ -47,7 +47,10 @@ export default function GEOOptimizationPage() {
               </Badge>
 
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">GEO</span>: Generative Engine Optimization
+                <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">GEO</span>:{' '}
+                <Link href="/guides/what-is-geo-generative-engine-optimization" className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent hover:underline">
+                  Generative Engine Optimization
+                </Link>
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
@@ -137,7 +140,12 @@ export default function GEOOptimizationPage() {
                       <Globe className="w-4 h-4 text-purple-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold">Google is integrating AI Overviews</h4>
+                      <h4 className="font-semibold">
+                        Google is integrating{' '}
+                        <Link href="/blog/how-to-show-up-in-ai-overviews-local-business" className="text-primary hover:underline">
+                          AI Overviews
+                        </Link>
+                      </h4>
                       <p className="text-sm text-muted-foreground">Traditional rankings are being pushed below AI summaries</p>
                     </div>
                   </div>
@@ -155,7 +163,11 @@ export default function GEOOptimizationPage() {
 
               <Card className="bg-gradient-to-br from-purple-50 to-violet-50 border-purple-200">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-center">GEO vs Traditional SEO</CardTitle>
+                  <CardTitle className="text-2xl text-center">
+                    <Link href="/guides/geo-vs-seo-whats-the-difference" className="hover:underline">
+                      GEO vs Traditional SEO
+                    </Link>
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
@@ -323,7 +335,12 @@ export default function GEOOptimizationPage() {
             <Card className="card-professional border-purple-200 mb-8">
               <CardHeader>
                 <CardTitle className="text-2xl">What You Get at Every Tier</CardTitle>
-                <CardDescription>Baseline GEO is standard — not a separate purchase</CardDescription>
+                <CardDescription>
+                  Baseline GEO is standard —{' '}
+                  <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
+                    not a separate purchase
+                  </Link>
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-sm text-muted-foreground">

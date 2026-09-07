@@ -525,7 +525,7 @@ This means:
 
 | Aspect | Traditional SEO | AI Search Optimization |
 |--------|-----------------|------------------------|
-| **Primary Goal** | Rank higher on SERPs | Get cited and trusted by AI systems |
+| **Primary Goal** | Rank higher on SERPs | [Get cited and trusted by AI systems](/blog/how-to-get-cited-by-ai-search-2026) |
 | **Keyword Strategy** | Exact-match, high-volume keywords | Topic clusters, user intent, conversational queries |
 | **Content Structure** | Scannable, keyword-focused | Comprehensive, conversational, context-rich |
 | **Authority Signals** | Backlinks, E-E-A-T, technical SEO | Domain reputation, topic depth, trustworthiness |
@@ -904,7 +904,7 @@ These represent fundamentally different optimization goals requiring distinct st
 
 - **November 2022:** ChatGPT launched, reaching 100 million users in two months (fastest app adoption ever)
 - **2023-2024:** Perplexity achieved **858% year-over-year growth** with 10+ million active monthly users
-- **2024:** Google launched Google AI Overviews directly in search results
+- **2024:** Google launched [Google AI Overviews](/blog/how-to-show-up-in-ai-overviews-local-business) directly in search results
 - **2024:** Bing integrated ChatGPT into its search engine
 - **2024-2025:** Microsoft embedded Copilot across Windows and Office
 
@@ -1748,7 +1748,7 @@ Brands getting cited by ChatGPT today build compounding authority. Those who wai
 
 ## Prediction #4: AI-Assisted Content Automation Scales Production
 
-Rather than replacing human expertise with AI, successful strategies use automation to amplify writer productivity.
+Rather than replacing human expertise with AI, successful strategies use [automation to amplify writer productivity](/services/agentic-seo).
 
 ### The Reality
 
