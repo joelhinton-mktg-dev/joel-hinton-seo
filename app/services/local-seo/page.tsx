@@ -20,9 +20,8 @@ import { businessTypes } from '@/types/contact-forms';
 import { setupTiers, monthlyTiers, multiLocationMonthlyNote } from '@/data/pricing';
 
 const localCities = [
-  "Daytona Beach", "Ormond Beach", "Port Orange", "New Smyrna Beach", "Palm Coast", "DeLand",
-  "Holly Hill", "DeBary", "Sanford", "Deltona", "Orange City", "Edgewater", "South Daytona",
-  "Flagler Beach", "Bunnell", "Lake Mary", "Longwood"
+  "Daytona Beach", "Ormond Beach", "Port Orange", "New Smyrna Beach", "Palm Coast",
+  "Holly Hill", "DeBary", "Sanford", "DeLand", "Flagler Beach"
 ];
 
 const localCityHrefs: Record<string, string> = {
