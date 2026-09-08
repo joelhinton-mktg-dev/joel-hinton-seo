@@ -316,7 +316,7 @@ export function buildLocationMetadata(slug: string): Metadata {
     return { title: 'Location Not Found' };
   }
   const url = `https://aiogrowthseo.com/areas-we-serve/${slug}`;
-  const hideFromSearch = slug === 'deland' || slug === 'flagler-beach';
+  const hideFromSearch = slug === 'debary' || slug === 'sanford';
   return {
     title: location.seo.metaTitle,
     description: location.seo.metaDescription,
