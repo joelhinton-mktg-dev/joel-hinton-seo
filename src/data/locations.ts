@@ -316,11 +316,14 @@ export function buildLocationMetadata(slug: string): Metadata {
     return { title: 'Location Not Found' };
   }
   const url = `https://aiogrowthseo.com/areas-we-serve/${slug}`;
+  const hideFromSearch = slug === 'debary' || slug === 'sanford';
   return {
     title: location.seo.metaTitle,
     description: location.seo.metaDescription,
     keywords: location.seo.keywords,
-    robots: { index: true, follow: true },
+    robots: hideFromSearch
+      ? { index: false, follow: false }
+      : { index: true, follow: true },
     alternates: { canonical: url },
     openGraph: {
       title: location.seo.metaTitle,
