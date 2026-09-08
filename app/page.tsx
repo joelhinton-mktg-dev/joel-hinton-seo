@@ -24,7 +24,7 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Daytona Beach SEO Company — Central Florida Digital Marketing | AIO Growth SEO',
+    absolute: 'Daytona Beach SEO Company | Local SEO & GEO Optimization | AIO Growth SEO',
   },
   description: 'Your Daytona Beach SEO company for Volusia and Flagler Counties. Psychology-driven local SEO, GEO optimization, lead generation, and automation that turns search visibility into revenue.',
   keywords: ['Daytona Beach SEO company', 'Daytona Beach SEO', 'Central Florida SEO', 'Volusia County digital marketing', 'Flagler County SEO', 'local SEO', 'psychology-driven marketing'],
