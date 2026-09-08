@@ -104,21 +104,21 @@ const HeroSection = () => {
             <TrendingUp className="w-4 h-4 text-secondary" />
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 fade-in">
-            <span className="gradient-text">SEO + GEO</span>
-            <span className="text-foreground"> That Drives</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 fade-in">
+            <span className="gradient-text">Daytona Beach SEO Company</span>
+            <span className="text-foreground"> — Local Search</span>
             <br />
-            <span className="text-foreground">Real </span>
-            <span className="gradient-text">Revenue</span>
+            <span className="text-foreground"> That Gets You </span>
+            <span className="gradient-text">Found</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-4xl mx-auto slide-up" style={{ animationDelay: "100ms" }}>
-            Dominate Google <strong className="text-secondary-text">AND</strong> AI search results. We help Central Florida businesses
+            Dominate Google <strong className="text-secondary-text">AND</strong> AI search results. As a Daytona Beach SEO company, we help Central Florida businesses
             get found by customers searching on Google, ChatGPT, and voice assistants.
           </p>
 
           <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto slide-up" style={{ animationDelay: "200ms" }}>
-            <strong className="text-foreground">Your Daytona Beach SEO company</strong> for Volusia and Flagler Counties. No long-term contracts.
+            Serving Volusia and Flagler Counties. No long-term contracts.
             Just measurable results that turn search visibility into profit.
           </p>
 
