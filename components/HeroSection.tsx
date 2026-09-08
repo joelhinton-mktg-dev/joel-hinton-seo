@@ -108,7 +108,7 @@ const HeroSection = () => {
             <span className="gradient-text">Daytona Beach SEO Company</span>
             <span className="text-foreground"> — Local Search</span>
             <br />
-            <span className="text-foreground">That Gets You </span>
+            <span className="text-foreground"> That Gets You </span>
             <span className="gradient-text">Found</span>
           </h1>
 
