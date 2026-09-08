@@ -63,7 +63,7 @@ const LocalBusinessSchema = () => {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "areaServed": "FL",
+      "areaServed": "US",
       "availableLanguage": "English"
     },
     "areaServed": [
