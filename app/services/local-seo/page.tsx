@@ -22,7 +22,7 @@ import { setupTiers, monthlyTiers, multiLocationMonthlyNote } from '@/data/prici
 const localCities = [
   "Daytona Beach", "Ormond Beach", "Port Orange", "New Smyrna Beach", "Palm Coast", "DeLand",
   "Holly Hill", "DeBary", "Sanford", "Deltona", "Orange City", "Edgewater", "South Daytona",
-  "Flagler Beach", "Bunnell", "Lake Mary", "Longwood", "Altamonte Springs"
+  "Flagler Beach", "Bunnell", "Lake Mary", "Longwood"
 ];
 
 const localCityHrefs: Record<string, string> = {
