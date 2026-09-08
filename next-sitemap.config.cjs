@@ -16,6 +16,8 @@ module.exports = {
     '/twitter-image',
     '/lp/free-seo-audit',
     '/lp/local-seo-offer',
+    '/areas-we-serve/deland',
+    '/areas-we-serve/flagler-beach',
   ],
 
   robotsTxtOptions: {
