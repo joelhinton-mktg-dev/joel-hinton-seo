@@ -23,13 +23,15 @@ const LocalBusinessSchema = () => {
     "priceRange": "$500-$5000",
     "openingHours": "Mo-Fr 09:00-17:00",
     "areaServed": [
-      "Volusia County",
-      "Flagler County",
-      "Daytona Beach",
-      "Port Orange",
-      "Ormond Beach",
-      "Palm Coast",
-      "New Smyrna Beach"
+      { "@type": "County", "name": "Volusia County", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "County", "name": "Flagler County", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Daytona Beach", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Ormond Beach", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Port Orange", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Palm Coast", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "New Smyrna Beach", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Holly Hill", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "DeBary", "containedInPlace": { "@type": "State", "name": "Florida" } }
     ],
     "serviceType": [
       "SEO Services",
@@ -64,10 +66,10 @@ const LocalBusinessSchema = () => {
       "areaServed": "US",
       "availableLanguage": "English"
     },
-    "areaServed": {
-      "@type": "County",
-      "name": "Volusia County"
-    }
+    "areaServed": [
+      { "@type": "County", "name": "Volusia County", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "County", "name": "Flagler County", "containedInPlace": { "@type": "State", "name": "Florida" } }
+    ]
   };
 
   return (
