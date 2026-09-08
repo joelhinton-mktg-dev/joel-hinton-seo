@@ -114,7 +114,7 @@ Profile optimization is not a standalone task. Everything above feeds the [Dayto
 ## Get your profile audited
 We will review your categories, completeness, review velocity, and photos against your top Daytona competitors and show you what to fix first. See our [pricing](https://aiogrowthseo.com/pricing) or [book a free audit](https://aiogrowthseo.com/contact).`,
     author: 'Joel Hinton',
-    publishDate: '2026-06-22T12:00:00Z',
+    publishDate: '2026-06-17T10:00:00Z',
     lastModified: '2026-06-22T12:00:00Z',
     category: 'Local SEO',
     tags: ["Google Business Profile", "Daytona Beach", "contractors", "local SEO", "GBP optimization"],
@@ -287,7 +287,7 @@ Ads rent attention. The moment you stop paying, the leads stop. Building a brand
 ## Stop the budget leak
 We will audit your campaigns, your book rate, and whether you show up in AI search, then show you exactly where the budget is leaking. See our [pricing](https://aiogrowthseo.com/pricing) or [book a free audit](https://aiogrowthseo.com/contact).`,
     author: 'Joel Hinton',
-    publishDate: '2026-06-22T12:00:00Z',
+    publishDate: '2026-06-20T10:00:00Z',
     lastModified: '2026-06-22T12:00:00Z',
     category: 'Local SEO',
     tags: ["Google Ads", "Daytona Beach", "contractors", "lead generation", "ad budget"],
