@@ -6,7 +6,7 @@ export default function PreferredSourceButton() {
     >
       <img
         src="https://www.google.com/favicon.ico"
-        alt=""
+        alt="Google logo"
         width={16}
         height={16}
         className="h-4 w-4 shrink-0"
