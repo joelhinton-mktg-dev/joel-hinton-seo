@@ -202,12 +202,14 @@ We will calculate your true cost per booked job and show you where the book-rate
   },
   {
     id: 'local-seo-hvac-plumbing-volusia-county',
-    title: "Local SEO for HVAC and Plumbing in Volusia County (2026)",
+    title: "Local SEO for HVAC & Plumbing Contractors in Volusia County",
     slug: 'local-seo-hvac-plumbing-volusia-county',
-    excerpt: "How local SEO works for HVAC and plumbing businesses in Volusia County: GBP, service-area vs location pages, the 5 keyword types, review velocity, and Florida's seasonal demand.",
+    excerpt: "HVAC and plumbing contractors in Volusia County: how local SEO actually works, what the map pack requires, and the Florida-specific moves your competitors are missing.",
     content: `## How does local SEO work for an HVAC or plumbing business?
 
 **TL;DR:** Local SEO gets your business found in Google Maps, the map pack, and AI answers when nearby customers search for your service. It rests on four things working together: a complete Google Business Profile, a clear page structure with one page per service and per city, steady reviews, and consistent local data. In Volusia the differentiators are covering multiple cities (one Daytona pin will not rank countywide after the Vicinity update) and matching Florida’s seasonal demand. A newer business with clean signals can crack the map pack in months while a 15-year-old competitor with messy signals stays buried.
+
+In Volusia County specifically, the competitive landscape favors contractors who move first. Daytona Beach, Port Orange, and Ormond Beach each have distinct search patterns — Port Orange skews toward residential AC repair and water heater replacement, Ormond Beach toward higher-ticket system replacements in older coastal homes, and DeLand toward plumbing work tied to the area's aging housing stock. A single service page covering all of Volusia cannot win all three markets. This is the local depth that separates contractors who dominate their market from those who stay buried.
 
 If you run an HVAC or plumbing business in Volusia County and you are researching local SEO, here is how it actually works, the moves that matter, and the local specifics no national guide covers.
 ## The four pillars (and the order that matters)
@@ -237,7 +239,7 @@ The encouraging part: longevity is not destiny. A newer HVAC company with clean,
 We will map your local SEO across every city you serve, run the grid to find your weak zones, and show you where the gaps are. See our [local SEO services](https://aiogrowthseo.com/services/local-seo) or [book a free audit](https://aiogrowthseo.com/contact).`,
     author: 'Joel Hinton',
     publishDate: '2026-06-22T12:00:00Z',
-    lastModified: '2026-06-22T12:00:00Z',
+    lastModified: '2026-09-13T10:00:00Z',
     category: 'Local SEO',
     tags: ["local SEO", "HVAC", "plumbing", "Volusia County", "service-area pages"],
     featuredImage: '/images/blog/local-seo-hvac-plumbing-volusia-county.webp',
@@ -250,8 +252,8 @@ We will map your local SEO across every city you serve, run the grid to find you
     ],
     readingTime: 7,
     seo: {
-      metaTitle: "Local SEO for HVAC & Plumbing — Volusia County",
-      metaDescription: "How local SEO works for HVAC and plumbing businesses in Volusia County: GBP, service-area vs location pages, the 5 keyword types, review velocity, and Florida's seasonal demand.",
+      metaTitle: "Local SEO for HVAC & Plumbing Contractors in Volusia County",
+      metaDescription: "HVAC and plumbing contractors in Volusia County: how local SEO actually works, what the map pack requires, and the Florida-specific moves your competitors are missing.",
       keywords: ["local seo for hvac", "plumbing local SEO", "Volusia County SEO", "service-area pages"],
       ogImage: '/images/blog/local-seo-hvac-plumbing-volusia-county.webp'
     },
