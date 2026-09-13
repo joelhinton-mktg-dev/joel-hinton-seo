@@ -7,6 +7,8 @@ import { aiOverviewsLocalBusinessPost } from './blog/ai-overviews-local-business
 import { geoCostLocalBusinessPost } from './blog/geo-cost-local-business';
 import { chooseDaytonaSeoCompanyPost } from './blog/choose-daytona-seo-company';
 import { volusiaHvacBuriedGooglePost } from './blog/volusia-hvac-buried-google';
+import { localSeoCostDaytonaPost } from './blog/local-seo-cost-daytona';
+import { seoHomeServicesDaytonaPost } from './blog/seo-home-services-daytona';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1143,5 +1145,7 @@ export const blogPosts: BlogPost[] = [
   geoCostLocalBusinessPost,
   chooseDaytonaSeoCompanyPost,
   volusiaHvacBuriedGooglePost,
+  localSeoCostDaytonaPost,
+  seoHomeServicesDaytonaPost,
   ...localClusterPosts,
 ];
