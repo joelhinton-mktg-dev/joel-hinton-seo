@@ -1186,7 +1186,7 @@ Create ongoing processes for:
     category: 'AI & GEO',
     tags: ['GEO', 'Generative Engine Optimization', 'AI Search', 'ChatGPT', 'Answer Engines', 'Perplexity'],
     seo: {
-      metaTitle: 'What is GEO? Complete Beginner\'s Guide to Generative Engine Optimization',
+      metaTitle: 'What is GEO? Generative Engine Optimization Explained',
       metaDescription: 'Learn about Generative Engine Optimization (GEO) - optimizing for AI search engines like ChatGPT and Perplexity. Comprehensive guide to GEO strategies.',
       keywords: ['what is GEO', 'generative engine optimization', 'GEO meaning', 'AI search optimization', 'GEO strategy', 'GEO guide'],
     },
