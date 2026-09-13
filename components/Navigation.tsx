@@ -10,23 +10,30 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+  const [isMobileResourcesOpen, setIsMobileResourcesOpen] = useState(false);
   const [isSEOSubmenuOpen, setIsSEOSubmenuOpen] = useState(false);
   const [isMobileSEOOpen, setIsMobileSEOOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const resourcesRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
     setIsMobileServicesOpen(false);
+    setIsMobileResourcesOpen(false);
     setIsMobileSEOOpen(false);
   }, [pathname]);
 
-  // Close services dropdown when clicking outside
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
         setIsServicesOpen(false);
+      }
+      if (resourcesRef.current && !resourcesRef.current.contains(event.target as Node)) {
+        setIsResourcesOpen(false);
       }
     };
 
@@ -55,12 +62,21 @@ const Navigation = () => {
     { label: "Local Lead Generation", href: "/services/local-lead-generation", description: "Google Ads & Facebook leads for local businesses" },
     { label: "Custom Tools & Automation", href: "/services/custom-tools-automation", description: "Custom marketing tools & workflow automation" },
   ];
+  const resourcesItems = [
+    { label: "Blog", href: "/blog", description: "SEO and GEO articles" },
+    { label: "Guides", href: "/guides", description: "Free educational resources" },
+    { label: "Tools", href: "/tools", description: "Free SEO tools coming soon" },
+  ];
+  const isResourcesActive =
+    pathname.startsWith('/blog') ||
+    pathname.startsWith('/guides') ||
+    pathname.startsWith('/tools');
   const mainNavItems = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "#", isDropdown: true },
+    { label: "Services", href: "#", dropdown: "services" as const },
     { label: "Industries", href: "/industries" },
     { label: "Areas We Serve", href: "/areas-we-serve" },
-    { label: "Blog", href: "/blog" },
+    { label: "Resources", href: "#", dropdown: "resources" as const },
     { label: "Pricing", href: "/pricing" },
     { label: "Results", href: "/results" },
     { label: "About", href: "/about" },
@@ -69,7 +85,7 @@ const Navigation = () => {
 
   const isActiveRoute = (href: string) => {
     if (href === "/") return pathname === "/";
-    if (href === "#") return false; // Services dropdown
+    if (href === "#") return false;
     return pathname.startsWith(href);
   };
 
@@ -95,7 +111,57 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {mainNavItems.map((item) => {
-              if (item.isDropdown) {
+              if (item.dropdown === 'resources') {
+                return (
+                  <div key={item.label} className="relative" ref={resourcesRef}>
+                    <button
+                      onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                      onMouseEnter={() => setIsResourcesOpen(true)}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-accent/50 hover:text-accent-foreground flex items-center gap-1 ${
+                        isResourcesOpen || isResourcesActive
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                      aria-expanded={isResourcesOpen}
+                      aria-haspopup="true"
+                      aria-label="Resources menu"
+                    >
+                      {item.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isResourcesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    {isResourcesOpen && (
+                      <div
+                        onMouseLeave={() => setIsResourcesOpen(false)}
+                        className="absolute top-full left-0 mt-2 w-80 bg-card border border-border rounded-xl shadow-lg backdrop-blur-xl animate-in fade-in-0 slide-in-from-top-2 duration-200"
+                      >
+                        <div className="p-2">
+                          {resourcesItems.map((resource) => (
+                            <Link
+                              key={resource.label}
+                              href={resource.href}
+                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent/50 transition-all duration-200 group"
+                            >
+                              <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-150 transition-transform duration-200" />
+                              <div className="flex-1">
+                                <div className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">
+                                  {resource.label}
+                                </div>
+                                <div className="text-sm text-muted-foreground mt-1">
+                                  {resource.description}
+                                </div>
+                              </div>
+                              <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-200" />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              if (item.dropdown === 'services') {
                 return (
                   <div key={item.label} className="relative" ref={servicesRef}>
                     <button
@@ -267,7 +333,42 @@ const Navigation = () => {
           <div className="lg:hidden py-4 border-t border-border/50 animate-in fade-in-0 slide-in-from-top-2 duration-200">
             <div className="space-y-2">
               {mainNavItems.map((item) => {
-                if (item.isDropdown) {
+                if (item.dropdown === 'resources') {
+                  return (
+                    <div key={item.label} className="px-4 py-3">
+                      <button
+                        onClick={() => setIsMobileResourcesOpen(!isMobileResourcesOpen)}
+                        className={`flex items-center justify-between w-full text-left font-medium transition-all duration-200 ${
+                          isResourcesActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                        }`}
+                        aria-expanded={isMobileResourcesOpen}
+                      >
+                        <span>{item.label}</span>
+                        <ChevronRight className={`w-4 h-4 transition-transform duration-200 ${isMobileResourcesOpen ? 'rotate-90' : ''}`} />
+                      </button>
+
+                      {isMobileResourcesOpen && (
+                        <div className="mt-3 ml-4 space-y-2 animate-in fade-in-0 slide-in-from-left-2 duration-200">
+                          {resourcesItems.map((resource) => (
+                            <Link
+                              key={resource.label}
+                              href={resource.href}
+                              className="block px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-accent/30 transition-all duration-200"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              <div className="font-medium">{resource.label}</div>
+                              <div className="text-xs text-muted-foreground/70 mt-1">
+                                {resource.description}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                if (item.dropdown === 'services') {
                   return (
                     <div key={item.label} className="px-4 py-3">
                       <button

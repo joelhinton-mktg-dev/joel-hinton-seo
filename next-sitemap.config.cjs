@@ -18,6 +18,7 @@ module.exports = {
     '/lp/local-seo-offer',
     '/areas-we-serve/debary',
     '/areas-we-serve/sanford',
+    '/tools',
   ],
 
   robotsTxtOptions: {
