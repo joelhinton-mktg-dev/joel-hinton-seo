@@ -9,14 +9,16 @@ import ContactButton from '../../components/ContactButton';
 import { SITE_EMAIL, SITE_PHONE, SITE_PHONE_TEL } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'Contact Central Florida SEO Experts — Free Marketing Consultation',
+  title: {
+    absolute: 'Contact AIO Growth SEO — Free SEO Audit',
+  },
   description: 'Contact AIO Growth SEO for a free consultation. Psychology-driven marketing strategies for Volusia & Flagler County businesses.',
   keywords: ['contact SEO expert', 'Central Florida marketing', 'free SEO consultation', 'Volusia County marketing', 'Flagler County SEO'],
   alternates: {
     canonical: 'https://aiogrowthseo.com/contact',
   },
   openGraph: {
-    title: 'Contact AIO Growth SEO — Free Marketing Consultation — Daytona Beach FL',
+    title: 'Contact AIO Growth SEO — Free SEO Audit',
     description: 'Get your free marketing consultation with AIO Growth SEO. Daytona Beach headquarters with in-person meetings available.',
     type: 'website',
     url: 'https://aiogrowthseo.com/contact',
