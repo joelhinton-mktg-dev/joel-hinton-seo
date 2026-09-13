@@ -202,7 +202,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="mb-12 relative w-full h-64 md:h-96">
                 <Image
                   src={post.featuredImage}
-                  alt={post.title}
+                  alt={post.imagePlaceholders?.find((p) => p.id === 'hero')?.alt || post.title}
                   fill
                   className="object-cover rounded-lg shadow-lg"
                   sizes="(max-width: 768px) 100vw, 896px"

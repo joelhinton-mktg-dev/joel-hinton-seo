@@ -75,11 +75,16 @@ We will map your SEO around your specific trade and the Volusia cities you serve
     { question: "How long until SEO produces leads?", answer: "Foundational gains show in weeks; ranking across multiple cities and building review depth usually takes a few months of consistent work. Beware anyone promising page-one results almost immediately." },
     { question: "Can I do home service SEO myself?", answer: "You can handle the foundation: profile, reviews, consistent data, photos. Most owners hit a ceiling at per-city pages, link building, and diagnosing plateaus, which is where a provider earns its fee." }
   ],
+  featuredImage: '/images/blog/seo-home-services-daytona.jpg',
+  imagePlaceholders: [
+    { id: 'hero', alt: 'SEO for Home Service Businesses in Daytona Beach (Plumbers, HVAC, Electricians) home service SEO', width: 1734, height: 907, src: '/images/blog/seo-home-services-daytona.jpg' },
+  ],
   readingTime: 8,
   seo: {
     metaTitle: "SEO for Home Service Businesses in Daytona Beach (2026)",
-    metaDescription: "What SEO actually looks like for plumbers, HVAC companies, and electricians in Daytona Beach: the three pillars that work, how it differs by trade.",
+    metaDescription: "What SEO looks like for Daytona plumbers, HVAC, and electricians: the pillars that work, how it differs by trade, and honest timelines for Volusia.",
     keywords: ['Local SEO', 'HVAC', 'Plumbing', 'Electricians', 'Home Services', 'Daytona Beach', 'home service SEO'],
+    ogImage: '/images/blog/seo-home-services-daytona.jpg',
   },
   published: true,
 };
