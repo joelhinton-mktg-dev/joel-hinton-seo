@@ -38,7 +38,10 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
   const canonicalUrl = `https://aiogrowthseo.com/guides/${guide.slug}`;
 
   return {
-    title: guide.seo.metaTitle,
+    title:
+      guide.slug === 'what-is-geo-generative-engine-optimization'
+        ? { absolute: guide.seo.metaTitle }
+        : guide.seo.metaTitle,
     description: guide.seo.metaDescription,
     keywords: guide.seo.keywords,
     authors: [{ name: guide.author }],
