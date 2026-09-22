@@ -250,9 +250,28 @@ export const locations: Location[] = [
       metaDescription: 'Holly Hill is a tight-knit Volusia community with loyal local buyers. We help restaurants, medical practices, and home services get found.',
       keywords: ['holly hill digital marketing', 'Holly Hill digital marketing', 'Holly Hill SEO', 'Holly Hill marketing', 'Volusia County small business marketing']
     },
-    heroHeadline: 'Holly Hill Digital Marketing',
-    heroTagline: 'for Local Volusia Businesses',
+    heroHeadline: 'Local SEO & Digital Marketing',
+    heroTagline: 'for Holly Hill, Florida',
     supplementalCopy: 'Holly Hill digital marketing should speak to families and retirees in a close-knit community, not copy a metro-wide Daytona playbook. When you need broader search coverage across the beach market, work with our Daytona Beach SEO company on the homepage for Volusia-wide visibility.',
+    dateModified: '2026-09-22T10:00:00Z',
+    faqs: [
+      {
+        question: 'Do you specialize in Holly Hill marketing?',
+        answer: "Yes. Holly Hill is a small market wedged between Daytona Beach and Ormond Beach — which means less competition and a faster path to the map pack than you'd have in either of those larger markets. We're ten minutes away in Daytona Beach and we know the difference between the Nova Road corridor, the Riverside Drive market, and the US-1 strip.",
+      },
+      {
+        question: 'What industries do you serve in Holly Hill?',
+        answer: "Auto repair and marine service, HVAC and home services, family medical and dental practices, local restaurants and diners, and small retail. Businesses that serve the neighborhood rather than the tourist strip are exactly who we're built for.",
+      },
+      {
+        question: 'How quickly can I see results?',
+        answer: "Holly Hill's low competition is an advantage here. Most businesses see Google Business Profile gains within 30–45 days and map pack movement within 60–90 days. The fundamentals that take 6 months in Daytona often take 3 in Holly Hill — you're competing against fewer optimized profiles.",
+      },
+    ],
+    preFaqSection: {
+      heading: 'What Does Local SEO Cost in Holly Hill?',
+      body: 'Holly Hill is a small market and should be priced like one. Most businesses here need the fundamentals — a fully built-out Google Business Profile, citation consistency, review generation, and a website that clearly states what you do and where — not a $3,000/month enterprise campaign. Our plans for Holly Hill businesses typically run $400–$700/month depending on the number of services and how competitive your category is. For auto repair and restaurants, that\'s usually enough to take the map pack position and keep it. Check our [pricing page](/pricing) for current plans.',
+    },
     uniqueSellingPoints: [
       { title: 'Value-Focused Marketing', description: 'Reaching budget-conscious consumers effectively.' },
       { title: 'Small Business Expertise', description: 'Affordable marketing solutions for local businesses.' },
