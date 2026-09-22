@@ -39,6 +39,10 @@ export interface Location {
   heroTagline?: string;
   supplementalCopy?: string;
   localContent?: { heading: string; body: string }[];
+  faqs?: { question: string; answer: string }[];
+  preFaqSection?: { heading: string; body: string };
+  datePublished?: string;
+  dateModified?: string;
 }
 
 export const locations: Location[] = [
@@ -135,6 +139,21 @@ export const locations: Location[] = [
     heroHeadline: 'Palm Coast SEO',
     heroTagline: '& Flagler County Marketing',
     supplementalCopy: 'Palm Coast SEO is a distinct local-search game from Daytona or Orlando: dual demographics (retirees and young families), rapid new construction, and neighborhood-by-neighborhood proximity in the map pack. We build Palm Coast-specific GBP optimization, citation accuracy, review velocity, and location pages so you rank for Palm Coast SEO queries, not just generic statewide terms.',
+    dateModified: '2026-09-22T10:00:00Z',
+    faqs: [
+      {
+        question: 'Do you specialize in Palm Coast marketing?',
+        answer: 'Yes. Palm Coast is a distinct market from Daytona Beach or Volusia County — dual demographics, rapid new construction, neighborhood-by-neighborhood map pack proximity. We serve the full Flagler County coast including Flagler Beach, and we build Palm Coast-specific campaigns, not repurposed Daytona playbooks.',
+      },
+      {
+        question: 'What industries do you serve in Palm Coast?',
+        answer: "Healthcare and dental, home services (HVAC, plumbing, landscaping, pools), real estate, restaurants, and professional services. The new-construction pipeline here creates ongoing demand across all of these categories as new residents run their first round of 'near me' searches.",
+      },
+      {
+        question: 'How quickly can I see results?',
+        answer: "Palm Coast's lower competition density compared to Orlando or Jacksonville means fundamentals move faster. Most businesses see Google Business Profile improvement within 30–60 days. Map pack rankings in low-competition categories typically improve within 60–90 days. New-construction demand means early movers compound their advantage — new residents pick a provider and often stay loyal.",
+      },
+    ],
     uniqueSellingPoints: [
       { title: 'Growth Market Positioning', description: 'Capturing market share in one of Florida fastest-growing regions.' },
       { title: 'Dual Demographic Expertise', description: 'Marketing to both retirees and young families effectively.' },
