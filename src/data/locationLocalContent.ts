@@ -47,6 +47,10 @@ export const newSmyrnaBeachLocalContent: LocalContentSection[] = [
     body: `Restaurants and bars that need to own both the tourist search and the local regular. Home services covering the beachside's salt-air-battered AC units and the mainland's newer subdivisions. Medical, dental, and professional practices on the 44 corridor. Boutiques and galleries that want foot traffic from people already walking Flagler. If that's you, our [Daytona map pack guide](/blog/how-to-rank-daytona-beach-map-pack) shows the exact mechanics we use — NSB's map pack works the same way with less competition.`,
   },
   {
+    heading: 'What Local SEO Costs in New Smyrna Beach',
+    body: `New Smyrna Beach isn't Daytona Beach — the market is smaller, competition is lower, and you don't need a $2,000/month agency to win local search here. For most NSB businesses, a focused local SEO campaign runs $500–$800/month and covers the fundamentals that actually move rankings: a fully optimized Google Business Profile, consistent citations across the directories Google checks, steady review generation, and location-specific content. Businesses with multiple services or locations, or in more competitive categories like HVAC or dental, typically sit in the $800–$1,200/month range. We price for the actual size of this market, not a national rate card. See our [pricing page](/pricing) for current plans.`,
+  },
+  {
     heading: 'A Local Team, Not a Landing Page',
     body: `We're based up the road in Daytona Beach and serve the whole coast, from [Port Orange](/areas-we-serve/port-orange) down through NSB. Month-to-month, no long-term contracts, and you'll always know what we did and what it moved.`,
   },

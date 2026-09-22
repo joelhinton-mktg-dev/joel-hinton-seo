@@ -74,6 +74,9 @@ export default function LocationPage({ location }: LocationPageProps) {
       <LocationAreaSchema
         city={location.city}
         description={location.seo.metaDescription}
+        pageUrl={`https://aiogrowthseo.com/areas-we-serve/${location.slug}`}
+        datePublished={location.datePublished}
+        dateModified={location.dateModified}
       />
       <PageBreadcrumb
         items={[
@@ -322,6 +325,21 @@ export default function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
+      {location.preFaqSection && (
+        <section className="py-20 px-4 bg-background">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">{location.preFaqSection.heading}</h2>
+            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+              {location.preFaqSection.body.split(/\n\n+/).map((paragraph, index) => (
+                <p key={index}>
+                  <LinkedProse text={paragraph} />
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQ */}
       <section className="py-20 px-4 bg-gradient-to-r from-slate-50 to-slate-100">
         <div className="container mx-auto max-w-4xl">
@@ -332,37 +350,38 @@ export default function LocationPage({ location }: LocationPageProps) {
           </div>
 
           <Accordion type="single" collapsible className="w-full space-y-4">
-            <AccordionItem value="item-1" className="border rounded-lg px-6 bg-white">
-              <AccordionTrigger className="text-left font-semibold">
-                Do you specialize in {location.city} marketing?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Yes! We have deep expertise in {location.city} and {location.region}. We understand the local market,
-                demographics, and what drives business success in this area.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2" className="border rounded-lg px-6 bg-white">
-              <AccordionTrigger className="text-left font-semibold">
-                What industries do you serve in {location.city}?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                We work with all types of local businesses in {location.city} including home services, healthcare,
-                real estate, restaurants, retail, and professional services. Our strategies are customized for each industry.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3" className="border rounded-lg px-6 bg-white">
-              <AccordionTrigger className="text-left font-semibold">
-                How quickly can I see results?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                For{' '}
-                <Link href="/services/local-seo" className="text-primary hover:underline">local SEO</Link>{' '}
-                in {location.city}, most clients see improvements within 30-90 days. Paid advertising
-                can generate leads within days. We provide clear timelines based on your specific goals.
-              </AccordionContent>
-            </AccordionItem>
+            {(location.faqs ?? [
+              {
+                question: `Do you specialize in ${location.city} marketing?`,
+                answer: `Yes! We have deep expertise in ${location.city} and ${location.region}. We understand the local market, demographics, and what drives business success in this area.`,
+              },
+              {
+                question: `What industries do you serve in ${location.city}?`,
+                answer: `We work with all types of local businesses in ${location.city} including home services, healthcare, real estate, restaurants, retail, and professional services. Our strategies are customized for each industry.`,
+              },
+              {
+                question: 'How quickly can I see results?',
+                answer: `For local SEO in ${location.city}, most clients see improvements within 30-90 days. Paid advertising can generate leads within days. We provide clear timelines based on your specific goals.`,
+              },
+            ]).map((faq, index) => (
+              <AccordionItem key={faq.question} value={`item-${index + 1}`} className="border rounded-lg px-6 bg-white">
+                <AccordionTrigger className="text-left font-semibold">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {index === 2 && !location.faqs ? (
+                    <>
+                      For{' '}
+                      <Link href="/services/local-seo" className="text-primary hover:underline">local SEO</Link>{' '}
+                      in {location.city}, most clients see improvements within 30-90 days. Paid advertising
+                      can generate leads within days. We provide clear timelines based on your specific goals.
+                    </>
+                  ) : (
+                    <LinkedProse text={faq.answer} />
+                  )}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
         </div>
       </section>
