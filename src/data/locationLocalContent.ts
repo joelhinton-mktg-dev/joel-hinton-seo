@@ -192,4 +192,8 @@ export const palmCoastLocalContent: LocalContentSection[] = [
     heading: 'The AI Layer Is Wide Open in Flagler',
     body: `[GEO optimization](/services/geo-optimization) — being the business AI assistants cite when a new resident asks "who should I call for X in Palm Coast" — is essentially uncontested in Flagler County. New residents are exactly the people who ask AI for recommendations, because they don't know anyone here yet. We're minutes away, also serving [Flagler Beach](/areas-we-serve/flagler-beach) and [Ormond Beach](/areas-we-serve/ormond-beach). Month-to-month, no contracts.`,
   },
+  {
+    heading: 'What Local SEO Costs in Palm Coast',
+    body: `Palm Coast is a fast-growing market but it's not Orlando. Local SEO pricing here should reflect the actual competition level — which is still low enough that fundamentals alone can win the map pack in most categories. Most Palm Coast businesses we work with invest $500–$900/month, which covers a fully optimized Google Business Profile, Flagler County citation building, review generation, and location content. Categories with higher competition — real estate, healthcare, home services in the higher-traffic sections — typically run $900–$1,400/month. We don't apply Miami pricing to a Palm Coast market. See our [pricing page](/pricing) for what's available.`,
+  },
 ];
