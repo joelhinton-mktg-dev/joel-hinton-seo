@@ -39,6 +39,10 @@ export interface Location {
   heroTagline?: string;
   supplementalCopy?: string;
   localContent?: { heading: string; body: string }[];
+  faqs?: { question: string; answer: string }[];
+  preFaqSection?: { heading: string; body: string };
+  datePublished?: string;
+  dateModified?: string;
 }
 
 export const locations: Location[] = [
@@ -156,9 +160,26 @@ export const locations: Location[] = [
     coordinates: { latitude: '29.0258', longitude: '-80.9270' },
     seo: {
       metaTitle: 'Local SEO Services in New Smyrna Beach, Florida',
-      metaDescription: 'NSB has a distinct local culture — surf shops, restaurants, and beach businesses need marketing that fits. We know what works here.',
+      metaDescription: 'Affordable local SEO and content marketing for New Smyrna Beach businesses. We help restaurants, home services, and professional practices rank in local search and get cited in AI answers.',
       keywords: ['New Smyrna Beach marketing', 'NSB SEO', 'surf culture marketing', 'beach lifestyle marketing']
     },
+    heroHeadline: 'Local SEO & Digital Marketing',
+    heroTagline: 'for New Smyrna Beach Businesses',
+    dateModified: '2026-09-22T10:00:00Z',
+    faqs: [
+      {
+        question: 'Do you specialize in New Smyrna Beach marketing?',
+        answer: 'Yes — we serve the entire Volusia and Flagler coast from our base in Daytona Beach. NSB is distinct enough from Daytona that it needs its own approach: the visitor economy on Flagler Avenue runs on different search patterns than the year-round market on Canal Street and the 44 corridor. We build for both.',
+      },
+      {
+        question: 'What industries do you serve in New Smyrna Beach?',
+        answer: 'Restaurants and hospitality, home services (HVAC, plumbing, roofing), medical and dental practices, real estate, surf and beach retail, and professional services. If you serve customers in NSB and want to show up when they search, we can help.',
+      },
+      {
+        question: 'How quickly can I see results?',
+        answer: 'Most NSB businesses see meaningful Google Business Profile movement in 30–60 days and map pack improvements within 90 days. The lower competition here compared to Daytona Beach means fundamentals move faster. Blog and content results take 3–6 months to compound.',
+      },
+    ],
     uniqueSellingPoints: [
       { title: 'Surf Culture Marketing', description: 'Authentic marketing for the surf and beach lifestyle community.' },
       { title: 'Arts & Culture Focus', description: 'Connecting with the creative community and art scene.' },
