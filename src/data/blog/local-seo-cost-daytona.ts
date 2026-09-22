@@ -9,6 +9,8 @@ export const localSeoCostDaytonaPost: BlogPost = {
 
 > **TL;DR: **For a local service business in the Daytona area, expect roughly $1,000 to $2,500 for setup or onboarding and $500 to $1,500 a month for ongoing work. National averages run wider ($500 to $3,000 a month, with most small businesses near $1,000) because they lump every market together. Where you land depends on how many services and cities you need to rank in, and the current state of your website and profile. The one number to be suspicious of is a very cheap one: a $150 to $300 a month “package” almost always means automated work or spam that can hurt your site.
 
+Pricing also shifts by market size. A campaign in Daytona Beach proper sits at the higher end of these ranges because the competition is real. Smaller Volusia markets like [Holly Hill](/areas-we-serve/holly-hill) and [New Smyrna Beach](/areas-we-serve/new-smyrna-beach) often need less to win — lower competition means fundamentals move faster and you don't need to outspend a deep field. [Palm Coast](/areas-we-serve/palm-coast) in Flagler County sits in between: growing fast but still early enough that a focused campaign can own its category.
+
 If you have searched this, you have probably seen prices anywhere from $300 to $5,000 a month and come away more confused than when you started. That range is technically accurate and practically useless. Here is a straight answer for a Daytona Beach business, what you should actually expect to pay, what moves the number, and how to tell an honest quote from a trap.
 
 ## What does local SEO actually cost per month?
@@ -58,7 +60,7 @@ We will look at how many services and cities you need to cover, tell you honestl
 `,
   author: 'Joel Hinton',
   publishDate: '2026-09-13T10:00:00Z',
-  lastModified: '2026-09-13T10:00:00Z',
+  lastModified: '2026-09-22T10:00:00Z',
   category: "Local SEO",
   tags: ['Local SEO', 'Pricing', 'Daytona Beach', 'Small Business'],
   faqs: [
