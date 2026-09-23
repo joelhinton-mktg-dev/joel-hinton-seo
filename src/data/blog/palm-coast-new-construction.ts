@@ -62,11 +62,16 @@ We will build your local presence around Palm Coast's sections and the new-const
     { question: 'Is SEO worth it in a fast-growing market like this?', answer: 'Yes, arguably more than in a stable market, because a durable local ranking keeps catching new residents wave after wave as subdivisions fill, unlike ads that stop producing the moment you stop paying.' },
     { question: 'Does AI search matter for reaching new residents?', answer: 'Increasingly, yes. New residents often ask AI for recommendations because they do not know anyone locally yet, and AI answers draw on the same signals as the map pack. Almost no Flagler business has optimized for it, so being early is a genuine advantage.' },
   ],
+  featuredImage: '/images/blog/palm-coast-new-construction.jpg',
+  imagePlaceholders: [
+    { id: 'hero', alt: "How Palm Coast's New Construction Boom Creates Local Search Demand (and How to Capture It) new construction", width: 1733, height: 907, src: '/images/blog/palm-coast-new-construction.jpg' },
+  ],
   readingTime: 7,
   seo: {
     metaTitle: "Palm Coast's New Construction Boom and Local Search Demand",
-    metaDescription: "Palm Coast's growth creates a rolling wave of new residents with no favorite plumber, dentist, or contractor.",
+    metaDescription: "Palm Coast's growth brings new residents with no favorite plumber or dentist. Here's the local search sequence they follow, and how to get there first.",
     keywords: ['Local SEO', 'Palm Coast', 'Flagler County', 'New Construction', 'Real Estate', 'new construction SEO'],
+    ogImage: '/images/blog/palm-coast-new-construction.jpg',
   },
   published: true,
 };

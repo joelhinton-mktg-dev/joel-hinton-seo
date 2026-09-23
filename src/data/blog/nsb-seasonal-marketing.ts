@@ -62,11 +62,16 @@ We will map your marketing to the New Smyrna Beach calendar, prep your profile a
     { question: 'What should I do year-round regardless of season?', answer: 'Keep a complete Google Business Profile, steady fresh reviews, consistent business data, and content that answers real customer questions. Seasonal timing sits on top of that foundation; it cannot replace it.' },
     { question: 'Does AI search matter for a small beach-town business?', answer: 'Increasingly, yes. When visitors or new residents ask AI for a recommendation, it draws on the same signals as the map pack. Almost no New Smyrna business has optimized for it, so being early is a real advantage.' },
   ],
+  featuredImage: '/images/blog/nsb-seasonal-marketing.jpg',
+  imagePlaceholders: [
+    { id: 'hero', alt: 'Marketing Your New Smyrna Beach Business Through the Seasons seasonal marketing', width: 1733, height: 907, src: '/images/blog/nsb-seasonal-marketing.jpg' },
+  ],
   readingTime: 7,
   seo: {
     metaTitle: 'Marketing a New Smyrna Beach Business Through the Seasons',
-    metaDescription: 'How New Smyrna Beach businesses should market across the seasons: the local calendar that drives demand, tourist vs. resident search.',
+    metaDescription: 'How New Smyrna Beach businesses should market across the seasons: the local demand calendar, tourist vs. resident search, and prepping before each wave.',
     keywords: ['Local SEO', 'New Smyrna Beach', 'Tourism Marketing', 'Seasonal', 'Volusia County', 'seasonal marketing'],
+    ogImage: '/images/blog/nsb-seasonal-marketing.jpg',
   },
   published: true,
 };
