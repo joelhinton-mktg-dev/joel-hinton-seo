@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Location, locations } from '@/data/locations';
 import LocationAreaSchema from '@/components/schema/LocationAreaSchema';
+import LocationMap from '@/components/LocationMap';
 import { testimonials } from '@/data/clientTestimonials';
 import type { ReactNode } from 'react';
 
@@ -47,9 +48,6 @@ function LinkedProse({ text }: { text: string }) {
 
   return <>{nodes}</>;
 }
-
-const OFFICE_MAP_EMBED =
-  'https://maps.google.com/maps?q=Daytona+Beach,+FL+32114&z=14&output=embed';
 
 const socialProofQuotes = testimonials.slice(0, 2);
 
@@ -270,17 +268,10 @@ export default function LocationPage({ location }: LocationPageProps) {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="overflow-hidden rounded-lg border border-slate-200 bg-slate-100 aspect-[16/9]">
-              <iframe
-                title="AIO Growth SEO office in Daytona Beach, Florida"
-                src={OFFICE_MAP_EMBED}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full border-0"
-                allowFullScreen
-              />
-            </div>
-            <p className="text-center text-muted-foreground mt-4">
+            {location.slug !== 'debary' && (
+              <LocationMap city={location.city} />
+            )}
+            <p className={`text-center text-muted-foreground ${location.slug !== 'debary' ? 'mt-4' : ''}`}>
               Based in Daytona Beach, serving {location.city} and all of Volusia &amp; Flagler Counties.
             </p>
           </div>
