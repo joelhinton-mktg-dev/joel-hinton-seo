@@ -9,6 +9,8 @@ import { chooseDaytonaSeoCompanyPost } from './blog/choose-daytona-seo-company';
 import { volusiaHvacBuriedGooglePost } from './blog/volusia-hvac-buried-google';
 import { localSeoCostDaytonaPost } from './blog/local-seo-cost-daytona';
 import { seoHomeServicesDaytonaPost } from './blog/seo-home-services-daytona';
+import { nsbSeasonalMarketingPost } from './blog/nsb-seasonal-marketing';
+import { palmCoastNewConstructionPost } from './blog/palm-coast-new-construction';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1147,5 +1149,7 @@ export const blogPosts: BlogPost[] = [
   volusiaHvacBuriedGooglePost,
   localSeoCostDaytonaPost,
   seoHomeServicesDaytonaPost,
+  nsbSeasonalMarketingPost,
+  palmCoastNewConstructionPost,
   ...localClusterPosts,
 ];
