@@ -358,6 +358,48 @@ export const locations: Location[] = [
     ],
     localContent: flaglerBeachLocalContent,
   },
+  {
+    id: 'central-florida',
+    slug: 'central-florida',
+    city: 'Central Florida',
+    region: 'Central Florida',
+    tagline: 'Volusia to the I-4 Corridor',
+    description:
+      'Local SEO and GEO optimization for Central Florida businesses — from Volusia and Flagler Counties into Orlando, Seminole, and Lake Counties. We help local businesses rank where their customers are searching.',
+    features: ['I-4 Corridor', 'Volusia & Flagler Core', 'Seminole County', 'Orlando Metro'],
+    services: ['Local SEO', 'GEO Optimization', 'Local Lead Generation', 'Agentic SEO'],
+    neighborhoods: ['Sanford', 'Daytona Beach', 'I-4 Corridor'],
+    nearbyAreas: ['Sanford', 'Daytona Beach', 'DeBary'],
+    coordinates: { latitude: '28.7000', longitude: '-81.3000' },
+    seo: {
+      metaTitle: 'Local SEO for Central Florida Businesses',
+      metaDescription:
+        'Local SEO and GEO optimization for Central Florida businesses — from Volusia and Flagler Counties into Orlando, Seminole, and Lake Counties. We help local businesses rank where their customers are searching.',
+      keywords: [
+        'Central Florida SEO',
+        'Central Florida local SEO',
+        'I-4 corridor SEO',
+        'Orlando area SEO',
+      ],
+    },
+    uniqueSellingPoints: [
+      {
+        title: 'Coast-to-corridor coverage',
+        description: 'Built in Volusia and Flagler, expanding along I-4 into Seminole and Orange.',
+      },
+      {
+        title: 'Real city pages',
+        description: 'City-by-city content, not templated swaps.',
+      },
+      {
+        title: 'GEO included',
+        description: 'Cited in AI answers, not just the map pack.',
+      },
+    ],
+    heroHeadline: 'Local SEO for Central Florida',
+    datePublished: '2026-09-26T10:00:00Z',
+    dateModified: '2026-09-26T10:00:00Z',
+  },
 ];
 
 export const getLocationBySlug = (slug: string): Location | undefined => {

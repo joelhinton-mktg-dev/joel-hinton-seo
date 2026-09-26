@@ -539,6 +539,40 @@ export default function AreasWeServePage() {
                     </Button>
                   </CardContent>
                 </Card>
+
+                {/* Central Florida */}
+                <Card className="group hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <MapPin className="w-6 h-6 text-indigo-600" />
+                      <div>
+                        <CardTitle className="text-xl">Central Florida</CardTitle>
+                        <Badge variant="secondary" className="text-xs">I-4 Corridor</Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 mb-4 text-sm">
+                      Hub for the Central Florida expansion — Volusia and Flagler out to Seminole, Orange, and Lake Counties.
+                    </p>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="outline" className="text-xs">I-4 Corridor</Badge>
+                        <Badge variant="outline" className="text-xs">Sanford Live</Badge>
+                        <Badge variant="outline" className="text-xs">Orlando Next</Badge>
+                      </div>
+                    </div>
+
+                    <Separator className="my-4" />
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <Link href="/areas-we-serve/central-florida">
+                        Central Florida Hub
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </section>
