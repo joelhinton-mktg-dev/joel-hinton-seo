@@ -85,8 +85,29 @@ export const locations: Location[] = [
     coordinates: { latitude: '29.2858', longitude: '-81.0559' },
     seo: {
       metaTitle: 'Local SEO Services in Ormond Beach, Florida',
-      metaDescription: 'Ormond Beach SEO for local service businesses. Affluent demographics, strong tourism traffic, and a tight local market we know how to win.',
+      metaDescription: 'Local SEO for Ormond Beach businesses — medical practices, home services, professional services, and restaurants. Affluent market, lower competition than Daytona. We know how to win it.',
       keywords: ['Ormond Beach SEO', 'Ormond Beach marketing', 'birthplace of speed', 'Ormond Beach digital marketing']
+    },
+    heroHeadline: 'Local SEO & Digital Marketing',
+    heroTagline: 'for Ormond Beach, Florida',
+    dateModified: '2026-09-26T10:00:00Z',
+    faqs: [
+      {
+        question: 'Do you specialize in Ormond Beach marketing?',
+        answer: "Yes. We're based in Daytona Beach, right next door, and Ormond is one of our core markets. We know the Granada Boulevard corridor, the US-1 service strip, and the residential west side differently — because they perform differently in local search. A med spa on Granada and an HVAC company on US-1 are not the same campaign. We build for the actual geography.",
+      },
+      {
+        question: 'What industries do you serve in Ormond Beach?',
+        answer: "Medical and dental practices, financial and legal services, high-end home services (roofing, HVAC, landscaping, pools), restaurants and hospitality, golf and lifestyle businesses, and professional services. Ormond's demographics skew older and more affluent than the rest of Volusia — buyers here research more and spend more, which means content depth and online credibility close more deals than rank alone.",
+      },
+      {
+        question: 'How quickly can I see results?',
+        answer: "Google Business Profile improvements typically show within 30–60 days. Map pack movement in Ormond's mid-competition categories usually follows within 60–90 days. One seasonal note: optimizing before October captures the snowbird re-entry wave — returning seasonal residents search like new arrivals every fall. Profiles tuned before that window have a real advantage over ones that start in January.",
+      },
+    ],
+    preFaqSection: {
+      heading: 'What Local SEO Costs in Ormond Beach',
+      body: "Ormond Beach is a more affluent market than Daytona Beach proper, but the competition for local search is still manageable for a focused campaign. Most Ormond businesses we work with invest $600–$1,000/month — enough to cover a fully optimized Google Business Profile, Volusia County citation building, review generation, and content targeting the Granada corridor and residential west side. Medical practices, legal, and financial services — categories where credibility matters as much as position — typically run $1,000–$1,500/month because depth of content is part of what wins. We don't apply Orlando or Jacksonville pricing to a Volusia market. See our [pricing page](/pricing) for current plans.",
     },
     uniqueSellingPoints: [
       { title: 'Affluent Market Understanding', description: 'Marketing strategies for higher-income demographics and luxury services.' },
