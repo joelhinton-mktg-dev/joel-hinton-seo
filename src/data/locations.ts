@@ -84,7 +84,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'Flagler Beach', 'Palm Coast'],
     coordinates: { latitude: '29.2858', longitude: '-81.0559' },
     seo: {
-      metaTitle: 'Local SEO Services in Ormond Beach, Florida',
+      metaTitle: 'Local SEO & Digital Marketing for Ormond Beach, Florida',
       metaDescription: 'Local SEO for Ormond Beach businesses — medical practices, home services, professional services, and restaurants. Affluent market, lower competition than Daytona. We know how to win it.',
       keywords: ['Ormond Beach SEO', 'Ormond Beach marketing', 'birthplace of speed', 'Ormond Beach digital marketing']
     },
