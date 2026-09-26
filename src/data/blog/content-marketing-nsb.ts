@@ -58,6 +58,10 @@ We will build a content plan around your two audiences and the New Smyrna calend
   lastModified: '2026-10-02T10:00:00Z',
   category: 'Local SEO',
   tags: ['Local SEO', 'Content Marketing', 'New Smyrna Beach', 'Volusia County'],
+  featuredImage: '/images/blog/nsb-content-marketing.jpg',
+  imagePlaceholders: [
+    { id: 'hero', alt: 'Content Marketing for New Smyrna Beach Businesses content marketing', width: 1024, height: 535, src: '/images/blog/nsb-content-marketing.jpg' },
+  ],
   faqs: [
     {
       question: 'What is content marketing for a local business?',
@@ -83,8 +87,9 @@ We will build a content plan around your two audiences and the New Smyrna calend
   readingTime: 7,
   seo: {
     metaTitle: 'Content Marketing for New Smyrna Beach Businesses',
-    metaDescription: "How New Smyrna Beach businesses should approach content marketing: the two audiences you're writing for, what content actually works in a beach town",
+    metaDescription: "How New Smyrna Beach businesses should approach content marketing: the two audiences you're writing for, and what actually works in a beach town.",
     keywords: ['Local SEO', 'Content Marketing', 'New Smyrna Beach', 'Volusia County', 'content marketing NSB'],
+    ogImage: '/images/blog/nsb-content-marketing.jpg',
   },
   published: true,
 };

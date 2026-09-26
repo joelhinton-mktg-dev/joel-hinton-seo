@@ -68,6 +68,10 @@ We will tell you honestly what your business needs, in what order, and what to s
   lastModified: '2026-10-02T10:00:00Z',
   category: 'Local SEO',
   tags: ['Local SEO', 'Digital Marketing', 'Daytona Beach', 'Small Business'],
+  featuredImage: '/images/blog/daytona-digital-marketing.jpg',
+  imagePlaceholders: [
+    { id: 'hero', alt: 'Digital Marketing in Daytona Beach: What Local Businesses Actually Need digital marketing', width: 1024, height: 535, src: '/images/blog/daytona-digital-marketing.jpg' },
+  ],
   faqs: [
     {
       question: 'What does digital marketing include for a local business?',
@@ -93,8 +97,9 @@ We will tell you honestly what your business needs, in what order, and what to s
   readingTime: 7,
   seo: {
     metaTitle: 'Digital Marketing in Daytona Beach: What Businesses Need',
-    metaDescription: 'What digital marketing actually includes for a Daytona Beach business, what to prioritize first, what it costs, and where most local businesses waste money',
+    metaDescription: 'What digital marketing actually includes for a Daytona Beach business, what to prioritize first, what it costs, and where most local budgets get wasted.',
     keywords: ['Local SEO', 'Digital Marketing', 'Daytona Beach', 'Small Business', 'digital marketing Daytona Beach'],
+    ogImage: '/images/blog/daytona-digital-marketing.jpg',
   },
   published: true,
 };
