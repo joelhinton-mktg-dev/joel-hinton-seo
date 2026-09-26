@@ -252,7 +252,7 @@ We will map your local SEO across every city you serve, run the grid to find you
     ],
     readingTime: 7,
     seo: {
-      metaTitle: "Local SEO for HVAC & Plumbing Contractors in Volusia County",
+      metaTitle: "Local SEO for HVAC & Plumbing Contractors — Volusia County",
       metaDescription: "HVAC and plumbing contractors in Volusia County: how local SEO actually works, what the map pack requires, and the Florida-specific moves your competitors are missing.",
       keywords: ["local seo for hvac", "plumbing local SEO", "Volusia County SEO", "service-area pages"],
       ogImage: '/images/blog/local-seo-hvac-plumbing-volusia-county.webp'
@@ -303,7 +303,7 @@ We will audit your campaigns, your book rate, and whether you show up in AI sear
     ],
     readingTime: 6,
     seo: {
-      metaTitle: "Why Daytona Businesses Waste Google Ads Budget (2026)",
+      metaTitle: "Why Daytona Businesses Waste Google Ads Budget",
       metaDescription: "The real ways Daytona contractors burn Google Ads budget: broad match without negatives, homepage landing pages, weak book rate, no tracking, and Florida's seasonal swings. Plus the fixes.",
       keywords: ["google ads for contractors", "Google Ads waste", "Daytona Beach marketing", "HVAC advertising"],
       ogImage: '/images/blog/daytona-google-ads-wasted-budget.webp'

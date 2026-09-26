@@ -68,7 +68,7 @@ We will map your marketing to the New Smyrna Beach calendar, prep your profile a
   ],
   readingTime: 7,
   seo: {
-    metaTitle: 'Marketing a New Smyrna Beach Business Through the Seasons',
+    metaTitle: 'Seasonal Marketing for New Smyrna Beach Businesses',
     metaDescription: 'How New Smyrna Beach businesses should market across the seasons: the local demand calendar, tourist vs. resident search, and prepping before each wave.',
     keywords: ['Local SEO', 'New Smyrna Beach', 'Tourism Marketing', 'Seasonal', 'Volusia County', 'seasonal marketing'],
     ogImage: '/images/blog/nsb-seasonal-marketing.jpg',

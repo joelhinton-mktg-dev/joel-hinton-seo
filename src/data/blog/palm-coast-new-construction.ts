@@ -68,7 +68,7 @@ We will build your local presence around Palm Coast's sections and the new-const
   ],
   readingTime: 7,
   seo: {
-    metaTitle: "Palm Coast's New Construction Boom and Local Search Demand",
+    metaTitle: "Palm Coast New Construction & Local Search Demand",
     metaDescription: "Palm Coast's growth brings new residents with no favorite plumber or dentist. Here's the local search sequence they follow, and how to get there first.",
     keywords: ['Local SEO', 'Palm Coast', 'Flagler County', 'New Construction', 'Real Estate', 'new construction SEO'],
     ogImage: '/images/blog/palm-coast-new-construction.jpg',

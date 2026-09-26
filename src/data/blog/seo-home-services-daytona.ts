@@ -81,7 +81,7 @@ We will map your SEO around your specific trade and the Volusia cities you serve
   ],
   readingTime: 8,
   seo: {
-    metaTitle: "SEO for Home Service Businesses in Daytona Beach (2026)",
+    metaTitle: "SEO for Home Service Businesses in Daytona Beach",
     metaDescription: "What SEO looks like for Daytona plumbers, HVAC, and electricians: the pillars that work, how it differs by trade, and honest timelines for Volusia.",
     keywords: ['Local SEO', 'HVAC', 'Plumbing', 'Electricians', 'Home Services', 'Daytona Beach', 'home service SEO'],
     ogImage: '/images/blog/seo-home-services-daytona.jpg',
