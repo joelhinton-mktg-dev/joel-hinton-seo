@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { format } from 'date-fns';
 import { Calendar, Clock, Search, Filter, ArrowRight } from 'lucide-react';
 import { BlogCategory, BlogFilters, PaginatedBlogPosts } from '@/types/blog';
@@ -174,11 +175,13 @@ export default function BlogPage() {
                 </CardContent>
               </div>
               {featuredPost.featuredImage && (
-                <div className="md:w-1/3">
-                  <img
+                <div className="relative md:w-1/3 h-64 md:min-h-[16rem]">
+                  <Image
                     src={featuredPost.featuredImage}
                     alt={featuredPost.title}
-                    className="w-full h-64 md:h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
               )}

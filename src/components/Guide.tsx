@@ -248,6 +248,8 @@ const Guide: React.FC<GuideProps> = ({ guide }) => {
                   <img
                     src={guide.featuredImage}
                     alt={guide.title}
+                    width={1200}
+                    height={630}
                     className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
                   />
                 </div>

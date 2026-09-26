@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -193,11 +194,14 @@ export default async function GuidePage({ params }: GuidePageProps) {
 
               {/* Featured Image */}
               {guide.featuredImage && (
-                <div className="mb-12">
-                  <img
+                <div className="mb-12 relative w-full h-64 md:h-96">
+                  <Image
                     src={guide.featuredImage}
                     alt={guide.title}
-                    className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+                    fill
+                    className="object-cover rounded-lg shadow-lg"
+                    sizes="(max-width: 768px) 100vw, 896px"
+                    priority
                   />
                 </div>
               )}
