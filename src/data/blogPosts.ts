@@ -11,6 +11,8 @@ import { localSeoCostDaytonaPost } from './blog/local-seo-cost-daytona';
 import { seoHomeServicesDaytonaPost } from './blog/seo-home-services-daytona';
 import { nsbSeasonalMarketingPost } from './blog/nsb-seasonal-marketing';
 import { palmCoastNewConstructionPost } from './blog/palm-coast-new-construction';
+import { digitalMarketingDaytonaPost } from './blog/digital-marketing-daytona';
+import { contentMarketingNsbPost } from './blog/content-marketing-nsb';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1151,5 +1153,7 @@ export const blogPosts: BlogPost[] = [
   seoHomeServicesDaytonaPost,
   nsbSeasonalMarketingPost,
   palmCoastNewConstructionPost,
+  digitalMarketingDaytonaPost,
+  contentMarketingNsbPost,
   ...localClusterPosts,
 ];
