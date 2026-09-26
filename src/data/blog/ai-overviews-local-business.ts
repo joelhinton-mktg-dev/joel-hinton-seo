@@ -92,7 +92,7 @@ We will check whether your business shows up when someone asks ChatGPT or Google
   ],
   readingTime: 7,
   seo: {
-    metaTitle: "How to Show Up in AI Overviews as a Local Business (2026)",
+    metaTitle: "How to Show Up in AI Overviews as a Local Business",
     metaDescription: "How local businesses get cited in Google AI Overviews and ChatGPT in 2026: how the engines pick sources, what to fix on your site",
     keywords: ['GEO', 'AEO', 'AI Overviews', 'ChatGPT', 'Local SEO', 'how to show up in AI Overviews', 'ChatGPT local business'],
   },

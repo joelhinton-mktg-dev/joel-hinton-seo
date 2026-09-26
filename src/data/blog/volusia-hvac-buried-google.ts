@@ -75,7 +75,7 @@ We will check your profile health, your proximity across Volusia, your reviews, 
   ],
   readingTime: 6,
   seo: {
-    metaTitle: "Why Volusia HVAC Businesses Get Buried on Google (2026)",
+    metaTitle: "Why Volusia HVAC Businesses Get Buried on Google",
     metaDescription: "Why your HVAC or home-service business isn't showing up on Google in Volusia County: the quick technical fixes, then the real ranking problems",
     keywords: ['Local SEO', 'HVAC', 'Volusia County', 'Home Services', 'Map Pack', 'not showing up on Google', 'Volusia HVAC SEO'],
   },

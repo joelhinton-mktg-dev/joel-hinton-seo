@@ -71,7 +71,7 @@ We will tell you plainly whether GEO is worth it for your business, what is alre
   ],
   readingTime: 6,
   seo: {
-    metaTitle: "What Generative Engine Optimization Costs a Local Business",
+    metaTitle: "What GEO Optimization Costs a Local Business",
     metaDescription: "Is GEO worth it for a local business? Honest 2026 pricing, why most GEO for a local business is really part of SEO, and how to spot a 'GEO package'",
     keywords: ['GEO', 'Generative Engine Optimization', 'AI Search', 'Pricing', 'Local SEO', 'GEO cost', 'generative engine optimization cost'],
   },

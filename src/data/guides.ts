@@ -1638,7 +1638,7 @@ Define both SEO and GEO success metrics:
     category: 'Strategy',
     tags: ['GEO', 'SEO', 'Comparison', 'Digital Marketing Strategy', 'AI Search', 'Multi-Channel', 'Entity SEO'],
     seo: {
-      metaTitle: 'GEO vs SEO: What\'s the Difference & Why It Matters in 2026',
+      metaTitle: 'GEO vs SEO: What\'s the Difference & Why It Matters',
       metaDescription: 'Compare GEO (Generative Engine Optimization) and SEO (Search Engine Optimization). Learn the differences, similarities, and when to use each strategy.',
       keywords: ['GEO vs SEO', 'SEO vs GEO', 'difference between GEO and SEO', 'GEO or SEO', 'AI SEO comparison', 'multi-channel SEO'],
     },
@@ -1952,7 +1952,7 @@ For each major topic, create content addressing:
     category: 'Industry Trends',
     tags: ['SEO Predictions', '2026', 'AI SEO', 'Automation', 'Entity SEO', 'Future of SEO', 'Voice Search', 'Multi-Channel'],
     seo: {
-      metaTitle: '2026 SEO Predictions: AI, Automation & Entity Optimization',
+      metaTitle: 'SEO Predictions: AI, Automation & Entity Optimization',
       metaDescription: 'Expert SEO predictions for 2026. Learn how AI, automation, and entity optimization are transforming search engine optimization strategies.',
       keywords: ['SEO predictions 2026', 'future of SEO', 'AI SEO', 'entity optimization', 'SEO trends 2026', 'voice search SEO'],
     },
