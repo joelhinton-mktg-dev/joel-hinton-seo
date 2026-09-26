@@ -8,7 +8,7 @@ interface Props {
 
 export async function generateStaticParams() {
   return locations
-    .filter((location) => location.slug !== 'daytona-beach')
+    .filter((location) => location.slug !== 'daytona-beach' && location.slug !== 'central-florida')
     .map((location) => ({ slug: location.slug }));
 }
 
