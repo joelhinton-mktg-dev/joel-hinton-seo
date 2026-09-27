@@ -1,3 +1,5 @@
+import { SITE_PHONE_TEL } from '@/data/site';
+
 interface LocationAreaSchemaProps {
   city: string;
   description: string;
@@ -19,6 +21,7 @@ export default function LocationAreaSchema({
     '@type': 'LocalBusiness',
     name: 'AIO Growth SEO',
     url: 'https://aiogrowthseo.com',
+    telephone: SITE_PHONE_TEL,
     description,
     areaServed: {
       '@type': 'City',

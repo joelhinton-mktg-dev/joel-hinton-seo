@@ -1,3 +1,5 @@
+import { SITE_PHONE_TEL } from '@/data/site';
+
 interface CoreServiceSchemaProps {
   name: string;
   description: string;
@@ -15,6 +17,7 @@ export default function CoreServiceSchema({ name, description, url }: CoreServic
       '@type': 'LocalBusiness',
       name: 'AIO Growth SEO',
       url: 'https://aiogrowthseo.com',
+      telephone: SITE_PHONE_TEL,
       areaServed: {
         '@type': 'State',
         name: 'Florida',
