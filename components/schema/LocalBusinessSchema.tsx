@@ -1,4 +1,4 @@
-import { SITE_EMAIL, SITE_PHONE } from "@/data/site";
+import { SITE_EMAIL, SITE_PHONE_TEL } from "@/data/site";
 
 const LocalBusinessSchema = () => {
   const localBusiness = {
@@ -7,7 +7,7 @@ const LocalBusinessSchema = () => {
     "name": "AIO Growth SEO",
     "description": "Psychology-driven SEO and digital marketing services for businesses in Volusia & Flagler Counties, Central Florida",
     "url": "https://aiogrowthseo.com",
-    "telephone": SITE_PHONE,
+    "telephone": SITE_PHONE_TEL,
     "email": SITE_EMAIL,
     "address": {
       "@type": "PostalAddress",
@@ -62,6 +62,7 @@ const LocalBusinessSchema = () => {
     "logo": "https://aiogrowthseo.com/icon.png",
     "contactPoint": {
       "@type": "ContactPoint",
+      "telephone": SITE_PHONE_TEL,
       "contactType": "customer service",
       "areaServed": "US",
       "availableLanguage": "English"

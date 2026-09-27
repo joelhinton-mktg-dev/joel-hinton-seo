@@ -1,8 +1,8 @@
 /** Build-time constant — safe for server and client markup (no hydration mismatch). */
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 
-export const SITE_PHONE = '(386) 322-2932';
-export const SITE_PHONE_TEL = '+13863222932';
+export const SITE_PHONE = '(386) 222-2932';
+export const SITE_PHONE_TEL = '+13862222932';
 export const SITE_PHONE_DISPLAY = `+1 ${SITE_PHONE}`;
 
 export const SITE_EMAIL = 'info@aiogrowthseo.com';
