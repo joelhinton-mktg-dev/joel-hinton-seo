@@ -83,7 +83,7 @@ export function ServiceHubCards() {
                   {agenticServiceCard.subtitle}
                 </CardDescription>
               </div>
-              <p className="text-muted-foreground max-w-2xl">{agenticServiceCard.description}</p>
+              <p className="text-muted-foreground max-w-2xl">{agenticServiceCard.hubDescription}</p>
               <p className="text-xl font-bold text-indigo-600">{agenticServiceCard.price}</p>
             </div>
             <div className="shrink-0 lg:text-right">
@@ -124,7 +124,7 @@ export function ServiceHubCards() {
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-muted-foreground text-sm">{service.description}</p>
+              <p className="text-muted-foreground text-sm">{'hubDescription' in service ? service.hubDescription : service.description}</p>
               <div className="space-y-2">
                 {displayFeatures.map((feature) => (
                   <div key={feature} className="flex items-center gap-2">

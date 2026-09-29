@@ -35,12 +35,11 @@ export default function ServicesPage() {
               </Badge>
 
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                <span className="text-primary">Digital Marketing</span> Services That <span className="gradient-text">Deliver Results</span>
+                Local SEO &amp; Digital Marketing Services for Volusia County Businesses
               </h1>
 
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Full-service digital marketing for local businesses in Volusia & Flagler Counties.
-                SEO, lead generation, and custom tools that grow your business.
+                We offer a focused set of services built for local businesses in Daytona Beach, Volusia County, and the surrounding area. No bloated retainers, no services you don&apos;t need. Every service we offer is built around one outcome: more customers finding you in local search and AI-generated answers.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
