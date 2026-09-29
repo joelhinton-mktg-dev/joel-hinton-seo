@@ -27,6 +27,8 @@ export interface Industry {
     metaDescription: string;
     keywords: string[];
   };
+  dateModified?: string;
+  bodyClose?: string;
 }
 
 export const industries: Industry[] = [
@@ -204,7 +206,10 @@ export const industries: Industry[] = [
       metaTitle: 'SEO for Schools, Courses & Training Programs',
       metaDescription: 'Student and enrollment-focused SEO for education and training providers. Get found by people actively searching for the skills and credentials you teach.',
       keywords: ['education marketing', 'course marketing', 'training marketing', 'student acquisition', 'enrollment marketing']
-    }
+    },
+    dateModified: '2026-09-29T10:00:00Z',
+    bodyClose:
+      'In Volusia County, education and training providers compete with both local alternatives and online programs that market aggressively to the same audience. Local SEO creates an advantage by connecting your programs to people searching specifically in this area — parents looking for tutoring in Port Orange, adults searching for professional development in Daytona Beach, or employers seeking corporate training partners in Volusia County. Showing up in local search and AI-generated recommendations for these queries is how education providers grow enrollment without competing on national ad budgets.',
   },
   {
     id: 'automotive-services',

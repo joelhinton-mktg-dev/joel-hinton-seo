@@ -74,6 +74,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
     "name": `${industry.name} Marketing Services`,
     "description": industry.description,
     "url": `https://aiogrowthseo.com/industries/${industry.slug}`,
+    ...(industry.dateModified && { dateModified: industry.dateModified }),
     "provider": {
       "@type": "Organization",
       "name": "AIO Growth SEO",
@@ -403,6 +404,16 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
             </div>
           </div>
         </section>
+
+        {industry.bodyClose && (
+          <section className="py-20 px-4">
+            <div className="container mx-auto max-w-3xl">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {industry.bodyClose}
+              </p>
+            </div>
+          </section>
+        )}
 
         {/* FAQ Section */}
         <section className="py-20 px-4">

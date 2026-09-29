@@ -111,11 +111,13 @@ Your name, address, and phone must be identical everywhere Google sees them: you
 ## How this feeds the map pack and AI search
 Profile optimization is not a standalone task. Everything above feeds the [Daytona map pack](https://aiogrowthseo.com/blog/how-to-rank-daytona-beach-map-pack), and increasingly it feeds AI answers too: when someone asks ChatGPT for the best HVAC company in Daytona, the engine leans on the same signals, accurate data, recent reviews, consistent presence. Strong profile work shows up in both [AI search](https://aiogrowthseo.com/services/geo-optimization) and the map.
 
+One update worth noting for 2026: Google AI Overviews are now pulling GBP data directly into AI-generated answers for local searches. A fully optimized profile isn't just a maps ranking factor anymore — it's the source data for AI answers about your business. Profile completeness now affects both traditional local search and AI search visibility.
+
 ## Get your profile audited
 We will review your categories, completeness, review velocity, and photos against your top Daytona competitors and show you what to fix first. See our [pricing](https://aiogrowthseo.com/pricing) or [book a free audit](https://aiogrowthseo.com/contact).`,
     author: 'Joel Hinton',
     publishDate: '2026-06-17T10:00:00Z',
-    lastModified: '2026-06-22T12:00:00Z',
+    lastModified: '2026-09-29T10:00:00Z',
     category: 'Local SEO',
     tags: ["Google Business Profile", "Daytona Beach", "contractors", "local SEO", "GBP optimization"],
     featuredImage: '/images/blog/google-business-profile-optimization-daytona.webp',
