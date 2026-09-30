@@ -78,7 +78,7 @@ We build real local marketing foundations for Palm Coast businesses, profile, co
   readingTime: 6,
   seo: {
     metaTitle: "Digital Marketing in Palm Coast: Get In Before Competition",
-    metaDescription: "Palm Coast is growing fast and local-search competition is still thin. Why building a real marketing foundation now beats a cheap package and wins the growth wave.",
+    metaDescription: "Palm Coast is growing fast and local-search competition is thin. Why building a real marketing foundation now beats a cheap package.",
     keywords: ["Local SEO", "Digital Marketing", "Palm Coast", "Growth Market", "digital marketing Palm Coast"],
     ogImage: '/images/blog/palm-coast-growth-market.jpg',
   },

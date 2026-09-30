@@ -78,7 +78,7 @@ We are based next door in Daytona Beach and build Port Orange marketing for the 
   readingTime: 6,
   seo: {
     metaTitle: "Digital Marketing in Port Orange: Local vs. Distant",
-    metaDescription: "Many 'Port Orange' agencies are actually in Orlando or Jacksonville, treating it as a pin on a map. Why local knowledge wins in a family suburb like Port Orange.",
+    metaDescription: "Many 'Port Orange' agencies are actually in Orlando or Jacksonville. Why local knowledge wins in a family suburb like Port Orange.",
     keywords: ["Local SEO", "Digital Marketing", "Port Orange", "Volusia County", "digital marketing Port Orange"],
     ogImage: '/images/blog/port-orange-local-marketing.jpg',
   },
