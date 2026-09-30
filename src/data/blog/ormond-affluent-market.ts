@@ -48,6 +48,10 @@ We build Ormond marketing around how affluent, research-heavy buyers actually de
   lastModified: "2026-10-12T10:00:00Z",
   category: 'Local SEO',
   tags: ["Local SEO", "Digital Marketing", "Ormond Beach", "Affluent Market"],
+  featuredImage: '/images/blog/ormond-affluent-market.jpg',
+  imagePlaceholders: [
+    { id: 'hero', alt: "Marketing to Ormond Beach's Affluent Market: Why Credibility Beats Cheap Tactics digital marketing Ormond Beach", width: 1024, height: 535, src: '/images/blog/ormond-affluent-market.jpg' },
+  ],
   faqs: [
     {
       question: "How is marketing to Ormond Beach different from Daytona?",
@@ -73,8 +77,9 @@ We build Ormond marketing around how affluent, research-heavy buyers actually de
   readingTime: 5,
   seo: {
     metaTitle: "Marketing to Ormond Beach's Affluent Market (2026)",
-    metaDescription: "Ormond Beach buyers research more and spend more. Here's why credibility and content depth beat cheap, fast tactics in an affluent local market.",
+    metaDescription: "Ormond Beach buyers research more and spend more. Why credibility and content depth beat cheap tactics in an affluent market, and what it costs to do right.",
     keywords: ["Local SEO", "Digital Marketing", "Ormond Beach", "Affluent Market", "digital marketing Ormond Beach"],
+    ogImage: '/images/blog/ormond-affluent-market.jpg',
   },
   published: true,
 };
