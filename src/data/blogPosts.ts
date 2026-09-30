@@ -25,6 +25,10 @@ import { schemaMarkupForAiSearchPost } from './blog/schema-markup-for-ai-search'
 import { howToMeasureGeoResultsPost } from './blog/how-to-measure-geo-results';
 import { llmsTxtForLocalBusinessPost } from './blog/llms-txt-for-local-business';
 import { geoCompetitiveAnalysisPost } from './blog/geo-competitive-analysis';
+import { ormondAffluentMarketPost } from './blog/ormond-affluent-market';
+import { palmCoastGrowthMarketPost } from './blog/palm-coast-growth-market';
+import { portOrangeLocalMarketingPost } from './blog/port-orange-local-marketing';
+import { altamonteOrlandoMetroSeoPost } from './blog/altamonte-orlando-metro-seo';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1179,5 +1183,9 @@ export const blogPosts: BlogPost[] = [
   howToMeasureGeoResultsPost,
   llmsTxtForLocalBusinessPost,
   geoCompetitiveAnalysisPost,
+  ormondAffluentMarketPost,
+  palmCoastGrowthMarketPost,
+  portOrangeLocalMarketingPost,
+  altamonteOrlandoMetroSeoPost,
   ...localClusterPosts,
 ];
