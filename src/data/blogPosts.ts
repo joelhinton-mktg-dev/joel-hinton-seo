@@ -13,6 +13,10 @@ import { nsbSeasonalMarketingPost } from './blog/nsb-seasonal-marketing';
 import { palmCoastNewConstructionPost } from './blog/palm-coast-new-construction';
 import { digitalMarketingDaytonaPost } from './blog/digital-marketing-daytona';
 import { contentMarketingNsbPost } from './blog/content-marketing-nsb';
+import { ormondAffluentMarketPost } from './blog/ormond-affluent-market';
+import { palmCoastGrowthMarketPost } from './blog/palm-coast-growth-market';
+import { portOrangeLocalMarketingPost } from './blog/port-orange-local-marketing';
+import { altamonteOrlandoMetroSeoPost } from './blog/altamonte-orlando-metro-seo';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1155,5 +1159,9 @@ export const blogPosts: BlogPost[] = [
   palmCoastNewConstructionPost,
   digitalMarketingDaytonaPost,
   contentMarketingNsbPost,
+  ormondAffluentMarketPost,
+  palmCoastGrowthMarketPost,
+  portOrangeLocalMarketingPost,
+  altamonteOrlandoMetroSeoPost,
   ...localClusterPosts,
 ];
