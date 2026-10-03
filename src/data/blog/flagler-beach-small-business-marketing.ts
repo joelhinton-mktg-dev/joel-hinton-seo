@@ -87,7 +87,7 @@ We build local marketing for Flagler Beach the way a small coastal town actually
   readingTime: 6,
   seo: {
     metaTitle: 'Local SEO & Marketing for Flagler Beach Small Businesses',
-    metaDescription: 'In a small coastal town like Flagler Beach, being genuinely known and easy to find beats a big budget. The local marketing fundamentals that win.',
+    metaDescription: 'In a small coastal town like Flagler Beach, being genuinely known and easy to find beats a big budget. The local marketing fundamentals that win in a small market.',
     keywords: ['Local SEO', 'Flagler Beach', 'Small Business', 'Flagler County', 'Flagler Beach marketing'],
     ogImage: '/images/blog/flagler-beach-small-business-marketing.jpg',
   },

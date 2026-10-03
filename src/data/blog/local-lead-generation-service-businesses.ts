@@ -96,7 +96,7 @@ We build local lead generation around what actually produces booked work for ser
   readingTime: 6,
   seo: {
     metaTitle: 'How Local Lead Generation Works for Service Businesses',
-    metaDescription: 'What local lead generation actually is for a service business, what leads really cost by channel, the biggest mistake that wastes money.',
+    metaDescription: 'What local lead generation actually is for a service business, what leads cost by channel, the biggest mistake that wastes money, and how to book more.',
     keywords: ['Local Lead Generation', 'Service Businesses', 'Cost Per Lead', 'Local SEO', 'local lead generation'],
     ogImage: '/images/blog/local-lead-generation-service-businesses.jpg',
   },
