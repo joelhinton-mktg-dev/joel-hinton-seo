@@ -74,6 +74,7 @@ export function buildBlogPostSchemas(post: BlogPost, canonicalUrl: string, ogIma
     publisher: {
       '@type': 'Organization',
       name: 'AIO Growth SEO',
+      url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
         url: PUBLISHER_LOGO,
