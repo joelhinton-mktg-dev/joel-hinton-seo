@@ -6,14 +6,29 @@ interface ProfessionalServiceSchemaProps {
   serviceUrl: string;
   price?: string;
   serviceType: string;
+  areaServed?: unknown;
+  offers?: unknown;
+  dateModified?: string;
 }
 
-const ProfessionalServiceSchema = ({ 
-  serviceName, 
-  serviceDescription, 
-  serviceUrl, 
+const defaultAreaServed = [
+  "Florida",
+  "Daytona Beach",
+  "Orlando",
+  "Jacksonville",
+  "Tampa",
+  "Miami"
+];
+
+const ProfessionalServiceSchema = ({
+  serviceName,
+  serviceDescription,
+  serviceUrl,
   price,
-  serviceType 
+  serviceType,
+  areaServed,
+  offers,
+  dateModified,
 }: ProfessionalServiceSchemaProps) => {
   const schema = {
     "@context": "https://schema.org",
@@ -21,6 +36,7 @@ const ProfessionalServiceSchema = ({
     "name": serviceName,
     "description": serviceDescription,
     "url": serviceUrl,
+    ...(dateModified && { dateModified }),
     "provider": {
       "@type": "LocalBusiness",
       "name": "AIO Growth SEO",
@@ -34,22 +50,17 @@ const ProfessionalServiceSchema = ({
       }
     },
     "serviceType": serviceType,
-    "areaServed": [
-      "Florida",
-      "Daytona Beach", 
-      "Orlando",
-      "Jacksonville",
-      "Tampa",
-      "Miami"
-    ],
-    ...(price && {
-      "offers": {
-        "@type": "Offer",
-        "price": price,
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
-    })
+    "areaServed": areaServed ?? defaultAreaServed,
+    ...(offers
+      ? { offers }
+      : price && {
+          "offers": {
+            "@type": "Offer",
+            "price": price,
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        })
   };
 
   return (
