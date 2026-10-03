@@ -168,7 +168,9 @@ export default function LocalLeadGenerationPage() {
               Local Lead Generation for <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Your Industry</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We specialize in generating qualified leads for home services and professional services businesses throughout Volusia and Flagler Counties.
+              We specialize in generating qualified leads for home services and professional services businesses throughout{' '}
+              <Link href="/areas-we-serve" className="text-primary hover:underline">Volusia County</Link>
+              {' '}and Flagler Counties.
             </p>
           </div>
 
@@ -303,10 +305,11 @@ export default function LocalLeadGenerationPage() {
                 <div className="pt-4 border-t">
                   <p className="text-xs text-muted-foreground">
                     <strong>Best for:</strong>{' '}
+                    HVAC, Plumbing, Electrical, Roofing, Legal, Financial.{' '}
                     <Link href="/blog/cost-per-lead-hvac-plumbing-electrical-2026" className="text-primary hover:underline">
-                      HVAC, Plumbing, Electrical
-                    </Link>
-                    , Roofing, Legal, Financial
+                      cost per lead
+                    </Link>{' '}
+                    benchmarks for contractors.
                   </p>
                 </div>
               </CardContent>
@@ -405,7 +408,8 @@ export default function LocalLeadGenerationPage() {
               Why <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Local Focus</span> Matters
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              National agencies don&apos;t understand the Volusia and Flagler market. We live here.
+              National agencies don&apos;t understand the Volusia and Flagler market. We live here in{' '}
+              <Link href="/areas-we-serve/daytona-beach" className="text-primary hover:underline">Daytona Beach</Link>.
             </p>
           </div>
 
@@ -477,7 +481,11 @@ export default function LocalLeadGenerationPage() {
                   <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-medium">GBP integration</p>
-                    <p className="text-sm text-muted-foreground">Ads + organic local presence working together</p>
+                    <p className="text-sm text-muted-foreground">
+                      Ads +{' '}
+                      <Link href="/services/local-seo" className="text-primary hover:underline">local SEO</Link>
+                      {' '}working together
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -648,6 +656,66 @@ export default function LocalLeadGenerationPage() {
           </div>
 
           <Accordion type="single" collapsible className="w-full space-y-4">
+            <AccordionItem value="funnel-sprint" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                What is the Funnel Sprint?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                The Funnel Sprint is our local lead generation program for service businesses.
+                In 6–8 weeks we build and test a validated Google Ads funnel — the ad, the landing
+                page, and the conversion path — before you commit to scaling your spend.
+                Most agencies ask you to spend first and optimize later. We validate first.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="lead-gen-cost" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                How much does local lead generation cost?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                The Funnel Sprint setup fee covers the build and validation phase.
+                After that, you pay for the ongoing management of a funnel that&apos;s already
+                proven to convert. See our{' '}
+                <Link href="/pricing" className="text-primary hover:underline">pricing page</Link>
+                {' '}for current rates.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="business-types" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                What types of businesses do you work with?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                HVAC, plumbing, electrical, roofing, landscaping, dental, legal, and other
+                service businesses in Volusia and Flagler Counties. If you book jobs by phone or
+                form and serve customers locally, the Funnel Sprint was built for you.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="vs-google-ads" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                How is this different from just running Google Ads?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Most local businesses that run Google Ads on their own send traffic to their
+                homepage and wonder why nobody calls. The Funnel Sprint builds a dedicated
+                landing page matched to the ad, with a conversion path designed around your
+                specific service area, your offer, and your buyer. The difference is a page
+                that converts at 8–12% instead of 2–3%.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="areas-served" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Which areas do you serve?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Our core market is Volusia and Flagler Counties — Daytona Beach, Port
+                Orange, Ormond Beach, Palm Coast, New Smyrna Beach, and surrounding areas.
+                We are also expanding into Central Florida including Sanford and Orlando.
+              </AccordionContent>
+            </AccordionItem>
+
             <AccordionItem value="item-1" className="border rounded-lg px-6">
               <AccordionTrigger className="text-left font-semibold">
                 What&apos;s the difference between Local Service Ads and regular Google Ads?
@@ -762,11 +830,81 @@ export default function LocalLeadGenerationPage() {
         businessTypes={businessTypes.general}
       />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What is the Funnel Sprint?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'The Funnel Sprint is our local lead generation program for service businesses. In 6–8 weeks we build and test a validated Google Ads funnel — the ad, the landing page, and the conversion path — before you commit to scaling your spend. Most agencies ask you to spend first and optimize later. We validate first.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How much does local lead generation cost?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'The Funnel Sprint setup fee covers the build and validation phase. After that, you pay for the ongoing management of a funnel that\'s already proven to convert. See our pricing page for current rates.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What types of businesses do you work with?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'HVAC, plumbing, electrical, roofing, landscaping, dental, legal, and other service businesses in Volusia and Flagler Counties. If you book jobs by phone or form and serve customers locally, the Funnel Sprint was built for you.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How is this different from just running Google Ads?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Most local businesses that run Google Ads on their own send traffic to their homepage and wonder why nobody calls. The Funnel Sprint builds a dedicated landing page matched to the ad, with a conversion path designed around your specific service area, your offer, and your buyer. The difference is a page that converts at 8–12% instead of 2–3%.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Which areas do you serve?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Our core market is Volusia and Flagler Counties — Daytona Beach, Port Orange, Ormond Beach, Palm Coast, New Smyrna Beach, and surrounding areas. We are also expanding into Central Florida including Sanford and Orlando.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
+
       <ProfessionalServiceSchema
         serviceName="Local Lead Generation Ads"
         serviceDescription="Google Local Service Ads, Search Ads, and Facebook lead generation campaigns for home services and professional services businesses in Volusia and Flagler Counties"
         serviceUrl="https://aiogrowthseo.com/services/local-lead-generation"
         serviceType="Local Advertising Services"
+        dateModified="2026-10-03T10:00:00Z"
+        areaServed={[
+          {
+            '@type': 'County',
+            name: 'Volusia County',
+            containedInPlace: { '@type': 'State', name: 'Florida' },
+          },
+          {
+            '@type': 'County',
+            name: 'Flagler County',
+            containedInPlace: { '@type': 'State', name: 'Florida' },
+          },
+        ]}
+        offers={{
+          '@type': 'Offer',
+          name: 'Funnel Sprint',
+          description: 'Validated local ad funnel built and tested in 6-8 weeks',
+        }}
       />
     </>
   );
