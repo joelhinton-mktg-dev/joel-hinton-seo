@@ -6,9 +6,6 @@ export const metadata: Metadata = {
     template: '%s | AIO Growth SEO',
   },
   description: 'Industry-specific SEO built around how your customers actually search. We work with HVAC, dental, legal, home services, and more.',
-  alternates: {
-    canonical: 'https://aiogrowthseo.com/industries',
-  },
   openGraph: {
     title: 'Local SEO by Industry — Volusia County',
     description: 'Industry-specific SEO built around how your customers actually search. We work with HVAC, dental, legal, home services, and more.',
