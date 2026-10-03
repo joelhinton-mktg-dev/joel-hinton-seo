@@ -363,7 +363,7 @@ export const locations: Location[] = [
     seo: {
       metaTitle: 'Local SEO Services in Flagler Beach, Florida',
       metaDescription:
-        'Local SEO for Flagler Beach independents. Own the A1A map pack, capture Palm Coast weekend traffic, and be ready when storm-season searches spike.',
+        'Local SEO for Flagler Beach businesses — surf shops, restaurants, vacation rentals, and home services. Small market, low competition, fast results.',
       keywords: [
         'local SEO services Flagler Beach Florida',
         'Flagler Beach SEO',
@@ -371,6 +371,27 @@ export const locations: Location[] = [
         'Flagler County SEO',
         'A1A local SEO',
       ],
+    },
+    heroHeadline: 'Local SEO & Digital Marketing',
+    heroTagline: 'for Flagler Beach, Florida',
+    dateModified: '2026-10-03T10:00:00Z',
+    faqs: [
+      {
+        question: 'Do you specialize in Flagler Beach marketing?',
+        answer: 'Yes. Flagler Beach is a small, distinct market — a coastal town with a different character than [Palm Coast](/areas-we-serve/palm-coast) to the north or [Ormond Beach](/areas-we-serve/ormond-beach) to the south. The visitor economy on A1A runs on different search patterns than the year-round local market, and we build for both. We serve Flagler Beach as part of our broader Volusia and Flagler County coverage.',
+      },
+      {
+        question: 'What industries do you serve in Flagler Beach?',
+        answer: 'Surf shops and water sports retailers, vacation rentals and beach lodging, restaurants and seafood, home services (HVAC, plumbing, electrical), and professional services. Seasonal businesses in Flagler Beach especially benefit from pre-season [local SEO](/services/local-seo) — ranking before tourist traffic peaks means you capture the demand instead of your competitors.',
+      },
+      {
+        question: 'How quickly can I see results?',
+        answer: "Flagler Beach's low competition is an advantage. Most businesses see [Google Business Profile](/blog/google-business-profile-optimization-daytona) improvement within 30 days and map pack movement within 45–60 days. The small number of optimized profiles in most categories means the fundamentals alone can win the map pack here.",
+      },
+    ],
+    preFaqSection: {
+      heading: 'What Local SEO Costs in Flagler Beach',
+      body: 'Flagler Beach is a small market. Most businesses here compete against a handful of local operators and a few regional chains — not the deep field you\'d face in Daytona Beach or even [Palm Coast](/areas-we-serve/palm-coast). That means the fundamentals move faster and cost less to maintain. Most Flagler Beach businesses we work with invest $400–$700/month — enough to own the map pack in your category and keep it. Surf-adjacent retail, vacation rentals, and seasonal restaurants can often win with even less, because the search volume is concentrated and local buyers make decisions fast. See our [pricing page](/pricing) for current plans.',
     },
     uniqueSellingPoints: [
       { title: 'Independent Map Pack', description: 'No franchise SEO budgets to fight — a complete profile and steady reviews can put you first in category.' },

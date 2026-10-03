@@ -132,7 +132,7 @@ export const flaglerBeachLocalContent: LocalContentSection[] = [
   },
   {
     heading: 'The A1A Economy',
-    body: `Traffic on A1A is the town's bloodstream: day-trippers from Palm Coast and Ormond, surfers checking the pier, seasonal visitors renting along the beach. Their searches are immediate — "breakfast flagler beach," "surf report flagler pier," "bait shop near me" — and they convert the same hour. Ranking for them is about Google Business Profile discipline: current hours, real photos, review responses, posts during event weekends. It's unglamorous work that most small businesses here simply haven't done, which is exactly why it works.`,
+    body: `Traffic on A1A is the town's bloodstream: day-trippers from [Palm Coast](/areas-we-serve/palm-coast) and [Ormond Beach](/areas-we-serve/ormond-beach), surfers checking the pier, seasonal visitors renting along the beach. Their searches are immediate — "breakfast flagler beach," "surf report flagler pier," "bait shop near me" — and they convert the same hour. Ranking for them is about [Google Business Profile](/blog/google-business-profile-optimization-daytona) discipline: current hours, real photos, review responses, posts during event weekends. It's unglamorous work that most small businesses here simply haven't done, which is exactly why it works.`,
   },
   {
     heading: 'Palm Coast Money, Flagler Beach Charm',
