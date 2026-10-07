@@ -54,8 +54,8 @@ A national agency treats Daytona as one more market in a spreadsheet. A local pa
 We will review how you are getting found now, tell you plainly what is worth fixing first, and show you the cost per booked job math for a business like yours. No long contract, no pressure. See our [pricing](https://aiogrowthseo.com/pricing) or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
-  publishDate: '2026-10-08T10:00:00Z',
-  lastModified: '2026-10-08T10:00:00Z',
+  publishDate: '2026-10-07T10:00:00Z',
+  lastModified: '2026-10-07T10:00:00Z',
   category: 'Local SEO',
   tags: ['Local SEO', 'Marketing Agency', 'Daytona Beach', 'Small Business', 'Pricing'],
   featuredImage: '/images/blog/choose-marketing-agency-daytona.jpg',
