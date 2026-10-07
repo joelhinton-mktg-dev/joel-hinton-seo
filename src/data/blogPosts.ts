@@ -13,6 +13,8 @@ import { nsbSeasonalMarketingPost } from './blog/nsb-seasonal-marketing';
 import { palmCoastNewConstructionPost } from './blog/palm-coast-new-construction';
 import { digitalMarketingDaytonaPost } from './blog/digital-marketing-daytona';
 import { contentMarketingNsbPost } from './blog/content-marketing-nsb';
+import { howToGetRecommendedByAiPost } from './blog/how-to-get-recommended-by-ai';
+import { chooseMarketingAgencyDaytonaBeachPost } from './blog/choose-marketing-agency-daytona-beach';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1155,5 +1157,7 @@ export const blogPosts: BlogPost[] = [
   palmCoastNewConstructionPost,
   digitalMarketingDaytonaPost,
   contentMarketingNsbPost,
+  howToGetRecommendedByAiPost,
+  chooseMarketingAgencyDaytonaBeachPost,
   ...localClusterPosts,
 ];
