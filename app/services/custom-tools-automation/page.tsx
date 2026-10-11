@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
 import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
@@ -100,6 +101,34 @@ export default function CustomToolsAutomationPage() {
                 <p className="text-sm font-medium">Workflow Automation</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-background">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+            Why Custom Beats Off-the-Shelf for Local Businesses
+          </h2>
+          <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              HubSpot, Zapier, and Monday.com are built for companies with marketing teams to manage them.
+              A local HVAC company, dental practice, or law firm doesn&apos;t need a 200-feature platform —
+              they need one tool that does exactly one job, reliably, without requiring a consultant to maintain it.
+            </p>
+            <p>
+              We build lightweight custom tools: lead capture automations,{' '}
+              <Link href="/blog/google-business-profile-optimization-daytona" className="text-primary hover:underline">
+                review request
+              </Link>{' '}
+              sequences, appointment reminder flows, and reporting dashboards built around how your
+              business actually runs. No subscription. No learning curve. One build, yours to keep.
+              They sit next to your{' '}
+              <Link href="/services/local-seo" className="text-primary hover:underline">
+                local SEO
+              </Link>{' '}
+              program — not instead of it.
+            </p>
           </div>
         </div>
       </section>
@@ -522,13 +551,49 @@ export default function CustomToolsAutomationPage() {
           <Accordion type="single" collapsible className="w-full space-y-4">
             <AccordionItem value="item-1" className="border rounded-lg px-6">
               <AccordionTrigger className="text-left font-semibold">
-                How much does a custom marketing tool cost?
+                What kinds of custom tools do you build?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Projects typically range from $5,000 for focused single-purpose tools to $25,000+ for comprehensive
-                marketing automation systems. We provide detailed quotes after understanding your specific needs during
-                the discovery call. The key comparison: a $15,000 custom tool that you own forever vs. $500-1,500/month
-                in SaaS subscriptions that add up to $18,000+ over just one year.
+                Lead capture forms with automated follow-up sequences, Google Business Profile post
+                schedulers, review request automations triggered by completed jobs, local ranking dashboards,
+                and custom reporting for agencies managing multiple clients.
+                If it&apos;s a marketing workflow you do manually more than once a week, it&apos;s worth automating.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-1b" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                How is this different from using HubSpot or Zapier?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                HubSpot and Zapier are platforms — you subscribe, configure, and maintain them indefinitely.
+                What we build is a purpose-built tool for your specific workflow. You own it, there&apos;s no
+                monthly SaaS cost, and it does exactly what you need without features you&apos;ll never touch.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-1c" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                What does a custom marketing tool cost?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Most custom tools run $500–$2,500 to build depending on complexity. Simple automations
+                (review requests, follow-up sequences) are at the lower end. Dashboards or multi-step
+                integrations are at the higher end. No recurring fee after build.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-1d" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                What businesses do you build tools for?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                HVAC companies, dental practices, law firms, plumbing contractors, and any local service
+                business that has a repetitive marketing task eating up staff time. We&apos;re based in{' '}
+                <Link href="/areas-we-serve/daytona-beach" className="text-primary hover:underline">
+                  Daytona Beach
+                </Link>{' '}
+                and primarily serve Volusia and Flagler County businesses, though we take remote projects too.
               </AccordionContent>
             </AccordionItem>
 
@@ -645,6 +710,7 @@ export default function CustomToolsAutomationPage() {
         serviceDescription="Custom SEO automation tools, lead generation systems, reporting dashboards, and workflow automation built for your specific business needs"
         serviceUrl="https://aiogrowthseo.com/services/custom-tools-automation"
         serviceType="Marketing Automation Services"
+        dateModified="2026-10-11T10:00:00Z"
       />
     </>
   );
