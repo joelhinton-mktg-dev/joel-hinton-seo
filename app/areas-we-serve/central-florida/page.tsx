@@ -108,7 +108,11 @@ export default function CentralFloridaHubPage() {
               more noise, and a local search landscape where the difference between position 3 and
               position 12 on the map pack is measurable in revenue. That&apos;s exactly the
               environment our approach was built for: technical foundations, real local content,
-              and GEO optimization that gets businesses cited in AI-generated answers.
+              and{' '}
+              <Link href="/services/geo-optimization" className="text-primary hover:underline">
+                GEO optimization
+              </Link>{' '}
+              that gets businesses cited in AI-generated answers.
             </p>
           </div>
         </div>
