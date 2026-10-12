@@ -17,7 +17,6 @@ module.exports = {
     '/lp/free-seo-audit',
     '/lp/local-seo-offer',
     '/areas-we-serve/debary',
-    '/areas-we-serve/sanford',
     '/tools',
   ],
 

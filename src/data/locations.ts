@@ -8,6 +8,7 @@ import {
   ormondBeachLocalContent,
   palmCoastLocalContent,
   portOrangeLocalContent,
+  sanfordLocalContent,
 } from './locationLocalContent';
 
 export interface Location {
@@ -259,15 +260,38 @@ export const locations: Location[] = [
     nearbyAreas: ['Lake Mary', 'Longwood', 'Winter Springs', 'DeBary'],
     coordinates: { latitude: '28.8001', longitude: '-81.2731' },
     seo: {
-      metaTitle: 'Local SEO for Sanford, Florida',
-      metaDescription: 'Sanford\'s downtown revival is bringing new customers to Seminole County. We help local businesses get found as the market grows.',
+      metaTitle: 'Local SEO & Digital Marketing for Sanford, Florida',
+      metaDescription: 'Local SEO for Sanford businesses — historic downtown, SunRail corridor, and the I-4 growth market. 45 minutes from Daytona Beach. We know Central Florida and we\'re building here.',
       keywords: ['Sanford SEO', 'Sanford marketing', 'Sanford digital marketing', 'downtown Sanford marketing']
+    },
+    heroHeadline: 'Local SEO & Digital Marketing',
+    heroTagline: 'for Sanford, Florida',
+    datePublished: '2026-10-11T10:00:00Z',
+    dateModified: '2026-10-11T10:00:00Z',
+    faqs: [
+      {
+        question: 'Do you specialize in Sanford marketing?',
+        answer: "Yes. Sanford is 45 minutes from our base in Daytona Beach and is our primary Central Florida expansion market. We know the difference between the historic downtown market and the US-17-92 commercial corridor — they search differently, compete differently, and need different strategies. We're building real local expertise here, not templating a Volusia playbook onto a new city.",
+      },
+      {
+        question: 'What industries do you serve in Sanford?',
+        answer: "Restaurants, craft breweries, and hospitality in the historic district; HVAC, plumbing, and home services across the residential market; medical and dental practices; professional services including legal and financial; and retail along the French Avenue corridor. The SunRail station also creates opportunity for commuter-facing service businesses that want to reach the Orlando professional commuting to Sanford.",
+      },
+      {
+        question: 'How quickly can I see results?',
+        answer: "Sanford's Google Business Profile competition is thinner than Orlando proper, which means the fundamentals move faster. Most businesses see map pack improvement within 60–90 days. The historic downtown specifically has relatively few optimized profiles in many categories — early movers here build an advantage that's hard to dislodge once established.",
+      },
+    ],
+    preFaqSection: {
+      heading: 'What Local SEO Costs in Sanford',
+      body: 'Sanford sits in a mid-competition zone — more competitive than Flagler Beach or Holly Hill, less competitive than downtown Orlando. Most Sanford businesses we work with invest $600–$1,000/month for a focused local SEO program covering Google Business Profile optimization, Seminole County citation building, review generation, and location-specific content. Downtown restaurant and hospitality businesses often start lower. Service businesses competing across multiple Seminole and Volusia zip codes typically land higher. See our [pricing page](/pricing) for current plans.',
     },
     uniqueSellingPoints: [
       { title: 'Downtown Revival', description: 'Marketing for the growing historic district renaissance.' },
       { title: 'Craft Beverage Scene', description: 'Expertise in brewery and restaurant marketing.' },
       { title: 'Waterfront Positioning', description: 'Leveraging Lake Monroe for lifestyle marketing.' }
-    ]
+    ],
+    localContent: sanfordLocalContent,
   },
   {
     id: 'holly-hill',
@@ -455,7 +479,7 @@ export function buildLocationMetadata(slug: string): Metadata {
     return { title: 'Location Not Found' };
   }
   const url = `https://aiogrowthseo.com/areas-we-serve/${slug}`;
-  const hideFromSearch = slug === 'debary' || slug === 'sanford';
+  const hideFromSearch = slug === 'debary';
   return {
     title: location.seo.metaTitle,
     description: location.seo.metaDescription,

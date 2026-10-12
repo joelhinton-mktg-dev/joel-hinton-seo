@@ -197,3 +197,14 @@ export const palmCoastLocalContent: LocalContentSection[] = [
     body: `Palm Coast is a fast-growing market but it's not Orlando. Local SEO pricing here should reflect the actual competition level — which is still low enough that fundamentals alone can win the map pack in most categories. Most Palm Coast businesses we work with invest $500–$900/month, which covers a fully optimized Google Business Profile, Flagler County citation building, review generation, and location content. Categories with higher competition — real estate, healthcare, home services in the higher-traffic sections — typically run $900–$1,400/month. We don't apply Miami pricing to a Palm Coast market. See our [pricing page](/pricing) for what's available.`,
   },
 ];
+
+export const sanfordLocalContent: LocalContentSection[] = [
+  {
+    heading: 'Who We Work With in Sanford',
+    body: `Sanford's business landscape is split between the historic downtown revival — craft breweries, restaurants, boutique retail, and creative services along First Street — and the commercial corridor serving the SunRail commuter market and I-4 traffic. We work with both. Downtown Sanford businesses benefit from [local SEO](/services/local-seo) that captures the weekend visitor and evening dining crowd from Orlando and Lake Mary. The commercial corridor needs a different approach: service-area coverage, Google Maps visibility, and content that captures the Seminole County residential base that's grown significantly since 2022.`,
+  },
+  {
+    heading: 'The AI Layer in Sanford',
+    body: `Sanford is underserved in AI search results compared to Orlando and even Daytona Beach. Most ChatGPT and Google AI Overview answers for "best [service] in Sanford" pull from a small pool of businesses with strong online presence. That means [GEO optimization](/services/geo-optimization) — getting cited in AI answers — is genuinely winnable here right now, before more businesses figure it out. We've helped Volusia County businesses get cited in AI search. The same approach works in Sanford and across [Central Florida](/areas-we-serve/central-florida).`,
+  },
+];
