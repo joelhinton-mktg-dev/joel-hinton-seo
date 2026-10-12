@@ -15,6 +15,11 @@ import { digitalMarketingDaytonaPost } from './blog/digital-marketing-daytona';
 import { contentMarketingNsbPost } from './blog/content-marketing-nsb';
 import { howToGetRecommendedByAiPost } from './blog/how-to-get-recommended-by-ai';
 import { chooseMarketingAgencyDaytonaBeachPost } from './blog/choose-marketing-agency-daytona-beach';
+import { howLocalLeadGenerationWorksServiceBusinessesPost } from './blog/how-local-lead-generation-works-service-businesses';
+import { localLeadGenerationHomeServicesVolusiaPost } from './blog/local-lead-generation-home-services-volusia';
+import { localLeadGenerationProfessionalServicesVolusiaPost } from './blog/local-lead-generation-professional-services-volusia';
+import { callTrackingLocalLeadGenerationPost } from './blog/call-tracking-local-lead-generation';
+import { aiSearchVsTraditionalSeoDoYouNeedBothPost } from './blog/ai-search-vs-traditional-seo-do-you-need-both';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1159,5 +1164,10 @@ export const blogPosts: BlogPost[] = [
   contentMarketingNsbPost,
   howToGetRecommendedByAiPost,
   chooseMarketingAgencyDaytonaBeachPost,
+  howLocalLeadGenerationWorksServiceBusinessesPost,
+  localLeadGenerationHomeServicesVolusiaPost,
+  localLeadGenerationProfessionalServicesVolusiaPost,
+  callTrackingLocalLeadGenerationPost,
+  aiSearchVsTraditionalSeoDoYouNeedBothPost,
   ...localClusterPosts,
 ];
