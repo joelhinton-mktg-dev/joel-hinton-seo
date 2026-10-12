@@ -47,7 +47,7 @@ It is worth it when the work produces more booked jobs than it costs, and not be
 
 ## Why a local Volusia partner usually wins
 
-A national agency treats Daytona as one more market in a spreadsheet. A local partner knows that summer AC demand spikes, that snowbird season changes who is searching, and that a Port Orange customer searches differently than an Ormond one. More practically, a local partner you can actually reach answers the phone, which matters because speed to lead is the single biggest book-rate lever: responding to a new lead within five minutes makes you about 21 times more likely to connect than waiting thirty. We built [AIO Growth SEO](https://aiogrowthseo.com/local-seo) around that reality, with fixed fees, full asset ownership, and reporting on booked jobs. See our [pricing](https://aiogrowthseo.com/pricing) for how we structure it.
+A national agency treats Daytona as one more market in a spreadsheet. A local partner knows that summer AC demand spikes, that snowbird season changes who is searching, and that a Port Orange customer searches differently than an Ormond one. More practically, a local partner you can actually reach answers the phone, which matters because speed to lead is the single biggest book-rate lever: responding to a new lead within five minutes makes you about 21 times more likely to connect than waiting thirty. We built [AIO Growth SEO](https://aiogrowthseo.com/services/local-seo) around that reality, with fixed fees, full asset ownership, and reporting on booked jobs. See our [pricing](https://aiogrowthseo.com/pricing) for how we structure it.
 
 ## Get a straight answer before you hire
 
