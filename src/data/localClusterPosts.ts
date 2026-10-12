@@ -270,7 +270,7 @@ We will map your local SEO across every city you serve, run the grid to find you
     ],
     readingTime: 7,
     seo: {
-      metaTitle: "How HVAC & Plumbing Contractors Rank Across Multiple Volusia County Cities",
+      metaTitle: "HVAC & Plumbing SEO Across Multiple Volusia County Cities",
       metaDescription: "Volusia County HVAC and plumbing contractors need to rank in Daytona Beach, Port Orange, AND Ormond Beach — not just one city. Here's how the multi-city local SEO strategy actually works.",
       keywords: ["local seo for hvac", "plumbing local SEO", "Volusia County SEO", "service-area pages"],
       ogImage: '/images/blog/local-seo-hvac-plumbing-volusia-county.webp'

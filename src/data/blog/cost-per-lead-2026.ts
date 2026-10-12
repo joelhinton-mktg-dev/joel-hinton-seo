@@ -28,7 +28,7 @@ export const costPerLead2026Post: BlogPost = {
   ],
   readingTime: 9,
   seo: {
-    metaTitle: "HVAC Cost Per Lead in 2026: $34–$149 Benchmarks for Contractors",
+    metaTitle: "HVAC Cost Per Lead 2026: $34–$149 Contractor Benchmarks",
     metaDescription: "Branded HVAC CPL averages $34, non-branded $149 in 2026. Real benchmarks from $14.9M in Google Ads spend — plus why book rate matters more than cost per lead alone.",
     keywords: ["cost per lead for HVAC contractors 2026", "contractor cost per lead", "branded vs non-branded CPL", "HVAC book rate", "Google Ads cost per lead home services", "HVAC lead generation cost", "Florida contractor marketing cost"],
     ogImage: "/images/blog/cost-per-lead-hero.png",
