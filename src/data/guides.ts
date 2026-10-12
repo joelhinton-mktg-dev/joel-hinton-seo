@@ -1172,7 +1172,7 @@ Create ongoing processes for:
 
 **Ready to master GEO?**
 
-- Explore our [GEO Optimization services](/services/geo-optimization) for professional implementation
+- Explore [our GEO optimization service](/services/geo-optimization) for professional implementation
 - Learn how [SEO and GEO work together](/guides/geo-vs-seo-whats-the-difference)
 - Discover our [AI Search Optimization strategies](/guides/ai-search-optimization-implementation-guide)
 - [Contact us](/contact) for a free GEO audit
@@ -1625,7 +1625,7 @@ Define both SEO and GEO success metrics:
 **Ready to master both SEO and GEO?**
 
 - Explore our [SEO Services](/services/search-engine-optimization) for traditional optimization
-- Learn about [GEO Optimization](/services/geo-optimization) for AI visibility
+- Learn about [GEO optimization for local businesses](/services/geo-optimization) for AI visibility
 - Discover [Local SEO](/services/local-seo) for geographic targeting
 - [Contact us](/contact) to assess your multi-channel visibility
 
