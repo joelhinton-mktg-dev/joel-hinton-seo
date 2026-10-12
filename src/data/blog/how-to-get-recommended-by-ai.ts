@@ -54,7 +54,7 @@ Most owners have never actually asked. Open ChatGPT, Gemini, and Google and ask 
 
 The honest reason to act now is that almost none of your local competitors are set up for this yet. The national brands optimize for national queries. The research shows the smaller, non-dominant player gets the larger lift from these tactics. And the work is not exotic: a complete profile, consistent data, fresh reviews, a few credible mentions, and content that answers real questions with real numbers. That is a foundation a local business can build in a quarter, and once it is built it keeps working while competitors are still wondering why the AI never names them.
 
-This is the same foundation we build into our [GEO optimization](https://aiogrowthseo.com/services/geo-optimization) work, folded in with local SEO rather than sold as a separate bolt-on. If you want the full picture of the fundamentals underneath it, start with our [local SEO](https://aiogrowthseo.com/local-seo) guide.
+This is the same foundation we build into our [GEO optimization](https://aiogrowthseo.com/services/geo-optimization) work, folded in with local SEO rather than sold as a separate bolt-on. If you want the full picture of the fundamentals underneath it, start with our [local SEO](https://aiogrowthseo.com/services/local-seo) guide.
 
 ## See if AI recommends your business
 
