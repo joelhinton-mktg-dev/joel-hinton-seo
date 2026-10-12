@@ -40,7 +40,8 @@ export type BlogCategory =
   | 'Growth Marketing'
   | 'Case Studies'
   | 'AI Marketing'
-  | 'Local SEO';
+  | 'Local SEO'
+  | 'Local Lead Generation';
 
 export interface BlogFilters {
   category?: BlogCategory;
