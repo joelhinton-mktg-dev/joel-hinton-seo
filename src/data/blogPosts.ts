@@ -20,6 +20,11 @@ import { localLeadGenerationHomeServicesVolusiaPost } from './blog/local-lead-ge
 import { localLeadGenerationProfessionalServicesVolusiaPost } from './blog/local-lead-generation-professional-services-volusia';
 import { callTrackingLocalLeadGenerationPost } from './blog/call-tracking-local-lead-generation';
 import { aiSearchVsTraditionalSeoDoYouNeedBothPost } from './blog/ai-search-vs-traditional-seo-do-you-need-both';
+import { geoHomeServicesContractorsAiPost } from './blog/geo-home-services-contractors-ai';
+import { schemaMarkupForAiSearchPost } from './blog/schema-markup-for-ai-search';
+import { howToMeasureGeoResultsPost } from './blog/how-to-measure-geo-results';
+import { llmsTxtForLocalBusinessPost } from './blog/llms-txt-for-local-business';
+import { geoCompetitiveAnalysisPost } from './blog/geo-competitive-analysis';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1169,5 +1174,10 @@ export const blogPosts: BlogPost[] = [
   localLeadGenerationProfessionalServicesVolusiaPost,
   callTrackingLocalLeadGenerationPost,
   aiSearchVsTraditionalSeoDoYouNeedBothPost,
+  geoHomeServicesContractorsAiPost,
+  schemaMarkupForAiSearchPost,
+  howToMeasureGeoResultsPost,
+  llmsTxtForLocalBusinessPost,
+  geoCompetitiveAnalysisPost,
   ...localClusterPosts,
 ];
