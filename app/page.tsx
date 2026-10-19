@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://aiogrowthseo.com/',
+    canonical: 'https://aiogrowthseo.com',
   },
   openGraph: {
     title: 'Daytona Beach SEO Company',
     description: 'Your Daytona Beach SEO company for Volusia and Flagler Counties. Local SEO, GEO optimization, lead generation, and measurable growth.',
     type: 'website',
-    url: 'https://aiogrowthseo.com/',
+    url: 'https://aiogrowthseo.com',
   },
 };
 

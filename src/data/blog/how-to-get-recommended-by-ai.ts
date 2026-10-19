@@ -15,7 +15,7 @@ If you have typed "best HVAC company near me" into ChatGPT or watched Google ans
 
 AI tools do not have their own opinion of your business. They assemble an answer from what they can find and trust: your Google Business Profile, your reviews, your website, and third-party sites that mention you. The more consistent and credible those sources are, the more confident the AI is in naming you. This is why getting recommended by AI is not a separate trick from local SEO, it is the same foundation working harder.
 
-The reward for getting this right is real. Ahrefs measured a 58% drop in clicks to the top organic result on informational searches where an AI Overview appears (a 300,000 keyword study comparing actual to forecast clicks over two years), so the old prize of ranking first is shrinking. Meanwhile [Seer Interactive](https://www.seerinteractive.com/insights/ai-overviews-impact-on-ctr) found that being named inside an AI Overview earned about 35% more organic clicks than not being cited on the same query. The traffic is moving to whoever the AI quotes.
+The reward for getting this right is real. Ahrefs measured a 58% drop in clicks to the top organic result on informational searches where an AI Overview appears (a 300,000 keyword study comparing actual to forecast clicks over two years), so the old prize of ranking first is shrinking. Meanwhile Seer Interactive found that being named inside an AI Overview earned about 35% more organic clicks than not being cited on the same query. The traffic is moving to whoever the AI quotes.
 
 ## Step 1: Lock down your business data everywhere
 
