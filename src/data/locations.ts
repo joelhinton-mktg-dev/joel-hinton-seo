@@ -130,9 +130,30 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'New Smyrna Beach', 'South Daytona'],
     coordinates: { latitude: '29.1383', longitude: '-80.9956' },
     seo: {
-      metaTitle: 'Local SEO Services in Port Orange, Florida',
-      metaDescription: 'Port Orange is one of Volusia County\'s fastest-growing markets. We help local service businesses get found by the families moving here.',
+      metaTitle: 'Local SEO & Digital Marketing for Port Orange, Florida',
+      metaDescription: 'Local SEO for Port Orange businesses — one of Volusia County\'s fastest-growing markets with strong residential demographics. We help contractors, medical practices, and professional services rank where Port Orange buyers are searching.',
       keywords: ['Port Orange marketing', 'Port Orange SEO', 'Port Orange digital marketing', 'family marketing']
+    },
+    heroHeadline: 'Local SEO & Digital Marketing',
+    heroTagline: 'for Port Orange, Florida',
+    dateModified: '2026-10-18T10:00:00Z',
+    faqs: [
+      {
+        question: 'Do you specialize in Port Orange marketing?',
+        answer: 'Yes. Port Orange is one of our core Volusia County markets and where a significant share of our home service and medical clients operate. We know the Dunlawton Avenue commercial strip, the residential west side, and the difference between competing for Daytona Beach searches versus Port Orange-specific ones. They are not the same campaign.',
+      },
+      {
+        question: 'What industries do you serve in Port Orange?',
+        answer: "HVAC, plumbing, roofing, electrical, and home services; medical and dental practices; legal and financial services; restaurants and retail; and real estate. Port Orange's demographics skew toward established homeowners with high service demand across all of these categories.",
+      },
+      {
+        question: 'How quickly can I see results?',
+        answer: "Google Business Profile improvements typically appear within 30-60 days. Map pack movement in Port Orange's competitive but manageable categories follows within 60-90 days. One timing advantage: Port Orange's proximity to Daytona Beach means that when you rank well here, you often pull impressions from the broader south Volusia search radius as well.",
+      },
+    ],
+    preFaqSection: {
+      heading: 'What Local SEO Costs in Port Orange',
+      body: "Port Orange is a mid-competition market with strong residential density and growing commercial corridors along Dunlawton and US-1. Most Port Orange businesses we work with invest $500-$900/month for a focused local SEO program covering Google Business Profile optimization, Volusia County citation building, review generation, and content targeting the Port Orange and South Daytona search radius.\n\nHVAC, plumbing, and home services operators competing for the same homeowner searches as Daytona Beach contractors often see faster map pack movement here because the competitive field, while real, is thinner than Daytona proper. Medical practices, dental, and legal services typically run $700-$1,200/month because content depth and credibility signals carry more weight in those categories. See our [pricing page](/pricing) for current plans.",
     },
     uniqueSellingPoints: [
       { title: 'Family Market Expertise', description: 'Understanding the needs and buying patterns of family households.' },
