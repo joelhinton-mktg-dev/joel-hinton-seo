@@ -30,6 +30,11 @@ import { palmCoastGrowthMarketPost } from './blog/palm-coast-growth-market';
 import { portOrangeLocalMarketingPost } from './blog/port-orange-local-marketing';
 import { altamonteOrlandoMetroSeoPost } from './blog/altamonte-orlando-metro-seo';
 import { flaglerBeachSmallBusinessMarketingPost } from './blog/flagler-beach-small-business-marketing';
+import { whatDoesAnSeoCompanyDoPost } from './blog/what-does-an-seo-company-do';
+import { localSeoCompanyVsFullServiceAgencyPost } from './blog/local-seo-company-vs-full-service-agency';
+import { signsYouHiredTheWrongSeoCompanyPost } from './blog/signs-you-hired-the-wrong-seo-company';
+import { howLongBeforeSeoCompanyResultsPost } from './blog/how-long-before-seo-company-results';
+import { inHouseVsHiringSeoCompanyPost } from './blog/in-house-vs-hiring-seo-company';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1189,5 +1194,10 @@ export const blogPosts: BlogPost[] = [
   portOrangeLocalMarketingPost,
   altamonteOrlandoMetroSeoPost,
   flaglerBeachSmallBusinessMarketingPost,
+  whatDoesAnSeoCompanyDoPost,
+  localSeoCompanyVsFullServiceAgencyPost,
+  signsYouHiredTheWrongSeoCompanyPost,
+  howLongBeforeSeoCompanyResultsPost,
+  inHouseVsHiringSeoCompanyPost,
   ...localClusterPosts,
 ];
