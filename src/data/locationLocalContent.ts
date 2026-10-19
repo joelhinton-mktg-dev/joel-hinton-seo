@@ -59,7 +59,7 @@ export const newSmyrnaBeachLocalContent: LocalContentSection[] = [
 export const portOrangeLocalContent: LocalContentSection[] = [
   {
     heading: 'Local SEO Services in Port Orange, Florida',
-    body: `Port Orange is where Volusia County's families actually live — and family buyers search differently. They read reviews. All of them. They compare three dentists before booking, check a roofer's photos from real jobs, and ask their neighborhood Facebook group before hiring anyone. Winning [local SEO](/services/local-seo) here isn't about tricks; it's about making sure that when a Port Orange parent does that research loop, you show up at every step with proof you're the safe choice.`,
+    body: `Port Orange is where [Volusia County](/areas-we-serve)'s families actually live — and family buyers search differently. They read reviews. All of them. They compare three dentists before booking, check a roofer's photos from real jobs, and ask their neighborhood Facebook group before hiring anyone. Winning [local SEO](/services/local-seo) here isn't about tricks; it's about making sure that when a Port Orange parent does that research loop, you show up at every step with proof you're the safe choice.`,
   },
   {
     heading: 'The Dunlawton Corridor Problem',
