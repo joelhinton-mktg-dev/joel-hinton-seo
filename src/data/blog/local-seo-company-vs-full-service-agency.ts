@@ -52,6 +52,10 @@ Tell us where your customers come from and we will tell you honestly which kind 
   lastModified: "2026-10-28T00:00:00Z",
   category: 'Local SEO',
   tags: ["local seo company", "seo agency", "seo provider", "choosing an seo company", "daytona beach seo"],
+  featuredImage: "/images/blog/local-seo-company-vs-agency.jpg",
+  imagePlaceholders: [
+    { id: "hero", alt: "Local SEO company vs full-service SEO agency comparison for local businesses", width: 1672, height: 941, src: "/images/blog/local-seo-company-vs-agency.jpg" }
+  ],
   faqs: [
     { question: "What is the difference between a local SEO company and an SEO agency?", answer: "A local SEO company specializes in making you visible to nearby customers: Google Business Profile, reviews, local listings, and service-area pages. A full-service SEO agency works across the broader search landscape, large-scale content, link-building, and national terms, for businesses whose customers are not defined by location. Both can be good; they are built for different kinds of businesses." },
     { question: "Does a local service business need a national SEO agency?", answer: "Usually not. If your customers come from a defined area, the work that wins you business is local, and a provider focused on local search is the better fit. A national agency is built for businesses that sell beyond their area. Hiring one for a local business often means paying for broad work while the local signals that actually drive your calls get neglected." },
@@ -62,6 +66,7 @@ Tell us where your customers come from and we will tell you honestly which kind 
   seo: {
     metaTitle: "Local SEO Company vs. SEO Agency: Which Do You Need?",
     metaDescription: "Local SEO company or full-service agency? A clear decision framework matching your business to the right type of SEO provider, with a comparison table.",
+    ogImage: "/images/blog/local-seo-company-vs-agency.jpg",
     keywords: ["local seo company", "seo agency", "seo provider", "choosing an seo company", "daytona beach seo", "Daytona Beach SEO", "Local SEO"],
   },
   published: true,

@@ -53,6 +53,10 @@ We will look at your site and your local presence and give you an honest estimat
   lastModified: "2026-10-30T00:00:00Z",
   category: 'Local SEO',
   tags: ["how long does seo take", "seo timeline", "local seo results", "seo expectations", "daytona beach seo"],
+  featuredImage: "/images/blog/how-long-before-seo-results.jpg",
+  imagePlaceholders: [
+    { id: "hero", alt: "How long before an SEO company gets results — SEO growth timeline stages", width: 1672, height: 941, src: "/images/blog/how-long-before-seo-results.jpg" }
+  ],
   faqs: [
     { question: "How long does SEO take to work for a local business?", answer: "Local SEO runs on two timelines. The local-presence work, your Google Business Profile, reviews, and listings, can start improving map-pack visibility within weeks because it is about completeness and activity rather than competition. The broader work of ranking pages and building authority follows the usual three-to-twelve-month curve. So a local business often sees early local wins well before the full results arrive." },
     { question: "Why does SEO take so long to show results?", answer: "Because search engines reward trust, and trust is earned over time, not bought. The early weeks go to fixing foundations and building things that pay off later, so month one rarely shows movement. Rankings, authority, and lead flow compound gradually as your work accumulates. The local-presence side can move faster, but the content and authority side genuinely takes months. Any provider promising instant rankings is overpromising." },
@@ -63,6 +67,7 @@ We will look at your site and your local presence and give you an honest estimat
   seo: {
     metaTitle: "How Long Before an SEO Company Gets Results?",
     metaDescription: "How long SEO takes for a local business, stage by stage, why local SEO runs on two timelines, and what you should see from your company at each phase.",
+    ogImage: "/images/blog/how-long-before-seo-results.jpg",
     keywords: ["how long does seo take", "seo timeline", "local seo results", "seo expectations", "daytona beach seo", "Daytona Beach SEO", "Local SEO"],
   },
   published: true,

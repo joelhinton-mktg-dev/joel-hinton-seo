@@ -64,6 +64,10 @@ We will show you exactly what an SEO company would do for your business, startin
   lastModified: "2026-10-27T00:00:00Z",
   category: 'Local SEO',
   tags: ["seo company", "what does an seo company do", "local seo", "daytona beach seo", "hiring an seo company"],
+  featuredImage: "/images/blog/what-does-an-seo-company-do.jpg",
+  imagePlaceholders: [
+    { id: "hero", alt: "What an SEO company does for a local business — process from technical setup to search rankings", width: 1672, height: 941, src: "/images/blog/what-does-an-seo-company-do.jpg" }
+  ],
   faqs: [
     { question: "What do you actually get for a monthly SEO fee?", answer: "Ongoing work, not a one-time product: a mix of technical and on-page fixes, new or updated content, work on your Google Business Profile and reviews, rank and competitor monitoring, and a report explaining what changed. The blend shifts month to month, foundations first, then content and authority-building. You are paying for the recurring work and the judgment behind it." },
     { question: "How is an SEO company different from a web designer?", answer: "A web designer builds how your site looks and works. An SEO company makes it findable: researching what customers search, fixing what keeps you from ranking, publishing content that answers real questions, and building your reputation so you show up when people look. A good site needs both, but they are different jobs, and a beautiful site that nobody finds still does not bring you calls." },
@@ -74,6 +78,7 @@ We will show you exactly what an SEO company would do for your business, startin
   seo: {
     metaTitle: "What Does an SEO Company Actually Do? | AIO Growth SEO",
     metaDescription: "What an SEO company actually does for a local business, in plain English: the real monthly work, and how to tell real effort from busywork.",
+    ogImage: "/images/blog/what-does-an-seo-company-do.jpg",
     keywords: ["seo company", "what does an seo company do", "local seo", "daytona beach seo", "hiring an seo company", "Daytona Beach SEO", "Local SEO"],
   },
   published: true,

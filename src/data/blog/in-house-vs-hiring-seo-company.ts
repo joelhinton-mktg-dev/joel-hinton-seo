@@ -50,6 +50,10 @@ Tell us how much time you have and how competitive your market is, and we will g
   lastModified: "2026-10-31T00:00:00Z",
   category: 'Local SEO',
   tags: ["in-house seo vs agency", "hiring an seo company", "diy seo", "seo cost", "daytona beach seo"],
+  featuredImage: "/images/blog/in-house-vs-hiring-seo-company.jpg",
+  imagePlaceholders: [
+    { id: "hero", alt: "In-house SEO vs hiring an SEO company — time and cost trade-off for small businesses", width: 1672, height: 941, src: "/images/blog/in-house-vs-hiring-seo-company.jpg" }
+  ],
   faqs: [
     { question: "Is it cheaper to do SEO myself or hire a company?", answer: "On the invoice, doing it yourself is cheaper; in reality it rarely is. The true cost of doing it yourself is your time and the learning curve, and for a busy owner those hours are worth more applied to the business you already know. Hiring a company costs a monthly fee but frees your time and brings know-how and consistency. Compare the fee against the value of your hours, not against zero." },
     { question: "Should a small business hire an in-house SEO person?", answer: "Usually not. A full-time in-house SEO hire makes sense for companies large enough to keep one busy and afford the salary, which few small local businesses are. For a small business, the realistic choices are doing the basics yourself, making a part-time or freelance hire, or hiring an SEO company. A full-time internal hire is typically the most expensive and least practical option at that size." },
@@ -60,6 +64,7 @@ Tell us how much time you have and how competitive your market is, and we will g
   seo: {
     metaTitle: "In-House vs. Hiring an SEO Company: The Real Cost",
     metaDescription: "For a small local business, in-house SEO vs hiring a company comes down to the true cost of your time. An honest three-way comparison: DIY, part-time, or hire.",
+    ogImage: "/images/blog/in-house-vs-hiring-seo-company.jpg",
     keywords: ["in-house seo vs agency", "hiring an seo company", "diy seo", "seo cost", "daytona beach seo", "Daytona Beach SEO", "Local SEO"],
   },
   published: true,

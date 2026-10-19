@@ -61,6 +61,10 @@ We will review what your current provider has actually done, in plain English, a
   lastModified: "2026-10-29T00:00:00Z",
   category: 'Local SEO',
   tags: ["bad seo company", "signs of a bad seo company", "is my seo working", "seo red flags", "daytona beach seo"],
+  featuredImage: "/images/blog/signs-wrong-seo-company.jpg",
+  imagePlaceholders: [
+    { id: "hero", alt: "Signs you hired the wrong SEO company — stagnating search performance warning", width: 1672, height: 941, src: "/images/blog/signs-wrong-seo-company.jpg" }
+  ],
   faqs: [
     { question: "How do I know if my SEO company is actually doing anything?", answer: "Ask what specifically changed last month and see whether they can show you concrete work, pages updated, listings built, fixes made, and whether the report connects to leads rather than just traffic. For a local business, check whether your Google Business Profile is complete and active and whether you are appearing in the map results. Real work leaves visible evidence; coasting does not." },
     { question: "How long should I give an SEO company before expecting results?", answer: "The first two to three months are foundational and usually quiet, so flat results early are normal. By around six months you should see movement, climbing local rankings, a filling-in Business Profile, early review growth, and leads starting to follow. If six to twelve months pass with nothing moving and no clear plan, that is past a normal slow start and into genuine underperformance." },
@@ -71,6 +75,7 @@ We will review what your current provider has actually done, in plain English, a
   seo: {
     metaTitle: "Signs You Hired the Wrong SEO Company | AIO Growth SEO",
     metaDescription: "How to tell if you hired the wrong SEO company, how to confirm it is underperformance and not a normal slow start, and how to course-correct.",
+    ogImage: "/images/blog/signs-wrong-seo-company.jpg",
     keywords: ["bad seo company", "signs of a bad seo company", "is my seo working", "seo red flags", "daytona beach seo", "Daytona Beach SEO", "Local SEO"],
   },
   published: true,
