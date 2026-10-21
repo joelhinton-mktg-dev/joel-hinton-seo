@@ -46,8 +46,8 @@ Start with one honest question: how many hours a month can you genuinely give to
 Tell us how much time you have and how competitive your market is, and we will give you an honest take on whether doing it yourself, a part-time hire, or hiring a company is the better value, even if the answer is not us. No pressure, no long contract. See how we approach [search engine optimization](https://aiogrowthseo.com/services/search-engine-optimization), or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
-  publishDate: "2026-10-31T00:00:00Z",
-  lastModified: "2026-10-31T00:00:00Z",
+  publishDate: "2026-10-23T10:00:00Z",
+  lastModified: "2026-10-23T10:00:00Z",
   category: 'Local SEO',
   tags: ["in-house seo vs agency", "hiring an seo company", "diy seo", "seo cost", "daytona beach seo"],
   featuredImage: "/images/blog/in-house-vs-hiring-seo-company.jpg",

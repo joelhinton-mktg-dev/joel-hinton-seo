@@ -49,8 +49,8 @@ Flat results in month one should not worry you; that is the foundation phase wor
 We will look at your site and your local presence and give you an honest estimate of what to expect and when, including the quick local wins and the slower-building results. No inflated promises, no long contract. See how we approach [local SEO](https://aiogrowthseo.com/services/local-seo), or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
-  publishDate: "2026-10-30T00:00:00Z",
-  lastModified: "2026-10-30T00:00:00Z",
+  publishDate: "2026-10-22T10:00:00Z",
+  lastModified: "2026-10-22T10:00:00Z",
   category: 'Local SEO',
   tags: ["how long does seo take", "seo timeline", "local seo results", "seo expectations", "daytona beach seo"],
   featuredImage: "/images/blog/how-long-before-seo-results.jpg",

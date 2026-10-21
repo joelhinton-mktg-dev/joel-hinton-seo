@@ -48,8 +48,8 @@ Once you know which type of provider fits, the next step is vetting the specific
 Tell us where your customers come from and we will tell you honestly which kind of SEO your business needs, and whether that is us or not. No long contract, no pressure. See how we approach [local SEO](https://aiogrowthseo.com/services/local-seo) and [search engine optimization](https://aiogrowthseo.com/services/search-engine-optimization), or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
-  publishDate: "2026-10-28T00:00:00Z",
-  lastModified: "2026-10-28T00:00:00Z",
+  publishDate: "2026-10-20T10:00:00Z",
+  lastModified: "2026-10-20T10:00:00Z",
   category: 'Local SEO',
   tags: ["local seo company", "seo agency", "seo provider", "choosing an seo company", "daytona beach seo"],
   featuredImage: "/images/blog/local-seo-company-vs-agency.jpg",

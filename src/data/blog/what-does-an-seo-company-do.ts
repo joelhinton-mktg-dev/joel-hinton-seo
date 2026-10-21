@@ -60,8 +60,8 @@ Not every business needs to hire one today. If you are brand new, have no websit
 We will show you exactly what an SEO company would do for your business, starting with a plain-English audit of what is holding you back and what the first ninety days would focus on. No jargon, no long contract, no pressure. See how we approach [search engine optimization](https://aiogrowthseo.com/services/search-engine-optimization), or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
-  publishDate: "2026-10-27T00:00:00Z",
-  lastModified: "2026-10-27T00:00:00Z",
+  publishDate: "2026-10-20T10:00:00Z",
+  lastModified: "2026-10-20T10:00:00Z",
   category: 'Local SEO',
   tags: ["seo company", "what does an seo company do", "local seo", "daytona beach seo", "hiring an seo company"],
   featuredImage: "/images/blog/what-does-an-seo-company-do.jpg",

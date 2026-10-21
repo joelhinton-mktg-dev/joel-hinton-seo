@@ -57,8 +57,8 @@ Whichever path you take, know what good local work actually looks like so you ca
 We will review what your current provider has actually done, in plain English, and tell you honestly whether it is underperformance or just a normal slow start. No pressure, no long contract, whether or not you end up working with us. See how we approach [search engine optimization](https://aiogrowthseo.com/services/search-engine-optimization), or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
-  publishDate: "2026-10-29T00:00:00Z",
-  lastModified: "2026-10-29T00:00:00Z",
+  publishDate: "2026-10-21T10:00:00Z",
+  lastModified: "2026-10-21T10:00:00Z",
   category: 'Local SEO',
   tags: ["bad seo company", "signs of a bad seo company", "is my seo working", "seo red flags", "daytona beach seo"],
   featuredImage: "/images/blog/signs-wrong-seo-company.jpg",
