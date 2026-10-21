@@ -37,7 +37,7 @@ export default function LocalSEOPage() {
     <>
       <CoreServiceSchema
         name="Local SEO Services in Daytona Beach, Florida — Volusia County"
-        description="Local SEO services for Daytona Beach, Port Orange, Ormond Beach, and all of Volusia County. Map pack rankings, GBP optimization, and content that gets local businesses found. No long-term contracts."
+        description="Local SEO for Daytona Beach and Volusia County businesses. Map pack rankings, GBP optimization, and content that gets you found. Month-to-month, no contracts."
         url="https://aiogrowthseo.com/services/local-seo"
       />
 

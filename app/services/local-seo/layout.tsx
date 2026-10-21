@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 const TITLE = 'Local SEO Services in Daytona Beach, Florida — Volusia County';
 const DESCRIPTION =
-  'Local SEO services for Daytona Beach, Port Orange, Ormond Beach, and all of Volusia County. Map pack rankings, GBP optimization, and content that gets local businesses found. No long-term contracts.';
+  'Local SEO for Daytona Beach and Volusia County businesses. Map pack rankings, GBP optimization, and content that gets you found. Month-to-month, no contracts.';
 const CANONICAL = 'https://aiogrowthseo.com/services/local-seo';
 const DATE_MODIFIED = '2026-10-21T10:00:00Z';
 
