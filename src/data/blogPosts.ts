@@ -29,6 +29,7 @@ import { ormondAffluentMarketPost } from './blog/ormond-affluent-market';
 import { palmCoastGrowthMarketPost } from './blog/palm-coast-growth-market';
 import { portOrangeLocalMarketingPost } from './blog/port-orange-local-marketing';
 import { altamonteOrlandoMetroSeoPost } from './blog/altamonte-orlando-metro-seo';
+import { flaglerBeachSmallBusinessMarketingPost } from './blog/flagler-beach-small-business-marketing';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1187,5 +1188,6 @@ export const blogPosts: BlogPost[] = [
   palmCoastGrowthMarketPost,
   portOrangeLocalMarketingPost,
   altamonteOrlandoMetroSeoPost,
+  flaglerBeachSmallBusinessMarketingPost,
   ...localClusterPosts,
 ];
