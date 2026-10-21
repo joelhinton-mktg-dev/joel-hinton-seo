@@ -1,19 +1,41 @@
 import type { Metadata } from 'next';
 
+const TITLE = 'Local SEO Services in Daytona Beach, Florida — Volusia County';
+const DESCRIPTION =
+  'Local SEO services for Daytona Beach, Port Orange, Ormond Beach, and all of Volusia County. Map pack rankings, GBP optimization, and content that gets local businesses found. No long-term contracts.';
+const CANONICAL = 'https://aiogrowthseo.com/services/local-seo';
+const DATE_MODIFIED = '2026-10-21T10:00:00Z';
+
 export const metadata: Metadata = {
-  title: 'Local SEO Services — Volusia County, Florida',
-  description: 'Get found first in Google Search and Google Maps. We build local authority for contractors, clinics, and professional services in Volusia County.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: {
-    canonical: 'https://aiogrowthseo.com/services/local-seo',
+    canonical: CANONICAL,
   },
   openGraph: {
-    title: 'Local SEO Services — Volusia County, Florida',
-    description: 'Get found first in Google Search and Google Maps. We build local authority for contractors, clinics, and professional services in Volusia County.',
-    url: 'https://aiogrowthseo.com/services/local-seo',
+    title: TITLE,
+    description: DESCRIPTION,
+    url: CANONICAL,
     type: 'website',
   },
 };
 
+const localSeoPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: TITLE,
+  url: CANONICAL,
+  dateModified: DATE_MODIFIED,
+};
+
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localSeoPageSchema) }}
+      />
+      {children}
+    </>
+  );
 }
