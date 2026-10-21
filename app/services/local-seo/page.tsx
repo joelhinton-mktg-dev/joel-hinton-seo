@@ -18,6 +18,7 @@ import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import { setupTiers, monthlyTiers, multiLocationMonthlyNote } from '@/data/pricing';
+import { SITE_PHONE, SITE_PHONE_TEL } from '@/data/site';
 
 const localCities = [
   "Daytona Beach", "Ormond Beach", "Port Orange", "New Smyrna Beach", "Palm Coast",
@@ -35,8 +36,8 @@ export default function LocalSEOPage() {
   return (
     <>
       <CoreServiceSchema
-        name="Local SEO Services — Volusia County, Florida"
-        description="Get found first in Google Search and Google Maps. We build local authority for contractors, clinics, and professional services in Volusia County."
+        name="Local SEO Services in Daytona Beach, Florida — Volusia County"
+        description="Local SEO for Daytona Beach and Volusia County businesses. Map pack rankings, GBP optimization, and content that gets you found. Month-to-month, no contracts."
         url="https://aiogrowthseo.com/services/local-seo"
       />
 
@@ -58,7 +59,7 @@ export default function LocalSEOPage() {
               </Badge>
 
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                Dominate <span className="gradient-text">Local Search</span> in Central Florida
+                Local SEO Services for <span className="gradient-text">Daytona Beach</span> and Volusia County Businesses
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -91,6 +92,13 @@ export default function LocalSEOPage() {
                   Optimize My Google Profile
                 </Button>
               </div>
+
+              <p className="text-lg text-muted-foreground mb-8">
+                Call{' '}
+                <a href={`tel:${SITE_PHONE_TEL}`} className="text-primary font-semibold hover:underline">
+                  {SITE_PHONE}
+                </a>
+              </p>
 
               {/* Service Area Tags */}
               <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
