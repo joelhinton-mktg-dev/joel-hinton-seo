@@ -385,6 +385,28 @@ export const locations: Location[] = [
         'DeLand local SEO',
       ],
     },
+    dateModified: '2026-10-21T10:00:00Z',
+    faqs: [
+      {
+        question: 'Do you specialize in DeLand marketing?',
+        answer:
+          'Yes. DeLand is one of our West Volusia markets and a genuinely different search environment than the coast. Downtown destination searches, Stetson\'s academic calendar, and the inland growth corridor along Victoria Park each produce distinct search patterns. We build for the actual DeLand market, not a repurposed Daytona Beach playbook.',
+      },
+      {
+        question: 'What industries do you serve in DeLand?',
+        answer:
+          'Downtown retail, restaurants, breweries, and galleries; HVAC, plumbing, and home services for DeLand\'s mix of historic and new construction; healthcare and dental practices; legal and professional services; and real estate. The university presence creates consistent demand across student services, housing, food, and healthcare that doesn\'t exist in beach markets.',
+      },
+      {
+        question: 'How quickly can I see results?',
+        answer:
+          'DeLand\'s lower competition is an advantage. Most businesses see Google Business Profile improvement within 30-45 days and map pack movement within 60 days. Downtown categories with few optimized profiles can move faster. The August-September window before the Stetson fall semester is worth targeting specifically - profiles tuned before student arrival capture that first-discovery wave every year.',
+      },
+    ],
+    preFaqSection: {
+      heading: 'What Local SEO Costs in DeLand',
+      body: 'DeLand is a lower-competition market than Daytona Beach or even Ormond Beach, which means the fundamentals move faster and cost less to maintain. Most DeLand businesses we work with invest $400-$700/month - enough to own the map pack in your category and hold it against the modest competition. Downtown businesses with foot-traffic intent (restaurants, galleries, boutiques) often need less because destination search volume here is genuinely winnable. Trades and professional practices competing across the broader West Volusia service area typically run $600-$900/month. The Stetson calendar adds a seasonal layer: businesses that update their profiles and content in July and August before the fall reset consistently outperform those that don\'t. See our [pricing page](/pricing) for current plans.',
+    },
     uniqueSellingPoints: [
       { title: 'Main Street Destination Search', description: 'Rank for the downtown DeLand queries that drive real foot traffic from Deltona, Orange City, and beyond.' },
       { title: 'University-Season Playbook', description: 'Capture the August reset of students and parents searching for housing, food, healthcare, and auto repair.' },
