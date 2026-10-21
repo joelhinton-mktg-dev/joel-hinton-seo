@@ -35,6 +35,11 @@ import { localSeoCompanyVsFullServiceAgencyPost } from './blog/local-seo-company
 import { signsYouHiredTheWrongSeoCompanyPost } from './blog/signs-you-hired-the-wrong-seo-company';
 import { howLongBeforeSeoCompanyResultsPost } from './blog/how-long-before-seo-company-results';
 import { inHouseVsHiringSeoCompanyPost } from './blog/in-house-vs-hiring-seo-company';
+import { doesYourBusinessNeedGeoPost } from './blog/does-your-business-need-geo';
+import { geoForLocalBusinessesWhoItsForPost } from './blog/geo-for-local-businesses-who-its-for';
+import { isGeoWorthItSmallBusinessPost } from './blog/is-geo-worth-it-small-business';
+import { geoVsLocalSeoDoYouNeedBothPost } from './blog/geo-vs-local-seo-do-you-need-both';
+import { whenDoesABusinessNeedGeoPost } from './blog/when-does-a-business-need-geo';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1199,5 +1204,10 @@ export const blogPosts: BlogPost[] = [
   signsYouHiredTheWrongSeoCompanyPost,
   howLongBeforeSeoCompanyResultsPost,
   inHouseVsHiringSeoCompanyPost,
+  doesYourBusinessNeedGeoPost,
+  geoForLocalBusinessesWhoItsForPost,
+  isGeoWorthItSmallBusinessPost,
+  geoVsLocalSeoDoYouNeedBothPost,
+  whenDoesABusinessNeedGeoPost,
   ...localClusterPosts,
 ];
