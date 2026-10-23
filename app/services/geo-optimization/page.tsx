@@ -24,8 +24,8 @@ export default function GEOOptimizationPage() {
   return (
     <>
       <CoreServiceSchema
-        name="GEO Optimization — Get Found in AI Search"
-        description="Generative Engine Optimization helps your business show up in AI-generated answers. Built for the way search actually works in 2026."
+        name="GEO Optimization for Daytona Beach and Volusia County Businesses"
+        description="Get your Daytona Beach or Volusia County business cited in ChatGPT, Google AI Overviews, and Perplexity. GEO optimization built for local service businesses, not enterprise brands."
         url="https://aiogrowthseo.com/services/geo-optimization"
       />
 
@@ -47,10 +47,7 @@ export default function GEOOptimizationPage() {
               </Badge>
 
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">GEO</span>:{' '}
-                <Link href="/guides/what-is-geo-generative-engine-optimization" className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent hover:underline">
-                  Generative Engine Optimization
-                </Link>
+                GEO Optimization for Daytona Beach and Volusia County Businesses
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
@@ -422,6 +419,28 @@ export default function GEOOptimizationPage() {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
                   AI systems update their knowledge bases regularly. You can see initial improvements in AI mentions within 30-60 days. Building strong entity recognition and consistent AI citations typically takes 3-6 months of sustained effort.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold">
+                  How much does AI search optimization cost?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  For a local Florida service business, GEO optimization runs $300-$1,500 per month when folded into an existing local SEO program. National agency rates run much higher because they price for large competitive markets. In Volusia and Flagler Counties, the competitive field in AI search is thin enough that fundamentals move fast and cost less to maintain. See the full breakdown on our{' '}
+                  <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
+                    GEO cost guide
+                  </Link>
+                  .
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold">
+                  How is GEO different from SEO for a local business?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Traditional local SEO gets you into Google Maps and blue-link results. GEO gets you cited by name when someone asks ChatGPT, Google&apos;s AI Overviews, or Perplexity a question about businesses in your category and location. For a Daytona Beach contractor or clinic, GEO is not a replacement for local SEO — it is a layer on top of it. The businesses winning AI citations in Volusia County today are the ones with complete Google Business Profiles, real reviews, and clear location-specific content. That is GEO and local SEO working together.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
