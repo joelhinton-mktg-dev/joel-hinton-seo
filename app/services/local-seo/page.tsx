@@ -439,6 +439,33 @@ export default function LocalSEOPage() {
                   Our review management strategy includes response templates for negative reviews and a process to turn unhappy customers into advocates. We also help you proactively generate positive reviews to maintain a strong reputation.
                 </AccordionContent>
               </AccordionItem>
+
+              <AccordionItem value="item-5" className="border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold">
+                  What is the best local SEO company in Daytona Beach?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  The best local SEO company for your Daytona Beach business is one that focuses on your specific market, not a national agency applying a generic playbook. Look for a company that can show you local rankings they have moved for similar businesses, explains what they are doing in plain language, and does not require a long-term contract before you have seen results. We are based in Daytona Beach and work exclusively in Volusia and Flagler Counties.{' '}
+                  <Link href="/about" className="text-primary hover:underline">See how we work</Link>
+                  {' '}or{' '}
+                  <Link href="/contact" className="text-primary hover:underline">get a free audit</Link>.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold">
+                  How much does local SEO cost in Volusia County?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  For most Volusia County service businesses, local SEO runs $500-$1,500 per month depending on how many cities you are targeting and how competitive your category is. Holly Hill and DeLand are less expensive to rank in than Daytona Beach proper. We have a full breakdown of what drives the cost on our{' '}
+                  <Link href="/pricing" className="text-primary hover:underline">pricing page</Link>
+                  {' '}and a detailed guide to{' '}
+                  <Link href="/blog/how-much-does-local-seo-cost-daytona-beach" className="text-primary hover:underline">
+                    local SEO cost in Daytona Beach
+                  </Link>
+                  .
+                </AccordionContent>
+              </AccordionItem>
             </Accordion>
           </div>
         </section>

@@ -70,6 +70,9 @@ export const locations: Location[] = [
       { title: 'Beach Tourism Marketing', description: 'Seasonal strategies for snowbirds, spring breakers, and year-round visitors.' },
       { title: 'Home Base Advantage', description: 'Same-day meetings, fastest response times, and deep community connections.' }
     ],
+    heroHeadline: 'Local SEO & Digital Marketing',
+    heroTagline: 'for Daytona Beach, Florida',
+    dateModified: '2026-10-23T10:00:00Z',
     localContent: daytonaBeachLocalContent,
   },
   {
