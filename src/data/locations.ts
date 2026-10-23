@@ -89,9 +89,9 @@ export const locations: Location[] = [
       metaDescription: 'Local SEO for Ormond Beach businesses — medical practices, home services, professional services, and restaurants. Affluent market, lower competition than Daytona. We know how to win it.',
       keywords: ['Ormond Beach SEO', 'Ormond Beach marketing', 'birthplace of speed', 'Ormond Beach digital marketing']
     },
-    heroHeadline: 'Local SEO & Digital Marketing',
+    heroHeadline: 'Local SEO & Content Marketing',
     heroTagline: 'for Ormond Beach, Florida',
-    dateModified: '2026-09-26T10:00:00Z',
+    dateModified: '2026-10-23T10:00:00Z',
     faqs: [
       {
         question: 'Do you specialize in Ormond Beach marketing?',
@@ -507,7 +507,7 @@ export const locations: Location[] = [
     ],
     heroHeadline: 'Local SEO for Central Florida',
     datePublished: '2026-09-26T10:00:00Z',
-    dateModified: '2026-09-26T10:00:00Z',
+    dateModified: '2026-10-23T10:00:00Z',
   },
 ];
 
