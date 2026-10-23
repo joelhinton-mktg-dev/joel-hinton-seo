@@ -82,7 +82,7 @@ export const portOrangeLocalContent: LocalContentSection[] = [
 export const ormondBeachLocalContent: LocalContentSection[] = [
   {
     heading: 'Local SEO Services in Ormond Beach, Florida',
-    body: `Ormond Beach customers do their homework. This is the most affluent stretch of the Volusia coast, and buyers here don't pick the first result — they pick the most credible one. That changes what [local SEO](/services/local-seo) has to do: ranking gets you considered; reviews, content depth, and a professional web presence get you chosen. We build both layers, because position without credibility just makes you the option people skip.`,
+    body: `Ormond Beach customers do their homework, and content marketing is how a local business proves it's worth choosing. This is the most affluent stretch of the Volusia coast, and buyers here don't pick the first result — they pick the most credible one. That changes what [local SEO](/services/local-seo) has to do: ranking gets you considered; reviews, content depth, and a professional web presence get you chosen. We build both layers, because position without credibility just makes you the option people skip.`,
   },
   {
     heading: 'Granada Boulevard to the Trails: Where the Searches Come From',

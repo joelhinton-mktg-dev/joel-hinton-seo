@@ -128,7 +128,7 @@ export default function LocalSEOPage() {
                   Why <span className="gradient-text">Local SEO</span> Matters for Central Florida Businesses
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  46% of all Google searches have local intent. When potential customers search for services in Volusia or Flagler County — including{' '}
+                  Most Daytona Beach businesses that struggle with local search have the same problem — their website and Google Business Profile are either incomplete or optimized for the wrong signals. When potential customers search for services in Volusia or Flagler County — including{' '}
                   <Link href="/blog/local-seo-hvac-plumbing-volusia-county" className="text-primary hover:underline">local SEO for contractors in Volusia County</Link> — Local SEO determines whether they find you or your competitors.
                 </p>
                 <div className="space-y-4">
