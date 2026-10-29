@@ -170,8 +170,11 @@ export default function CentralFloridaHubPage() {
             <li>Orlando — coming soon</li>
             <li>Winter Park — coming soon</li>
             <li>
-              Altamonte Springs — coming soon. A SunRail node and one of the I-4 corridor&apos;s
-              most searched suburban markets, sitting directly between Sanford and Orlando.
+              <Link href="/areas-we-serve/altamonte-springs" className="text-primary hover:underline">
+                Altamonte Springs, FL
+              </Link>{' '}
+              — now serving. A SunRail node and one of the I-4 corridor&apos;s most searched
+              suburban markets, sitting directly between Sanford and Orlando.
             </li>
             <li>Kissimmee — coming soon</li>
             <li>Lake Mary — coming soon</li>
