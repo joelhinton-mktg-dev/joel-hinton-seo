@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
-const TITLE = 'GEO Optimization for Local Businesses — AI Search Visibility';
+const TITLE = 'GEO Optimization for Local Businesses: Pricing';
 const DESCRIPTION =
-  'Get your Daytona Beach or Volusia County business cited in ChatGPT, Google AI Overviews, and Perplexity. GEO optimization built for local service businesses, not enterprise brands.';
+  'GEO for Daytona Beach: $500/mo baseline inside SEO, or $1,500-$2,500/mo for the full GEO plan. Get cited in ChatGPT, Google AI, and Perplexity.';
 const CANONICAL = 'https://aiogrowthseo.com/services/geo-optimization';
-const DATE_MODIFIED = '2026-10-23T10:00:00Z';
+const DATE_MODIFIED = '2026-10-28T10:00:00Z';
 
 export const metadata: Metadata = {
   title: TITLE,

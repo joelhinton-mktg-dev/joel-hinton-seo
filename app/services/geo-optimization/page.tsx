@@ -51,6 +51,7 @@ export default function GEOOptimizationPage() {
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
+                GEO for a local Florida business starts at $500/mo as the baseline inside SEO, or $1,500-$2,500/mo for the full GEO plan.
                 When 40% of GenZ uses TikTok and AI assistants instead of Google, traditional SEO isn&apos;t enough.
                 GEO ensures you know{' '}
                 <Link href="/blog/how-to-get-cited-by-ai-search-2026" className="text-primary hover:underline">how to get cited by AI search</Link>{' '}
@@ -324,7 +325,7 @@ export default function GEOOptimizationPage() {
                 GEO Is <span className="gradient-text">Built Into Every SEO Plan</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                GEO is built into every SEO plan — baseline AI-search optimization comes standard, and the full play
+                GEO is built into every SEO plan. Baseline AI-search optimization comes standard, and the full play
                 (Reddit growth, deep entity work, AI-citation building) lives in our Domination tier.
               </p>
             </div>
@@ -333,7 +334,7 @@ export default function GEOOptimizationPage() {
               <CardHeader>
                 <CardTitle className="text-2xl">What You Get at Every Tier</CardTitle>
                 <CardDescription>
-                  Baseline GEO is standard —{' '}
+                  Baseline GEO is standard,{' '}
                   <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
                     not a separate purchase
                   </Link>
@@ -349,11 +350,49 @@ export default function GEOOptimizationPage() {
               </CardContent>
             </Card>
 
+            <div className="overflow-x-auto my-8">
+              <table className="min-w-full border-collapse border border-slate-200 text-sm text-left">
+                <thead>
+                  <tr className="bg-slate-100">
+                    <th className="border border-slate-200 px-4 py-2 font-semibold">Plan</th>
+                    <th className="border border-slate-200 px-4 py-2 font-semibold">Monthly</th>
+                    <th className="border border-slate-200 px-4 py-2 font-semibold">GEO included</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-slate-200 px-4 py-2">Growth</td>
+                    <td className="border border-slate-200 px-4 py-2">$500/mo</td>
+                    <td className="border border-slate-200 px-4 py-2">Baseline GEO inside SEO: schema, entity mapping, AI-prompt research, monitoring</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-200 px-4 py-2">Authority</td>
+                    <td className="border border-slate-200 px-4 py-2">$1,000/mo</td>
+                    <td className="border border-slate-200 px-4 py-2">Same GEO baseline, more content and strategic links</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-200 px-4 py-2">Domination</td>
+                    <td className="border border-slate-200 px-4 py-2">$1,500-$2,500/mo</td>
+                    <td className="border border-slate-200 px-4 py-2">Full GEO play: Reddit, deep entity work, AI-citation building</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-muted-foreground mb-8">
+              These are AIO&apos;s published ranges, the same numbers on our{' '}
+              <Link href="/pricing" className="text-primary hover:underline">pricing page</Link>
+              {' '}and in the{' '}
+              <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
+                GEO cost guide
+              </Link>
+              .
+            </p>
+
             <Card className="card-professional border-purple-200 bg-purple-50">
               <CardHeader>
                 <Badge className="w-fit mb-4 bg-purple-600">Domination Tier</Badge>
                 <CardTitle className="text-2xl">The Full GEO Play</CardTitle>
-                <CardDescription>$1,500–$2,500/mo as part of Complete SEO + GEO</CardDescription>
+                <CardDescription>$1,500-$2,500/mo as part of Complete SEO + GEO</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -422,12 +461,27 @@ export default function GEOOptimizationPage() {
                 </AccordionContent>
               </AccordionItem>
 
+              <AccordionItem value="item-5b" className="border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold">
+                  Do I need extra budget for GEO?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Not if you already have a real local SEO program. Baseline GEO is included from $500 a month.
+                  Extra budget is only for the full GEO play: Domination at $1,500-$2,500 a month for Reddit growth,
+                  deep entity work, and AI-citation building. Details in our{' '}
+                  <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
+                    GEO cost guide
+                  </Link>
+                  .
+                </AccordionContent>
+              </AccordionItem>
+
               <AccordionItem value="item-5" className="border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold">
                   How much does AI search optimization cost?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  For a local Florida service business, GEO optimization runs $300-$1,500 per month when folded into an existing local SEO program. National agency rates run much higher because they price for large competitive markets. In Volusia and Flagler Counties, the competitive field in AI search is thin enough that fundamentals move fast and cost less to maintain. See the full breakdown on our{' '}
+                  How much does GEO cost? At AIO, GEO agency pricing is $500 a month as the baseline inside our Growth SEO plan, or $1,500-$2,500 a month for the full GEO program on Domination. You do not buy a separate GEO retainer. National agency rates run much higher because they price for large competitive markets. Full breakdown on our{' '}
                   <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
                     GEO cost guide
                   </Link>
@@ -440,7 +494,7 @@ export default function GEOOptimizationPage() {
                   How is GEO different from SEO for a local business?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Traditional local SEO gets you into Google Maps and blue-link results. GEO gets you cited by name when someone asks ChatGPT, Google&apos;s AI Overviews, or Perplexity a question about businesses in your category and location. For a Daytona Beach contractor or clinic, GEO is not a replacement for local SEO — it is a layer on top of it. The businesses winning AI citations in Volusia County today are the ones with complete Google Business Profiles, real reviews, and clear location-specific content. That is GEO and local SEO working together.
+                  Traditional local SEO gets you into Google Maps and blue-link results. GEO gets you cited by name when someone asks ChatGPT, Google&apos;s AI Overviews, or Perplexity a question about businesses in your category and location. For a Daytona Beach contractor or clinic, GEO is not a replacement for local SEO, it is a layer on top of it. The businesses winning AI citations in Volusia County today are the ones with complete Google Business Profiles, real reviews, and clear location-specific content. That is GEO and local SEO working together.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
