@@ -51,7 +51,7 @@ export default function GEOOptimizationPage() {
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-                GEO for a local Florida business starts at $500/mo as the baseline inside SEO, or $1,500-$2,500/mo for the full GEO plan.
+                The Answer Engine is $2,500 to build plus $1,500 a month, 90 days then month to month, with a 90-day AI citation guarantee.
                 When 40% of GenZ uses TikTok and AI assistants instead of Google, traditional SEO isn&apos;t enough.
                 GEO ensures you know{' '}
                 <Link href="/blog/how-to-get-cited-by-ai-search-2026" className="text-primary hover:underline">how to get cited by AI search</Link>{' '}
@@ -322,66 +322,38 @@ export default function GEOOptimizationPage() {
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                GEO Is <span className="gradient-text">Built Into Every SEO Plan</span>
+                How Much Does <span className="gradient-text">GEO</span> Cost?
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                GEO is built into every SEO plan. Baseline AI-search optimization comes standard, and the full play
-                (Reddit growth, deep entity work, AI-citation building) lives in our Domination tier.
+                The current offer is The Answer Engine: $2,500 to build plus $1,500 a month.
+                90 days, then month to month, with a 90-day AI citation guarantee. One flagship. No pricing ladder.
               </p>
             </div>
-
-            <Card className="card-professional border-purple-200 mb-8">
-              <CardHeader>
-                <CardTitle className="text-2xl">What You Get at Every Tier</CardTitle>
-                <CardDescription>
-                  Baseline GEO is standard,{' '}
-                  <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
-                    not a separate purchase
-                  </Link>
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Entity mapping and AI-prompt research</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Schema and structured data for AI crawlers</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Answer-focused content structure</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Baseline AI-search monitoring</li>
-                </ul>
-              </CardContent>
-            </Card>
 
             <div className="overflow-x-auto my-8">
               <table className="min-w-full border-collapse border border-slate-200 text-sm text-left">
                 <thead>
                   <tr className="bg-slate-100">
-                    <th className="border border-slate-200 px-4 py-2 font-semibold">Plan</th>
+                    <th className="border border-slate-200 px-4 py-2 font-semibold">Offer</th>
+                    <th className="border border-slate-200 px-4 py-2 font-semibold">Build</th>
                     <th className="border border-slate-200 px-4 py-2 font-semibold">Monthly</th>
-                    <th className="border border-slate-200 px-4 py-2 font-semibold">GEO included</th>
+                    <th className="border border-slate-200 px-4 py-2 font-semibold">Term</th>
+                    <th className="border border-slate-200 px-4 py-2 font-semibold">Guarantee</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-slate-200 px-4 py-2">Growth</td>
-                    <td className="border border-slate-200 px-4 py-2">$500/mo</td>
-                    <td className="border border-slate-200 px-4 py-2">Baseline GEO inside SEO: schema, entity mapping, AI-prompt research, monitoring</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-slate-200 px-4 py-2">Authority</td>
-                    <td className="border border-slate-200 px-4 py-2">$1,000/mo</td>
-                    <td className="border border-slate-200 px-4 py-2">Same GEO baseline, more content and strategic links</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-slate-200 px-4 py-2">Domination</td>
-                    <td className="border border-slate-200 px-4 py-2">$1,500-$2,500/mo</td>
-                    <td className="border border-slate-200 px-4 py-2">Full GEO play: Reddit, deep entity work, AI-citation building</td>
+                    <td className="border border-slate-200 px-4 py-2">The Answer Engine</td>
+                    <td className="border border-slate-200 px-4 py-2">$2,500</td>
+                    <td className="border border-slate-200 px-4 py-2">$1,500/mo</td>
+                    <td className="border border-slate-200 px-4 py-2">90 days, then month to month</td>
+                    <td className="border border-slate-200 px-4 py-2">90-day AI citation guarantee</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="text-sm text-muted-foreground mb-8">
-              These are AIO&apos;s published ranges, the same numbers on our{' '}
-              <Link href="/pricing" className="text-primary hover:underline">pricing page</Link>
-              {' '}and in the{' '}
+              Full breakdown in the{' '}
               <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
                 GEO cost guide
               </Link>
@@ -390,23 +362,23 @@ export default function GEOOptimizationPage() {
 
             <Card className="card-professional border-purple-200 bg-purple-50">
               <CardHeader>
-                <Badge className="w-fit mb-4 bg-purple-600">Domination Tier</Badge>
-                <CardTitle className="text-2xl">The Full GEO Play</CardTitle>
-                <CardDescription>$1,500-$2,500/mo as part of Complete SEO + GEO</CardDescription>
+                <Badge className="w-fit mb-4 bg-purple-600">The Answer Engine</Badge>
+                <CardTitle className="text-2xl">$2,500 build + $1,500/mo</CardTitle>
+                <CardDescription>90 days then month to month, with a 90-day AI citation guarantee</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Organic Reddit growth</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Deep entity and authority work</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Schema, entity mapping, and AI-prompt research</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Answer-focused content and Google Business Profile work</li>
                   <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> AI-citation building and tracking</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> 10+ articles and 5+ backlinks monthly</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Monthly measurement on a fixed local prompt set</li>
                 </ul>
                 <Button
                   className="w-full bg-purple-600 hover:bg-purple-700"
                   asChild
                 >
-                  <Link href="/services/search-engine-optimization">
-                    View SEO Plans & Domination Tier
+                  <Link href="/blog/what-generative-engine-optimization-costs-local-business">
+                    See what GEO costs
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
@@ -466,9 +438,8 @@ export default function GEOOptimizationPage() {
                   Do I need extra budget for GEO?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Not if you already have a real local SEO program. Baseline GEO is included from $500 a month.
-                  Extra budget is only for the full GEO play: Domination at $1,500-$2,500 a month for Reddit growth,
-                  deep entity work, and AI-citation building. Details in our{' '}
+                  If you want GEO done, the budget is The Answer Engine: $2,500 to build plus $1,500 a month.
+                  It is not a $500 add-on and it is not a second national GEO contract. Details in our{' '}
                   <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
                     GEO cost guide
                   </Link>
@@ -481,7 +452,7 @@ export default function GEOOptimizationPage() {
                   How much does AI search optimization cost?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  How much does GEO cost? At AIO, GEO agency pricing is $500 a month as the baseline inside our Growth SEO plan, or $1,500-$2,500 a month for the full GEO program on Domination. You do not buy a separate GEO retainer. National agency rates run much higher because they price for large competitive markets. Full breakdown on our{' '}
+                  How much does GEO cost? The Answer Engine is $2,500 to build plus $1,500 a month, 90 days then month to month, with a 90-day AI citation guarantee. That is the only public GEO price. National agency rates run much higher because they price for large competitive markets. Full breakdown on our{' '}
                   <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
                     GEO cost guide
                   </Link>
@@ -516,9 +487,9 @@ export default function GEOOptimizationPage() {
               className="px-8 py-4 text-lg"
               asChild
             >
-              <Link href="/services/search-engine-optimization">
+              <Link href="/contact">
                 <Sparkles className="w-5 h-5 mr-2" />
-                Explore SEO & Domination Plans
+                Book a free audit
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>

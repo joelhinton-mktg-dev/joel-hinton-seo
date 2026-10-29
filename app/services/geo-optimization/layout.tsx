@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 const TITLE = 'GEO Optimization for Local Businesses: Pricing';
 const DESCRIPTION =
-  'GEO for Daytona Beach: $500/mo baseline inside SEO, or $1,500-$2,500/mo for the full GEO plan. Get cited in ChatGPT, Google AI, and Perplexity.';
+  'The Answer Engine: $2,500 build + $1,500/mo, 90 days then month-to-month, with a 90-day AI citation guarantee. Get cited in ChatGPT and Google AI.';
 const CANONICAL = 'https://aiogrowthseo.com/services/geo-optimization';
 const DATE_MODIFIED = '2026-10-28T10:00:00Z';
 
