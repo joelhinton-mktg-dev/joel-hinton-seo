@@ -419,7 +419,7 @@ export default function PricingPage() {
               </div>
             </ServiceCardShell>
 
-            {/* GEO — informational */}
+            {/* GEO: The Answer Engine is the single current public offer */}
             <ServiceCardShell
               icon={Sparkles}
               name={geoOffer.name}
@@ -429,23 +429,41 @@ export default function PricingPage() {
             >
               <div className="space-y-6">
                 <p className="text-muted-foreground">{geoOffer.subhead}</p>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-purple-50/50 rounded-xl p-6 border border-purple-100">
-                    <h3 className="font-semibold mb-1">{geoOffer.baselineTitle}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{geoOffer.baselineSubtitle}</p>
-                    <FeatureList features={geoOffer.baselineFeatures} />
+                <div className="bg-purple-50 rounded-xl p-6 border border-purple-200">
+                  <Badge className="mb-3 bg-purple-600">{geoOffer.offerName}</Badge>
+                  <p className="text-2xl font-bold text-purple-700 mb-1">{geoOffer.price}</p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {geoOffer.term}, with a {geoOffer.guarantee}
+                  </p>
+                  <div className="overflow-x-auto mb-4">
+                    <table className="min-w-full border-collapse border border-purple-100 text-sm text-left">
+                      <thead>
+                        <tr className="bg-white">
+                          <th className="border border-purple-100 px-3 py-2 font-semibold">Offer</th>
+                          <th className="border border-purple-100 px-3 py-2 font-semibold">Build</th>
+                          <th className="border border-purple-100 px-3 py-2 font-semibold">Monthly</th>
+                          <th className="border border-purple-100 px-3 py-2 font-semibold">Term</th>
+                          <th className="border border-purple-100 px-3 py-2 font-semibold">Guarantee</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-purple-100 px-3 py-2">{geoOffer.offerName}</td>
+                          <td className="border border-purple-100 px-3 py-2">{geoOffer.build}</td>
+                          <td className="border border-purple-100 px-3 py-2">{geoOffer.monthly}</td>
+                          <td className="border border-purple-100 px-3 py-2">{geoOffer.term}</td>
+                          <td className="border border-purple-100 px-3 py-2">{geoOffer.guarantee}</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-                  <div className="bg-white rounded-xl p-6 border border-purple-200">
-                    <Badge className="mb-3 bg-purple-600">{geoOffer.dominationTitle}</Badge>
-                    <p className="text-sm text-muted-foreground mb-4">{geoOffer.dominationSubtitle}</p>
-                    <FeatureList features={geoOffer.dominationFeatures} />
-                  </div>
+                  <FeatureList features={geoOffer.features} />
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <Link href={geoOffer.seoPlansHref}>
-                    <Button variant="outline">View SEO Plans</Button>
+                  <Link href={geoOffer.costPageHref}>
+                    <Button variant="outline">See what GEO costs</Button>
                   </Link>
-                  <Button onClick={() => pick(geoOffer.serviceLabel)}>Ask About GEO + SEO</Button>
+                  <Button onClick={() => pick(geoOffer.serviceLabel)}>Book a free audit</Button>
                 </div>
               </div>
             </ServiceCardShell>
