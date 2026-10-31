@@ -215,33 +215,33 @@ export const funnelSprintOffer = {
   serviceLabel: 'Funnel Sprint - $5,000',
 } as const;
 
-/** GEO — informational only; no standalone product pricing. */
+/**
+ * LIVE GEO public price. Single current offer. Do not reintroduce
+ * Growth / Authority / Domination on any GEO surface.
+ * Site, PRs, and content should read this object, not Notion.
+ */
 export const geoOffer = {
   name: 'GEO Optimization',
+  offerName: 'The Answer Engine',
   description:
-    'AI-search visibility is built into every SEO plan — baseline optimization comes standard, and the full play lives in Domination-tier monthly work.',
+    'The current GEO offer is The Answer Engine: $2,500 to build plus $1,500 a month, 90 days then month to month, with a 90-day AI citation guarantee.',
   href: '/services/geo-optimization',
-  headline: 'GEO Is Built Into Every SEO Plan',
+  costPageHref: '/blog/what-generative-engine-optimization-costs-local-business',
+  headline: 'The Answer Engine',
   subhead:
-    'GEO is built into every SEO plan — baseline AI-search optimization comes standard, and the full play (Reddit growth, deep entity work, AI-citation building) lives in our Domination tier.',
-  baselineTitle: 'What You Get at Every Tier',
-  baselineSubtitle: 'Baseline GEO is standard — not a separate purchase',
-  baselineFeatures: [
-    'Entity mapping and AI-prompt research',
-    'Schema and structured data for AI crawlers',
-    'Answer-focused content structure',
-    'Baseline AI-search monitoring',
-  ],
-  dominationTitle: 'The Full GEO Play',
-  dominationSubtitle: '$1,500–$2,500/mo as part of Complete SEO + GEO',
-  dominationFeatures: [
-    'Organic Reddit growth',
-    'Deep entity and authority work',
+    'One flagship GEO offer. A one-time $2,500 build plus $1,500 a month. The first 90 days are the commitment, then it runs month to month, with a 90-day AI citation guarantee.',
+  price: '$2,500 build + $1,500/mo',
+  build: '$2,500',
+  monthly: '$1,500/mo',
+  term: '90 days, then month to month',
+  guarantee: '90-day AI citation guarantee',
+  features: [
+    'Schema, entity mapping, and AI-prompt research',
+    'Answer-focused content and Google Business Profile work',
     'AI-citation building and tracking',
-    '10+ articles and 5+ backlinks monthly',
+    'Monthly measurement on a fixed local prompt set',
   ],
-  seoPlansHref: '/services/search-engine-optimization',
-  serviceLabel: 'GEO — included in SEO plans',
+  serviceLabel: 'The Answer Engine - $2,500 build + $1,500/mo',
 } as const;
 
 /** E-commerce SEO — monthly tiers only (no separate setup SKU). */
