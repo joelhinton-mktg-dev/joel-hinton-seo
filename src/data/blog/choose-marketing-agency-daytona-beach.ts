@@ -1,4 +1,5 @@
 import { BlogPost } from '@/types/blog';
+import { localSeoLadderSummary, localSeoSetupSummary } from '../pricing';
 
 export const chooseMarketingAgencyDaytonaBeachPost: BlogPost = {
   id: 'choose-marketing-agency-daytona-beach',
@@ -7,13 +8,13 @@ export const chooseMarketingAgencyDaytonaBeachPost: BlogPost = {
   excerpt: "A cost-forward buyer's guide for Daytona small businesses: what a marketing agency should cost, how to choose one, the questions to ask, and the red flags that burn owners.",
   content: `## How do you choose a marketing agency in Daytona Beach?
 
-> **TL;DR:** Choose on fit and accountability, not price alone. A good agency can explain exactly how it will get you more calls and booked jobs, reports on cost per booked job rather than vanity metrics, works on fixed fees you understand, and lets you keep the assets it builds. For a Daytona small business, expect a setup fee in the range of $1,000 to $2,500 and ongoing work around $500 to $1,500 a month depending on scope, with no long contract required to earn your trust. The biggest mistakes are hiring on the cheapest quote, signing a long contract before seeing results, and accepting reports full of impressions and followers instead of revenue. Ask how they measure a booked job, and you will learn most of what you need.
+> **TL;DR:** Choose on fit and accountability, not price alone. A good agency can explain exactly how it will get you more calls and booked jobs, reports on cost per booked job rather than vanity metrics, works on fixed fees you understand, and lets you keep the assets it builds. Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. No long contract is required to earn your trust. The biggest mistakes are hiring on the cheapest quote, signing a long contract before seeing results, and accepting reports full of impressions and followers instead of revenue. Ask how they measure a booked job, and you will learn most of what you need.
 
 Search "marketing agency Daytona Beach" and you get a map pack, a few directories, and a Facebook thread of owners asking who to trust. What you do not get is a straight answer on how to pick one or what it should cost. Here is that answer, written for a local owner who wants more calls, not a marketing lecture.
 
 ## What does a marketing agency cost in Daytona Beach?
 
-For a local small business in the Daytona area, a realistic range is a setup or onboarding fee of about $1,000 to $2,500, then ongoing work of roughly $500 to $1,500 a month depending on scope. Local SEO and Google Business Profile work sits at the lower end; add paid ads management, content, or multi-city coverage and it moves up. National agencies and retainer shops often quote more for less local focus, and the cheapest offers (a $99 month or a one-time fee that promises page one) almost always underdeliver.
+Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Local SEO and Google Business Profile work sits at the lower end; add paid ads management, content, or multi-city coverage and it moves up. National agencies and retainer shops often quote more for less local focus, and the cheapest offers (a $99 month or a one-time fee that promises page one) almost always underdeliver.
 
 Price is the wrong first question, though. The right one is cost per booked job. A $500 month that produces four booked jobs is cheaper than a $300 month that produces one. This is why we push owners to judge spend against booked work, not lead volume: in [SearchLight Digital's January 2026 benchmark](https://searchlightdigital.io/what-is-a-good-cost-per-lead-for-hvac-google-ads/) of 816 contractors, the blended book rate across campaigns was just 41.7%, so nearly six of ten paid leads never became a booked appointment. The full math is in our guide to [book rate versus cost per lead](https://aiogrowthseo.com/blog/book-rate-vs-cost-per-lead). An agency that cannot talk in those terms is selling you activity, not results.
 
@@ -71,7 +72,7 @@ We will review how you are getting found now, tell you plainly what is worth fix
   faqs: [
     {
       question: 'What does a marketing agency cost for a small business in Daytona Beach?',
-      answer: 'A realistic range is a setup fee of about $1,000 to $2,500 and ongoing work of roughly $500 to $1,500 a month, depending on scope. Local SEO and profile work sits at the lower end; adding paid ads, content, or multi-city coverage raises it. Judge the cost against booked jobs, not lead volume.',
+      answer: `Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Local SEO and profile work sits at the lower end; adding paid ads, content, or multi-city coverage raises it. Judge the cost against booked jobs, not lead volume.`,
     },
     {
       question: 'How do I choose a marketing agency?',

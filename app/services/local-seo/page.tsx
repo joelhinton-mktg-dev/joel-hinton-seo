@@ -17,7 +17,15 @@ import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
 import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
-import { setupTiers, monthlyTiers, multiLocationMonthlyNote } from '@/data/pricing';
+import {
+  dominationGeoNoteCta,
+  dominationGeoNoteLead,
+  geoOffer,
+  localSeoLadderSummary,
+  monthlyTiers,
+  multiLocationMonthlyNote,
+  setupTiers,
+} from '@/data/pricing';
 import { SITE_PHONE, SITE_PHONE_TEL } from '@/data/site';
 
 const localCities = [
@@ -376,7 +384,16 @@ export default function LocalSEOPage() {
                         <li key={feature}>• {feature}</li>
                       ))}
                     </ul>
-                    <Button
+                    {tier.name === 'Domination' && (
+                      <p className="text-xs text-muted-foreground mt-2">
+                        {dominationGeoNoteLead}{' '}
+                        <Link href={geoOffer.href} className="text-primary hover:underline">
+                          {dominationGeoNoteCta} {geoOffer.offerName}
+                        </Link>
+                        .
+                      </p>
+                    )}
+                    <Button>
                       size="sm"
                       className={`mt-3 ${tier.highlighted ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-green-600/90 hover:bg-green-700 text-white'}`}
                       onClick={() => {
@@ -457,7 +474,7 @@ export default function LocalSEOPage() {
                   How much does local SEO cost in Volusia County?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  For most Volusia County service businesses, local SEO runs $500-$1,500 per month depending on how many cities you are targeting and how competitive your category is. Holly Hill and DeLand are less expensive to rank in than Daytona Beach proper. We have a full breakdown of what drives the cost on our{' '}
+                  For most Volusia County service businesses, published monthly plans are {localSeoLadderSummary} depending on how many cities you are targeting and how competitive your category is. Holly Hill and DeLand are less expensive to rank in than Daytona Beach proper. We have a full breakdown of what drives the cost on our{' '}
                   <Link href="/pricing" className="text-primary hover:underline">pricing page</Link>
                   {' '}and a detailed guide to{' '}
                   <Link href="/blog/how-much-does-local-seo-cost-daytona-beach" className="text-primary hover:underline">

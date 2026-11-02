@@ -39,6 +39,7 @@ import {
   OfferStack,
   ActivityFeed,
 } from '../components';
+import { monthlyTiers, setupTiers } from '@/data/pricing';
 
 // ─── Shared State ────────────────────────────────────────────────────────────
 const SPOTS_CONFIG = { total: 5, filled: 0 };
@@ -113,7 +114,7 @@ const comparisonRows = [
   {
     category: 'Monthly Retainer',
     traditional: '$1,500–3,000/mo',
-    aio: '$500/mo',
+    aio: monthlyTiers[0].price,
   },
   {
     category: 'Time to Results',
@@ -241,7 +242,7 @@ const faqItems = [
   {
     question: 'What happens after all 5 spots are filled?',
     answer:
-      'The 50% setup discount closes permanently. New clients after that pay the standard $1,500 setup fee. Monthly pricing stays at $500/mo regardless.',
+      `The 50% setup discount closes permanently. New clients after that pay the standard ${setupTiers[0].price} setup fee. Monthly pricing stays at ${monthlyTiers[0].price} regardless.`,
   },
   {
     question: 'Is there a long-term contract or commitment?',

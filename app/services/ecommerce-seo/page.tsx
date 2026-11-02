@@ -16,6 +16,7 @@ import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
 import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
+import { ecommerceMonthlyTiers } from '@/data/pricing';
 
 const services = [
   {
@@ -235,7 +236,7 @@ export default function EcommerceSEOPage() {
                 <CardHeader className="text-center">
                   <Badge variant="secondary" className="w-fit mx-auto mb-4">Starter</Badge>
                   <CardTitle className="text-2xl">Small Store</CardTitle>
-                  <div className="text-4xl font-bold text-fuchsia-600 mt-2">$1,500<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
+                  <div className="text-4xl font-bold text-fuchsia-600 mt-2">{ecommerceMonthlyTiers[0].price.replace('/mo', '')}<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
                   <CardDescription>Up to 100 products</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -259,7 +260,7 @@ export default function EcommerceSEOPage() {
                   </div>
                   <Button
                     className="w-full bg-fuchsia-600 hover:bg-fuchsia-700"
-                    onClick={() => selectService("E-commerce Starter - $1,500/mo")}
+                    onClick={() => selectService(ecommerceMonthlyTiers[0].serviceLabel)}
                   >
                     Get Started
                   </Button>
@@ -270,7 +271,7 @@ export default function EcommerceSEOPage() {
                 <CardHeader className="text-center">
                   <Badge className="w-fit mx-auto mb-4 bg-fuchsia-600">Most Popular</Badge>
                   <CardTitle className="text-2xl">Growth Store</CardTitle>
-                  <div className="text-4xl font-bold text-fuchsia-600 mt-2">$3,000<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
+                  <div className="text-4xl font-bold text-fuchsia-600 mt-2">{ecommerceMonthlyTiers[1].price.replace('/mo', '')}<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
                   <CardDescription>Up to 500 products</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -298,7 +299,7 @@ export default function EcommerceSEOPage() {
                   </div>
                   <Button
                     className="w-full bg-fuchsia-600 hover:bg-fuchsia-700"
-                    onClick={() => selectService("E-commerce Growth - $3,000/mo")}
+                    onClick={() => selectService(ecommerceMonthlyTiers[1].serviceLabel)}
                   >
                     Get Started
                   </Button>
@@ -337,7 +338,7 @@ export default function EcommerceSEOPage() {
                   </div>
                   <Button
                     className="w-full bg-fuchsia-600 hover:bg-fuchsia-700"
-                    onClick={() => selectService("E-commerce Enterprise")}
+                    onClick={() => selectService(ecommerceMonthlyTiers[2].serviceLabel)}
                   >
                     Contact Us
                   </Button>

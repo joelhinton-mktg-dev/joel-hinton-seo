@@ -22,6 +22,7 @@ import {
 import { StickyFooterCTA } from '../lp/components/StickyFooterCTA';
 import { GapAnalysisForm } from './GapAnalysisForm';
 import Link from 'next/link';
+import { agenticOffer } from '@/data/pricing';
 
 const streams = [
   {
@@ -274,7 +275,7 @@ export default function GapAnalysisClient() {
             >
               Agentic Site
             </Link>
-            , $2,500. A site built to improve itself based on what is ranking. Start with the
+            , {agenticOffer.cardPrice}. A site built to improve itself based on what is ranking. Start with the
             foundation, upgrade when the numbers say so.
           </p>
           <div className="mt-8">

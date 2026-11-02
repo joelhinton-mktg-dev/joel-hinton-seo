@@ -1,3 +1,13 @@
+/**
+ * LIVE pricing source of truth. All pages import from here.
+ * Do not hardcode prices elsewhere. Notion points here, not the reverse.
+ *
+ * Current public offers:
+ * - GEO (standalone): The Answer Engine, $2,500 build + $1,500/mo
+ * - SEO / Local SEO monthly: Growth $500/mo, Authority $1,000/mo, Domination $1,500-$2,500/mo
+ * - Local SEO Foundation setup: Single $1,500 / Multi $2,500 / Regional $5,000
+ * - customToolsOffer: leave as-is until Joel confirms the live number
+ */
 export const setupTiers = [
   {
     name: 'Single-Location',
@@ -47,7 +57,7 @@ export const monthlyTiers = [
   },
   {
     name: 'Domination',
-    price: '$1,500–$2,500/mo',
+    price: '$1,500-$2,500/mo',
     features: [
       'Complete SEO + GEO plan',
       '10+ articles',
@@ -56,7 +66,9 @@ export const monthlyTiers = [
       'Review acquisition',
       'Full AI-search optimization',
     ],
-    serviceLabel: 'Domination - $1,500–$2,500/mo',
+    serviceLabel: 'Domination - $1,500-$2,500/mo',
+    note: 'Includes baseline GEO/AEO. For a dedicated GEO build see The Answer Engine.',
+    noteHref: '/services/geo-optimization',
   },
 ] as const;
 
@@ -95,7 +107,7 @@ export const seoMonthlyTiers = [
   },
   {
     name: 'Domination',
-    price: '$1,500–$2,500/mo',
+    price: '$1,500-$2,500/mo',
     features: [
       'Complete SEO + GEO plan',
       '10+ articles',
@@ -104,7 +116,9 @@ export const seoMonthlyTiers = [
       'Review acquisition',
       'Full AI-search optimization',
     ],
-    serviceLabel: 'Domination - $1,500–$2,500/mo',
+    serviceLabel: 'Domination - $1,500-$2,500/mo',
+    note: 'Includes baseline GEO/AEO. For a dedicated GEO build see The Answer Engine.',
+    noteHref: '/services/geo-optimization',
   },
 ] as const;
 
@@ -142,6 +156,29 @@ export const agenticOffer = {
   ],
 } as const;
 
+/** Agentic engine monthly ladder — SMB tiers, cadence-differentiated. */
+export const agenticEngineTiers = [
+  {
+    name: 'Lite',
+    price: '$500/mo',
+    cadence: 'Monthly cycle — data review and prioritized recommendations',
+    serviceLabel: 'Agentic Engine - Lite - $500/mo',
+  },
+  {
+    name: 'Standard',
+    price: '$1,000/mo',
+    cadence: 'Bi-weekly cycle — read, propose, human QA, deploy, and measure',
+    serviceLabel: 'Agentic Engine - Standard - $1,000/mo',
+    highlighted: true,
+  },
+  {
+    name: 'Full',
+    price: '$1,500/mo',
+    cadence: 'Weekly cycle — full read → propose → QA → deploy → measure loop',
+    serviceLabel: 'Agentic Engine - Full - $1,500/mo',
+  },
+] as const;
+
 /** FAQs for /services/agentic-seo — used as on-page copy and FAQPage JSON-LD. */
 export const agenticFaqs = [
   {
@@ -167,7 +204,7 @@ export const agenticFaqs = [
   {
     question: 'How much do AI SEO services cost?',
     answer:
-      'With us: $2,500–$5,000 setup plus $500–$1,500/month, scoped by cycle frequency. Full breakdown on our pricing page. Industry-wide, agencies charge anywhere from $1,000 to $10,000+ monthly — usually without telling you until the sales call.',
+      `With us: ${agenticOffer.setup} plus ${agenticEngineTiers[0].price} to ${agenticEngineTiers[2].price}, scoped by cycle frequency. Full breakdown on our pricing page. Industry-wide, agencies charge anywhere from $1,000 to $10,000+ monthly, usually without telling you until the sales call.`,
   },
   {
     question: 'What happens if I cancel?',
@@ -175,30 +212,6 @@ export const agenticFaqs = [
       "You keep the website. It's yours — the rebuild, the content, the structure, everything. You only lose the engine layer that keeps improving it. The site doesn't break; it just stops getting smarter.",
   },
 ] as const;
-
-/** Agentic engine monthly ladder — SMB tiers, cadence-differentiated. */
-export const agenticEngineTiers = [
-  {
-    name: 'Lite',
-    price: '$500/mo',
-    cadence: 'Monthly cycle — data review and prioritized recommendations',
-    serviceLabel: 'Agentic Engine - Lite - $500/mo',
-  },
-  {
-    name: 'Standard',
-    price: '$1,000/mo',
-    cadence: 'Bi-weekly cycle — read, propose, human QA, deploy, and measure',
-    serviceLabel: 'Agentic Engine - Standard - $1,000/mo',
-    highlighted: true,
-  },
-  {
-    name: 'Full',
-    price: '$1,500/mo',
-    cadence: 'Weekly cycle — full read → propose → QA → deploy → measure loop',
-    serviceLabel: 'Agentic Engine - Full - $1,500/mo',
-  },
-] as const;
-
 
 /** Funnel Sprint — MintCRO / local-lead-generation offer framing. */
 export const funnelSprintOffer = {
@@ -374,3 +387,26 @@ export const roiComparison = {
     { label: 'Growth + Lite engine (12 months):', amount: 12000 },
   ],
 } as const;
+
+export const geoOfferProse = {
+  buildMonthly: `a one-time ${geoOffer.build} build plus ${geoOffer.monthly.replace('/mo', '')} a month`,
+  full: `${geoOffer.offerName}: a one-time ${geoOffer.build} build plus ${geoOffer.monthly.replace('/mo', '')} a month. ${geoOffer.term}, with a ${geoOffer.guarantee}.`,
+} as const;
+
+export const dominationGeoNoteLead = 'Includes baseline GEO/AEO.';
+export const dominationGeoNoteCta = 'For a dedicated GEO build see';
+
+export const localSeoLadderSummary = `${monthlyTiers[0].name} ${monthlyTiers[0].price}, ${monthlyTiers[1].name} ${monthlyTiers[1].price}, and ${monthlyTiers[2].name} ${monthlyTiers[2].price}`;
+
+export const localSeoSetupSummary = setupTiers
+  .map((tier) => `${tier.name} ${tier.price}`)
+  .join(', ');
+
+export function localSeoPublishedPricingBody(marketLead: string): string {
+  return `${marketLead} Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. See our [pricing page](/pricing) for current plans.`;
+}
+
+export const seoCardPrice = `From ${seoFoundation.price} setup + ${seoMonthlyTiers[0].price}`;
+export const localSeoCardPrice = `From ${setupTiers[0].price} setup + ${monthlyTiers[0].price}`;
+export const ecommerceCardPrice = `${ecommerceMonthlyTiers[0].price} to ${ecommerceMonthlyTiers[1].price}`;
+export const leadGenCardPrice = funnelSprintOffer.ongoingTiers[0].price;

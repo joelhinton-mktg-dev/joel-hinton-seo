@@ -11,6 +11,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ecommerceCardPrice, geoOffer, leadGenCardPrice, localSeoCardPrice, seoCardPrice } from '@/data/pricing';
 import { trackFormSubmission, trackConversion, trackLead } from '@/lib/analytics';
 
 const contactFormSchema = z.object({
@@ -31,7 +32,7 @@ const services = [
     subtitle: "Technical SEO + Content Strategy",
     description: "Comprehensive SEO that combines technical excellence with content strategy. Site audits, keyword research, and ongoing optimization for sustainable organic growth.",
     features: ["Technical SEO audits", "Keyword research", "Content optimization", "Backlink strategy"],
-    price: "$500 - $1,000",
+    price: seoCardPrice,
     href: "/services/search-engine-optimization"
   },
   {
@@ -40,7 +41,7 @@ const services = [
     subtitle: "Dominate Your Local Market",
     description: "Get found by customers in Volusia & Flagler Counties. Google Business Profile optimization, local citations, and review management for local businesses.",
     features: ["Google Business Profile", "Local citations", "Review management", "Map pack rankings"],
-    price: "$400 - $800",
+    price: localSeoCardPrice,
     href: "/services/local-seo"
   },
   {
@@ -49,8 +50,8 @@ const services = [
     subtitle: "AI Search Ready",
     description: "Prepare for the future of search. Optimize your content for AI assistants, ChatGPT, and generative search engines that are changing how people find businesses.",
     features: ["AI search optimization", "Answer Engine Optimization", "Structured data", "Entity optimization"],
-    price: "$600 - $1,200",
-    href: "/services/geo-optimization"
+    price: geoOffer.price,
+    href: geoOffer.href
   },
   {
     icon: ShoppingCart,
@@ -58,7 +59,7 @@ const services = [
     subtitle: "Grow Your Online Store",
     description: "Drive organic traffic and sales for Shopify, WooCommerce, and marketplace stores. Product optimization, technical SEO, and conversion strategies.",
     features: ["Product page optimization", "Technical e-commerce SEO", "Marketplace optimization", "Conversion optimization"],
-    price: "$1,500 - $3,000",
+    price: ecommerceCardPrice,
     href: "/services/ecommerce-seo"
   },
   {
@@ -67,7 +68,7 @@ const services = [
     subtitle: "Ads That Deliver Leads",
     description: "Google Local Service Ads, Search Ads, and Facebook campaigns for home services and professional services. Pay for leads, not clicks.",
     features: ["Google Local Service Ads", "Search campaigns", "Facebook lead ads", "Call tracking"],
-    price: "$500/month",
+    price: leadGenCardPrice,
     href: "/services/local-lead-generation"
   },
   {

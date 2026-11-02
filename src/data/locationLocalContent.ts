@@ -1,3 +1,5 @@
+import { localSeoPublishedPricingBody } from './pricing';
+
 export type LocalContentSection = { heading: string; body: string };
 
 export const hollyHillLocalContent: LocalContentSection[] = [
@@ -48,7 +50,9 @@ export const newSmyrnaBeachLocalContent: LocalContentSection[] = [
   },
   {
     heading: 'What Local SEO Costs in New Smyrna Beach',
-    body: `New Smyrna Beach isn't Daytona Beach — the market is smaller, competition is lower, and you don't need a $2,000/month agency to win local search here. For most NSB businesses, a focused local SEO campaign runs $500–$800/month and covers the fundamentals that actually move rankings: a fully optimized Google Business Profile, consistent citations across the directories Google checks, steady review generation, and location-specific content. Businesses with multiple services or locations, or in more competitive categories like HVAC or dental, typically sit in the $800–$1,200/month range. We price for the actual size of this market, not a national rate card. See our [pricing page](/pricing) for current plans.`,
+    body: localSeoPublishedPricingBody(
+      "New Smyrna Beach isn't Daytona Beach. The market is smaller, competition is lower, and you do not need a national agency retainer to win local search here. A focused campaign covers the fundamentals that actually move rankings: a fully optimized Google Business Profile, consistent citations, steady review generation, and location-specific content. We price for the actual size of this market, not a national rate card."
+    ),
   },
   {
     heading: 'A Local Team, Not a Landing Page',
@@ -194,7 +198,9 @@ export const palmCoastLocalContent: LocalContentSection[] = [
   },
   {
     heading: 'What Local SEO Costs in Palm Coast',
-    body: `Palm Coast is a fast-growing market but it's not Orlando. Local SEO pricing here should reflect the actual competition level — which is still low enough that fundamentals alone can win the map pack in most categories. Most Palm Coast businesses we work with invest $500–$900/month, which covers a fully optimized Google Business Profile, Flagler County citation building, review generation, and location content. Categories with higher competition — real estate, healthcare, home services in the higher-traffic sections — typically run $900–$1,400/month. We don't apply Miami pricing to a Palm Coast market. See our [pricing page](/pricing) for what's available.`,
+    body: localSeoPublishedPricingBody(
+      "Palm Coast is a fast-growing market but it is not Orlando. Local SEO pricing here should reflect the actual competition level, which is still low enough that fundamentals alone can win the map pack in most categories. We do not apply Miami pricing to a Palm Coast market."
+    ),
   },
 ];
 

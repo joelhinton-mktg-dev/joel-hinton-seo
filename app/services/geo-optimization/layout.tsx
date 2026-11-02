@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import { geoOffer } from '@/data/pricing';
 
 const TITLE = 'GEO Optimization for Local Businesses: Pricing';
-const DESCRIPTION =
-  'The Answer Engine: $2,500 build + $1,500/mo, 90 days then month-to-month, with a 90-day AI citation guarantee. Get cited in ChatGPT and Google AI.';
+const DESCRIPTION = `${geoOffer.offerName}: ${geoOffer.price}, ${geoOffer.term}, with a ${geoOffer.guarantee}. Get cited in ChatGPT and Google AI.`;
 const CANONICAL = 'https://aiogrowthseo.com/services/geo-optimization';
 const DATE_MODIFIED = '2026-10-28T10:00:00Z';
 
