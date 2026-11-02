@@ -67,6 +67,16 @@ We will check how AI currently sees each of your locations, find the ones being 
   lastModified: '2026-11-07T10:00:00Z',
   category: 'AI Marketing',
   tags: ['multi-location geo', 'generative engine optimization', 'franchise geo', 'ai search', 'multi-location seo'],
+  featuredImage: '/images/blog/geo-multi-location.jpg',
+  imagePlaceholders: [
+    {
+      id: 'hero',
+      alt: 'GEO for Multi-Location Businesses: How to Get Every Location Recommended by AI multi-location geo',
+      width: 1024,
+      height: 576,
+      src: '/images/blog/geo-multi-location.jpg',
+    },
+  ],
   faqs: [
     {
       question: 'Why is GEO harder for a multi-location business?',
@@ -95,6 +105,7 @@ We will check how AI currently sees each of your locations, find the ones being 
     metaDescription:
       'Multi-location GEO for a small local business: why AI treats each location as its own entity, the per-location plan.',
     keywords: ['multi-location geo', 'generative engine optimization', 'franchise geo', 'ai search', 'multi-location seo'],
+    ogImage: '/images/blog/geo-multi-location.jpg',
   },
   published: true,
 };

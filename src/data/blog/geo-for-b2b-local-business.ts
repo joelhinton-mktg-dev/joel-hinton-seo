@@ -71,6 +71,16 @@ We will map exactly how decision-makers in your market would search for a provid
   lastModified: '2026-11-06T10:00:00Z',
   category: 'AI Marketing',
   tags: ['geo for b2b', 'b2b geo', 'generative engine optimization', 'ai search', 'b2b local seo'],
+  featuredImage: '/images/blog/geo-for-b2b.jpg',
+  imagePlaceholders: [
+    {
+      id: 'hero',
+      alt: 'GEO for B2B: How a Local Business That Sells to Other Businesses Wins in AI Search geo for b2b',
+      width: 1024,
+      height: 576,
+      src: '/images/blog/geo-for-b2b.jpg',
+    },
+  ],
   faqs: [
     {
       question: 'Does GEO work for B2B businesses?',
@@ -99,6 +109,7 @@ We will map exactly how decision-makers in your market would search for a provid
     metaDescription:
       'Why GEO matters more for B2B, how local B2B GEO differs from SaaS and consumer advice, and the step-by-step plan to become the vendor AI shortlists.',
     keywords: ['geo for b2b', 'b2b geo', 'generative engine optimization', 'ai search', 'b2b local seo'],
+    ogImage: '/images/blog/geo-for-b2b.jpg',
   },
   published: true,
 };

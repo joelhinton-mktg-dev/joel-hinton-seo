@@ -79,6 +79,16 @@ We will check how search engines and AI tools currently see your business as an 
   lastModified: '2026-11-03T10:00:00Z',
   category: 'AI Marketing',
   tags: ['entity optimization', 'entity seo', 'knowledge graph', 'ai search', 'aeo'],
+  featuredImage: '/images/blog/entity-optimization-ai-business.jpg',
+  imagePlaceholders: [
+    {
+      id: 'hero',
+      alt: 'Entity Optimization: How to Get AI and Google to Understand What Your Business Actually Is entity optimization',
+      width: 1024,
+      height: 576,
+      src: '/images/blog/entity-optimization-ai-business.jpg',
+    },
+  ],
   faqs: [
     {
       question: 'What is entity optimization in plain terms?',
@@ -107,6 +117,7 @@ We will check how search engines and AI tools currently see your business as an 
     metaDescription:
       'Entity optimization in plain English for a local business: how AI and Google decide who your business is, and the practical, non-technical fixes.',
     keywords: ['entity optimization', 'entity seo', 'knowledge graph', 'ai search', 'aeo'],
+    ogImage: '/images/blog/entity-optimization-ai-business.jpg',
   },
   published: true,
 };

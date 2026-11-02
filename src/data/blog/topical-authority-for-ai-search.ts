@@ -81,6 +81,16 @@ We will look at whether your site is building real topical authority on your sub
   lastModified: '2026-11-04T10:00:00Z',
   category: 'AI Marketing',
   tags: ['topical authority', 'ai search', 'aeo', 'content strategy', 'entity seo'],
+  featuredImage: '/images/blog/topical-authority-ai-search.jpg',
+  imagePlaceholders: [
+    {
+      id: 'hero',
+      alt: 'Topical Authority for AI Search: Why It Decides Whether AI Trusts Your Business topical authority',
+      width: 1024,
+      height: 576,
+      src: '/images/blog/topical-authority-ai-search.jpg',
+    },
+  ],
   faqs: [
     {
       question: 'What is topical authority in simple terms?',
@@ -109,6 +119,7 @@ We will look at whether your site is building real topical authority on your sub
     metaDescription:
       'What topical authority means for a local business, why AI tools reward it more than traditional search, and how it is actually built, in plain English.',
     keywords: ['topical authority', 'ai search', 'aeo', 'content strategy', 'entity seo'],
+    ogImage: '/images/blog/topical-authority-ai-search.jpg',
   },
   published: true,
 };

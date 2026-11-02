@@ -74,6 +74,16 @@ We will tell you honestly which model fits your business and what it would cost,
   lastModified: '2026-11-05T10:00:00Z',
   category: 'AI Marketing',
   tags: ['geo pricing', 'generative engine optimization cost', 'geo agency pricing', 'ai search', 'geo models'],
+  featuredImage: '/images/blog/geo-pricing-explained.jpg',
+  imagePlaceholders: [
+    {
+      id: 'hero',
+      alt: 'GEO Pricing Explained: The Different Ways Generative Engine Optimization Is Priced geo pricing',
+      width: 1024,
+      height: 576,
+      src: '/images/blog/geo-pricing-explained.jpg',
+    },
+  ],
   faqs: [
     {
       question: 'Why is GEO pricing so different from one place to another?',
@@ -102,6 +112,7 @@ We will tell you honestly which model fits your business and what it would cost,
     metaDescription:
       'Why GEO pricing is all over the place: the four pricing models (tool, freelancer, agency retainer, project build), what each buys, and which fits.',
     keywords: ['geo pricing', 'generative engine optimization cost', 'geo agency pricing', 'ai search', 'geo models'],
+    ogImage: '/images/blog/geo-pricing-explained.jpg',
   },
   published: true,
 };
