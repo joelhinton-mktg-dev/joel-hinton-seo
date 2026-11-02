@@ -40,6 +40,11 @@ import { geoForLocalBusinessesWhoItsForPost } from './blog/geo-for-local-busines
 import { isGeoWorthItSmallBusinessPost } from './blog/is-geo-worth-it-small-business';
 import { geoVsLocalSeoDoYouNeedBothPost } from './blog/geo-vs-local-seo-do-you-need-both';
 import { whenDoesABusinessNeedGeoPost } from './blog/when-does-a-business-need-geo';
+import { entityOptimizationAiUnderstandBusinessPost } from './blog/entity-optimization-ai-understand-business';
+import { topicalAuthorityForAiSearchPost } from './blog/topical-authority-for-ai-search';
+import { geoPricingExplainedPost } from './blog/geo-pricing-explained';
+import { geoForB2bLocalBusinessPost } from './blog/geo-for-b2b-local-business';
+import { geoForMultiLocationBusinessPost } from './blog/geo-for-multi-location-business';
 
 const legacyBlogPosts: BlogPost[] = [
   {
@@ -1209,5 +1214,10 @@ export const blogPosts: BlogPost[] = [
   isGeoWorthItSmallBusinessPost,
   geoVsLocalSeoDoYouNeedBothPost,
   whenDoesABusinessNeedGeoPost,
+  entityOptimizationAiUnderstandBusinessPost,
+  topicalAuthorityForAiSearchPost,
+  geoPricingExplainedPost,
+  geoForB2bLocalBusinessPost,
+  geoForMultiLocationBusinessPost,
   ...localClusterPosts,
 ];
