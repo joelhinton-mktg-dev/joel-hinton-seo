@@ -12,6 +12,13 @@ import ContactDialog from '../../components/ContactDialog';
 import { ServiceHubCards } from '@/components/ServiceHubCards';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
+import {
+  customToolsOffer,
+  funnelSprintOffer,
+  geoOffer,
+  monthlyTiers,
+  seoMonthlyTiers,
+} from '@/data/pricing';
 
 export default function ServicesPage() {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Marketing Services Consultation');
@@ -304,11 +311,11 @@ export default function ServicesPage() {
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
                         <span>Local Lead Generation:</span>
-                        <span className="text-orange-600">$500/mo + ad spend</span>
+                        <span className="text-orange-600">{funnelSprintOffer.ongoingTiers[0].price} + ad spend</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Local SEO:</span>
-                        <span className="text-green-600">$400-800/mo</span>
+                        <span className="text-green-600">{monthlyTiers[0].price} to {monthlyTiers[2].price}</span>
                       </div>
                     </div>
                   </div>
@@ -320,11 +327,11 @@ export default function ServicesPage() {
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
                         <span>SEO Services:</span>
-                        <span className="text-blue-600">$500-1,000/mo</span>
+                        <span className="text-blue-600">{seoMonthlyTiers[0].price} to {seoMonthlyTiers[1].price}</span>
                       </div>
                       <div className="flex justify-between">
                         <span>GEO Optimization:</span>
-                        <span className="text-purple-600">$600-1,200/mo</span>
+                        <span className="text-purple-600">{geoOffer.price}</span>
                       </div>
                     </div>
                   </div>
@@ -336,11 +343,11 @@ export default function ServicesPage() {
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
                         <span>Custom Tools (Simple):</span>
-                        <span className="text-teal-600">$5K-15K</span>
+                        <span className="text-teal-600">{customToolsOffer.serviceLabel}</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Full Automation Systems:</span>
-                        <span className="text-teal-600">$15K-25K+</span>
+                        <span className="text-teal-600">{customToolsOffer.projectRange}</span>
                       </div>
                     </div>
                   </div>

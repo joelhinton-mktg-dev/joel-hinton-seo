@@ -11,7 +11,13 @@ import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
 import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
-import { seoFoundation, seoMonthlyTiers } from '@/data/pricing';
+import {
+  dominationGeoNoteCta,
+  dominationGeoNoteLead,
+  geoOffer,
+  seoFoundation,
+  seoMonthlyTiers,
+} from '@/data/pricing';
 import {
   Search,
   TrendingUp,
@@ -407,7 +413,16 @@ export default function SEOServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <Button
+                    {tier.name === 'Domination' && (
+                      <p className="text-xs text-muted-foreground mt-2">
+                        {dominationGeoNoteLead}{' '}
+                        <Link href={geoOffer.href} className="text-primary hover:underline">
+                          {dominationGeoNoteCta} {geoOffer.offerName}
+                        </Link>
+                        .
+                      </p>
+                    )}
+                    <Button>
                       size="sm"
                       className={`mt-3 ${tier.highlighted ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-primary/90 hover:bg-primary text-primary-foreground'}`}
                       onClick={() => {

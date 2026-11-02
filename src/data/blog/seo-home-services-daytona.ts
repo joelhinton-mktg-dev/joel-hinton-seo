@@ -1,4 +1,5 @@
 import { BlogPost } from '@/types/blog';
+import { localSeoLadderSummary, localSeoSetupSummary } from '../pricing';
 
 export const seoHomeServicesDaytonaPost: BlogPost = {
   id: "seo-for-home-service-businesses-daytona",
@@ -41,7 +42,7 @@ Two local factors reshape home service SEO here, and no national guide accounts 
 
 ## How much should I expect to pay for SEO?
 
-For a local home service business in the Daytona area, expect roughly $1,000 to $2,500 for setup and $500 to $1,500 a month for ongoing work, depending on how many services and cities you need to cover. Be wary of a $150 to $300 a month “package,” which almost always means automated work or spam that can hurt your site. Real local SEO takes real hours from someone who knows your market. We break down the full picture in [how much local SEO costs in Daytona Beach](https://aiogrowthseo.com/blog/how-much-does-local-seo-cost-daytona-beach).
+Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Scope depends on how many services and cities you need to cover. Be wary of a $150 to $300 a month “package,” which almost always means automated work or spam that can hurt your site. Real local SEO takes real hours from someone who knows your market. We break down the full picture in [how much local SEO costs in Daytona Beach](https://aiogrowthseo.com/blog/how-much-does-local-seo-cost-daytona-beach).
 
 ## Is SEO worth it for a small home service business?
 
@@ -71,7 +72,7 @@ We will map your SEO around your specific trade and the Volusia cities you serve
   faqs: [
     { question: "What is SEO for home service businesses?", answer: "It is local SEO applied trade by trade: a complete Google Business Profile, dedicated pages for each service and city, and steady recent reviews, tuned to how customers in your specific trade search. Done right, it generates steady calls without paying per click." },
     { question: "Does SEO work differently for plumbers vs. HVAC vs. electricians?", answer: "Yes. Plumbing splits between emergency and planned searches, HVAC is heavily seasonal, and electrical leans toward project and safety intent. Matching your content to your trade's search behavior is what separates a page that ranks from one that just exists." },
-    { question: "How much does SEO cost for a home service business?", answer: "Roughly $1,000 to $2,500 for setup and $500 to $1,500 a month ongoing in the Daytona market, depending on your services and city coverage. Suspiciously cheap packages usually mean automated or risky work." },
+    { question: "How much does SEO cost for a home service business?", answer: `Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Scope depends on your services and city coverage. Suspiciously cheap packages usually mean automated or risky work.` },
     { question: "How long until SEO produces leads?", answer: "Foundational gains show in weeks; ranking across multiple cities and building review depth usually takes a few months of consistent work. Beware anyone promising page-one results almost immediately." },
     { question: "Can I do home service SEO myself?", answer: "You can handle the foundation: profile, reviews, consistent data, photos. Most owners hit a ceiling at per-city pages, link building, and diagnosing plateaus, which is where a provider earns its fee." }
   ],

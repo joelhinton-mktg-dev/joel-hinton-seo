@@ -1,4 +1,5 @@
 import { BlogPost } from '@/types/blog';
+import { localSeoLadderSummary, localSeoSetupSummary } from '../pricing';
 
 export const chooseDaytonaSeoCompanyPost: BlogPost = {
   id: "how-to-choose-daytona-beach-seo-company",
@@ -7,7 +8,7 @@ export const chooseDaytonaSeoCompanyPost: BlogPost = {
   excerpt: 'How to choose a Daytona Beach SEO company without getting burned: the red flags to walk away from, the questions to ask, what local SEO should actually cost',
   content: `## How do you choose an SEO company without getting burned?
 
-> Start with your goal (more calls, more booked jobs, more local map visibility), then walk away from the three biggest red flags: guaranteed number-one rankings, secretive tactics, and suspiciously cheap packages. Vet the rest on real proof, plain-language explanations, transparent reporting, and no long lock-in contracts. Expect to pay a local SEO company somewhere around $1,000 to $2,500 to set things up and $500 to $1,500 a month ongoing. And favor a company that actually knows the Daytona and Volusia market over a national vendor treating you like a ticket number.
+> Start with your goal (more calls, more booked jobs, more local map visibility), then walk away from the three biggest red flags: guaranteed number-one rankings, secretive tactics, and suspiciously cheap packages. Vet the rest on real proof, plain-language explanations, transparent reporting, and no long lock-in contracts. Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. And favor a company that actually knows the Daytona and Volusia market over a national vendor treating you like a ticket number.
 
 This guide is for local business owners in Daytona Beach and Volusia County trying to find an SEO company that will actually move the needle. If you have hired an SEO company before and felt like you set money on fire, you are not alone, that exact phrase shows up constantly from business owners who got burned. Hiring the wrong one costs you twice: the fee, and the months you lose. Here is how to choose one in the Daytona area without repeating that mistake, starting with the warning signs, because avoiding a bad company matters more than finding a perfect one.
 
@@ -43,10 +44,10 @@ These five questions separate the real companies from the rest:
 
 Most companies dodge this with “it depends, book a call.” Here is a straight answer. For a local service business, expect a setup or onboarding investment and then a monthly fee for ongoing work. Real ranges for a local market like Daytona look like this:
 
-| What you're paying for | Typical range |
+| What you're paying for | Published plans |
 | --- | --- |
-| One-time setup / onboarding | $1,000 to $2,500 |
-| Ongoing monthly work | $500 to $1,500 / month |
+| One-time setup / onboarding | ${localSeoSetupSummary} |
+| Ongoing monthly work | ${localSeoLadderSummary} |
 
 Representative ranges for local SEO in the Daytona / Volusia market, including our own. Exact pricing depends on how many services and cities you need to cover.
 
@@ -73,7 +74,7 @@ We will tell you honestly where you stand, what is realistic, and what we would 
   tags: ['SEO', 'Daytona Beach', 'Hiring an Agency', 'Pricing', 'Local SEO'],
   faqs: [
     { question: "How to choose the right SEO company?", answer: "Start with three things: do they show you real local rankings (not just traffic), do they explain what they're doing in plain language, and do they require a long-term contract before you've seen results? Any agency that can't answer those three questions clearly isn't the right fit." },
-    { question: "How much does an SEO company cost?", answer: "In the Daytona Beach market, credible local SEO agencies run $500–$1,500/month depending on scope. Anything under $300/month is automated and will hurt more than it helps. Our current pricing is on our [pricing page](/pricing)." },
+    { question: "How much does an SEO company cost?", answer: `Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Anything under $300/month is automated and will hurt more than it helps. Our current pricing is on our [pricing page](/pricing).` },
     { question: "Is SEO still worth it in 2026?", answer: "Yes — with a caveat. Traditional SEO that only chases Google blue links is declining in ROI as AI Overviews intercept more clicks. SEO in 2026 means ranking AND being cited in AI-generated answers. Agencies that haven't adapted to that shift are selling you a 2022 playbook." },
     { question: "What are the biggest red flags?", answer: "Guaranteed number-one rankings, secretive or “proprietary” tactics they won't explain, and suspiciously cheap packages. Any one is reason to walk away." },
     { question: "Should I hire a local or national SEO company?", answer: "For a local business, favor one that knows your market. A national vendor can rank a page but often misses local specifics like seasonal demand and multi-city coverage across Volusia." },

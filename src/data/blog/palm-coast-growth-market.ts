@@ -1,4 +1,5 @@
 import { BlogPost } from '@/types/blog';
+import { localSeoLadderSummary, localSeoSetupSummary } from '../pricing';
 
 export const palmCoastGrowthMarketPost: BlogPost = {
   id: "digital-marketing-palm-coast-growth-market",
@@ -38,7 +39,7 @@ One Palm Coast specific to keep in mind: the city is built as distinct sections,
 
 ## What does marketing cost in Palm Coast?
 
-Palm Coast is a fast-growing market, but it is not Orlando, so pricing should reflect the actual competition level, which is still low enough that fundamentals win in most categories. Most Palm Coast businesses invest around $500 to $900 a month, covering a fully optimized Google Business Profile, Flagler County citation building, review generation, and location content. Higher-competition categories, real estate, healthcare, home services in the busier sections, typically run $900 to $1,400 a month. We do not apply big-city pricing to a Palm Coast market. The full breakdown is in [how much local SEO costs](https://aiogrowthseo.com/blog/how-much-does-local-seo-cost-daytona-beach). Weigh that against a $195 package that forfeits the growth wave, and the real cost of “cheap” becomes clear.
+Palm Coast is a fast-growing market, but it is not Orlando, so pricing should reflect the actual competition level, which is still low enough that fundamentals win in most categories. Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. We do not apply big-city pricing to a Palm Coast market. The full breakdown is on our [pricing page](https://aiogrowthseo.com/pricing). Weigh that against a $195 package that forfeits the growth wave, and the real cost of “cheap” becomes clear.
 
 ## Claim your ground in Palm Coast before competition does
 
@@ -72,7 +73,7 @@ We build real local marketing foundations for Palm Coast businesses, profile, co
     },
     {
       question: "What should Palm Coast marketing cost?",
-      answer: "Most businesses invest about $500 to $900 a month; higher-competition categories run $900 to $1,400. We price for the Palm Coast market, not a big-city rate, and a suspiciously cheap package usually means automated, low-value work.",
+      answer: `Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. We price for the Palm Coast market, not a big-city rate, and a suspiciously cheap package usually means automated, low-value work.`,
     }
   ],
   readingTime: 6,

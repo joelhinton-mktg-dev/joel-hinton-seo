@@ -1,4 +1,5 @@
 import { BlogPost } from '@/types/blog';
+import { localSeoLadderSummary, localSeoSetupSummary } from '../pricing';
 
 export const digitalMarketingDaytonaPost: BlogPost = {
   id: 'digital-marketing-daytona-beach-local-businesses',
@@ -45,7 +46,7 @@ If you take one thing from this article: the free foundation comes before the pa
 
 ## How much does digital marketing cost in Daytona Beach?
 
-It depends on which parts of the stack you are running, but for a local service business here, honest ranges look like this: local SEO runs about $1,000 to $2,500 for setup and $500 to $1,500 a month ongoing. Paid ads are separate and depend on your budget and industry, with the ad spend on top of any management fee. Be suspicious of a very cheap all-in “digital marketing package,” under a few hundred a month usually means automated, low-quality work. We break the full picture down in [how much local SEO costs in Daytona Beach](https://aiogrowthseo.com/blog/how-much-does-local-seo-cost-daytona-beach), and our [pricing](https://aiogrowthseo.com/pricing) is public.
+It depends on which parts of the stack you are running, but for a local service business here, honest ranges look like this: published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Paid ads are separate and depend on your budget and industry, with the ad spend on top of any management fee. Be suspicious of a very cheap all-in “digital marketing package,” under a few hundred a month usually means automated, low-quality work. We break the full picture down in [how much local SEO costs in Daytona Beach](https://aiogrowthseo.com/blog/how-much-does-local-seo-cost-daytona-beach), and our [pricing](https://aiogrowthseo.com/pricing) is public.
 
 ## Do I need an agency, or can I start myself?
 
@@ -83,7 +84,7 @@ We will tell you honestly what your business needs, in what order, and what to s
     },
     {
       question: 'How much does digital marketing cost in Daytona Beach?',
-      answer: 'Local SEO runs roughly $1,000 to $2,500 setup and $500 to $1,500 a month; paid ad spend is separate and on top. Be wary of very cheap all-in packages, which usually mean automated, low-quality work.',
+      answer: `Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Paid ad spend is separate and on top. Be wary of very cheap all-in packages, which usually mean automated, low-quality work.`,
     },
     {
       question: 'Can I do digital marketing myself?',

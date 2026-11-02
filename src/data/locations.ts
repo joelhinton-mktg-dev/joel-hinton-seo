@@ -11,6 +11,7 @@ import {
   portOrangeLocalContent,
   sanfordLocalContent,
 } from './locationLocalContent';
+import { localSeoPublishedPricingBody } from './pricing';
 
 export interface Location {
   id: string;
@@ -112,7 +113,9 @@ export const locations: Location[] = [
     ],
     preFaqSection: {
       heading: 'What Local SEO Costs in Ormond Beach',
-      body: "Ormond Beach is a more affluent market than Daytona Beach proper, but the competition for local search is still manageable for a focused campaign. Most Ormond businesses we work with invest $600–$1,000/month — enough to cover a fully optimized Google Business Profile, Volusia County citation building, review generation, and content targeting the Granada corridor and residential west side. Medical practices, legal, and financial services — categories where credibility matters as much as position — typically run $1,000–$1,500/month because depth of content is part of what wins. We don't apply Orlando or Jacksonville pricing to a Volusia market. See our [pricing page](/pricing) for current plans.",
+      body: localSeoPublishedPricingBody(
+        'Ormond Beach is a more affluent market than Daytona Beach proper, but local search competition is still manageable for a focused campaign. Medical, legal, and financial services win here on content depth and credibility, not a big-city rate card.'
+      ),
     },
     uniqueSellingPoints: [
       { title: 'Affluent Market Understanding', description: 'Marketing strategies for higher-income demographics and luxury services.' },
@@ -157,7 +160,9 @@ export const locations: Location[] = [
     ],
     preFaqSection: {
       heading: 'What Local SEO Costs in Port Orange',
-      body: "Port Orange is a mid-competition market with strong residential density and growing commercial corridors along Dunlawton and US-1. Most Port Orange businesses we work with invest $500-$900/month for a focused local SEO program covering Google Business Profile optimization, Volusia County citation building, review generation, and content targeting the Port Orange and South Daytona search radius.\n\nHVAC, plumbing, and home services operators competing for the same homeowner searches as Daytona Beach contractors often see faster map pack movement here because the competitive field, while real, is thinner than Daytona proper. Medical practices, dental, and legal services typically run $700-$1,200/month because content depth and credibility signals carry more weight in those categories. See our [pricing page](/pricing) for current plans.",
+      body: localSeoPublishedPricingBody(
+        'Port Orange is a mid-competition market with strong residential density and growing commercial corridors along Dunlawton and US-1. Home services often see faster map pack movement here than in Daytona proper. Medical, dental, and legal services win on content depth.'
+      ),
     },
     uniqueSellingPoints: [
       { title: 'Family Market Expertise', description: 'Understanding the needs and buying patterns of family households.' },
@@ -309,7 +314,9 @@ export const locations: Location[] = [
     ],
     preFaqSection: {
       heading: 'What Local SEO Costs in Sanford',
-      body: 'Sanford sits in a mid-competition zone — more competitive than Flagler Beach or Holly Hill, less competitive than downtown Orlando. Most Sanford businesses we work with invest $600–$1,000/month for a focused local SEO program covering Google Business Profile optimization, Seminole County citation building, review generation, and location-specific content. Downtown restaurant and hospitality businesses often start lower. Service businesses competing across multiple Seminole and Volusia zip codes typically land higher. See our [pricing page](/pricing) for current plans.',
+      body: localSeoPublishedPricingBody(
+        'Sanford sits in a mid-competition zone, more competitive than Flagler Beach or Holly Hill, less competitive than downtown Orlando. Downtown restaurant and hospitality businesses often need less content depth than service businesses competing across multiple Seminole and Volusia zip codes.'
+      ),
     },
     uniqueSellingPoints: [
       { title: 'Downtown Revival', description: 'Marketing for the growing historic district renaissance.' },
@@ -366,7 +373,9 @@ export const locations: Location[] = [
     ],
     preFaqSection: {
       heading: 'What Local SEO Costs in Altamonte Springs',
-      body: 'Altamonte Springs is a mid-to-high competition market — more competitive than Sanford or DeLand, less than downtown Orlando. Most businesses we work with in Altamonte Springs invest $600-$1,100 per month for a focused program covering Google Business Profile optimization, Seminole County citation building, review generation, and content targeting the SR-436 corridor and surrounding residential areas. Medical, dental, and legal practices in the AdventHealth corridor typically run $900-$1,400 because content depth and credibility signals carry more weight in professional service categories. See our [pricing page](/pricing) for current plans.',
+      body: localSeoPublishedPricingBody(
+        'Altamonte Springs is a mid-to-high competition market, more competitive than Sanford or DeLand, less than downtown Orlando. Medical, dental, and legal practices in the AdventHealth corridor win on content depth and credibility, not a metro Orlando rate card.'
+      ),
     },
     uniqueSellingPoints: [
       {
@@ -421,7 +430,9 @@ export const locations: Location[] = [
     ],
     preFaqSection: {
       heading: 'What Does Local SEO Cost in Holly Hill?',
-      body: 'Holly Hill is a small market and should be priced like one. Most businesses here need the fundamentals — a fully built-out Google Business Profile, citation consistency, review generation, and a website that clearly states what you do and where — not a $3,000/month enterprise campaign. Our plans for Holly Hill businesses typically run $400–$700/month depending on the number of services and how competitive your category is. For auto repair and restaurants, that\'s usually enough to take the map pack position and keep it. Check our [pricing page](/pricing) for current plans.',
+      body: localSeoPublishedPricingBody(
+        'Holly Hill is a small market and should be priced like one. Most businesses here need the fundamentals: a fully built-out Google Business Profile, citation consistency, review generation, and a website that clearly states what you do and where, not a national enterprise campaign. For auto repair and restaurants, that is usually enough to take the map pack position and keep it.'
+      ),
     },
     uniqueSellingPoints: [
       { title: 'Value-Focused Marketing', description: 'Reaching budget-conscious consumers effectively.' },
@@ -475,7 +486,9 @@ export const locations: Location[] = [
     ],
     preFaqSection: {
       heading: 'What Local SEO Costs in DeLand',
-      body: 'DeLand is a lower-competition market than Daytona Beach or even Ormond Beach, which means the fundamentals move faster and cost less to maintain. Most DeLand businesses we work with invest $400-$700/month - enough to own the map pack in your category and hold it against the modest competition. Downtown businesses with foot-traffic intent (restaurants, galleries, boutiques) often need less because destination search volume here is genuinely winnable. Trades and professional practices competing across the broader West Volusia service area typically run $600-$900/month. The Stetson calendar adds a seasonal layer: businesses that update their profiles and content in July and August before the fall reset consistently outperform those that don\'t. See our [pricing page](/pricing) for current plans.',
+      body: localSeoPublishedPricingBody(
+        'DeLand is a lower-competition market than Daytona Beach or even Ormond Beach, which means the fundamentals move faster. Downtown businesses with foot-traffic intent (restaurants, galleries, boutiques) often need less content depth because destination search volume here is genuinely winnable. The Stetson calendar adds a seasonal layer: businesses that update their profiles and content in July and August before the fall reset consistently outperform those that do not.'
+      ),
     },
     uniqueSellingPoints: [
       { title: 'Main Street Destination Search', description: 'Rank for the downtown DeLand queries that drive real foot traffic from Deltona, Orange City, and beyond.' },
@@ -528,7 +541,9 @@ export const locations: Location[] = [
     ],
     preFaqSection: {
       heading: 'What Local SEO Costs in Flagler Beach',
-      body: 'Flagler Beach is a small market. Most businesses here compete against a handful of local operators and a few regional chains — not the deep field you\'d face in Daytona Beach or even [Palm Coast](/areas-we-serve/palm-coast). That means the fundamentals move faster and cost less to maintain. Most Flagler Beach businesses we work with invest $400–$700/month — enough to own the map pack in your category and keep it. Surf-adjacent retail, vacation rentals, and seasonal restaurants can often win with even less, because the search volume is concentrated and local buyers make decisions fast. See our [pricing page](/pricing) for current plans.',
+      body: localSeoPublishedPricingBody(
+        'Flagler Beach is a small market. Most businesses here compete against a handful of local operators and a few regional chains, not the deep field you would face in Daytona Beach or even [Palm Coast](/areas-we-serve/palm-coast). Surf-adjacent retail, vacation rentals, and seasonal restaurants can often win with less content depth, because the search volume is concentrated and local buyers make decisions fast.'
+      ),
     },
     uniqueSellingPoints: [
       { title: 'Independent Map Pack', description: 'No franchise SEO budgets to fight — a complete profile and steady reviews can put you first in category.' },

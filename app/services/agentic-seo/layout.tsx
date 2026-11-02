@@ -4,7 +4,7 @@ import { agenticFaqs, agenticOffer } from '@/data/pricing';
 export const metadata: Metadata = {
   title: 'AI SEO Services — Sites That Improve Themselves',
   description:
-    'AI SEO services with transparent pricing: an agentic website that reads your search, funnel, and AI-visibility data, then improves itself every cycle. From $2,500.',
+    `AI SEO services with transparent pricing: an agentic website that reads your search, funnel, and AI-visibility data, then improves itself every cycle. ${agenticOffer.cardPrice}.`,
   alternates: {
     canonical: `https://aiogrowthseo.com${agenticOffer.canonicalPath}`,
   },

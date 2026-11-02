@@ -1,4 +1,5 @@
 import { BlogPost } from '@/types/blog';
+import { localSeoLadderSummary, localSeoSetupSummary } from '../pricing';
 
 export const portOrangeLocalMarketingPost: BlogPost = {
   id: "digital-marketing-port-orange-local-businesses",
@@ -38,7 +39,7 @@ In a settled suburb like Port Orange, reputation travels. A neighbor's recommend
 
 ## What does marketing cost in Port Orange?
 
-Port Orange is a Volusia market, and pricing should reflect that, not an Orlando or Tampa rate card imported by a distant agency. Most Port Orange businesses invest around $500 to $900 a month for a fully optimized Google Business Profile, Volusia County citation building, review generation, and content built around the actual community. Higher-competition categories can run more, but the fundamentals win most local searches here. Be wary of a suspiciously cheap package (automated, low-quality work) and equally wary of big-city pricing that does not match this market. The full breakdown is in [how much local SEO costs](https://aiogrowthseo.com/blog/how-much-does-local-seo-cost-daytona-beach), and if you are weighing providers, our guide to [choosing a local SEO company](https://aiogrowthseo.com/blog/how-to-choose-daytona-beach-seo-company) covers what to look for.
+Port Orange is a Volusia market, and pricing should reflect that, not an Orlando or Tampa rate card imported by a distant agency. Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Be wary of a suspiciously cheap package (automated, low-quality work) and equally wary of big-city pricing that does not match this market. The full breakdown is on our [pricing page](https://aiogrowthseo.com/pricing), and if you are weighing providers, our guide to [choosing a local SEO company](https://aiogrowthseo.com/blog/how-to-choose-daytona-beach-seo-company) covers what to look for.
 
 ## Work with a marketing team that actually knows Port Orange
 
@@ -72,7 +73,7 @@ We are based next door in Daytona Beach and build Port Orange marketing for the 
     },
     {
       question: "What should marketing cost in Port Orange?",
-      answer: "Most businesses invest about $500 to $900 a month. It is a Volusia market, so be wary both of suspiciously cheap automated packages and of big-city pricing imported by out-of-town agencies.",
+      answer: `Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. It is a Volusia market, so be wary both of suspiciously cheap automated packages and of big-city pricing imported by out-of-town agencies.`,
     }
   ],
   readingTime: 6,

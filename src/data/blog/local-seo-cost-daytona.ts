@@ -1,4 +1,5 @@
 import { BlogPost } from '@/types/blog';
+import { localSeoLadderSummary, localSeoSetupSummary } from '../pricing';
 
 export const localSeoCostDaytonaPost: BlogPost = {
   id: "how-much-does-local-seo-cost-daytona-beach",
@@ -7,7 +8,7 @@ export const localSeoCostDaytonaPost: BlogPost = {
   excerpt: "Real local SEO pricing for Daytona Beach businesses: honest monthly and setup ranges, what actually drives the cost, whether you can do it yourself.",
   content: `## How much should local SEO cost?
 
-> **TL;DR: **For a local service business in the Daytona area, expect roughly $1,000 to $2,500 for setup or onboarding and $500 to $1,500 a month for ongoing work. National averages run wider ($500 to $3,000 a month, with most small businesses near $1,000) because they lump every market together. Where you land depends on how many services and cities you need to rank in, and the current state of your website and profile. The one number to be suspicious of is a very cheap one: a $150 to $300 a month “package” almost always means automated work or spam that can hurt your site.
+> **TL;DR: **Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. National averages run wider ($500 to $3,000 a month, with most small businesses near $1,000) because they lump every market together. Where you land depends on how many services and cities you need to rank in, and the current state of your website and profile. The one number to be suspicious of is a very cheap one: a $150 to $300 a month “package” almost always means automated work or spam that can hurt your site.
 
 Pricing also shifts by market size. A campaign in Daytona Beach proper sits at the higher end of these ranges because the competition is real. Smaller Volusia markets like [Holly Hill](/areas-we-serve/holly-hill) and [New Smyrna Beach](/areas-we-serve/new-smyrna-beach) often need less to win — lower competition means fundamentals move faster and you don't need to outspend a deep field. [Palm Coast](/areas-we-serve/palm-coast) in Flagler County sits in between: growing fast but still early enough that a focused campaign can own its category.
 
@@ -19,10 +20,10 @@ Let us start with the honest national picture, then narrow it to here. Across th
 
 For a local service business in Daytona Beach and Volusia County specifically, here is what honest pricing looks like, including ours:
 
-| What you're paying for | Typical range |
+| What you're paying for | Published plans |
 | --- | --- |
-| One-time setup / onboarding | $1,000 to $2,500 |
-| Ongoing monthly work | $500 to $1,500 / month |
+| One-time setup / onboarding | ${localSeoSetupSummary} |
+| Ongoing monthly work | ${localSeoLadderSummary} |
 
 Representative ranges for local SEO in the Daytona / Volusia market, including AIO Growth SEO's own pricing. Scope determines where you land.
 
@@ -64,7 +65,7 @@ We will look at how many services and cities you need to cover, tell you honestl
   category: "Local SEO",
   tags: ['Local SEO', 'Pricing', 'Daytona Beach', 'Small Business'],
   faqs: [
-    { question: "How much does local SEO cost per month in Daytona Beach?", answer: "For a local service business, roughly $500 to $1,500 a month for ongoing work, plus a one-time setup of about $1,000 to $2,500. Where you land depends on how many services and cities you need to cover." },
+    { question: "How much does local SEO cost per month in Daytona Beach?", answer: `Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Where you land depends on how many services and cities you need to cover.` },
     { question: "Why do local SEO prices range so widely?", answer: "Because “local SEO” covers everything from a single-location shop to a multi-city contractor. National guides quote $300 to $5,000+ because they average all of it together. Scope is what determines your real number." },
     { question: "Can I do local SEO myself?", answer: "You can do the foundation yourself: claim and complete your Google Business Profile, gather and respond to reviews, keep your business data consistent, and add photos. Most owners hit a ceiling at per-city pages, link building, and diagnosing plateaus, which is what an agency is for." },
     { question: "Is cheap local SEO a good deal?", answer: "Rarely. A $150 to $300 a month package almost always means automated work or link spam that can harm your site. Real local SEO takes real hours from a person who knows your market, so a suspiciously low price usually signals low-quality or risky work." },

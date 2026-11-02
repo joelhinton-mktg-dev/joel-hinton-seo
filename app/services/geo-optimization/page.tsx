@@ -17,6 +17,7 @@ import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
 import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
+import { geoOffer, geoOfferProse } from '@/data/pricing';
 
 export default function GEOOptimizationPage() {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('GEO Optimization Consultation');
@@ -51,7 +52,7 @@ export default function GEOOptimizationPage() {
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-                The Answer Engine is $2,500 to build plus $1,500 a month, 90 days then month to month, with a 90-day AI citation guarantee.
+                {geoOffer.offerName} is {geoOfferProse.buildMonthly}, {geoOffer.term}, with a {geoOffer.guarantee}.
                 When 40% of GenZ uses TikTok and AI assistants instead of Google, traditional SEO isn&apos;t enough.
                 GEO ensures you know{' '}
                 <Link href="/blog/how-to-get-cited-by-ai-search-2026" className="text-primary hover:underline">how to get cited by AI search</Link>{' '}
@@ -325,8 +326,8 @@ export default function GEOOptimizationPage() {
                 How Much Does <span className="gradient-text">GEO</span> Cost?
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                The current offer is The Answer Engine: $2,500 to build plus $1,500 a month.
-                90 days, then month to month, with a 90-day AI citation guarantee. One flagship. No pricing ladder.
+                The current offer is {geoOffer.offerName}: {geoOfferProse.buildMonthly}.
+                {geoOffer.term}, with a {geoOffer.guarantee}. One flagship. No pricing ladder.
               </p>
             </div>
 
@@ -343,11 +344,11 @@ export default function GEOOptimizationPage() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-slate-200 px-4 py-2">The Answer Engine</td>
-                    <td className="border border-slate-200 px-4 py-2">$2,500</td>
-                    <td className="border border-slate-200 px-4 py-2">$1,500/mo</td>
-                    <td className="border border-slate-200 px-4 py-2">90 days, then month to month</td>
-                    <td className="border border-slate-200 px-4 py-2">90-day AI citation guarantee</td>
+                    <td className="border border-slate-200 px-4 py-2">{geoOffer.offerName}</td>
+                    <td className="border border-slate-200 px-4 py-2">{geoOffer.build}</td>
+                    <td className="border border-slate-200 px-4 py-2">{geoOffer.monthly}</td>
+                    <td className="border border-slate-200 px-4 py-2">{geoOffer.term}</td>
+                    <td className="border border-slate-200 px-4 py-2">{geoOffer.guarantee}</td>
                   </tr>
                 </tbody>
               </table>
@@ -362,16 +363,19 @@ export default function GEOOptimizationPage() {
 
             <Card className="card-professional border-purple-200 bg-purple-50">
               <CardHeader>
-                <Badge className="w-fit mb-4 bg-purple-600">The Answer Engine</Badge>
-                <CardTitle className="text-2xl">$2,500 build + $1,500/mo</CardTitle>
-                <CardDescription>90 days then month to month, with a 90-day AI citation guarantee</CardDescription>
+                <Badge className="w-fit mb-4 bg-purple-600">{geoOffer.offerName}</Badge>
+                <CardTitle className="text-2xl">{geoOffer.price}</CardTitle>
+                <CardDescription>
+                  {geoOffer.term}, with a {geoOffer.guarantee}
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Schema, entity mapping, and AI-prompt research</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Answer-focused content and Google Business Profile work</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> AI-citation building and tracking</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Monthly measurement on a fixed local prompt set</li>
+                  {geoOffer.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-purple-600" /> {feature}
+                    </li>
+                  ))}
                 </ul>
                 <Button
                   className="w-full bg-purple-600 hover:bg-purple-700"
@@ -438,7 +442,7 @@ export default function GEOOptimizationPage() {
                   Do I need extra budget for GEO?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  If you want GEO done, the budget is The Answer Engine: $2,500 to build plus $1,500 a month.
+                  If you want GEO done, the budget is {geoOffer.offerName}: {geoOfferProse.buildMonthly}.
                   It is not a $500 add-on and it is not a second national GEO contract. Details in our{' '}
                   <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
                     GEO cost guide
@@ -452,7 +456,7 @@ export default function GEOOptimizationPage() {
                   How much does AI search optimization cost?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  How much does GEO cost? The Answer Engine is $2,500 to build plus $1,500 a month, 90 days then month to month, with a 90-day AI citation guarantee. That is the only public GEO price. National agency rates run much higher because they price for large competitive markets. Full breakdown on our{' '}
+                  How much does GEO cost? {geoOffer.offerName} is {geoOfferProse.buildMonthly}, {geoOffer.term}, with a {geoOffer.guarantee}. That is the only public GEO price. National agency rates run much higher because they price for large competitive markets. Full breakdown on our{' '}
                   <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
                     GEO cost guide
                   </Link>

@@ -9,6 +9,8 @@ import {
   agenticEngineTiers,
   agenticOffer,
   customToolsOffer,
+  dominationGeoNoteCta,
+  dominationGeoNoteLead,
   ecommerceMonthlyTiers,
   formatUsd,
   funnelSprintOffer,
@@ -355,6 +357,15 @@ export default function PricingPage() {
                           <span className="text-lg font-bold text-primary">{tier.price}</span>
                         </div>
                         <FeatureList features={tier.features} size="xs" />
+                        {tier.name === 'Domination' && (
+                          <p className="text-xs text-muted-foreground mt-2">
+                            {dominationGeoNoteLead}{' '}
+                            <Link href={geoOffer.href} className="text-primary hover:underline">
+                              {dominationGeoNoteCta} {geoOffer.offerName}
+                            </Link>
+                            .
+                          </p>
+                        )}
                         <Button variant="outline" size="sm" className="w-full mt-3" onClick={() => pick(`SEO ${tier.serviceLabel}`)}>
                           Select
                         </Button>
@@ -408,6 +419,15 @@ export default function PricingPage() {
                           <span className="text-lg font-bold text-green-600">{tier.price}</span>
                         </div>
                         <FeatureList features={tier.features} size="xs" />
+                        {tier.name === 'Domination' && (
+                          <p className="text-xs text-muted-foreground mt-2">
+                            {dominationGeoNoteLead}{' '}
+                            <Link href={geoOffer.href} className="text-primary hover:underline">
+                              {dominationGeoNoteCta} {geoOffer.offerName}
+                            </Link>
+                            .
+                          </p>
+                        )}
                         <Button variant="outline" size="sm" className="w-full mt-3" onClick={() => pick(`Local SEO ${tier.serviceLabel}`)}>
                           Select
                         </Button>

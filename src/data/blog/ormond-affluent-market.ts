@@ -1,4 +1,5 @@
 import { BlogPost } from '@/types/blog';
+import { localSeoLadderSummary, localSeoSetupSummary } from '../pricing';
 
 export const ormondAffluentMarketPost: BlogPost = {
   id: "marketing-ormond-beach-affluent-market",
@@ -37,7 +38,7 @@ Reviews matter everywhere, but they matter more when the buyer is deliberately c
 
 ## What marketing costs in Ormond Beach
 
-Ormond is a more affluent market than Daytona proper, but the competition for local search is still manageable for a focused effort, so pricing reflects the actual market, not a big-city rate card. Most Ormond businesses invest around $600 to $1,000 a month, enough for a fully optimized Google Business Profile, Volusia County citation building, review generation, and content targeting the Granada corridor and residential west side. Categories where credibility matters most, medical and dental, legal, and financial services, typically run $1,000 to $1,500 a month, because the content depth that wins those careful buyers is part of the work. We do not apply Orlando or Jacksonville pricing to a Volusia market. The full breakdown is in [how much local SEO costs](https://aiogrowthseo.com/blog/how-much-does-local-seo-cost-daytona-beach).
+Ormond is a more affluent market than Daytona proper, but the competition for local search is still manageable for a focused effort, so pricing reflects the actual market, not a big-city rate card. Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Medical, dental, legal, and financial services win here on content depth, not a big-city rate. The full breakdown is on our [pricing page](https://aiogrowthseo.com/pricing).
 
 ## Market to Ormond the way its buyers actually buy
 
@@ -71,7 +72,7 @@ We build Ormond marketing around how affluent, research-heavy buyers actually de
     },
     {
       question: "What should marketing cost in Ormond Beach?",
-      answer: "Most Ormond businesses invest about $600 to $1,000 a month; credibility-driven categories like medical, legal, and financial typically run $1,000 to $1,500 because content depth is part of what wins. We price for the Volusia market, not a big-city rate.",
+      answer: `Published monthly plans are ${localSeoLadderSummary}. Foundation setup is location-tiered: ${localSeoSetupSummary}. Credibility-driven categories like medical, legal, and financial win on content depth. We price for the Volusia market, not a big-city rate.`,
     }
   ],
   readingTime: 5,

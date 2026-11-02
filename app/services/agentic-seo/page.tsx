@@ -53,7 +53,7 @@ const faqAnswerNodes: Record<string, ReactNode> = {
   ),
   'How much do AI SEO services cost?': (
     <>
-      With us: $2,500–$5,000 setup plus $500–$1,500/month, scoped by cycle frequency. Full breakdown on our{' '}
+      With us: {agenticOffer.setup} plus {agenticEngineTiers[0].price} to {agenticEngineTiers[2].price}, scoped by cycle frequency. Full breakdown on our{' '}
       <Link href="/pricing" className="text-primary hover:underline">
         pricing page
       </Link>
@@ -188,7 +188,7 @@ export default function AgenticSeoPage() {
                   ))}
                 </ul>
                 <p className="text-sm text-muted-foreground">
-                  Setup runs $2,500–$5,000 depending on site size. Compare that to what a static agency rebuild costs,
+                  {agenticOffer.setup}. Compare that to what a static agency rebuild costs,
                   then ask what happens to that site in month six. (The answer: nothing. That&apos;s the problem.)
                 </p>
               </CardContent>
@@ -319,7 +319,7 @@ export default function AgenticSeoPage() {
               <tbody>
                 <tr className="border-b">
                   <td className="p-4 font-medium">Site Rebuild (one-time)</td>
-                  <td className="p-4">$2,500–$5,000</td>
+                  <td className="p-4">{agenticOffer.setup}</td>
                   <td className="p-4 text-muted-foreground">Scoped by site size</td>
                 </tr>
                 {agenticEngineTiers.map((tier) => (

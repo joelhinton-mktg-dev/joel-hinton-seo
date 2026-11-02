@@ -11,6 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { industries, getIndustryBySlug, getColorClasses, getGradientClasses } from '@/data/industries';
+import { monthlyTiers } from '@/data/pricing';
 import IndustryContactSection from './IndustryContactSection';
 
 interface IndustryPageProps {
@@ -462,9 +463,9 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                   What&apos;s the investment for {industry.name.toLowerCase()} marketing?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Our {industry.name.toLowerCase()} marketing packages start at $500/month for local SEO and go up to comprehensive
-                  programs including SEO, paid ads, and automation. We&apos;ll recommend the right investment based on your goals
-                  and competitive landscape.
+                  Our {industry.name.toLowerCase()} marketing packages start at {monthlyTiers[0].price} for local SEO ({monthlyTiers[0].name})
+                  and go up to comprehensive programs including SEO, paid ads, and automation. We&apos;ll recommend the right
+                  investment based on your goals and competitive landscape.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
