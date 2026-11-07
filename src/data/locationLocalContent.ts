@@ -155,7 +155,11 @@ export const flaglerBeachLocalContent: LocalContentSection[] = [
 export const daytonaBeachLocalContent: LocalContentSection[] = [
   {
     heading: 'Local SEO Services in Daytona Beach, Florida',
-    body: `Daytona Beach is the most competitive local-search market in Volusia County — and the most misunderstood. Half the businesses here optimize like they're chasing tourists; half ignore tourists entirely. The right answer depends on where you sit. A beachside restaurant near the Boardwalk lives on visitor searches that spike with every event weekend. An HVAC company off Bellevue Avenue lives on year-round resident demand from neighborhoods tourists never see. [Local SEO](/services/local-seo) that works here starts by knowing which economy you're actually in — most agencies never ask.`,
+    body: `Daytona Beach is the most competitive local-search market in Volusia County, and the most misunderstood. Half the businesses here optimize like they're chasing tourists; half ignore tourists entirely. The right answer depends on where you sit. A beachside restaurant near the Boardwalk lives on visitor searches that spike with every event weekend. An HVAC company off Bellevue Avenue lives on year-round resident demand from neighborhoods tourists never see. Our [local SEO services in Daytona Beach](/services/local-seo) start by asking which economy you're actually in. Most agencies never ask.`,
+  },
+  {
+    heading: 'What our Daytona Beach SEO service includes',
+    body: `Every engagement starts with the searches that produce calls in Daytona Beach: the map pack, your Google Business Profile, and the service pages behind them. The monthly work is specific. We publish and improve service and location pages, keep your listings accurate, build reviews into a system instead of a hope, and report rankings and calls in plain numbers. There are no contracts. The service is month to month, and the reporting is what keeps us accountable.`,
   },
   {
     heading: 'Two Daytonas, Two Search Strategies',
