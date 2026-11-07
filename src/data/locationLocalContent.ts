@@ -38,7 +38,7 @@ export const newSmyrnaBeachLocalContent: LocalContentSection[] = [
   },
   {
     heading: 'Flagler Avenue vs. Canal Street: Two Different Search Games',
-    body: `A charter captain and an estate attorney both "do SEO," but the captain lives or dies on Google Business Profile photos, review recency, and ranking for high-intent visitor searches that spike Friday to Sunday. The attorney needs authority — content, citations, consistency — to win searches people sit on for weeks. We build for the business you actually run. For the visitor-facing crowd, seasonality is the whole game: spring break, summer families, snowbird season, and event weekends each pull different searches, and the businesses that rank for them prepped their profiles and pages a month before the wave, not during it.`,
+    body: `A charter captain and an estate attorney both "do SEO," but the captain lives or dies on Google Business Profile photos, review recency, and ranking for high-intent visitor searches that spike Friday to Sunday. The attorney needs authority (content, citations, consistency) to win searches people sit on for weeks. We build for the business you actually run. For the visitor-facing crowd, seasonality is the whole game: spring break, summer families, snowbird season, and event weekends each pull different searches, and the businesses that rank for them prepped their profiles and pages a month before the wave, not during it. Our guide to [marketing a New Smyrna Beach business through the seasons](/blog/new-smyrna-beach-seasonal-marketing) lays out the demand calendar season by season.`,
   },
   {
     heading: 'The AI-Search Angle Nobody Here Is Playing',
@@ -63,7 +63,7 @@ export const newSmyrnaBeachLocalContent: LocalContentSection[] = [
 export const portOrangeLocalContent: LocalContentSection[] = [
   {
     heading: 'Local SEO Services in Port Orange, Florida',
-    body: `Port Orange is where [Volusia County](/areas-we-serve)'s families actually live — and family buyers search differently. They read reviews. All of them. They compare three dentists before booking, check a roofer's photos from real jobs, and ask their neighborhood Facebook group before hiring anyone. Winning [local SEO](/services/local-seo) here isn't about tricks; it's about making sure that when a Port Orange parent does that research loop, you show up at every step with proof you're the safe choice.`,
+    body: `Port Orange is where [Volusia County](/areas-we-serve)'s families actually live, and family buyers search differently. They read reviews. All of them. They compare three dentists before booking, check a roofer's photos from real jobs, and ask their neighborhood Facebook group before hiring anyone. Winning [local SEO](/services/local-seo) here isn't about tricks; it's about making sure that when a Port Orange parent does that research loop, you show up at every step with proof you're the safe choice. Our guide to [digital marketing in Port Orange](/blog/digital-marketing-port-orange-local-businesses) walks through that research loop.`,
   },
   {
     heading: 'The Dunlawton Corridor Problem',
@@ -86,7 +86,7 @@ export const portOrangeLocalContent: LocalContentSection[] = [
 export const ormondBeachLocalContent: LocalContentSection[] = [
   {
     heading: 'Local SEO Services in Ormond Beach, Florida',
-    body: `Ormond Beach customers do their homework, and content marketing is how a local business proves it's worth choosing. This is the most affluent stretch of the Volusia coast, and buyers here don't pick the first result — they pick the most credible one. That changes what [local SEO](/services/local-seo) has to do: ranking gets you considered; reviews, content depth, and a professional web presence get you chosen. We build both layers, because position without credibility just makes you the option people skip.`,
+    body: `Ormond Beach customers do their homework, and content marketing is how a local business proves it's worth choosing. This is the most affluent stretch of the Volusia coast, and buyers here don't pick the first result. They pick the most credible one. That changes what [local SEO](/services/local-seo) has to do: ranking gets you considered; reviews, content depth, and a professional web presence get you chosen. We build both layers, because position without credibility just makes you the option people skip. Our guide to [marketing to Ormond Beach's affluent market](/blog/marketing-ormond-beach-affluent-market) breaks down what that credibility takes.`,
   },
   {
     heading: 'Granada Boulevard to the Trails: Where the Searches Come From',
@@ -132,7 +132,7 @@ export const delandLocalContent: LocalContentSection[] = [
 export const flaglerBeachLocalContent: LocalContentSection[] = [
   {
     heading: 'Local SEO Services in Flagler Beach, Florida',
-    body: `Flagler Beach is deliberately small — no high-rises, no chains to speak of, a downtown you can walk in ten minutes. That's the brand, and it's also the search opportunity. Every restaurant, surf shop, charter, and service business here is independent, which means the map pack isn't dominated by franchise SEO budgets. A well-executed [local SEO](/services/local-seo) foundation — complete profile, steady reviews, a fast site that names the town — can put a Flagler Beach business at the top of its category and keep it there.`,
+    body: `Flagler Beach is deliberately small: no high-rises, no chains to speak of, a downtown you can walk in ten minutes. That's the brand, and it's also the search opportunity. Every restaurant, surf shop, charter, and service business here is independent, which means the map pack isn't dominated by franchise SEO budgets. A well-executed [local SEO](/services/local-seo) foundation (complete profile, steady reviews, a fast site that names the town) can put a Flagler Beach business at the top of its category and keep it there. Our guide to [local SEO and marketing for Flagler Beach small businesses](/blog/local-seo-marketing-flagler-beach-small-businesses) covers those fundamentals in detail.`,
   },
   {
     heading: 'The A1A Economy',
@@ -182,7 +182,7 @@ export const daytonaBeachLocalContent: LocalContentSection[] = [
 export const palmCoastLocalContent: LocalContentSection[] = [
   {
     heading: 'Local SEO Services in Palm Coast, Florida',
-    body: `Palm Coast added more new residents than almost any city its size in Florida over the past decade, and the local-search market still hasn't caught up. New subdivisions fill with households that have no plumber, no dentist, no favorite restaurant — every one of them running "near me" searches with zero loyalty. For a local business, that's the best possible SEO customer: high intent, no incumbent. [Local SEO](/services/local-seo) here is a land grab, and most of the land is still unclaimed.`,
+    body: `Palm Coast added more new residents than almost any city its size in Florida over the past decade, and the local-search market still hasn't caught up. New subdivisions fill with households that have no plumber, no dentist, no favorite restaurant, every one of them running "near me" searches with zero loyalty. For a local business, that's the best possible SEO customer: high intent, no incumbent. [Local SEO](/services/local-seo) here is a land grab, and most of the land is still unclaimed. Our guide to [digital marketing in Palm Coast](/blog/digital-marketing-palm-coast-growth-market) explains why getting in early pays off.`,
   },
   {
     heading: 'A City of Neighborhoods, and Google Knows It',
