@@ -72,9 +72,32 @@ export const locations: Location[] = [
       { title: 'Beach Tourism Marketing', description: 'Seasonal strategies for snowbirds, spring breakers, and year-round visitors.' },
       { title: 'Home Base Advantage', description: 'Same-day meetings, fastest response times, and deep community connections.' }
     ],
-    heroHeadline: 'Local SEO & Digital Marketing',
-    heroTagline: 'for Daytona Beach, Florida',
-    dateModified: '2026-10-23T10:00:00Z',
+    heroHeadline: 'Daytona Beach SEO Company',
+    heroTagline: 'for Local Service Businesses',
+    dateModified: '2026-11-07T10:00:00Z',
+    // The first three entries match the default FAQs LocationPage renders when none are set.
+    faqs: [
+      {
+        question: 'Do you specialize in Daytona Beach marketing?',
+        answer: 'Yes! We have deep expertise in Daytona Beach and Volusia County. We understand the local market, demographics, and what drives business success in this area.',
+      },
+      {
+        question: 'What industries do you serve in Daytona Beach?',
+        answer: 'We work with all types of local businesses in Daytona Beach including home services, healthcare, real estate, restaurants, retail, and professional services. Our strategies are customized for each industry.',
+      },
+      {
+        question: 'How quickly can I see results?',
+        answer: 'For [local SEO](/services/local-seo) in Daytona Beach, most clients see improvements within 30-90 days. Paid advertising can generate leads within days. We provide clear timelines based on your specific goals.',
+      },
+      {
+        question: 'Is SEO still relevant in 2026?',
+        answer: 'Yes. Buyers still start on Google, and AI answers are built from the same web Google indexes. A business with strong local pages and reviews is the business both systems recommend.',
+      },
+      {
+        question: 'Is it worth it to pay for SEO services?',
+        answer: 'In Daytona Beach, one booked job a month from search usually covers a month of service. We report the calls and rankings behind that math every month.',
+      },
+    ],
     localContent: daytonaBeachLocalContent,
   },
   {
