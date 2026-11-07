@@ -24,7 +24,7 @@ import {
 
 export const metadata: Metadata = {
   title: 'Daytona Beach SEO & GEO Company',
-  description: 'Your Daytona Beach SEO company for Volusia and Flagler Counties. Psychology-driven local SEO, GEO optimization, lead generation, and automation that turns search visibility into revenue.',
+  description: 'Daytona Beach SEO company for Volusia and Flagler service businesses. Local SEO, AI search visibility, and lead generation. Month-to-month, no contracts.',
   keywords: ['Daytona Beach SEO company', 'Daytona Beach SEO', 'Central Florida SEO', 'Volusia County digital marketing', 'Flagler County SEO', 'local SEO', 'psychology-driven marketing'],
   robots: {
     index: true,
