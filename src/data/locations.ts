@@ -96,7 +96,7 @@ export const locations: Location[] = [
     },
     heroHeadline: 'Local SEO & Content Marketing',
     heroTagline: 'for Ormond Beach, Florida',
-    dateModified: '2026-10-23T10:00:00Z',
+    dateModified: '2026-11-07T10:00:00Z',
     faqs: [
       {
         question: 'Do you specialize in Ormond Beach marketing?',
@@ -143,7 +143,7 @@ export const locations: Location[] = [
     },
     heroHeadline: 'Local SEO & Digital Marketing',
     heroTagline: 'for Port Orange, Florida',
-    dateModified: '2026-10-18T10:00:00Z',
+    dateModified: '2026-11-07T10:00:00Z',
     faqs: [
       {
         question: 'Do you specialize in Port Orange marketing?',
@@ -191,7 +191,7 @@ export const locations: Location[] = [
     heroHeadline: 'Palm Coast SEO',
     heroTagline: '& Flagler County Marketing',
     supplementalCopy: 'Palm Coast SEO is a distinct local-search game from Daytona or Orlando: dual demographics (retirees and young families), rapid new construction, and neighborhood-by-neighborhood proximity in the map pack. We build Palm Coast-specific GBP optimization, citation accuracy, review velocity, and location pages so you rank for Palm Coast SEO queries, not just generic statewide terms.',
-    dateModified: '2026-09-22T10:00:00Z',
+    dateModified: '2026-11-07T10:00:00Z',
     faqs: [
       {
         question: 'Do you specialize in Palm Coast marketing?',
@@ -232,7 +232,7 @@ export const locations: Location[] = [
     },
     heroHeadline: 'Local SEO & Digital Marketing',
     heroTagline: 'for New Smyrna Beach Businesses',
-    dateModified: '2026-09-22T10:00:00Z',
+    dateModified: '2026-11-07T10:00:00Z',
     faqs: [
       {
         question: 'Do you specialize in New Smyrna Beach marketing?',
@@ -524,7 +524,7 @@ export const locations: Location[] = [
     },
     heroHeadline: 'Local SEO & Digital Marketing',
     heroTagline: 'for Flagler Beach, Florida',
-    dateModified: '2026-10-03T10:00:00Z',
+    dateModified: '2026-11-07T10:00:00Z',
     faqs: [
       {
         question: 'Do you specialize in Flagler Beach marketing?',

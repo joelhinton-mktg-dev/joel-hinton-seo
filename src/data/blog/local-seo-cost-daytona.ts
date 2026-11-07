@@ -27,7 +27,7 @@ For a local service business in Daytona Beach and Volusia County specifically, h
 
 Representative ranges for local SEO in the Daytona / Volusia market, including AIO Growth SEO's own pricing. Scope determines where you land.
 
-Notice this sits at or below the national average, not above it. A single-location business targeting one city sits at the lower end. A contractor covering several Volusia cities with multiple services sits higher. What you should never accept is a price with no explanation of what it buys. Our full [pricing](https://aiogrowthseo.com/pricing) is public for exactly that reason.
+Notice this sits at or below the national average, not above it. A single-location business targeting one city sits at the lower end. A contractor covering several Volusia cities with multiple services sits higher. What you should never accept is a price with no explanation of what it buys. Our full [pricing](https://aiogrowthseo.com/pricing) is public for exactly that reason. The same tiers apply across our [local SEO services in Volusia County](https://aiogrowthseo.com/services/local-seo).
 
 ## What determines where you land in that range?
 
@@ -61,7 +61,7 @@ We will look at how many services and cities you need to cover, tell you honestl
 `,
   author: 'Joel Hinton',
   publishDate: '2026-09-13T10:00:00Z',
-  lastModified: '2026-09-22T10:00:00Z',
+  lastModified: '2026-11-07T10:00:00Z',
   category: "Local SEO",
   tags: ['Local SEO', 'Pricing', 'Daytona Beach', 'Small Business'],
   faqs: [
