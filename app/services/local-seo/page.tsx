@@ -38,6 +38,61 @@ const localCityHrefs: Record<string, string> = {
   "Sanford": "/areas-we-serve/sanford",
 };
 
+const peopleAlsoAskFaqs = [
+  {
+    question: 'Is it worth it to pay for SEO services?',
+    answer: 'For a local service business, yes, when the work targets the searches that produce calls. One booked job a month from Google usually covers the cost of the service. The test is reporting: you should see rankings, calls, and the pages behind them, every month.',
+  },
+  {
+    question: 'How can I do local SEO?',
+    answer: 'Start with a claimed and verified Google Business Profile, one service page per service you sell, reviews asked for after every finished job, and your name, address, and phone number identical everywhere they appear online. That foundation is what rankings are built on.',
+  },
+  {
+    question: 'Can ChatGPT do SEO?',
+    answer: 'ChatGPT can draft content and speed up research, but it cannot verify your listings, earn reviews, or know your market. We use AI tools inside a human-run process: the strategy, the local judgment, and the accountability stay with people.',
+  },
+];
+
+// Plain-text mirror of every visible FAQ on this page, for FAQPage JSON-LD.
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      question: 'How long does it take to see results from Local SEO?',
+      answer: 'Most businesses see initial improvements in 30-60 days. Google Business Profile optimizations can show results within 2 weeks. Full local pack rankings typically improve within 3-6 months depending on competition in your area.',
+    },
+    {
+      question: 'Do I need both Local SEO and regular SEO?',
+      answer: "If you're a local business serving Volusia or Flagler County, Local SEO should be your priority. It's often the fastest path to new customers. Traditional SEO can complement local efforts but isn't always necessary for service-area businesses.",
+    },
+    {
+      question: 'Can you help with multiple locations?',
+      answer: 'Yes. Our Enterprise plan is designed for businesses with 10+ locations. We use programmatic local SEO strategies to efficiently manage multiple Google Business Profiles, local pages, and citations across all your service areas.',
+    },
+    {
+      question: 'What if I get a negative review?',
+      answer: 'Our review management strategy includes response templates for negative reviews and a process to turn unhappy customers into advocates. We also help you proactively generate positive reviews to maintain a strong reputation.',
+    },
+    {
+      question: 'What is the best local SEO company in Daytona Beach?',
+      answer: 'The best local SEO company for your Daytona Beach business is one that focuses on your specific market, not a national agency applying a generic playbook. Look for a company that can show you local rankings they have moved for similar businesses, explains what they are doing in plain language, and does not require a long-term contract before you have seen results. We are based in Daytona Beach and work exclusively in Volusia and Flagler Counties.',
+    },
+    {
+      question: 'How much does local SEO cost in Volusia County?',
+      answer: `For most Volusia County service businesses, published monthly plans are ${localSeoLadderSummary} depending on how many cities you are targeting and how competitive your category is. Holly Hill and DeLand are less expensive to rank in than Daytona Beach proper. We have a full breakdown of what drives the cost on our pricing page and a detailed guide to local SEO cost in Daytona Beach.`,
+    },
+    ...peopleAlsoAskFaqs,
+  ].map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
 export default function LocalSEOPage() {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Local SEO Strategy Consultation');
 
@@ -47,6 +102,10 @@ export default function LocalSEOPage() {
         name="Local SEO Services in Daytona Beach, Florida — Volusia County"
         description="Local SEO for Daytona Beach and Volusia County businesses. Map pack rankings, GBP optimization, and content that gets you found. Month-to-month, no contracts."
         url="https://aiogrowthseo.com/services/local-seo"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="min-h-screen bg-background">
@@ -71,10 +130,10 @@ export default function LocalSEOPage() {
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                When someone searches &quot;[your service] near me&quot; in{' '}
+                AIO Growth provides local SEO services in Daytona Beach and across Volusia County, built to turn map pack and organic rankings into booked calls. When someone searches &quot;[your service] near me&quot; in{' '}
                 <Link href="/areas-we-serve/daytona-beach" className="text-primary hover:underline">Daytona Beach</Link>,{' '}
                 <Link href="/areas-we-serve/ormond-beach" className="text-primary hover:underline">Ormond Beach</Link>,{' '}
-                <Link href="/areas-we-serve/port-orange" className="text-primary hover:underline">Port Orange</Link>, or Palm Coast - <Link href="/blog/why-volusia-hvac-businesses-buried-google" className="text-primary hover:underline">are you showing up</Link>? Our Local SEO services put your business in front of customers actively looking for what you offer.
+                <Link href="/areas-we-serve/port-orange" className="text-primary hover:underline">Port Orange</Link>, or Palm Coast, <Link href="/blog/why-volusia-hvac-businesses-buried-google" className="text-primary hover:underline">are you showing up</Link>? Our Local SEO services put your business in front of customers actively looking for what you offer.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -483,6 +542,17 @@ export default function LocalSEOPage() {
                   .
                 </AccordionContent>
               </AccordionItem>
+
+              {peopleAlsoAskFaqs.map((faq, index) => (
+                <AccordionItem key={faq.question} value={`item-${index + 7}`} className="border border-border rounded-lg px-6">
+                  <AccordionTrigger className="text-left font-semibold">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </section>
