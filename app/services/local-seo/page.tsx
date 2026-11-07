@@ -130,7 +130,10 @@ export default function LocalSEOPage() {
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                AIO Growth provides local SEO services in Daytona Beach and across Volusia County, built to turn map pack and organic rankings into booked calls. Our Local SEO services put your business in front of customers actively looking for what you offer.
+                AIO Growth provides local SEO services in Daytona Beach and across Volusia County, built to turn map pack and organic rankings into booked calls. When someone searches &quot;[your service] near me&quot; in{' '}
+                <Link href="/areas-we-serve/daytona-beach" className="text-primary hover:underline">Daytona Beach</Link>,{' '}
+                <Link href="/areas-we-serve/ormond-beach" className="text-primary hover:underline">Ormond Beach</Link>,{' '}
+                <Link href="/areas-we-serve/port-orange" className="text-primary hover:underline">Port Orange</Link>, or Palm Coast, <Link href="/blog/why-volusia-hvac-businesses-buried-google" className="text-primary hover:underline">are you showing up</Link>? Our Local SEO services put your business in front of customers actively looking for what you offer.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
