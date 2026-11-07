@@ -57,7 +57,7 @@ For most [local service businesses](https://aiogrowthseo.com/blog/seo-for-home-s
 
 ## Get a straight quote for your business
 
-We will look at how many services and cities you need to cover, tell you honestly where you land in the range, and explain exactly what it buys, no vague “it depends,” no guaranteed-ranking pitch. See our [local SEO services](https://aiogrowthseo.com/services/local-seo) and [pricing](https://aiogrowthseo.com/pricing), or [book a free audit](https://aiogrowthseo.com/contact).
+We will look at how many services and cities you need to cover, tell you honestly where you land in the range, and explain exactly what it buys, no vague “it depends,” no guaranteed-ranking pitch. See our local SEO services and [pricing](https://aiogrowthseo.com/pricing), or [book a free audit](https://aiogrowthseo.com/contact).
 `,
   author: 'Joel Hinton',
   publishDate: '2026-09-13T10:00:00Z',
