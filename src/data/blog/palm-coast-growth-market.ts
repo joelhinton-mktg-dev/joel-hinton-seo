@@ -31,7 +31,7 @@ Claim and fully optimize your Google Business Profile. Complete every field, set
 Build real local content. Pages for each service and each part of Palm Coast you serve, answering the questions residents actually ask. This is what claims rankings and holds them.
 Build review velocity now. A steady flow of recent reviews compounds. Starting early means you have a deep, current review profile by the time competitors are just beginning.
 Set up for AI search. When new residents ask AI “who should I call for X in Palm Coast,” that space is essentially uncontested in Flagler County right now. Being early here is a real, temporary edge, the core of our [GEO optimization](https://aiogrowthseo.com/services/geo-optimization).
-None of this is exotic. It is the fundamentals, done properly and done now. Much of the ongoing demand comes from Palm Coast's new residents, and there is a whole search sequence they follow as they settle in, we break that down in our guide to [how Palm Coast's new construction creates local search demand](https://aiogrowthseo.com/blog/palm-coast-new-construction-local-search-demand).
+None of this is exotic. It is the fundamentals, done properly and done now. That foundation work is what our [local SEO services](https://aiogrowthseo.com/services/local-seo) are built around, month in and month out. Much of the ongoing demand comes from Palm Coast's new residents, and there is a whole search sequence they follow as they settle in, we break that down in our guide to [how Palm Coast's new construction creates local search demand](https://aiogrowthseo.com/blog/palm-coast-new-construction-local-search-demand).
 
 ## Neighborhood proximity still matters
 
