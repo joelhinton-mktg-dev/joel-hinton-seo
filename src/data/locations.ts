@@ -113,7 +113,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'Flagler Beach', 'Palm Coast'],
     coordinates: { latitude: '29.2858', longitude: '-81.0559' },
     seo: {
-      metaTitle: 'Local SEO & Digital Marketing for Ormond Beach, Florida',
+      metaTitle: 'Local SEO Services in Ormond Beach, Florida',
       metaDescription: 'Local SEO for Ormond Beach businesses — medical practices, home services, professional services, and restaurants. Affluent market, lower competition than Daytona. We know how to win it.',
       keywords: ['Ormond Beach SEO', 'Ormond Beach marketing', 'birthplace of speed', 'Ormond Beach digital marketing']
     },
@@ -160,7 +160,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Daytona Beach', 'New Smyrna Beach', 'South Daytona'],
     coordinates: { latitude: '29.1383', longitude: '-80.9956' },
     seo: {
-      metaTitle: 'Local SEO & Digital Marketing for Port Orange, Florida',
+      metaTitle: 'Local SEO Services in Port Orange, Florida',
       metaDescription: 'Local SEO for Port Orange businesses — one of Volusia County\'s fastest-growing markets with strong residential demographics. We help contractors, medical practices, and professional services rank where Port Orange buyers are searching.',
       keywords: ['Port Orange marketing', 'Port Orange SEO', 'Port Orange digital marketing', 'family marketing']
     },
@@ -313,7 +313,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Lake Mary', 'Longwood', 'Winter Springs', 'DeBary'],
     coordinates: { latitude: '28.8001', longitude: '-81.2731' },
     seo: {
-      metaTitle: 'Local SEO & Digital Marketing for Sanford, Florida',
+      metaTitle: 'Local SEO Services in Sanford, Florida',
       metaDescription: 'Local SEO for Sanford businesses — historic downtown, SunRail corridor, and the I-4 growth market. 45 minutes from Daytona Beach. We know Central Florida and we\'re building here.',
       keywords: ['Sanford SEO', 'Sanford marketing', 'Sanford digital marketing', 'downtown Sanford marketing']
     },
@@ -362,7 +362,7 @@ export const locations: Location[] = [
     nearbyAreas: ['Sanford', 'Daytona Beach', 'Central Florida'],
     coordinates: { latitude: '28.6611', longitude: '-81.3656' },
     seo: {
-      metaTitle: 'Local SEO & Digital Marketing for Altamonte Springs, Florida',
+      metaTitle: 'Local SEO Services in Altamonte Springs, Florida',
       metaDescription:
         "Local SEO for Altamonte Springs businesses — one of the I-4 corridor's most searched suburban markets, 30 minutes from Daytona Beach via Sanford. We are expanding here now.",
       keywords: [
