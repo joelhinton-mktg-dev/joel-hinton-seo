@@ -58,7 +58,7 @@ For a local service business the scope is narrower. The work that moves AI answe
 
 **Content structured for extractability.** Short factual summaries, clear Q and A, specific statements instead of marketing prose. "We repair residential AC in Port Orange and take same-day emergency calls" is usable. "We are passionate about comfort" is not.
 
-**Google Business Profile as a primary AI source.** For a local business, the profile is often the richest page an AI can find: category, service area, hours, reviews, photos.
+**Google Business Profile as a primary AI source.** For a local business, the profile is often the richest page an AI can find: category, service area, hours, reviews, photos. For contractors, our guide to [GEO for home service businesses](/blog/geo-home-services-contractors-ai) walks through the trade-by-trade version.
 
 **FAQ content aligned to real buyer questions.** The questions a homeowner types into ChatGPT are the same ones they ask on the phone.
 
