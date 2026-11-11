@@ -54,7 +54,7 @@ Some of it, yes, and it is worth knowing the line. You can claim and complete yo
 
 ## Is SEO dead now that AI answers everything?
 
-No, and for home services the opposite is true. AI has changed where visibility happens, Google now shows AI answers that can take up to 58% of clicks from the top result on informational searches, per Ahrefs' analysis of 300,000 keywords. But the work that earns those AI citations, an accurate profile, real reviews, clear trade-specific content, is the same local SEO work that wins the map pack. So good SEO now feeds two channels at once. When someone asks Google's AI or ChatGPT for “the best plumber in Ormond Beach,” it leans on the same signals you are already building. The businesses winning both are the ones doing genuine local SEO, not chasing tricks.
+No, and for home services the opposite is true. AI has changed where visibility happens, Google now shows AI answers that can take up to 58% of clicks from the top result on informational searches, per Ahrefs' analysis of 300,000 keywords. But the work that earns those AI citations, an accurate profile, real reviews, clear trade-specific content, is the same local SEO work that wins the map pack. So good SEO now feeds two channels at once. When someone asks Google's AI or ChatGPT for “the best plumber in Ormond Beach,” it leans on the same signals you are already building. Our guide to [getting your trade business recommended by AI](https://aiogrowthseo.com/blog/geo-home-services-contractors-ai) covers the AI-specific steps. The businesses winning both are the ones doing genuine local SEO, not chasing tricks.
 
 ## How long does it take?
 
