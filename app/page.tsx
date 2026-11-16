@@ -193,6 +193,13 @@ export default function HomePage() {
                 From the beaches of Daytona to the historic streets of Sanford, we understand what drives
                 local customers in Central Florida. Market-specific strategies that resonate with your community.
               </p>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Every market here runs on one core service, our{' '}
+                <Link href="/services/local-seo" className="text-primary underline hover:text-primary/80">
+                  local SEO service in Daytona Beach
+                </Link>
+                , where AIO Growth is based.
+              </p>
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
