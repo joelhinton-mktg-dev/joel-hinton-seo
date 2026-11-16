@@ -130,6 +130,14 @@ export default function BlogPage() {
             Unlock the power of consumer psychology to drive growth, increase conversions,
             and build stronger connections with your audience.
           </p>
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mt-4">
+            If you are a Volusia or Flagler business looking for the service itself rather than the
+            reading, start with our{' '}
+            <Link href="/services/local-seo" className="text-blue-600 underline hover:text-blue-800">
+              local SEO services in Daytona Beach
+            </Link>
+            .
+          </p>
         </div>
 
         {/* Featured Post */}
