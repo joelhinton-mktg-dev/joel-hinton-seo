@@ -3,87 +3,106 @@ import { localSeoLadderSummary } from '../pricing';
 
 export const whatDoesAnSeoCompanyDoPost: BlogPost = {
   id: "what-does-an-seo-company-do",
-  title: "What Does an SEO Company Actually Do? A Plain-English Breakdown",
+  title: "What Does an SEO Company Do? The Daytona Beach Version",
   slug: "what-does-an-seo-company-do",
-  excerpt: "What an SEO company actually does for a local business, in plain English: the real monthly work, and how to tell real effort from busywork.",
-  content: `## What does an SEO company actually do?
+  excerpt: "What an SEO company actually does for a Daytona Beach business, in plain English: the audit, the Google Business Profile work, the town pages, the reviews, and the monthly reporting behind the fee.",
+  content: `## What does an SEO company do, in plain English?
 
-> **TL;DR:** An SEO company does the ongoing work that makes your business easier to find when someone searches for what you sell. In practice that means a handful of recurring jobs: auditing your website for what is holding it back, researching the exact phrases your customers type, fixing the technical and on-page issues that keep you from ranking, publishing content that answers real questions, building your reputation across the web, and reporting on what is actually moving. For a local service business, the local side matters most, your Google Business Profile, your reviews, and pages built around the towns you serve. The honest version of the answer is that a good SEO company turns all of that into a steady monthly routine rather than a one-time project, because search visibility is earned and maintained, not bought once. What you are paying for is the work and the judgment behind it, month after month.
+> **TL;DR:** An SEO company does the ongoing work that makes your business show up when people search for what you sell. For a Daytona Beach business, that work is mostly local: auditing your website for what is holding it back, fixing the technical problems Google trips on, running your Google Business Profile, building pages for the towns you serve, earning and answering reviews, and getting your business named in AI answers as well as regular results. Then it measures all of it and adjusts. You are not paying for a one-time product. You are paying for that routine, run every month, by someone who knows this market.
 
-Search this question and you get a wall of glossary pages, most of them written to sell you a tool or a national retainer, and all of them explaining the same seven services in the same abstract way. This is the version for a local business owner who is deciding whether to hire one: what an SEO company actually does for a business like yours, what a month of that work looks like, and how you would know real work from busywork.
+Search this question nationally and you get a wall of glossary pages from big agencies, all listing the same seven services in the same abstract way. Almost none of it describes what the job looks like for a plumber in Port Orange, a dentist in Ormond Beach, or a tour operator on Beach Street, where nearly every customer is searching on a phone, within a few miles, ready to call somebody today. This is the local version: what an SEO company actually does for a business in Daytona Beach and Volusia County, job by job.
 
-## The work, in plain English
+## It starts by finding what is holding your site back
 
-Strip away the jargon and an SEO company does six recurring jobs. Here is what each one actually is, and why it matters for a local business rather than in the abstract.
+The first job is an audit, and it is a diagnosis, not a sales trick. The company goes through your website the way Google and your customers do: how fast it loads on a phone, whether every page can be found and read, which pages exist and which ones are missing, and what is quietly broken.
 
-**1. Figures out what is holding your site back.** Before anyone touches anything, a good SEO company audits your website: how it is built, how fast it loads, whether it works on a phone, which pages exist, and what is broken. For a local business this is where they find the obvious problems, a missing service-area page, a contact page Google cannot read, a site that takes eight seconds to load on mobile while your customers are standing in a parking lot. The audit is the diagnosis. Everything after it is treatment.
+For a local business, the findings are usually plain. A services page that never names the towns you work in. Hours that disagree with your Google Business Profile. A site that takes eight seconds to load while a customer is standing in a parking lot comparing you to the shop down the road. A contact page search engines cannot read properly. Nothing glamorous, and all of it fixable, but nobody fixes it until somebody writes it down. The audit is that list. Everything after it is treatment.
 
-**2. Learns the exact words your customers search.** Keyword research sounds technical but it is really just finding out what your customers type. Not "HVAC services" but "AC not blowing cold air Port Orange" or "emergency plumber near Daytona Beach." An SEO company builds the list of phrases that actually bring in calls, separates the ones worth competing for from the ones that are a waste of time, and maps each one to a page on your site. Get this wrong and all the other work points in the wrong direction.
+## It learns the words Volusia customers actually type
 
-**3. Fixes the technical and on-page problems.** This is the hands-on part: rewriting page titles and descriptions so they match what people search, fixing crawl errors so Google can read your pages, speeding up load times, adding structured data (the code that helps search engines and AI understand who you are and where you work), and making sure each page is built around one clear topic. Most of it is invisible to you and essential to Google. It is the difference between a site that technically exists and a site that search engines can actually use.
+The second job is search research: finding the exact phrases your customers use, which are rarely the phrases you would use yourself. Owners search for their industry terms. Customers search like people: "ac not blowing cold air Port Orange," "emergency plumber near me," "best time to see manatees New Smyrna."
 
-**4. Publishes content that answers real questions.** Search engines reward sites that genuinely help the person searching. So an SEO company writes and updates the pages that answer your customers' questions, your service pages, the pages about the areas you cover, and articles like the one you are reading now. For a local business, the content that works is specific and useful, not padded filler. The goal is to be the clearest, most helpful answer for the searches that bring you business.
+A good local company builds that list for your market specifically, because Daytona is not one market. It is a string of towns, Daytona Beach, Port Orange, Ormond Beach, New Smyrna Beach, DeLand, Deltona, each with its own searches, plus seasonal waves on top: event weeks, tourist season, and snowbird season all change what people type and when. The research separates the phrases worth competing for from the ones that waste money, and matches each phrase to one page on your site, so the work that follows points in the right direction.
 
-**5. Builds your reputation across the web.** Google trusts businesses that other credible places point to. Off-page SEO is the work of earning that: getting your business listed accurately in the right directories, earning mentions and links from local and industry sources, and keeping your name, address, and phone number consistent everywhere they appear. For a local service business this overlaps heavily with your Google Business Profile and your reviews, which carry real weight in local results. A complete, active profile is one of the clearest signals you are a real, trusted business. Google has reported that complete Business Profiles are considerably more likely to be seen as reputable by customers.
+## It fixes the site so Google can read it
 
-**6. Measures what is working and adjusts.** None of this is set-and-forget. A real SEO company tracks the numbers that matter, where you rank for your key phrases, how much organic traffic you get, and most importantly how many calls and form fills come from it, then adjusts the plan based on what the data shows. Reporting is not just a monthly PDF. It is the feedback loop that tells them what to do more of and what to drop.
+The third job is the hands-on technical and on-page work: rewriting page titles and descriptions so they match what people search, fixing crawl errors, speeding up slow pages, and adding structured data, the code behind the scenes that tells search engines and AI tools who you are, where you are, and what you do.
 
-## What a month of SEO work actually looks like
+Most of this is invisible to you, and that is normal. It is the difference between a site that technically exists and a site Google can actually use. A page Google cannot crawl cannot rank, no matter how good it looks, and a business whose name, address, and services are not stated clearly in the code is a business AI tools struggle to describe. This job is mostly done early and then maintained, because sites drift: pages get edited, plugins update, things break quietly.
 
-Here is the part the glossary pages skip, and the part most owners actually want to understand. When you pay an SEO company a monthly retainer, you are not paying for a finished product that arrives once. You are paying for a recurring cycle of work. A typical month includes some mix of technical fixes and page improvements, a piece or two of new or updated content, ongoing work on your Business Profile and reviews, monitoring your rankings and your competitors, and a report that explains what changed and why. The exact blend shifts month to month, heavy on technical fixes early, heavy on content and authority-building later, because SEO is a progression, not the same checklist repeated.
+## It runs your Google Business Profile like a storefront
 
-This is also why SEO takes time and why month one rarely shows results. The early weeks are spent fixing foundations and building things that pay off later. If you understand that the monthly fee buys ongoing work rather than instant rankings, the whole arrangement makes more sense, and you are far better equipped to tell a company that is actually working from one that is quietly doing nothing.
+For a local business, the fourth job may matter more than your website. Your Google Business Profile is what shows up in the map results when someone searches near you, and for many customers it is the first and only impression they get. An SEO company treats it like a storefront, not a listing you set up once in 2019.
 
-## How to tell real work from busywork
+That means the right categories, every service listed, accurate hours including holiday and event weeks, fresh photos of real work, regular posts, and questions answered before a competitor answers them for you. It also means keeping your name, address, and phone number identical everywhere they appear online, because conflicting details make Google trust you less. We walk through the full routine in our guide to [Google Business Profile optimization in Daytona](https://aiogrowthseo.com/blog/google-business-profile-optimization-daytona). This profile work is the core of [local SEO services in Daytona Beach](https://aiogrowthseo.com/services/local-seo), and it never really ends, because the profile that goes quiet is the one that slides.
 
-The single most useful thing you can do as a client is know what each service should produce, so you can tell whether it is happening. This is how the recurring work maps to something you can actually see.
+## It builds pages for the towns you actually serve
 
-| What they should be doing | What it means for your business | How you would know it is happening |
-| --- | --- | --- |
-| Technical and on-page fixes | Your pages load fast and search engines can read them | A list of specific fixes made, before-and-after on speed or errors |
-| Keyword and content work | You show up for the phrases that bring calls | New or updated pages, and rankings climbing for your real terms |
-| Local and Business Profile work | You appear in the map results and look trustworthy | An active, complete profile, fresh reviews, consistent listings |
-| Authority and off-page work | Credible places point to your business | New accurate directory listings and mentions over time |
-| Reporting and strategy | The plan adjusts based on what is working | A report tying the work to calls and leads, not just traffic |
+The fifth job is content, and locally that mostly means pages, not blog posts for their own sake. A page for each service you offer. A page for each town you genuinely serve, written for that town rather than copied with the name swapped. Articles that answer the real questions your customers ask before they call, like the one you are reading now.
 
-If a company cannot show you concrete work in these categories, or every report is a wall of traffic charts with no mention of leads, that is the signal something is off. Real SEO work produces visible artifacts: pages changed, listings built, rankings moved, calls tracked.
+There is a hard truth under this job: you generally cannot rank in a town your site never mentions. A Port Orange homeowner searching at 9 pm does not find the Daytona Beach company whose site only talks about Daytona Beach, even if the shop is ten minutes away. Town pages, backed by a profile and reviews that prove you actually work there, are how a local company closes that gap. It is unglamorous, specific work, and it is exactly the work national packages skip.
 
-## What separates a good SEO company from the rest
+Each page gets one clear topic and one clear job: be the best answer for a specific search from a specific place. A Daytona Beach page should sound like Daytona Beach, with the neighborhoods, landmarks, and seasons your customers recognize, because generic pages written for anywhere rank nowhere in particular. This is slow work, a page or two at a time, and it compounds. Six months of it is a site that covers your whole service area with pages a national competitor cannot copy without actually knowing Volusia County.
 
-Plenty of companies do the six jobs above. What separates the ones worth hiring is how they do them: they are specific about your market rather than running a generic national playbook, they tie their work to leads and revenue rather than vanity metrics, they explain what they are doing in language you understand, and they are honest about timelines instead of promising page one in thirty days. Vetting for those traits is its own task, and we wrote a full guide to it. If you are at the point of comparing providers, [how to choose a Daytona Beach SEO company](https://aiogrowthseo.com/blog/how-to-choose-daytona-beach-seo-company) walks through exactly what to ask and what the answers reveal.
+## It builds your reputation: reviews and listings
 
-## Do you actually need an SEO company?
+The sixth job is reputation. Google trusts businesses that the rest of the web vouches for, so the company works on the proof: getting your business listed accurately in the directories that matter, earning mentions and links from local and industry sources, and above all, reviews.
 
-Not every business needs to hire one today. If you are brand new, have no website worth optimizing, or cannot yet handle more calls, your money is better spent elsewhere first. SEO is most worth it when you have a functioning website, capacity to take on more work, and customers who are clearly searching for what you do. For most established local service businesses in a competitive market like Volusia County, that describes you, and the question is less whether to invest in search visibility than whether to build it in-house or hire it out. The honest trade-offs there, including what it costs, are covered in our breakdown of [what local SEO actually costs in Daytona Beach](https://aiogrowthseo.com/blog/how-much-does-local-seo-cost-daytona-beach).
+Reviews carry real weight in local results, and they are the part owners most often leave to chance. The work here is a system, not luck: asking at the right moment, making it easy, responding to every review like a person, and handling the bad ones calmly and in public, where future customers can watch you do it. Over time, a steady stream of answered reviews tells both Google and searchers the same thing, that this is a real, active, trusted business.
 
-## See what the work looks like for your business
+## It gets you ready for AI answers, not just blue links
 
-We will show you exactly what an SEO company would do for your business, starting with a plain-English audit of what is holding you back and what the first ninety days would focus on. No jargon, no long contract, no pressure. See how we approach [search engine optimization](https://aiogrowthseo.com/services/search-engine-optimization), or [book a free audit](https://aiogrowthseo.com/contact).
+The seventh job is new, and it is the one the national glossary pages are only starting to mention. More of your customers now ask ChatGPT or read the AI Overview at the top of Google instead of clicking through results. When someone asks an AI tool who to call in Daytona Beach, it names specific local businesses, and it names the ones it can understand and verify.
+
+Watch what an AI tool does when it answers: it pulls from profiles, reviews, directories, and pages it can read clearly, then names a few businesses and gives its reasons. If your details conflict across the web, or your pages never say which towns you serve, you are hard to name with confidence, so it names your competitor instead.
+
+The work that earns that is not a separate trick. It is the same jobs above, done clearly: a complete profile, consistent details everywhere, specific local content, real reviews, and structured data that states plainly what you do and where you do it. An SEO company that works in 2026 treats ranking in regular results and being cited in AI answers as one job, because for a local business they now run on the same signals.
+
+## It measures, reports, and adjusts every month
+
+The last job ties the rest together. None of this is set-and-forget, so the company tracks where you rank for your real phrases, how your map visibility moves, how many calls and form fills come in, and what your competitors did, then adjusts next month's work based on what the numbers say.
+
+That cycle is what a monthly fee actually buys. The blend shifts over time, heavy on fixes early, heavy on content and reputation later, and a typical month produces things you can see:
+
+| The job | What you should see |
+| --- | --- |
+| Audit and technical fixes | A list of specific problems found and fixed |
+| Profile work | New posts and photos, hours and services current |
+| Content | New or updated pages live on your site |
+| Reviews and listings | Review count climbing, listings corrected |
+| Reporting | A report tying the work to rankings, calls, and leads |
+
+If months pass and none of those artifacts exist, the work is not happening, whatever the invoice says. What this work costs in the Daytona area is its own question, and we break it down in [what local SEO actually costs in Daytona Beach](https://aiogrowthseo.com/blog/how-much-does-local-seo-cost-daytona-beach).
+
+## Once you know what the job is
+
+Knowing what an SEO company does is the first half. The second half is picking one, and that is a different task with its own warning signs. Once you know what the job is, here is [how to choose a Daytona Beach SEO company](https://aiogrowthseo.com/blog/how-to-choose-daytona-beach-seo-company), including the questions to ask and the answers that should end the conversation.
+
+If you would rather just see the list for your own business, get in touch and we will tell you plainly what we would do first, starting with what is holding your site back. No jargon, no pressure, and no long contract pitch.
 `,
   author: 'Joel Hinton',
   publishDate: "2026-10-20T10:00:00Z",
-  lastModified: "2026-10-28T10:00:00Z",
+  lastModified: "2026-11-17T10:00:00Z",
   category: 'Local SEO',
-  tags: ["seo company", "what does an seo company do", "local seo", "daytona beach seo", "hiring an seo company"],
+  tags: ["seo company", "what does an seo company do", "local seo", "daytona beach seo", "seo company daytona beach", "volusia county seo"],
   featuredImage: "/images/blog/what-does-an-seo-company-do.jpg",
   imagePlaceholders: [
-    { id: "hero", alt: "What an SEO company does for a local business — process from technical setup to search rankings", width: 1672, height: 941, src: "/images/blog/what-does-an-seo-company-do.jpg" }
+    { id: "hero", alt: "What an SEO company does for a Daytona Beach business: audits, profile work, town pages, reviews, and reporting", width: 1672, height: 941, src: "/images/blog/what-does-an-seo-company-do.jpg" }
   ],
   faqs: [
-    { question: "What do you actually get for a monthly SEO fee?", answer: "Ongoing work, not a one-time product: a mix of technical and on-page fixes, new or updated content, work on your Google Business Profile and reviews, rank and competitor monitoring, and a report explaining what changed. The blend shifts month to month, foundations first, then content and authority-building. You are paying for the recurring work and the judgment behind it." },
-    { question: "How is an SEO company different from a web designer?", answer: "A web designer builds how your site looks and works. An SEO company makes it findable: researching what customers search, fixing what keeps you from ranking, publishing content that answers real questions, and building your reputation so you show up when people look. A good site needs both, but they are different jobs, and a beautiful site that nobody finds still does not bring you calls." },
-    { question: "Can I just do SEO myself?", answer: "Some of it, yes, especially the basics of your Google Business Profile and reviews. The harder parts, technical fixes, consistent content, and authority-building, take time and know-how that most owners do not have to spare. The real question is whether your hours are better spent running your business or learning SEO. For many owners, doing the easy local basics themselves and hiring out the rest is the practical middle ground." },
+    { question: "What do you actually get for a monthly SEO fee?", answer: "Ongoing work, not a one-time product: technical and on-page fixes, new or updated pages, Google Business Profile and review work, rank and competitor monitoring, and a report explaining what changed and what it produced. The blend shifts month to month, foundations first, then content and reputation. You are paying for the recurring work and the judgment behind it." },
+    { question: "How is an SEO company different from a web designer?", answer: "A web designer builds how your site looks and works. An SEO company makes it findable: researching what customers search, fixing what keeps you from ranking, publishing content that answers real questions, and building your reputation so you show up when people look. A good business needs both, but they are different jobs, and a beautiful site nobody finds still does not bring you calls." },
+    { question: "Can I just do SEO myself?", answer: "Some of it, yes, especially the basics of your Google Business Profile and reviews. The harder parts, technical fixes, steady content, and reputation building, take time and know-how most owners do not have to spare. The real question is whether your hours are better spent running your business or learning SEO. For many Daytona area owners, doing the easy local basics themselves and hiring out the rest is the practical middle ground." },
     { question: "How fast does an SEO company get results?", answer: "Slower than most owners expect and faster than skeptics claim. The early weeks go to fixing foundations that pay off later, so month one rarely shows much. Most local businesses start seeing meaningful movement in a few months, with the bigger gains compounding after that. Any company promising page one in thirty days is selling something, not doing the work." },
-    { question: "Is SEO dead now with AI?", answer: "No — but it is changing. AI Overviews now appear above organic results for many searches, which reduces clicks on blue links. That does not mean SEO is dead; it means the goal has expanded. Getting your site to rank still matters. Getting your business cited inside AI answers now matters equally. The businesses that treat these as one strategy rather than competing priorities are the ones pulling ahead in 2026. Local service businesses are actually better positioned here than national brands because AI answers for local searches still name specific local businesses by name." },
-    { question: "Is it worth it to pay for SEO services?", answer: `For most local service businesses, yes if the work is real and priced honestly. SEO builds an asset that compounds over time. Unlike ads, which stop producing the moment you stop paying, the rankings and citations you earn from SEO keep working. The catch is the work is real. A $200 per month package is almost never real SEO. Published monthly plans are ${localSeoLadderSummary}. See our [local SEO pricing breakdown](/blog/how-much-does-local-seo-cost-daytona-beach) for Volusia County context.` },
-    { question: "Is SEO dead or evolving in 2026?", answer: "Evolving — significantly. The parts of SEO that are declining: chasing individual keyword rankings with thin content, buying low-quality backlinks, and optimizing only for Google blue links. The parts that are growing: topical authority, AI citation signals, structured data for LLM retrieval, and GEO optimization to get cited in AI-generated answers. For a local business in Daytona Beach or Volusia County, the evolution is mostly good news — the signals that win in AI search are the same signals that always made sense for local businesses: complete profiles, real reviews, specific local content. See our guide on [GEO vs SEO](/guides/geo-vs-seo-whats-the-difference)." }
+    { question: "Is SEO dead or evolving in 2026?", answer: "Evolving, significantly. The parts in decline: chasing single keyword rankings with thin content, buying low-quality links, and optimizing only for the blue links. The parts growing: being cited in AI answers, structured data that helps AI tools understand your business, complete profiles, and real reviews. For a local business in Daytona Beach or Volusia County, the evolution is mostly good news, because the signals that win in AI search are the same ones that always made sense locally. See our guide on [GEO vs SEO](/guides/geo-vs-seo-whats-the-difference)." },
+    { question: "Is it worth paying someone for SEO?", answer: `For most local service businesses, yes, if the work is real and priced honestly. SEO builds an asset that compounds. Unlike ads, which stop producing the moment you stop paying, the rankings and citations you earn keep working. The catch is that the work has to be real, and a $200 per month package is almost never real SEO. Published monthly plans are ${localSeoLadderSummary}. See our [local SEO pricing breakdown](/blog/how-much-does-local-seo-cost-daytona-beach) for Volusia County context.` }
   ],
-  readingTime: 8,
+  readingTime: 9,
   seo: {
-    metaTitle: "What Does an SEO Company Actually Do?",
-    metaDescription: "What an SEO company actually does for a local business, in plain English: the real monthly work, and how to tell real effort from busywork.",
+    metaTitle: "What Does an SEO Company Do? (Daytona Beach Guide)",
+    metaDescription: "What an SEO company actually does for a Daytona Beach business, in plain English: the audit, profile work, town pages, reviews, and reporting behind the monthly fee.",
     ogImage: "/images/blog/what-does-an-seo-company-do.jpg",
-    keywords: ["seo company", "what does an seo company do", "local seo", "daytona beach seo", "hiring an seo company", "Daytona Beach SEO", "Local SEO"],
+    keywords: ["seo company", "what does an seo company do", "local seo", "daytona beach seo", "seo company daytona beach", "hiring an seo company", "Daytona Beach SEO", "Local SEO"],
   },
   published: true,
 };
