@@ -33,6 +33,54 @@ Here is the honest breakdown, framed by the thing that actually controls it: you
 
 The top row is true for almost any local business: the local-presence work, your Google Business Profile, reviews, and consistent listings, can move your map-pack visibility within weeks because it is about completeness and activity, not competition. The bottom two rows are the same site at different build speeds. The difference between "several months" and "about six weeks" is not luck; it is how much high-quality content you publish, how fast you earn referring domains, and whether the work targets the terms that actually convert.
 
+## The timeline by type of SEO work
+
+Pace is one half of the picture. The other half is that different kinds of SEO work run on different clocks, because they ask Google for different kinds of trust. A technical fix removes a blocker, so it can show up in days. Topical authority has to be earned page by page, so it takes months no matter who does it. Here is the breakdown by work type, assuming the work is actually being done at a steady pace; a slow program stretches every row.
+
+| Type of work | First signal | Meaningful results |
+| --- | --- | --- |
+| Technical fixes and indexing | Days to 2 weeks | 2 to 6 weeks |
+| Google Business Profile and listings | 1 to 3 weeks | 1 to 3 months |
+| Local pack rankings | 2 to 6 weeks | 2 to 4 months |
+| Local service and city pages (organic) | 4 to 8 weeks | 3 to 6 months |
+| Topical content and authority building | 4 to 8 weeks | 3 to 6 months, then compounding |
+| Reviews and reputation | First new reviews within weeks | 2 to 4 months |
+| AI search citations | Weeks, once pages are indexed | 2 to 6 months, and uneven |
+
+Read the table the way an owner should: the early rows are where you look for proof of life in the first month, and the later rows are where the money is. A provider who is only working the fast rows looks busy without building anything durable. A provider who is only working the slow rows may be building well but owes you the fast wins in the meantime.
+
+## Three clocks: the local pack, organic rankings, and AI citations
+
+Owners usually get one timeline number, but a local business is really being judged on three separate clocks.
+
+**The local pack runs fastest.** Map results lean heavily on your profile: categories, services, photos, reviews, and how close you are to the person searching. Those signals can change as soon as Google processes the updated profile, which is why pack movement often shows up in weeks. It is also why pack rankings jump around more; a competitor's review push or a change in the searcher's location moves the pack without anything on your site changing.
+
+**Organic rankings run slower.** A service page or city page has to be crawled, understood in the context of your whole site, and trusted against every other page competing for that term. That trust is the topical authority described above, and it builds over months. The payoff for the slower clock is stability: organic rankings earned through authority tend to hold and compound, where pack positions wobble week to week.
+
+**AI citations run on a third clock.** ChatGPT, Perplexity, and Google's AI Overviews quote pages their systems have already crawled and learned to trust. A new page that answers a specific question in a clean, quotable passage can get picked up within weeks of being indexed, and we break down the mechanics in [how to get cited by AI search](https://aiogrowthseo.com/blog/how-to-get-cited-by-ai-search-2026). But being cited consistently, across the range of questions your buyers ask, takes the same topical coverage that organic rankings need, so treat AI visibility as a months-long build with occasional early wins, not a switch that flips.
+
+The practical point: judge each clock separately. If your pack visibility is rising but organic has not moved at month two, that is the normal order of things. If none of the three has moved by month three, the problem is not the clocks. It is the pace or quality of the work feeding them.
+
+## How long does local SEO take?
+
+For an established local business with a working website and a claimed profile, here is the honest local version of the timeline. Expect the first map-pack movement within two to six weeks of the foundational work landing: profile rebuilt, listings cleaned up, review requests going out. Months two to four are when pack positions steady and your service and city pages start climbing in the organic results underneath the pack. From there, results compound for as long as the content and authority pace holds, and they flatten when the pace stops, which is the part nobody puts in the brochure.
+
+A brand-new business, or a new domain with no history, starts one clock behind: Google has nothing to trust yet, so the same work takes longer to register. That is not a reason to wait. It is a reason to start before you need the phone ringing.
+
+Local conditions move the timeline too. Competition in your trade and town is the big one: a Daytona Beach company bidding against every beachside and mainland rival for the same seasonal demand will climb slower than a specialist in DeLand or New Smyrna Beach with two real competitors. Season matters in Volusia County as well. Rankings earned in the quiet months are the ones paying off when event weeks and seasonal surges hit, so the best time to start local SEO is before your busy season, not during it. And the review clock is partly in your customers' hands: a business that asks every happy customer moves faster than one with a better website and a silent review profile. If you want to see how we run this work locally, that is exactly what our [local SEO services in Daytona Beach](https://aiogrowthseo.com/services/local-seo) are built around.
+
+## What the first month should look like
+
+The single most common version of this question is not really about rankings. It is a business owner, one month into paying an SEO company, asking what they should be able to see by now. Month one is foundation month, and its deliverables are not positions. They are proof the work exists.
+
+**Week one: access, audit, and a baseline.** The company gets into your site, your analytics, and your profile, audits all three, and records where you stand today: current rankings, profile state, technical problems. You should receive those findings in writing, not as a verbal summary on a call.
+
+**Week two: fixes and profile work ship.** The urgent technical fixes go live. Your Google Business Profile gets rebuilt: correct primary category, full service list, real photos, accurate hours and service areas. Listings with wrong names, addresses, or phone numbers get flagged and cleaned up.
+
+**Weeks three and four: the map and the first content.** You should see the topical map itself, the actual plan for what gets built and in what order, and the first pages or posts published from it. Published, not drafted, not promised for next month.
+
+By day 30 your rankings may not have moved much, and on its own that is fine; the clocks above explain why. What is not fine is a month that produced a kickoff call, a PDF you cannot act on, and a promise to report back later. If you cannot point to findings, fixes, a map, and live pages at the end of month one, the slow timeline you were quoted is not SEO being slow. It is the program being slow, and it will not speed up on its own.
+
 ## What it takes to compress the timeline
 
 Fast results are not a trick, and they are not for everyone. They require real conditions to be in place, which is the honest part most "rank in 30 days" pitches skip.
@@ -59,20 +107,23 @@ We will look at your foundations and your market and give you an honest estimate
 `,
   author: 'Joel Hinton',
   publishDate: "2026-10-22T10:00:00Z",
-  lastModified: "2026-10-28T10:00:00Z",
+  lastModified: "2026-11-18T10:00:00Z",
   category: 'Local SEO',
   tags: ["how long does seo take", "seo timeline", "seo results", "fast seo", "local seo"],
   featuredImage: "/images/blog/how-long-before-seo-results.jpg",
   imagePlaceholders: [
-    { id: "hero", alt: "How long before an SEO company gets results — SEO growth timeline stages", width: 1672, height: 941, src: "/images/blog/how-long-before-seo-results.jpg" }
+    { id: "hero", alt: "How long before an SEO company gets results - SEO growth timeline stages", width: 1672, height: 941, src: "/images/blog/how-long-before-seo-results.jpg" }
   ],
   faqs: [
     { question: "How long does it really take to see SEO results?", answer: "It depends on how fast you build authority, not on a fixed law. A ranking applies instantly once earned; the time goes into building the topical authority that earns it. At a slow pace of two to four articles a month, meaningful results typically take three to six months. At a high pace of ten to twenty articles a month with new referring domains and bottom-of-funnel focus, money terms can reach the top of the results in as little as about 45 days. Local-presence wins can start within weeks either way." },
     { question: "Why do most agencies say SEO takes three to six months?", answer: "Because that is the pace of a typical retainer that produces two to four articles a month. At that rate, authority and results build gradually over that window. It is a real timeline for that pace, but agencies often present it as the speed of SEO itself rather than the speed of the work they plan to do. Change the content and authority-building pace and the timeline changes with it." },
     { question: "Can SEO actually work in 30 to 45 days?", answer: "For the right business, yes, with conditions. The site needs solid technical foundations, the program needs high content velocity (ten to twenty quality articles a month, not two to four), steady new referring domains, and a focus on the commercial terms that convert. Under those conditions we have moved most of a client's money terms into the top 30 with some on page one in about 45 days. It is not a universal guarantee, and no honest provider promises everything on page one that fast, but meaningful fast movement is real when the build pace is high." },
-    { question: "Is faster SEO lower quality or risky?", answer: "It is only risky if the speed comes from shortcuts, thin content, spammy links, or manipulation, which eventually backfire. Legitimate fast SEO comes from doing the normal work at a higher volume: more genuinely useful content, more real authority signals, on a healthy foundation. The pace is higher but the methods are the same honest ones. Fast and sustainable are compatible; fast and cheap-and-spammy are not." }
+    { question: "Is faster SEO lower quality or risky?", answer: "It is only risky if the speed comes from shortcuts, thin content, spammy links, or manipulation, which eventually backfire. Legitimate fast SEO comes from doing the normal work at a higher volume: more genuinely useful content, more real authority signals, on a healthy foundation. The pace is higher but the methods are the same honest ones. Fast and sustainable are compatible; fast and cheap-and-spammy are not." },
+    { question: "How long does it take for SEO to start working?", answer: "The first signals show up in weeks: pages get indexed, your profile starts appearing for more searches, and impressions climb before positions do. Meaningful ranking movement takes longer and depends on pace, usually three to six months at a typical retainer pace and faster when content and authority building run hot. If you are seeing no signals at all after the first month, the issue is usually that little work has actually shipped, not that SEO needs more time." },
+    { question: "How do I get my business seen on Google Maps?", answer: "Start with a complete and accurate Google Business Profile: the right primary category, every service listed, real photos, and correct hours and service areas. Then keep your name, address, and phone number consistent across listings, earn a steady flow of real customer reviews, and publish pages for the services and towns you want to be found in. Map visibility typically starts moving within two to six weeks of that foundational work and steadies over the following months." },
+    { question: "How to get cited in AI search?", answer: "AI search tools quote pages they have already crawled and trust, so the work is familiar: publish pages that answer specific buyer questions in clear, self-contained passages, cover your topic thoroughly enough that your site is the obvious source, and keep your business facts consistent everywhere. A well-built page can be cited within weeks of being indexed, but consistent citations across many questions take months of topical coverage and authority, the same build that drives organic rankings." }
   ],
-  readingTime: 7,
+  readingTime: 13,
   seo: {
     metaTitle: "How Long Before an SEO Company Gets Results?",
     metaDescription: "How long SEO really takes: rankings apply instantly, authority is the time variable, and a high build pace can reach page 1 for money terms in as little as 45 days.",
