@@ -1,247 +1,133 @@
-'use client';
-
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, MapPin, Sparkles, Users, Cog, ArrowRight, ShoppingCart, type LucideIcon } from "lucide-react";
+import Link from 'next/link';
+import {
+  Search,
+  MapPin,
+  MessageSquare,
+  ShoppingCart,
+  Phone,
+  TrendingUp,
+  ArrowRight,
+  type LucideIcon,
+} from 'lucide-react';
 import { serviceCards, type ServiceCardId } from '@/data/serviceCards';
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-import Link from "next/link";
-import { trackFormSubmission } from '@/lib/analytics';
-
-const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
-  businessType: z.string().min(1, "Please select your business type"),
-  marketingChallenge: z.string().min(10, "Please tell us about your marketing challenge (at least 10 characters)"),
-  selectedService: z.string().default("Custom Strategy Session")
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
+import MarkerNote from './brand/MarkerNote';
+import Reveal from './brand/Reveal';
 
 const serviceIcons: Record<ServiceCardId, LucideIcon> = {
   'seo-services': Search,
   'local-seo': MapPin,
-  'geo-optimization': Sparkles,
+  'geo-optimization': MessageSquare,
   'ecommerce-seo': ShoppingCart,
-  'local-lead-generation': Users,
-  'custom-tools-automation': Cog,
+  'local-lead-generation': Phone,
+  'custom-tools-automation': TrendingUp,
 };
 
-const services = serviceCards.map((card) => ({
-  ...card,
-  icon: serviceIcons[card.id],
-}));
+/* The GEO row carries the design subtitle instead of the data subtitle,
+   which names the Answer Engine price; no prices render in these rows. */
+const subtitleOverrides: Partial<Record<ServiceCardId, string>> = {
+  'geo-optimization': 'AI-search visibility, built into every SEO plan.',
+};
 
 const ServicesSection = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: { selectedService: "Custom Strategy Session" }
-  });
-
-  const onSubmitForm = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    await new Promise(r => setTimeout(r, 1000));
-    if (process.env.NODE_ENV === 'development') {
-      console.log("Services contact form submitted:", data);
-    }
-    setSubmitSuccess(true);
-    reset();
-
-    trackFormSubmission(
-      'services_form',
-      window.location.pathname,
-      data.businessType,
-      data.selectedService,
-    );
-
-    setTimeout(() => {
-      setSubmitSuccess(false);
-      setIsDialogOpen(false);
-    }, 2000);
-    setIsSubmitting(false);
-  };
-
   return (
-    <>
-    <section className="py-24 bg-gradient-subtle">
+    <section className="bg-paper py-24">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-foreground">Psychology-Driven </span>
-            <span className="gradient-text">Marketing Services</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            No retainers. No long-term contracts. Just results-driven marketing that understands consumer psychology and leverages AI optimization.
-          </p>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="text-[15px] font-semibold text-pen-text mb-4">What we do</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-navy mb-5">
+              Psychology-Driven Marketing Services
+            </h2>
+            <p className="text-lg text-navy/70 leading-relaxed">
+              No retainers. No long-term contracts. Just results-driven marketing that
+              understands consumer psychology and uses AI optimization.
+            </p>
+          </div>
+          <Link
+            href="/pricing"
+            className="hidden shrink-0 rounded-full border-2 border-navy/15 bg-white px-6 py-3 font-bold text-navy transition-colors hover:border-brand hover:text-brand sm:inline-flex"
+          >
+            See Pricing
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
+        <div className="mt-12 border-t border-hairline">
+          {serviceCards.map((service) => {
+            const IconComponent = serviceIcons[service.id];
+            const isGeo = service.id === 'geo-optimization';
             return (
-              <Card key={index} className="card-professional hover:shadow-lg transition-all duration-300 group">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <IconComponent className="w-6 h-6" />
-                    </div>
-                    {service.price ? (
-                      <div className="text-right">
-                        <div className="text-sm font-semibold text-secondary-text">{service.price}</div>
-                      </div>
-                    ) : null}
+              <Reveal key={service.id}>
+                <article
+                  className={`relative grid grid-cols-1 gap-x-8 gap-y-4 border-b border-hairline py-9 md:grid-cols-[56px_1.05fr_1.7fr_0.65fr] md:gap-y-0 ${
+                    isGeo ? 'bg-brand-tint px-5 md:-mx-5 md:rounded-3xl md:border-b-0 md:px-10' : ''
+                  }`}
+                >
+                  {isGeo && (
+                    <MarkerNote className="absolute -top-3 right-6 z-10 text-[24px] md:right-10">
+                      included in every plan
+                    </MarkerNote>
+                  )}
+
+                  <div className="relative hidden w-10 md:block" aria-hidden="true">
+                    <IconComponent className="h-8 w-8 text-navy" strokeWidth={1.8} />
+                    <svg viewBox="0 0 40 8" preserveAspectRatio="none" className="mt-1 h-[6px] w-9">
+                      <path
+                        d="M2 6 C 14 2, 28 2, 38 4"
+                        fill="none"
+                        stroke="#F97415"
+                        strokeWidth="2.6"
+                        strokeLinecap="round"
+                      />
+                    </svg>
                   </div>
-                  <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                  <CardDescription className="text-sm font-medium text-primary mb-3">
-                    {service.subtitle}
-                  </CardDescription>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    variant="ghost"
-                    className="w-full group/btn hover:bg-primary hover:text-primary-foreground transition-all"
-                    asChild
-                  >
-                    <Link href={service.href}>
-                      Learn More<span className="sr-only"> about {service.title}</span>
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+
+                  <div>
+                    <h3 className="flex items-center gap-2.5 text-[22px] font-extrabold tracking-tight text-navy">
+                      <IconComponent className="h-6 w-6 text-navy md:hidden" strokeWidth={1.8} />
+                      {service.title}
+                    </h3>
+                    <p className="mt-1 text-[15px] font-semibold text-brand">
+                      {subtitleOverrides[service.id] ?? service.subtitle}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="leading-relaxed text-navy/75">{service.description}</p>
+                    <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${service.title} includes`}>
+                      {service.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className="rounded-full border border-hairline bg-white px-3 py-1 text-[13px] font-medium text-navy/80"
+                        >
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="md:text-left">
+                    {isGeo && (
+                      <p className="mb-2 text-[15px] leading-snug text-navy/70">
+                        Included with
+                        <span className="block font-extrabold text-navy">every SEO plan</span>
+                      </p>
+                    )}
+                    <Link
+                      href={service.href}
+                      className="group inline-flex items-center gap-1.5 font-bold text-brand hover:underline"
+                    >
+                      {service.title}
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      <span className="sr-only">: learn more</span>
                     </Link>
-                  </Button>
-                </CardContent>
-              </Card>
+                  </div>
+                </article>
+              </Reveal>
             );
           })}
         </div>
-
-        <div className="text-center mt-16">
-          <Button
-            variant="cta"
-            size="lg"
-            className="px-8 py-4"
-            onClick={() => setIsDialogOpen(true)}
-          >
-            Get Custom Strategy Session
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
-        </div>
       </div>
     </section>
-
-    <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) reset(); }}>
-      <DialogContent className="max-w-2xl">
-        <DialogHeader>
-          <DialogTitle>Schedule Your Custom Strategy Session</DialogTitle>
-          <DialogDescription>
-            Let's discuss your business goals and create a personalized marketing strategy that drives real results.
-          </DialogDescription>
-        </DialogHeader>
-
-        {submitSuccess ? (
-          <div className="text-center py-8">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                <path d="M22 4 12 14.01l-3-3"/>
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-green-800 mb-2">Thanks! Request received.</h3>
-            <p className="text-muted-foreground">I'll review your information and reach out within 24 hours to schedule your strategy session.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Full Name *</Label>
-                <Input id="name" placeholder="John Smith" {...register('name')} className={errors.name ? 'border-destructive' : ''} />
-                {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email Address *</Label>
-                <Input id="email" type="email" placeholder="john@company.com" {...register('email')} className={errors.email ? 'border-destructive' : ''} />
-                {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number *</Label>
-                <Input id="phone" type="tel" placeholder="(555) 555-0123" {...register('phone')} className={errors.phone ? 'border-destructive' : ''} />
-                {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
-              </div>
-              <div className="space-y-2">
-                <Label>Business Type *</Label>
-                <Select onValueChange={(value) => register('businessType').onChange({ target: { value } })}>
-                  <SelectTrigger className={errors.businessType ? 'border-destructive' : ''}>
-                    <SelectValue placeholder="Select your industry" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="professional-services">Professional Services</SelectItem>
-                    <SelectItem value="ecommerce">E-commerce</SelectItem>
-                    <SelectItem value="saas">SaaS / Tech</SelectItem>
-                    <SelectItem value="healthcare">Healthcare</SelectItem>
-                    <SelectItem value="home-services">Home Services</SelectItem>
-                    <SelectItem value="real-estate">Real Estate</SelectItem>
-                    <SelectItem value="restaurant">Restaurant & Hospitality</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-                {errors.businessType && <p className="text-sm text-destructive">{errors.businessType.message}</p>}
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="selectedService">Selected Service *</Label>
-              <Input id="selectedService" value="Custom Strategy Session" readOnly {...register('selectedService')} />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="marketingChallenge">Tell us about your marketing challenge *</Label>
-              <Textarea
-                id="marketingChallenge"
-                placeholder="What are your current marketing goals? What challenges are you facing? What results are you looking to achieve?"
-                className={`min-h-[120px] ${errors.marketingChallenge ? 'border-destructive' : ''}`}
-                {...register('marketingChallenge')}
-              />
-              {errors.marketingChallenge && <p className="text-sm text-destructive">{errors.marketingChallenge.message}</p>}
-            </div>
-
-            <div className="flex items-center justify-end gap-3 pt-2">
-              <DialogClose asChild>
-                <Button variant="outline">Cancel</Button>
-              </DialogClose>
-              <Button type="submit" variant="cta" disabled={isSubmitting}>
-                {isSubmitting ? 'Submitting...' : 'Schedule Strategy Session'}
-              </Button>
-            </div>
-          </form>
-        )}
-      </DialogContent>
-    </Dialog>
-    </>
   );
 };
 
