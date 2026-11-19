@@ -2,12 +2,13 @@ import { testimonials } from "@/data/clientTestimonials";
 import Reveal from "./brand/Reveal";
 
 /**
- * Results band (Homepage design v7). The big figures are the design's
- * Results set; the quotes and business names are the live site's.
+ * Results band (Homepage design v7). The quotes and business names are the
+ * live site's; each big figure is reconciled to the figure its quote and the
+ * underlying live testimonial support (card 1: +200%, per Privada Cigar Club).
  */
 const resultCards = [
   {
-    stat: '+146%',
+    stat: '+200%',
     label: 'Traffic in 45 days',
     quote:
       'The psychology-driven SEO approach generated a 200% increase in organic traffic within 45 days. Their understanding of consumer behavior transformed our entire digital strategy.',

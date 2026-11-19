@@ -20,7 +20,7 @@ const LocalBusinessSchema = () => {
       "latitude": "29.2108",
       "longitude": "-81.0228"
     },
-    "priceRange": "$500-$5000",
+    "priceRange": "$297-$5000",
     "openingHours": "Mo-Fr 09:00-17:00",
     "areaServed": [
       { "@type": "County", "name": "Volusia County", "containedInPlace": { "@type": "State", "name": "Florida" } },
