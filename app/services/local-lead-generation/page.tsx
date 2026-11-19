@@ -6,32 +6,226 @@ import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
+import { ArrowRight, Check, MapPin, Phone } from 'lucide-react';
 import { funnelSprintOffer } from '@/data/pricing';
 import { trackPrimaryCtaClick } from '@/lib/analytics';
-import {
-  Target,
-  TrendingUp,
-  Zap,
-  Shield,
-  CheckCircle,
-  ArrowRight,
-  Users,
-  Search,
-  Phone,
-  MapPin,
-  Home,
-  Calendar,
-  Building2,
-  Sparkles,
-  BadgeCheck,
-} from 'lucide-react';
+import MarkerNote from '../../../components/brand/MarkerNote';
+import OrangeUnderline from '../../../components/brand/OrangeUnderline';
+import Reveal from '../../../components/brand/Reveal';
+import ServiceTabs, { type ServiceTabItem } from '../../../components/service/ServiceTabs';
+import ServiceTimeline from '../../../components/service/ServiceTimeline';
+import TestimonialBand from '../../../components/service/TestimonialBand';
+import ServiceFaq, { type ServiceFaqItem } from '../../../components/service/ServiceFaq';
+import { testimonials } from '@/data/clientTestimonials';
 
 const CTA_LABEL = 'Get a Custom Quote';
+
+const homeServiceTypes = [
+  'HVAC',
+  'Plumbing',
+  'Roofing',
+  'Electrical',
+  'Landscaping',
+  'Pest Control',
+  'Cleaning',
+  'Pool Service',
+];
+
+const professionalServiceTypes = [
+  'Legal',
+  'Medical',
+  'Dental',
+  'Accounting',
+  'Insurance',
+  'Financial',
+  'Real Estate',
+  'Veterinary',
+];
+
+const methodSteps = [
+  {
+    when: 'Phase 1',
+    title: 'Rapid Ad Sprints',
+    description:
+      'Test angles, hooks, and offers across small-budget ad sprints. Kill losers fast. Double down on what gets clicks and leads at the lowest cost.',
+  },
+  {
+    when: 'Phase 2',
+    title: 'Build the Funnel',
+    description:
+      'Once the message wins, we build the landing page and funnel around it - then keep optimizing until conversion hits your target.',
+  },
+];
+
+const platformTabs: ServiceTabItem[] = [
+  {
+    id: 'google-local-service-ads',
+    title: 'Google Local Service Ads',
+    subtitle: 'Google Guaranteed & Google Screened',
+    description:
+      'Appear at the very top of Google when locals search for your services. Pay per lead, not per click. Google verifies your business.',
+    features: [
+      'Pay only for actual leads',
+      'Top position above regular ads',
+      'Google badge builds trust',
+      'Dispute bad leads for refunds',
+    ],
+    note: (
+      <>
+        <strong>Highest Intent.</strong> <strong>Best for:</strong> HVAC, Plumbing, Electrical,
+        Roofing, Legal, Financial.{' '}
+        <Link href="/blog/cost-per-lead-hvac-plumbing-electrical-2026" className="font-medium text-brand underline hover:text-navy">
+          cost per lead
+        </Link>{' '}
+        benchmarks for contractors.
+      </>
+    ),
+  },
+  {
+    id: 'google-search-ads',
+    title: 'Google Search Ads',
+    subtitle: 'Targeted local keyword campaigns',
+    description:
+      'Show up when people search for your services in your area. Full control over keywords, ads, and landing pages.',
+    features: [
+      'Target specific service areas',
+      'Call extensions for direct leads',
+      'Schedule ads for business hours',
+      'Retarget website visitors',
+    ],
+    note: (
+      <>
+        <strong>Most Control.</strong> <strong>Best for:</strong> All local services, especially
+        those with specific niches
+      </>
+    ),
+  },
+  {
+    id: 'facebook-instagram-ads',
+    title: 'Facebook & Instagram Ads',
+    subtitle: 'Local audience lead generation',
+    description:
+      'Reach local homeowners and decision-makers where they spend time. Great for building awareness and capturing leads before they search.',
+    features: [
+      'Target by zip code & radius',
+      'Homeowner targeting options',
+      'Lead forms without leaving app',
+      'Lookalike audiences from customers',
+    ],
+    note: (
+      <>
+        <strong>Best Reach.</strong> <strong>Best for:</strong> Seasonal services, new patient
+        acquisition, brand building
+      </>
+    ),
+  },
+];
+
+const serviceAreas: { name: string; href?: string }[] = [
+  { name: 'Daytona Beach', href: '/areas-we-serve/daytona-beach' },
+  { name: 'Port Orange', href: '/areas-we-serve/port-orange' },
+  { name: 'Ormond Beach' },
+  { name: 'DeLand', href: '/areas-we-serve/deland' },
+  { name: 'New Smyrna Beach' },
+  { name: 'Palm Coast' },
+  { name: 'DeBary', href: '/areas-we-serve/debary' },
+  { name: 'Deltona' },
+  { name: 'Sanford', href: '/areas-we-serve/sanford' },
+  { name: 'Holly Hill', href: '/areas-we-serve/holly-hill' },
+  { name: 'Edgewater' },
+  { name: 'Orange City' },
+];
+
+const resultStats = [
+  {
+    value: '$25-75',
+    label: 'Per Qualified Lead',
+    body: 'Home services leads through Google LSA and Search Ads',
+  },
+  {
+    value: '40-60%',
+    label: 'Call Answer Rate',
+    body: 'With call tracking and instant notifications',
+  },
+  {
+    value: '3-5x',
+    label: 'ROI Target',
+    body: 'Revenue generated vs. ad spend investment',
+  },
+];
+
+const leadGenFaqs: ServiceFaqItem[] = [
+  {
+    question: 'What is the Funnel Sprint?',
+    answer:
+      'The Funnel Sprint is our local lead generation program for service businesses. In 6-8 weeks we build and test a validated Google Ads funnel - the ad, the landing page, and the conversion path - before you commit to scaling your spend. Most agencies ask you to spend first and optimize later. We validate first.',
+  },
+  {
+    question: 'How much does local lead generation cost?',
+    answer: (
+      <>
+        The Funnel Sprint setup fee covers the build and validation phase. After that, you pay
+        for the ongoing management of a funnel that&apos;s already proven to convert. See our{' '}
+        <Link href="/pricing" className="font-medium text-brand underline hover:text-navy">
+          pricing page
+        </Link>{' '}
+        for current rates.
+      </>
+    ),
+  },
+  {
+    question: 'What types of businesses do you work with?',
+    answer:
+      'HVAC, plumbing, electrical, roofing, landscaping, dental, legal, and other service businesses in Volusia and Flagler Counties. If you book jobs by phone or form and serve customers locally, the Funnel Sprint was built for you.',
+  },
+  {
+    question: 'How is this different from just running Google Ads?',
+    answer:
+      'Most local businesses that run Google Ads on their own send traffic to their homepage and wonder why nobody calls. The Funnel Sprint builds a dedicated landing page matched to the ad, with a conversion path designed around your specific service area, your offer, and your buyer. The difference is a page that converts at 8-12% instead of 2-3%.',
+  },
+  {
+    question: 'Which areas do you serve?',
+    answer:
+      'Our core market is Volusia and Flagler Counties - Daytona Beach, Port Orange, Ormond Beach, Palm Coast, New Smyrna Beach, and surrounding areas. We are also expanding into Central Florida including Sanford and Orlando.',
+  },
+  {
+    question: "What's the difference between Local Service Ads and regular Google Ads?",
+    answer:
+      'Local Service Ads appear at the very top of Google (above regular ads) and you pay per lead, not per click. Google also verifies your business with background checks and license verification, giving you a "Google Guaranteed" or "Google Screened" badge that builds trust with potential customers. Regular Google Ads give you more control over messaging and targeting but charge per click regardless of lead quality.',
+  },
+  {
+    question: 'How much should I budget for ad spend?',
+    answer:
+      'For local service businesses, we recommend starting with $1,000-2,000/month in ad spend to generate meaningful data and a consistent flow of leads. This typically generates 15-40 leads per month depending on your industry. As you see ROI, you can scale up. The key is having enough budget to test and optimize.',
+  },
+  {
+    question: 'How quickly will I start getting leads?',
+    answer:
+      "For Google Search Ads and Facebook, leads can start within 24-48 hours of campaign launch. For Local Service Ads, there's a verification process that takes 2-4 weeks before your ads go live. Once approved, leads typically come in the same day. We recommend running Search Ads while waiting for LSA approval.",
+  },
+  {
+    question: 'What if I get bad leads?',
+    answer: (
+      <>
+        With Local Service Ads, you can dispute invalid leads (wrong service, wrong area, spam)
+        and get refunds from Google. For Search Ads and Facebook, we use negative keywords,
+        quality targeting, and lead form questions to filter out bad leads before they cost you
+        money. We also track{' '}
+        <Link href="/blog/book-rate-vs-cost-per-lead" className="font-medium text-brand underline hover:text-navy">
+          book rate vs cost per lead
+        </Link>{' '}
+        and optimize campaigns to attract better leads over time.
+      </>
+    ),
+  },
+  {
+    question: 'Do I own my ad accounts?',
+    answer:
+      'Yes, 100%. We set up campaigns in your accounts or get access to your existing accounts. You own all the data, audiences, and campaign history. If you ever want to part ways, everything stays with you and we provide transition documentation. No lock-in, no hostage accounts.',
+  },
+];
+
+const leadGenTestimonial = testimonials[1];
 
 export default function LocalLeadGenerationPage() {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog(
@@ -51,776 +245,8 @@ export default function LocalLeadGenerationPage() {
     openDialog();
   };
 
-  const homeServiceTypes = [
-    { name: "HVAC", icon: "🌡️" },
-    { name: "Plumbing", icon: "🔧" },
-    { name: "Roofing", icon: "🏠" },
-    { name: "Electrical", icon: "⚡" },
-    { name: "Landscaping", icon: "🌳" },
-    { name: "Pest Control", icon: "🐛" },
-    { name: "Cleaning", icon: "🧹" },
-    { name: "Pool Service", icon: "🏊" }
-  ];
-
-  const professionalServiceTypes = [
-    { name: "Legal", icon: "⚖️" },
-    { name: "Medical", icon: "🏥" },
-    { name: "Dental", icon: "🦷" },
-    { name: "Accounting", icon: "📊" },
-    { name: "Insurance", icon: "🛡️" },
-    { name: "Financial", icon: "💰" },
-    { name: "Real Estate", icon: "🏡" },
-    { name: "Veterinary", icon: "🐾" }
-  ];
-
   return (
-    <>
-      <PageBreadcrumb
-          items={[
-            { label: "Services", href: "/services" },
-            { label: "Local Lead Generation", href: "/services/local-lead-generation", current: true }
-          ]}
-      />
-
-      {/* Hero Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
-              <Sparkles className="w-4 h-4 mr-2" />
-              Funnel Sprint
-            </Badge>
-
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Funnel Sprint —{' '}
-              <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
-                a validated winning ad + landing page in 6–8 weeks.
-              </span>
-            </h1>
-
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-              Google Local Service Ads, Search Ads, and Facebook campaigns built specifically for
-              home services and professional services businesses in Central Florida. Pay for leads, not clicks.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                size="lg"
-                className="px-8 py-4 text-lg bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                onClick={() => openQuoteDialog('hero')}
-              >
-                {CTA_LABEL}
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Method */}
-      <section className="py-20 px-4 bg-background">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              The <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Method</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Find the winning message cheaply first — rapid ad sprints — then build and optimize the funnel around
-              the proven winner.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="card-professional">
-              <CardHeader>
-                <Target className="w-10 h-10 text-orange-600 mb-4" />
-                <CardTitle className="text-xl">Phase 1: Rapid Ad Sprints</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Test angles, hooks, and offers across small-budget ad sprints. Kill losers fast. Double down on what
-                  gets clicks and leads at the lowest cost.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional border-orange-200 bg-orange-50/30">
-              <CardHeader>
-                <Zap className="w-10 h-10 text-amber-600 mb-4" />
-                <CardTitle className="text-xl">Phase 2: Build the Funnel</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Once the message wins, we build the landing page and funnel around it — then keep optimizing until
-                  conversion hits your target.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Help Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Local Lead Generation for <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Your Industry</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We specialize in generating qualified leads for home services and professional services businesses throughout{' '}
-              <Link href="/areas-we-serve" className="text-primary hover:underline">Volusia County</Link>
-              {' '}and Flagler Counties.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Home Services */}
-            <Card className="card-professional border-2 border-orange-100 hover:border-orange-200 transition-colors">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center">
-                    <Home className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl">Home Services</CardTitle>
-                    <CardDescription>Emergency & scheduled service leads</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {homeServiceTypes.map((service) => (
-                    <div key={service.name} className="flex items-center gap-2 text-sm">
-                      <span>{service.icon}</span>
-                      <span>{service.name}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="space-y-2 pt-4 border-t">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span>Google Local Service Ads (Google Guaranteed)</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span>Emergency service keyword targeting</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span>Call-only campaigns for immediate leads</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Professional Services */}
-            <Card className="card-professional border-2 border-amber-100 hover:border-amber-200 transition-colors">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center">
-                    <Building2 className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl">Professional Services</CardTitle>
-                    <CardDescription>Consultation & appointment leads</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {professionalServiceTypes.map((service) => (
-                    <div key={service.name} className="flex items-center gap-2 text-sm">
-                      <span>{service.icon}</span>
-                      <span>{service.name}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="space-y-2 pt-4 border-t">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-amber-600" />
-                    <span>Google Screened verification support</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-amber-600" />
-                    <span>High-intent consultation searches</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-amber-600" />
-                    <span>Facebook lead forms for appointments</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Ad Platforms Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-orange-50 to-amber-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Three Ways to <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Generate Local Leads</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We use the right platform for your business type and goals
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Google Local Service Ads */}
-            <Card className="card-professional">
-              <CardHeader>
-                <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4">
-                  <BadgeCheck className="w-7 h-7 text-white" />
-                </div>
-                <Badge className="w-fit mb-2 bg-green-100 text-green-800">Highest Intent</Badge>
-                <CardTitle className="text-xl">Google Local Service Ads</CardTitle>
-                <CardDescription>Google Guaranteed & Google Screened</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground text-sm">
-                  Appear at the very top of Google when locals search for your services.
-                  Pay per lead, not per click. Google verifies your business.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span className="text-sm">Pay only for actual leads</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span className="text-sm">Top position above regular ads</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span className="text-sm">Google badge builds trust</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span className="text-sm">Dispute bad leads for refunds</span>
-                  </div>
-                </div>
-                <div className="pt-4 border-t">
-                  <p className="text-xs text-muted-foreground">
-                    <strong>Best for:</strong>{' '}
-                    HVAC, Plumbing, Electrical, Roofing, Legal, Financial.{' '}
-                    <Link href="/blog/cost-per-lead-hvac-plumbing-electrical-2026" className="text-primary hover:underline">
-                      cost per lead
-                    </Link>{' '}
-                    benchmarks for contractors.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Google Search Ads */}
-            <Card className="card-professional">
-              <CardHeader>
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4">
-                  <Search className="w-7 h-7 text-white" />
-                </div>
-                <Badge className="w-fit mb-2 bg-blue-100 text-blue-800">Most Control</Badge>
-                <CardTitle className="text-xl">Google Search Ads</CardTitle>
-                <CardDescription>Targeted local keyword campaigns</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground text-sm">
-                  Show up when people search for your services in your area.
-                  Full control over keywords, ads, and landing pages.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm">Target specific service areas</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm">Call extensions for direct leads</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm">Schedule ads for business hours</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm">Retarget website visitors</span>
-                  </div>
-                </div>
-                <div className="pt-4 border-t">
-                  <p className="text-xs text-muted-foreground">
-                    <strong>Best for:</strong> All local services, especially those with specific niches
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Facebook/Meta Ads */}
-            <Card className="card-professional">
-              <CardHeader>
-                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
-                  <Users className="w-7 h-7 text-white" />
-                </div>
-                <Badge className="w-fit mb-2 bg-orange-100 text-orange-800">Best Reach</Badge>
-                <CardTitle className="text-xl">Facebook & Instagram Ads</CardTitle>
-                <CardDescription>Local audience lead generation</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground text-sm">
-                  Reach local homeowners and decision-makers where they spend time.
-                  Great for building awareness and capturing leads before they search.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span className="text-sm">Target by zip code & radius</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span className="text-sm">Homeowner targeting options</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span className="text-sm">Lead forms without leaving app</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-orange-600" />
-                    <span className="text-sm">Lookalike audiences from customers</span>
-                  </div>
-                </div>
-                <div className="pt-4 border-t">
-                  <p className="text-xs text-muted-foreground">
-                    <strong>Best for:</strong> Seasonal services, new patient acquisition, brand building
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Local Focus Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Local Focus</span> Matters
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              National agencies don&apos;t understand the Volusia and Flagler market. We live here in{' '}
-              <Link href="/areas-we-serve/daytona-beach" className="text-primary hover:underline">Daytona Beach</Link>.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="card-professional border-destructive/20 bg-destructive/5">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-destructive">
-                  <Shield className="w-5 h-5" />
-                  The National Agency Problem
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <p>Generic campaigns that ignore local competition</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <p>Don&apos;t understand seasonal patterns (snowbirds, hurricanes)</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <p>
-                    Don&apos;t know{' '}
-                    <Link href="/blog/daytona-google-ads-wasted-budget" className="text-primary hover:underline">why most local ad spend gets wasted</Link>
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <p>No knowledge of local neighborhoods and demographics</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <p>Can&apos;t help with Google Business Profile optimization</p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional border-primary/20 bg-primary/5">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-primary">
-                  <Sparkles className="w-5 h-5" />
-                  Our Local Approach
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Hyper-local targeting</p>
-                    <p className="text-sm text-muted-foreground">By city, zip code, and neighborhood</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Seasonal strategy</p>
-                    <p className="text-sm text-muted-foreground">Ramp up for snowbird season, prepare for hurricane prep</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Local competitor analysis</p>
-                    <p className="text-sm text-muted-foreground">We know who&apos;s advertising what in your area</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">GBP integration</p>
-                    <p className="text-sm text-muted-foreground">
-                      Ads +{' '}
-                      <Link href="/services/local-seo" className="text-primary hover:underline">local SEO</Link>
-                      {' '}working together
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Areas Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-orange-50 to-amber-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Generating Leads Across <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Central Florida</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { name: "Daytona Beach", href: "/areas-we-serve/daytona-beach" },
-              { name: "Port Orange", href: "/areas-we-serve/port-orange" },
-              { name: "Ormond Beach" },
-              { name: "DeLand", href: "/areas-we-serve/deland" },
-              { name: "New Smyrna Beach" },
-              { name: "Palm Coast" },
-              { name: "DeBary", href: "/areas-we-serve/debary" },
-              { name: "Deltona" },
-              { name: "Sanford", href: "/areas-we-serve/sanford" },
-              { name: "Holly Hill", href: "/areas-we-serve/holly-hill" },
-              { name: "Edgewater" },
-              { name: "Orange City" },
-            ].map((city) => (
-              <div key={city.name} className="flex items-center gap-2 bg-white p-3 rounded-lg shadow-sm">
-                <MapPin className="w-4 h-4 text-orange-600" />
-                {city.href ? (
-                  <Link href={city.href} className="font-medium text-primary hover:underline">{city.name}</Link>
-                ) : (
-                  <span className="font-medium">{city.name}</span>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center text-muted-foreground mt-8">
-            We target the exact service areas where your customers live and work
-          </p>
-        </div>
-      </section>
-
-      {/* Results Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              What Local Lead Gen <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Delivers</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="card-professional text-center">
-              <CardContent className="pt-8">
-                <div className="text-4xl font-bold text-orange-600 mb-2">$25-75</div>
-                <p className="text-lg font-medium mb-2">Per Qualified Lead</p>
-                <p className="text-sm text-muted-foreground">
-                  Home services leads through Google LSA and Search Ads
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional text-center">
-              <CardContent className="pt-8">
-                <div className="text-4xl font-bold text-amber-600 mb-2">40-60%</div>
-                <p className="text-lg font-medium mb-2">Call Answer Rate</p>
-                <p className="text-sm text-muted-foreground">
-                  With call tracking and instant notifications
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional text-center">
-              <CardContent className="pt-8">
-                <div className="text-4xl font-bold text-yellow-600 mb-2">3-5x</div>
-                <p className="text-lg font-medium mb-2">ROI Target</p>
-                <p className="text-sm text-muted-foreground">
-                  Revenue generated vs. ad spend investment
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Funnel Sprint Offer */}
-      <section className="py-20 px-4 bg-gradient-to-r from-orange-50 to-amber-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Funnel Sprint <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Pricing</span>
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-1 gap-8 max-w-3xl mx-auto">
-            <Card className="card-professional border-orange-200">
-              <CardHeader className="text-center">
-                <Badge className="w-fit mx-auto mb-4 bg-orange-600">Funnel Sprint</Badge>
-                <CardTitle className="text-2xl">6–8 Week Funnel Sprint</CardTitle>
-                <CardDescription className="text-lg mt-4">
-                  <span className="text-4xl font-bold text-orange-600">{funnelSprintOffer.sprintPrice}</span>
-                  <span className="block text-base text-muted-foreground mt-2">
-                    — {funnelSprintOffer.sprintIncludes}
-                  </span>
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="p-4 border border-amber-200 bg-amber-50 rounded-lg text-center">
-                  <p className="font-semibold text-amber-900">Guarantee</p>
-                  <p className="text-sm text-amber-800 mt-1">{funnelSprintOffer.guarantee}</p>
-                </div>
-
-                <div>
-                  <p className="font-semibold mb-3">Ongoing management</p>
-                  <div className="space-y-2">
-                    {funnelSprintOffer.ongoingTiers.map((tier) => (
-                      <div key={tier.price} className="flex justify-between items-center p-3 border rounded-lg text-sm">
-                        <span className="font-medium">{tier.price}</span>
-                        <span className="text-muted-foreground">({tier.adSpend})</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <Separator />
-
-                {funnelSprintOffer.diyVideoHref.startsWith('http') && (
-                  <div className="text-center">
-                    <p className="font-semibold mb-2">DIY path</p>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Prefer to run it yourself? Watch our free long-form walkthrough.
-                    </p>
-                    <Button variant="outline" asChild>
-                      <a href={funnelSprintOffer.diyVideoHref}>
-                        Free Long-Form Walkthrough
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </a>
-                    </Button>
-                  </div>
-                )}
-
-                <Button
-                  className="w-full bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                  onClick={() => openQuoteDialog('pricing', funnelSprintOffer.serviceLabel)}
-                >
-                  {CTA_LABEL}
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Common Questions
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-4">
-            <AccordionItem value="funnel-sprint" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                What is the Funnel Sprint?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                The Funnel Sprint is our local lead generation program for service businesses.
-                In 6–8 weeks we build and test a validated Google Ads funnel — the ad, the landing
-                page, and the conversion path — before you commit to scaling your spend.
-                Most agencies ask you to spend first and optimize later. We validate first.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="lead-gen-cost" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                How much does local lead generation cost?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                The Funnel Sprint setup fee covers the build and validation phase.
-                After that, you pay for the ongoing management of a funnel that&apos;s already
-                proven to convert. See our{' '}
-                <Link href="/pricing" className="text-primary hover:underline">pricing page</Link>
-                {' '}for current rates.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="business-types" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                What types of businesses do you work with?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                HVAC, plumbing, electrical, roofing, landscaping, dental, legal, and other
-                service businesses in Volusia and Flagler Counties. If you book jobs by phone or
-                form and serve customers locally, the Funnel Sprint was built for you.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="vs-google-ads" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                How is this different from just running Google Ads?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Most local businesses that run Google Ads on their own send traffic to their
-                homepage and wonder why nobody calls. The Funnel Sprint builds a dedicated
-                landing page matched to the ad, with a conversion path designed around your
-                specific service area, your offer, and your buyer. The difference is a page
-                that converts at 8–12% instead of 2–3%.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="areas-served" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                Which areas do you serve?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Our core market is Volusia and Flagler Counties — Daytona Beach, Port
-                Orange, Ormond Beach, Palm Coast, New Smyrna Beach, and surrounding areas.
-                We are also expanding into Central Florida including Sanford and Orlando.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-1" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                What&apos;s the difference between Local Service Ads and regular Google Ads?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Local Service Ads appear at the very top of Google (above regular ads) and you pay per lead, not per click.
-                Google also verifies your business with background checks and license verification, giving you a &quot;Google Guaranteed&quot;
-                or &quot;Google Screened&quot; badge that builds trust with potential customers. Regular Google Ads give you more control
-                over messaging and targeting but charge per click regardless of lead quality.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                How much should I budget for ad spend?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                For local service businesses, we recommend starting with $1,000-2,000/month in ad spend to generate
-                meaningful data and a consistent flow of leads. This typically generates 15-40 leads per month depending
-                on your industry. As you see ROI, you can scale up. The key is having enough budget to test and optimize.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                How quickly will I start getting leads?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                For Google Search Ads and Facebook, leads can start within 24-48 hours of campaign launch. For Local Service Ads,
-                there&apos;s a verification process that takes 2-4 weeks before your ads go live. Once approved, leads typically
-                come in the same day. We recommend running Search Ads while waiting for LSA approval.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-4" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                What if I get bad leads?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                With Local Service Ads, you can dispute invalid leads (wrong service, wrong area, spam) and get refunds from Google.
-                For Search Ads and Facebook, we use negative keywords, quality targeting, and lead form questions to filter out
-                bad leads before they cost you money. We also track{' '}
-                <Link href="/blog/book-rate-vs-cost-per-lead" className="text-primary hover:underline">book rate vs cost per lead</Link>{' '}
-                and optimize campaigns to attract better leads over time.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-5" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                Do I own my ad accounts?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Yes, 100%. We set up campaigns in your accounts or get access to your existing accounts. You own all the data,
-                audiences, and campaign history. If you ever want to part ways, everything stays with you and we provide
-                transition documentation. No lock-in, no hostage accounts.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-orange-50 to-amber-50">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Ready for a Validated Winning Funnel?
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Tell us about your service area and target customers. We will scope a Funnel Sprint for your market.
-            </p>
-          </div>
-
-          <Card className="card-professional shadow-xl">
-            <CardHeader className="text-center pb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-600 to-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Phone className="w-8 h-8 text-white" />
-              </div>
-              <CardTitle className="text-2xl md:text-3xl">
-                Get a Custom Quote
-              </CardTitle>
-              <CardDescription className="text-lg">
-                Tell us about your business and service area — no obligation
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <Button
-                size="lg"
-                className="px-8 py-4 text-lg bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700"
-                onClick={() => openQuoteDialog('final')}
-              >
-                {CTA_LABEL}
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </CardContent>
-          </Card>
-
-          <div className="text-center mt-8">
-            <p className="text-muted-foreground">
-              Serving home services and professional services businesses across Volusia & Flagler Counties
-            </p>
-          </div>
-        </div>
-      </section>
-
+    <div className="min-h-screen bg-paper">
       <ContactDialog
         isOpen={isOpen}
         onClose={closeDialog}
@@ -829,6 +255,487 @@ export default function LocalLeadGenerationPage() {
         defaultService={selectedService}
         businessTypes={businessTypes.general}
       />
+
+      {/* Hero */}
+      <section className="bg-paper bg-waves">
+        <div className="container mx-auto px-6 pt-10 pb-24">
+          <PageBreadcrumb
+            items={[
+              { label: 'Services', href: '/services' },
+              { label: 'Local Lead Generation', href: '/services/local-lead-generation', current: true },
+            ]}
+            className="mb-10 text-navy/60 [&_a]:text-navy/60 [&_a:hover]:text-brand [&_[aria-current]]:text-navy [&_svg]:text-navy/40"
+          />
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+            <div>
+              <p className="mb-5 text-[15px] font-semibold text-pen-text">Funnel Sprint</p>
+              <h1 className="mb-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-navy md:text-5xl lg:text-[54px]">
+                Funnel Sprint - <OrangeUnderline>a validated winning ad + landing page</OrangeUnderline>{' '}
+                in 6-8 weeks.
+              </h1>
+              <p className="mb-8 max-w-xl text-lg leading-relaxed text-navy/75">
+                Google Local Service Ads, Search Ads, and Facebook campaigns built specifically
+                for home services and professional services businesses in Central Florida. Pay
+                for leads, not clicks.
+              </p>
+
+              <button
+                type="button"
+                onClick={() => openQuoteDialog('hero')}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-pen px-8 py-4 text-lg font-bold text-white transition hover:bg-pen/90"
+              >
+                {CTA_LABEL}
+                <ArrowRight className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Lead dashboard mock (illustrative) */}
+            <Reveal className="relative mx-auto w-full max-w-md">
+              <MarkerNote className="absolute -top-3 left-0 z-10 text-[24px] sm:-left-4">
+                pay for leads, not clicks
+              </MarkerNote>
+              <div className="rounded-[1.75rem] border border-hairline bg-white p-6 shadow-2xl">
+                <p className="text-sm font-bold tracking-[0.18em] text-navy/50">
+                  ILLUSTRATIVE LEAD DASHBOARD
+                </p>
+                <div className="mt-5 rounded-2xl border border-hairline p-4">
+                  <p className="flex items-center justify-between gap-3">
+                    <span className="font-bold text-navy">New lead - HVAC</span>
+                    <span className="text-sm font-bold text-brand">Google Guaranteed</span>
+                  </p>
+                  <p className="mt-1 text-[15px] text-navy/70">
+                    Daytona Beach - Local Service Ads
+                  </p>
+                </div>
+                <div className="mt-4 grid grid-cols-3 gap-3 text-center">
+                  <div className="rounded-2xl bg-paper p-3">
+                    <p className="text-lg font-extrabold text-navy">$25-75</p>
+                    <p className="mt-0.5 text-xs font-medium text-muted-foreground">
+                      Per qualified lead
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-paper p-3">
+                    <p className="text-lg font-extrabold text-navy">40-60%</p>
+                    <p className="mt-0.5 text-xs font-medium text-muted-foreground">
+                      Call answer rate
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-brand-tint p-3">
+                    <p className="text-lg font-extrabold text-brand">3-5x</p>
+                    <p className="mt-0.5 text-xs font-medium text-muted-foreground">
+                      ROI target
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-4 text-xs font-medium text-muted-foreground">
+                  Mock dashboard for illustration. Figures are the targets this page describes.
+                </p>
+              </div>
+              <MarkerNote className="absolute -bottom-5 left-8 z-10 text-[24px]">
+                validated first
+              </MarkerNote>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Method */}
+      <section className="bg-brand-tint/60 py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">The method</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              The Method
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              Find the winning message cheaply first - rapid ad sprints - then build and
+              optimize the funnel around the proven winner.
+            </p>
+          </div>
+          <ServiceTimeline steps={methodSteps} />
+        </div>
+      </section>
+
+      {/* Who we help */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Who we help</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Local Lead Generation for Your Industry
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              We specialize in generating qualified leads for home services and professional
+              services businesses throughout{' '}
+              <Link href="/areas-we-serve" className="font-medium text-brand underline hover:text-navy">
+                Volusia County
+              </Link>{' '}
+              and Flagler Counties.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="rounded-3xl border border-hairline bg-white p-8 shadow-sm">
+              <h3 className="text-2xl font-extrabold tracking-tight text-navy">Home Services</h3>
+              <p className="mt-1.5 font-semibold text-navy/50">
+                Emergency &amp; scheduled service leads
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {homeServiceTypes.map((name) => (
+                  <li
+                    key={name}
+                    className="rounded-full border border-hairline bg-paper px-3.5 py-1.5 text-sm font-medium text-navy/80"
+                  >
+                    {name}
+                  </li>
+                ))}
+              </ul>
+              <ul className="mt-6 space-y-2.5 border-t border-hairline pt-6">
+                {[
+                  'Google Local Service Ads (Google Guaranteed)',
+                  'Emergency service keyword targeting',
+                  'Call-only campaigns for immediate leads',
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 text-[15px] leading-relaxed text-navy/75"
+                  >
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={3} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-3xl border border-hairline bg-white p-8 shadow-sm">
+              <h3 className="text-2xl font-extrabold tracking-tight text-navy">
+                Professional Services
+              </h3>
+              <p className="mt-1.5 font-semibold text-navy/50">
+                Consultation &amp; appointment leads
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {professionalServiceTypes.map((name) => (
+                  <li
+                    key={name}
+                    className="rounded-full border border-hairline bg-paper px-3.5 py-1.5 text-sm font-medium text-navy/80"
+                  >
+                    {name}
+                  </li>
+                ))}
+              </ul>
+              <ul className="mt-6 space-y-2.5 border-t border-hairline pt-6">
+                {[
+                  'Google Screened verification support',
+                  'High-intent consultation searches',
+                  'Facebook lead forms for appointments',
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 text-[15px] leading-relaxed text-navy/75"
+                  >
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={3} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ad platforms: tabs */}
+      <section className="bg-paper py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Ad platforms</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Three Ways to Generate Local Leads
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              We use the right platform for your business type and goals
+            </p>
+          </div>
+          <ServiceTabs services={platformTabs} ariaLabel="Ad platforms" idPrefix="platforms" />
+        </div>
+      </section>
+
+      {/* Why local focus */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Why local</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Why Local Focus Matters
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              National agencies don&apos;t understand the Volusia and Flagler market. We live
+              here in{' '}
+              <Link href="/areas-we-serve/daytona-beach" className="font-medium text-brand underline hover:text-navy">
+                Daytona Beach
+              </Link>
+              .
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="rounded-3xl border border-hairline bg-paper p-8">
+              <h3 className="text-2xl font-extrabold tracking-tight text-navy">
+                The National Agency Problem
+              </h3>
+              <ul className="mt-6 space-y-3">
+                <li className="flex items-start gap-2.5 leading-relaxed text-navy/75">
+                  <span className="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-pen" />
+                  Generic campaigns that ignore local competition
+                </li>
+                <li className="flex items-start gap-2.5 leading-relaxed text-navy/75">
+                  <span className="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-pen" />
+                  Don&apos;t understand seasonal patterns (snowbirds, hurricanes)
+                </li>
+                <li className="flex items-start gap-2.5 leading-relaxed text-navy/75">
+                  <span className="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-pen" />
+                  <span>
+                    Don&apos;t know{' '}
+                    <Link href="/blog/daytona-google-ads-wasted-budget" className="font-medium text-brand underline hover:text-navy">
+                      why most local ad spend gets wasted
+                    </Link>
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5 leading-relaxed text-navy/75">
+                  <span className="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-pen" />
+                  No knowledge of local neighborhoods and demographics
+                </li>
+                <li className="flex items-start gap-2.5 leading-relaxed text-navy/75">
+                  <span className="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-pen" />
+                  Can&apos;t help with Google Business Profile optimization
+                </li>
+              </ul>
+            </div>
+
+            <div className="rounded-3xl border border-hairline bg-brand-tint/60 p-8">
+              <h3 className="text-2xl font-extrabold tracking-tight text-navy">
+                Our Local Approach
+              </h3>
+              <ul className="mt-6 space-y-4">
+                {[
+                  { title: 'Hyper-local targeting', body: 'By city, zip code, and neighborhood' },
+                  {
+                    title: 'Seasonal strategy',
+                    body: 'Ramp up for snowbird season, prepare for hurricane prep',
+                  },
+                  {
+                    title: 'Local competitor analysis',
+                    body: "We know who's advertising what in your area",
+                  },
+                ].map((item) => (
+                  <li key={item.title} className="flex items-start gap-2.5">
+                    <Check className="mt-1 h-4 w-4 shrink-0 text-brand" strokeWidth={3} />
+                    <span className="leading-relaxed text-navy/75">
+                      <span className="font-semibold text-navy">{item.title}</span>
+                      <span className="block text-[15px] text-navy/60">{item.body}</span>
+                    </span>
+                  </li>
+                ))}
+                <li className="flex items-start gap-2.5">
+                  <Check className="mt-1 h-4 w-4 shrink-0 text-brand" strokeWidth={3} />
+                  <span className="leading-relaxed text-navy/75">
+                    <span className="font-semibold text-navy">GBP integration</span>
+                    <span className="block text-[15px] text-navy/60">
+                      Ads +{' '}
+                      <Link href="/services/local-seo" className="font-medium text-brand underline hover:text-navy">
+                        local SEO
+                      </Link>{' '}
+                      working together
+                    </span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service areas */}
+      <section className="bg-paper py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Service areas</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Generating Leads Across Central Florida
+            </h2>
+          </div>
+          <ul className="grid grid-cols-2 gap-3 md:grid-cols-4">
+            {serviceAreas.map((city) => (
+              <li
+                key={city.name}
+                className="flex items-center gap-2 rounded-2xl border border-hairline bg-white px-4 py-3"
+              >
+                <MapPin className="h-4 w-4 shrink-0 text-pen-text" />
+                {city.href ? (
+                  <Link href={city.href} className="font-medium text-brand hover:underline">
+                    {city.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-navy/80">{city.name}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-navy/70">
+            We target the exact service areas where your customers live and work
+          </p>
+        </div>
+      </section>
+
+      {/* Results: figures from the live page's own copy */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Results</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              What Local Lead Gen Delivers
+            </h2>
+          </div>
+          <Reveal className="relative">
+            <div className="grid gap-10 rounded-[1.75rem] bg-navy p-8 md:grid-cols-3 md:p-10">
+              {resultStats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-5xl font-extrabold tracking-tight text-white">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1.5 text-lg font-bold text-white">{stat.label}</p>
+                  <p className="mt-1 text-[15px] font-medium leading-snug text-white/60">
+                    {stat.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <MarkerNote className="absolute -bottom-4 right-8 z-10 text-[24px] text-sun">
+              the numbers we aim at
+            </MarkerNote>
+          </Reveal>
+        </div>
+      </section>
+
+      <TestimonialBand
+        quote={leadGenTestimonial.content}
+        name={leadGenTestimonial.name}
+        role={leadGenTestimonial.role}
+      />
+
+      {/* Pricing: Funnel Sprint from pricing.ts in the two-step layout */}
+      <section className="bg-paper py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Pricing</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Funnel Sprint Pricing
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="flex flex-col rounded-3xl border border-hairline bg-white p-8 shadow-sm">
+              <p className="text-sm font-bold tracking-[0.14em] text-pen-text">STEP 1</p>
+              <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-navy">
+                6-8 Week Funnel Sprint
+              </h3>
+              <p className="mt-4 text-5xl font-extrabold tracking-tight text-navy">
+                {funnelSprintOffer.sprintPrice}
+              </p>
+              <p className="mt-2 leading-relaxed text-navy/70">
+                - {funnelSprintOffer.sprintIncludes}
+              </p>
+              <div className="mt-6 rounded-2xl bg-pen-tint p-4">
+                <p className="font-bold text-pen-text">Guarantee</p>
+                <p className="mt-1 text-[15px] leading-relaxed text-navy/80">
+                  {funnelSprintOffer.guarantee}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => openQuoteDialog('pricing', funnelSprintOffer.serviceLabel)}
+                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 font-bold text-white transition hover:bg-brand/90"
+              >
+                {CTA_LABEL}
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="flex flex-col rounded-3xl bg-navy p-8 text-white shadow-xl">
+              <p className="text-sm font-bold tracking-[0.14em] text-sun">STEP 2</p>
+              <h3 className="mt-3 text-2xl font-extrabold tracking-tight">
+                Ongoing management
+              </h3>
+              <ul className="mt-6 flex-1 space-y-3">
+                {funnelSprintOffer.ongoingTiers.map((tier) => (
+                  <li
+                    key={tier.price}
+                    className="flex items-center justify-between gap-4 rounded-2xl bg-white/10 px-4 py-3"
+                  >
+                    <span className="font-bold">{tier.price}</span>
+                    <span className="text-white/70">({tier.adSpend})</span>
+                  </li>
+                ))}
+              </ul>
+              {funnelSprintOffer.diyVideoHref.startsWith('http') && (
+                <div className="mt-6 border-t border-white/15 pt-6 text-center">
+                  <p className="font-bold">DIY path</p>
+                  <p className="mt-1 text-[15px] text-white/70">
+                    Prefer to run it yourself? Watch our free long-form walkthrough.
+                  </p>
+                  <a
+                    href={funnelSprintOffer.diyVideoHref}
+                    className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 px-6 py-3 font-bold text-white transition hover:border-white"
+                  >
+                    Free Long-Form Walkthrough
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ accordion. The page's FAQPage schema is the inline script
+          below, preserved verbatim, so ServiceFaq renders no schema here. */}
+      <ServiceFaq faqs={leadGenFaqs} />
+
+      {/* Final CTA: keeps the page's quote-dialog flow and copy */}
+      <section className="bg-brand bg-waves-light py-24 text-white">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-4xl font-extrabold tracking-tight md:text-[40px]">
+              Ready for a Validated Winning Funnel?
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-white/85">
+              Tell us about your service area and target customers. We will scope a Funnel
+              Sprint for your market.
+            </p>
+            <div className="mx-auto mt-10 max-w-xl rounded-[1.75rem] bg-white p-8 text-left shadow-2xl">
+              <h3 className="flex items-center gap-3 text-2xl font-extrabold tracking-tight text-navy">
+                <Phone className="h-6 w-6 text-brand" />
+                Get a Custom Quote
+              </h3>
+              <p className="mt-1.5 text-navy/70">
+                Tell us about your business and service area - no obligation
+              </p>
+              <button
+                type="button"
+                onClick={() => openQuoteDialog('final')}
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 font-bold text-white transition hover:bg-brand/90"
+              >
+                {CTA_LABEL}
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+            <p className="mt-8 text-white/70">
+              Serving home services and professional services businesses across Volusia &amp;
+              Flagler Counties
+            </p>
+          </div>
+        </div>
+      </section>
 
       <script
         type="application/ld+json"
@@ -906,6 +813,6 @@ export default function LocalLeadGenerationPage() {
           description: 'Validated local ad funnel built and tested in 6-8 weeks',
         }}
       />
-    </>
+    </div>
   );
 }
