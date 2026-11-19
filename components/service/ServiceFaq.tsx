@@ -15,6 +15,8 @@ export interface ServiceFaqItem {
 
 interface ServiceFaqProps {
   faqs: ServiceFaqItem[];
+  /** Section heading (template default from the Local SEO design). */
+  heading?: string;
   /** Side note under the heading (template default mentions the assistant). */
   note?: string;
   /** Render a FAQPage JSON-LD block built from the items that carry schemaText. */
@@ -28,6 +30,7 @@ interface ServiceFaqProps {
  */
 export default function ServiceFaq({
   faqs,
+  heading = 'Frequently Asked Questions',
   note = 'Still wondering? The assistant in the corner can answer anything else.',
   withSchema = false,
 }: ServiceFaqProps) {
@@ -55,7 +58,7 @@ export default function ServiceFaq({
           <div>
             <p className="mb-4 text-[15px] font-semibold text-pen-text">Questions</p>
             <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
-              Frequently Asked Questions
+              {heading}
             </h2>
             <p className="text-lg leading-relaxed text-navy/70">{note}</p>
           </div>

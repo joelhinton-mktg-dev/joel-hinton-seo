@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
-import { MapPin, Phone, Mail, Calendar, Clock, CheckCircle, ArrowRight, Globe, Home, MessageSquare, Zap, Star, User, Building2, FileText } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { MapPin, Phone, Mail, Calendar, Clock, CheckCircle, ArrowRight, Globe, Home, MessageSquare, Zap, Star, User, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
 import ContactButton from '../../components/ContactButton';
 import { SITE_EMAIL, SITE_PHONE, SITE_PHONE_TEL } from '@/data/site';
+import OrangeUnderline from '../../components/brand/OrangeUnderline';
 
 export const metadata: Metadata = {
   title: {
@@ -27,28 +26,28 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-paper">
       <PageBreadcrumb items={[{ label: "Contact", current: true }]} />
 
       {/* Hero Section */}
-      <section className="pb-16 bg-background">
+      <section className="bg-paper bg-waves pb-16">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
-              <Calendar className="w-4 h-4 mr-2" />
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="mb-6 inline-flex items-center text-[15px] font-semibold text-pen-text">
+              <Calendar className="mr-2 h-4 w-4" />
               Free Marketing Consultation
-            </Badge>
+            </p>
 
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Get Your <span className="text-primary">Free Marketing</span> Consultation
+            <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-navy md:text-6xl">
+              Get Your <OrangeUnderline>Free Marketing</OrangeUnderline> Consultation
             </h1>
 
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-navy/70">
               Ready to transform your marketing with psychology-driven strategies? Schedule your complimentary consultation
               and discover exactly how to outthink your competition and accelerate growth.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="mb-8 flex flex-col justify-center gap-4 sm:flex-row">
               <ContactButton
                 size="lg"
                 className="px-8 py-4 text-lg"
@@ -56,9 +55,9 @@ export default function ContactPage() {
                 dialogTitle="Schedule Strategy Session"
                 dialogDescription="Let's discuss your business goals and create a custom marketing strategy."
               >
-                <Calendar className="w-5 h-5 mr-2" />
+                <Calendar className="mr-2 h-5 w-5" />
                 Schedule Strategy Session
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </ContactButton>
               <Button
                 size="lg"
@@ -67,24 +66,24 @@ export default function ContactPage() {
                 asChild
               >
                 <a href={`tel:${SITE_PHONE_TEL}`}>
-                  <Phone className="w-5 h-5 mr-2" />
+                  <Phone className="mr-2 h-5 w-5" />
                   Call Now: {SITE_PHONE}
                 </a>
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto text-center">
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-4 text-center md:grid-cols-3">
               <div className="p-4">
-                <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
-                <p className="text-sm font-medium">24-Hour Response</p>
+                <Clock className="mx-auto mb-2 h-8 w-8 text-brand" />
+                <p className="text-sm font-medium text-navy">24-Hour Response</p>
               </div>
               <div className="p-4">
-                <Home className="w-8 h-8 text-primary mx-auto mb-2" />
-                <p className="text-sm font-medium">In-Person Available</p>
+                <Home className="mx-auto mb-2 h-8 w-8 text-brand" />
+                <p className="text-sm font-medium text-navy">In-Person Available</p>
               </div>
               <div className="p-4">
-                <Globe className="w-8 h-8 text-primary mx-auto mb-2" />
-                <p className="text-sm font-medium">Remote Consultations</p>
+                <Globe className="mx-auto mb-2 h-8 w-8 text-brand" />
+                <p className="text-sm font-medium text-navy">Remote Consultations</p>
               </div>
             </div>
           </div>
@@ -92,267 +91,247 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-24 bg-gradient-subtle">
+      <section className="bg-band py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Multiple Ways to <span className="gradient-text">Connect</span>
+          <div className="mb-16 text-center">
+            <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-5xl">
+              Multiple Ways to <OrangeUnderline>Connect</OrangeUnderline>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="mx-auto max-w-3xl text-xl leading-relaxed text-navy/70">
               Choose the communication method that works best for you. We're here to help accelerate your business growth.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <Card className="card-professional text-center">
-              <CardHeader>
-                <div className="w-16 h-16 rounded-full bg-primary/20 text-primary flex items-center justify-center mx-auto mb-4">
-                  <Phone className="w-8 h-8" />
-                </div>
-                <CardTitle className="text-xl">Direct Phone Line</CardTitle>
-                <CardDescription>Immediate response during business hours</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
+          <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="rounded-3xl border border-hairline bg-cream p-6 text-center shadow-sm">
+              <span className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-brand-tint text-brand">
+                <Phone className="h-8 w-8" />
+              </span>
+              <h3 className="mb-1 text-xl font-extrabold tracking-tight text-navy">Direct Phone Line</h3>
+              <p className="mb-4 text-sm text-navy/60">Immediate response during business hours</p>
+              <div className="space-y-4">
                 <div className="space-y-2">
-                  <p className="text-2xl font-bold text-primary">{SITE_PHONE}</p>
-                  <p className="text-sm text-muted-foreground">Monday - Friday, 9 AM - 5 PM EST</p>
+                  <p className="text-2xl font-extrabold text-navy">{SITE_PHONE}</p>
+                  <p className="text-sm text-navy/60">Monday - Friday, 9 AM - 5 PM EST</p>
                 </div>
                 <Button variant="outline" className="w-full" asChild>
                   <a href={`tel:${SITE_PHONE_TEL}`}>
-                    <Phone className="w-4 h-4 mr-2" />
+                    <Phone className="mr-2 h-4 w-4" />
                     Call Now
                   </a>
                 </Button>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="card-professional text-center">
-              <CardHeader>
-                <div className="w-16 h-16 rounded-full bg-primary/20 text-primary flex items-center justify-center mx-auto mb-4">
-                  <Mail className="w-8 h-8" />
-                </div>
-                <CardTitle className="text-xl">Email Consultation</CardTitle>
-                <CardDescription>Detailed strategy discussions via email</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
+            <div className="rounded-3xl border border-hairline bg-cream p-6 text-center shadow-sm">
+              <span className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-brand-tint text-brand">
+                <Mail className="h-8 w-8" />
+              </span>
+              <h3 className="mb-1 text-xl font-extrabold tracking-tight text-navy">Email Consultation</h3>
+              <p className="mb-4 text-sm text-navy/60">Detailed strategy discussions via email</p>
+              <div className="space-y-4">
                 <div className="space-y-2">
-                  <p className="text-lg font-semibold">{SITE_EMAIL}</p>
-                  <p className="text-sm text-muted-foreground">Response within 24 hours</p>
+                  <p className="text-lg font-semibold text-navy">{SITE_EMAIL}</p>
+                  <p className="text-sm text-navy/60">Response within 24 hours</p>
                 </div>
                 <Button variant="outline" className="w-full" asChild>
                   <a href={`mailto:${SITE_EMAIL}`}>
-                    <Mail className="w-4 h-4 mr-2" />
+                    <Mail className="mr-2 h-4 w-4" />
                     Send Email
                   </a>
                 </Button>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="card-professional text-center">
-              <CardHeader>
-                <div className="w-16 h-16 rounded-full bg-primary/20 text-primary flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="w-8 h-8" />
-                </div>
-                <CardTitle className="text-xl">Calendar Booking</CardTitle>
-                <CardDescription>Schedule at your convenience</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
+            <div className="rounded-3xl border border-hairline bg-cream p-6 text-center shadow-sm">
+              <span className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-brand-tint text-brand">
+                <Calendar className="h-8 w-8" />
+              </span>
+              <h3 className="mb-1 text-xl font-extrabold tracking-tight text-navy">Calendar Booking</h3>
+              <p className="mb-4 text-sm text-navy/60">Schedule at your convenience</p>
+              <div className="space-y-4">
                 <div className="space-y-2">
-                  <p className="text-lg font-semibold">Online Scheduling</p>
-                  <p className="text-sm text-muted-foreground">Choose your preferred time slot</p>
+                  <p className="text-lg font-semibold text-navy">Online Scheduling</p>
+                  <p className="text-sm text-navy/60">Choose your preferred time slot</p>
                 </div>
                 <ContactButton variant="outline" className="w-full" defaultService="Free Marketing Consultation">
-                  <Calendar className="w-4 h-4 mr-2" />
+                  <Calendar className="mr-2 h-4 w-4" />
                   Book Meeting
                 </ContactButton>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           {/* Office Information */}
-          <Card className="card-professional max-w-4xl mx-auto">
-            <CardHeader className="text-center">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Home className="w-8 h-8 text-primary" />
-                <CardTitle className="text-2xl">Daytona Beach Headquarters</CardTitle>
+          <div className="mx-auto max-w-4xl rounded-3xl border border-hairline bg-cream p-8 shadow-sm">
+            <div className="mb-6 text-center">
+              <div className="mb-4 flex items-center justify-center gap-3">
+                <Home className="h-8 w-8 text-brand" />
+                <h3 className="text-2xl font-extrabold tracking-tight text-navy">Daytona Beach Headquarters</h3>
               </div>
-              <CardDescription className="text-lg">In-person consultations available for local businesses</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-primary mt-1" />
-                    <div>
-                      <p className="font-semibold">Office Address</p>
-                      <p className="text-muted-foreground">123 Main Street<br />Daytona Beach, FL 32114</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-primary mt-1" />
-                    <div>
-                      <p className="font-semibold">Office Hours</p>
-                      <p className="text-muted-foreground">Monday - Friday: 9:00 AM - 5:00 PM<br />Saturday: By appointment only</p>
-                    </div>
+              <p className="text-lg text-navy/70">In-person consultations available for local businesses</p>
+            </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <MapPin className="mt-1 h-5 w-5 text-brand" />
+                  <div>
+                    <p className="font-semibold text-navy">Office Address</p>
+                    <p className="text-navy/70">123 Main Street<br />Daytona Beach, FL 32114</p>
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="bg-primary/5 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Local Advantage</h4>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      In-person meetings available for Daytona Beach area businesses including:
-                    </p>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      <li>• Downtown Daytona Beach</li>
-                      <li>• Ormond Beach</li>
-                      <li>• Port Orange</li>
-                      <li>• South Daytona</li>
-                      <li>• Holly Hill</li>
-                    </ul>
+                <div className="flex items-start gap-3">
+                  <Clock className="mt-1 h-5 w-5 text-brand" />
+                  <div>
+                    <p className="font-semibold text-navy">Office Hours</p>
+                    <p className="text-navy/70">Monday - Friday: 9:00 AM - 5:00 PM<br />Saturday: By appointment only</p>
                   </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+
+              <div className="space-y-4">
+                <div className="rounded-2xl bg-brand-tint/50 p-4">
+                  <h4 className="mb-2 font-semibold text-navy">Local Advantage</h4>
+                  <p className="mb-2 text-sm text-navy/70">
+                    In-person meetings available for Daytona Beach area businesses including:
+                  </p>
+                  <ul className="space-y-1 text-xs text-navy/70">
+                    <li>• Downtown Daytona Beach</li>
+                    <li>• Ormond Beach</li>
+                    <li>• Port Orange</li>
+                    <li>• South Daytona</li>
+                    <li>• Holly Hill</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Service Area */}
-      <section className="py-24 bg-background">
+      <section className="bg-paper py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Florida <span className="gradient-text">Service Coverage</span>
+          <div className="mb-16 text-center">
+            <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-5xl">
+              Florida <OrangeUnderline>Service Coverage</OrangeUnderline>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="mx-auto max-w-3xl text-xl leading-relaxed text-navy/70">
               Serving businesses across Florida with specialized local market expertise and nationwide remote consultation capabilities.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="card-professional">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <Home className="w-6 h-6 text-primary" />
-                  <CardTitle className="text-xl">Local In-Person Service</CardTitle>
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="rounded-3xl border border-hairline bg-cream p-6 shadow-sm">
+              <div className="mb-4 flex items-center gap-3">
+                <Home className="h-6 w-6 text-brand" />
+                <h3 className="text-xl font-extrabold tracking-tight text-navy">Local In-Person Service</h3>
+              </div>
+              <p className="mb-4 leading-relaxed text-navy/70">
+                Full in-person consultation and ongoing support available in the Greater Daytona Beach area:
+              </p>
+              <div className="grid grid-cols-2 gap-2 text-sm text-navy/80">
+                <div className="space-y-1">
+                  <p>• Daytona Beach</p>
+                  <p>• Ormond Beach</p>
+                  <p>• Port Orange</p>
+                  <p>• South Daytona</p>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Full in-person consultation and ongoing support available in the Greater Daytona Beach area:
-                </p>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className="space-y-1">
-                    <p>• Daytona Beach</p>
-                    <p>• Ormond Beach</p>
-                    <p>• Port Orange</p>
-                    <p>• South Daytona</p>
-                  </div>
-                  <div className="space-y-1">
-                    <p>• Holly Hill</p>
-                    <p>• Deltona</p>
-                    <p>• New Smyrna Beach</p>
-                    <p>• DeLand</p>
-                  </div>
+                <div className="space-y-1">
+                  <p>• Holly Hill</p>
+                  <p>• Deltona</p>
+                  <p>• New Smyrna Beach</p>
+                  <p>• DeLand</p>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="card-professional">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <Globe className="w-6 h-6 text-primary" />
-                  <CardTitle className="text-xl">Florida-Wide Remote Service</CardTitle>
+            <div className="rounded-3xl border border-hairline bg-cream p-6 shadow-sm">
+              <div className="mb-4 flex items-center gap-3">
+                <Globe className="h-6 w-6 text-brand" />
+                <h3 className="text-xl font-extrabold tracking-tight text-navy">Florida-Wide Remote Service</h3>
+              </div>
+              <p className="mb-4 leading-relaxed text-navy/70">
+                Comprehensive remote consultation services throughout Florida with deep local market knowledge:
+              </p>
+              <div className="grid grid-cols-2 gap-2 text-sm text-navy/80">
+                <div className="space-y-1">
+                  <p>• Orlando</p>
+                  <p>• Tampa Bay</p>
+                  <p>• Jacksonville</p>
+                  <p>• Miami-Dade</p>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Comprehensive remote consultation services throughout Florida with deep local market knowledge:
-                </p>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className="space-y-1">
-                    <p>• Orlando</p>
-                    <p>• Tampa Bay</p>
-                    <p>• Jacksonville</p>
-                    <p>• Miami-Dade</p>
-                  </div>
-                  <div className="space-y-1">
-                    <p>• Fort Lauderdale</p>
-                    <p>• Gainesville</p>
-                    <p>• Tallahassee</p>
-                    <p>• All Florida Markets</p>
-                  </div>
+                <div className="space-y-1">
+                  <p>• Fort Lauderdale</p>
+                  <p>• Gainesville</p>
+                  <p>• Tallahassee</p>
+                  <p>• All Florida Markets</p>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Form CTA */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-purple-50">
+      <section className="bg-band px-4 py-20">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
               Schedule Your Strategy Session
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-xl leading-relaxed text-navy/70">
               Get your free marketing consultation. Tell us about your business and marketing challenges,
               and we'll show you exactly how to accelerate growth with psychology-driven strategies.
             </p>
           </div>
 
-          <Card className="card-professional shadow-xl">
-            <CardHeader className="text-center pb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MessageSquare className="w-8 h-8 text-white" />
-              </div>
-              <CardTitle className="text-2xl md:text-3xl">
-                Free Marketing Consultation Request
-              </CardTitle>
-              <CardDescription className="text-lg">
-                Get a personalized marketing strategy within 24 hours
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-muted-foreground mb-8">
-                Ready to transform your marketing with psychology-driven strategies? Click below to schedule your complimentary consultation
-                and discover exactly how to outthink your competition and accelerate growth.
-              </p>
-              <ContactButton
-                size="lg"
-                variant="hero"
-                className="px-12 py-6 text-lg"
-                defaultService="Free Marketing Consultation"
-              >
-                <Calendar className="w-5 h-5 mr-2" />
-                Schedule Free Consultation
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </ContactButton>
-              <p className="text-sm text-muted-foreground text-center mt-6">
-                No spam. No sales pitches. Just valuable marketing insights tailored to your business.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="rounded-3xl border border-hairline bg-cream p-8 text-center shadow-sm">
+            <span className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-brand-tint text-brand">
+              <MessageSquare className="h-8 w-8" />
+            </span>
+            <h3 className="mb-2 text-2xl font-extrabold tracking-tight text-navy md:text-3xl">
+              Free Marketing Consultation Request
+            </h3>
+            <p className="mb-6 text-lg text-navy/70">
+              Get a personalized marketing strategy within 24 hours
+            </p>
+            <p className="mx-auto mb-8 max-w-2xl leading-relaxed text-navy/70">
+              Ready to transform your marketing with psychology-driven strategies? Click below to schedule your complimentary consultation
+              and discover exactly how to outthink your competition and accelerate growth.
+            </p>
+            <ContactButton
+              size="lg"
+              variant="hero"
+              className="px-12 py-6 text-lg"
+              defaultService="Free Marketing Consultation"
+            >
+              <Calendar className="mr-2 h-5 w-5" />
+              Schedule Free Consultation
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </ContactButton>
+            <p className="mt-6 text-center text-sm text-navy/60">
+              No spam. No sales pitches. Just valuable marketing insights tailored to your business.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Why Schedule Benefits */}
-      <section className="py-24 bg-gradient-subtle">
+      <section className="bg-paper py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Why Schedule a <span className="gradient-text">Consultation?</span>
+          <div className="mb-16 text-center">
+            <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-5xl">
+              Why Schedule a <OrangeUnderline>Consultation?</OrangeUnderline>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="mx-auto max-w-3xl text-xl leading-relaxed text-navy/70">
               Every business is unique. A personalized consultation ensures you get strategies tailored specifically to your market,
               audience, and growth objectives.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               { icon: Zap, title: "Personalized Strategy", description: "Get a custom marketing strategy designed specifically for your business, industry, and target audience. No generic templates or one-size-fits-all solutions." },
               { icon: Star, title: "Competitive Analysis", description: "Discover what your competitors are doing wrong and how you can outthink them with psychology-driven strategies that capture more market share." },
@@ -361,32 +340,28 @@ export default function ContactPage() {
               { icon: FileText, title: "Growth Roadmap", description: "Receive a clear, step-by-step roadmap for scaling your business with proven marketing strategies tailored to your growth goals." },
               { icon: Clock, title: "Time Savings", description: "Avoid months of trial and error. Get expert guidance that fast-tracks your marketing success and saves you time and resources." },
             ].map((benefit, index) => (
-              <Card key={index} className="card-professional text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/20 text-primary flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="w-8 h-8" />
-                  </div>
-                  <CardTitle className="text-xl">{benefit.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{benefit.description}</p>
-                </CardContent>
-              </Card>
+              <div key={index} className="rounded-3xl border border-hairline bg-cream p-6 text-center shadow-sm">
+                <span className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-brand-tint text-brand">
+                  <benefit.icon className="h-8 w-8" />
+                </span>
+                <h3 className="mb-3 text-xl font-extrabold tracking-tight text-navy">{benefit.title}</h3>
+                <p className="leading-relaxed text-navy/70">{benefit.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Consultation <span className="gradient-text">Process FAQs</span>
+      <section className="bg-paper py-24">
+        <div className="container mx-auto max-w-4xl px-6">
+          <div className="mb-16 text-center">
+            <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-5xl">
+              Consultation <OrangeUnderline>Process FAQs</OrangeUnderline>
             </h2>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="w-full">
             {[
               { question: "What happens during the free consultation?", answer: "During our consultation, we'll analyze your current marketing, understand your business goals, identify your target audience psychology, and provide specific recommendations for growth. You'll receive actionable strategies you can implement immediately, plus a roadmap for long-term success." },
               { question: "How long is the consultation and what format?", answer: "Consultations typically last 45-60 minutes. For Daytona Beach area businesses, we offer in-person meetings at our office or your location. For other markets, we'll conduct the consultation via video conference, phone, or detailed email exchange based on your preference." },
@@ -395,9 +370,9 @@ export default function ContactPage() {
               { question: "Do you work with businesses outside of Florida?", answer: "Absolutely. While we specialize in Volusia & Flagler County markets and offer in-person service in the Daytona Beach area, we work with businesses throughout Central Florida through remote consultations. The psychology-driven marketing principles we use are effective regardless of location." },
               { question: "What happens after the consultation?", answer: "You'll receive a follow-up email summarizing our discussion and key recommendations. If you'd like to continue working together, I'll outline potential next steps. If not, you'll still have valuable insights to implement on your own. There's no pressure either way." },
             ].map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">{faq.question}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
+              <AccordionItem key={index} value={`item-${index}`} className="border-b border-hairline">
+                <AccordionTrigger className="py-5 text-left text-lg font-bold text-navy hover:text-brand hover:no-underline">{faq.question}</AccordionTrigger>
+                <AccordionContent className="pb-6 text-base leading-relaxed text-navy/75">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
@@ -405,46 +380,46 @@ export default function ContactPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-gradient-to-r from-blue-600 to-purple-700">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+      <section className="bg-brand bg-waves-light py-24">
+        <div className="container mx-auto max-w-4xl px-6">
+          <div className="mb-16 text-center">
+            <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
               Ready to Accelerate Your Growth?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="mx-auto mb-8 max-w-2xl text-xl text-white/85">
               Stop guessing what your customers want. Get psychology-driven marketing strategies that convert prospects into loyal customers.
             </p>
-            <div className="flex items-center justify-center gap-2 text-blue-200 mb-8">
-              <CheckCircle className="w-5 h-5" />
+            <div className="mb-8 flex items-center justify-center gap-2 text-white/75">
+              <CheckCircle className="h-5 w-5" />
               <span>Join 200+ businesses that chose strategic marketing over generic tactics</span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <ContactButton
               size="lg"
               variant="secondary"
               className="px-8 py-4 text-lg"
               defaultService="Free Marketing Consultation"
             >
-              <Calendar className="w-5 h-5 mr-2" />
+              <Calendar className="mr-2 h-5 w-5" />
               Schedule Free Consultation
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </ContactButton>
             <Button
               size="lg"
               variant="outline"
-              className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-600"
+              className="border-white bg-transparent text-white hover:bg-white hover:text-brand"
               asChild
             >
               <a href={`tel:${SITE_PHONE_TEL}`}>
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="mr-2 h-5 w-5" />
                 Call: {SITE_PHONE}
               </a>
             </Button>
           </div>
 
-          <p className="text-blue-200 mt-6 text-center">
+          <p className="mt-6 text-center text-white/75">
             Free consultations • No sales pressure • Results-focused approach
           </p>
         </div>

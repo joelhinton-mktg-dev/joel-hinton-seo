@@ -5,11 +5,11 @@ import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
 import ContactDialog from '@/components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MapPin, Target } from 'lucide-react';
+import { ArrowRight, Target } from 'lucide-react';
 import LocationAreaSchema from '@/components/schema/LocationAreaSchema';
 import LocationMap from '@/components/LocationMap';
+import OrangeUnderline from '../../../components/brand/OrangeUnderline';
 
 const services = [
   {
@@ -40,7 +40,7 @@ export default function CentralFloridaHubPage() {
   );
 
   return (
-    <>
+    <div className="bg-paper">
       <LocationAreaSchema
         city="Central Florida"
         description="Local SEO and GEO optimization for Central Florida businesses — from Volusia and Flagler Counties into Orlando, Seminole, and Lake Counties. We help local businesses rank where their customers are searching."
@@ -59,37 +59,37 @@ export default function CentralFloridaHubPage() {
         ]}
       />
 
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-50">
+      <section className="bg-paper bg-waves px-4 py-20">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-navy md:text-5xl lg:text-6xl">
               Local SEO for Central Florida
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto">
-              Local SEO and GEO optimization for Central Florida businesses — from Volusia and
+            <p className="mx-auto mb-8 max-w-4xl text-xl leading-relaxed text-navy/70">
+              Local SEO and GEO optimization for Central Florida businesses - from Volusia and
               Flagler Counties into Orlando, Seminole, and Lake Counties. We help local
               businesses rank where their customers are searching.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
-                <Target className="w-5 h-5 mr-2" />
+                <Target className="mr-2 h-5 w-5" />
                 Get Central Florida Marketing Audit
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-background">
+      <section className="bg-paper px-4 py-20">
         <div className="container mx-auto max-w-4xl space-y-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Volusia and Flagler Are Our Core — Central Florida Is Where We&apos;re Growing
+            <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
+              Volusia and Flagler Are Our Core - Central Florida Is Where We&apos;re Growing
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg leading-relaxed text-navy/75">
               We&apos;re based in Daytona Beach and have built deep expertise in Volusia and Flagler
-              Counties — Ormond Beach, Port Orange, Palm Coast, New Smyrna Beach, and the markets
+              Counties - Ormond Beach, Port Orange, Palm Coast, New Smyrna Beach, and the markets
               between them. That foundation is what makes the expansion into Central Florida work:
               we don&apos;t arrive cold. We arrive with seven months of ranking data, a content
               system that produces real local pages, and a methodology that&apos;s already moving
@@ -98,24 +98,24 @@ export default function CentralFloridaHubPage() {
           </div>
 
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
               Why Central Florida Is the Right Next Market
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg leading-relaxed text-navy/75">
               The I-4 corridor from Daytona to Orlando connects two of the fastest-growing metros
               in Florida. Businesses in Sanford, Longwood, Altamonte Springs, and the greater
-              Orlando market face a different competitive environment than Volusia — more agencies,
+              Orlando market face a different competitive environment than Volusia - more agencies,
               more noise, and a local search landscape where the difference between position 3 and
               position 12 on the map pack is measurable in revenue. That&apos;s exactly the
               environment our approach was built for: technical foundations, real local content,
               and{' '}
-              <Link href="/services/geo-optimization" className="text-primary hover:underline">
+              <Link href="/services/geo-optimization" className="text-brand hover:underline">
                 GEO optimization
               </Link>{' '}
               that gets businesses cited in AI-generated answers.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mt-6">
-              <Link href="/areas-we-serve/altamonte-springs" className="text-primary hover:underline">
+            <p className="mt-6 text-lg leading-relaxed text-navy/75">
+              <Link href="/areas-we-serve/altamonte-springs" className="text-brand hover:underline">
                 Altamonte Springs
               </Link>{' '}
               sits at the midpoint of the Sanford-to-Orlando corridor. It has high search volume,
@@ -126,74 +126,70 @@ export default function CentralFloridaHubPage() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-gradient-to-r from-slate-50 to-slate-100">
+      <section className="bg-band px-4 py-20">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-14 text-center">
+            <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
               Services Available Across Central Florida
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="mx-auto max-w-3xl text-lg text-navy/70">
               The same services we run in Volusia and Flagler are available across Central Florida:
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
-              <Link key={service.name} href={service.href} className="block h-full group">
-                <Card className="card-professional h-full transition-shadow group-hover:shadow-md">
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold mb-2 text-primary group-hover:underline">
-                      {service.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{service.description}</p>
-                  </CardContent>
-                </Card>
+              <Link key={service.name} href={service.href} className="group block border-t-2 border-hairline pt-5">
+                <h3 className="mb-2 font-bold text-navy group-hover:text-brand group-hover:underline">
+                  {service.name}
+                </h3>
+                <p className="text-sm leading-relaxed text-navy/70">{service.description}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-background">
+      <section className="bg-paper px-4 py-20">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Markets We&apos;re Targeting</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            We&apos;re expanding city by city, with real content for each market — not templated
+          <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-navy md:text-4xl">Markets We&apos;re Targeting</h2>
+          <p className="mb-8 text-lg leading-relaxed text-navy/75">
+            We&apos;re expanding city by city, with real content for each market - not templated
             city-swaps. If your business is in one of the markets below and you want to be ahead of
             the expansion curve, reach out now.
           </p>
-          <p className="text-lg font-semibold mb-4">Current and planned coverage:</p>
-          <ul className="space-y-3 text-lg text-muted-foreground">
+          <p className="mb-4 text-lg font-semibold text-navy">Current and planned coverage:</p>
+          <ul className="space-y-3 text-lg text-navy/75">
             <li>
-              <Link href="/areas-we-serve/sanford" className="text-primary hover:underline">
+              <Link href="/areas-we-serve/sanford" className="text-brand hover:underline">
                 Sanford, FL
               </Link>{' '}
-              — already serving
+              - already serving
             </li>
-            <li>Orlando — coming soon</li>
-            <li>Winter Park — coming soon</li>
+            <li>Orlando - coming soon</li>
+            <li>Winter Park - coming soon</li>
             <li>
-              <Link href="/areas-we-serve/altamonte-springs" className="text-primary hover:underline">
+              <Link href="/areas-we-serve/altamonte-springs" className="text-brand hover:underline">
                 Altamonte Springs
               </Link>
               : now serving. A SunRail node and one of the I-4 corridor&apos;s most searched
               suburban markets, between Sanford and Orlando.
             </li>
-            <li>Kissimmee — coming soon</li>
-            <li>Lake Mary — coming soon</li>
+            <li>Kissimmee - coming soon</li>
+            <li>Lake Mary - coming soon</li>
           </ul>
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      <section className="bg-paper px-4 py-20">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Serving Central Florida from <span className="gradient-text">Daytona Beach</span>
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
+              Serving Central Florida from <OrangeUnderline>Daytona Beach</OrangeUnderline>
             </h2>
           </div>
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto max-w-4xl">
             <LocationMap city="Central Florida" state="FL" zoom={8} />
-            <p className="text-center text-muted-foreground mt-4">
+            <p className="mt-4 text-center text-navy/70">
               Based in Daytona Beach on the I-4 corridor. 45 minutes to Sanford, 60 minutes to
               Orlando.
             </p>
@@ -201,28 +197,19 @@ export default function CentralFloridaHubPage() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto max-w-4xl">
-          <Card className="card-professional shadow-xl">
-            <CardHeader className="text-center pb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-primary to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-8 h-8 text-white" />
-              </div>
-              <CardTitle className="text-2xl md:text-3xl">
-                Ready to Grow Your Central Florida Business?
-              </CardTitle>
-              <CardDescription className="text-lg">
-                Get a free marketing audit tailored for Central Florida
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <Button size="lg" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
-                <Target className="w-5 h-5 mr-2" />
-                Get My Free Audit
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </CardContent>
-          </Card>
+      <section className="bg-brand bg-waves-light px-4 py-20">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+            Ready to Grow Your Central Florida Business?
+          </h2>
+          <p className="mb-10 text-lg text-white/85">
+            Get a free marketing audit tailored for Central Florida
+          </p>
+          <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" onClick={() => openDialog()}>
+            <Target className="mr-2 h-5 w-5" />
+            Get My Free Audit
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </section>
 
@@ -234,6 +221,6 @@ export default function CentralFloridaHubPage() {
         defaultService={selectedService}
         businessTypes={businessTypes.general}
       />
-    </>
+    </div>
   );
 }

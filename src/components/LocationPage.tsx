@@ -5,10 +5,7 @@ import { PageBreadcrumb } from '../../components/ui/PageBreadcrumb';
 import ContactDialog from '@/components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import {
   MapPin, CheckCircle, ArrowRight, Phone, Star, Target, Search, Globe, Sparkles,
 } from 'lucide-react';
@@ -16,6 +13,8 @@ import { Location, locations } from '@/data/locations';
 import LocationAreaSchema from '@/components/schema/LocationAreaSchema';
 import LocationMap from '@/components/LocationMap';
 import { testimonials } from '@/data/clientTestimonials';
+import OrangeUnderline from '../../components/brand/OrangeUnderline';
+import ServiceFaq from '../../components/service/ServiceFaq';
 import type { ReactNode } from 'react';
 
 interface LocationPageProps {
@@ -34,7 +33,7 @@ function LinkedProse({ text }: { text: string }) {
       nodes.push(text.slice(lastIndex, match.index));
     }
     nodes.push(
-      <Link key={key} href={match[2]} className="text-primary hover:underline">
+      <Link key={key} href={match[2]} className="text-brand hover:underline">
         {match[1]}
       </Link>,
     );
@@ -67,8 +66,36 @@ export default function LocationPage({ location }: LocationPageProps) {
     return match ? [match] : [];
   });
 
+  const faqItems = (location.faqs ?? [
+    {
+      question: `Do you specialize in ${location.city} marketing?`,
+      answer: `Yes! We have deep local knowledge of ${location.city} and ${location.region}. We understand the local market, demographics, and what drives business success in this area.`,
+    },
+    {
+      question: `What industries do you serve in ${location.city}?`,
+      answer: `We work with all types of local businesses in ${location.city} including home services, healthcare, real estate, restaurants, retail, and professional services. Our strategies are customized for each industry.`,
+    },
+    {
+      question: 'How quickly can I see results?',
+      answer: `For local SEO in ${location.city}, most clients see improvements within 30-90 days. Paid advertising can generate leads within days. We provide clear timelines based on your specific goals.`,
+    },
+  ]).map((faq, index) => ({
+    question: faq.question,
+    answer:
+      index === 2 && !location.faqs ? (
+        <>
+          For{' '}
+          <Link href="/services/local-seo" className="text-brand hover:underline">local SEO</Link>{' '}
+          in {location.city}, most clients see improvements within 30-90 days. Paid advertising
+          can generate leads within days. We provide clear timelines based on your specific goals.
+        </>
+      ) : (
+        <LinkedProse text={faq.answer} />
+      ),
+  }));
+
   return (
-    <>
+    <div className="bg-paper">
       <LocationAreaSchema
         city={location.city}
         description={location.seo.metaDescription}
@@ -88,41 +115,41 @@ export default function LocationPage({ location }: LocationPageProps) {
       />
 
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-50">
+      <section className="bg-paper bg-waves px-4 py-20">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center">
             {location.isHomeBase && (
-              <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
-                <MapPin className="w-4 h-4 mr-2" />
+              <p className="mb-6 inline-flex items-center text-[15px] font-semibold text-pen-text">
+                <MapPin className="mr-2 h-4 w-4" />
                 Home Base Location
-              </Badge>
+              </p>
             )}
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-navy md:text-5xl lg:text-6xl">
               {location.heroHeadline ? (
                 <>
                   {location.heroHeadline}{' '}
                   {location.heroTagline && (
-                    <span className="gradient-text">{location.heroTagline}</span>
+                    <OrangeUnderline>{location.heroTagline}</OrangeUnderline>
                   )}
                 </>
               ) : (
                 <>
-                  {location.city} <span className="gradient-text">{location.tagline}</span>
+                  {location.city} <OrangeUnderline>{location.tagline}</OrangeUnderline>
                 </>
               )}
             </h1>
 
-            <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto">
+            <p className="mx-auto mb-8 max-w-4xl text-xl leading-relaxed text-navy/70">
               {location.description}
             </p>
 
             {location.supplementalCopy && (
-              <p className="text-lg text-muted-foreground mb-8 max-w-4xl mx-auto">
+              <p className="mx-auto mb-8 max-w-4xl text-lg leading-relaxed text-navy/70">
                 {location.slug === 'holly-hill' ? (
                   <>
                     Holly Hill digital marketing should speak to families and retirees in a close-knit community, not copy a metro-wide Daytona playbook. When you need broader search coverage across the beach market, work with our{' '}
-                    <Link href="/" className="text-primary underline hover:text-primary/80">
+                    <Link href="/" className="text-brand underline hover:text-brand/80">
                       Daytona Beach SEO company
                     </Link>{' '}
                     on the homepage for Volusia-wide visibility.
@@ -133,15 +160,15 @@ export default function LocationPage({ location }: LocationPageProps) {
               </p>
             )}
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="mb-8 flex flex-col justify-center gap-4 sm:flex-row">
               <Button
                 size="lg"
                 className="px-8 py-4 text-lg"
                 onClick={() => openDialog()}
               >
-                <Target className="w-5 h-5 mr-2" />
+                <Target className="mr-2 h-5 w-5" />
                 Get {location.city} Marketing Audit
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
@@ -152,16 +179,16 @@ export default function LocationPage({ location }: LocationPageProps) {
                   openDialog();
                 }}
               >
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="mr-2 h-5 w-5" />
                 Schedule Consultation
               </Button>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-center">
+            <div className="mx-auto grid max-w-3xl grid-cols-2 gap-4 text-center md:grid-cols-4">
               {location.features.slice(0, 4).map((feature, index) => (
                 <div key={index} className="p-4">
-                  <CheckCircle className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">{feature}</p>
+                  <CheckCircle className="mx-auto mb-2 h-8 w-8 text-brand" />
+                  <p className="text-sm font-medium text-navy">{feature}</p>
                 </div>
               ))}
             </div>
@@ -170,21 +197,21 @@ export default function LocationPage({ location }: LocationPageProps) {
       </section>
 
       {/* Social proof strip */}
-      <section className="py-6 px-4 border-y border-slate-200 bg-white">
-        <div className="container mx-auto max-w-6xl flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-8">
-          <div className="flex items-center justify-center gap-1 shrink-0" aria-label="5 star rating">
+      <section className="border-y border-hairline bg-cream px-4 py-6">
+        <div className="container mx-auto flex max-w-6xl flex-col gap-6 lg:flex-row lg:items-center lg:gap-8">
+          <div className="flex shrink-0 items-center justify-center gap-1" aria-label="5 star rating">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-secondary text-secondary" />
+              <Star key={i} className="h-5 w-5 fill-sun text-sun" />
             ))}
           </div>
 
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 min-w-0">
+          <div className="grid min-w-0 flex-1 grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
             {socialProofQuotes.map((quote) => (
-              <blockquote key={quote.name} className="text-sm text-muted-foreground leading-snug">
+              <blockquote key={quote.name} className="text-sm leading-snug text-navy/70">
                 <p className="line-clamp-2">&ldquo;{quote.content}&rdquo;</p>
-                <footer className="mt-1 text-xs font-medium text-foreground">
+                <footer className="mt-1 text-xs font-medium text-navy">
                   {quote.name}
-                  <span className="text-muted-foreground font-normal"> — {quote.role}</span>
+                  <span className="font-normal text-navy/60"> - {quote.role}</span>
                 </footer>
               </blockquote>
             ))}
@@ -192,21 +219,21 @@ export default function LocationPage({ location }: LocationPageProps) {
 
           <Link
             href="/results"
-            className="shrink-0 text-sm font-semibold text-primary hover:underline inline-flex items-center justify-center"
+            className="inline-flex shrink-0 items-center justify-center text-sm font-semibold text-brand hover:underline"
           >
             View case studies
-            <ArrowRight className="w-4 h-4 ml-1" />
+            <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
         </div>
       </section>
 
       {location.localContent && location.localContent.length > 0 && (
-        <section className="py-20 px-4 bg-background">
+        <section className="bg-paper px-4 py-20">
           <div className="container mx-auto max-w-4xl space-y-12">
             {location.localContent.map((section) => (
               <div key={section.heading}>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">{section.heading}</h2>
-                <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-navy md:text-4xl">{section.heading}</h2>
+                <div className="space-y-4 text-lg leading-relaxed text-navy/75">
                   {section.body.split(/\n\n+/).map((paragraph, index) => (
                     <p key={index}>
                       <LinkedProse text={paragraph} />
@@ -220,38 +247,34 @@ export default function LocationPage({ location }: LocationPageProps) {
       )}
 
       {/* Services */}
-      <section className="py-20 px-4 bg-gradient-to-r from-slate-50 to-slate-100">
+      <section className="bg-band px-4 py-20">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {location.city} <span className="gradient-text">Marketing Services</span>
+          <div className="mb-14 text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
+              {location.city} <OrangeUnderline>Marketing Services</OrangeUnderline>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
             {services.map((service) => {
               const IconComponent = service.icon;
               return (
-                <Link key={service.name} href={service.href} className="block h-full group">
-                  <Card className="card-professional h-full transition-shadow group-hover:shadow-md">
-                    <CardContent className="p-6 text-center">
-                      <IconComponent className="w-10 h-10 text-primary mx-auto mb-4" />
-                      <h3 className="font-semibold mb-2 text-primary group-hover:underline">
-                        {service.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">{service.description}</p>
-                    </CardContent>
-                  </Card>
+                <Link key={service.name} href={service.href} className="group block border-t-2 border-hairline pt-5">
+                  <IconComponent className="mb-3 h-8 w-8 text-brand" />
+                  <h3 className="mb-2 font-bold text-navy group-hover:text-brand group-hover:underline">
+                    {service.name}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-navy/70">{service.description}</p>
                 </Link>
               );
             })}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="mt-12 text-center">
             <Link href="/services">
               <Button variant="outline">
                 View All Services
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
@@ -259,38 +282,38 @@ export default function LocationPage({ location }: LocationPageProps) {
       </section>
 
       {/* Serving from Daytona Beach */}
-      <section className="py-20 px-4">
+      <section className="bg-paper px-4 py-20">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Serving {location.city} from <span className="gradient-text">Daytona Beach</span>
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
+              Serving {location.city} from <OrangeUnderline>Daytona Beach</OrangeUnderline>
             </h2>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto max-w-4xl">
             {location.slug !== 'debary' && (
               <LocationMap city={location.city} />
             )}
-            <p className={`text-center text-muted-foreground ${location.slug !== 'debary' ? 'mt-4' : ''}`}>
+            <p className={`text-center text-navy/70 ${location.slug !== 'debary' ? 'mt-4' : ''}`}>
               Based in Daytona Beach, serving {location.city} and all of Volusia &amp; Flagler Counties.
             </p>
           </div>
 
-          <div className="mt-16 max-w-2xl mx-auto">
-            <h3 className="text-xl font-semibold text-center mb-6">Local SEO resources</h3>
+          <div className="mx-auto mt-16 max-w-2xl">
+            <h3 className="mb-6 text-center text-xl font-bold text-navy">Local SEO resources</h3>
             <ul className="space-y-3 text-center">
               <li>
-                <Link href="/blog/how-to-rank-daytona-beach-map-pack" className="text-primary hover:underline">
+                <Link href="/blog/how-to-rank-daytona-beach-map-pack" className="text-brand hover:underline">
                   how to rank in the local map pack
                 </Link>
               </li>
               <li>
-                <Link href="/blog/why-volusia-hvac-businesses-buried-google" className="text-primary hover:underline">
+                <Link href="/blog/why-volusia-hvac-businesses-buried-google" className="text-brand hover:underline">
                   why local businesses get buried on Google
                 </Link>
               </li>
               <li>
-                <Link href="/blog/local-seo-hvac-plumbing-volusia-county" className="text-primary hover:underline">
+                <Link href="/blog/local-seo-hvac-plumbing-volusia-county" className="text-brand hover:underline">
                   local SEO for home-service businesses
                 </Link>
               </li>
@@ -299,13 +322,13 @@ export default function LocationPage({ location }: LocationPageProps) {
 
           {nearbyPages.length > 0 && (
             <div className="mt-12">
-              <h3 className="text-xl font-semibold text-center mb-6">Also serving nearby</h3>
+              <h3 className="mb-6 text-center text-xl font-bold text-navy">Also serving nearby</h3>
               <div className="flex flex-wrap justify-center gap-3">
                 {nearbyPages.map((area) => (
                   <Link
                     key={area.slug}
                     href={`/areas-we-serve/${area.slug}`}
-                    className="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
+                    className="inline-flex items-center rounded-full border border-hairline bg-white px-4 py-2 text-sm font-medium text-navy transition-colors hover:border-brand hover:text-brand"
                   >
                     {area.city}
                   </Link>
@@ -317,10 +340,10 @@ export default function LocationPage({ location }: LocationPageProps) {
       </section>
 
       {location.preFaqSection && (
-        <section className="py-20 px-4 bg-background">
+        <section className="bg-paper px-4 py-20">
           <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">{location.preFaqSection.heading}</h2>
-            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+            <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-navy md:text-4xl">{location.preFaqSection.heading}</h2>
+            <div className="space-y-4 text-lg leading-relaxed text-navy/75">
               {location.preFaqSection.body.split(/\n\n+/).map((paragraph, index) => (
                 <p key={index}>
                   <LinkedProse text={paragraph} />
@@ -332,78 +355,31 @@ export default function LocationPage({ location }: LocationPageProps) {
       )}
 
       {/* FAQ */}
-      <section className="py-20 px-4 bg-gradient-to-r from-slate-50 to-slate-100">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {location.city} Marketing FAQs
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-4">
-            {(location.faqs ?? [
-              {
-                question: `Do you specialize in ${location.city} marketing?`,
-                answer: `Yes! We have deep expertise in ${location.city} and ${location.region}. We understand the local market, demographics, and what drives business success in this area.`,
-              },
-              {
-                question: `What industries do you serve in ${location.city}?`,
-                answer: `We work with all types of local businesses in ${location.city} including home services, healthcare, real estate, restaurants, retail, and professional services. Our strategies are customized for each industry.`,
-              },
-              {
-                question: 'How quickly can I see results?',
-                answer: `For local SEO in ${location.city}, most clients see improvements within 30-90 days. Paid advertising can generate leads within days. We provide clear timelines based on your specific goals.`,
-              },
-            ]).map((faq, index) => (
-              <AccordionItem key={faq.question} value={`item-${index + 1}`} className="border rounded-lg px-6 bg-white">
-                <AccordionTrigger className="text-left font-semibold">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {index === 2 && !location.faqs ? (
-                    <>
-                      For{' '}
-                      <Link href="/services/local-seo" className="text-primary hover:underline">local SEO</Link>{' '}
-                      in {location.city}, most clients see improvements within 30-90 days. Paid advertising
-                      can generate leads within days. We provide clear timelines based on your specific goals.
-                    </>
-                  ) : (
-                    <LinkedProse text={faq.answer} />
-                  )}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
+      <ServiceFaq
+        faqs={faqItems}
+        heading={`${location.city} Marketing FAQs`}
+        note={`Questions about marketing in ${location.city}? The assistant in the corner can answer anything else.`}
+      />
 
       {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto max-w-4xl">
-          <Card className="card-professional shadow-xl">
-            <CardHeader className="text-center pb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-primary to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-8 h-8 text-white" />
-              </div>
-              <CardTitle className="text-2xl md:text-3xl">
-                Ready to Grow Your {location.city} Business?
-              </CardTitle>
-              <CardDescription className="text-lg">
-                Get a free marketing audit tailored for {location.city}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <Button
-                size="lg"
-                className="px-8 py-4 text-lg"
-                onClick={() => openDialog()}
-              >
-                <Target className="w-5 h-5 mr-2" />
-                Get My Free Audit
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </CardContent>
-          </Card>
+      <section className="bg-brand bg-waves-light px-4 py-20">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+            Ready to Grow Your {location.city} Business?
+          </h2>
+          <p className="mb-10 text-lg text-white/85">
+            Get a free marketing audit tailored for {location.city}
+          </p>
+          <Button
+            size="lg"
+            variant="secondary"
+            className="px-8 py-4 text-lg"
+            onClick={() => openDialog()}
+          >
+            <Target className="mr-2 h-5 w-5" />
+            Get My Free Audit
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </section>
 
@@ -415,6 +391,6 @@ export default function LocationPage({ location }: LocationPageProps) {
         defaultService={selectedService}
         businessTypes={businessTypes.general}
       />
-    </>
+    </div>
   );
 }

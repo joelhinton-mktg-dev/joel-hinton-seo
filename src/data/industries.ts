@@ -209,7 +209,7 @@ export const industries: Industry[] = [
     },
     dateModified: '2026-09-29T10:00:00Z',
     bodyClose:
-      'In Volusia County, education and training providers compete with both local alternatives and online programs that market aggressively to the same audience. Local SEO creates an advantage by connecting your programs to people searching specifically in this area — parents looking for tutoring in Port Orange, adults searching for professional development in Daytona Beach, or employers seeking corporate training partners in Volusia County. Showing up in local search and AI-generated recommendations for these queries is how education providers grow enrollment without competing on national ad budgets.',
+      'In Volusia County, education and training providers compete with both local alternatives and online programs that market aggressively to the same audience. Local SEO creates an advantage by connecting your programs to people searching specifically in this area - parents looking for tutoring in Port Orange, adults searching for professional development in Daytona Beach, or employers seeking corporate training partners in Volusia County. Showing up in local search and AI-generated recommendations for these queries is how education providers grow enrollment without competing on national ad budgets.',
   },
   {
     id: 'automotive-services',
