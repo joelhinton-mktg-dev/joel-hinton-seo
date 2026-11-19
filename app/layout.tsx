@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Figtree, Caveat } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 
@@ -8,12 +8,21 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import CookieConsent from '../components/CookieConsent';
 import GoogleTagManager from '../components/GoogleTagManager';
+import ChatAssistant from '../components/brand/ChatAssistant';
 import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 
-const inter = Inter({
+/* Brand direction v2: Figtree for everything, Caveat for handwritten marker notes only. */
+const figtree = Figtree({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-figtree',
+});
+
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  variable: '--font-caveat',
 });
 
 export const metadata: Metadata = {
@@ -57,8 +66,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${figtree.variable} ${caveat.variable}`}>
       <head>
+        <noscript>
+          <style>{`.reveal { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
         <Script
           src="https://news.google.com/swg/js/v1/publisher.js"
           strategy="beforeInteractive"
@@ -93,7 +105,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="font-inter antialiased">
+      <body className="font-figtree antialiased">
         <Providers>
           <Toaster />
           <Sonner />
@@ -102,6 +114,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <ChatAssistant />
           <CookieConsent />
           <GoogleTagManager />
         </Providers>

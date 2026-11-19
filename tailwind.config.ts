@@ -19,9 +19,30 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				inter: ['var(--font-inter)', 'Inter', 'sans-serif'],
+				inter: ['var(--font-figtree)', 'Figtree', 'sans-serif'],
+				figtree: ['var(--font-figtree)', 'Figtree', 'sans-serif'],
+				caveat: ['var(--font-caveat)', 'Caveat', 'cursive'],
 			},
 			colors: {
+				/* AIO Growth brand tokens - Brand direction v2 (2026-11-18) */
+				paper: '#FBF7F1',
+				cream: '#FFFDF8',
+				band: '#F4EEE2',
+				navy: {
+					DEFAULT: '#14213D',
+					deep: '#0E1830',
+				},
+				brand: {
+					DEFAULT: '#0055FF',
+					tint: '#EAF0FF',
+				},
+				pen: {
+					DEFAULT: '#F97415',
+					tint: '#FFF0E3',
+					text: '#B54E08',
+				},
+				sun: '#FFD666',
+				hairline: '#EADFD0',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

@@ -6,696 +6,233 @@ import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
-import { Button } from '@/components/ui/button';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import {
-  Zap,
-  CheckCircle,
-  ArrowRight,
-  Calendar,
-  TrendingUp,
-  BarChart3,
-  Database,
-  Target,
-  Cog,
-  Workflow,
-  Search,
-  Users,
-  Sparkles
-} from 'lucide-react';
+import { ArrowRight, Calendar, Check } from 'lucide-react';
+import { customToolsOffer } from '@/data/pricing';
+import MarkerNote from '../../../components/brand/MarkerNote';
+import OrangeUnderline from '../../../components/brand/OrangeUnderline';
+import Reveal from '../../../components/brand/Reveal';
+import ServiceTabs, { type ServiceTabItem } from '../../../components/service/ServiceTabs';
+import ServiceTimeline from '../../../components/service/ServiceTimeline';
+import ServiceFaq, { type ServiceFaqItem } from '../../../components/service/ServiceFaq';
+
+const heroLabels = ['SEO Automation', 'Lead Generation', 'Custom Dashboards', 'Workflow Automation'];
+
+const toolTabs: ServiceTabItem[] = [
+  {
+    id: 'seo-automation-tools',
+    title: 'SEO Automation Tools',
+    subtitle: 'Automate the tedious, focus on strategy',
+    description:
+      'Custom tools that automate rank tracking, content optimization scoring, technical audit checks, and competitor monitoring - all tailored to your specific SEO workflow.',
+    features: [
+      'Automated rank tracking with custom alerts',
+      'Content optimization scoring systems',
+      'Technical SEO monitoring dashboards',
+      'Competitor change detection',
+    ],
+  },
+  {
+    id: 'lead-generation-systems',
+    title: 'Lead Generation Systems',
+    subtitle: 'Capture and qualify leads automatically',
+    description:
+      'Complete lead capture systems with smart forms, qualification workflows, and automated follow-up sequences that integrate with your existing CRM and sales process.',
+    features: [
+      'Smart multi-step lead capture forms',
+      'Automated lead scoring and qualification',
+      'CRM integration and data sync',
+      'Follow-up automation sequences',
+    ],
+  },
+  {
+    id: 'reporting-dashboards',
+    title: 'Reporting Dashboards',
+    subtitle: 'The metrics that matter, at a glance',
+    description:
+      "Custom dashboards that pull data from all your marketing channels into one view. See exactly what's working, what needs attention, and where to focus your efforts.",
+    features: [
+      'Multi-channel data aggregation',
+      'Custom KPI tracking and alerts',
+      'Automated report generation',
+      'Client-facing reporting portals',
+    ],
+  },
+  {
+    id: 'workflow-automation',
+    title: 'Workflow Automation',
+    subtitle: 'Eliminate repetitive marketing tasks',
+    description:
+      "Connect your marketing tools and automate the repetitive tasks that eat up your team's time. From content publishing to social scheduling to client onboarding.",
+    features: [
+      'Cross-platform tool integration',
+      'Automated content publishing',
+      'Client onboarding workflows',
+      'Task automation and notifications',
+    ],
+  },
+];
+
+const whyBlocks = [
+  {
+    title: 'Exact Fit',
+    body: 'Every feature built for your specific workflow. No bloat, no workarounds, no "we\'ll make it work" compromises.',
+  },
+  {
+    title: 'Your Data, Your Control',
+    body: 'Own your marketing data and infrastructure. No vendor lock-in, no surprise price increases, no feature removals.',
+  },
+  {
+    title: 'Grows With You',
+    body: "Add features as you need them. Scale without hitting tier limits or paying for seats you don't use.",
+  },
+];
+
+const useCases = [
+  {
+    title: 'Marketing Agencies',
+    items: [
+      'White-label client reporting dashboards',
+      'Multi-client campaign management tools',
+      'Automated deliverable generation',
+      'Scalable lead gen for agency growth',
+    ],
+  },
+  {
+    title: 'In-House Marketing Teams',
+    items: [
+      'Unified marketing performance dashboards',
+      'Automated competitive monitoring',
+      'Lead routing and assignment automation',
+      'Cross-department workflow integration',
+    ],
+  },
+  {
+    title: 'E-commerce Businesses',
+    items: [
+      'Product page SEO automation',
+      'Inventory-aware marketing automation',
+      'Customer journey tracking dashboards',
+      'Abandoned cart recovery systems',
+    ],
+  },
+  {
+    title: 'Local & Multi-Location Businesses',
+    items: [
+      'Multi-location review management',
+      'Local rank tracking by location',
+      'Appointment booking and lead routing',
+      'Location-specific reporting',
+    ],
+  },
+];
+
+const processSteps = [
+  {
+    when: 'Step 1',
+    title: 'Discovery',
+    description:
+      'We map your current workflow, pain points, and goals to understand exactly what you need.',
+  },
+  {
+    when: 'Step 2',
+    title: 'Design',
+    description: 'We create a detailed blueprint showing exactly how your custom tool will work.',
+  },
+  {
+    when: 'Step 3',
+    title: 'Build',
+    description:
+      'We develop your tool with regular check-ins to ensure it matches your expectations.',
+  },
+  {
+    when: 'Step 4',
+    title: 'Launch & Support',
+    description: 'We deploy, train your team, and provide ongoing support as you scale.',
+  },
+];
+
+const toolsFaqs: ServiceFaqItem[] = [
+  {
+    question: 'What kinds of custom tools do you build?',
+    answer:
+      "Lead capture forms with automated follow-up sequences, Google Business Profile post schedulers, review request automations triggered by completed jobs, local ranking dashboards, and custom reporting for agencies managing multiple clients. If it's a marketing workflow you do manually more than once a week, it's worth automating.",
+    schemaText:
+      "Lead capture forms with automated follow-up sequences, Google Business Profile post schedulers, review request automations triggered by completed jobs, local ranking dashboards, and custom reporting for agencies managing multiple clients. If it's a marketing workflow you do manually more than once a week, it's worth automating.",
+  },
+  {
+    question: 'How is this different from using HubSpot or Zapier?',
+    answer:
+      "HubSpot and Zapier are platforms - you subscribe, configure, and maintain them indefinitely. What we build is a purpose-built tool for your specific workflow. You own it, there's no monthly SaaS cost, and it does exactly what you need without features you'll never touch.",
+    schemaText:
+      "HubSpot and Zapier are platforms - you subscribe, configure, and maintain them indefinitely. What we build is a purpose-built tool for your specific workflow. You own it, there's no monthly SaaS cost, and it does exactly what you need without features you'll never touch.",
+  },
+  {
+    /* The live answer quoted $500-$2,500 build prices, which contradicts
+       pricing.ts (the live source of truth). Rewritten from pricing.ts
+       language, keeping the live answer's "no recurring fee" point. */
+    question: 'What does a custom marketing tool cost?',
+    answer:
+      'Projects typically range from $5,000 for focused single-purpose tools to $25,000+ for comprehensive systems, scoped on the discovery call. No recurring fee after build. Optional ongoing maintenance is available if you want it.',
+    schemaText:
+      'Projects typically range from $5,000 for focused single-purpose tools to $25,000+ for comprehensive systems, scoped on the discovery call. No recurring fee after build. Optional ongoing maintenance is available if you want it.',
+  },
+  {
+    question: 'What businesses do you build tools for?',
+    answer: (
+      <>
+        HVAC companies, dental practices, law firms, plumbing contractors, and any local service
+        business that has a repetitive marketing task eating up staff time. We&apos;re based in{' '}
+        <Link href="/areas-we-serve/daytona-beach" className="font-medium text-brand underline hover:text-navy">
+          Daytona Beach
+        </Link>{' '}
+        and primarily serve Volusia and Flagler County businesses, though we take remote projects
+        too.
+      </>
+    ),
+    schemaText:
+      "HVAC companies, dental practices, law firms, plumbing contractors, and any local service business that has a repetitive marketing task eating up staff time. We're based in Daytona Beach and primarily serve Volusia and Flagler County businesses, though we take remote projects too.",
+  },
+  {
+    question: 'How long does it take to build a custom tool?',
+    answer:
+      'Simple automation tools and dashboards can be ready in 2-4 weeks. More complex lead generation systems or multi-integration platforms typically take 6-10 weeks. We provide a detailed timeline during the proposal phase so you know exactly what to expect.',
+    schemaText:
+      'Simple automation tools and dashboards can be ready in 2-4 weeks. More complex lead generation systems or multi-integration platforms typically take 6-10 weeks. We provide a detailed timeline during the proposal phase so you know exactly what to expect.',
+  },
+  {
+    question: "Do I own the tool after it's built?",
+    answer:
+      "Yes, completely. You own 100% of the code and can host it wherever you choose. There are no licensing fees, no monthly charges, and no restrictions on how you use it. We can provide ongoing maintenance and updates if you want, but it's entirely optional.",
+    schemaText:
+      "Yes, completely. You own 100% of the code and can host it wherever you choose. There are no licensing fees, no monthly charges, and no restrictions on how you use it. We can provide ongoing maintenance and updates if you want, but it's entirely optional.",
+  },
+  {
+    question: 'Can you integrate with our existing tools?',
+    answer:
+      'Absolutely. We build tools that connect with your existing CRM (HubSpot, Salesforce, Pipedrive, etc.), email platforms, analytics tools, and any other systems you use. Integration is often a key benefit - bringing data together that was previously siloed.',
+    schemaText:
+      'Absolutely. We build tools that connect with your existing CRM (HubSpot, Salesforce, Pipedrive, etc.), email platforms, analytics tools, and any other systems you use. Integration is often a key benefit - bringing data together that was previously siloed.',
+  },
+  {
+    question: 'What if I need changes after the tool is built?',
+    answer:
+      'We offer flexible maintenance packages for ongoing updates and feature additions. Small tweaks are often included in our standard support. For larger feature additions, we provide clear scoping and pricing upfront. Since you own the code, you can also have any developer make changes if you prefer.',
+    schemaText:
+      'We offer flexible maintenance packages for ongoing updates and feature additions. Small tweaks are often included in our standard support. For larger feature additions, we provide clear scoping and pricing upfront. Since you own the code, you can also have any developer make changes if you prefer.',
+  },
+];
 
 export default function CustomToolsAutomationPage() {
-  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Marketing Automation Consultation');
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } =
+    useContactDialog('Marketing Automation Consultation');
+
+  const openService = (service: string) => {
+    selectService(service);
+    openDialog();
+  };
 
   return (
-    <>
-      <PageBreadcrumb
-          items={[
-            { label: "Services", href: "/services" },
-            { label: "Custom Tools & Automation", href: "/services/custom-tools-automation", current: true }
-          ]}
-      />
-
-      {/* Hero Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
-              <Cog className="w-4 h-4 mr-2" />
-              Marketing Automation Solutions
-            </Badge>
-
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Custom <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Marketing Tools</span> Built for Your Business
-            </h1>
-
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-              Stop wrestling with generic marketing software. We build SEO automation tools, lead generation systems,
-              and reporting dashboards designed specifically for how your business operates.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                size="lg"
-                className="px-8 py-4 text-lg bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700"
-                onClick={() => {
-                  selectService('Custom Marketing Tools');
-                  openDialog();
-                }}
-              >
-                <Zap className="w-5 h-5 mr-2" />
-                Discuss Your Needs
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="px-8 py-4 text-lg border-emerald-300 hover:bg-emerald-50"
-                onClick={() => {
-                  selectService('Automation Discovery Call');
-                  openDialog();
-                }}
-              >
-                <Calendar className="w-5 h-5 mr-2" />
-                Schedule Discovery Call
-              </Button>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-center">
-              <div className="p-4">
-                <Search className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">SEO Automation</p>
-              </div>
-              <div className="p-4">
-                <Users className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">Lead Generation</p>
-              </div>
-              <div className="p-4">
-                <BarChart3 className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">Custom Dashboards</p>
-              </div>
-              <div className="p-4">
-                <Workflow className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
-                <p className="text-sm font-medium">Workflow Automation</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 bg-background">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Why Custom Beats Off-the-Shelf for Local Businesses
-          </h2>
-          <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              HubSpot, Zapier, and Monday.com are built for companies with marketing teams to manage them.
-              A local HVAC company, dental practice, or law firm doesn&apos;t need a 200-feature platform —
-              they need one tool that does exactly one job, reliably, without requiring a consultant to maintain it.
-            </p>
-            <p>
-              We build lightweight custom tools: lead capture automations,{' '}
-              <Link href="/blog/google-business-profile-optimization-daytona" className="text-primary hover:underline">
-                review request
-              </Link>{' '}
-              sequences, appointment reminder flows, and reporting dashboards built around how your
-              business actually runs. No subscription. No learning curve. One build, yours to keep.
-              They sit next to your{' '}
-              <Link href="/services/local-seo" className="text-primary hover:underline">
-                local SEO
-              </Link>{' '}
-              program — not instead of it.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* What We Build Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Marketing Technology <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Built for Results</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Every tool we build is designed to save you time, capture more leads, and give you the insights you need to grow.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* SEO Automation Tools */}
-            <Card className="card-professional border-2 border-emerald-100 hover:border-emerald-200 transition-colors">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center">
-                    <Search className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl">SEO Automation Tools</CardTitle>
-                    <CardDescription>Automate the tedious, focus on strategy</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  Custom tools that automate rank tracking, content optimization scoring, technical audit checks,
-                  and competitor monitoring—all tailored to your specific SEO workflow.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-600" />
-                    <span className="text-sm">Automated rank tracking with custom alerts</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-600" />
-                    <span className="text-sm">Content optimization scoring systems</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-600" />
-                    <span className="text-sm">Technical SEO monitoring dashboards</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-600" />
-                    <span className="text-sm">Competitor change detection</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Lead Generation Systems */}
-            <Card className="card-professional border-2 border-emerald-100 hover:border-emerald-200 transition-colors">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl">Lead Generation Systems</CardTitle>
-                    <CardDescription>Capture and qualify leads automatically</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  Complete lead capture systems with smart forms, qualification workflows, and automated follow-up
-                  sequences that integrate with your existing CRM and sales process.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600" />
-                    <span className="text-sm">Smart multi-step lead capture forms</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600" />
-                    <span className="text-sm">Automated lead scoring and qualification</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600" />
-                    <span className="text-sm">CRM integration and data sync</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600" />
-                    <span className="text-sm">Follow-up automation sequences</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Reporting Dashboards */}
-            <Card className="card-professional border-2 border-emerald-100 hover:border-emerald-200 transition-colors">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-                    <BarChart3 className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl">Reporting Dashboards</CardTitle>
-                    <CardDescription>The metrics that matter, at a glance</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  Custom dashboards that pull data from all your marketing channels into one view. See exactly
-                  what&apos;s working, what needs attention, and where to focus your efforts.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-cyan-600" />
-                    <span className="text-sm">Multi-channel data aggregation</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-cyan-600" />
-                    <span className="text-sm">Custom KPI tracking and alerts</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-cyan-600" />
-                    <span className="text-sm">Automated report generation</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-cyan-600" />
-                    <span className="text-sm">Client-facing reporting portals</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Workflow Automation */}
-            <Card className="card-professional border-2 border-emerald-100 hover:border-emerald-200 transition-colors">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center">
-                    <Workflow className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl">Workflow Automation</CardTitle>
-                    <CardDescription>Eliminate repetitive marketing tasks</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  Connect your marketing tools and automate the repetitive tasks that eat up your team&apos;s time.
-                  From content publishing to social scheduling to client onboarding.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm">Cross-platform tool integration</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm">Automated content publishing</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm">Client onboarding workflows</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm">Task automation and notifications</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Custom Tools Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-emerald-50 to-teal-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why Custom <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Beats Generic</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Off-the-shelf marketing tools force you to work their way. Custom tools work the way you do.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="card-professional text-center">
-              <CardContent className="pt-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Target className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Exact Fit</h3>
-                <p className="text-muted-foreground">
-                  Every feature built for your specific workflow. No bloat, no workarounds, no &quot;we&apos;ll make it work&quot; compromises.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional text-center">
-              <CardContent className="pt-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Database className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Your Data, Your Control</h3>
-                <p className="text-muted-foreground">
-                  Own your marketing data and infrastructure. No vendor lock-in, no surprise price increases, no feature removals.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional text-center">
-              <CardContent className="pt-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Grows With You</h3>
-                <p className="text-muted-foreground">
-                  Add features as you need them. Scale without hitting tier limits or paying for seats you don&apos;t use.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Who Benefits Most from <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Custom Marketing Tools</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-emerald-600" />
-                  Marketing Agencies
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-600 mt-1" />
-                    <span>White-label client reporting dashboards</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-600 mt-1" />
-                    <span>Multi-client campaign management tools</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-600 mt-1" />
-                    <span>Automated deliverable generation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-600 mt-1" />
-                    <span>Scalable lead gen for agency growth</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-teal-600" />
-                  In-House Marketing Teams
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600 mt-1" />
-                    <span>Unified marketing performance dashboards</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600 mt-1" />
-                    <span>Automated competitive monitoring</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600 mt-1" />
-                    <span>Lead routing and assignment automation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-teal-600 mt-1" />
-                    <span>Cross-department workflow integration</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-cyan-600" />
-                  E-commerce Businesses
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-cyan-600 mt-1" />
-                    <span>Product page SEO automation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-cyan-600 mt-1" />
-                    <span>Inventory-aware marketing automation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-cyan-600 mt-1" />
-                    <span>Customer journey tracking dashboards</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-cyan-600 mt-1" />
-                    <span>Abandoned cart recovery systems</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-blue-600" />
-                  Local & Multi-Location Businesses
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600 mt-1" />
-                    <span>Multi-location review management</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600 mt-1" />
-                    <span>Local rank tracking by location</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600 mt-1" />
-                    <span>Appointment booking and lead routing</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600 mt-1" />
-                    <span>Location-specific reporting</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-emerald-50 to-teal-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              How We Build Your <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Custom Solution</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
-                1
-              </div>
-              <h3 className="font-bold text-lg mb-2">Discovery</h3>
-              <p className="text-muted-foreground text-sm">
-                We map your current workflow, pain points, and goals to understand exactly what you need.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
-                2
-              </div>
-              <h3 className="font-bold text-lg mb-2">Design</h3>
-              <p className="text-muted-foreground text-sm">
-                We create a detailed blueprint showing exactly how your custom tool will work.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
-                3
-              </div>
-              <h3 className="font-bold text-lg mb-2">Build</h3>
-              <p className="text-muted-foreground text-sm">
-                We develop your tool with regular check-ins to ensure it matches your expectations.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
-                4
-              </div>
-              <h3 className="font-bold text-lg mb-2">Launch & Support</h3>
-              <p className="text-muted-foreground text-sm">
-                We deploy, train your team, and provide ongoing support as you scale.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Common Questions
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-4">
-            <AccordionItem value="item-1" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                What kinds of custom tools do you build?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Lead capture forms with automated follow-up sequences, Google Business Profile post
-                schedulers, review request automations triggered by completed jobs, local ranking dashboards,
-                and custom reporting for agencies managing multiple clients.
-                If it&apos;s a marketing workflow you do manually more than once a week, it&apos;s worth automating.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-1b" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                How is this different from using HubSpot or Zapier?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                HubSpot and Zapier are platforms — you subscribe, configure, and maintain them indefinitely.
-                What we build is a purpose-built tool for your specific workflow. You own it, there&apos;s no
-                monthly SaaS cost, and it does exactly what you need without features you&apos;ll never touch.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-1c" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                What does a custom marketing tool cost?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Most custom tools run $500–$2,500 to build depending on complexity. Simple automations
-                (review requests, follow-up sequences) are at the lower end. Dashboards or multi-step
-                integrations are at the higher end. No recurring fee after build.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-1d" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                What businesses do you build tools for?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                HVAC companies, dental practices, law firms, plumbing contractors, and any local service
-                business that has a repetitive marketing task eating up staff time. We&apos;re based in{' '}
-                <Link href="/areas-we-serve/daytona-beach" className="text-primary hover:underline">
-                  Daytona Beach
-                </Link>{' '}
-                and primarily serve Volusia and Flagler County businesses, though we take remote projects too.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                How long does it take to build a custom tool?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Simple automation tools and dashboards can be ready in 2-4 weeks. More complex lead generation
-                systems or multi-integration platforms typically take 6-10 weeks. We provide a detailed timeline
-                during the proposal phase so you know exactly what to expect.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                Do I own the tool after it&apos;s built?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Yes, completely. You own 100% of the code and can host it wherever you choose. There are no licensing
-                fees, no monthly charges, and no restrictions on how you use it. We can provide ongoing maintenance
-                and updates if you want, but it&apos;s entirely optional.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-4" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                Can you integrate with our existing tools?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Absolutely. We build tools that connect with your existing CRM (HubSpot, Salesforce, Pipedrive, etc.),
-                email platforms, analytics tools, and any other systems you use. Integration is often a key benefit—
-                bringing data together that was previously siloed.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-5" className="border rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold">
-                What if I need changes after the tool is built?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                We offer flexible maintenance packages for ongoing updates and feature additions. Small tweaks are
-                often included in our standard support. For larger feature additions, we provide clear scoping and
-                pricing upfront. Since you own the code, you can also have any developer make changes if you prefer.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-      </section>
-
-      {/* Contact CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-emerald-50 to-teal-50">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Ready to Build Your Custom Marketing Tools?
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Let&apos;s discuss your workflow, your challenges, and how custom tools can transform your marketing efficiency.
-            </p>
-          </div>
-
-          <Card className="card-professional shadow-xl">
-            <CardHeader className="text-center pb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calendar className="w-8 h-8 text-white" />
-              </div>
-              <CardTitle className="text-2xl md:text-3xl">
-                Schedule a Discovery Call
-              </CardTitle>
-              <CardDescription className="text-lg">
-                Get a detailed project proposal within 48 hours of our call
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <Button
-                size="lg"
-                className="px-8 py-4 text-lg bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700"
-                onClick={() => {
-                  selectService('Custom Tools Discovery Call');
-                  openDialog();
-                }}
-              >
-                <Calendar className="w-5 h-5 mr-2" />
-                Schedule Discovery Call
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-
-              <p className="text-sm text-muted-foreground mt-4">
-                We&apos;ll discuss your needs, show relevant examples, and provide a clear project outline.
-              </p>
-            </CardContent>
-          </Card>
-
-          <div className="text-center mt-8">
-            <p className="text-muted-foreground">
-              Custom solutions for agencies, in-house teams, and growing businesses across Florida
-            </p>
-          </div>
-        </div>
-      </section>
-
+    <div className="min-h-screen bg-paper">
       <ContactDialog
         isOpen={isOpen}
         onClose={closeDialog}
@@ -705,6 +242,300 @@ export default function CustomToolsAutomationPage() {
         businessTypes={businessTypes.general}
       />
 
+      {/* Hero. This page converts on a discovery call, not an audit form,
+          so the hero keeps its two dialog buttons in the brand system. */}
+      <section className="bg-paper bg-waves">
+        <div className="container mx-auto px-6 pt-10 pb-24">
+          <PageBreadcrumb
+            items={[
+              { label: 'Services', href: '/services' },
+              { label: 'Custom Tools & Automation', href: '/services/custom-tools-automation', current: true },
+            ]}
+            className="mb-10 text-navy/60 [&_a]:text-navy/60 [&_a:hover]:text-brand [&_[aria-current]]:text-navy [&_svg]:text-navy/40"
+          />
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+            <div>
+              <p className="mb-5 text-[15px] font-semibold text-pen-text">
+                Marketing Automation Solutions
+              </p>
+              <h1 className="mb-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-navy md:text-5xl lg:text-[54px]">
+                Custom <OrangeUnderline>Marketing Tools</OrangeUnderline> Built for Your
+                Business
+              </h1>
+              <p className="mb-8 max-w-xl text-lg leading-relaxed text-navy/75">
+                Stop wrestling with generic marketing software. We build SEO automation tools,
+                lead generation systems, and reporting dashboards designed specifically for how
+                your business operates.
+              </p>
+
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={() => openService('Custom Marketing Tools')}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-7 py-3.5 font-bold text-white transition hover:bg-brand/90"
+                >
+                  Discuss Your Needs
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => openService('Automation Discovery Call')}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy/15 bg-white px-7 py-3.5 font-bold text-navy transition hover:border-brand hover:text-brand"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Schedule Discovery Call
+                </button>
+              </div>
+
+              <ul className="mt-9 flex flex-wrap gap-2" aria-label="Tool categories">
+                {heroLabels.map((label) => (
+                  <li
+                    key={label}
+                    className="rounded-full border border-hairline bg-white px-3.5 py-1.5 text-sm font-medium text-navy/80"
+                  >
+                    {label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Dashboard mock (illustrative) */}
+            <Reveal className="relative mx-auto w-full max-w-md">
+              <MarkerNote className="absolute -top-3 left-0 z-10 text-[24px] sm:-left-4">
+                one job, done well
+              </MarkerNote>
+              <div className="rounded-[1.75rem] border border-hairline bg-white p-6 shadow-2xl">
+                <p className="text-sm font-bold tracking-[0.18em] text-navy/50">
+                  ILLUSTRATIVE DASHBOARD
+                </p>
+                <p className="mt-3 text-xl font-extrabold tracking-tight text-navy">
+                  Your marketing, one view
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {[
+                    { label: 'Automated rank tracking', status: 'Alerts on' },
+                    { label: 'Review requests', status: 'Sent after each job' },
+                    { label: 'Lead follow-up sequence', status: 'Running' },
+                    { label: 'Monthly report', status: 'Ready to send' },
+                  ].map((row) => (
+                    <li
+                      key={row.label}
+                      className="flex items-center justify-between gap-4 rounded-2xl bg-paper px-4 py-3"
+                    >
+                      <span className="text-[15px] font-medium text-navy/80">{row.label}</span>
+                      <span className="flex shrink-0 items-center gap-1.5 text-sm font-bold text-brand">
+                        <Check className="h-4 w-4" strokeWidth={3} />
+                        {row.status}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-xs font-medium text-muted-foreground">
+                  Mock dashboard for illustration, built from the tools described on this page.
+                </p>
+              </div>
+              <MarkerNote className="absolute -bottom-5 left-8 z-10 text-[24px]">
+                yours to keep
+              </MarkerNote>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Why custom */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Why custom</p>
+            <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Why Custom Beats Off-the-Shelf for Local Businesses
+            </h2>
+            <div className="space-y-5 text-lg leading-relaxed text-navy/75">
+              <p>
+                HubSpot, Zapier, and Monday.com are built for companies with marketing teams to
+                manage them. A local HVAC company, dental practice, or law firm doesn&apos;t
+                need a 200-feature platform - they need one tool that does exactly one job,
+                reliably, without requiring a consultant to maintain it.
+              </p>
+              <p>
+                We build lightweight custom tools: lead capture automations,{' '}
+                <Link href="/blog/google-business-profile-optimization-daytona" className="font-medium text-brand underline hover:text-navy">
+                  review request
+                </Link>{' '}
+                sequences, appointment reminder flows, and reporting dashboards built around how
+                your business actually runs. No subscription. No learning curve. One build,
+                yours to keep. They sit next to your{' '}
+                <Link href="/services/local-seo" className="font-medium text-brand underline hover:text-navy">
+                  local SEO
+                </Link>{' '}
+                program - not instead of it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What we build: tabs */}
+      <section className="bg-paper py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">What we build</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Marketing Technology Built for Results
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              Every tool we build is designed to save you time, capture more leads, and give
+              you the insights you need to grow.
+            </p>
+          </div>
+          <ServiceTabs services={toolTabs} ariaLabel="Custom tool categories" idPrefix="tools" />
+        </div>
+      </section>
+
+      {/* Why custom beats generic */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Why custom</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Why Custom Beats Generic
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              Off-the-shelf marketing tools force you to work their way. Custom tools work the
+              way you do.
+            </p>
+          </div>
+          <div className="grid gap-x-10 md:grid-cols-3">
+            {whyBlocks.map((block) => (
+              <div key={block.title} className="mt-10 border-t-2 border-hairline pt-5">
+                <h3 className="text-xl font-extrabold tracking-tight text-navy">{block.title}</h3>
+                <p className="mt-2 leading-relaxed text-navy/70">{block.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use cases */}
+      <section className="bg-paper py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Use cases</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Who Benefits Most from Custom Marketing Tools
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {useCases.map((useCase) => (
+              <div
+                key={useCase.title}
+                className="rounded-3xl border border-hairline bg-white p-8 shadow-sm"
+              >
+                <h3 className="text-xl font-extrabold tracking-tight text-navy">
+                  {useCase.title}
+                </h3>
+                <ul className="mt-4 space-y-2.5">
+                  {useCase.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2 text-[15px] leading-relaxed text-navy/75"
+                    >
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={3} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="bg-brand-tint/60 py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">What to expect</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              How We Build Your Custom Solution
+            </h2>
+          </div>
+          <ServiceTimeline steps={processSteps} />
+        </div>
+      </section>
+
+      {/* Pricing: figures from pricing.ts customToolsOffer. The live page had
+          no pricing section, only a cost FAQ that contradicted pricing.ts. */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Pricing</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Custom Tool Pricing
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/75">
+              {customToolsOffer.projectRange.replace(' — ', ' - ')}
+            </p>
+            <p className="mt-4 leading-relaxed text-navy/70">
+              {customToolsOffer.comparisonNote.replace('–', '-')}
+            </p>
+            <p className="mt-2 leading-relaxed text-navy/70">
+              {customToolsOffer.maintenanceNote.replace(' — ', ' - ')}
+            </p>
+            <button
+              type="button"
+              onClick={() => openService('Automation Discovery Call')}
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-brand px-7 py-3.5 font-bold text-white transition hover:bg-brand/90"
+            >
+              <Calendar className="h-4 w-4" />
+              Schedule Discovery Call
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <ServiceFaq faqs={toolsFaqs} withSchema note="Still wondering? The assistant in the corner can answer anything else." />
+
+      {/* Closing CTA: keeps the page's discovery-call flow and copy */}
+      <section className="bg-brand bg-waves-light py-24 text-white">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-4xl font-extrabold tracking-tight md:text-[40px]">
+              Ready to Build Your Custom Marketing Tools?
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-white/85">
+              Let&apos;s discuss your workflow, your challenges, and how custom tools can
+              transform your marketing efficiency.
+            </p>
+            <div className="mx-auto mt-10 max-w-xl rounded-[1.75rem] bg-white p-8 text-left shadow-2xl">
+              <h3 className="text-2xl font-extrabold tracking-tight text-navy">
+                Schedule a Discovery Call
+              </h3>
+              <p className="mt-1.5 text-navy/70">
+                Get a detailed project proposal within 48 hours of our call
+              </p>
+              <button
+                type="button"
+                onClick={() => openService('Custom Tools Discovery Call')}
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 font-bold text-white transition hover:bg-brand/90"
+              >
+                <Calendar className="h-4 w-4" />
+                Schedule Discovery Call
+                <ArrowRight className="h-4 w-4" />
+              </button>
+              <p className="mt-4 text-center text-sm text-navy/60">
+                We&apos;ll discuss your needs, show relevant examples, and provide a clear
+                project outline.
+              </p>
+            </div>
+            <p className="mt-8 text-white/70">
+              Custom solutions for agencies, in-house teams, and growing businesses across
+              Florida
+            </p>
+          </div>
+        </div>
+      </section>
+
       <ProfessionalServiceSchema
         serviceName="Custom Digital Marketing Tools & Automation"
         serviceDescription="Custom SEO automation tools, lead generation systems, reporting dashboards, and workflow automation built for your specific business needs"
@@ -712,6 +543,6 @@ export default function CustomToolsAutomationPage() {
         serviceType="Marketing Automation Services"
         dateModified="2026-10-11T10:00:00Z"
       />
-    </>
+    </div>
   );
 }

@@ -6,19 +6,18 @@ import ContactDialog from '../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import ProfessionalServiceSchema from '@/components/schema/ProfessionalServiceSchema';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import {
   Target, Award, BarChart3, Brain, Phone, Search, ArrowRight, CheckCircle
 } from 'lucide-react';
-import { industries, getColorClasses } from '@/data/industries';
+import { industries } from '@/data/industries';
+import OrangeUnderline from '../../components/brand/OrangeUnderline';
 
 export default function IndustriesPage() {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Industry Analysis Consultation');
 
   return (
-    <>
+    <div className="bg-paper">
       <PageBreadcrumb
         items={[
           { label: "Industries", href: "/industries", current: true }
@@ -26,32 +25,32 @@ export default function IndustriesPage() {
       />
 
       {/* Hero Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50">
+      <section className="bg-paper bg-waves px-4 py-24">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-2 mb-6">
-              <Target className="w-6 h-6 text-blue-600" />
-              <span className="text-lg font-semibold text-blue-700">12 Industry Verticals</span>
+          <div className="text-center">
+            <div className="mb-6 flex items-center justify-center gap-2">
+              <Target className="h-6 w-6 text-brand" />
+              <span className="text-lg font-semibold text-navy">12 Industry Verticals</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              Industry-Specific <span className="gradient-text">Marketing Psychology</span> That Converts
+            <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-6xl">
+              Industry-Specific <OrangeUnderline>Marketing Psychology</OrangeUnderline> That Converts
             </h1>
 
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Deep expertise across 12 verticals with proven results in each sector. Every industry has unique customer psychology,
-              buying behaviors, and conversion triggers. Generic marketing fails—specialized strategies dominate.
+            <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-navy/70">
+              Deep experience across 12 verticals with proven results in each sector. Every industry has unique customer psychology,
+              buying behaviors, and conversion triggers. Generic marketing fails-specialized strategies dominate.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="mb-8 flex flex-col justify-center gap-4 sm:flex-row">
               <Button
                 size="lg"
                 className="px-8 py-4 text-lg"
                 onClick={() => openDialog()}
               >
-                <Search className="w-5 h-5 mr-2" />
+                <Search className="mr-2 h-5 w-5" />
                 Find Your Industry
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
@@ -62,23 +61,23 @@ export default function IndustriesPage() {
                   openDialog();
                 }}
               >
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="mr-2 h-5 w-5" />
                 Industry Consultation
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto text-center">
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-4 text-center md:grid-cols-3">
               <div className="p-4">
-                <Award className="w-8 h-8 text-primary mx-auto mb-2" />
-                <p className="text-sm font-medium">12 Industries Mastered</p>
+                <Award className="mx-auto mb-2 h-8 w-8 text-brand" />
+                <p className="text-sm font-medium text-navy">12 Industries Mastered</p>
               </div>
               <div className="p-4">
-                <BarChart3 className="w-8 h-8 text-primary mx-auto mb-2" />
-                <p className="text-sm font-medium">300%+ Average Growth</p>
+                <BarChart3 className="mx-auto mb-2 h-8 w-8 text-brand" />
+                <p className="text-sm font-medium text-navy">300%+ Average Growth</p>
               </div>
               <div className="p-4">
-                <Brain className="w-8 h-8 text-primary mx-auto mb-2" />
-                <p className="text-sm font-medium">Psychology-Driven Results</p>
+                <Brain className="mx-auto mb-2 h-8 w-8 text-brand" />
+                <p className="text-sm font-medium text-navy">Psychology-Driven Results</p>
               </div>
             </div>
           </div>
@@ -86,89 +85,85 @@ export default function IndustriesPage() {
       </section>
 
       {/* Industries Grid */}
-      <section className="py-20 px-4">
+      <section className="bg-paper px-4 py-20">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our <span className="gradient-text">Industry Expertise</span>
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
+              Our <OrangeUnderline>Industry Expertise</OrangeUnderline>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="mx-auto max-w-3xl text-xl leading-relaxed text-navy/70">
               Each industry requires specialized knowledge of customer psychology, buying behaviors, and market dynamics.
-              We don&apos;t do generic marketing—we master industry-specific strategies.
+              We don&apos;t do generic marketing-we master industry-specific strategies.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {industries.map((industry) => {
               const IconComponent = industry.icon;
               return (
-                <Card key={industry.id} className="card-professional group hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className={`w-16 h-16 rounded-xl flex items-center justify-center ${getColorClasses(industry.color)}`}>
-                        <IconComponent className="w-8 h-8" />
-                      </div>
-                      <div className="flex-1">
-                        <CardTitle className="text-xl mb-1">{industry.name}</CardTitle>
-                        <div className="flex gap-2">
-                          <Badge variant="outline" className="text-xs">{industry.metrics.traffic} Traffic</Badge>
-                          <Badge variant="outline" className="text-xs">{industry.metrics.roi} ROI</Badge>
-                        </div>
-                      </div>
+                <div key={industry.id} className="flex h-full flex-col rounded-3xl border border-hairline bg-cream p-6 shadow-sm">
+                  <div className="mb-4 flex items-center gap-4">
+                    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-tint text-brand">
+                      <IconComponent className="h-7 w-7" />
+                    </span>
+                    <div className="flex-1">
+                      <h3 className="mb-1 text-xl font-extrabold tracking-tight text-navy">{industry.name}</h3>
+                      <p className="text-xs font-semibold text-navy/60">
+                        {industry.metrics.traffic} Traffic · {industry.metrics.roi} ROI
+                      </p>
                     </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-sm text-muted-foreground">{industry.description}</p>
+                  </div>
 
-                    <div>
-                      <h4 className="font-semibold text-sm mb-2">Psychology Triggers</h4>
-                      <div className="flex flex-wrap gap-1 mb-3">
-                        {industry.psychologyTriggers.map((trigger, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs">{trigger}</Badge>
-                        ))}
+                  <p className="mb-4 text-sm leading-relaxed text-navy/70">{industry.description}</p>
+
+                  <div className="mb-4">
+                    <h4 className="mb-2 text-sm font-semibold text-navy">Psychology Triggers</h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {industry.psychologyTriggers.map((trigger, index) => (
+                        <span key={index} className="rounded-full border border-hairline bg-white px-2.5 py-1 text-xs text-navy/70">{trigger}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <h4 className="mb-2 text-sm font-semibold text-navy">Key Challenges We Solve</h4>
+                    <ul className="space-y-1 text-xs text-navy/70">
+                      {industry.challenges.map((challenge, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <CheckCircle className="mt-0.5 h-3 w-3 shrink-0 text-brand" />
+                          <span>{challenge}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mb-5 rounded-2xl bg-brand-tint p-3">
+                    <div className="grid grid-cols-3 gap-2 text-center">
+                      <div>
+                        <div className="text-lg font-bold text-navy">{industry.metrics.traffic}</div>
+                        <div className="text-xs text-navy/60">Traffic Growth</div>
                       </div>
-                    </div>
-
-                    <div>
-                      <h4 className="font-semibold text-sm mb-2">Key Challenges We Solve</h4>
-                      <ul className="text-xs space-y-1">
-                        {industry.challenges.map((challenge, index) => (
-                          <li key={index} className="flex items-start gap-2">
-                            <CheckCircle className="w-3 h-3 text-primary mt-0.5" />
-                            <span>{challenge}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="bg-primary/5 p-3 rounded-lg">
-                      <div className="grid grid-cols-3 gap-2 text-center">
-                        <div>
-                          <div className="text-lg font-bold text-primary">{industry.metrics.traffic}</div>
-                          <div className="text-xs text-muted-foreground">Traffic Growth</div>
-                        </div>
-                        <div>
-                          <div className="text-lg font-bold text-primary">{industry.metrics.leads}</div>
-                          <div className="text-xs text-muted-foreground">Lead Increase</div>
-                        </div>
-                        <div>
-                          <div className="text-lg font-bold text-primary">{industry.metrics.roi}</div>
-                          <div className="text-xs text-muted-foreground">ROI Growth</div>
-                        </div>
+                      <div>
+                        <div className="text-lg font-bold text-navy">{industry.metrics.leads}</div>
+                        <div className="text-xs text-navy/60">Lead Increase</div>
+                      </div>
+                      <div>
+                        <div className="text-lg font-bold text-navy">{industry.metrics.roi}</div>
+                        <div className="text-xs text-navy/60">ROI Growth</div>
                       </div>
                     </div>
+                  </div>
 
-                    <Link href={`/industries/${industry.slug}`}>
-                      <Button
-                        variant="outline"
-                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                      >
-                        <BarChart3 className="w-4 h-4 mr-2" />
-                        Learn More About {industry.shortName}
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
+                  <Link href={`/industries/${industry.slug}`} className="mt-auto">
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                    >
+                      <BarChart3 className="mr-2 h-4 w-4" />
+                      Learn More About {industry.shortName}
+                    </Button>
+                  </Link>
+                </div>
               );
             })}
           </div>
@@ -176,52 +171,41 @@ export default function IndustriesPage() {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-purple-50">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Get Your Industry-Specific Analysis
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover the psychological triggers and conversion strategies that work specifically for your industry.
-              Get a custom analysis of your market and competitive landscape.
+      <section className="bg-brand bg-waves-light px-4 py-20">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+            Get Your Industry-Specific Analysis
+          </h2>
+          <p className="mx-auto mb-10 max-w-2xl text-xl text-white/85">
+            Discover the psychological triggers and conversion strategies that work specifically for your industry.
+            Get a custom analysis of your market and competitive landscape.
+          </p>
+
+          <div className="rounded-3xl bg-cream p-8 shadow-sm">
+            <h3 className="mb-2 text-2xl font-extrabold tracking-tight text-navy md:text-3xl">
+              Free Industry Marketing Analysis
+            </h3>
+            <p className="mb-8 text-lg text-navy/70">
+              Get a detailed analysis of your industry&apos;s customer psychology and competitive landscape
+            </p>
+            <Button
+              size="lg"
+              className="px-8 py-4 text-lg"
+              onClick={() => openDialog()}
+            >
+              <Target className="mr-2 h-5 w-5" />
+              Get My Industry Analysis
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+
+            <p className="mt-4 text-sm text-navy/60">
+              No spam. No sales pressure. Just a detailed analysis of your industry&apos;s marketing opportunities.
             </p>
           </div>
 
-          <Card className="card-professional shadow-xl">
-            <CardHeader className="text-center pb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <CardTitle className="text-2xl md:text-3xl">
-                Free Industry Marketing Analysis
-              </CardTitle>
-              <p className="text-lg text-muted-foreground">
-                Get a detailed analysis of your industry&apos;s customer psychology and competitive landscape
-              </p>
-            </CardHeader>
-            <CardContent className="text-center">
-              <Button
-                size="lg"
-                className="px-8 py-4 text-lg"
-                onClick={() => openDialog()}
-              >
-                <Target className="w-5 h-5 mr-2" />
-                Get My Industry Analysis
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-
-              <p className="text-sm text-muted-foreground mt-4">
-                No spam. No sales pressure. Just expert analysis of your industry&apos;s marketing opportunities.
-              </p>
-            </CardContent>
-          </Card>
-
-          <div className="text-center mt-8">
-            <p className="text-muted-foreground">
-              Serving businesses across all major industries with specialized psychology-driven strategies
-            </p>
-          </div>
+          <p className="mt-8 text-white/75">
+            Serving businesses across all major industries with specialized psychology-driven strategies
+          </p>
         </div>
       </section>
 
@@ -240,6 +224,6 @@ export default function IndustriesPage() {
         serviceUrl="https://aiogrowthseo.com/industries"
         serviceType="Industry Marketing"
       />
-    </>
+    </div>
   );
 }

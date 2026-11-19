@@ -123,15 +123,15 @@ export const locations: Location[] = [
     faqs: [
       {
         question: 'Do you specialize in Ormond Beach marketing?',
-        answer: "Yes. We're based in Daytona Beach, right next door, and Ormond is one of our core markets. We know the Granada Boulevard corridor, the US-1 service strip, and the residential west side differently — because they perform differently in local search. A med spa on Granada and an HVAC company on US-1 are not the same campaign. We build for the actual geography.",
+        answer: "Yes. We're based in Daytona Beach, right next door, and Ormond is one of our core markets. We know the Granada Boulevard corridor, the US-1 service strip, and the residential west side differently - because they perform differently in local search. A med spa on Granada and an HVAC company on US-1 are not the same campaign. We build for the actual geography.",
       },
       {
         question: 'What industries do you serve in Ormond Beach?',
-        answer: "Medical and dental practices, financial and legal services, high-end home services (roofing, HVAC, landscaping, pools), restaurants and hospitality, golf and lifestyle businesses, and professional services. Ormond's demographics skew older and more affluent than the rest of Volusia — buyers here research more and spend more, which means content depth and online credibility close more deals than rank alone.",
+        answer: "Medical and dental practices, financial and legal services, high-end home services (roofing, HVAC, landscaping, pools), restaurants and hospitality, golf and lifestyle businesses, and professional services. Ormond's demographics skew older and more affluent than the rest of Volusia - buyers here research more and spend more, which means content depth and online credibility close more deals than rank alone.",
       },
       {
         question: 'How quickly can I see results?',
-        answer: "Google Business Profile improvements typically show within 30–60 days. Map pack movement in Ormond's mid-competition categories usually follows within 60–90 days. One seasonal note: optimizing before October captures the snowbird re-entry wave — returning seasonal residents search like new arrivals every fall. Profiles tuned before that window have a real advantage over ones that start in January.",
+        answer: "Google Business Profile improvements typically show within 30-60 days. Map pack movement in Ormond's mid-competition categories usually follows within 60-90 days. One seasonal note: optimizing before October captures the snowbird re-entry wave - returning seasonal residents search like new arrivals every fall. Profiles tuned before that window have a real advantage over ones that start in January.",
       },
     ],
     preFaqSection: {
@@ -218,7 +218,7 @@ export const locations: Location[] = [
     faqs: [
       {
         question: 'Do you specialize in Palm Coast marketing?',
-        answer: 'Yes. Palm Coast is a distinct market from Daytona Beach or Volusia County — dual demographics, rapid new construction, neighborhood-by-neighborhood map pack proximity. We serve the full Flagler County coast including Flagler Beach, and we build Palm Coast-specific campaigns, not repurposed Daytona playbooks.',
+        answer: 'Yes. Palm Coast is a distinct market from Daytona Beach or Volusia County - dual demographics, rapid new construction, neighborhood-by-neighborhood map pack proximity. We serve the full Flagler County coast including Flagler Beach, and we build Palm Coast-specific campaigns, not repurposed Daytona playbooks.',
       },
       {
         question: 'What industries do you serve in Palm Coast?',
@@ -226,7 +226,7 @@ export const locations: Location[] = [
       },
       {
         question: 'How quickly can I see results?',
-        answer: "Palm Coast's lower competition density compared to Orlando or Jacksonville means fundamentals move faster. Most businesses see Google Business Profile improvement within 30–60 days. Map pack rankings in low-competition categories typically improve within 60–90 days. New-construction demand means early movers compound their advantage — new residents pick a provider and often stay loyal.",
+        answer: "Palm Coast's lower competition density compared to Orlando or Jacksonville means fundamentals move faster. Most businesses see Google Business Profile improvement within 30-60 days. Map pack rankings in low-competition categories typically improve within 60-90 days. New-construction demand means early movers compound their advantage - new residents pick a provider and often stay loyal.",
       },
     ],
     uniqueSellingPoints: [
@@ -259,7 +259,7 @@ export const locations: Location[] = [
     faqs: [
       {
         question: 'Do you specialize in New Smyrna Beach marketing?',
-        answer: 'Yes — we serve the entire Volusia and Flagler coast from our base in Daytona Beach. NSB is distinct enough from Daytona that it needs its own approach: the visitor economy on Flagler Avenue runs on different search patterns than the year-round market on Canal Street and the 44 corridor. We build for both.',
+        answer: 'Yes - we serve the entire Volusia and Flagler coast from our base in Daytona Beach. NSB is distinct enough from Daytona that it needs its own approach: the visitor economy on Flagler Avenue runs on different search patterns than the year-round market on Canal Street and the 44 corridor. We build for both.',
       },
       {
         question: 'What industries do you serve in New Smyrna Beach?',
@@ -267,7 +267,7 @@ export const locations: Location[] = [
       },
       {
         question: 'How quickly can I see results?',
-        answer: 'Most NSB businesses see meaningful Google Business Profile movement in 30–60 days and map pack improvements within 90 days. The lower competition here compared to Daytona Beach means fundamentals move faster. Blog and content results take 3–6 months to compound.',
+        answer: 'Most NSB businesses see meaningful Google Business Profile movement in 30-60 days and map pack improvements within 90 days. The lower competition here compared to Daytona Beach means fundamentals move faster. Blog and content results take 3-6 months to compound.',
       },
     ],
     uniqueSellingPoints: [
@@ -324,7 +324,7 @@ export const locations: Location[] = [
     faqs: [
       {
         question: 'Do you specialize in Sanford marketing?',
-        answer: "Yes. Sanford is 45 minutes from our base in Daytona Beach and is our primary Central Florida expansion market. We know the difference between the historic downtown market and the US-17-92 commercial corridor — they search differently, compete differently, and need different strategies. We're building real local expertise here, not templating a Volusia playbook onto a new city.",
+        answer: "Yes. Sanford is 45 minutes from our base in Daytona Beach and is our primary Central Florida expansion market. We know the difference between the historic downtown market and the US-17-92 commercial corridor - they search differently, compete differently, and need different strategies. We're building real local expertise here, not templating a Volusia playbook onto a new city.",
       },
       {
         question: 'What industries do you serve in Sanford?',
@@ -332,7 +332,7 @@ export const locations: Location[] = [
       },
       {
         question: 'How quickly can I see results?',
-        answer: "Sanford's Google Business Profile competition is thinner than Orlando proper, which means the fundamentals move faster. Most businesses see map pack improvement within 60–90 days. The historic downtown specifically has relatively few optimized profiles in many categories — early movers here build an advantage that's hard to dislodge once established.",
+        answer: "Sanford's Google Business Profile competition is thinner than Orlando proper, which means the fundamentals move faster. Most businesses see map pack improvement within 60-90 days. The historic downtown specifically has relatively few optimized profiles in many categories - early movers here build an advantage that's hard to dislodge once established.",
       },
     ],
     preFaqSection: {
@@ -355,7 +355,7 @@ export const locations: Location[] = [
     region: 'Central Florida',
     tagline: 'I-4 Corridor Suburban Market',
     description:
-      "Local SEO for Altamonte Springs businesses — one of the I-4 corridor's most searched suburban markets, 30 minutes from Daytona Beach via Sanford. We are expanding here now.",
+      "Local SEO for Altamonte Springs businesses - one of the I-4 corridor's most searched suburban markets, 30 minutes from Daytona Beach via Sanford. We are expanding here now.",
     features: ['SunRail Node', 'AdventHealth Corridor', 'SR-436 Commercial', 'Crane\'s Roost'],
     services: ['Local SEO', 'GEO Optimization', 'Google Business Profile', 'Content Marketing'],
     neighborhoods: ['Altamonte Mall corridor', 'AdventHealth Altamonte', "Crane's Roost", 'SR-436'],
@@ -381,7 +381,7 @@ export const locations: Location[] = [
       {
         question: 'Do you specialize in Altamonte Springs marketing?',
         answer:
-          'Yes. Altamonte Springs is part of our Central Florida expansion — we are building local expertise here the same way we built it in Volusia County. We know the AdventHealth corridor, the Altamonte Mall commercial strip, and the difference between competing for Sanford searches versus Altamonte-specific ones. Our base in Daytona Beach connects to Altamonte Springs via Sanford on the SunRail corridor, and we treat this as a real market, not a programmatic city page.',
+          'Yes. Altamonte Springs is part of our Central Florida expansion - we are building local expertise here the same way we built it in Volusia County. We know the AdventHealth corridor, the Altamonte Mall commercial strip, and the difference between competing for Sanford searches versus Altamonte-specific ones. Our base in Daytona Beach connects to Altamonte Springs via Sanford on the SunRail corridor, and we treat this as a real market, not a programmatic city page.',
       },
       {
         question: 'What industries do you serve in Altamonte Springs?',
@@ -391,7 +391,7 @@ export const locations: Location[] = [
       {
         question: 'How quickly can I see results?',
         answer:
-          'Google Business Profile improvements typically show within 30-60 days. Map pack movement in Altamonte Springs mid-competition categories usually follows within 60-90 days. The early-mover advantage here is real — there are fewer fully optimized profiles in most categories than you would face in Orlando proper, which means a focused program can take and hold map pack positions faster than the competitive density might suggest.',
+          'Google Business Profile improvements typically show within 30-60 days. Map pack movement in Altamonte Springs mid-competition categories usually follows within 60-90 days. The early-mover advantage here is real - there are fewer fully optimized profiles in most categories than you would face in Orlando proper, which means a focused program can take and hold map pack positions faster than the competitive density might suggest.',
       },
     ],
     preFaqSection: {
@@ -407,7 +407,7 @@ export const locations: Location[] = [
       },
       {
         title: 'AdventHealth Corridor',
-        description: 'Medical, dental, and professional practices near the hospital already have demand — they need local visibility.',
+        description: 'Medical, dental, and professional practices near the hospital already have demand - they need local visibility.',
       },
       {
         title: 'Early-Mover GEO',
@@ -440,7 +440,7 @@ export const locations: Location[] = [
     faqs: [
       {
         question: 'Do you specialize in Holly Hill marketing?',
-        answer: "Yes. Holly Hill is a small market wedged between Daytona Beach and Ormond Beach — which means less competition and a faster path to the map pack than you'd have in either of those larger markets. We're ten minutes away in Daytona Beach and we know the difference between the Nova Road corridor, the Riverside Drive market, and the US-1 strip.",
+        answer: "Yes. Holly Hill is a small market wedged between Daytona Beach and Ormond Beach - which means less competition and a faster path to the map pack than you'd have in either of those larger markets. We're ten minutes away in Daytona Beach and we know the difference between the Nova Road corridor, the Riverside Drive market, and the US-1 strip.",
       },
       {
         question: 'What industries do you serve in Holly Hill?',
@@ -448,7 +448,7 @@ export const locations: Location[] = [
       },
       {
         question: 'How quickly can I see results?',
-        answer: "Holly Hill's low competition is an advantage here. Most businesses see Google Business Profile gains within 30–45 days and map pack movement within 60–90 days. The fundamentals that take 6 months in Daytona often take 3 in Holly Hill — you're competing against fewer optimized profiles.",
+        answer: "Holly Hill's low competition is an advantage here. Most businesses see Google Business Profile gains within 30-45 days and map pack movement within 60-90 days. The fundamentals that take 6 months in Daytona often take 3 in Holly Hill - you're competing against fewer optimized profiles.",
       },
     ],
     preFaqSection: {
@@ -471,7 +471,7 @@ export const locations: Location[] = [
     region: 'Volusia County',
     tagline: "West Volusia's Main Street Market",
     description:
-      "DeLand is West Volusia's hub — the county seat, a nationally recognized Main Street downtown, and a university town with Stetson at its core. We help downtown shops, trades, and professional practices win the year-round local search market that the beach towns don't have.",
+      "DeLand is West Volusia's hub - the county seat, a nationally recognized Main Street downtown, and a university town with Stetson at its core. We help downtown shops, trades, and professional practices win the year-round local search market that the beach towns don't have.",
     features: ['Historic Downtown', 'Stetson University', 'Main Street Destination', 'Inland Growth'],
     services: ['Local SEO', 'Google Business Profile', 'GEO Optimization', 'Content Marketing'],
     neighborhoods: ['Downtown DeLand', 'Stetson University area', 'Victoria Park'],
@@ -527,7 +527,7 @@ export const locations: Location[] = [
     region: 'Flagler County',
     tagline: 'Old Florida, Found Online',
     description:
-      'Flagler Beach is deliberately small — independent restaurants, surf shops, charters, and service businesses with no franchise SEO budgets crowding the map pack. We help you own local search on A1A and pull Friday-night demand from Palm Coast.',
+      'Flagler Beach is deliberately small - independent restaurants, surf shops, charters, and service businesses with no franchise SEO budgets crowding the map pack. We help you own local search on A1A and pull Friday-night demand from Palm Coast.',
     features: ['A1A Corridor', 'Independent Businesses', 'Surf & Pier Culture', 'Palm Coast Spillover'],
     services: ['Local SEO', 'Google Business Profile', 'GEO Optimization', 'Review Generation'],
     neighborhoods: ['A1A Oceanfront', 'Downtown Flagler Beach', 'South Flagler'],
@@ -551,15 +551,15 @@ export const locations: Location[] = [
     faqs: [
       {
         question: 'Do you specialize in Flagler Beach marketing?',
-        answer: 'Yes. Flagler Beach is a small, distinct market — a coastal town with a different character than [Palm Coast](/areas-we-serve/palm-coast) to the north or [Ormond Beach](/areas-we-serve/ormond-beach) to the south. The visitor economy on A1A runs on different search patterns than the year-round local market, and we build for both. We serve Flagler Beach as part of our broader Volusia and Flagler County coverage.',
+        answer: 'Yes. Flagler Beach is a small, distinct market - a coastal town with a different character than [Palm Coast](/areas-we-serve/palm-coast) to the north or [Ormond Beach](/areas-we-serve/ormond-beach) to the south. The visitor economy on A1A runs on different search patterns than the year-round local market, and we build for both. We serve Flagler Beach as part of our broader Volusia and Flagler County coverage.',
       },
       {
         question: 'What industries do you serve in Flagler Beach?',
-        answer: 'Surf shops and water sports retailers, vacation rentals and beach lodging, restaurants and seafood, home services (HVAC, plumbing, electrical), and professional services. Seasonal businesses in Flagler Beach especially benefit from pre-season [local SEO](/services/local-seo) — ranking before tourist traffic peaks means you capture the demand instead of your competitors.',
+        answer: 'Surf shops and water sports retailers, vacation rentals and beach lodging, restaurants and seafood, home services (HVAC, plumbing, electrical), and professional services. Seasonal businesses in Flagler Beach especially benefit from pre-season [local SEO](/services/local-seo) - ranking before tourist traffic peaks means you capture the demand instead of your competitors.',
       },
       {
         question: 'How quickly can I see results?',
-        answer: "Flagler Beach's low competition is an advantage. Most businesses see [Google Business Profile](/blog/google-business-profile-optimization-daytona) improvement within 30 days and map pack movement within 45–60 days. The small number of optimized profiles in most categories means the fundamentals alone can win the map pack here.",
+        answer: "Flagler Beach's low competition is an advantage. Most businesses see [Google Business Profile](/blog/google-business-profile-optimization-daytona) improvement within 30 days and map pack movement within 45-60 days. The small number of optimized profiles in most categories means the fundamentals alone can win the map pack here.",
       },
     ],
     preFaqSection: {
@@ -569,7 +569,7 @@ export const locations: Location[] = [
       ),
     },
     uniqueSellingPoints: [
-      { title: 'Independent Map Pack', description: 'No franchise SEO budgets to fight — a complete profile and steady reviews can put you first in category.' },
+      { title: 'Independent Map Pack', description: 'No franchise SEO budgets to fight - a complete profile and steady reviews can put you first in category.' },
       { title: 'A1A + Palm Coast Coverage', description: 'Rank for same-hour visitor searches on A1A and Friday-night demand from 90,000+ Palm Coast residents.' },
       { title: 'Storm-Season Ready', description: 'Home-services profiles prepped before June so roof, tree, and restoration searches go to you, not whoever ranked last year.' },
     ],
@@ -582,7 +582,7 @@ export const locations: Location[] = [
     region: 'Central Florida',
     tagline: 'Volusia to the I-4 Corridor',
     description:
-      'Local SEO and GEO optimization for Central Florida businesses — from Volusia and Flagler Counties into Orlando, Seminole, and Lake Counties. We help local businesses rank where their customers are searching.',
+      'Local SEO and GEO optimization for Central Florida businesses - from Volusia and Flagler Counties into Orlando, Seminole, and Lake Counties. We help local businesses rank where their customers are searching.',
     features: ['I-4 Corridor', 'Volusia & Flagler Core', 'Seminole County', 'Orlando Metro'],
     services: ['Local SEO', 'GEO Optimization', 'Local Lead Generation', 'Agentic SEO'],
     neighborhoods: ['Sanford', 'Daytona Beach', 'I-4 Corridor'],

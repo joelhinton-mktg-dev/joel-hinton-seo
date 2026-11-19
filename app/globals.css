@@ -11,3 +11,6 @@ body:has(.lp-layout) > footer {
 body:has(.lp-layout) > main {
   padding-top: 0;
 }
+body:has(.lp-layout) .aio-chat-root {
+  display: none;
+}

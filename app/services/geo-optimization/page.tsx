@@ -3,504 +3,240 @@
 import CoreServiceSchema from '@/components/schema/CoreServiceSchema';
 
 import Link from 'next/link';
-import {
-  Brain, Search, Star, TrendingUp, CheckCircle, ArrowRight, Zap, Users,
-  Award, Target, Globe, Bot, Cpu, Database, FileText, Code, Eye,
-  Phone, Calendar, AlertTriangle, Lightbulb, Sparkles
-} from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import { ArrowRight, Star } from 'lucide-react';
 import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import { geoOffer, geoOfferProse } from '@/data/pricing';
+import { FORMSPREE_CONTACT_ENDPOINT } from '@/data/site';
+import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import AuditForm from '../../../components/brand/AuditForm';
+import MarkerNote from '../../../components/brand/MarkerNote';
+import OrangeUnderline from '../../../components/brand/OrangeUnderline';
+import Reveal from '../../../components/brand/Reveal';
+import ServiceTabs, { type ServiceTabItem } from '../../../components/service/ServiceTabs';
+import ServiceTimeline from '../../../components/service/ServiceTimeline';
+import AnswerEnginePricing from '../../../components/service/AnswerEnginePricing';
+import TestimonialBand from '../../../components/service/TestimonialBand';
+import ServiceFaq, { type ServiceFaqItem } from '../../../components/service/ServiceFaq';
+import ServiceCta from '../../../components/service/ServiceCta';
+import { testimonials } from '@/data/clientTestimonials';
+
+const platforms = ['ChatGPT', 'Claude', 'Perplexity', 'Google AI'];
+
+const whyBlocks = [
+  {
+    title: '40% of GenZ prefers AI search',
+    body: "They're asking ChatGPT instead of Googling",
+  },
+  {
+    title: (
+      <>
+        Google is integrating{' '}
+        <Link
+          href="/blog/how-to-show-up-in-ai-overviews-local-business"
+          className="font-medium text-brand underline hover:text-navy"
+        >
+          AI Overviews
+        </Link>
+      </>
+    ),
+    body: 'Traditional rankings are being pushed below AI summaries',
+  },
+  {
+    title: 'Early movers win big',
+    body: 'Get established in AI recommendations before competitors',
+  },
+];
+
+/* Tab titles, subtitles, and feature lists are verbatim from the live page
+   cards; the short panel paragraphs are new copy written for the tabs. */
+const geoServiceTabs: ServiceTabItem[] = [
+  {
+    id: 'entity-topical-mapping',
+    title: 'Entity & Topical Mapping',
+    subtitle: 'Build your knowledge graph',
+    description:
+      'We map the services, places, and topics your business connects to, so AI systems understand what you do, where you do it, and why you are a credible answer.',
+    features: [
+      'Entity relationship mapping',
+      'Topical authority clusters',
+      'Semantic SEO foundation',
+      'Knowledge panel optimization',
+    ],
+  },
+  {
+    id: 'ai-mention-tracking',
+    title: 'AI Mention Tracking',
+    subtitle: 'Monitor your AI visibility',
+    description:
+      'We watch how often AI assistants name your business for the questions your customers actually ask, and track how those mentions change month to month.',
+    features: [
+      'ChatGPT mention monitoring',
+      'Perplexity citation tracking',
+      'AI search competitor analysis',
+      'Prompt research & optimization',
+    ],
+  },
+  {
+    id: 'link-building-for-ai',
+    title: 'Link Building for AI',
+    subtitle: 'Authority signals AI trusts',
+    description:
+      'AI systems cite sources they already trust. We build the mentions and citations that make your business one of those sources.',
+    features: [
+      'High-authority link building',
+      'Reddit marketing & presence',
+      'Wikipedia-style citations',
+      'Expert content syndication',
+    ],
+  },
+  {
+    id: 'ai-optimized-content',
+    title: 'AI-Optimized Content',
+    subtitle: 'Content AI wants to cite',
+    description:
+      'Pages written to be quoted: direct answers up front, clear structure, and the specific facts AI systems pull into their responses.',
+    features: [
+      'Answer-focused content',
+      'Structured data optimization',
+      'FAQ schema implementation',
+      'Expert authorship signals',
+    ],
+  },
+  {
+    id: 'technical-geo',
+    title: 'Technical GEO',
+    subtitle: 'Backend optimization for AI',
+    description:
+      'The backend work that makes your site easy for AI systems to read, parse, and cite accurately, from schema markup to LLM-friendly formatting.',
+    features: [
+      'Schema markup for AI',
+      'Structured data validation',
+      'API accessibility',
+      'LLM-friendly formatting',
+    ],
+  },
+  {
+    id: 'geo-reporting',
+    title: 'GEO Reporting',
+    subtitle: 'Measure AI search performance',
+    description:
+      'A monthly report on where AI assistants mention you, where competitors show up instead, and what we are doing about it.',
+    features: [
+      'AI citation reports',
+      'Entity visibility tracking',
+      'Competitor AI presence',
+      'Monthly progress reports',
+    ],
+  },
+];
+
+const timelineSteps = [
+  {
+    when: 'Weeks 1-2',
+    title: 'Foundation',
+    description:
+      'Schema, entity mapping, and AI-prompt research set the base AI systems read about your business.',
+  },
+  {
+    when: '30 to 60 days',
+    title: 'Initial improvements',
+    description: 'You can see initial improvements in AI mentions within 30-60 days.',
+  },
+  {
+    when: '3 to 6 months',
+    title: 'Consistent AI citations',
+    description:
+      'Building strong entity recognition and consistent AI citations typically takes 3-6 months of sustained effort.',
+  },
+];
+
+const costGuideLink = (
+  <Link
+    href="/blog/what-generative-engine-optimization-costs-local-business"
+    className="font-medium text-brand underline hover:text-navy"
+  >
+    GEO cost guide
+  </Link>
+);
+
+const geoFaqs: ServiceFaqItem[] = [
+  {
+    question: 'What is GEO and how is it different from SEO?',
+    answer:
+      'GEO (Generative Engine Optimization) focuses on getting your business cited and recommended by AI assistants like ChatGPT, Claude, and Perplexity. While SEO optimizes for Google rankings, GEO optimizes for AI-generated answers. Both are complementary strategies.',
+    schemaText:
+      'GEO (Generative Engine Optimization) focuses on getting your business cited and recommended by AI assistants like ChatGPT, Claude, and Perplexity. While SEO optimizes for Google rankings, GEO optimizes for AI-generated answers. Both are complementary strategies.',
+  },
+  {
+    question: 'How do you track AI mentions?',
+    answer:
+      "We use custom tracking tools that monitor how often your business is mentioned in AI search results for relevant queries. We track mentions across ChatGPT, Claude, Perplexity, and Google's AI Overviews.",
+    schemaText:
+      "We use custom tracking tools that monitor how often your business is mentioned in AI search results for relevant queries. We track mentions across ChatGPT, Claude, Perplexity, and Google's AI Overviews.",
+  },
+  {
+    question: 'Should I do GEO instead of SEO?',
+    answer:
+      "For most businesses, you need both. Traditional SEO still drives significant traffic, but GEO prepares you for the future. Our GEO Foundation complements your existing SEO efforts and ensures you're visible across all search interfaces.",
+    schemaText:
+      "For most businesses, you need both. Traditional SEO still drives significant traffic, but GEO prepares you for the future. Our GEO Foundation complements your existing SEO efforts and ensures you're visible across all search interfaces.",
+  },
+  {
+    question: 'How long until I see results from GEO?',
+    answer:
+      'AI systems update their knowledge bases regularly. You can see initial improvements in AI mentions within 30-60 days. Building strong entity recognition and consistent AI citations typically takes 3-6 months of sustained effort.',
+    schemaText:
+      'AI systems update their knowledge bases regularly. You can see initial improvements in AI mentions within 30-60 days. Building strong entity recognition and consistent AI citations typically takes 3-6 months of sustained effort.',
+  },
+  {
+    question: 'Do I need extra budget for GEO?',
+    answer: (
+      <>
+        If you want GEO done, the budget is {geoOffer.offerName}: {geoOfferProse.buildMonthly}.
+        It is not a $500 add-on and it is not a second national GEO contract. Details in our{' '}
+        {costGuideLink}.
+      </>
+    ),
+    schemaText: `If you want GEO done, the budget is ${geoOffer.offerName}: ${geoOfferProse.buildMonthly}. It is not a $500 add-on and it is not a second national GEO contract. Details in our GEO cost guide.`,
+  },
+  {
+    question: 'How much does AI search optimization cost?',
+    answer: (
+      <>
+        How much does GEO cost? {geoOffer.offerName} is {geoOfferProse.buildMonthly},{' '}
+        {geoOffer.term}, with a {geoOffer.guarantee}. That is the only public GEO price.
+        National agency rates run much higher because they price for large competitive markets.
+        Full breakdown on our {costGuideLink}.
+      </>
+    ),
+    schemaText: `How much does GEO cost? ${geoOffer.offerName} is ${geoOfferProse.buildMonthly}, ${geoOffer.term}, with a ${geoOffer.guarantee}. That is the only public GEO price. National agency rates run much higher because they price for large competitive markets. Full breakdown on our GEO cost guide.`,
+  },
+  {
+    question: 'How is GEO different from SEO for a local business?',
+    answer:
+      "Traditional local SEO gets you into Google Maps and blue-link results. GEO gets you cited by name when someone asks ChatGPT, Google's AI Overviews, or Perplexity a question about businesses in your category and location. For a Daytona Beach contractor or clinic, GEO is not a replacement for local SEO, it is a layer on top of it. The businesses winning AI citations in Volusia County today are the ones with complete Google Business Profiles, real reviews, and clear location-specific content. That is GEO and local SEO working together.",
+    schemaText:
+      "Traditional local SEO gets you into Google Maps and blue-link results. GEO gets you cited by name when someone asks ChatGPT, Google's AI Overviews, or Perplexity a question about businesses in your category and location. For a Daytona Beach contractor or clinic, GEO is not a replacement for local SEO, it is a layer on top of it. The businesses winning AI citations in Volusia County today are the ones with complete Google Business Profiles, real reviews, and clear location-specific content. That is GEO and local SEO working together.",
+  },
+];
+
+const geoTestimonial = testimonials[2];
 
 export default function GEOOptimizationPage() {
-  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('GEO Optimization Consultation');
+  const { isOpen, selectedService, openDialog, closeDialog, selectService } =
+    useContactDialog('GEO Optimization Consultation');
+
+  const openPricingDialog = () => openDialog(geoOffer.serviceLabel);
 
   return (
-    <>
+    <div className="min-h-screen bg-paper">
       <CoreServiceSchema
         name="GEO Optimization for Daytona Beach and Volusia County Businesses"
         description="Get your Daytona Beach or Volusia County business cited in ChatGPT, Google AI Overviews, and Perplexity. GEO optimization built for local service businesses, not enterprise brands."
         url="https://aiogrowthseo.com/services/geo-optimization"
       />
-
-      <div className="min-h-screen bg-background">
-        <PageBreadcrumb
-          items={[
-            { label: "Services", href: "/services" },
-            { label: "GEO Optimization", href: "/services/geo-optimization", current: true }
-          ]}
-        />
-
-        {/* Hero Section */}
-        <section className="py-24 px-4 bg-gradient-to-br from-purple-50 via-violet-50 to-indigo-50">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
-                <Sparkles className="w-4 h-4 mr-2" />
-                The Future of Search
-              </Badge>
-
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                GEO Optimization for Daytona Beach and Volusia County Businesses
-              </h1>
-
-              <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-                {geoOffer.offerName} is {geoOfferProse.buildMonthly}, {geoOffer.term}, with a {geoOffer.guarantee}.
-                When 40% of GenZ uses TikTok and AI assistants instead of Google, traditional SEO isn&apos;t enough.
-                GEO ensures you know{' '}
-                <Link href="/blog/how-to-get-cited-by-ai-search-2026" className="text-primary hover:underline">how to get cited by AI search</Link>{' '}
-                and get recommended by ChatGPT, Claude, Perplexity, and other AI search tools.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button
-                  size="lg"
-                  className="px-8 py-4 text-lg bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700"
-                  onClick={() => openDialog()}
-                >
-                  <Bot className="w-5 h-5 mr-2" />
-                  Get Your GEO Strategy
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="px-8 py-4 text-lg"
-                  onClick={() => {
-                    selectService('AI Search Visibility Audit');
-                    openDialog();
-                  }}
-                >
-                  <Eye className="w-5 h-5 mr-2" />
-                  Check My AI Visibility
-                </Button>
-              </div>
-
-              {/* AI Platform Icons */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-                <div className="p-4 rounded-lg bg-white/50 border">
-                  <Bot className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                  <p className="text-sm font-medium">ChatGPT</p>
-                </div>
-                <div className="p-4 rounded-lg bg-white/50 border">
-                  <Brain className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                  <p className="text-sm font-medium">Claude</p>
-                </div>
-                <div className="p-4 rounded-lg bg-white/50 border">
-                  <Search className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                  <p className="text-sm font-medium">Perplexity</p>
-                </div>
-                <div className="p-4 rounded-lg bg-white/50 border">
-                  <Sparkles className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                  <p className="text-sm font-medium">Google AI</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Why GEO Matters */}
-        <section className="py-24 px-4 bg-background">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <Badge className="mb-4 bg-amber-100 text-amber-800 border-amber-200">
-                  <AlertTriangle className="w-4 h-4 mr-2" />
-                  The Shift is Happening
-                </Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                  Why <span className="gradient-text">GEO</span> is Critical for Your Business
-                </h2>
-                <p className="text-lg text-muted-foreground mb-6">
-                  AI assistants are becoming the new search interface. When someone asks ChatGPT &quot;Who&apos;s the best plumber in Daytona Beach?&quot;
-                  will your business be mentioned?{' '}
-                  <Link href="/areas-we-serve/daytona-beach" className="text-primary hover:underline">Daytona Beach businesses</Link>{' '}
-                  that invest in GEO show up in those AI-generated recommendations.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
-                      <TrendingUp className="w-4 h-4 text-purple-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">40% of GenZ prefers AI search</h4>
-                      <p className="text-sm text-muted-foreground">They&apos;re asking ChatGPT instead of Googling</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
-                      <Globe className="w-4 h-4 text-purple-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">
-                        Google is integrating{' '}
-                        <Link href="/blog/how-to-show-up-in-ai-overviews-local-business" className="text-primary hover:underline">
-                          AI Overviews
-                        </Link>
-                      </h4>
-                      <p className="text-sm text-muted-foreground">Traditional rankings are being pushed below AI summaries</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
-                      <Lightbulb className="w-4 h-4 text-purple-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">Early movers win big</h4>
-                      <p className="text-sm text-muted-foreground">Get established in AI recommendations before competitors</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <Card className="bg-gradient-to-br from-purple-50 to-violet-50 border-purple-200">
-                <CardHeader>
-                  <CardTitle className="text-2xl text-center">
-                    <Link href="/guides/geo-vs-seo-whats-the-difference" className="hover:underline">
-                      GEO vs Traditional SEO
-                    </Link>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold text-purple-600 mb-2">Traditional SEO</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Optimize for keyword rankings</li>
-                      <li>• Focus on Google&apos;s algorithm</li>
-                      <li>• Build backlinks for authority</li>
-                      <li>• Target search result pages (SERPs)</li>
-                    </ul>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-purple-600 mb-2">GEO Optimization</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Optimize for AI citations</li>
-                      <li>• Focus on entity recognition</li>
-                      <li>• Build topical authority</li>
-                      <li>• Target AI-generated answers</li>
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Services */}
-        <section className="py-24 px-4 bg-gradient-subtle">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Our <span className="gradient-text">GEO</span> Services
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Comprehensive optimization for AI search engines and answer engines
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                    <Database className="w-7 h-7 text-purple-600" />
-                  </div>
-                  <CardTitle>Entity & Topical Mapping</CardTitle>
-                  <CardDescription>Build your knowledge graph</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Entity relationship mapping</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Topical authority clusters</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Semantic SEO foundation</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Knowledge panel optimization</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                    <Bot className="w-7 h-7 text-purple-600" />
-                  </div>
-                  <CardTitle>AI Mention Tracking</CardTitle>
-                  <CardDescription>Monitor your AI visibility</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> ChatGPT mention monitoring</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Perplexity citation tracking</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> AI search competitor analysis</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Prompt research & optimization</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                    <Globe className="w-7 h-7 text-purple-600" />
-                  </div>
-                  <CardTitle>Link Building for AI</CardTitle>
-                  <CardDescription>Authority signals AI trusts</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> High-authority link building</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Reddit marketing & presence</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Wikipedia-style citations</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Expert content syndication</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                    <FileText className="w-7 h-7 text-purple-600" />
-                  </div>
-                  <CardTitle>AI-Optimized Content</CardTitle>
-                  <CardDescription>Content AI wants to cite</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Answer-focused content</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Structured data optimization</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> FAQ schema implementation</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Expert authorship signals</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                    <Code className="w-7 h-7 text-purple-600" />
-                  </div>
-                  <CardTitle>Technical GEO</CardTitle>
-                  <CardDescription>Backend optimization for AI</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Schema markup for AI</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Structured data validation</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> API accessibility</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> LLM-friendly formatting</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                    <TrendingUp className="w-7 h-7 text-purple-600" />
-                  </div>
-                  <CardTitle>GEO Reporting</CardTitle>
-                  <CardDescription>Measure AI search performance</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> AI citation reports</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Entity visibility tracking</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Competitor AI presence</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Monthly progress reports</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* GEO + SEO */}
-        <section className="py-24 px-4 bg-background">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                How Much Does <span className="gradient-text">GEO</span> Cost?
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                The current offer is {geoOffer.offerName}: {geoOfferProse.buildMonthly}.
-                {geoOffer.term}, with a {geoOffer.guarantee}. One flagship. No pricing ladder.
-              </p>
-            </div>
-
-            <div className="overflow-x-auto my-8">
-              <table className="min-w-full border-collapse border border-slate-200 text-sm text-left">
-                <thead>
-                  <tr className="bg-slate-100">
-                    <th className="border border-slate-200 px-4 py-2 font-semibold">Offer</th>
-                    <th className="border border-slate-200 px-4 py-2 font-semibold">Build</th>
-                    <th className="border border-slate-200 px-4 py-2 font-semibold">Monthly</th>
-                    <th className="border border-slate-200 px-4 py-2 font-semibold">Term</th>
-                    <th className="border border-slate-200 px-4 py-2 font-semibold">Guarantee</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border border-slate-200 px-4 py-2">{geoOffer.offerName}</td>
-                    <td className="border border-slate-200 px-4 py-2">{geoOffer.build}</td>
-                    <td className="border border-slate-200 px-4 py-2">{geoOffer.monthly}</td>
-                    <td className="border border-slate-200 px-4 py-2">{geoOffer.term}</td>
-                    <td className="border border-slate-200 px-4 py-2">{geoOffer.guarantee}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="text-sm text-muted-foreground mb-8">
-              Full breakdown in the{' '}
-              <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
-                GEO cost guide
-              </Link>
-              .
-            </p>
-
-            <Card className="card-professional border-purple-200 bg-purple-50">
-              <CardHeader>
-                <Badge className="w-fit mb-4 bg-purple-600">{geoOffer.offerName}</Badge>
-                <CardTitle className="text-2xl">{geoOffer.price}</CardTitle>
-                <CardDescription>
-                  {geoOffer.term}, with a {geoOffer.guarantee}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  {geoOffer.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-purple-600" /> {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  className="w-full bg-purple-600 hover:bg-purple-700"
-                  asChild
-                >
-                  <Link href="/blog/what-generative-engine-optimization-costs-local-business">
-                    See what GEO costs
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-24 px-4 bg-gradient-subtle">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Frequently Asked <span className="gradient-text">Questions</span>
-              </h2>
-            </div>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  What is GEO and how is it different from SEO?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  GEO (Generative Engine Optimization) focuses on getting your business cited and recommended by AI assistants like ChatGPT, Claude, and Perplexity. While SEO optimizes for Google rankings, GEO optimizes for AI-generated answers. Both are complementary strategies.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-2" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  How do you track AI mentions?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  We use custom tracking tools that monitor how often your business is mentioned in AI search results for relevant queries. We track mentions across ChatGPT, Claude, Perplexity, and Google&apos;s AI Overviews.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  Should I do GEO instead of SEO?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  For most businesses, you need both. Traditional SEO still drives significant traffic, but GEO prepares you for the future. Our GEO Foundation complements your existing SEO efforts and ensures you&apos;re visible across all search interfaces.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-4" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  How long until I see results from GEO?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  AI systems update their knowledge bases regularly. You can see initial improvements in AI mentions within 30-60 days. Building strong entity recognition and consistent AI citations typically takes 3-6 months of sustained effort.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-5b" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  Do I need extra budget for GEO?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  If you want GEO done, the budget is {geoOffer.offerName}: {geoOfferProse.buildMonthly}.
-                  It is not a $500 add-on and it is not a second national GEO contract. Details in our{' '}
-                  <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
-                    GEO cost guide
-                  </Link>
-                  .
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-5" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  How much does AI search optimization cost?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  How much does GEO cost? {geoOffer.offerName} is {geoOfferProse.buildMonthly}, {geoOffer.term}, with a {geoOffer.guarantee}. That is the only public GEO price. National agency rates run much higher because they price for large competitive markets. Full breakdown on our{' '}
-                  <Link href="/blog/what-generative-engine-optimization-costs-local-business" className="text-primary hover:underline">
-                    GEO cost guide
-                  </Link>
-                  .
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-6" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  How is GEO different from SEO for a local business?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Traditional local SEO gets you into Google Maps and blue-link results. GEO gets you cited by name when someone asks ChatGPT, Google&apos;s AI Overviews, or Perplexity a question about businesses in your category and location. For a Daytona Beach contractor or clinic, GEO is not a replacement for local SEO, it is a layer on top of it. The businesses winning AI citations in Volusia County today are the ones with complete Google Business Profiles, real reviews, and clear location-specific content. That is GEO and local SEO working together.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-24 px-4 bg-gradient-to-r from-purple-600 to-violet-600">
-          <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready for AI-Powered Search?
-            </h2>
-            <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              Don&apos;t wait for AI to replace traditional search. Position your business now for the future of discovery.
-            </p>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="px-8 py-4 text-lg"
-              asChild
-            >
-              <Link href="/contact">
-                <Sparkles className="w-5 h-5 mr-2" />
-                Book a free audit
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
-          </div>
-        </section>
-      </div>
-
       <ContactDialog
         isOpen={isOpen}
         onClose={closeDialog}
@@ -509,6 +245,236 @@ export default function GEOOptimizationPage() {
         defaultService={selectedService}
         businessTypes={businessTypes.general}
       />
-    </>
+
+      {/* Hero */}
+      <section className="bg-paper bg-waves">
+        <div className="container mx-auto px-6 pt-10 pb-24">
+          <PageBreadcrumb
+            items={[
+              { label: 'Services', href: '/services' },
+              { label: 'GEO Optimization' },
+            ]}
+            className="mb-10 text-navy/60 [&_a]:text-navy/60 [&_a:hover]:text-brand [&_[aria-current]]:text-navy [&_svg]:text-navy/40"
+          />
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+            <div>
+              <p className="mb-5 text-[15px] font-semibold text-pen-text">The Future of Search</p>
+              <h1 className="mb-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-navy md:text-5xl lg:text-[54px]">
+                <OrangeUnderline>GEO Optimization</OrangeUnderline> for Daytona Beach and
+                Volusia County Businesses
+              </h1>
+              <p className="mb-8 max-w-xl text-lg leading-relaxed text-navy/75">
+                {geoOffer.offerName} is {geoOfferProse.buildMonthly}, {geoOffer.term}, with a{' '}
+                {geoOffer.guarantee}. When 40% of GenZ uses TikTok and AI assistants instead of
+                Google, traditional SEO isn&apos;t enough. GEO ensures you know{' '}
+                <Link href="/blog/how-to-get-cited-by-ai-search-2026" className="font-medium text-brand underline hover:text-navy">
+                  how to get cited by AI search
+                </Link>{' '}
+                and get recommended by ChatGPT, Claude, Perplexity, and other AI search tools.
+              </p>
+
+              <AuditForm
+                endpoint={FORMSPREE_CONTACT_ENDPOINT}
+                serviceLabel="GEO Optimization Consultation"
+                buttonLabel="Get Your GEO Strategy"
+                formType="services_form"
+                className="max-w-xl"
+              />
+
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    selectService('AI Search Visibility Audit');
+                    openDialog();
+                  }}
+                  className="group inline-flex items-center gap-1.5 font-bold text-brand hover:underline"
+                >
+                  Check My AI Visibility
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+
+              <ul className="mt-9 flex flex-wrap gap-2" aria-label="AI platforms we optimize for">
+                {platforms.map((platform) => (
+                  <li
+                    key={platform}
+                    className="rounded-full border border-hairline bg-white px-3.5 py-1.5 text-sm font-medium text-navy/80"
+                  >
+                    {platform}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* AI answer mock (illustrative) */}
+            <Reveal className="relative mx-auto w-full max-w-md">
+              <MarkerNote className="absolute -top-3 left-0 z-10 text-[24px] sm:-left-4">
+                cited, not just ranked
+              </MarkerNote>
+              <div className="rounded-[1.75rem] border border-hairline bg-white p-6 shadow-2xl">
+                <p className="text-sm font-bold tracking-[0.18em] text-navy/50">
+                  ILLUSTRATIVE AI ANSWER
+                </p>
+                <div className="mt-5 rounded-2xl bg-paper p-4">
+                  <p className="text-[15px] font-semibold text-navy">
+                    Who&apos;s the best plumber in Daytona Beach?
+                  </p>
+                </div>
+                <div className="mt-3 rounded-2xl border border-hairline p-4">
+                  <p className="flex items-center gap-1.5 text-sm font-semibold text-navy">
+                    <span className="flex gap-0.5" aria-hidden="true">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="h-3.5 w-3.5 fill-sun text-sun" />
+                      ))}
+                    </span>
+                    Top recommendation
+                  </p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-navy/80">
+                    <span className="font-bold text-brand">Your Business</span> - named first,
+                    with your services, service area, and reviews cited as the reasons.
+                  </p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-navy/60">
+                    Two competitors are mentioned below it.
+                  </p>
+                </div>
+                <p className="mt-4 text-xs font-medium text-muted-foreground">
+                  Mock answer for illustration. The question is the one local customers
+                  actually ask AI assistants.
+                </p>
+              </div>
+              <MarkerNote className="absolute -bottom-5 left-8 z-10 text-[24px]">
+                the new front page
+              </MarkerNote>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Why GEO matters */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1.5fr_1fr]">
+            <div>
+              <p className="mb-4 text-[15px] font-semibold text-pen-text">Why it matters</p>
+              <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+                Why GEO is Critical for Your Business
+              </h2>
+              <p className="max-w-2xl text-lg leading-relaxed text-navy/75">
+                AI assistants are becoming the new search interface. When someone asks ChatGPT
+                &quot;Who&apos;s the best plumber in Daytona Beach?&quot; will your business be
+                mentioned?{' '}
+                <Link href="/areas-we-serve/daytona-beach" className="font-medium text-brand underline hover:text-navy">
+                  Daytona Beach businesses
+                </Link>{' '}
+                that invest in GEO show up in those AI-generated recommendations.
+              </p>
+
+              <div className="grid gap-x-10 sm:grid-cols-2">
+                {whyBlocks.map((block, index) => (
+                  <div key={index} className="mt-10 border-t-2 border-hairline pt-5">
+                    <h3 className="text-xl font-extrabold tracking-tight text-navy">
+                      {block.title}
+                    </h3>
+                    <p className="mt-2 leading-relaxed text-navy/70">{block.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <Reveal className="relative">
+              <div className="rounded-[1.75rem] border border-hairline bg-paper p-8">
+                <h3 className="text-2xl font-extrabold tracking-tight text-navy">
+                  <Link href="/guides/geo-vs-seo-whats-the-difference" className="hover:text-brand">
+                    GEO vs Traditional SEO
+                  </Link>
+                </h3>
+                <div className="mt-6">
+                  <h4 className="font-bold text-brand">Traditional SEO</h4>
+                  <ul className="mt-3 space-y-2 text-[15px] leading-relaxed text-navy/70">
+                    <li>Optimize for keyword rankings</li>
+                    <li>Focus on Google&apos;s algorithm</li>
+                    <li>Build backlinks for authority</li>
+                    <li>Target search result pages (SERPs)</li>
+                  </ul>
+                </div>
+                <div className="mt-6 border-t border-hairline pt-6">
+                  <h4 className="font-bold text-brand">GEO Optimization</h4>
+                  <ul className="mt-3 space-y-2 text-[15px] leading-relaxed text-navy/70">
+                    <li>Optimize for AI citations</li>
+                    <li>Focus on entity recognition</li>
+                    <li>Build topical authority</li>
+                    <li>Target AI-generated answers</li>
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Services tabs */}
+      <section className="bg-paper py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">What&apos;s included</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Our GEO Services
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              Comprehensive optimization for AI search engines and answer engines.
+            </p>
+          </div>
+          <ServiceTabs services={geoServiceTabs} ariaLabel="GEO services" idPrefix="geo" />
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="bg-brand-tint/60 py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">What to expect</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              How long until I see results from GEO?
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              AI systems update their knowledge bases regularly.
+            </p>
+          </div>
+          <ServiceTimeline steps={timelineSteps} finalNote="the goal" />
+        </div>
+      </section>
+
+      {/* Pricing: the Answer Engine from pricing.ts in the two-step layout.
+          The old offer table folds into the same figures. */}
+      <AnswerEnginePricing
+        heading="How Much Does GEO Cost?"
+        intro={
+          <>
+            The current offer is {geoOffer.offerName}: {geoOfferProse.buildMonthly}.{' '}
+            {geoOffer.term}, with a {geoOffer.guarantee}. One flagship. No pricing ladder. Full
+            breakdown in the {costGuideLink}.
+          </>
+        }
+        foundationNote="Schema, entity mapping, and AI-prompt research, answer-focused content, and Google Business Profile work."
+        onStart={openPricingDialog}
+      />
+
+      <TestimonialBand
+        quote={geoTestimonial.content}
+        name={geoTestimonial.name}
+        role={geoTestimonial.role}
+      />
+
+      <ServiceFaq faqs={geoFaqs} withSchema />
+
+      <ServiceCta
+        heading="Ready for AI-Powered Search?"
+        copy="Don't wait for AI to replace traditional search. Position your business now for the future of discovery."
+        endpoint={FORMSPREE_CONTACT_ENDPOINT}
+        serviceLabel="GEO Optimization Consultation"
+        buttonLabel="Get Your GEO Strategy"
+      />
+    </div>
   );
 }

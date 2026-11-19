@@ -3,671 +3,142 @@
 import CoreServiceSchema from '@/components/schema/CoreServiceSchema';
 
 import Link from 'next/link';
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import { Check } from 'lucide-react';
 import ContactDialog from '../../../components/ContactDialog';
 import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
-import {
-  dominationGeoNoteCta,
-  dominationGeoNoteLead,
-  geoOffer,
-  seoFoundation,
-  seoMonthlyTiers,
-} from '@/data/pricing';
-import {
-  Search,
-  TrendingUp,
-  Zap,
-  CheckCircle,
-  ArrowRight,
-  Brain,
-  Bot,
-  Target,
-  BarChart3,
-  Users,
-  Clock,
-  DollarSign,
-  Star
-} from "lucide-react";
+import { geoOffer } from '@/data/pricing';
+import { FORMSPREE_CONTACT_ENDPOINT } from '@/data/site';
+import { PageBreadcrumb } from '../../../components/ui/PageBreadcrumb';
+import AuditForm from '../../../components/brand/AuditForm';
+import MarkerNote from '../../../components/brand/MarkerNote';
+import OrangeUnderline from '../../../components/brand/OrangeUnderline';
+import Reveal from '../../../components/brand/Reveal';
+import ServiceTimeline from '../../../components/service/ServiceTimeline';
+import AnswerEnginePricing from '../../../components/service/AnswerEnginePricing';
+import TestimonialBand from '../../../components/service/TestimonialBand';
+import ServiceFaq from '../../../components/service/ServiceFaq';
+import ServiceCta from '../../../components/service/ServiceCta';
+
+const brokenItems = [
+  <>
+    <Link
+      href="/blog/how-to-choose-daytona-beach-seo-company"
+      className="font-medium text-brand underline hover:text-navy"
+    >
+      Most agencies
+    </Link>{' '}
+    charge $3,000/month for basic keyword research and two blog posts
+  </>,
+  <>They promise &apos;ongoing optimizations&apos; but never fix the real technical issues</>,
+  <>You&apos;re paying for busywork, not business growth</>,
+  <>SEO has become propaganda - all fluff, no substance</>,
+];
+
+const solutionItems = [
+  'We focus on what actually moves the needle: technical fixes, psychology-driven content, and scalable systems',
+  'One-time fixes that compound over time vs endless retainers',
+  'GEO (Generative Engine Optimization) for the AI search era',
+  'Psychology-driven content that converts visitors to customers',
+];
+
+const traditionalItems = [
+  'Keyword research with no strategic context',
+  'Random blog posts targeting individual keywords',
+  'No understanding of topical relationships',
+  'Ignores AI search and answer engines entirely',
+];
+
+const processSteps = [
+  {
+    when: 'Week 1-2',
+    title: 'Phase 1: Technical Foundation',
+    description: 'We fix what\u2019s broken before building what\u2019s new.',
+    points: [
+      'Complete technical SEO audit using custom tools',
+      'Fix Core Web Vitals and page speed issues',
+      'Implement proper schema markup',
+      'Resolve crawl errors and indexation problems',
+    ],
+  },
+  {
+    when: 'Week 3-4',
+    title: 'Phase 2: Psychology-Driven Content',
+    description: 'Content that converts, not just ranks.',
+    points: [
+      'Keyword research based on actual user intent',
+      'Content strategy rooted in consumer decision science',
+      'Answer Engine Optimization (AEO)',
+      'Local SEO optimization for geographic targeting',
+    ],
+  },
+  {
+    when: 'Week 5-6',
+    title: 'Phase 3: AI Content Engine',
+    description: 'AI generates, humans perfect, rankings compound.',
+    points: [
+      'AI Content Engine setup and automation',
+      'Automated content creation using topical map as roadmap',
+      '80/20 approach: AI generates, humans perfect',
+      'Content strategy tied to topical authority building',
+    ],
+  },
+];
+
+const whyChooseBlocks = [
+  {
+    title: 'Psychology-Driven Strategy',
+    body: 'Content based on consumer psychology principles and understanding how people actually make buying decisions.',
+  },
+  {
+    title: 'AI-First Methodology',
+    body: 'Generative Engine Optimization (GEO) for AI search and custom AI tools replacing expensive SaaS solutions.',
+  },
+  {
+    title: 'Transparent Pricing',
+    body: 'No monthly retainers or hidden fees. One-time investments with lasting results and clear deliverables.',
+  },
+  {
+    title: 'Rapid Implementation',
+    body: 'Results in 30-45 days, not 6 months. Technical fixes that immediately impact performance.',
+  },
+];
+
+const seoFaqs = [
+  {
+    question: 'How is this different from other SEO agencies?',
+    answer:
+      'Most agencies sell you monthly retainers for basic tasks. We fix your fundamental SEO issues once, then give you the systems to scale. No ongoing fees for work that should be done right the first time.',
+  },
+  {
+    question: 'Why one-time pricing instead of monthly?',
+    answer:
+      'Because real SEO fixes compound over time. Technical optimizations, proper content strategy, and programmatic systems work for months or years without constant tweaking. We build assets, not dependencies.',
+  },
+  {
+    question: 'What if I need ongoing SEO support?',
+    answer:
+      'Our Growth SEO plan includes automation systems and templates that handle ongoing optimization. For businesses needing custom support, we offer project-based work rather than open-ended retainers.',
+  },
+  {
+    question: 'How quickly will I see results?',
+    answer:
+      'Technical fixes often show improvements within 2-4 weeks. Content and authority building takes 60-90 days for full impact. Unlike agencies promising "6-month minimum contracts," we deliver measurable results quickly.',
+  },
+];
 
 export default function SEOServicesPage() {
-  const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('Free SEO Audit');
+  const { isOpen, selectedService, openDialog, closeDialog } = useContactDialog('Free SEO Audit');
+
+  const openPricingDialog = () => openDialog(geoOffer.serviceLabel);
 
   return (
-    <>
+    <div className="min-h-screen bg-paper">
       <CoreServiceSchema
         name="SEO Services That Drive Real Organic Growth"
         description="Technical SEO combined with content strategy built for service businesses. No bloated retainers — just the work that actually moves rankings."
         url="https://aiogrowthseo.com/services/search-engine-optimization"
       />
-
-      <div className="min-h-screen bg-background">
-        <PageBreadcrumb
-          items={[
-            { label: "Services", href: "/services" },
-            { label: "SEO Services", href: "/services/search-engine-optimization", current: true }
-          ]}
-        />
-
-        {/* Hero Section */}
-        <section className="pb-16 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
-                SEO Rewired: Technical SEO + Local Signals
-              </Badge>
-
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Stop paying <span className="text-primary">$3K/month</span> for two blogs. Get real SEO that combines <span className="gradient-text">technical optimization</span> with consumer psychology.
-              </h1>
-
-              <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Traditional SEO agencies sell you retainers. We sell you results. Our proven strategies help <Link href="/industries/professional-services" className="text-primary hover:underline">professional services</Link> and <Link href="/industries/legal-services" className="text-primary hover:underline">legal services</Link> dominate their markets with real SEO that drives business growth.
-              </p>
-
-              <Button
-                size="lg"
-                className="px-8 py-4 text-lg"
-                onClick={() => openDialog()}
-              >
-                Get Your Free SEO Audit
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Problem/Solution Section */}
-        <section className="py-24 bg-gradient-subtle">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-4xl font-bold mb-8 text-destructive">
-                  Why Traditional SEO is Broken
-                </h2>
-
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <DollarSign className="w-4 h-4 text-destructive" />
-                    </div>
-                    <p className="text-muted-foreground">
-                      <Link href="/blog/how-to-choose-daytona-beach-seo-company" className="text-primary hover:underline">Most agencies</Link>{' '}
-                      charge $3,000/month for basic keyword research and two blog posts
-                    </p>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <Clock className="w-4 h-4 text-destructive" />
-                    </div>
-                    <p className="text-muted-foreground">They promise &apos;ongoing optimizations&apos; but never fix the real technical issues</p>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <TrendingUp className="w-4 h-4 text-destructive" />
-                    </div>
-                    <p className="text-muted-foreground">You&apos;re paying for busywork, not business growth</p>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <Target className="w-4 h-4 text-destructive" />
-                    </div>
-                    <p className="text-muted-foreground">SEO has become propaganda - all fluff, no substance</p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-4xl font-bold mb-8 text-primary">
-                  Our SEO Solution
-                </h2>
-
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                    </div>
-                    <p className="text-muted-foreground">We focus on what actually moves the needle: technical fixes, psychology-driven content, and scalable systems</p>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                    </div>
-                    <p className="text-muted-foreground">One-time fixes that compound over time vs endless retainers</p>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                    </div>
-                    <p className="text-muted-foreground">GEO (Generative Engine Optimization) for the AI search era</p>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                    </div>
-                    <p className="text-muted-foreground">Psychology-driven content that converts visitors to customers</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SEO vs GEO Comparison */}
-        <section className="py-24 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Traditional SEO vs <span className="gradient-text">Our SEO/GEO System</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                We create a strategic roadmap to topical authority using semantic SEO and AI-powered content systems.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <Card className="card-professional border-destructive/20">
-                <CardHeader>
-                  <CardTitle className="text-xl text-destructive flex items-center gap-2">
-                    <Search className="w-6 h-6" />
-                    Traditional SEO Approach
-                  </CardTitle>
-                  <CardDescription className="text-destructive/80 font-medium mt-2">
-                    Keywords → Content → Hope for Rankings
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-destructive"></div>
-                    <span>Keyword research with no strategic context</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-destructive"></div>
-                    <span>Random blog posts targeting individual keywords</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-destructive"></div>
-                    <span>No understanding of topical relationships</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-destructive"></div>
-                    <span>Ignores AI search and answer engines entirely</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional border-primary/20 bg-primary/5">
-                <CardHeader>
-                  <CardTitle className="text-xl text-primary flex items-center gap-2">
-                    <Bot className="w-6 h-6" />
-                    Our SEO/GEO System
-                  </CardTitle>
-                  <CardDescription className="text-primary font-medium mt-2">
-                    Technical Audit → Topical Mapping → Semantic SEO → Content Automation
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span><strong>Topical authority mapping</strong> - understand your entire topic cluster</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span>
-                      <Link href="/guides/2026-seo-predictions-ai-automation-entity-optimization" className="text-primary hover:underline">
-                        <strong>Entity-based SEO</strong>
-                      </Link>
-                      {' '}- optimize for concepts, not just keywords
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span><strong>Answer Engine Optimization (AEO)</strong> - rank in AI & voice search</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span><strong>AI content automation</strong> - scale with 80/20 human oversight</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section className="py-24 bg-gradient-subtle">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Our <span className="gradient-text">SEO Process</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Three phases that transform your website from invisible to irresistible
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="card-professional text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/20 text-primary flex items-center justify-center mx-auto mb-4">
-                    <Zap className="w-8 h-8" />
-                  </div>
-                  <CardTitle className="text-xl">Phase 1: Technical Foundation</CardTitle>
-                  <CardDescription className="text-primary font-semibold">Week 1-2</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3 text-left">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    Complete technical SEO audit using custom tools
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    Fix Core Web Vitals and page speed issues
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    Implement proper schema markup
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    Resolve crawl errors and indexation problems
-                  </div>
-                  <p className="text-xs italic text-primary mt-4">&quot;We fix what&apos;s broken before building what&apos;s new&quot;</p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/20 text-primary flex items-center justify-center mx-auto mb-4">
-                    <Brain className="w-8 h-8" />
-                  </div>
-                  <CardTitle className="text-xl">Phase 2: Psychology-Driven Content</CardTitle>
-                  <CardDescription className="text-primary font-semibold">Week 3-4</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3 text-left">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    Keyword research based on actual user intent
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    Content strategy rooted in consumer decision science
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    Answer Engine Optimization (AEO)
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    Local SEO optimization for geographic targeting
-                  </div>
-                  <p className="text-xs italic text-primary mt-4">&quot;Content that converts, not just ranks&quot;</p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/20 text-primary flex items-center justify-center mx-auto mb-4">
-                    <BarChart3 className="w-8 h-8" />
-                  </div>
-                  <CardTitle className="text-xl">Phase 3: AI Content Engine</CardTitle>
-                  <CardDescription className="text-primary font-semibold">Week 5-6</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3 text-left">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    AI Content Engine setup and automation
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    Automated content creation using topical map as roadmap
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    80/20 approach: AI generates, humans perfect
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    Content strategy tied to topical authority building
-                  </div>
-                  <p className="text-xs italic text-primary mt-4">&quot;AI generates, humans perfect, rankings compound&quot;</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Plans */}
-        <section className="py-24 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Transparent <span className="gradient-text">Pricing</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                No retainers. No hidden fees. Just results-driven SEO with clear deliverables.
-              </p>
-            </div>
-
-            {/* SEO Foundation */}
-            <div className="mb-16 max-w-2xl mx-auto">
-              <Card className="card-professional border-primary/50">
-                <CardHeader className="text-center pb-6">
-                  <Badge variant="secondary" className="w-fit mx-auto mb-4">One-Time Setup</Badge>
-                  <CardTitle className="text-2xl mb-2">SEO Foundation</CardTitle>
-                  <div className="text-4xl font-bold text-primary mb-2">{seoFoundation.price}</div>
-                  <CardDescription className="text-muted-foreground">One-time investment</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-3">
-                    {seoFoundation.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    className="w-full mt-2"
-                    onClick={() => selectService(seoFoundation.serviceLabel)}
-                  >
-                    Get Started - {seoFoundation.price}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Monthly Plans */}
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Monthly Plans</h3>
-                <p className="text-muted-foreground">Ongoing optimization after foundation setup</p>
-              </div>
-
-              <div className="space-y-4">
-                {seoMonthlyTiers.map((tier) => (
-                  <div
-                    key={tier.name}
-                    className={`p-4 border rounded-lg ${tier.highlighted ? 'border-primary/30 bg-primary/5' : ''}`}
-                  >
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold">{tier.name}</span>
-                      <span className="text-xl font-bold text-primary">{tier.price}</span>
-                    </div>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      {tier.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    {tier.name === 'Domination' && (
-                      <p className="text-xs text-muted-foreground mt-2">
-                        {dominationGeoNoteLead}{' '}
-                        <Link href={geoOffer.href} className="text-primary hover:underline">
-                          {dominationGeoNoteCta} {geoOffer.offerName}
-                        </Link>
-                        .
-                      </p>
-                    )}
-                    <Button>
-                      size="sm"
-                      className={`mt-3 ${tier.highlighted ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-primary/90 hover:bg-primary text-primary-foreground'}`}
-                      onClick={() => {
-                        selectService(tier.serviceLabel);
-                        openDialog();
-                      }}
-                    >
-                      Choose {tier.name}
-                    </Button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Case Studies */}
-        <section className="py-24 bg-gradient-subtle">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Proven <span className="gradient-text">Results</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Real businesses. Real growth. Real ROI. We track{' '}
-                <Link href="/blog/cost-per-lead-hvac-plumbing-electrical-2026" className="text-primary hover:underline">cost per lead benchmarks</Link>{' '}
-                and{' '}
-                <Link href="/blog/book-rate-vs-cost-per-lead" className="text-primary hover:underline">book rate vs cost per lead</Link>{' '}
-                so traffic gains turn into booked jobs — not vanity metrics.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-              <Card className="card-professional">
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-center gap-2">
-                    <TrendingUp className="w-6 h-6 text-primary" />
-                    Privada Cigar Club
-                  </CardTitle>
-                  <CardDescription className="text-primary font-semibold text-lg">200% organic traffic increase in 45 days</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="text-center p-4 bg-destructive/10 rounded-lg">
-                      <div className="text-2xl font-bold text-destructive">2,000</div>
-                      <div className="text-sm text-muted-foreground">Before (monthly visits)</div>
-                    </div>
-                    <div className="text-center p-4 bg-primary/10 rounded-lg">
-                      <div className="text-2xl font-bold text-primary">6,000+</div>
-                      <div className="text-sm text-muted-foreground">After (monthly visits)</div>
-                    </div>
-                  </div>
-                  <div className="space-y-2 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span>Key wins: Technical fixes + content optimization</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span>ROI: $15,000 in additional revenue from organic traffic</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional">
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-center gap-2">
-                    <Users className="w-6 h-6 text-primary" />
-                    Super Cash For Houses
-                  </CardTitle>
-                  <CardDescription className="text-primary font-semibold text-lg">100+ qualified leads per month</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Challenge:</span>
-                        <span className="text-right font-medium">Competing in saturated real estate market</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Solution:</span>
-                        <span className="text-right font-medium">Local SEO + programmatic content strategy</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Result:</span>
-                        <span className="text-right font-medium text-primary">Consistent lead flow without paid advertising</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Client Testimonial */}
-            <Card className="card-professional border-primary/20 bg-primary/5 max-w-4xl mx-auto">
-              <CardContent className="pt-8">
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <blockquote className="text-lg italic mb-4">
-                    &quot;In just 45 days, AIO Growth&apos;s SEO strategy drove a 200% increase in traffic for Privada Cigar Club — proof that real SEO works faster and smarter.&quot;
-                  </blockquote>
-                  <cite className="text-sm text-muted-foreground">Brian Descind, Privada Cigar Club</cite>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Why Choose Us */}
-        <section className="py-24 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Why Choose Our <span className="gradient-text">SEO Approach</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Card className="card-professional text-center">
-                <CardHeader>
-                  <Brain className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <CardTitle className="text-lg">Psychology-Driven Strategy</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">Content based on consumer psychology principles and understanding how people actually make buying decisions.</p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardHeader>
-                  <Bot className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <CardTitle className="text-lg">AI-First Methodology</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">Generative Engine Optimization (GEO) for AI search and custom AI tools replacing expensive SaaS solutions.</p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardHeader>
-                  <DollarSign className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <CardTitle className="text-lg">Transparent Pricing</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">No monthly retainers or hidden fees. One-time investments with lasting results and clear deliverables.</p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-professional text-center">
-                <CardHeader>
-                  <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <CardTitle className="text-lg">Rapid Implementation</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">Results in 30-45 days, not 6 months. Technical fixes that immediately impact performance.</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-24 bg-gradient-subtle">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Frequently Asked <span className="gradient-text">Questions</span>
-              </h2>
-            </div>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  How is this different from other SEO agencies?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Most agencies sell you monthly retainers for basic tasks. We fix your fundamental SEO issues once, then give you the systems to scale. No ongoing fees for work that should be done right the first time.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-2" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  Why one-time pricing instead of monthly?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Because real SEO fixes compound over time. Technical optimizations, proper content strategy, and programmatic systems work for months or years without constant tweaking. We build assets, not dependencies.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  What if I need ongoing SEO support?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Our Growth SEO plan includes automation systems and templates that handle ongoing optimization. For businesses needing custom support, we offer project-based work rather than open-ended retainers.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-4" className="border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold">
-                  How quickly will I see results?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Technical fixes often show improvements within 2-4 weeks. Content and authority building takes 60-90 days for full impact. Unlike agencies promising &quot;6-month minimum contracts,&quot; we deliver measurable results quickly.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-24 bg-background">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Ready to Get <span className="gradient-text">Started?</span>
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                Get your free SEO audit and see exactly what&apos;s holding your website back.
-              </p>
-              <div className="flex items-center justify-center gap-2 text-muted-foreground mb-8">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span>No obligation. Join 100+ businesses that chose results over retainers</span>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <Button
-                size="lg"
-                className="px-8 py-4 text-lg"
-                onClick={() => openDialog()}
-              >
-                Get Your Free SEO Audit
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
-          </div>
-        </section>
-      </div>
-
       <ContactDialog
         isOpen={isOpen}
         onClose={closeDialog}
@@ -676,6 +147,369 @@ export default function SEOServicesPage() {
         defaultService={selectedService}
         businessTypes={businessTypes.general}
       />
-    </>
+
+      {/* Hero */}
+      <section className="bg-paper bg-waves">
+        <div className="container mx-auto px-6 pt-10 pb-24">
+          <PageBreadcrumb
+            items={[
+              { label: 'Services', href: '/services' },
+              { label: 'SEO Services' },
+            ]}
+            className="mb-10 text-navy/60 [&_a]:text-navy/60 [&_a:hover]:text-brand [&_[aria-current]]:text-navy [&_svg]:text-navy/40"
+          />
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+            <div>
+              <p className="mb-5 text-[15px] font-semibold text-pen-text">
+                SEO Rewired: Technical SEO + Local Signals
+              </p>
+              <h1 className="mb-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-navy md:text-5xl lg:text-[54px]">
+                Stop paying $3K/month for two blogs. Get <OrangeUnderline>real SEO</OrangeUnderline>{' '}
+                that combines technical optimization with consumer psychology.
+              </h1>
+              <p className="mb-8 max-w-xl text-lg leading-relaxed text-navy/75">
+                Traditional SEO agencies sell you retainers. We sell you results. Our proven
+                strategies help{' '}
+                <Link href="/industries/professional-services" className="font-medium text-brand underline hover:text-navy">
+                  professional services
+                </Link>{' '}
+                and{' '}
+                <Link href="/industries/legal-services" className="font-medium text-brand underline hover:text-navy">
+                  legal services
+                </Link>{' '}
+                dominate their markets with real SEO that drives business growth.
+              </p>
+
+              <AuditForm
+                endpoint={FORMSPREE_CONTACT_ENDPOINT}
+                serviceLabel="Free SEO Audit"
+                buttonLabel="Get Your Free SEO Audit"
+                formType="services_form"
+                className="max-w-xl"
+              />
+            </div>
+
+            {/* Case study card: the page's own Privada Cigar Club numbers */}
+            <Reveal className="relative mx-auto w-full max-w-md">
+              <MarkerNote className="absolute -top-3 left-0 z-10 text-[24px] sm:-left-4">
+                real client numbers
+              </MarkerNote>
+              <div className="rounded-[1.75rem] border border-hairline bg-white p-6 shadow-2xl">
+                <p className="text-sm font-bold tracking-[0.18em] text-navy/50">
+                  ORGANIC TRAFFIC · PRIVADA CIGAR CLUB
+                </p>
+                <p className="mt-4 text-5xl font-extrabold tracking-tight text-navy">
+                  +200% <span className="text-2xl text-pen-text">in 45 days</span>
+                </p>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <div className="rounded-2xl bg-paper p-4 text-center">
+                    <p className="text-2xl font-extrabold text-navy/60">2,000</p>
+                    <p className="mt-1 text-xs font-medium text-muted-foreground">
+                      Before (monthly visits)
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-brand-tint p-4 text-center">
+                    <p className="text-2xl font-extrabold text-brand">6,000+</p>
+                    <p className="mt-1 text-xs font-medium text-muted-foreground">
+                      After (monthly visits)
+                    </p>
+                  </div>
+                </div>
+                <ul className="mt-5 space-y-2 text-sm leading-relaxed text-navy/75">
+                  <li className="flex items-start gap-2">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={3} />
+                    Key wins: Technical fixes + content optimization
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={3} />
+                    ROI: $15,000 in additional revenue from organic traffic
+                  </li>
+                </ul>
+              </div>
+              <MarkerNote className="absolute -bottom-5 left-8 z-10 text-[24px]">
+                45 days, not 6 months
+              </MarkerNote>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Why traditional SEO is broken / our solution */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
+            <div>
+              <p className="mb-4 text-[15px] font-semibold text-pen-text">The problem</p>
+              <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+                Why Traditional SEO is Broken
+              </h2>
+              <div className="grid gap-x-10">
+                {brokenItems.map((item, index) => (
+                  <div key={index} className="mt-8 border-t-2 border-hairline pt-5">
+                    <p className="leading-relaxed text-navy/75">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="mb-4 text-[15px] font-semibold text-pen-text">Our SEO solution</p>
+              <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+                Our SEO Solution
+              </h2>
+              <div className="grid gap-x-10">
+                {solutionItems.map((item) => (
+                  <div key={item} className="mt-8 border-t-2 border-hairline pt-5">
+                    <p className="flex items-start gap-2.5 leading-relaxed text-navy/75">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand">
+                        <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
+                      </span>
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO vs GEO comparison */}
+      <section className="bg-paper py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">The system</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Traditional SEO vs Our SEO/GEO System
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              We create a strategic roadmap to topical authority using semantic SEO and AI-powered
+              content systems.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="rounded-3xl border border-hairline bg-white p-8">
+              <h3 className="text-2xl font-extrabold tracking-tight text-navy">
+                Traditional SEO Approach
+              </h3>
+              <p className="mt-1.5 font-semibold text-navy/50">
+                Keywords → Content → Hope for Rankings
+              </p>
+              <ul className="mt-6 space-y-3">
+                {traditionalItems.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 leading-relaxed text-navy/70">
+                    <span className="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-navy/30" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-3xl border border-hairline bg-brand-tint/60 p-8">
+              <h3 className="text-2xl font-extrabold tracking-tight text-navy">Our SEO/GEO System</h3>
+              <p className="mt-1.5 font-semibold text-brand">
+                Technical Audit → Topical Mapping → Semantic SEO → Content Automation
+              </p>
+              <ul className="mt-6 space-y-3">
+                <li className="flex items-start gap-2.5 leading-relaxed text-navy/75">
+                  <span className="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-brand" />
+                  <span>
+                    <strong>Topical authority mapping</strong> - understand your entire topic cluster
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5 leading-relaxed text-navy/75">
+                  <span className="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-brand" />
+                  <span>
+                    <Link
+                      href="/guides/2026-seo-predictions-ai-automation-entity-optimization"
+                      className="font-medium text-brand underline hover:text-navy"
+                    >
+                      <strong>Entity-based SEO</strong>
+                    </Link>{' '}
+                    - optimize for concepts, not just keywords
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5 leading-relaxed text-navy/75">
+                  <span className="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-brand" />
+                  <span>
+                    <strong>Answer Engine Optimization (AEO)</strong> - rank in AI &amp; voice search
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5 leading-relaxed text-navy/75">
+                  <span className="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-brand" />
+                  <span>
+                    <strong>AI content automation</strong> - scale with 80/20 human oversight
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="bg-brand-tint/60 py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">What to expect</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Our SEO Process
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              Three phases that transform your website from invisible to irresistible.
+            </p>
+          </div>
+          <ServiceTimeline steps={processSteps} />
+        </div>
+      </section>
+
+      {/* Pricing: the page's own ladder prices are the retired set, so the
+          section carries the Answer Engine from pricing.ts (phase 1 pattern). */}
+      <AnswerEnginePricing
+        heading="Transparent Pricing"
+        intro={
+          <>
+            No retainers. No hidden fees. Just results-driven SEO with clear deliverables. Our
+            SEO work runs through one flagship program, the Answer Engine.
+          </>
+        }
+        foundationNote="Technical audit, gap analysis, keyword and AI-prompt research, topical map and roadmap, on-page optimization, and schema implementation."
+        onStart={openPricingDialog}
+      />
+
+      {/* Case studies */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Results</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Proven Results
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/70">
+              Real businesses. Real growth. Real ROI. We track{' '}
+              <Link href="/blog/cost-per-lead-hvac-plumbing-electrical-2026" className="font-medium text-brand underline hover:text-navy">
+                cost per lead benchmarks
+              </Link>{' '}
+              and{' '}
+              <Link href="/blog/book-rate-vs-cost-per-lead" className="font-medium text-brand underline hover:text-navy">
+                book rate vs cost per lead
+              </Link>{' '}
+              so traffic gains turn into booked jobs - not vanity metrics.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="rounded-3xl border border-hairline bg-white p-8 shadow-sm">
+              <h3 className="text-2xl font-extrabold tracking-tight text-navy">
+                Privada Cigar Club
+              </h3>
+              <p className="mt-1.5 font-semibold text-brand">
+                200% organic traffic increase in 45 days
+              </p>
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <div className="rounded-2xl bg-paper p-4 text-center">
+                  <p className="text-2xl font-extrabold text-navy/60">2,000</p>
+                  <p className="mt-1 text-xs font-medium text-muted-foreground">
+                    Before (monthly visits)
+                  </p>
+                </div>
+                <div className="rounded-2xl bg-brand-tint p-4 text-center">
+                  <p className="text-2xl font-extrabold text-brand">6,000+</p>
+                  <p className="mt-1 text-xs font-medium text-muted-foreground">
+                    After (monthly visits)
+                  </p>
+                </div>
+              </div>
+              <ul className="mt-5 space-y-2 text-sm leading-relaxed text-navy/75">
+                <li className="flex items-start gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={3} />
+                  Key wins: Technical fixes + content optimization
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={3} />
+                  ROI: $15,000 in additional revenue from organic traffic
+                </li>
+              </ul>
+            </div>
+
+            <div className="rounded-3xl border border-hairline bg-white p-8 shadow-sm">
+              <h3 className="text-2xl font-extrabold tracking-tight text-navy">
+                Super Cash For Houses
+              </h3>
+              <p className="mt-1.5 font-semibold text-brand">100+ qualified leads per month</p>
+              <dl className="mt-6 space-y-4 text-[15px] leading-relaxed">
+                <div className="flex items-start justify-between gap-6 border-t border-hairline pt-4">
+                  <dt className="shrink-0 font-semibold text-navy/50">Challenge:</dt>
+                  <dd className="text-right font-medium text-navy/80">
+                    Competing in saturated real estate market
+                  </dd>
+                </div>
+                <div className="flex items-start justify-between gap-6 border-t border-hairline pt-4">
+                  <dt className="shrink-0 font-semibold text-navy/50">Solution:</dt>
+                  <dd className="text-right font-medium text-navy/80">
+                    Local SEO + programmatic content strategy
+                  </dd>
+                </div>
+                <div className="flex items-start justify-between gap-6 border-t border-hairline pt-4">
+                  <dt className="shrink-0 font-semibold text-navy/50">Result:</dt>
+                  <dd className="text-right font-medium text-brand">
+                    Consistent lead flow without paid advertising
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <TestimonialBand
+        quote="In just 45 days, AIO Growth's SEO strategy drove a 200% increase in traffic for Privada Cigar Club - proof that real SEO works faster and smarter."
+        name="Brian Descind"
+        role="Privada Cigar Club"
+      />
+
+      {/* Why choose us */}
+      <section className="bg-paper py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 text-[15px] font-semibold text-pen-text">Why us</p>
+            <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-navy md:text-[40px]">
+              Why Choose Our SEO Approach
+            </h2>
+          </div>
+          <div className="grid gap-x-10 sm:grid-cols-2 lg:grid-cols-4">
+            {whyChooseBlocks.map((block) => (
+              <div key={block.title} className="mt-10 border-t-2 border-hairline pt-5">
+                <h3 className="text-xl font-extrabold tracking-tight text-navy">{block.title}</h3>
+                <p className="mt-2 leading-relaxed text-navy/70">{block.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ServiceFaq
+        faqs={seoFaqs.map((faq) => ({ ...faq, schemaText: faq.answer }))}
+        withSchema
+      />
+
+      <ServiceCta
+        heading="Ready to Get Started?"
+        copy={
+          <>
+            <p>
+              Get your free SEO audit and see exactly what&apos;s holding your website back.
+            </p>
+            <p className="mt-4 flex items-center justify-center gap-2 text-base text-white/75">
+              <Check className="h-5 w-5 shrink-0" strokeWidth={3} />
+              No obligation. Join 100+ businesses that chose results over retainers
+            </p>
+          </>
+        }
+        endpoint={FORMSPREE_CONTACT_ENDPOINT}
+        serviceLabel="Free SEO Audit"
+        buttonLabel="Get Your Free SEO Audit"
+      />
+    </div>
   );
 }
