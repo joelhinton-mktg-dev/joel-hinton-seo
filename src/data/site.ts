@@ -25,3 +25,6 @@ export const FORMSPREE_CONTACT_ENDPOINT = 'https://formspree.io/f/xrbarnbp';
 
 /** Landing page multi-step forms (local-seo-offer, free-seo-audit) */
 export const FORMSPREE_LP_ENDPOINT = 'https://formspree.io/f/mjggakgp';
+
+// TODO: replace with the live Stripe payment link when course checkout launches.
+export const COURSE_CHECKOUT_URL = '#';
