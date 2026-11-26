@@ -177,6 +177,14 @@ export const daytonaBeachLocalContent: LocalContentSection[] = [
     heading: 'A Daytona Company, Literally',
     body: `This is our home base - our office is in the 32114. We serve the whole metro from here: [Holly Hill](/areas-we-serve/holly-hill), [Port Orange](/areas-we-serve/port-orange), [Ormond Beach](/areas-we-serve/ormond-beach), and the rest of the county. Month-to-month plans, no long-term contracts, and reporting that shows exactly what moved.`,
   },
+  {
+    heading: 'AI Visibility Services in Daytona Beach',
+    body: `AIO Growth is a Daytona Beach digital marketing agency that runs SEO and AI search as one service, not two separate projects. If you are asking who provides AI visibility services in Daytona Beach, this is the page, and the business, you are looking for. In practice, AI visibility means one thing: when a buyer asks ChatGPT, Perplexity, or Google AI Overviews who to hire, your business is in the answer.
+
+Here is what the service includes. We start by agreeing on a fixed set of the exact questions your buyers ask, worded the way they actually ask them. Every week we run those questions through ChatGPT, Perplexity, and Google AI Overviews and log whether your business is mentioned, recommended, or cited as a source. Then we work on what the engines read: your service and location pages, your Google Business Profile, your reviews, and the directory listings they check to confirm you are real. Every change gets its own line in a measurement report, so you can see which fix moved which answer instead of guessing.
+
+We hold ourselves to the same test. In our November 26, 2026 scan of 34 buyer questions across the three engines, the AI assistants already name AIO Growth on the Daytona Beach AI visibility questions. ChatGPT ranked us third for "who provides AI visibility services in Daytona Beach," and Perplexity and Google AI Overviews name us on the combined SEO and AI search agency question. We would rather show you our own scan numbers than promise you yours. The same work also pays off twice. The map pack and the AI answers read the same signals, your profile, your reviews, and your pages, so the [local SEO](/services/local-seo) work that lifts you on the map also feeds the [GEO optimization](/services/geo-optimization) work that gets you named in the answer.`,
+  },
 ];
 
 export const palmCoastLocalContent: LocalContentSection[] = [
