@@ -933,8 +933,9 @@ export default function LocalSEOPage() {
             <p className="mt-3 leading-relaxed text-navy/75">
               Volusia is its own search market, with its own competitors and its own calendar. We
               know Bike Week will move your calls before it shows up in a report, we know which
-              side of the bridge your customers live on, and we can meet you in person in the same
-              week you ask. You get a team that drives the same roads your customers do, not an
+              side of the bridge your customers live on, and you work directly with the people
+              doing the work, here in Daytona Beach. You get a team that drives the same roads
+              your customers do, not an
               account manager who learned your town from a map.
             </p>
           </div>
