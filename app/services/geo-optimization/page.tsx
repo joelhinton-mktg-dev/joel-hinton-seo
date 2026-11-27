@@ -19,6 +19,54 @@ import { useContactDialog } from '@/hooks/useContactDialog';
 import { businessTypes } from '@/types/contact-forms';
 import { geoOffer, geoOfferProse } from '@/data/pricing';
 
+const loopSteps = [
+  {
+    title: 'Agree the questions',
+    body: 'At the start we agree the exact set of buyer questions your visibility gets measured on, the same questions your customers ask ChatGPT, Perplexity, and Google AI Overviews. Think "who installs pavers in Ormond Beach" or "which clinic in DeLand takes walk-ins." The set stays fixed, so the numbers mean the same thing every week.',
+  },
+  {
+    title: 'Scan weekly',
+    body: 'We run that fixed set across all three engines and log whether your business is mentioned, recommended, or cited, and who gets named instead. A mention is your name in the answer. A citation is your page linked as a source. We track both, separately.',
+  },
+  {
+    title: 'Read what wins',
+    body: "We open the pages the engines cite and diff their coverage against yours: covered, missing, or thin. If the answer for your service keeps pulling from a competitor's service page or a directory listing, we can see exactly what that page says that yours does not.",
+  },
+  {
+    title: 'Ship the fix',
+    body: 'Pages, profile work, and citation building, in a ranked order. Some weeks that is a new service page, some weeks it is a fix to your Google Business Profile categories or a listing on a directory the engines already trust. The gaps closest to a buyer question go first. You see what is shipping and why, in plain language, before it goes live.',
+  },
+  {
+    title: 'Measure per change',
+    body: 'The next scans show whether each change moved a mention or a citation, not just a ranking. Changes that move an answer get repeated across your other services. Changes that do not get dropped.',
+  },
+];
+
+const guaranteeConditions = [
+  'The exact question and the check method are agreed up front, before launch. No moving the goalposts later, in either direction.',
+  'We need access to your Google Business Profile and about 20 minutes a month from you to answer questions and approve direction.',
+  'The clock pauses if you go dark on us. If we cannot reach you for a few weeks, those weeks do not count against the 90.',
+  'Rankings, revenue, and setup-fee refunds are not guaranteed, and we will not pretend otherwise.',
+];
+
+const proofItems = [
+  {
+    label: 'Volusia Christmas Lights',
+    title: 'A site built with this exact system',
+    body: 'We built VolusiaChristmasLights.com with the same loop this page describes: 72 pages published from a topical map. In November 2026 data, its permanent-lighting and palm-tree pages hold top-10 Google positions, roughly 7 to 9. It has the same shape as most service businesses: a handful of core services, one county, and buyers who search with a city name attached.',
+  },
+  {
+    label: 'AIO Growth SEO',
+    title: 'Our own site runs the same loop',
+    body: 'In our November 26, 2026 baseline scan of 34 buyer questions across ChatGPT, Perplexity, and Google AI Overviews, AI assistants already name AIO Growth on the Daytona Beach AI visibility questions and cite our pages on the map-pack and Google Business Profile questions. The broader statewide GEO questions are still on our own weekly list, and we work them with the same loop.',
+  },
+  {
+    label: 'One of our GEO guides',
+    title: 'Zero to page one after a refresh',
+    body: 'One of our own GEO guides went from zero impressions to positions 3 to 8 on its core searches within days of Google recrawling the refreshed page. Same content, rebuilt to answer the question directly. That is step five of the loop, measuring per change, applied to our own page.',
+  },
+];
+
 export default function GEOOptimizationPage() {
   const { isOpen, selectedService, openDialog, closeDialog, selectService } = useContactDialog('GEO Optimization Consultation');
 
@@ -256,7 +304,7 @@ export default function GEOOptimizationPage() {
                     <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> High-authority link building</li>
                     <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Reddit marketing & presence</li>
                     <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Wikipedia-style citations</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Expert content syndication</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Authority content syndication</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -274,7 +322,7 @@ export default function GEOOptimizationPage() {
                     <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Answer-focused content</li>
                     <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Structured data optimization</li>
                     <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> FAQ schema implementation</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Expert authorship signals</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-600" /> Named authorship signals</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -315,6 +363,48 @@ export default function GEOOptimizationPage() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </section>
+
+        {/* How the loop runs */}
+        <section className="py-24 px-4 bg-background">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                How the <span className="gradient-text">Answer Engine</span> Works, Week to Week
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                AI assistants change who they name as they read new pages, so GEO is not a
+                one-time setup. The work runs as a weekly loop against a fixed scoreboard. Here is
+                what happens, in order.
+              </p>
+            </div>
+
+            <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {loopSteps.map((step, index) => (
+                <li key={step.title}>
+                  <Card className="card-professional h-full">
+                    <CardHeader>
+                      <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4 font-bold text-purple-600">
+                        {index + 1}
+                      </div>
+                      <CardTitle>{step.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">{step.body}</p>
+                    </CardContent>
+                  </Card>
+                </li>
+              ))}
+            </ol>
+
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-12 text-center">
+              The parts you can start on yourself are in our guide on{' '}
+              <Link href="/blog/how-to-get-recommended-by-ai" className="text-primary hover:underline">
+                how to get recommended by AI
+              </Link>
+              . The loop is what turns those parts into a measured result.
+            </p>
           </div>
         </section>
 
@@ -388,6 +478,96 @@ export default function GEOOptimizationPage() {
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </section>
+
+        {/* Guarantee */}
+        <section className="py-24 px-4 bg-gradient-subtle">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                  The <span className="gradient-text">90-Day Guarantee</span>, Stated Plainly
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  {geoOffer.offerName} is {geoOfferProse.buildMonthly}, {geoOffer.term}. Here is
+                  what that buys you:
+                </p>
+                <blockquote className="mt-6 border-l-4 border-purple-600 pl-5 text-xl font-semibold text-foreground">
+                  Within 90 days of launch, ChatGPT, Perplexity, or Google AI Overviews will name
+                  your business when someone asks who provides your main service in your city. If
+                  that has not happened by day 90, we keep working at no additional charge until it
+                  does.
+                </blockquote>
+                <p className="mt-6 text-lg text-muted-foreground">
+                  A guarantee measured on a question nobody agreed to is just marketing. So before
+                  launch we write down the question, for example &quot;who does roof repair in Port
+                  Orange,&quot; and the check: which engines, asked how, logged where. You see the
+                  same scan results we do, every week, so neither side has to take the other&apos;s
+                  word for it.
+                </p>
+                <p className="mt-6 text-lg text-muted-foreground">
+                  We can make that promise because we measure it the same way every week, on
+                  questions we agree with you before anything ships. The conditions on the right
+                  are not fine print. They exist because the measurement has to be honest to mean
+                  anything, and because a result you cannot check is not a result.
+                </p>
+              </div>
+
+              <Card className="bg-gradient-to-br from-purple-50 to-violet-50 border-purple-200">
+                <CardHeader>
+                  <CardTitle className="text-2xl">The conditions, all of them</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-4">
+                    {guaranteeConditions.map((condition) => (
+                      <li key={condition} className="flex items-start gap-3 text-muted-foreground">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                        <span>{condition}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Proof */}
+        <section className="py-24 px-4 bg-background">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Proof, From Our <span className="gradient-text">Own Market</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                We run this system on our own sites in Volusia County before we sell it to anyone
+                else. That matters more on a GEO page than anywhere: if we could not get named in
+                our own market, we would have no business promising it in yours. These are the
+                numbers we can show you, from our own work.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {proofItems.map((item) => (
+                <Card key={item.title} className="card-professional">
+                  <CardHeader>
+                    <Badge variant="secondary" className="w-fit mb-2">{item.label}</Badge>
+                    <CardTitle>{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{item.body}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-12 text-center">
+              How we talk about results: we&apos;re seeing first measurable movement in AI
+              mentions within 30 to 60 days, and the guarantee window is 90. We do not promise a
+              specific ranking, because nobody honest can. What we can do is show you the scans,
+              every week, on the questions we agreed.
+            </p>
           </div>
         </section>
 
@@ -470,6 +650,24 @@ export default function GEOOptimizationPage() {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
                   Traditional local SEO gets you into Google Maps and blue-link results. GEO gets you cited by name when someone asks ChatGPT, Google&apos;s AI Overviews, or Perplexity a question about businesses in your category and location. For a Daytona Beach contractor or clinic, GEO is not a replacement for local SEO, it is a layer on top of it. The businesses winning AI citations in Volusia County today are the ones with complete Google Business Profiles, real reviews, and clear location-specific content. That is GEO and local SEO working together.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-7" className="border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold">
+                  What does the 90-day guarantee actually promise?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Within 90 days of launch, ChatGPT, Perplexity, or Google AI Overviews will name your business when someone asks who provides your main service in your city. If that has not happened by day 90, we keep working at no additional charge until it does. The exact question and the check method are agreed up front, before launch. The guarantee needs access to your Google Business Profile and about 20 minutes a month from you, and the clock pauses if you go dark on us. Rankings, revenue, and setup-fee refunds are not guaranteed.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-8" className="border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold">
+                  What do you need from me each month?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Three things. Access to your Google Business Profile. About 20 minutes a month to answer our questions and approve direction, usually one short call or a few replies by email. And a heads-up when your services or service area change, so the pages and profile stay accurate. The scanning, writing, and shipping are ours. You do not need to learn GEO or manage anyone.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
