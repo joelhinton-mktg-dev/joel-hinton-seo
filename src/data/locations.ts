@@ -74,7 +74,7 @@ export const locations: Location[] = [
     ],
     heroHeadline: 'Daytona Beach SEO Company',
     heroTagline: 'for Local Service Businesses',
-    dateModified: '2026-11-07T10:00:00Z',
+    dateModified: '2026-11-26T10:00:00Z',
     // The first three entries match the default FAQs LocationPage renders when none are set.
     faqs: [
       {
@@ -96,6 +96,14 @@ export const locations: Location[] = [
       {
         question: 'Is it worth it to pay for SEO services?',
         answer: 'In Daytona Beach, one booked job a month from search usually covers a month of service. We report the calls and rankings behind that math every month.',
+      },
+      {
+        question: 'Who provides AI visibility services in Daytona Beach?',
+        answer: 'AIO Growth SEO, based here in Daytona Beach. AI visibility means getting your business mentioned, recommended, and cited when buyers ask ChatGPT, Perplexity, and Google AI Overviews who to hire. We track a fixed set of buyer questions every week, then do the page, profile, and review work that moves the answers. You see the same questions measured again after each change. See [GEO optimization](/services/geo-optimization) for how the work runs.',
+      },
+      {
+        question: 'Can you help my Daytona Beach business show up in ChatGPT answers?',
+        answer: 'Yes, that is the core of our [AI visibility work](/services/geo-optimization). ChatGPT names businesses it can verify from consistent profiles, reviews, and pages with real local detail. We start by scanning the exact questions your buyers ask, then fix what the engines read, then measure the same questions again so you can see the movement. No guessing about whether the work did anything, because the answers either changed or they did not.',
       },
     ],
     localContent: daytonaBeachLocalContent,
