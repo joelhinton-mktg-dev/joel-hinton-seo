@@ -6,7 +6,7 @@ import Link from 'next/link';
 import {
   MapPin, Search, Star, TrendingUp, Calendar, CheckCircle, ArrowRight,
   Globe, Target, Zap, Users, Award, Building2, FileText, Phone, Clock,
-  Home
+  Home, Check, X
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -50,6 +50,162 @@ const peopleAlsoAskFaqs = [
   {
     question: 'Can ChatGPT do SEO?',
     answer: 'ChatGPT can draft content and speed up research, but it cannot verify your listings, earn reviews, or know your market. We use AI tools inside a human-run process: the strategy, the local judgment, and the accountability stay with people.',
+  },
+  {
+    question: 'How do AI assistants decide which Daytona Beach SEO company to name?',
+    answer: 'They read what they can verify. That means your Google Business Profile, your reviews and what customers say in them, consistent listings on directories like Clutch, and service pages deep enough to quote. In our November 2026 scan of 34 buyer questions, the Daytona pages ChatGPT and Perplexity cited ran 2,432 to 4,010 words, with real local detail on services, towns, pricing, and process. A thin page gives the engine nothing to work with, so it names someone else. The fix is not a trick. It is giving the engine more true, specific things to say about you than it can find about anyone else.',
+  },
+  {
+    question: 'Do you track whether AI recommends my business?',
+    answer: 'Yes. We run a fixed set of buyer questions across ChatGPT, Perplexity, and Google AI Overviews on a weekly cycle. The questions are the ones your customers actually ask, written in your town and your service terms. For each one we log whether your business is mentioned, recommended, or cited as a source, and which competitors and pages show up instead. That goes in your report next to your rankings and calls, so you can see AI visibility move alongside the numbers you already watch.',
+  },
+  {
+    question: 'How is AI search visibility different from map pack rankings?',
+    answer: 'The map pack is Google\'s local list of three businesses under a search, with the map and the call buttons. AI visibility is whether an assistant like ChatGPT or Perplexity names your business inside a written answer. They read many of the same signals: your profile, your reviews, your listings, and the depth of your pages. So the same work feeds both. But they are measured separately, because a business can hold a map pack spot and still go unnamed in AI answers, or the other way around.',
+  },
+];
+
+/* November 2026 buyer-question scan (34 questions, 723 citations). These are the
+   only proof figures the AI visibility sections may use. */
+const scanStats = [
+  { value: '34', caption: 'buyer questions asked across ChatGPT, Perplexity, and Google AI Overviews' },
+  { value: '723', caption: 'citations logged across every answer' },
+  { value: '68.6%', caption: 'of citations went to rival and publisher sites' },
+  { value: '3.0%', caption: 'went to directories' },
+];
+
+const measuredLoop = [
+  {
+    title: 'Scan the questions',
+    description: 'We ask the engines the questions your buyers ask, in your town and your terms.',
+  },
+  {
+    title: 'Read what gets cited',
+    description: 'We log which businesses get named and which pages the engines quote to name them.',
+  },
+  {
+    title: 'Plan the fix',
+    description: 'We compare your profile, listings, and pages to what got cited and pick the gaps that matter.',
+  },
+  {
+    title: 'Ship it',
+    description: 'Profile updates, listing cleanup, review requests, and deeper pages go live.',
+  },
+  {
+    title: 'Measure again',
+    description: 'Next week the same questions run again, so you can see what moved and what did not.',
+  },
+];
+
+const citedVsSkipped = [
+  {
+    topic: 'Depth',
+    cited: 'Thousands of words, with each service explained on its own terms',
+    skipped: 'A few hundred words and a bulleted list of services',
+  },
+  {
+    topic: 'AI visibility',
+    cited: 'A named section on how the business shows up in AI answers',
+    skipped: 'No mention of ChatGPT, Perplexity, or AI Overviews at all',
+  },
+  {
+    topic: 'Pricing',
+    cited: 'Published pricing, so the engine can answer "what does it cost"',
+    skipped: '"Call for a quote" and nothing else',
+  },
+  {
+    topic: 'Industries',
+    cited: 'Industries named one by one, with how each one buys',
+    skipped: '"We work with businesses of all sizes"',
+  },
+  {
+    topic: 'FAQs',
+    cited: 'Owner-level questions answered in the city\'s own terms',
+    skipped: 'Generic questions that could sit on any site in any state',
+  },
+  {
+    topic: 'Proof',
+    cited: 'Reviews and results from local owners, attributed by name',
+    skipped: 'Unsourced claims and stock testimonials',
+  },
+  {
+    topic: 'Process',
+    cited: 'A simple numbered process a buyer can follow',
+    skipped: 'A vague promise to "grow your business"',
+  },
+  {
+    topic: 'Local detail',
+    cited: 'Real neighborhoods, towns, roads, and seasons',
+    skipped: 'The city name dropped into a template',
+  },
+];
+
+const nearbyTowns: Array<{ name: string; href?: string; character: string }> = [
+  {
+    name: 'Ormond Beach',
+    href: '/areas-we-serve/ormond-beach',
+    character: 'Established neighborhoods and long-time residents who read reviews closely and stay loyal once they pick.',
+  },
+  {
+    name: 'Port Orange',
+    href: '/areas-we-serve/port-orange',
+    character: 'Family suburb with steady demand for home services, dental, and kids\' activities.',
+  },
+  {
+    name: 'New Smyrna Beach',
+    href: '/areas-we-serve/new-smyrna-beach',
+    character: 'Beach town with a visitor season on Flagler Avenue and a year-round residential base behind it.',
+  },
+  {
+    name: 'Palm Coast',
+    href: '/areas-we-serve/palm-coast',
+    character: 'Fast-growing Flagler County city full of newer residents who have not picked their providers yet.',
+  },
+  {
+    name: 'DeLand',
+    character: 'County seat and college town with a historic downtown where word of mouth still drives choices.',
+  },
+  {
+    name: 'DeBary',
+    href: '/areas-we-serve/debary',
+    character: 'Quiet residential town on the I-4 and SunRail line, where buyers compare Volusia and Seminole providers.',
+  },
+  {
+    name: 'Sanford',
+    href: '/areas-we-serve/sanford',
+    character: 'Seminole County riverfront city on the edge of the Orlando metro, with a busy restaurant scene downtown.',
+  },
+  {
+    name: 'Holly Hill',
+    href: '/areas-we-serve/holly-hill',
+    character: 'Small mainland city between Daytona and Ormond, full of owner-run trades and shops.',
+  },
+];
+
+const industriesServed = [
+  {
+    name: 'Home services (HVAC, plumbing, roofing)',
+    searches: 'Urgent, phone-first searches with "near me" and "open now," spiking after storms and in the summer heat.',
+  },
+  {
+    name: 'Healthcare and dental',
+    searches: 'Patients check insurance, "accepting new patients," and reviews before they ever call.',
+  },
+  {
+    name: 'Legal',
+    searches: 'Long research cycles, and more and more of it happens as questions typed into AI assistants.',
+  },
+  {
+    name: 'Restaurants and hospitality',
+    searches: 'Visitor-driven, shaped by the event calendar, and decided by photos, menus, and hours.',
+  },
+  {
+    name: 'Real estate',
+    searches: 'Neighborhood-level searches, often from relocating buyers researching from out of state.',
+  },
+  {
+    name: 'Professional services',
+    searches: 'Accountants, consultants, and advisors are compared on trust, so reviews and detail carry the decision.',
   },
 ];
 
@@ -452,7 +608,7 @@ export default function LocalSEOPage() {
                         .
                       </p>
                     )}
-                    <Button>
+                    <Button
                       size="sm"
                       className={`mt-3 ${tier.highlighted ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-green-600/90 hover:bg-green-700 text-white'}`}
                       onClick={() => {
@@ -467,6 +623,310 @@ export default function LocalSEOPage() {
               </div>
               <p className="text-sm text-muted-foreground text-center mt-6">{multiLocationMonthlyNote}</p>
             </div>
+          </div>
+        </section>
+
+        {/* AI search visibility: scan figures limited to the November 2026 buyer-question scan */}
+        <section className="py-24 px-4 bg-gradient-subtle">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-16 items-start">
+              <div>
+                <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
+                  <Search className="w-4 h-4 mr-2" />
+                  AI search
+                </Badge>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                  Local SEO Now Includes <span className="gradient-text">AI Search Visibility</span>
+                </h2>
+                <div className="space-y-5 text-lg text-muted-foreground">
+                  <p>
+                    Your next customer may never scroll a page of links. More buyers in Daytona Beach
+                    now type a full question into ChatGPT, Perplexity, or Google and read the answer:
+                    &quot;who is the best SEO company in Daytona Beach,&quot; &quot;who provides AI
+                    visibility services in Daytona Beach Florida,&quot; &quot;which roofer in Port
+                    Orange answers the phone on a Saturday.&quot; The engines answer with names. They
+                    do not pull those names out of thin air. They pull them from what they can read
+                    and check.
+                  </p>
+                  <p>
+                    That reading list is short and predictable. Your Google Business Profile. Your
+                    reviews: how many, how recent, and what customers say in them. Directory listings
+                    that match each other, with Clutch the directory the engines cite most often in
+                    this market. And service pages deep enough to quote, with real local detail about
+                    what you do, who you do it for, and where.
+                  </p>
+                  <p>
+                    Thin pages give the engines nothing to quote. A short service page that says
+                    &quot;we serve Daytona Beach&quot; three times is not evidence of anything. That
+                    is the whole problem this page is built to solve, for us and for the businesses
+                    we work with. Our{' '}
+                    <Link href="/services/geo-optimization" className="text-primary hover:underline">
+                      AI search optimization (GEO) service
+                    </Link>{' '}
+                    goes deeper on the AI side; here is how it fits into local SEO.
+                  </p>
+                </div>
+
+                <h3 className="text-2xl font-bold mt-12 mb-3">The weekly loop</h3>
+                <p className="text-lg text-muted-foreground">
+                  Local SEO is no longer a set-and-forget retainer task. It is a measured loop, and
+                  it runs every week:
+                </p>
+                <ol className="mt-6 space-y-5">
+                  {measuredLoop.map((step, index) => (
+                    <li key={step.title} className="flex items-start gap-4">
+                      <span className="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                        {index + 1}
+                      </span>
+                      <div>
+                        <h4 className="font-semibold text-foreground">{step.title}</h4>
+                        <p className="text-muted-foreground">{step.description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+                <p className="text-lg text-muted-foreground mt-8">
+                  Your report shows the loop in plain English. For each buyer question, you see
+                  whether ChatGPT, Perplexity, and Google AI Overviews named your business, which
+                  competitors they named instead, and which pages they quoted to do it. Next to that
+                  sit the numbers you already know: map pack rankings, calls, and direction requests.
+                  When a fix ships, you can watch the same question the following week and see
+                  whether the answer changed.
+                </p>
+                <p className="text-lg text-muted-foreground mt-5">
+                  Every result is measured, never promised. We&apos;re seeing page one in 45 to 60
+                  days, many in the top 30.
+                </p>
+              </div>
+
+              <Card className="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200 lg:sticky lg:top-24">
+                <CardHeader>
+                  <CardTitle className="text-sm font-semibold uppercase tracking-widest text-center text-muted-foreground">
+                    What we measured · November 2026
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {scanStats.map((stat, index) => (
+                    <div key={stat.value}>
+                      {index > 0 && <Separator className="mb-6" />}
+                      <div className="text-center">
+                        <div className="text-5xl font-bold text-green-600 mb-2">{stat.value}</div>
+                        <p className="text-muted-foreground">{stat.caption}</p>
+                      </div>
+                    </div>
+                  ))}
+                  <Separator />
+                  <p className="text-sm text-muted-foreground text-center">
+                    The Daytona provider pages the engines cited ran 2,432 to 4,010 words. We publish
+                    our scan method and rerun it weekly; clients see the same numbers we see.
+                  </p>
+                  <div className="text-center">
+                    <Badge variant="outline" className="border-green-300 text-green-700">
+                      <Calendar className="w-3 h-3 mr-1" />
+                      rerun every week
+                    </Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Cited vs skipped: the page standard the scan surfaced */}
+        <section className="py-24 px-4 bg-background">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
+                <Target className="w-4 h-4 mr-2" />
+                The cited standard
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                What the Pages <span className="gradient-text">AI Cites</span> Have in Common
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                When we read the Daytona provider pages the engines chose to quote, the same pattern
+                showed up again and again. So did the pattern on the pages they passed over.
+              </p>
+            </div>
+
+            <Card className="card-professional overflow-hidden">
+              <div className="hidden md:grid grid-cols-[0.6fr_1fr_1fr] gap-6 px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-sm font-semibold uppercase tracking-wide text-white">
+                <span>What they read</span>
+                <span>Pages the engines cite</span>
+                <span className="text-green-100">Pages they skip</span>
+              </div>
+              <ul>
+                {citedVsSkipped.map((row) => (
+                  <li
+                    key={row.topic}
+                    className="grid grid-cols-1 md:grid-cols-[0.6fr_1fr_1fr] gap-3 md:gap-6 px-6 py-5 border-b border-border last:border-b-0"
+                  >
+                    <span className="font-semibold text-foreground">{row.topic}</span>
+                    <span className="flex items-start gap-2 text-foreground">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      {row.cited}
+                    </span>
+                    <span className="flex items-start gap-2 text-muted-foreground">
+                      <X className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                      {row.skipped}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            <div className="max-w-4xl mx-auto mt-12 space-y-5 text-lg text-muted-foreground">
+              <p>
+                None of this is decoration. Each row is a question a buyer asks before they call, and
+                an engine can only repeat an answer it found somewhere. If your page says what you
+                charge, the engine can answer &quot;what does it cost.&quot; If it names the
+                industries you serve, the engine can match you to a dentist or a roofer. If it names
+                Seabreeze, Port Orange, or the beachside, it can match you to someone who lives
+                there.
+              </p>
+              <p>
+                The pages they skip are not bad businesses. Many of them belong to good companies
+                with happy customers. They just never wrote down enough for a machine to quote, so
+                the machine quoted someone else.
+              </p>
+              <p className="font-semibold text-foreground">
+                This page is built to the cited standard, and the scan that proved the standard is the
+                same scan we run for clients.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Daytona and Volusia specifics */}
+        <section className="py-24 px-4 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
+                <MapPin className="w-4 h-4 mr-2" />
+                Our market
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="gradient-text">Daytona Beach</span> and Volusia County, Specifically
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Daytona Beach runs on two economies at once, and they search in different ways. A
+                local SEO plan that treats them as one market misses half the calls.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="card-professional">
+                <CardHeader>
+                  <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                    <Calendar className="w-7 h-7 text-green-600" />
+                  </div>
+                  <CardTitle>The visitor economy</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    It runs on the event calendar. Speedweeks and the Daytona 500 in February, Bike
+                    Week in March, spring break, summer families, and Biketoberfest in October. Each
+                    one brings a wave of searches from people who do not know the area and decide fast:
+                    restaurants, rentals, repairs, towing, urgent care. Profiles and pages that are
+                    ready before the wave catch it.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="card-professional">
+                <CardHeader>
+                  <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                    <Home className="w-7 h-7 text-green-600" />
+                  </div>
+                  <CardTitle>The resident economy</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    It runs along the International Speedway Boulevard and Beville Road corridors,
+                    through Midtown, and out to the growing LPGA area. New households there search
+                    &quot;near me&quot; for everything, from a dentist to an AC repair, with no
+                    established favorites. Whoever shows up first with good reviews becomes the
+                    favorite.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto mt-12">
+              Search also splits by neighborhood. The Main Street District and Seabreeze on the
+              beachside draw a different crowd than Downtown along Beach Street or Midtown on the
+              mainland, and the bridges between the beachside and the mainland matter more to a
+              &quot;near me&quot; search than most owners expect. We build pages and profiles that
+              name the parts of town you actually serve.
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+              <Card className="card-professional">
+                <CardHeader>
+                  <CardTitle className="text-2xl">Towns we serve</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-4">
+                    {nearbyTowns.map((town) => (
+                      <li key={town.name} className="flex items-start gap-3">
+                        <MapPin className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-semibold text-foreground">
+                            {town.href ? (
+                              <Link href={town.href} className="text-primary hover:underline">
+                                {town.name}
+                              </Link>
+                            ) : (
+                              town.name
+                            )}
+                          </h4>
+                          <p className="text-muted-foreground text-sm">{town.character}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+              <Card className="card-professional">
+                <CardHeader>
+                  <CardTitle className="text-2xl">Industries we work with</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-4">
+                    {industriesServed.map((industry) => (
+                      <li key={industry.name} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-semibold text-foreground">{industry.name}</h4>
+                          <p className="text-muted-foreground text-sm">{industry.searches}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card className="max-w-4xl mx-auto mt-12 bg-white border-green-200">
+              <CardHeader>
+                <Badge variant="outline" className="w-fit mb-2 border-green-300 text-green-700">
+                  <Users className="w-3 h-3 mr-1" />
+                  we live here
+                </Badge>
+                <CardTitle className="text-xl">
+                  Why owners here pick a Daytona team over an Orlando agency
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Volusia is its own search market, with its own competitors and its own calendar. We
+                  know Bike Week will move your calls before it shows up in a report, we know which
+                  side of the bridge your customers live on, and you work directly with the people
+                  doing the work, here in Daytona Beach. You get a team that drives the same roads
+                  your customers do, not an
+                  account manager who learned your town from a map.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
